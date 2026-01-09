@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Becas para Máster | ESIC Medellín</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="esic-theme.css">
+  <style>
+    .form-card {
+      background: var(--surface);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-strong);
+      color: var(--text);
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .form-card label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-card input,
+    .form-card select,
+    .form-card textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      font-family: inherit;
+      background: var(--surface-muted);
+    }
+
+    .form-card textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-card .full {
+      grid-column: 1 / -1;
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      background: var(--surface);
+      border-radius: 22px;
+      padding: 1.6rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .split-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="becas-master.html">ESIC <span>Medellín</span></a>
+    <div class="nav-links">
+      <a href="sobre-nosotros.html">Institución</a>
+      <a href="pregrado-general.html">Pregrado</a>
+      <a href="master-general.html">Máster</a>
+      <a href="level-up.html">Level Up</a>
+      <a href="becas-master.html" class="active">Becas</a>
+    </div>
+    <div class="nav-actions">
+      <a class="btn btn-outline" href="master-general.html">Ver másters</a>
+      <a class="btn btn-primary" href="#form-becas">Postúlate</a>
+    </div>
+    <button class="nav-menu" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <main>
+    <section class="hero hero-photo" style="--hero-image: url('assets/images/DSC02270_resultado.jpg'); --hero-position: center right;">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="hero-eyebrow">Becas ESIC Medellín</span>
+          <h1 class="hero-title">Becas de hasta <span>40%</span></h1>
+          <p class="hero-subtitle">Impulsa tu carrera con apoyo económico en nuestros programas de máster. Conecta con la red ESIC y acelera tu crecimiento profesional.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#form-becas">Solicita tu beca</a>
+            <a class="btn btn-outline" href="master-general.html">Conoce los másters</a>
+          </div>
+        </div>
+        <div class="form-card reveal delay-1" id="form-becas">
+          <h3 class="card-title">Postúlate ahora</h3>
+          <p class="card-text">Completa tus datos y nuestro equipo te contactará para guiar tu proceso.</p>
+          <form class="form-grid">
+            <div>
+              <label for="nombre">Nombre completo</label>
+              <input id="nombre" type="text" placeholder="Nombre y apellido" required>
+            </div>
+            <div>
+              <label for="correo">Correo</label>
+              <input id="correo" type="email" placeholder="correo@ejemplo.com" required>
+            </div>
+            <div>
+              <label for="telefono">Teléfono</label>
+              <input id="telefono" type="tel" placeholder="+57 300 000 0000" required>
+            </div>
+            <div>
+              <label for="programa">Programa de interés</label>
+              <select id="programa" required>
+                <option value="">Selecciona un máster</option>
+                <option>Máster en Digital Marketing</option>
+                <option>Máster en Digital Business</option>
+                <option>Máster en Customer Experience & Design Thinking</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="mensaje">Cuéntanos tu objetivo</label>
+              <textarea id="mensaje" placeholder="¿Qué esperas lograr con la beca?"></textarea>
+            </div>
+            <div class="full">
+              <label>
+                <input type="checkbox" required>
+                <span class="form-note">Autorizo el tratamiento de mis datos para recibir información de ESIC Medellín.</span>
+              </label>
+            </div>
+            <div class="full">
+              <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Beneficios</span>
+            <h2 class="section-title">Una beca que impulsa tu futuro</h2>
+            <p class="section-subtitle">Apoyo económico y acompañamiento estratégico para acelerar tu desarrollo profesional.</p>
+          </div>
+        </div>
+        <div class="program-grid">
+          <article class="program-card blue reveal">
+            <div>
+              <h3>Hasta 40% de apoyo</h3>
+              <p>Reduce el valor de tu matrícula con becas parciales según tu perfil.</p>
+            </div>
+          </article>
+          <article class="program-card teal reveal delay-1">
+            <div>
+              <h3>Mentoría académica</h3>
+              <p>Acceso a docentes y expertos que acompañan tu proceso.</p>
+            </div>
+          </article>
+          <article class="program-card orange reveal delay-2">
+            <div>
+              <h3>Red ESIC global</h3>
+              <p>Conecta con una comunidad internacional de líderes y profesionales.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split-grid">
+        <div class="testimonial-card reveal">
+          <blockquote>“Recibir la beca ESIC me permitió cambiar de rumbo profesional y hoy lidero un equipo de innovación.”</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"></div>
+            <div>
+              <div>Valentina Núñez</div>
+              <small>Becaria Máster Digital Business</small>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-video reveal delay-1">
+          <div class="play-button">▶</div>
+          <strong>Historias de becarios</strong>
+          <span>Conoce cómo impactamos vidas reales</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Cómo aplicar</span>
+            <h2 class="section-title">Tu proceso paso a paso</h2>
+            <p class="section-subtitle">Tres pasos simples para postularte a una beca ESIC.</p>
+          </div>
+        </div>
+        <div class="step-grid">
+          <article class="step-card reveal">
+            <div class="step-number">01</div>
+            <h3 class="card-title">Completa el formulario</h3>
+            <p class="card-text">Cuéntanos tu perfil y el programa que deseas cursar.</p>
+          </article>
+          <article class="step-card reveal delay-1">
+            <div class="step-number">02</div>
+            <h3 class="card-title">Entrevista y evaluación</h3>
+            <p class="card-text">Nuestro equipo revisa tu perfil y agenda una conversación contigo.</p>
+          </article>
+          <article class="step-card reveal delay-2">
+            <div class="step-number">03</div>
+            <h3 class="card-title">Resultado y matrícula</h3>
+            <p class="card-text">Recibe tu resultado y asegura tu cupo en el máster elegido.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Preguntas frecuentes</span>
+            <h2 class="section-title">Todo lo que necesitas saber</h2>
+            <p class="section-subtitle">Resolvemos dudas comunes sobre el proceso de becas.</p>
+          </div>
+        </div>
+        <div class="faq-grid">
+          <article class="card reveal">
+            <h3 class="card-title">¿Quiénes pueden aplicar?</h3>
+            <p class="card-text">Profesionales con interés en másters ESIC y alto potencial de liderazgo.</p>
+          </article>
+          <article class="card reveal delay-1">
+            <h3 class="card-title">¿Cuál es el porcentaje máximo?</h3>
+            <p class="card-text">Las becas pueden cubrir hasta el 40% de la matrícula.</p>
+          </article>
+          <article class="card reveal delay-2">
+            <h3 class="card-title">¿Cuánto tarda la respuesta?</h3>
+            <p class="card-text">El proceso tarda entre 7 y 10 días hábiles después de la entrevista.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3 class="section-title">Transforma tu futuro en <span>ESIC</span></h3>
+        <p>Becas diseñadas para impulsar el talento y el liderazgo.</p>
+      </div>
+      <div>
+        <h4>Institución</h4>
+        <p><a href="sobre-nosotros.html">Sobre nosotros</a></p>
+        <p><a href="master-general.html">Másters</a></p>
+      </div>
+      <div>
+        <h4>Programas</h4>
+        <p><a href="pregrado-general.html">Pregrado</a></p>
+        <p><a href="level-up.html">Level Up</a></p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Medellín, Colombia</p>
+        <p>+57 604 123 4567</p>
+        <p>contacto@esic.co</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2025 ESIC Medellín. Todos los derechos reservados.</span>
+      <span>Política de tratamiento de datos · Términos y condiciones</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-btn" href="#" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z" />
+    </svg>
+  </a>
+</body>
+</html>

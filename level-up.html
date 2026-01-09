@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level Up | ESIC Medellín</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="esic-theme.css">
+  <style>
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .event-card {
+      background: var(--surface);
+      border-radius: 22px;
+      padding: 1.6rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .event-date {
+      font-family: "Sofia Sans Extra Condensed", sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand-teal);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .resource-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .resource-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.4rem;
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .cta-panel {
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      background: linear-gradient(135deg, #0AE4C3, #00BFFF);
+      color: #00133F;
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+      justify-items: start;
+    }
+
+    .cta-panel .btn-primary {
+      background: #00133F;
+      color: #FFFFFF;
+    }
+
+    .cta-panel h2 {
+      font-family: "Sofia Sans Extra Condensed", sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      line-height: 0.95;
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <nav class="nav">
+    <a class="nav-logo" href="level-up.html">ESIC <span>Level Up</span></a>
+    <div class="nav-links">
+      <a href="sobre-nosotros.html">Institución</a>
+      <a href="pregrado-general.html">Pregrado</a>
+      <a href="master-general.html">Máster</a>
+      <a href="level-up.html" class="active">Level Up</a>
+      <a href="becas-master.html">Becas</a>
+    </div>
+    <div class="nav-actions">
+      <a class="btn btn-outline" href="#agenda">Agenda</a>
+      <a class="btn btn-teal" href="#registro">Inscribirme</a>
+    </div>
+    <button class="nav-menu" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="hero-eyebrow">Level Up by ESIC</span>
+          <h1 class="hero-title">Aprende, aplica y <span>lidera</span></h1>
+          <p class="hero-subtitle">Eventos intensivos para actualizar habilidades digitales, conectar con expertos y acelerar tu crecimiento profesional.</p>
+          <div class="hero-actions">
+            <a class="btn btn-teal" href="#registro">Inscríbete</a>
+            <a class="btn btn-outline" href="#agenda">Ver agenda</a>
+          </div>
+        </div>
+        <div class="hero-media reveal delay-2">
+          <div class="hero-media-frame">
+          </div>
+          <div class="hero-card">
+            <h3>Próximo Level Up</h3>
+            <p>Marketing AI, growth y estrategia digital con expertos internacionales.</p>
+            <div class="hero-card-stats">
+              <div class="hero-card-stat">
+                <strong>8</strong>
+                <span>Sesiones</span>
+              </div>
+              <div class="hero-card-stat">
+                <strong>12</strong>
+                <span>Speakers</span>
+              </div>
+              <div class="hero-card-stat">
+                <strong>3</strong>
+                <span>Weeks</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="agenda">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Próximos Level Up</span>
+            <h2 class="section-title">Agenda 2025</h2>
+            <p class="section-subtitle">Entrena las habilidades más demandadas en sesiones intensivas.</p>
+          </div>
+        </div>
+        <div class="event-grid">
+          <article class="event-card reveal">
+            <div class="event-date">Marzo 18 · Online</div>
+            <h3 class="card-title">Growth & Performance</h3>
+            <p class="card-text">Embudo, analítica y campañas con enfoque en resultados.</p>
+          </article>
+          <article class="event-card reveal delay-1">
+            <div class="event-date">Abril 05 · Medellín</div>
+            <h3 class="card-title">IA aplicada al marketing</h3>
+            <p class="card-text">Automatización, modelos generativos y contenido inteligente.</p>
+          </article>
+          <article class="event-card reveal delay-2">
+            <div class="event-date">Mayo 22 · Híbrido</div>
+            <h3 class="card-title">CX & Experience Design</h3>
+            <p class="card-text">Diseño de experiencias con herramientas de innovación.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Versiones pasadas</span>
+            <h2 class="section-title">Lo que hemos vivido</h2>
+            <p class="section-subtitle">Resumen de sesiones anteriores, workshops y retos colaborativos.</p>
+          </div>
+        </div>
+        <div class="program-grid">
+          <article class="program-card blue reveal">
+            <div>
+              <h3>Level Up Data & BI</h3>
+              <p>Modelos de datos, dashboards y storytelling.</p>
+              <div class="program-meta">Edición 2024</div>
+            </div>
+          </article>
+          <article class="program-card teal reveal delay-1">
+            <div>
+              <h3>Level Up Brand Strategy</h3>
+              <p>Posicionamiento, narrativa y cultura de marca.</p>
+              <div class="program-meta">Edición 2024</div>
+            </div>
+          </article>
+          <article class="program-card orange reveal delay-2">
+            <div>
+              <h3>Level Up Ecommerce</h3>
+              <p>Experiencia de compra, conversión y growth.</p>
+              <div class="program-meta">Edición 2023</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="registro">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Materiales</span>
+            <h2 class="section-title">Recursos y grabaciones</h2>
+            <p class="section-subtitle">Accede a contenidos exclusivos de cada sesión.</p>
+          </div>
+        </div>
+        <div class="resource-list">
+          <div class="resource-item reveal">
+            <span>Guía de Growth 2024</span>
+            <a class="btn btn-outline" href="#">Descargar</a>
+          </div>
+          <div class="resource-item reveal delay-1">
+            <span>Presentaciones Level Up AI</span>
+            <a class="btn btn-outline" href="#">Descargar</a>
+          </div>
+          <div class="resource-item reveal delay-2">
+            <span>Grabaciones CX Design</span>
+            <a class="btn btn-outline" href="#">Ver ahora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <blockquote>“Level Up me ayudó a actualizar mis skills en apenas semanas.”</blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div>Mariana Soto</div>
+                <small>Growth Manager</small>
+              </div>
+            </div>
+          </article>
+          <div class="testimonial-video reveal delay-1">
+            <div class="play-button">▶</div>
+            <strong>Comunidad Level Up</strong>
+            <span>Historias reales de quienes ya lo vivieron</span>
+          </div>
+          <article class="testimonial-card reveal delay-2">
+            <blockquote>“Aprendí estrategias accionables y conocí profesionales increíbles.”</blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div>David Ramírez</div>
+                <small>Product Lead</small>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-panel">
+          <h2>¿Listo para tu próximo Level Up?</h2>
+          <p>Reserva tu cupo y recibe información de fechas, descuentos y experiencias exclusivas.</p>
+          <a class="btn btn-primary" href="#registro">Quiero inscribirme</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3 class="section-title">Transforma tu futuro en <span>ESIC</span></h3>
+        <p>Level Up es la puerta de entrada a las habilidades más demandadas.</p>
+      </div>
+      <div>
+        <h4>Institución</h4>
+        <p><a href="sobre-nosotros.html">Sobre nosotros</a></p>
+        <p><a href="master-general.html">Másters</a></p>
+      </div>
+      <div>
+        <h4>Programas</h4>
+        <p><a href="pregrado-general.html">Pregrado</a></p>
+        <p><a href="level-up.html">Level Up</a></p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Medellín, Colombia</p>
+        <p>+57 604 123 4567</p>
+        <p>contacto@esic.co</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2025 ESIC Medellín. Todos los derechos reservados.</span>
+      <span>Política de tratamiento de datos · Términos y condiciones</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-btn" href="#" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z" />
+    </svg>
+  </a>
+</body>
+</html>
