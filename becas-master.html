@@ -9,12 +9,194 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="esic-theme.css">
   <style>
-    .form-card {
+    /* Sección con border-radius superior que superpone a la anterior */
+    .section-overlap {
+      position: relative;
+      margin-top: -50px;
+      border-radius: 50px 50px 0 0;
+      background: var(--bg);
+      z-index: 1;
+      padding-top: 80px;
+      padding-bottom: 130px; /* 80px visibles + 50px del overlay */
+    }
+
+    .section-overlap-white {
       background: var(--surface);
-      border-radius: var(--radius-xl);
-      padding: 2rem;
-      box-shadow: var(--shadow-strong);
+    }
+
+    /* Hero simplificado sin grid */
+    .hero-simple {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* Título del hero más imponente */
+    .hero-simple .hero-title {
+      font-size: clamp(4rem, 10vw, 7rem);
+    }
+
+    /* Sección del formulario lado a lado */
+    .form-section {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* Nuevo estilo del formulario basado en la imagen */
+    .form-card-modern {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 2.5rem;
+      border: 2px solid #E5E5E5;
       color: var(--text);
+    }
+
+    .form-card-modern .form-title {
+      font-family: var(--display-font);
+      font-size: 2rem;
+      font-weight: var(--display-weight);
+      color: var(--brand-teal);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-field {
+      margin-bottom: 1rem;
+    }
+
+    .form-card-modern label {
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-card-modern input,
+    .form-card-modern select,
+    .form-card-modern textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      border: 2px solid #E5E5E5;
+      font-family: inherit;
+      background: var(--surface);
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-card-modern input:focus,
+    .form-card-modern select:focus,
+    .form-card-modern textarea:focus {
+      outline: none;
+      border-color: var(--brand-teal);
+    }
+
+    .form-card-modern input::placeholder {
+      color: var(--text-light);
+    }
+
+    .form-card-modern textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .form-card-modern .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      cursor: pointer;
+    }
+
+    .form-card-modern .checkbox-label input[type="checkbox"] {
+      width: auto;
+      margin-top: 0.2rem;
+    }
+
+    /* Contenido de beneficios al lado del form */
+    .benefits-content {
+      padding-top: 1rem;
+    }
+
+    .benefits-content .section-tag {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .benefits-content .section-title {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+    }
+
+    .benefits-content .section-subtitle {
+      font-size: 1.15rem;
+    }
+
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin-top: 2.5rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .benefit-icon {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    .benefit-icon.blue {
+      background: linear-gradient(135deg, #0047E9, #001E80);
+      color: #fff;
+    }
+
+    .benefit-icon.teal {
+      background: linear-gradient(135deg, #0AE4C3, #00BFA5);
+      color: #00133F;
+    }
+
+    .benefit-icon.orange {
+      background: linear-gradient(135deg, #FF9600, #FE5000);
+      color: #fff;
+    }
+
+    .benefit-item h4 {
+      font-family: var(--display-font);
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      font-weight: var(--display-weight);
+      margin-bottom: 0.3rem;
+    }
+
+    .benefit-item p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.5;
     }
 
     .split-grid {
@@ -22,47 +204,6 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 2rem;
       align-items: center;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .form-card label {
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-light);
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-
-    .form-card input,
-    .form-card select,
-    .form-card textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      font-family: inherit;
-      background: var(--surface-muted);
-    }
-
-    .form-card textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .form-card .full {
-      grid-column: 1 / -1;
-    }
-
-    .form-note {
-      font-size: 0.8rem;
-      color: var(--text-light);
     }
 
     .step-grid {
@@ -97,12 +238,22 @@
     }
 
     @media (max-width: 900px) {
-      .form-grid {
+      .form-section {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .form-row {
         grid-template-columns: 1fr;
       }
 
       .split-grid {
         grid-template-columns: 1fr;
+      }
+
+      .section-overlap {
+        margin-top: -30px;
+        border-radius: 30px 30px 0 0;
       }
     }
   </style>
@@ -129,8 +280,8 @@
   </nav>
 
   <main>
-    <section class="hero hero-photo" style="--hero-image: url('assets/images/DSC02270_resultado.jpg'); --hero-position: center right;">
-      <div class="container hero-grid">
+    <section class="hero hero-photo" style="--hero-image: url('assets/images/DSC02270_resultado.jpg'); --hero-position: center right; min-height: 80vh; display: flex; align-items: center;">
+      <div class="container hero-simple">
         <div class="hero-content reveal">
           <span class="hero-eyebrow">Becas ESIC Medellín</span>
           <h1 class="hero-title">Becas de hasta <span>40%</span></h1>
@@ -140,82 +291,92 @@
             <a class="btn btn-outline" href="master-general.html">Conoce los másters</a>
           </div>
         </div>
-        <div class="form-card reveal delay-1" id="form-becas">
-          <h3 class="card-title">Postúlate ahora</h3>
-          <p class="card-text">Completa tus datos y nuestro equipo te contactará para guiar tu proceso.</p>
-          <form class="form-grid">
-            <div>
-              <label for="nombre">Nombre completo</label>
-              <input id="nombre" type="text" placeholder="Nombre y apellido" required>
-            </div>
-            <div>
-              <label for="correo">Correo</label>
-              <input id="correo" type="email" placeholder="correo@ejemplo.com" required>
-            </div>
-            <div>
-              <label for="telefono">Teléfono</label>
-              <input id="telefono" type="tel" placeholder="+57 300 000 0000" required>
-            </div>
-            <div>
-              <label for="programa">Programa de interés</label>
-              <select id="programa" required>
-                <option value="">Selecciona un máster</option>
-                <option>Máster en Digital Marketing</option>
-                <option>Máster en Digital Business</option>
-                <option>Máster en Customer Experience & Design Thinking</option>
-              </select>
-            </div>
-            <div class="full">
-              <label for="mensaje">Cuéntanos tu objetivo</label>
-              <textarea id="mensaje" placeholder="¿Qué esperas lograr con la beca?"></textarea>
-            </div>
-            <div class="full">
-              <label>
-                <input type="checkbox" required>
-                <span class="form-note">Autorizo el tratamiento de mis datos para recibir información de ESIC Medellín.</span>
-              </label>
-            </div>
-            <div class="full">
-              <button class="btn btn-primary" type="submit">Enviar solicitud</button>
-            </div>
-          </form>
-        </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-overlap section-overlap-white">
       <div class="container">
-        <div class="section-header">
-          <div>
+        <div class="form-section">
+          <div class="benefits-content reveal">
             <span class="section-tag">Beneficios</span>
             <h2 class="section-title">Una beca que impulsa tu futuro</h2>
             <p class="section-subtitle">Apoyo económico y acompañamiento estratégico para acelerar tu desarrollo profesional.</p>
+            <div class="benefits-list">
+              <div class="benefit-item">
+                <div class="benefit-icon blue">%</div>
+                <div>
+                  <h4>Hasta 40% de apoyo</h4>
+                  <p>Reduce el valor de tu matrícula con becas parciales según tu perfil.</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon teal">★</div>
+                <div>
+                  <h4>Mentoría académica</h4>
+                  <p>Acceso a docentes y expertos que acompañan tu proceso.</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon orange">◎</div>
+                <div>
+                  <h4>Red ESIC global</h4>
+                  <p>Conecta con una comunidad internacional de líderes y profesionales.</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="program-grid">
-          <article class="program-card blue reveal">
-            <div>
-              <h3>Hasta 40% de apoyo</h3>
-              <p>Reduce el valor de tu matrícula con becas parciales según tu perfil.</p>
-            </div>
-          </article>
-          <article class="program-card teal reveal delay-1">
-            <div>
-              <h3>Mentoría académica</h3>
-              <p>Acceso a docentes y expertos que acompañan tu proceso.</p>
-            </div>
-          </article>
-          <article class="program-card orange reveal delay-2">
-            <div>
-              <h3>Red ESIC global</h3>
-              <p>Conecta con una comunidad internacional de líderes y profesionales.</p>
-            </div>
-          </article>
+          <div class="form-card-modern reveal delay-1" id="form-becas">
+            <h3 class="form-title">Aplica a una<br>beca para<br>Máster</h3>
+            <form>
+              <div class="form-row">
+                <div>
+                  <label for="nombres">Nombres</label>
+                  <input id="nombres" type="text" required>
+                </div>
+                <div>
+                  <label for="apellidos">Apellidos</label>
+                  <input id="apellidos" type="text" required>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="correo">Correo electrónico</label>
+                <input id="correo" type="email" required>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label for="prefijo">Pref.</label>
+                  <input id="prefijo" type="text" value="+57">
+                </div>
+                <div>
+                  <label for="telefono">Teléfono</label>
+                  <input id="telefono" type="tel" required>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="comunicacion">¿Cómo prefieres que nos comuniquemos contigo?</label>
+                <select id="comunicacion" required>
+                  <option value="">Selecciona una opción</option>
+                  <option>WhatsApp</option>
+                  <option>Llamada telefónica</option>
+                  <option>Correo electrónico</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="checkbox-label">
+                  <input type="checkbox" required>
+                  <span class="form-note">Autorizo el tratamiento de mis datos para recibir información de ESIC Medellín.</span>
+                </label>
+              </div>
+              <div class="form-field">
+                <button class="btn btn-primary" type="submit" style="width: 100%;">Enviar solicitud</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-overlap">
       <div class="container split-grid">
         <div class="testimonial-card reveal">
           <blockquote>“Recibir la beca ESIC me permitió cambiar de rumbo profesional y hoy lidero un equipo de innovación.”</blockquote>
@@ -235,7 +396,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-overlap section-overlap-white">
       <div class="container">
         <div class="section-header">
           <div>
@@ -264,7 +425,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-overlap">
       <div class="container">
         <div class="section-header">
           <div>
