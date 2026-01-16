@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pregrados ESIC Medellín | Formación con Visión Global</title>
-  <meta name="description" content="Descubre los programas de Pregrado de ESIC Medellín: Digital Business y Dirección de Marketing Global. Doble titulación e inmersión internacional.">
+  <title>Máster's ESIC Medellín | Programas de Posgrado</title>
+  <meta name="description" content="Descubre los programas de Máster de ESIC Medellín: Digital Business, Digital Marketing y Customer Experience. Formación para líderes con visión global.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="esic-theme.css">
   <style>
-    /* Pregrado highlight color */
+    /* Master highlight color */
     :root {
-      --pregrado-highlight: #FF8701;
-      --pregrado-highlight-dark: #E67600;
+      --master-highlight: #09CF90;
+      --master-highlight-dark: #07B57E;
     }
 
     /* Section overlap pattern */
@@ -35,52 +35,38 @@
     }
 
     .section-overlap-highlight {
-      background: var(--pregrado-highlight);
+      background: var(--master-highlight);
     }
 
-    /* Hero with dark overlay */
-    .hero-pregrado {
+    /* Hero clean */
+    .hero-master {
       min-height: 70vh;
       display: flex;
       align-items: center;
       padding-bottom: 100px;
-      position: relative;
     }
 
-    .hero-pregrado::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(0, 19, 63, 0.75) 0%, rgba(0, 19, 63, 0.5) 100%);
-      z-index: 1;
-    }
-
-    .hero-pregrado .container {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-pregrado .hero-content {
+    .hero-master .hero-content {
       max-width: 680px;
     }
 
-    .hero-pregrado .hero-title span {
-      color: var(--pregrado-highlight);
+    .hero-master .hero-title span {
+      color: var(--master-highlight);
     }
 
-    .hero-pregrado .btn-primary {
-      background: var(--pregrado-highlight);
-      box-shadow: 0 16px 35px rgba(255, 135, 1, 0.3);
+    .hero-master .btn-primary {
+      background: var(--master-highlight);
+      box-shadow: 0 16px 35px rgba(9, 207, 144, 0.3);
     }
 
-    .hero-pregrado .btn-primary:hover {
-      background: var(--pregrado-highlight-dark);
+    .hero-master .btn-primary:hover {
+      background: var(--master-highlight-dark);
     }
 
     /* Program selector grid */
     .program-selector-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
     }
 
@@ -90,7 +76,7 @@
       color: #FFFFFF;
       position: relative;
       overflow: hidden;
-      min-height: 280px;
+      min-height: 260px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -115,18 +101,22 @@
       transform: rotate(12deg);
     }
 
-    .program-selector-card.pregrado-digital-business {
-      background: linear-gradient(135deg, var(--pregrado-highlight), var(--pregrado-highlight-dark));
+    .program-selector-card.master-digital-business {
+      background: linear-gradient(135deg, #09CF90, #07A872);
     }
 
-    .program-selector-card.pregrado-marketing {
+    .program-selector-card.master-digital-marketing {
       background: linear-gradient(135deg, #0047E9, #001E80);
+    }
+
+    .program-selector-card.master-cx {
+      background: linear-gradient(135deg, #FF9600, #FE5000);
     }
 
     .program-selector-card h3 {
       font-family: var(--display-font);
       text-transform: uppercase;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       margin-bottom: 0.5rem;
       font-weight: var(--display-weight);
     }
@@ -144,12 +134,6 @@
       font-weight: 600;
       margin-top: 1.5rem;
       font-size: 0.95rem;
-      color: #FFFFFF;
-      text-decoration: none;
-    }
-
-    .program-selector-card .program-cta:hover {
-      text-decoration: underline;
     }
 
     /* Info stat cards - professional design */
@@ -172,17 +156,18 @@
     .info-stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
       gap: 1rem;
     }
 
     .info-stat-card {
       border-radius: 24px;
-      padding: 1.5rem;
+      padding: 2rem;
       color: #fff;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      min-height: 140px;
+      min-height: 160px;
       position: relative;
       overflow: hidden;
     }
@@ -199,6 +184,21 @@
       transform: rotate(15deg);
     }
 
+    .info-stat-card::after {
+      content: "";
+      position: absolute;
+      bottom: 30px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .info-stat-card.large {
+      grid-row: span 2;
+    }
+
     .info-stat-card.orange {
       background: linear-gradient(135deg, #FF9600, #FE5000);
     }
@@ -212,37 +212,28 @@
       color: #00133F;
     }
 
-    .info-stat-card.purple {
-      background: linear-gradient(135deg, #6B21A8, #4C1D95);
-    }
-
     .info-stat-card .stat-icon {
       position: absolute;
-      top: 1rem;
-      left: 1.2rem;
-      width: 36px;
-      height: 36px;
+      top: 1.2rem;
+      left: 1.5rem;
+      width: 40px;
+      height: 40px;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.2);
       display: grid;
       place-items: center;
-    }
-
-    .info-stat-card .stat-icon svg {
-      width: 20px;
-      height: 20px;
+      font-size: 1.2rem;
     }
 
     .info-stat-card strong {
       font-family: var(--display-font);
-      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: var(--display-weight);
       line-height: 1;
-      margin-bottom: 0.25rem;
     }
 
     .info-stat-card span {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       opacity: 0.9;
@@ -252,21 +243,12 @@
       .info-stats-section {
         grid-template-columns: 1fr;
       }
-      .info-stats-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .info-stats-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     /* Comparador section */
     .comparador-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
     }
 
@@ -275,7 +257,7 @@
       border-radius: 20px;
       padding: 1.8rem;
       box-shadow: var(--shadow-soft);
-      border-left: 4px solid var(--pregrado-highlight);
+      border-left: 4px solid var(--master-highlight);
     }
 
     .comparador-card .interest {
@@ -295,7 +277,7 @@
     }
 
     .comparador-card .recommendation {
-      color: var(--pregrado-highlight);
+      color: var(--master-highlight);
       font-weight: 600;
       font-size: 0.95rem;
     }
@@ -323,7 +305,7 @@
 
     .section-highlight .btn-primary {
       background: #FFFFFF;
-      color: var(--pregrado-highlight);
+      color: var(--master-highlight);
       box-shadow: 0 16px 35px rgba(0, 0, 0, 0.15);
     }
 
@@ -413,7 +395,7 @@
     .form-group select:focus,
     .form-group textarea:focus {
       outline: none;
-      border-color: var(--pregrado-highlight);
+      border-color: var(--master-highlight);
     }
 
     .form-row {
@@ -425,7 +407,7 @@
     .form-submit {
       width: 100%;
       padding: 1rem;
-      background: var(--pregrado-highlight);
+      background: var(--master-highlight);
       color: #FFFFFF;
       border: none;
       border-radius: 12px;
@@ -437,7 +419,7 @@
     }
 
     .form-submit:hover {
-      background: var(--pregrado-highlight-dark);
+      background: var(--master-highlight-dark);
     }
 
     @media (max-width: 900px) {
@@ -460,11 +442,11 @@
 </head>
 <body>
   <nav class="nav">
-    <a class="nav-logo" href="pregrado-general.html">ESIC <span>Medellín</span></a>
+    <a class="nav-logo" href="master-general-v2.html">ESIC <span>Medellín</span></a>
     <div class="nav-links">
       <a href="quienes-somos.html">Institución</a>
-      <a href="pregrado-general.html" class="active">Pregrado</a>
-      <a href="master-general-v2.html">Máster</a>
+      <a href="pregrado-general.html">Pregrado</a>
+      <a href="master-general-v2.html" class="active">Máster</a>
       <a href="level-up.html">Level Up</a>
       <a href="becas-master.html">Becas</a>
     </div>
@@ -481,12 +463,12 @@
 
   <main>
     <!-- 1. Hero Section -->
-    <section class="hero hero-photo hero-pregrado" style="--hero-image: url('assets/images/DSC02284_resultado.jpg'); --hero-position: center right;">
+    <section class="hero hero-photo hero-master" style="--hero-image: url('assets/images/DSC02331_resultado.jpg'); --hero-position: center right;">
       <div class="container">
         <div class="hero-content reveal">
-          <span class="hero-eyebrow">Pregrados + Doble Titulación</span>
-          <h1 class="hero-title">Pregrados <span>ESIC Medellín</span></h1>
-          <p class="hero-subtitle">Formación universitaria con enfoque digital, doble titulación internacional e inmersión en más de 25 países para los profesionales del futuro.</p>
+          <span class="hero-eyebrow">Máster + Global Management Program</span>
+          <h1 class="hero-title">Máster's <span>ESIC Medellín</span></h1>
+          <p class="hero-subtitle">Programas de posgrado para profesionales que buscan liderar la transformación digital, la innovación y la experiencia del cliente con una visión global.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#formulario">Solicita información</a>
             <a class="btn btn-outline" href="#programas">Explora programas</a>
@@ -495,28 +477,35 @@
       </div>
     </section>
 
-    <!-- 2. Selector de Pregrados -->
+    <!-- 2. Selector de Másteres -->
     <section class="section section-overlap section-overlap-white" id="programas">
       <div class="container">
         <div class="section-header">
           <div>
             <span class="section-tag">Explora nuestros programas</span>
-            <h2 class="section-title">Pregrados disponibles</h2>
-            <p class="section-subtitle">Dos caminos para construir una carrera sólida en negocios digitales y marketing global.</p>
+            <h2 class="section-title">Programas disponibles</h2>
+            <p class="section-subtitle">Elige el programa que mejor se adapta a tus objetivos profesionales y acelera tu carrera.</p>
           </div>
         </div>
         <div class="program-selector-grid">
-          <article class="program-selector-card pregrado-digital-business reveal">
+          <article class="program-selector-card master-digital-business reveal">
             <div>
-              <h3>Pregrado en Digital Business</h3>
-              <p>Lidera la transformación digital de las organizaciones con visión estratégica, innovación y gestión tecnológica.</p>
+              <h3>Máster en Digital Business</h3>
+              <p>Lidera la transformación digital de las organizaciones con visión estratégica e innovación.</p>
             </div>
             <a class="program-cta" href="#">Explora aquí →</a>
           </article>
-          <article class="program-selector-card pregrado-marketing reveal delay-1">
+          <article class="program-selector-card master-digital-marketing reveal delay-1">
             <div>
-              <h3>Pregrado en Dirección de Marketing Global</h3>
-              <p>Domina la estrategia comercial, el branding y la gestión integral de mercados internacionales.</p>
+              <h3>Máster en Digital Marketing</h3>
+              <p>Domina la estrategia digital, el análisis de datos y la gestión de audiencias para decisiones basadas en datos.</p>
+            </div>
+            <a class="program-cta" href="#">Explora aquí →</a>
+          </article>
+          <article class="program-selector-card master-cx reveal delay-2">
+            <div>
+              <h3>Máster en Customer Experience, Innovation & Design Thinking</h3>
+              <p>Diseña experiencias memorables con metodologías de innovación centradas en el usuario.</p>
             </div>
             <a class="program-cta" href="#">Explora aquí →</a>
           </article>
@@ -524,42 +513,35 @@
       </div>
     </section>
 
-    <!-- 3. Información Común -->
+    <!-- 3. Cifras y Reconocimiento -->
     <section class="section section-overlap section-overlap-light">
       <div class="container info-stats-section">
         <div class="info-stats-left reveal">
-          <span class="section-tag">Lo que incluye tu pregrado</span>
-          <h2>Formación<br>integral</h2>
-          <a class="btn btn-primary" href="programas.pdf">Descargar pensum →</a>
+          <span class="section-tag">Cifras y reconocimiento</span>
+          <h2>Resultados<br>que respaldan</h2>
+          <a class="btn btn-primary" href="master.pdf">Brochure en PDF →</a>
         </div>
         <div class="info-stats-grid reveal delay-1">
-          <div class="info-stat-card orange">
+          <div class="info-stat-card orange large">
             <div class="stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
             </div>
-            <strong>8 Semestres</strong>
-            <span>Duración</span>
+            <strong>92%</strong>
+            <span>Empleabilidad</span>
           </div>
           <div class="info-stat-card blue">
             <div class="stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
-            <strong>Medellín</strong>
-            <span>Colombia</span>
+            <strong>+25</strong>
+            <span>Países con convenios</span>
           </div>
           <div class="info-stat-card teal">
             <div class="stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path></svg>
             </div>
-            <strong>Doble Título</strong>
-            <span>ESIC + Universidad aliada</span>
-          </div>
-          <div class="info-stat-card purple">
-            <div class="stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            </div>
-            <strong>+25 Países</strong>
-            <span>Inmersión internacional</span>
+            <strong>+150</strong>
+            <span>Empresas aliadas</span>
           </div>
         </div>
       </div>
@@ -571,20 +553,25 @@
         <div class="section-header">
           <div>
             <span class="section-tag">¿Cuál es para ti?</span>
-            <h2 class="section-title">Encuentra tu pregrado ideal</h2>
+            <h2 class="section-title">Encuentra tu máster ideal</h2>
             <p class="section-subtitle">Una guía rápida para ayudarte a decidir según tus intereses profesionales.</p>
           </div>
         </div>
         <div class="comparador-grid">
           <div class="comparador-card reveal">
             <div class="interest">Si te interesa...</div>
-            <h4>Tecnología, innovación y gestión de negocios digitales</h4>
-            <div class="recommendation">→ Pregrado en Digital Business</div>
+            <h4>Liderar la transformación digital y modelos de negocio</h4>
+            <div class="recommendation">→ Máster en Digital Business</div>
           </div>
           <div class="comparador-card reveal delay-1">
             <div class="interest">Si te interesa...</div>
-            <h4>Estrategia comercial, branding y mercados globales</h4>
-            <div class="recommendation">→ Pregrado en Dirección de Marketing Global</div>
+            <h4>Estrategia de marketing, datos y performance digital</h4>
+            <div class="recommendation">→ Máster en Digital Marketing</div>
+          </div>
+          <div class="comparador-card reveal delay-2">
+            <div class="interest">Si te interesa...</div>
+            <h4>Diseñar experiencias y liderar con innovación</h4>
+            <div class="recommendation">→ Máster en Customer Experience</div>
           </div>
         </div>
       </div>
@@ -594,11 +581,11 @@
     <section class="section section-overlap section-overlap-highlight section-highlight">
       <div class="container">
         <div class="highlight-content reveal">
-          <span class="section-tag">Da el primer paso</span>
-          <h2 class="section-title">Tu carrera profesional comienza aquí</h2>
-          <p class="section-subtitle" style="max-width: 100%;">Descarga el pensum completo de nuestros programas o agenda una sesión con nuestro equipo de admisiones para resolver todas tus dudas.</p>
+          <span class="section-tag">Da el siguiente paso</span>
+          <h2 class="section-title">Tu futuro profesional comienza aquí</h2>
+          <p class="section-subtitle" style="max-width: 100%;">Descarga la información completa de nuestros programas o agenda una sesión con nuestro equipo de admisiones para resolver todas tus dudas.</p>
           <div class="highlight-actions">
-            <a class="btn btn-outline" href="programas.pdf">Descargar pensum</a>
+            <a class="btn btn-outline" href="master.pdf">Descargar brochure</a>
             <a class="btn btn-primary" href="#formulario">Solicitar información</a>
           </div>
         </div>
@@ -644,8 +631,9 @@
               <label for="programa">Programa de interés</label>
               <select id="programa" name="programa" required>
                 <option value="">Selecciona un programa</option>
-                <option value="digital-business">Pregrado en Digital Business</option>
-                <option value="marketing-global">Pregrado en Dirección de Marketing Global</option>
+                <option value="digital-business">Máster en Digital Business</option>
+                <option value="digital-marketing">Máster en Digital Marketing</option>
+                <option value="customer-experience">Máster en Customer Experience</option>
               </select>
             </div>
             <button type="submit" class="form-submit">Enviar solicitud</button>
