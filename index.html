@@ -58,6 +58,15 @@
     .contact-link:hover{color:var(--black)}
     .contact-link span{font-size:.7rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:.04em;width:55px;font-weight:500}
 
+    .story{padding:6rem 2rem;background:var(--black);color:var(--white)}
+    .story-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .story-content h2{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:600;line-height:1.25;margin-bottom:1.5rem}
+    .story-content p{color:#a1a1aa;font-size:1rem;line-height:1.75}
+    .story-content p+p{margin-top:1rem}
+    .story-photo{aspect-ratio:1;background:#222;border-radius:12px;overflow:hidden}
+    .story-photo img{width:100%;height:100%;object-fit:cover}
+    .story-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#52525b;font-size:1rem}
+
     footer{padding:2rem;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--gray-400);border-top:1px solid var(--gray-100)}
 
     @media(max-width:768px){
@@ -67,7 +76,9 @@
       .work{padding:3rem 1.5rem}
       .project{grid-template-columns:1fr;gap:1.25rem}
       .project:nth-child(even){direction:ltr}
-      .about,.contact{padding:4rem 1.5rem}
+      .about,.contact,.story{padding:4rem 1.5rem}
+      .story-inner{grid-template-columns:1fr;gap:2rem}
+      .story-photo{max-width:280px}
       footer{flex-direction:column;gap:.75rem;text-align:center}
     }
   </style>
@@ -155,6 +166,20 @@
       <a href="mailto:hola@jeronimomartinez.com" class="contact-link"><span>Email</span>hola@jeronimomartinez.com</a>
       <a href="https://linkedin.com/in/jeronimomartinez" class="contact-link" target="_blank" rel="noopener"><span>LinkedIn</span>/jeronimomartinez</a>
       <a href="https://github.com/jeronimomartinez" class="contact-link" target="_blank" rel="noopener"><span>GitHub</span>@jeronimomartinez</a>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="story-inner">
+      <div class="story-content">
+        <h2>La historia corta</h2>
+        <p>Nacido en Buenos Aires, construyendo cosas desde los 15 años. Empecé rompiendo código, ahora lo escribo.</p>
+        <p>Creo en el software que desaparece — tan intuitivo que olvidás que existe.</p>
+      </div>
+      <div class="story-photo">
+        <div class="story-placeholder">Tu foto aquí</div>
+        <!-- <img src="foto.jpg" alt="Jerónimo Martínez"> -->
+      </div>
     </div>
   </section>
 
