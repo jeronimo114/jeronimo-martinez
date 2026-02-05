@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jerónimo Martínez - Diseño sistemas que piensan">
+  <title>Jerónimo Martínez</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    :root{--black:#111;--white:#fafafa;--gray-100:#f4f4f5;--gray-400:#a1a1aa;--gray-600:#52525b}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--white);color:var(--black);line-height:1.6}
+    ::selection{background:var(--black);color:var(--white)}
+
+    header{position:fixed;top:0;left:0;right:0;padding:1.25rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:100;background:var(--white)}
+    .logo{font-weight:600;font-size:1.125rem}
+    nav{display:flex;gap:2rem}
+    nav a{color:var(--gray-600);text-decoration:none;font-size:.875rem}
+    nav a:hover{color:var(--black)}
+
+    .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:6rem 2rem 4rem;max-width:900px;margin:0 auto}
+    .hero h1{font-size:clamp(2.5rem,8vw,4.5rem);font-weight:600;line-height:1.1;letter-spacing:-0.03em;margin-bottom:1rem}
+    .tagline{font-size:clamp(1.25rem,3vw,1.5rem);color:var(--gray-600)}
+
+    .work{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+    .section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem;padding-bottom:.75rem;border-bottom:1px solid var(--gray-100)}
+    .section-title{font-weight:600;font-size:.875rem}
+    .section-count{font-size:.75rem;color:var(--gray-400)}
+
+    .projects{display:grid;gap:4rem}
+    .project{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+    .project:nth-child(even){direction:rtl}
+    .project:nth-child(even)>*{direction:ltr}
+    .project-image{aspect-ratio:16/10;background:var(--gray-100);overflow:hidden;border-radius:12px}
+    .project-image img{width:100%;height:100%;object-fit:cover}
+    .project:hover .project-image img{transform:scale(1.02)}
+    .project-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--gray-400);font-size:2rem;font-weight:600}
+    .project-number{font-size:.75rem;color:var(--gray-400);margin-bottom:.75rem;font-weight:500}
+    .project-title{font-size:1.5rem;font-weight:600;margin-bottom:.75rem}
+    .project-description{color:var(--gray-600);font-size:.9375rem;margin-bottom:1.25rem;line-height:1.65}
+    .project-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem}
+    .tag{font-size:.75rem;padding:.35rem .7rem;background:var(--gray-100);color:var(--gray-600);border-radius:20px;font-weight:500}
+    .project-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.875rem;color:var(--black);text-decoration:none;font-weight:500}
+    .project-link:hover{text-decoration:underline}
+    .project-link svg{width:14px;height:14px}
+
+    .about{padding:6rem 2rem;background:var(--gray-100)}
+    .about-inner{max-width:900px;margin:0 auto}
+    .about-label{font-size:.75rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1.5rem;font-weight:500}
+    .about-inner h2{font-size:clamp(1.5rem,4vw,2.25rem);font-weight:600;line-height:1.35;margin-bottom:1.5rem}
+    .about-inner p{color:var(--gray-600);font-size:1rem;line-height:1.75;max-width:600px}
+    .about-inner p+p{margin-top:1rem}
+
+    .contact{padding:6rem 2rem;max-width:900px;margin:0 auto}
+    .contact h2{font-size:clamp(2rem,5vw,3rem);font-weight:600;line-height:1.15;margin-bottom:2.5rem}
+    .contact-links{display:flex;flex-direction:column;gap:.75rem}
+    .contact-link{display:inline-flex;align-items:center;gap:1rem;font-size:1rem;color:var(--gray-600);text-decoration:none}
+    .contact-link:hover{color:var(--black)}
+    .contact-link span{font-size:.7rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:.04em;width:55px;font-weight:500}
+
+    footer{padding:2rem;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--gray-400);border-top:1px solid var(--gray-100)}
+
+    @media(max-width:768px){
+      header{padding:1rem 1.5rem}
+      nav{gap:1.25rem}
+      .hero{padding:5rem 1.5rem 3rem}
+      .work{padding:3rem 1.5rem}
+      .project{grid-template-columns:1fr;gap:1.25rem}
+      .project:nth-child(even){direction:ltr}
+      .about,.contact{padding:4rem 1.5rem}
+      footer{flex-direction:column;gap:.75rem;text-align:center}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">JM</div>
+    <nav>
+      <a href="#trabajo">Trabajo</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Jerónimo Martínez</h1>
+    <p class="tagline">Diseño sistemas que piensan</p>
+  </section>
+
+  <section class="work" id="trabajo">
+    <div class="section-header">
+      <span class="section-title">Proyectos</span>
+      <span class="section-count">04</span>
+    </div>
+
+    <div class="projects">
+      <article class="project">
+        <div class="project-image"><div class="project-placeholder">01</div></div>
+        <div class="project-info">
+          <span class="project-number">01</span>
+          <h3 class="project-title">Nombre del Proyecto</h3>
+          <p class="project-description">Breve descripción del proyecto, el problema que resolvió y el impacto que tuvo.</p>
+          <div class="project-tags"><span class="tag">Diseño UI</span><span class="tag">Desarrollo</span><span class="tag">2024</span></div>
+          <a href="#" class="project-link">Ver proyecto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-image"><div class="project-placeholder">02</div></div>
+        <div class="project-info">
+          <span class="project-number">02</span>
+          <h3 class="project-title">Segundo Proyecto</h3>
+          <p class="project-description">Descripción del segundo proyecto. Explica el contexto, tu rol y los resultados.</p>
+          <div class="project-tags"><span class="tag">Branding</span><span class="tag">Web</span><span class="tag">2024</span></div>
+          <a href="#" class="project-link">Ver proyecto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-image"><div class="project-placeholder">03</div></div>
+        <div class="project-info">
+          <span class="project-number">03</span>
+          <h3 class="project-title">Tercer Proyecto</h3>
+          <p class="project-description">Descripción del tercer proyecto con detalles sobre tecnologías y proceso.</p>
+          <div class="project-tags"><span class="tag">App</span><span class="tag">UX</span><span class="tag">2023</span></div>
+          <a href="#" class="project-link">Ver proyecto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-image"><div class="project-placeholder">04</div></div>
+        <div class="project-info">
+          <span class="project-number">04</span>
+          <h3 class="project-title">Cuarto Proyecto</h3>
+          <p class="project-description">Descripción del cuarto proyecto. Incluye info sobre colaboraciones si aplica.</p>
+          <div class="project-tags"><span class="tag">E-commerce</span><span class="tag">Frontend</span><span class="tag">2023</span></div>
+          <a href="#" class="project-link">Ver proyecto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="about" id="sobre-mi">
+    <div class="about-inner">
+      <span class="about-label">Sobre mí</span>
+      <h2>Creo soluciones digitales que combinan estética y funcionalidad.</h2>
+      <p>Soy Jerónimo Martínez, diseñador y desarrollador. Me enfoco en la intersección entre diseño visual y código limpio.</p>
+      <p>Cada proyecto es una oportunidad para resolver problemas de forma elegante.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <h2>Trabajemos juntos</h2>
+    <div class="contact-links">
+      <a href="mailto:hola@jeronimomartinez.com" class="contact-link"><span>Email</span>hola@jeronimomartinez.com</a>
+      <a href="https://linkedin.com/in/jeronimomartinez" class="contact-link" target="_blank" rel="noopener"><span>LinkedIn</span>/jeronimomartinez</a>
+      <a href="https://github.com/jeronimomartinez" class="contact-link" target="_blank" rel="noopener"><span>GitHub</span>@jeronimomartinez</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2024 Jerónimo Martínez</span>
+    <span>Buenos Aires, Argentina</span>
+  </footer>
+</body>
+</html>
