@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaféYa! - Delivery de Café Premium en Medellín</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-light {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #d4a574 0%, #8b5a2b 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #d4a574 0%, #c4956a 100%) !important;
+            color: #1a1a1a !important;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #1a0f0a 0%, #2d1810 50%, #0a0a0a 100%);
+            display: flex;
+            align-items: center;
+            padding: 120px 5% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&q=80') center/cover;
+            opacity: 0.3;
+        }
+
+        .hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(212, 165, 116, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(139, 90, 43, 0.2) 0%, transparent 40%),
+                        linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.8) 100%);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, #d4a574 0%, #f0d4b8 50%, #d4a574 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4a574 0%, #c4956a 100%);
+            color: #1a1a1a;
+            box-shadow: 0 8px 30px rgba(212, 165, 116, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #d4a574;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-phone {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .phone-frame {
+            background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-radius: 50px;
+            padding: 15px;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(255, 255, 255, 0.1),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .phone-screen {
+            background: #000;
+            border-radius: 38px;
+            overflow: hidden;
+            aspect-ratio: 9/19;
+            position: relative;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 30px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-card-1 {
+            top: 20%;
+            left: -20%;
+            animation-delay: 0s;
+        }
+
+        .floating-card-2 {
+            bottom: 25%;
+            right: -15%;
+            animation-delay: 2s;
+        }
+
+        .floating-card img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .floating-card-text h4 {
+            font-size: 0.9rem;
+            color: #1a1a1a;
+            margin-bottom: 0.2rem;
+        }
+
+        .floating-card-text p {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 5%;
+            background: #0a0a0a;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(212, 165, 116, 0.1);
+            color: #d4a574;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 2rem;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            border-color: rgba(212, 165, 116, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3),
+                        0 0 100px rgba(212, 165, 116, 0.1);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.2) 0%, rgba(212, 165, 116, 0.05) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Galería / Multimedia */
+        .gallery {
+            padding: 100px 5%;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a0f0a 100%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 250px);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.7) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(5) {
+            grid-column: span 2;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            color: #fff;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-caption h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-caption p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Precios */
+        .pricing {
+            padding: 100px 5%;
+            background: #0a0a0a;
+            position: relative;
+        }
+
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 32px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card.popular {
+            background: linear-gradient(145deg, rgba(212, 165, 116, 0.15) 0%, rgba(212, 165, 116, 0.05) 100%);
+            border-color: rgba(212, 165, 116, 0.3);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #d4a574 0%, #c4956a 100%);
+            color: #1a1a1a;
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.4);
+        }
+
+        .pricing-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.2) 0%, rgba(212, 165, 116, 0.05) 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #d4a574;
+            margin: 1rem 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0.3rem;
+        }
+
+        .pricing-card .price .currency {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .pricing-card .price .period {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 400;
+            align-self: flex-end;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .pricing-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card ul li::before {
+            content: '✓';
+            width: 24px;
+            height: 24px;
+            background: rgba(212, 165, 116, 0.2);
+            color: #d4a574;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        /* Contacto */
+        .contact {
+            padding: 100px 5%;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a0f0a 50%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .contact-item-text h4 {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-item-text p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .contact-form-wrapper {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: rgba(212, 165, 116, 0.5);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.1);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2rem;
+        }
+
+        .form-group select option {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-form-wrapper .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 1.1rem 2rem;
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #050505;
+            padding: 60px 5% 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: rgba(212, 165, 116, 0.2);
+            border-color: rgba(212, 165, 116, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul a:hover {
+            color: #d4a574;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+        }
+
+        .payment-methods {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .payment-methods span {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+        }
+
+        .payment-logos {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .payment-logos img {
+            height: 30px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .payment-logos img:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .gallery-item:nth-child(5) {
+                grid-column: span 2;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.8rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(5) {
+                grid-column: span 1;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">☕</div>
+            CaféYa!
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#contacto" class="nav-cta">Descargar App</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg-image"></div>
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>El café perfecto <span>en minutos</span></h1>
+                <p>Descubre el auténtico sabor del café antioqueño. Delivery premium en Medellín con granos seleccionados de las mejores fincas del Eje Cafetero, directo a tu puerta.</p>
+                <div class="hero-buttons">
+                    <a href="#precios" class="btn btn-primary">
+                        <span>🚀</span> Comenzar Ahora
+                    </a>
+                    <a href="#galeria" class="btn btn-secondary">
+                        <span>▶</span> Ver Galería
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">15K+</div>
+                        <div class="stat-label">Usuarios activos</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Cafés entregados</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Calificación</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-phone">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-notch"></div>
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80" alt="App CaféYa">
+                        </div>
+                    </div>
+                    <div class="floating-card floating-card-1">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=100&q=80" alt="Cappuccino">
+                        <div class="floating-card-text">
+                            <h4>Cappuccino Premium</h4>
+                            <p>⭐ 4.9 • $8.900</p>
+                        </div>
+                    </div>
+                    <div class="floating-card floating-card-2">
+                        <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=100&q=80" alt="Latte">
+                        <div class="floating-card-text">
+                            <h4>Latte Especial</h4>
+                            <p>🔥 En camino...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="section-header">
+            <span class="section-tag">¿Por qué CaféYa?</span>
+            <h2>Una experiencia única de café</h2>
+            <p>Combinamos tecnología y tradición cafetera para llevarte lo mejor de Colombia</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Entrega Express</h3>
+                <p>Tu café llega caliente en menos de 25 minutos. Cobertura en El Poblado, Laureles, Envigado y más.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>100% Orgánico</h3>
+                <p>Café cultivado sin químicos en las montañas de Antioquia. Trazabilidad completa desde la finca.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Personalízalo</h3>
+                <p>Elige tu nivel de tostado, tipo de leche, endulzante y extras. Tu café, a tu manera.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">♻️</div>
+                <h3>Eco-Friendly</h3>
+                <p>Empaques 100% biodegradables. Repartidores en bicicleta eléctrica. Huella de carbono neutral.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="gallery" id="galeria">
+        <div class="section-header">
+            <span class="section-tag">Nuestra Galería</span>
+            <h2>Momentos con café</h2>
+            <p>Capturamos la esencia del café paisa en cada imagen</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" alt="Barista preparando café">
+                <div class="gallery-caption">
+                    <h4>Arte en cada taza</h4>
+                    <p>Nuestros baristas expertos</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&q=80" alt="Café latte art">
+                <div class="gallery-caption">
+                    <h4>Latte Art</h4>
+                    <p>Diseños únicos</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&q=80" alt="Granos de café">
+                <div class="gallery-caption">
+                    <h4>Granos Premium</h4>
+                    <p>Selección especial</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80" alt="Café espresso">
+                <div class="gallery-caption">
+                    <h4>Espresso Perfecto</h4>
+                    <p>Intensidad única</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&q=80" alt="Finca cafetera">
+                <div class="gallery-caption">
+                    <h4>Desde la Finca</h4>
+                    <p>Origen Antioqueño</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=600&q=80" alt="Café para llevar">
+                <div class="gallery-caption">
+                    <h4>Para Llevar</h4>
+                    <p>Donde quieras</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Precios -->
+    <section class="pricing" id="precios">
+        <div class="section-header">
+            <span class="section-tag">Planes y Precios</span>
+            <h2>Elige tu suscripción</h2>
+            <p>Planes flexibles para cada tipo de amante del café</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-icon">☕</div>
+                <h3>Casual</h3>
+                <div class="price">
+                    <span class="currency">$</span>29.900<span class="period">/mes</span>
+                </div>
+                <ul>
+                    <li>4 cafés al mes</li>
+                    <li>Envío gratis</li>
+                    <li>Café del día</li>
+                    <li>Acceso a la app</li>
+                    <li>Soporte por chat</li>
+                </ul>
+                <a href="#contacto" class="btn btn-secondary">Elegir Plan</a>
+            </div>
+            <div class="pricing-card popular">
+                <span class="popular-badge">Más Popular</span>
+                <div class="pricing-icon">🔥</div>
+                <h3>Cafetero</h3>
+                <div class="price">
+                    <span class="currency">$</span>59.900<span class="period">/mes</span>
+                </div>
+                <ul>
+                    <li>12 cafés al mes</li>
+                    <li>Envío gratis ilimitado</li>
+                    <li>Menú completo</li>
+                    <li>15% off en snacks</li>
+                    <li>Prioridad en entregas</li>
+                    <li>Cafés premium incluidos</li>
+                </ul>
+                <a href="#contacto" class="btn btn-primary">Elegir Plan</a>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-icon">🏢</div>
+                <h3>Empresarial</h3>
+                <div class="price">
+                    <span class="currency">$</span>149.900<span class="period">/mes</span>
+                </div>
+                <ul>
+                    <li>40 cafés al mes</li>
+                    <li>Hasta 10 usuarios</li>
+                    <li>Facturación electrónica</li>
+                    <li>Manager dedicado</li>
+                    <li>Cafés de especialidad</li>
+                    <li>Eventos de cata gratis</li>
+                </ul>
+                <a href="#contacto" class="btn btn-secondary">Elegir Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>¿Listo para el mejor café de tu vida?</h2>
+                <p>Únete a miles de paisas que ya disfrutan del café premium a domicilio. Completa el formulario y te contactamos en menos de 24 horas.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📍</div>
+                        <div class="contact-item-text">
+                            <h4>Ubicación</h4>
+                            <p>Medellín, Antioquia, Colombia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📱</div>
+                        <div class="contact-item-text">
+                            <h4>WhatsApp</h4>
+                            <p>+57 300 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">✉️</div>
+                        <div class="contact-item-text">
+                            <h4>Email</h4>
+                            <p>hola@cafeya.co</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">🕐</div>
+                        <div class="contact-item-text">
+                            <h4>Horario de Entrega</h4>
+                            <p>Lun - Dom: 6:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono / WhatsApp</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+57 300 123 4567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="plan">Plan de interés</label>
+                        <select id="plan" name="plan" required>
+                            <option value="">Selecciona un plan</option>
+                            <option value="casual">Casual - $29.900/mes</option>
+                            <option value="cafetero">Cafetero - $59.900/mes (Popular)</option>
+                            <option value="empresarial">Empresarial - $149.900/mes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje (opcional)</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="¿Tienes alguna pregunta o comentario especial?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Enviar Solicitud →
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">☕</div>
+                        CaféYa!
+                    </div>
+                    <p>El mejor café de Medellín directo a tu puerta. Tradición cafetera colombiana con la conveniencia del mundo moderno.</p>
+                    <div class="social-links">
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="Facebook">👤</a>
+                        <a href="#" title="TikTok">🎵</a>
+                        <a href="#" title="WhatsApp">💬</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Menú</h4>
+                    <ul>
+                        <li><a href="#">Espresso</a></li>
+                        <li><a href="#">Cappuccino</a></li>
+                        <li><a href="#">Latte</a></li>
+                        <li><a href="#">Cold Brew</a></li>
+                        <li><a href="#">Café de Origen</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Compañía</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Nuestras Fincas</a></li>
+                        <li><a href="#">Trabaja con Nosotros</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Prensa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="#">Centro de Ayuda</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 CaféYa! - Todos los derechos reservados. Hecho con ❤️ en Medellín, Colombia 🇨🇴</p>
+                <div class="payment-methods">
+                    <span>Métodos de pago:</span>
+                    <div class="payment-logos">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png" alt="Mastercard">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/200px-PayPal.svg.png" alt="PayPal">
+                        <img src="https://nequi.com.co/favicon.ico" alt="Nequi" style="height: 28px; border-radius: 6px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const plan = document.getElementById('plan').options[document.getElementById('plan').selectedIndex].text;
+
+            alert(`¡Gracias ${nombre} ${apellido}! ☕✨\n\nHemos recibido tu solicitud para:\n${plan}\n\nTe contactaremos pronto al ${telefono} o a ${email}.\n\n¡Prepárate para el mejor café de Medellín!`);
+
+            this.reset();
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .pricing-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
