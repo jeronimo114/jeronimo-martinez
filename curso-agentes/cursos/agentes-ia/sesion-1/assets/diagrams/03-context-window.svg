@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 180">
+  <!-- Background -->
+  <rect width="700" height="180" fill="#0a0a0a"/>
+
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" fill="#fff" font-family="-apple-system, sans-serif" font-size="16" font-weight="600">Ventana de Contexto</text>
+
+  <!-- Context window bar -->
+  <g transform="translate(50, 50)">
+    <!-- Bar background -->
+    <rect x="0" y="0" width="600" height="60" rx="8" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+
+    <!-- System section -->
+    <rect x="2" y="2" width="80" height="56" rx="6" fill="#007AFF"/>
+    <text x="42" y="35" text-anchor="middle" fill="#fff" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">Sistema</text>
+
+    <!-- History section -->
+    <rect x="84" y="2" width="280" height="56" rx="6" fill="#5856D6"/>
+    <text x="224" y="35" text-anchor="middle" fill="#fff" font-family="-apple-system, sans-serif" font-size="11">Historial de mensajes...</text>
+
+    <!-- User message section -->
+    <rect x="366" y="2" width="100" height="56" rx="6" fill="#30D158"/>
+    <text x="416" y="35" text-anchor="middle" fill="#fff" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">Tu mensaje</text>
+
+    <!-- Response section -->
+    <rect x="468" y="2" width="130" height="56" rx="6" fill="#FFD60A"/>
+    <text x="533" y="35" text-anchor="middle" fill="#333" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">Respuesta</text>
+  </g>
+
+  <!-- Arrows -->
+  <line x1="50" y1="125" x2="50" y2="135" stroke="#a0a0a0" stroke-width="1"/>
+  <line x1="650" y1="125" x2="650" y2="135" stroke="#a0a0a0" stroke-width="1"/>
+  <line x1="50" y1="135" x2="650" y2="135" stroke="#a0a0a0" stroke-width="1"/>
+
+  <!-- Token count -->
+  <text x="350" y="160" text-anchor="middle" fill="#007AFF" font-family="-apple-system, sans-serif" font-size="14" font-weight="600">128,000 tokens (~190 paginas)</text>
+</svg>

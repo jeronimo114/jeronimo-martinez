@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200">
+  <!-- Background -->
+  <rect width="700" height="200" fill="#0a0a0a"/>
+
+  <!-- Trigger Box -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="140" height="80" rx="12" fill="#1a1a1a" stroke="#007AFF" stroke-width="3"/>
+    <text x="70" y="35" text-anchor="middle" fill="#007AFF" font-family="-apple-system, sans-serif" font-size="12" font-weight="700">TRIGGER</text>
+    <text x="70" y="55" text-anchor="middle" fill="#a0a0a0" font-family="-apple-system, sans-serif" font-size="10">(Disparo)</text>
+    <text x="70" y="70" text-anchor="middle" fill="#fff" font-family="-apple-system, sans-serif" font-size="11">"Llega un email"</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <path d="M 200 100 L 260 100" stroke="#007AFF" stroke-width="3" fill="none"/>
+  <polygon points="260,100 250,95 250,105" fill="#007AFF"/>
+
+  <!-- Logic Box -->
+  <g transform="translate(270, 60)">
+    <rect x="0" y="0" width="140" height="80" rx="12" fill="#1a1a1a" stroke="#FFD60A" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="70" y="35" text-anchor="middle" fill="#FFD60A" font-family="-apple-system, sans-serif" font-size="12" font-weight="700">LOGICA</text>
+    <text x="70" y="55" text-anchor="middle" fill="#a0a0a0" font-family="-apple-system, sans-serif" font-size="10">(Opcional)</text>
+    <text x="70" y="70" text-anchor="middle" fill="#fff" font-family="-apple-system, sans-serif" font-size="11">"Si es de ventas"</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <path d="M 420 100 L 480 100" stroke="#007AFF" stroke-width="3" fill="none"/>
+  <polygon points="480,100 470,95 470,105" fill="#007AFF"/>
+
+  <!-- Action Box -->
+  <g transform="translate(490, 60)">
+    <rect x="0" y="0" width="140" height="80" rx="12" fill="#1a1a1a" stroke="#30D158" stroke-width="3"/>
+    <text x="70" y="35" text-anchor="middle" fill="#30D158" font-family="-apple-system, sans-serif" font-size="12" font-weight="700">ACCION</text>
+    <text x="70" y="55" text-anchor="middle" fill="#a0a0a0" font-family="-apple-system, sans-serif" font-size="10">(Resultado)</text>
+    <text x="70" y="70" text-anchor="middle" fill="#fff" font-family="-apple-system, sans-serif" font-size="11">"Crear tarea"</text>
+  </g>
+
+  <!-- Label -->
+  <text x="350" y="180" text-anchor="middle" fill="#a0a0a0" font-family="-apple-system, sans-serif" font-size="12">Si esto, entonces aquello</text>
+</svg>

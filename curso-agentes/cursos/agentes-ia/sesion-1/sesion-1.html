@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesion 1: Fundamentos LLM + Automatizacion | Agentes de IA</title>
+    <style>
+        :root {
+            /* Colors */
+            --bg-primary: #000000;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-blue: #007AFF;
+            --accent-blue-dim: rgba(0, 122, 255, 0.3);
+            --accent-green: #30D158;
+            --accent-red: #FF453A;
+            --accent-yellow: #FFD60A;
+            --accent-purple: #BF5AF2;
+
+            /* Typography */
+            --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'SF Mono', 'Menlo', 'Monaco', monospace;
+
+            /* Sizes */
+            --h1-size: clamp(3rem, 8vw, 6rem);
+            --h2-size: clamp(2rem, 5vw, 3.5rem);
+            --support-size: clamp(1.25rem, 3vw, 1.75rem);
+            --body-size: clamp(1rem, 2vw, 1.25rem);
+
+            /* Spacing */
+            --slide-padding: clamp(2rem, 5vw, 6rem);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* ==================== PRESENTATION CONTAINER ==================== */
+        #deck-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ==================== PROGRESS BAR ==================== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--bg-secondary);
+            z-index: 1000;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-blue);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 12px;
+            right: 24px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            z-index: 1000;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ==================== SLIDES ==================== */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+            padding: var(--slide-padding);
+            overflow: hidden;
+        }
+
+        .slide.active {
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Fade animation */
+        .slide.entering {
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .slide.leaving {
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideOut 0.3s ease forwards;
+            pointer-events: none;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideOut {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        /* ==================== LAYOUT: BIG STATEMENT ==================== */
+        .layout-big-statement {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .layout-big-statement h1 {
+            font-size: var(--h1-size);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .layout-big-statement .support {
+            font-size: var(--support-size);
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        .accent { color: var(--accent-blue); }
+        .accent-green { color: var(--accent-green); }
+        .accent-red { color: var(--accent-red); }
+        .accent-yellow { color: var(--accent-yellow); }
+
+        /* ==================== LAYOUT: DIVIDER ==================== */
+        .layout-divider {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #0a0a0a 100%);
+        }
+
+        .layout-divider .module-number {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            opacity: 0.3;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%);
+        }
+
+        .layout-divider h1 {
+            font-size: var(--h1-size);
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .layout-divider .subtitle {
+            font-size: var(--support-size);
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        /* ==================== LAYOUT: 2 COLUMNS ==================== */
+        .layout-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: var(--slide-padding);
+        }
+
+        .layout-2col h2 {
+            font-size: var(--h2-size);
+            margin-bottom: 1.5rem;
+            grid-column: 1 / -1;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .col h3 {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .col li {
+            font-size: var(--body-size);
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .col li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+        }
+
+        .col li.check::before {
+            content: '✓';
+            background: none;
+            color: var(--accent-green);
+            font-size: 1rem;
+            top: 0;
+        }
+
+        .col li.cross::before {
+            content: '✗';
+            background: none;
+            color: var(--accent-red);
+            font-size: 1rem;
+            top: 0;
+        }
+
+        /* ==================== LAYOUT: 3 LINES ==================== */
+        .layout-3lines {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2rem;
+            padding-left: 15%;
+        }
+
+        .layout-3lines h2 {
+            font-size: var(--h2-size);
+            margin-bottom: 2rem;
+        }
+
+        .line {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .line-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .line-text {
+            color: var(--text-secondary);
+        }
+
+        .line-text strong {
+            color: var(--text-primary);
+        }
+
+        /* ==================== LAYOUT: VISUAL ==================== */
+        .layout-visual {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .layout-visual h2 {
+            font-size: var(--h2-size);
+            margin-bottom: 2rem;
+        }
+
+        .visual-box {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 90%;
+            margin: 2rem 0;
+        }
+
+        .visual-box pre {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-align: left;
+            white-space: pre;
+            line-height: 1.6;
+        }
+
+        /* ==================== CODE BLOCKS ==================== */
+        .code-block {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .code-block .keyword { color: #569CD6; }
+        .code-block .string { color: #CE9178; }
+        .code-block .number { color: #B5CEA8; }
+        .code-block .property { color: #9CDCFE; }
+
+        /* ==================== DIAGRAMS ==================== */
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .diagram-box {
+            background: var(--bg-secondary);
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .diagram-box.highlight {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 20px var(--accent-blue-dim);
+        }
+
+        .diagram-arrow {
+            font-size: 2rem;
+            color: var(--accent-blue);
+        }
+
+        /* ==================== TOKEN VISUAL ==================== */
+        .token-display {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .token {
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .token:nth-child(1) { background: #FF6B6B; color: white; }
+        .token:nth-child(2) { background: #4ECDC4; color: white; }
+        .token:nth-child(3) { background: #45B7D1; color: white; }
+        .token:nth-child(4) { background: #96CEB4; color: white; }
+        .token:nth-child(5) { background: #FFEAA7; color: #333; }
+
+        /* ==================== TABLES ==================== */
+        .table-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            color: var(--accent-blue);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        tr:hover td {
+            color: var(--text-primary);
+        }
+
+        /* ==================== SPECTRUM ==================== */
+        .spectrum {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .spectrum-bar {
+            height: 12px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-green));
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .spectrum-marker {
+            position: absolute;
+            top: -8px;
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .spectrum-labels {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .spectrum-label {
+            text-align: center;
+            max-width: 150px;
+        }
+
+        .spectrum-label h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .spectrum-label p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* ==================== POLL PLACEHOLDER ==================== */
+        .poll-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid var(--accent-blue);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        .poll-box h3 {
+            color: var(--accent-blue);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .poll-box p {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .poll-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .poll-option {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .poll-option:hover {
+            border-color: var(--accent-blue);
+            background: rgba(0, 122, 255, 0.1);
+        }
+
+        .poll-option.correct {
+            border-color: var(--accent-green);
+            background: rgba(48, 209, 88, 0.1);
+        }
+
+        /* ==================== CHECKLIST ==================== */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .checklist-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .nav-controls {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        body:hover .nav-controls {
+            opacity: 1;
+        }
+
+        .nav-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent-blue);
+        }
+
+        .nav-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ==================== TIMER ==================== */
+        .timer {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .timer-display {
+            font-size: 12rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .timer-label {
+            font-size: 2rem;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        /* ==================== SLIDE ANIMATIONS ==================== */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .slide.active .animate-in {
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        .slide.active .animate-in:nth-child(1) { animation-delay: 0s; }
+        .slide.active .animate-in:nth-child(2) { animation-delay: 0.1s; }
+        .slide.active .animate-in:nth-child(3) { animation-delay: 0.2s; }
+        .slide.active .animate-in:nth-child(4) { animation-delay: 0.3s; }
+        .slide.active .animate-in:nth-child(5) { animation-delay: 0.4s; }
+        .slide.active .animate-in:nth-child(6) { animation-delay: 0.5s; }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .layout-2col {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .diagram {
+                flex-direction: column;
+            }
+
+            .diagram-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* ==================== SECTION LABEL ==================== */
+        .section-label {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ==================== EMOJI ICONS ==================== */
+        .icon {
+            font-size: 2rem;
+            margin-right: 0.5rem;
+        }
+
+        /* ==================== BREAK SLIDE ==================== */
+        .layout-break {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .layout-break h1 {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+        }
+
+        .layout-break .countdown {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ==================== VIDEO SLIDE ==================== */
+        .layout-video {
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+
+        .layout-video .video-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .layout-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+
+        .layout-video .video-caption {
+            display: none;
+        }
+
+        .layout-video .video-title {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="deck-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+        <span class="slide-counter" id="counter">1 / 44</span>
+
+        <!-- ========================================== -->
+        <!-- APERTURA -->
+        <!-- ========================================== -->
+
+        <!-- S0-01: Portada -->
+        <section class="slide layout-big-statement active" data-slide="0">
+            <h1 class="animate-in">Agentes de <span class="accent">IA</span><br>en Accion</h1>
+            <p class="support animate-in">Sesion 1: Fundamentos de LLM + Automatizacion</p>
+        </section>
+
+        <!-- S0-02: Instructor -->
+        <section class="slide layout-2col" data-slide="1">
+            <div class="col animate-in">
+                <div style="width: 200px; height: 200px; background: var(--bg-secondary); border-radius: 50%; margin: 0 auto 2rem;"></div>
+                <h3 style="text-align: center;">[Tu Nombre]</h3>
+                <p style="text-align: center; color: var(--text-secondary);">[Tu titulo/rol]</p>
+            </div>
+            <div class="col animate-in">
+                <h2>Tu instructor</h2>
+                <ul>
+                    <li>[Experiencia relevante]</li>
+                    <li>[Logro o credencial]</li>
+                    <li>[Algo personal/humano]</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- S0-03: Agenda -->
+        <section class="slide layout-3lines" data-slide="2">
+            <span class="section-label">Agenda</span>
+            <h2 class="animate-in">Hoy vamos a...</h2>
+            <div class="line animate-in">
+                <div class="line-number">1</div>
+                <div class="line-text">Entender <strong>como piensan los LLMs</strong></div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">2</div>
+                <div class="line-text">Aprender <strong>automatizacion visual</strong> con n8n</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">3</div>
+                <div class="line-text">Construir un <strong>workflow real</strong>: Gmail → Sheets</div>
+            </div>
+        </section>
+
+        <!-- S0-04: Estructura del curso -->
+        <section class="slide layout-visual" data-slide="3">
+            <span class="section-label">El Curso</span>
+            <h2 class="animate-in">4 Sesiones, 4 Niveles</h2>
+            <div class="table-container animate-in">
+                <table>
+                    <tr>
+                        <th>Sesion</th>
+                        <th>Tema</th>
+                        <th>Resultado</th>
+                    </tr>
+                    <tr style="background: rgba(0,122,255,0.1);">
+                        <td><strong>1</strong></td>
+                        <td>Fundamentos + Automatizacion</td>
+                        <td>Gmail → Sheets</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>IA en Workflows</td>
+                        <td>Clasificador inteligente</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Agentes Basicos</td>
+                        <td>Agente de soporte</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Agentes Autonomos</td>
+                        <td>Sistema multi-agente</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- S0-05: Metodologia -->
+        <section class="slide layout-big-statement" data-slide="4">
+            <span class="section-label">Metodologia</span>
+            <h1 class="animate-in">Aprende <span class="accent">haciendo</span></h1>
+            <p class="support animate-in">Demos en vivo + Ejercicios practicos + Proyecto real</p>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- MODULO 1: LLM POR DENTRO -->
+        <!-- ========================================== -->
+
+        <!-- VIDEO: Intro a LLMs -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">¿Que es un Modelo de Lenguaje?</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/01-intro.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- S1-01: Que vamos a aprender -->
+        <section class="slide layout-3lines" data-slide="7">
+            <span class="section-label">Modulo 1</span>
+            <h2 class="animate-in">En esta seccion:</h2>
+            <div class="line animate-in">
+                <div class="line-number">1</div>
+                <div class="line-text">Como <strong>"piensa"</strong> un modelo de lenguaje</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">2</div>
+                <div class="line-text">Que son los <strong>tokens</strong> y por que importan</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">3</div>
+                <div class="line-text">Como darle <strong>instrucciones efectivas</strong></div>
+            </div>
+        </section>
+
+        <!-- S1-02: El mito -->
+        <section class="slide layout-big-statement" data-slide="8">
+            <span class="section-label">Modulo 1</span>
+            <h1 class="animate-in">La IA <span class="accent-red">no entiende</span></h1>
+            <p class="support animate-in">Solo predice patrones muy, muy bien.</p>
+        </section>
+
+        <!-- VIDEO: Solo Predice -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">¿Que significa "solo predecir"?</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/03-solo-predice.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- S1-03: Que es un LLM + Poll -->
+        <section class="slide layout-visual" data-slide="9">
+            <span class="section-label">Modulo 1</span>
+            <h2 class="animate-in">Modelo de <span class="accent">Lenguaje</span></h2>
+            <p class="support animate-in" style="margin-bottom: 2rem;">Predice el siguiente token basandose en los anteriores</p>
+            <div class="diagram animate-in">
+                <div class="diagram-box">Hola</div>
+                <div class="diagram-arrow">→</div>
+                <div class="diagram-box">cómo</div>
+                <div class="diagram-arrow">→</div>
+                <div class="diagram-box highlight">?</div>
+            </div>
+        </section>
+
+        <!-- S1-04: Maquina de prediccion -->
+        <section class="slide layout-2col" data-slide="10">
+            <span class="section-label">Modulo 1</span>
+            <h2>La maquina de prediccion</h2>
+            <div class="col animate-in">
+                <div class="code-block">
+                    <span class="property">Input:</span> "El cielo es..."<br><br>
+                    <span class="property">Predicciones:</span><br>
+                    "azul"     <span class="number">78%</span><br>
+                    "hermoso"  <span class="number">12%</span><br>
+                    "infinito" <span class="number">5%</span>
+                </div>
+            </div>
+            <div class="col animate-in">
+                <ul>
+                    <li>No hay "pensamiento"</li>
+                    <li>Solo estadistica avanzada</li>
+                    <li>Entrenado con billones de textos</li>
+                    <li>Genera token por token</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- VIDEO: Como predice el modelo -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Visualizacion: Como predice palabra por palabra</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/04-prediccion.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- S1-05: Tokens -->
+        <section class="slide layout-visual" data-slide="11">
+            <span class="section-label">Modulo 1 | Demo</span>
+            <h2 class="animate-in"><span class="accent">Tokens</span></h2>
+            <p class="support animate-in">La unidad minima que procesa el modelo</p>
+            <div class="token-display animate-in">
+                <div class="token">auto</div>
+                <div class="token">mat</div>
+                <div class="token">iz</div>
+                <div class="token">acion</div>
+            </div>
+            <p class="animate-in" style="color: var(--text-secondary); margin-top: 2rem; font-size: 1.25rem;">
+                Demo: <a href="https://platform.openai.com/tokenizer" target="_blank" style="color: var(--accent-blue);">platform.openai.com/tokenizer</a>
+            </p>
+        </section>
+
+        <!-- VIDEO: Que es un Token -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Visualizacion: Tokenizacion en accion</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/09-que-es-token.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: Tokenizacion Visual -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Como se divide el texto en tokens</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/10-tokenizacion-visual.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: Español vs Ingles -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Tokens: Español vs Ingles</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/11-espanol-vs-ingles.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- S1-06: Por que importan los tokens -->
+        <section class="slide layout-3lines" data-slide="12">
+            <span class="section-label">Modulo 1</span>
+            <h2 class="animate-in">¿Por que importan los tokens?</h2>
+            <div class="line animate-in">
+                <div class="line-number" style="background: var(--accent-yellow); color: #000;">$</div>
+                <div class="line-text"><strong>Costo:</strong> Pagas por token (input y output)</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number" style="background: var(--accent-red);">!</div>
+                <div class="line-text"><strong>Limite:</strong> Hay un maximo por conversacion</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number" style="background: var(--accent-purple);">⏱</div>
+                <div class="line-text"><strong>Velocidad:</strong> Mas tokens = mas tiempo</div>
+            </div>
+        </section>
+
+        <!-- VIDEO: Por que importan los tokens -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">El impacto real de los tokens</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/13-por-que-importan.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- S1-07: Ventana de contexto -->
+        <section class="slide layout-visual" data-slide="13">
+            <span class="section-label">Modulo 1</span>
+            <h2 class="animate-in">Ventana de <span class="accent">Contexto</span></h2>
+            <p class="support animate-in">Todo lo que el modelo puede "ver" a la vez</p>
+            <div class="visual-box animate-in" style="width: 100%; max-width: 800px;">
+                <div style="display: flex; height: 60px; border-radius: 8px; overflow: hidden;">
+                    <div style="background: var(--accent-blue); flex: 1; display: flex; align-items: center; justify-content: center; font-weight: 600;">Sistema</div>
+                    <div style="background: var(--accent-purple); flex: 3; display: flex; align-items: center; justify-content: center;">Historial...</div>
+                    <div style="background: var(--accent-green); flex: 1; display: flex; align-items: center; justify-content: center; font-weight: 600;">Tu mensaje</div>
+                    <div style="background: var(--accent-yellow); color: #000; flex: 2; display: flex; align-items: center; justify-content: center; font-weight: 600;">Respuesta</div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary);">←————— 128,000 tokens —————→</p>
+            </div>
+            <p class="animate-in" style="color: var(--text-secondary); margin-top: 1rem;">
+                ≈ 190 paginas de Word
+            </p>
+        </section>
+
+        <!-- VIDEO: Ventana de Contexto -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Visualizacion: La ventana de contexto</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/15-ventana-contexto.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: Alucinaciones -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Alucinaciones: Cuando el modelo "inventa"</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/06-alucinaciones-intro.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- S1-08: Problema del contexto -->
+        <section class="slide layout-2col" data-slide="14">
+            <span class="section-label">Modulo 1</span>
+            <h2>"Lost in the Middle"</h2>
+            <div class="col animate-in">
+                <h3>El problema</h3>
+                <ul>
+                    <li>El modelo "olvida" informacion del medio</li>
+                    <li>Principio y final son mas importantes</li>
+                    <li>Informacion critica → al inicio o al final</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <svg viewBox="0 0 200 100" style="width: 100%; height: auto;">
+                    <path d="M 10 20 Q 100 80 190 20" stroke="var(--accent-blue)" stroke-width="4" fill="none"/>
+                    <text x="10" y="15" fill="var(--text-secondary)" font-size="10">Alta</text>
+                    <text x="85" y="95" fill="var(--text-secondary)" font-size="10">Baja</text>
+                    <text x="170" y="15" fill="var(--text-secondary)" font-size="10">Alta</text>
+                    <text x="75" y="70" fill="var(--text-secondary)" font-size="8">Atencion</text>
+                </svg>
+            </div>
+        </section>
+
+        <!-- VIDEO: Lost in the Middle -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">El fenomeno "Lost in the Middle"</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/17-lost-in-middle.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: Tips de Contexto -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Tips para manejar el contexto efectivamente</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/18-tips-contexto.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- S1-09: Stack de mensajes -->
+        <section class="slide layout-visual" data-slide="15">
+            <span class="section-label">Modulo 1</span>
+            <h2 class="animate-in">Stack de <span class="accent">Mensajes</span></h2>
+            <div class="visual-box animate-in" style="text-align: left; max-width: 600px;">
+                <div style="border-left: 4px solid var(--accent-blue); padding-left: 1rem; margin-bottom: 1rem;">
+                    <small style="color: var(--accent-blue);">SISTEMA</small>
+                    <p>"Eres un asistente de ventas amable"</p>
+                </div>
+                <div style="border-left: 4px solid var(--accent-green); padding-left: 1rem; margin-bottom: 1rem;">
+                    <small style="color: var(--accent-green);">USUARIO</small>
+                    <p>"¿Cuanto cuesta el plan pro?"</p>
+                </div>
+                <div style="border-left: 4px solid var(--accent-purple); padding-left: 1rem; margin-bottom: 1rem;">
+                    <small style="color: var(--accent-purple);">ASISTENTE</small>
+                    <p>"El plan pro cuesta $99/mes..."</p>
+                </div>
+                <div style="border-left: 4px solid var(--accent-green); padding-left: 1rem;">
+                    <small style="color: var(--accent-green);">USUARIO</small>
+                    <p>"¿Incluye soporte?"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO: Tipos de Mensajes -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Los 3 tipos de mensajes en una conversacion</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/19-tipos-mensajes.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: Mensaje Sistema -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">El mensaje de Sistema: Personalidad del asistente</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/20-mensaje-sistema.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: Mensaje Usuario -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">El mensaje de Usuario: Tu input</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/21-mensaje-usuario.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: Mensaje Asistente -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">El mensaje del Asistente: La respuesta</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/22-mensaje-asistente.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- S1-10: Roles -->
+        <section class="slide layout-3lines" data-slide="16">
+            <span class="section-label">Modulo 1</span>
+            <h2 class="animate-in">Roles de mensajes</h2>
+            <div class="line animate-in">
+                <div class="line-number" style="background: var(--accent-blue);">S</div>
+                <div class="line-text"><strong>Sistema:</strong> Define personalidad y reglas (invisible)</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number" style="background: var(--accent-green);">U</div>
+                <div class="line-text"><strong>Usuario:</strong> Lo que escribe la persona (tu)</div>
+            </div>
+        </section>
+
+        <!-- VIDEO: Conversacion Completa -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Una conversacion completa en accion</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/23-conversacion-completa.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- S1-11: Precision del lenguaje -->
+        <section class="slide layout-2col" data-slide="17">
+            <span class="section-label">Modulo 1 | Demo</span>
+            <h2>La diferencia esta en el <span class="accent">detalle</span></h2>
+            <div class="col animate-in">
+                <h3 style="color: var(--accent-red);">Vago</h3>
+                <div class="code-block">
+Escribeme algo sobre
+automatizacion
+                </div>
+                <ul>
+                    <li class="cross">Sin contexto</li>
+                    <li class="cross">Sin formato</li>
+                    <li class="cross">Sin audiencia</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3 style="color: var(--accent-green);">Preciso</h3>
+                <div class="code-block">
+Escribe 3 beneficios de
+automatizar emails de bienvenida
+para ecommerce, en bullets de
+1 linea, con tono profesional.
+                </div>
+                <ul>
+                    <li class="check">Cantidad especifica</li>
+                    <li class="check">Tema concreto</li>
+                    <li class="check">Formato definido</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- VIDEO: Prompt Vago -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Ejemplo: Prompt vago - que pasa</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/26-prompt-vago.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: Prompt Preciso -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Ejemplo: Prompt preciso - la diferencia</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/27-prompt-preciso.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: Comparacion -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Comparacion directa: Vago vs Preciso</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/28-comparacion.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: Framework RAFAT -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Framework RAFAT para prompts efectivos</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/30-rafat.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: RAFAT Ejemplo -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">RAFAT en accion: Ejemplo practico</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/31-rafat-ejemplo.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: Temperatura -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Temperatura: Controlando creatividad vs precision</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/05-temperatura.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- VIDEO: Resumen Modulo 1 -->
+        <section class="slide layout-video">
+            <p class="video-title animate-in">Resumen: Todo sobre LLMs</p>
+            <div class="video-container animate-in">
+                <video autoplay muted playsinline>
+                    <source src="videos/08-resumen-llm.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- MODULO 2: AUTOMATIZACIONES -->
+        <!-- ========================================== -->
+
+        <!-- S1-12: Titulo Modulo 2 -->
+        <section class="slide layout-divider" data-slide="20">
+            <div class="module-number">02</div>
+            <h1 class="animate-in">Automatizaciones</h1>
+            <p class="subtitle animate-in">Haciendo que las maquinas trabajen por ti</p>
+        </section>
+
+        <!-- S1-13: Que es automatizacion -->
+        <section class="slide layout-big-statement" data-slide="21">
+            <span class="section-label">Modulo 2</span>
+            <h1 class="animate-in">Si <span class="accent">esto</span>, entonces <span class="accent">aquello</span></h1>
+            <p class="support animate-in">Una regla que se ejecuta sin intervencion humana</p>
+        </section>
+
+        <!-- S1-14: Anatomia -->
+        <section class="slide layout-visual" data-slide="22">
+            <span class="section-label">Modulo 2</span>
+            <h2 class="animate-in">Anatomia de una automatizacion</h2>
+            <div class="diagram animate-in">
+                <div class="diagram-box highlight">
+                    <strong>TRIGGER</strong><br>
+                    <small style="color: var(--text-secondary);">(Disparo)</small>
+                </div>
+                <div class="diagram-arrow">→</div>
+                <div class="diagram-box">
+                    <strong>LOGICA</strong><br>
+                    <small style="color: var(--text-secondary);">(Opcional)</small>
+                </div>
+                <div class="diagram-arrow">→</div>
+                <div class="diagram-box highlight">
+                    <strong>ACCION</strong><br>
+                    <small style="color: var(--text-secondary);">(Resultado)</small>
+                </div>
+            </div>
+            <div class="animate-in" style="margin-top: 2rem;">
+                <p style="color: var(--text-secondary);">
+                    "Llega un email" → "Si es de ventas" → "Crear tarea"
+                </p>
+            </div>
+        </section>
+
+        <!-- S1-15: Ejemplos -->
+        <section class="slide layout-visual" data-slide="23">
+            <span class="section-label">Modulo 2</span>
+            <h2 class="animate-in">Ejemplos del mundo real</h2>
+            <div class="table-container animate-in">
+                <table>
+                    <tr>
+                        <th>Trigger</th>
+                        <th>Accion</th>
+                    </tr>
+                    <tr>
+                        <td>Nuevo lead en formulario</td>
+                        <td>Agregar a CRM + enviar email</td>
+                    </tr>
+                    <tr>
+                        <td>Factura recibida</td>
+                        <td>Extraer datos + crear registro</td>
+                    </tr>
+                    <tr>
+                        <td>Mensaje de soporte</td>
+                        <td>Clasificar + crear ticket</td>
+                    </tr>
+                    <tr>
+                        <td>Nuevo empleado en HR</td>
+                        <td>Crear cuentas + enviar onboarding</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Poll 3: Que automatizarias -->
+        <!-- S1-16: Actividad -->
+        <section class="slide layout-big-statement" data-slide="25">
+            <span class="section-label">Modulo 2 | Actividad</span>
+            <h1 class="animate-in">¿Que haces <span class="accent">una y otra vez</span>?</h1>
+            <p class="support animate-in">Piensa en una tarea que repites al menos 1 vez por semana</p>
+            <div class="animate-in" style="margin-top: 2rem; color: var(--text-secondary);">
+                <p>1. Piensa individualmente (1 min)</p>
+                <p>2. Comparte en parejas (2 min)</p>
+                <p>3. Voluntarios comparten (2 min)</p>
+            </div>
+        </section>
+
+        <!-- S1-18: Herramientas -->
+        <section class="slide layout-visual" data-slide="27">
+            <span class="section-label">Modulo 2</span>
+            <h2 class="animate-in">Herramientas de automatizacion</h2>
+            <div class="table-container animate-in">
+                <table>
+                    <tr>
+                        <th>Herramienta</th>
+                        <th>Tipo</th>
+                        <th>Precio</th>
+                    </tr>
+                    <tr>
+                        <td>Zapier</td>
+                        <td>No-code</td>
+                        <td>$$</td>
+                    </tr>
+                    <tr>
+                        <td>Make (Integromat)</td>
+                        <td>No-code</td>
+                        <td>$$</td>
+                    </tr>
+                    <tr style="background: rgba(0,122,255,0.2);">
+                        <td><strong>n8n</strong></td>
+                        <td>Low-code</td>
+                        <td><strong>Gratis/Open</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Power Automate</td>
+                        <td>Enterprise</td>
+                        <td>$$$</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- MODULO 3: n8n -->
+        <!-- ========================================== -->
+
+        <!-- S1-20: Titulo Modulo 3 -->
+        <section class="slide layout-divider" data-slide="29">
+            <div class="module-number">03</div>
+            <h1 class="animate-in">n8n</h1>
+            <p class="subtitle animate-in">Tu plataforma de automatizacion</p>
+        </section>
+
+        <!-- S1-21: Que es n8n -->
+        <section class="slide layout-2col" data-slide="31">
+            <span class="section-label">Modulo 3</span>
+            <h2>¿Que es n8n?</h2>
+            <div class="col animate-in">
+                <h3>n8n es...</h3>
+                <ul>
+                    <li>Plataforma de automatizacion visual</li>
+                    <li>Open-source (codigo abierto)</li>
+                    <li>400+ integraciones incluidas</li>
+                    <li>Self-hosted o cloud</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>¿Por que n8n?</h3>
+                <ul>
+                    <li class="check">Tier gratuito: 2,500 ejecuciones/mes</li>
+                    <li class="check">Nodos nativos de IA</li>
+                    <li class="check">Mas flexible que Zapier</li>
+                    <li class="check">Comunidad activa</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- S1-22: El Canvas -->
+        <section class="slide layout-visual" data-slide="32">
+            <span class="section-label">Modulo 3</span>
+            <h2 class="animate-in">El <span class="accent">Canvas</span></h2>
+            <div class="visual-box animate-in" style="background: #1a1a1a; max-width: 800px; padding: 0; overflow: hidden; border-radius: 12px;">
+                <div style="background: #2a2a2a; padding: 0.75rem 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333;">
+                    <span>Mi Workflow</span>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <span style="background: var(--accent-blue); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem;">Test</span>
+                        <span style="background: var(--accent-green); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem;">Save</span>
+                    </div>
+                </div>
+                <div style="padding: 3rem; display: flex; justify-content: center; align-items: center; gap: 2rem;">
+                    <div style="background: #333; border: 2px solid var(--accent-blue); border-radius: 8px; padding: 1rem 1.5rem; text-align: center;">
+                        <small style="color: var(--accent-blue);">Trigger</small><br>
+                        Manual
+                    </div>
+                    <div style="width: 40px; height: 2px; background: #555;"></div>
+                    <div style="background: #333; border: 2px solid #555; border-radius: 8px; padding: 1rem 1.5rem; text-align: center;">
+                        <small style="color: var(--text-secondary);">Accion</small><br>
+                        Set
+                    </div>
+                    <div style="width: 40px; height: 40px; background: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">+</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S1-23: Tipos de nodos -->
+        <section class="slide layout-visual" data-slide="33">
+            <span class="section-label">Modulo 3</span>
+            <h2 class="animate-in">Tipos de <span class="accent">Nodos</span></h2>
+            <div class="table-container animate-in">
+                <table>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Descripcion</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--accent-blue);">Trigger</strong></td>
+                        <td>Inicia el workflow</td>
+                        <td>Gmail Trigger, Webhook</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--accent-green);">Accion</strong></td>
+                        <td>Hace algo</td>
+                        <td>Enviar email, Crear fila</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--accent-yellow);">Logica</strong></td>
+                        <td>Decide camino</td>
+                        <td>If, Switch, Merge</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--accent-purple);">Transformacion</strong></td>
+                        <td>Modifica datos</td>
+                        <td>Set, Code, Date</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- S1-24: JSON -->
+        <section class="slide layout-visual" data-slide="34">
+            <span class="section-label">Modulo 3</span>
+            <h2 class="animate-in">Datos en <span class="accent">JSON</span></h2>
+            <p class="support animate-in">Los datos fluyen como objetos estructurados</p>
+            <div class="code-block animate-in" style="max-width: 500px; margin: 2rem auto; text-align: left;">
+{
+  <span class="property">"email"</span>: <span class="string">"cliente@ejemplo.com"</span>,
+  <span class="property">"asunto"</span>: <span class="string">"Nuevo lead"</span>,
+  <span class="property">"fecha"</span>: <span class="string">"2024-01-15"</span>,
+  <span class="property">"nombre"</span>: <span class="string">"Maria Garcia"</span>
+}
+            </div>
+            <p class="animate-in" style="color: var(--text-secondary);">
+                Piensa en JSON como una ficha de contacto digital
+            </p>
+        </section>
+
+        <!-- S1-25: Items -->
+        <section class="slide layout-visual" data-slide="35">
+            <span class="section-label">Modulo 3</span>
+            <h2 class="animate-in">Un <span class="accent">item</span> = una "fila" de datos</h2>
+            <div class="table-container animate-in" style="max-width: 600px;">
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>email</th>
+                        <th>nombre</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ana@mail.com</td>
+                        <td>Ana</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>luis@mail.com</td>
+                        <td>Luis</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>pedro@mail.com</td>
+                        <td>Pedro</td>
+                    </tr>
+                </table>
+            </div>
+            <p class="animate-in" style="color: var(--text-secondary); margin-top: 2rem;">
+                Si recibes 10 emails, tienes 10 items. Cada uno pasa por el workflow.
+            </p>
+        </section>
+
+        <!-- S1-26: Demo -->
+        <section class="slide layout-big-statement" data-slide="36">
+            <span class="section-label">Modulo 3 | Demo</span>
+            <h1 class="animate-in">Manos al <span class="accent">codigo</span></h1>
+            <p class="support animate-in">Creemos nuestro primer workflow juntos</p>
+            <div class="animate-in" style="margin-top: 2rem; color: var(--text-secondary);">
+                <p>1. Nuevo workflow</p>
+                <p>2. Manual Trigger</p>
+                <p>3. Nodo Set</p>
+                <p>4. Ejecutar y ver output</p>
+            </div>
+        </section>
+
+        <!-- Ejercicio 3: Workflow -->
+        <section class="slide layout-big-statement" data-slide="37">
+            <span class="section-label">Ejercicio 3</span>
+            <h1 class="animate-in">Tu <span class="accent">turno</span></h1>
+            <p class="support animate-in">15 minutos para crear tu primer workflow</p>
+            <div class="animate-in" style="margin-top: 2rem;">
+                <p style="font-size: 1.25rem; color: var(--text-secondary);">
+                    1. Crea un nuevo workflow<br>
+                    2. Agrega Manual Trigger<br>
+                    3. Agrega nodo Set<br>
+                    4. Campo: <code>saludo</code> = <code>Hola desde n8n, soy [tu nombre]!</code><br>
+                    5. Ejecuta y verifica el output
+                </p>
+            </div>
+            <p class="animate-in" style="color: var(--accent-green); margin-top: 2rem;">
+                Levanta la mano cuando veas tu mensaje
+            </p>
+        </section>
+
+        <!-- S1-27b: Expresiones -->
+        <section class="slide layout-2col" data-slide="38">
+            <span class="section-label">Modulo 3</span>
+            <h2>Expresiones en n8n</h2>
+            <div class="col animate-in">
+                <h3>Sintaxis</h3>
+                <div class="code-block">
+{{ $json.campo }}
+                </div>
+                <ul>
+                    <li><code>$json</code> = datos del nodo anterior</li>
+                    <li><code>.campo</code> = nombre del campo</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Ejemplos</h3>
+                <div class="code-block">
+{{ $json.email }}
+→ "cliente@mail.com"
+
+{{ $json.nombre }}
+→ "Maria"
+
+{{ $json.fecha }}
+→ "2024-01-15"
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- PROYECTO: GMAIL → SHEETS -->
+        <!-- ========================================== -->
+
+        <!-- S1-28: Titulo Proyecto -->
+        <section class="slide layout-divider" data-slide="40">
+            <div class="module-number" style="font-size: 5rem;">P1</div>
+            <h1 class="animate-in">Gmail → Sheets</h1>
+            <p class="subtitle animate-in">Registra emails automaticamente en una hoja de calculo</p>
+        </section>
+
+        <!-- S1-29: Que vamos a construir -->
+        <section class="slide layout-visual" data-slide="41">
+            <span class="section-label">Proyecto 1</span>
+            <h2 class="animate-in">¿Que vamos a construir?</h2>
+            <div class="diagram animate-in">
+                <div class="diagram-box highlight">
+                    <strong>Gmail</strong><br>
+                    <small>Trigger</small>
+                </div>
+                <div class="diagram-arrow">→</div>
+                <div class="diagram-box">
+                    <strong>n8n</strong><br>
+                    <small>Procesa</small>
+                </div>
+                <div class="diagram-arrow">→</div>
+                <div class="diagram-box highlight">
+                    <strong>Sheets</strong><br>
+                    <small>Registra</small>
+                </div>
+            </div>
+            <p class="animate-in" style="color: var(--text-secondary); margin-top: 2rem;">
+                Cada email que llegue crea una fila automaticamente
+            </p>
+        </section>
+
+        <!-- S1-30: Paso 1 -->
+        <section class="slide layout-2col" data-slide="42">
+            <span class="section-label">Proyecto 1 | Paso 1</span>
+            <h2>Crear hoja de <span class="accent">prueba</span></h2>
+            <div class="col animate-in">
+                <h3>Instrucciones</h3>
+                <ul>
+                    <li>Abrir Google Sheets</li>
+                    <li>Crear nueva hoja: "Registro de Emails"</li>
+                    <li>Agregar encabezados en fila 1</li>
+                    <li>Guardar</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Encabezados</h3>
+                <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1rem; font-family: var(--font-mono);">
+                    <span style="color: var(--accent-blue);">A1:</span> Remitente<br>
+                    <span style="color: var(--accent-blue);">B1:</span> Asunto<br>
+                    <span style="color: var(--accent-blue);">C1:</span> Fecha
+                </div>
+            </div>
+        </section>
+
+        <!-- S1-31: Conectar Gmail -->
+        <section class="slide layout-big-statement" data-slide="43">
+            <span class="section-label">Proyecto 1 | Paso 2</span>
+            <h1 class="animate-in">Conectar <span class="accent">Gmail</span></h1>
+            <p class="support animate-in">Demo: Credenciales OAuth</p>
+            <div class="animate-in" style="margin-top: 2rem; color: var(--text-secondary);">
+                <p>Credentials → Add Credential → Gmail OAuth2 → Sign in with Google</p>
+            </div>
+        </section>
+
+        <!-- S1-32: Conectar Sheets -->
+        <section class="slide layout-big-statement" data-slide="44">
+            <span class="section-label">Proyecto 1 | Paso 3</span>
+            <h1 class="animate-in">Conectar <span class="accent">Sheets</span></h1>
+            <p class="support animate-in">Misma cuenta de Google</p>
+            <div class="animate-in" style="margin-top: 2rem; color: var(--text-secondary);">
+                <p>Credentials → Add Credential → Google Sheets OAuth2</p>
+            </div>
+        </section>
+
+        <!-- S1-33: Gmail Trigger -->
+        <section class="slide layout-2col" data-slide="45">
+            <span class="section-label">Proyecto 1 | Paso 4</span>
+            <h2>Gmail <span class="accent">Trigger</span></h2>
+            <div class="col animate-in">
+                <h3>Configuracion</h3>
+                <ul>
+                    <li>Agregar nodo "Gmail Trigger"</li>
+                    <li>Event: "Message Received"</li>
+                    <li>Credential: Seleccionar</li>
+                    <li>(Opcional) Filtrar por label</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Estructura del email</h3>
+                <div class="code-block" style="font-size: 0.8rem;">
+{
+  <span class="property">"from"</span>: {
+    <span class="property">"value"</span>: [{
+      <span class="property">"address"</span>: <span class="string">"sender@mail.com"</span>
+    }]
+  },
+  <span class="property">"subject"</span>: <span class="string">"Asunto"</span>,
+  <span class="property">"date"</span>: <span class="string">"2024-01-15"</span>
+}
+                </div>
+            </div>
+        </section>
+
+        <!-- S1-34: Sheets node -->
+        <section class="slide layout-2col" data-slide="46">
+            <span class="section-label">Proyecto 1 | Paso 5</span>
+            <h2>Google Sheets <span class="accent">Node</span></h2>
+            <div class="col animate-in">
+                <h3>Configuracion</h3>
+                <ul>
+                    <li>Agregar nodo "Google Sheets"</li>
+                    <li>Operation: Append Row</li>
+                    <li>Spreadsheet: "Registro de Emails"</li>
+                    <li>Sheet: "Sheet1"</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Mapeo de campos</h3>
+                <div class="code-block" style="font-size: 0.8rem;">
+<span class="property">Remitente:</span>
+{{ $json.from.value[0].address }}
+
+<span class="property">Asunto:</span>
+{{ $json.subject }}
+
+<span class="property">Fecha:</span>
+{{ $json.date }}
+                </div>
+            </div>
+        </section>
+
+        <!-- S1-35: Probar -->
+        <section class="slide layout-3lines" data-slide="47">
+            <span class="section-label">Proyecto 1 | Paso 6</span>
+            <h2 class="animate-in">Probar el workflow</h2>
+            <div class="line animate-in">
+                <div class="line-number">1</div>
+                <div class="line-text">Conectar Gmail Trigger → Google Sheets</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">2</div>
+                <div class="line-text">Click en <strong>"Test Workflow"</strong></div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">3</div>
+                <div class="line-text">Verificar <strong>nueva fila</strong> en Google Sheets</div>
+            </div>
+        </section>
+
+        <!-- S1-36: Activar -->
+        <section class="slide layout-big-statement" data-slide="48">
+            <span class="section-label">Proyecto 1 | Paso 7</span>
+            <h1 class="animate-in">Hacerlo <span class="accent-green">automatico</span></h1>
+            <p class="support animate-in">Toggle "Active" → ON</p>
+            <div class="animate-in" style="margin-top: 2rem; color: var(--text-secondary);">
+                <p>El workflow ahora corre en background</p>
+                <p>n8n revisa Gmail cada 1-2 minutos</p>
+            </div>
+        </section>
+
+        <!-- S1-37: Debugging -->
+        <section class="slide layout-2col" data-slide="49">
+            <span class="section-label">Proyecto 1 | Debugging</span>
+            <h2><span class="accent">Debugging</span></h2>
+            <div class="col animate-in">
+                <h3>Ver ejecuciones</h3>
+                <ul>
+                    <li>Click en "Executions"</li>
+                    <li class="check">Verde = exito</li>
+                    <li class="cross">Rojo = error</li>
+                    <li>Click para ver detalles</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Errores comunes</h3>
+                <ul>
+                    <li>Credencial expirada → Reconectar</li>
+                    <li>Campo no encontrado → Revisar expresion</li>
+                    <li>Rate limit → Esperar</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- El Espectro de Automatizacion -->
+        <section class="slide layout-visual" data-slide="50">
+            <span class="section-label">El Panorama</span>
+            <h2 class="animate-in">Del if/else a la <span class="accent">autonomia</span></h2>
+            <div class="spectrum animate-in">
+                <div class="spectrum-bar">
+                    <div class="spectrum-marker" style="left: 10%;"></div>
+                </div>
+                <div class="spectrum-labels">
+                    <div class="spectrum-label">
+                        <h4 style="color: var(--accent-blue);">REGLAS</h4>
+                        <p>"Si X, hacer Y"</p>
+                        <p style="font-size: 0.75rem; margin-top: 0.5rem;">Zapier basico</p>
+                    </div>
+                    <div class="spectrum-label">
+                        <h4 style="color: var(--accent-purple);">IA</h4>
+                        <p>"Analizar y recomendar"</p>
+                        <p style="font-size: 0.75rem; margin-top: 0.5rem;">GPT clasificando</p>
+                    </div>
+                    <div class="spectrum-label">
+                        <h4 style="color: var(--accent-green);">AGENTES</h4>
+                        <p>"Decidir y actuar"</p>
+                        <p style="font-size: 0.75rem; margin-top: 0.5rem;">Autonomia total</p>
+                    </div>
+                </div>
+            </div>
+            <p class="animate-in" style="color: var(--text-secondary); margin-top: 2rem;">
+                Hoy empezamos a la izquierda, terminamos a la derecha
+            </p>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- CIERRE -->
+        <!-- ========================================== -->
+
+        <!-- Checklist -->
+        <section class="slide layout-visual" data-slide="51">
+            <span class="section-label">Cierre</span>
+            <h2 class="animate-in">Hoy <span class="accent-green">aprendiste</span></h2>
+            <div class="checklist animate-in" style="margin: 2rem auto;">
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <span>Como funcionan los LLMs (tokens, contexto)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <span>Que es una automatizacion</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <span>Navegar n8n y crear workflows</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <span>Conectar Gmail y Google Sheets</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <span>Debuggear ejecuciones</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview Sesion 2 -->
+        <section class="slide layout-big-statement" data-slide="52">
+            <span class="section-label">Proximo</span>
+            <h1 class="animate-in">Sesion <span class="accent">2</span></h1>
+            <p class="support animate-in">IA en Workflows</p>
+            <div class="animate-in" style="margin-top: 2rem; color: var(--text-secondary);">
+                <p>Agregamos inteligencia artificial a las automatizaciones</p>
+                <p>Clasificacion automatica con GPT</p>
+                <p>Generacion de contenido</p>
+            </div>
+        </section>
+
+        <!-- Gracias -->
+        <section class="slide layout-big-statement" data-slide="53">
+            <h1 class="animate-in">¡<span class="accent">Gracias</span>!</h1>
+            <p class="support animate-in">¿Preguntas?</p>
+        </section>
+
+        <!-- Navigation Controls -->
+        <div class="nav-controls">
+            <button class="nav-btn" onclick="prevSlide()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <button class="nav-btn" onclick="nextSlide()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Slide Management
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progress = document.getElementById('progress');
+        const counter = document.getElementById('counter');
+
+        function showSlide(index) {
+            // Bounds check
+            if (index < 0) index = 0;
+            if (index >= totalSlides) index = totalSlides - 1;
+            if (index === currentSlide) return;
+
+            const prevSlide = currentSlide;
+
+            // Hide current slide
+            slides[prevSlide].classList.remove('active');
+            slides[prevSlide].classList.add('leaving');
+
+            // Show new slide
+            currentSlide = index;
+            slides[currentSlide].classList.add('active', 'entering');
+
+            // Clean up after animations
+            setTimeout(() => {
+                slides[prevSlide].classList.remove('leaving');
+            }, 300);
+
+            setTimeout(() => {
+                slides[currentSlide].classList.remove('entering');
+            }, 500);
+
+            // Update progress
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const percentage = ((currentSlide + 1) / totalSlides) * 100;
+            progress.style.width = percentage + '%';
+            counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+
+            // Update URL hash
+            history.replaceState(null, null, `#${currentSlide}`);
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                case ' ':
+                case 'PageDown':
+                    e.preventDefault();
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                case 'PageUp':
+                    e.preventDefault();
+                    prevSlide();
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    showSlide(0);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    showSlide(totalSlides - 1);
+                    break;
+                case 'f':
+                    e.preventDefault();
+                    toggleFullscreen();
+                    break;
+            }
+        });
+
+        // Touch/Swipe Navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+
+        // Fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Load slide from URL hash
+        function loadFromHash() {
+            const hash = window.location.hash.slice(1);
+            const slideIndex = parseInt(hash);
+            if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < totalSlides) {
+                currentSlide = slideIndex;
+                slides.forEach(s => s.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
+                updateProgress();
+            }
+        }
+
+        // Initialize
+        loadFromHash();
+        updateProgress();
+
+        // Click on polls to highlight (demo)
+        document.querySelectorAll('.poll-option').forEach(option => {
+            option.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.poll-option').forEach(o => {
+                    o.style.border = '1px solid #333';
+                    o.style.background = 'rgba(255,255,255,0.05)';
+                });
+                this.style.border = '2px solid var(--accent-blue)';
+                this.style.background = 'rgba(0, 122, 255, 0.2)';
+            });
+        });
+    </script>
+</body>
+</html>

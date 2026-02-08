@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 220">
+  <defs>
+    <linearGradient id="spectrumGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#007AFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#BF5AF2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#30D158;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="220" fill="#0a0a0a"/>
+
+  <!-- Title -->
+  <text x="350" y="35" text-anchor="middle" fill="#fff" font-family="-apple-system, sans-serif" font-size="18" font-weight="600">Del if/else a la autonomia</text>
+
+  <!-- Spectrum bar -->
+  <rect x="50" y="60" width="600" height="16" rx="8" fill="url(#spectrumGradient)"/>
+
+  <!-- Current position marker -->
+  <circle cx="110" cy="68" r="14" fill="#fff" stroke="#007AFF" stroke-width="3"/>
+  <text x="110" y="72" text-anchor="middle" fill="#007AFF" font-family="-apple-system, sans-serif" font-size="10" font-weight="700">1</text>
+
+  <!-- Labels -->
+  <g transform="translate(50, 100)">
+    <!-- Rules -->
+    <g transform="translate(0, 0)">
+      <text x="60" y="20" text-anchor="middle" fill="#007AFF" font-family="-apple-system, sans-serif" font-size="16" font-weight="700">REGLAS</text>
+      <text x="60" y="45" text-anchor="middle" fill="#a0a0a0" font-family="-apple-system, sans-serif" font-size="12">"Si X, hacer Y"</text>
+      <text x="60" y="70" text-anchor="middle" fill="#555" font-family="-apple-system, sans-serif" font-size="10">Zapier basico</text>
+    </g>
+
+    <!-- IA -->
+    <g transform="translate(240, 0)">
+      <text x="60" y="20" text-anchor="middle" fill="#BF5AF2" font-family="-apple-system, sans-serif" font-size="16" font-weight="700">IA</text>
+      <text x="60" y="45" text-anchor="middle" fill="#a0a0a0" font-family="-apple-system, sans-serif" font-size="12">"Analizar y recomendar"</text>
+      <text x="60" y="70" text-anchor="middle" fill="#555" font-family="-apple-system, sans-serif" font-size="10">GPT clasificando</text>
+    </g>
+
+    <!-- Agents -->
+    <g transform="translate(480, 0)">
+      <text x="60" y="20" text-anchor="middle" fill="#30D158" font-family="-apple-system, sans-serif" font-size="16" font-weight="700">AGENTES</text>
+      <text x="60" y="45" text-anchor="middle" fill="#a0a0a0" font-family="-apple-system, sans-serif" font-size="12">"Decidir y actuar"</text>
+      <text x="60" y="70" text-anchor="middle" fill="#555" font-family="-apple-system, sans-serif" font-size="10">Autonomia total</text>
+    </g>
+  </g>
+
+  <!-- Note -->
+  <text x="350" y="205" text-anchor="middle" fill="#555" font-family="-apple-system, sans-serif" font-size="11">Sesion 1: Empezamos aqui</text>
+</svg>
