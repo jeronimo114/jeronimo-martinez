@@ -727,7 +727,7 @@
         <div class="progress-bar">
             <div class="progress-fill" id="progress"></div>
         </div>
-        <span class="slide-counter" id="counter">1 / 73</span>
+        <span class="slide-counter" id="counter">1 / 90</span>
 
         <!-- ========================================== -->
         <!-- APERTURA -->
@@ -768,6 +768,10 @@
                 <div class="line-number">2</div>
                 <div class="line-text">Aprender <strong>automatización visual</strong> con n8n</div>
             </div>
+            <div class="line animate-in">
+                <div class="line-number">3</div>
+                <div class="line-text">Construir un <strong>workflow real</strong>: Gmail → Sheets</div>
+            </div>
         </section>
 
         <!-- S0-04: Estructura del taller -->
@@ -793,12 +797,12 @@
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>Agentes de desarrollo</td>
-                        <td>Agente de código</td>
+                        <td>Agentes Básicos</td>
+                        <td>Agente de soporte</td>
                     </tr>
                     <tr>
                         <td>4</td>
-                        <td>Proyecto final</td>
+                        <td>Agentes Autonomos</td>
                         <td>Sistema multi-agente</td>
                     </tr>
                 </table>
@@ -1806,6 +1810,363 @@ para ecommerce, en bullets de
             <p class="animate-in" style="color: var(--text-secondary);">
                 Piensa en JSON como una ficha de contacto digital
             </p>
+        </section>
+
+        <!-- S1-25: Items -->
+        <section class="slide layout-visual" data-slide="35">
+            <span class="section-label">Modulo 3</span>
+            <h2 class="animate-in">Un <span class="accent">item</span> = una "fila" de datos</h2>
+            <div class="table-container animate-in" style="max-width: 600px;">
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>email</th>
+                        <th>nombre</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ana@mail.com</td>
+                        <td>Ana</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>luis@mail.com</td>
+                        <td>Luis</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>pedro@mail.com</td>
+                        <td>Pedro</td>
+                    </tr>
+                </table>
+            </div>
+            <p class="animate-in" style="color: var(--text-secondary); margin-top: 2rem;">
+                Si recibes 10 emails, tienes 10 items. Cada uno pasa por el workflow.
+            </p>
+        </section>
+
+        <!-- S1-26: Demo -->
+        <section class="slide layout-big-statement" data-slide="36">
+            <span class="section-label">Modulo 3 | Demo</span>
+            <h1 class="animate-in">Manos al <span class="accent">código</span></h1>
+            <p class="support animate-in">Creemos nuestro primer workflow juntos</p>
+            <div class="animate-in" style="margin-top: 2rem; color: var(--text-secondary);">
+                <p>1. Nuevo workflow</p>
+                <p>2. Manual Trigger</p>
+                <p>3. Nodo Set</p>
+                <p>4. Ejecutar y ver output</p>
+            </div>
+        </section>
+
+        <!-- Ejercicio 3: Workflow -->
+        <section class="slide layout-big-statement" data-slide="37">
+            <span class="section-label">Ejercicio 3</span>
+            <h1 class="animate-in">Tu <span class="accent">turno</span></h1>
+            <p class="support animate-in">15 minutos para crear tu primer workflow</p>
+            <div class="animate-in" style="margin-top: 2rem;">
+                <p style="font-size: 1.25rem; color: var(--text-secondary);">
+                    1. Crea un nuevo workflow<br>
+                    2. Agrega Manual Trigger<br>
+                    3. Agrega nodo Set<br>
+                    4. Campo: <code>saludo</code> = <code>Hola desde n8n, soy [tu nombre]!</code><br>
+                    5. Ejecuta y verifica el output
+                </p>
+            </div>
+            <p class="animate-in" style="color: var(--accent-green); margin-top: 2rem;">
+                Levanta la mano cuando veas tu mensaje
+            </p>
+        </section>
+
+        <!-- S1-27b: Expresiones -->
+        <section class="slide layout-2col" data-slide="38">
+            <span class="section-label">Modulo 3</span>
+            <h2>Expresiones en n8n</h2>
+            <div class="col animate-in">
+                <h3>Sintaxis</h3>
+                <div class="code-block">
+{{ $json.campo }}
+                </div>
+                <ul>
+                    <li><code>$json</code> = datos del nodo anterior</li>
+                    <li><code>.campo</code> = nombre del campo</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Ejemplos</h3>
+                <div class="code-block">
+{{ $json.email }}
+→ "cliente@mail.com"
+
+{{ $json.nombre }}
+→ "Maria"
+
+{{ $json.fecha }}
+→ "2024-01-15"
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- PROYECTO: GMAIL → SHEETS -->
+        <!-- ========================================== -->
+
+        <!-- S1-28: Titulo Proyecto -->
+        <section class="slide layout-divider" data-slide="40">
+            <div class="module-number" style="font-size: 5rem;">P1</div>
+            <h1 class="animate-in">Gmail → Sheets</h1>
+            <p class="subtitle animate-in">Registra emails automáticamente en una hoja de cálculo</p>
+        </section>
+
+        <!-- S1-29: Que vamos a construir -->
+        <section class="slide layout-visual" data-slide="41">
+            <span class="section-label">Proyecto 1</span>
+            <h2 class="animate-in">¿Qué vamos a construir?</h2>
+            <div class="diagram animate-in">
+                <div class="diagram-box highlight">
+                    <strong>Gmail</strong><br>
+                    <small>Trigger</small>
+                </div>
+                <div class="diagram-arrow">→</div>
+                <div class="diagram-box">
+                    <strong>n8n</strong><br>
+                    <small>Procesa</small>
+                </div>
+                <div class="diagram-arrow">→</div>
+                <div class="diagram-box highlight">
+                    <strong>Sheets</strong><br>
+                    <small>Registra</small>
+                </div>
+            </div>
+            <p class="animate-in" style="color: var(--text-secondary); margin-top: 2rem;">
+                Cada email que llegue crea una fila automáticamente
+            </p>
+        </section>
+
+        <!-- S1-30: Paso 1 -->
+        <section class="slide layout-2col" data-slide="42">
+            <span class="section-label">Proyecto 1 | Paso 1</span>
+            <h2>Crear hoja de <span class="accent">prueba</span></h2>
+            <div class="col animate-in">
+                <h3>Instrucciones</h3>
+                <ul>
+                    <li>Abrir Google Sheets</li>
+                    <li>Crear nueva hoja: "Registro de Emails"</li>
+                    <li>Agregar encabezados en fila 1</li>
+                    <li>Guardar</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Encabezados</h3>
+                <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1rem; font-family: var(--font-mono);">
+                    <span style="color: var(--accent-blue);">A1:</span> Remitente<br>
+                    <span style="color: var(--accent-blue);">B1:</span> Asunto<br>
+                    <span style="color: var(--accent-blue);">C1:</span> Fecha
+                </div>
+            </div>
+        </section>
+
+        <!-- S1-31: Conectar Gmail -->
+        <section class="slide layout-big-statement" data-slide="43">
+            <span class="section-label">Proyecto 1 | Paso 2</span>
+            <h1 class="animate-in">Conectar <span class="accent">Gmail</span></h1>
+            <p class="support animate-in">Demo: Credenciales OAuth</p>
+            <div class="animate-in" style="margin-top: 2rem; color: var(--text-secondary);">
+                <p>Credentials → Add Credential → Gmail OAuth2 → Sign in with Google</p>
+            </div>
+        </section>
+
+        <!-- S1-32: Conectar Sheets -->
+        <section class="slide layout-big-statement" data-slide="44">
+            <span class="section-label">Proyecto 1 | Paso 3</span>
+            <h1 class="animate-in">Conectar <span class="accent">Sheets</span></h1>
+            <p class="support animate-in">Misma cuenta de Google</p>
+            <div class="animate-in" style="margin-top: 2rem; color: var(--text-secondary);">
+                <p>Credentials → Add Credential → Google Sheets OAuth2</p>
+            </div>
+        </section>
+
+        <!-- S1-33: Gmail Trigger -->
+        <section class="slide layout-2col" data-slide="45">
+            <span class="section-label">Proyecto 1 | Paso 4</span>
+            <h2>Gmail <span class="accent">Trigger</span></h2>
+            <div class="col animate-in">
+                <h3>Configuracion</h3>
+                <ul>
+                    <li>Agregar nodo "Gmail Trigger"</li>
+                    <li>Event: "Message Received"</li>
+                    <li>Credential: Seleccionar</li>
+                    <li>(Opcional) Filtrar por label</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Estructura del email</h3>
+                <div class="code-block" style="font-size: 0.8rem;">
+{
+  <span class="property">"from"</span>: {
+    <span class="property">"value"</span>: [{
+      <span class="property">"address"</span>: <span class="string">"sender@mail.com"</span>
+    }]
+  },
+  <span class="property">"subject"</span>: <span class="string">"Asunto"</span>,
+  <span class="property">"date"</span>: <span class="string">"2024-01-15"</span>
+}
+                </div>
+            </div>
+        </section>
+
+        <!-- S1-34: Sheets node -->
+        <section class="slide layout-2col" data-slide="46">
+            <span class="section-label">Proyecto 1 | Paso 5</span>
+            <h2>Google Sheets <span class="accent">Node</span></h2>
+            <div class="col animate-in">
+                <h3>Configuracion</h3>
+                <ul>
+                    <li>Agregar nodo "Google Sheets"</li>
+                    <li>Operation: Append Row</li>
+                    <li>Spreadsheet: "Registro de Emails"</li>
+                    <li>Sheet: "Sheet1"</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Mapeo de campos</h3>
+                <div class="code-block" style="font-size: 0.8rem;">
+<span class="property">Remitente:</span>
+{{ $json.from.value[0].address }}
+
+<span class="property">Asunto:</span>
+{{ $json.subject }}
+
+<span class="property">Fecha:</span>
+{{ $json.date }}
+                </div>
+            </div>
+        </section>
+
+        <!-- S1-35: Probar -->
+        <section class="slide layout-3lines" data-slide="47">
+            <span class="section-label">Proyecto 1 | Paso 6</span>
+            <h2 class="animate-in">Probar el workflow</h2>
+            <div class="line animate-in">
+                <div class="line-number">1</div>
+                <div class="line-text">Conectar Gmail Trigger → Google Sheets</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">2</div>
+                <div class="line-text">Click en <strong>"Test Workflow"</strong></div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">3</div>
+                <div class="line-text">Verificar <strong>nueva fila</strong> en Google Sheets</div>
+            </div>
+        </section>
+
+        <!-- S1-36: Activar -->
+        <section class="slide layout-big-statement" data-slide="48">
+            <span class="section-label">Proyecto 1 | Paso 7</span>
+            <h1 class="animate-in">Hacerlo <span class="accent-green">automático</span></h1>
+            <p class="support animate-in">Toggle "Active" → ON</p>
+            <div class="animate-in" style="margin-top: 2rem; color: var(--text-secondary);">
+                <p>El workflow ahora corre en background</p>
+                <p>n8n revisa Gmail cada 1-2 minutos</p>
+            </div>
+        </section>
+
+        <!-- S1-37: Debugging -->
+        <section class="slide layout-2col" data-slide="49">
+            <span class="section-label">Proyecto 1 | Debugging</span>
+            <h2><span class="accent">Debugging</span></h2>
+            <div class="col animate-in">
+                <h3>Ver ejecuciones</h3>
+                <ul>
+                    <li>Click en "Executions"</li>
+                    <li class="check">Verde = exito</li>
+                    <li class="cross">Rojo = error</li>
+                    <li>Click para ver detalles</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Errores comunes</h3>
+                <ul>
+                    <li>Credencial expirada → Reconectar</li>
+                    <li>Campo no encontrado → Revisar expresión</li>
+                    <li>Rate limit → Esperar</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- El Espectro de Automatización -->
+        <section class="slide layout-visual" data-slide="50">
+            <span class="section-label">El Panorama</span>
+            <h2 class="animate-in">Del if/else a la <span class="accent">autonomía</span></h2>
+            <div class="spectrum animate-in">
+                <div class="spectrum-bar">
+                    <div class="spectrum-marker" style="left: 10%;"></div>
+                </div>
+                <div class="spectrum-labels">
+                    <div class="spectrum-label">
+                        <h4 style="color: var(--accent-blue);">REGLAS</h4>
+                        <p>"Si X, hacer Y"</p>
+                        <p style="font-size: 0.75rem; margin-top: 0.5rem;">Zapier básico</p>
+                    </div>
+                    <div class="spectrum-label">
+                        <h4 style="color: var(--accent-purple);">IA</h4>
+                        <p>"Analizar y recomendar"</p>
+                        <p style="font-size: 0.75rem; margin-top: 0.5rem;">GPT clasificando</p>
+                    </div>
+                    <div class="spectrum-label">
+                        <h4 style="color: var(--accent-green);">AGENTES</h4>
+                        <p>"Decidir y actuar"</p>
+                        <p style="font-size: 0.75rem; margin-top: 0.5rem;">Autonomía total</p>
+                    </div>
+                </div>
+            </div>
+            <p class="animate-in" style="color: var(--text-secondary); margin-top: 2rem;">
+                Hoy empezamos a la izquierda, terminamos a la derecha
+            </p>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- CIERRE -->
+        <!-- ========================================== -->
+
+        <!-- Checklist -->
+        <section class="slide layout-visual" data-slide="51">
+            <span class="section-label">Cierre</span>
+            <h2 class="animate-in">Hoy <span class="accent-green">aprendiste</span></h2>
+            <div class="checklist animate-in" style="margin: 2rem auto;">
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <span>Como funciónan los LLMs (tokens, contexto)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <span>Qué es una automatización</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <span>Navegar n8n y crear workflows</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <span>Conectar Gmail y Google Sheets</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <span>Debuggear ejecuciones</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview Sesión 2 -->
+        <section class="slide layout-big-statement" data-slide="52">
+            <span class="section-label">Próximo</span>
+            <h1 class="animate-in">Sesión <span class="accent">2</span></h1>
+            <p class="support animate-in">IA en Workflows</p>
+            <div class="animate-in" style="margin-top: 2rem; color: var(--text-secondary);">
+                <p>Agregamos inteligencia artificial a las automatizaciones</p>
+                <p>Clasificacion automatica con GPT</p>
+                <p>Generacion de contenido</p>
+            </div>
         </section>
 
         <!-- Gracias -->
