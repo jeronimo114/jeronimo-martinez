@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Idea de App</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.4);
+            --text: #ffffff;
+            --text-dim: #71717a;
+            --success: #22c55e;
+            --error: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Progress bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--card);
+            z-index: 100;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), #a855f7);
+            width: 0%;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step-counter {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            font-size: 0.875rem;
+            color: var(--text-dim);
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Questions */
+        .question {
+            position: absolute;
+            width: 100%;
+            max-width: 600px;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(40px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .question.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .question.exit-up {
+            opacity: 0;
+            transform: translateY(-40px);
+        }
+
+        .question-number {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .question-number svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .question h2 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .question p {
+            color: var(--text-dim);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Inputs */
+        .input-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 1.25rem;
+            font-size: 1.125rem;
+            background: var(--card);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            color: var(--text);
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--text-dim);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: none;
+        }
+
+        /* Options */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--card);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: #333;
+            transform: translateX(4px);
+        }
+
+        .option.selected {
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .option-key {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-dim);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .option.selected .option-key {
+            background: var(--accent);
+            color: white;
+        }
+
+        .option-text {
+            font-size: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--accent-glow);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-secondary {
+            background: var(--card);
+            color: var(--text-dim);
+        }
+
+        .btn-secondary:hover {
+            background: #222;
+            color: var(--text);
+            box-shadow: none;
+        }
+
+        /* Keyboard hint */
+        .keyboard-hint {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8125rem;
+            color: var(--text-dim);
+        }
+
+        .key {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.25rem 0.5rem;
+            background: var(--card);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Success screen */
+        .success-screen {
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            animation: fall 3s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Loading */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Welcome animation */
+        .welcome-emoji {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: wave 1s ease-in-out;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container { padding: 1.5rem; }
+            .question { padding: 1rem; }
+            .keyboard-hint { display: none; }
+            .option { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+        <span class="step-counter" id="counter"></span>
+
+        <!-- Q0: Welcome -->
+        <div class="question active" data-step="0">
+            <div class="welcome-emoji">👋</div>
+            <h2>Cuéntanos tu idea de app</h2>
+            <p>Queremos saber qué aplicación sueñas construir. Tus respuestas nos ayudarán a elegir un proyecto para desarrollar juntos.</p>
+            <div class="btn-group">
+                <button class="btn" onclick="nextStep()">
+                    Empezar
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Q1: Nombre -->
+        <div class="question" data-step="1">
+            <span class="question-number">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a7.5 7.5 0 0115 0"/></svg>
+                Pregunta 1
+            </span>
+            <h2>¿Cómo te llamas?</h2>
+            <p>Tu nombre para identificar tu idea</p>
+            <div class="input-wrapper">
+                <input type="text" id="nombre" placeholder="Escribe tu nombre..." autofocus>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="prevStep()">Atrás</button>
+                <button class="btn" onclick="nextStep()" id="btn1">
+                    Continuar
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Q2: Tipo de app -->
+        <div class="question" data-step="2">
+            <span class="question-number">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 15h6"/></svg>
+                Pregunta 2
+            </span>
+            <h2>¿Qué tipo de aplicación te gustaría crear?</h2>
+            <p>Selecciona la categoría que más te interesa</p>
+            <div class="options">
+                <div class="option" data-value="Automatización de tareas" onclick="selectOption(this, 'tipo')">
+                    <span class="option-key">A</span>
+                    <span class="option-text">Automatización de tareas repetitivas</span>
+                </div>
+                <div class="option" data-value="Asistente IA" onclick="selectOption(this, 'tipo')">
+                    <span class="option-key">B</span>
+                    <span class="option-text">Asistente virtual con IA</span>
+                </div>
+                <div class="option" data-value="Análisis de datos" onclick="selectOption(this, 'tipo')">
+                    <span class="option-key">C</span>
+                    <span class="option-text">Análisis o procesamiento de datos</span>
+                </div>
+                <div class="option" data-value="Integración de servicios" onclick="selectOption(this, 'tipo')">
+                    <span class="option-key">D</span>
+                    <span class="option-text">Integración entre servicios/apps</span>
+                </div>
+                <div class="option" data-value="Otro" onclick="selectOption(this, 'tipo')">
+                    <span class="option-key">E</span>
+                    <span class="option-text">Otra cosa (lo cuento después)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q3: Problema -->
+        <div class="question" data-step="3">
+            <span class="question-number">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v.01M12 8v4"/></svg>
+                Pregunta 3
+            </span>
+            <h2>¿Qué problema resolverías?</h2>
+            <p>Describe brevemente el dolor o necesidad que tu app solucionaría</p>
+            <div class="input-wrapper">
+                <textarea id="problema" placeholder="Ej: Paso mucho tiempo copiando datos entre Excel y mi CRM..."></textarea>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="prevStep()">Atrás</button>
+                <button class="btn" onclick="nextStep()" id="btn3">
+                    Continuar
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Q4: Para quién -->
+        <div class="question" data-step="4">
+            <span class="question-number">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                Pregunta 4
+            </span>
+            <h2>¿Para quién sería útil?</h2>
+            <p>¿Quién usaría esta aplicación?</p>
+            <div class="options">
+                <div class="option" data-value="Para mí" onclick="selectOption(this, 'usuario')">
+                    <span class="option-key">A</span>
+                    <span class="option-text">Solo para mí</span>
+                </div>
+                <div class="option" data-value="Mi equipo/empresa" onclick="selectOption(this, 'usuario')">
+                    <span class="option-key">B</span>
+                    <span class="option-text">Mi equipo o empresa</span>
+                </div>
+                <div class="option" data-value="Clientes" onclick="selectOption(this, 'usuario')">
+                    <span class="option-key">C</span>
+                    <span class="option-text">Mis clientes</span>
+                </div>
+                <div class="option" data-value="Público general" onclick="selectOption(this, 'usuario')">
+                    <span class="option-key">D</span>
+                    <span class="option-text">Cualquier persona</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q5: Idea libre -->
+        <div class="question" data-step="5">
+            <span class="question-number">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Pregunta 5
+            </span>
+            <h2>Describe tu idea en una frase</h2>
+            <p>Si tuvieras que explicar tu app en 1 oración, ¿qué dirías?</p>
+            <div class="input-wrapper">
+                <textarea id="idea" placeholder="Ej: Una app que lea mis emails y cree automáticamente tareas en Notion..."></textarea>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="prevStep()">Atrás</button>
+                <button class="btn" onclick="submitForm()" id="btnSubmit">
+                    Enviar idea
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Success -->
+        <div class="question" data-step="6">
+            <div class="success-screen">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <h2>¡Gracias por tu idea!</h2>
+                <p>La revisaremos y elegiremos las más votadas para construir juntos en clase.</p>
+            </div>
+        </div>
+
+        <div class="keyboard-hint" id="hint">
+            Presiona <span class="key">Enter ↵</span> para continuar
+        </div>
+    </div>
+
+    <script>
+        const WEBHOOK_URL = 'https://jeronimo114.app.n8n.cloud/webhook-test/31f58804-884c-4eb2-bebc-49f4e365e253';
+
+        let currentStep = 0;
+        const totalSteps = 6;
+        const formData = {
+            nombre: '',
+            tipo: '',
+            problema: '',
+            usuario: '',
+            idea: '',
+            timestamp: ''
+        };
+
+        const questions = document.querySelectorAll('.question');
+        const progress = document.getElementById('progress');
+        const counter = document.getElementById('counter');
+        const hint = document.getElementById('hint');
+
+        function updateUI() {
+            // Update progress
+            const pct = (currentStep / (totalSteps - 1)) * 100;
+            progress.style.width = `${pct}%`;
+
+            // Update counter
+            if (currentStep > 0 && currentStep < totalSteps) {
+                counter.textContent = `${currentStep} / ${totalSteps - 1}`;
+                counter.style.display = 'block';
+            } else {
+                counter.style.display = 'none';
+            }
+
+            // Update hint visibility
+            hint.style.display = (currentStep > 0 && currentStep < totalSteps) ? 'flex' : 'none';
+        }
+
+        function showStep(step, direction = 'next') {
+            const current = document.querySelector('.question.active');
+            const next = document.querySelector(`[data-step="${step}"]`);
+
+            if (current) {
+                current.classList.remove('active');
+                if (direction === 'next') {
+                    current.classList.add('exit-up');
+                }
+                setTimeout(() => current.classList.remove('exit-up'), 500);
+            }
+
+            if (next) {
+                next.classList.add('active');
+                // Focus input if exists
+                const input = next.querySelector('input, textarea');
+                if (input) setTimeout(() => input.focus(), 300);
+            }
+
+            currentStep = step;
+            updateUI();
+        }
+
+        function nextStep() {
+            // Validate current step
+            if (currentStep === 1) {
+                const nombre = document.getElementById('nombre').value.trim();
+                if (!nombre) {
+                    shakeInput('nombre');
+                    return;
+                }
+                formData.nombre = nombre;
+            }
+
+            if (currentStep === 2 && !formData.tipo) {
+                return; // Must select option
+            }
+
+            if (currentStep === 3) {
+                const problema = document.getElementById('problema').value.trim();
+                if (!problema) {
+                    shakeInput('problema');
+                    return;
+                }
+                formData.problema = problema;
+            }
+
+            if (currentStep === 4 && !formData.usuario) {
+                return;
+            }
+
+            if (currentStep === 5) {
+                const idea = document.getElementById('idea').value.trim();
+                if (!idea) {
+                    shakeInput('idea');
+                    return;
+                }
+                formData.idea = idea;
+            }
+
+            if (currentStep < totalSteps) {
+                showStep(currentStep + 1, 'next');
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 0) {
+                showStep(currentStep - 1, 'prev');
+            }
+        }
+
+        function selectOption(element, field) {
+            const options = element.parentElement.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            formData[field] = element.dataset.value;
+
+            // Auto advance after selection
+            setTimeout(() => nextStep(), 300);
+        }
+
+        function shakeInput(id) {
+            const el = document.getElementById(id);
+            el.style.animation = 'none';
+            el.offsetHeight; // Trigger reflow
+            el.style.animation = 'shake 0.5s ease';
+            el.style.borderColor = 'var(--error)';
+            setTimeout(() => {
+                el.style.borderColor = 'transparent';
+            }, 1000);
+        }
+
+        async function submitForm() {
+            const btn = document.getElementById('btnSubmit');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading"></span> Enviando...';
+
+            formData.timestamp = new Date().toISOString();
+
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                showStep(6);
+                createConfetti();
+            } catch (error) {
+                console.error('Error:', error);
+                btn.disabled = false;
+                btn.innerHTML = 'Enviar idea <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+                alert('Hubo un error. Por favor intenta de nuevo.');
+            }
+        }
+
+        function createConfetti() {
+            const colors = ['#6366f1', '#a855f7', '#22c55e', '#eab308', '#ef4444'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                if (currentStep === 5) {
+                    submitForm();
+                } else if (currentStep < totalSteps) {
+                    nextStep();
+                }
+            }
+
+            // Option shortcuts (A, B, C, D, E)
+            if (currentStep === 2 || currentStep === 4) {
+                const keys = { 'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4 };
+                const key = e.key.toLowerCase();
+                if (keys.hasOwnProperty(key)) {
+                    const options = document.querySelector(`[data-step="${currentStep}"]`).querySelectorAll('.option');
+                    if (options[keys[key]]) {
+                        selectOption(options[keys[key]], currentStep === 2 ? 'tipo' : 'usuario');
+                    }
+                }
+            }
+        });
+
+        // Add shake animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-8px); }
+                75% { transform: translateX(8px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize
+        updateUI();
+    </script>
+</body>
+</html>
