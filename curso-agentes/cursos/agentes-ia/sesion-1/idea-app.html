@@ -623,24 +623,21 @@
             console.log('URL:', WEBHOOK_URL);
 
             try {
-                const response = await fetch(WEBHOOK_URL, {
+                await fetch(WEBHOOK_URL, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    mode: 'cors',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify(formData)
                 });
 
-                console.log('Response status:', response.status);
-                console.log('Response ok:', response.ok);
-
+                console.log('Datos enviados:', formData);
                 showStep(5);
                 createConfetti();
             } catch (error) {
-                console.error('Error completo:', error);
-                console.error('Error message:', error.message);
+                console.error('Error:', error);
                 btn.disabled = false;
                 btn.innerHTML = 'Enviar idea <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
-                alert('Error: ' + error.message);
+                alert('Error al enviar. Intenta de nuevo.');
             }
         }
 
