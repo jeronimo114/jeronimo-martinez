@@ -400,35 +400,23 @@
             </div>
         </div>
 
-        <!-- Q2: Tipo de app -->
+        <!-- Q2: Idea libre (movido aquí) -->
         <div class="question" data-step="2">
             <span class="question-number">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 15h6"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 Pregunta 2
             </span>
-            <h2>¿Qué tipo de aplicación te gustaría crear?</h2>
-            <p>Selecciona la categoría que más te interesa</p>
-            <div class="options">
-                <div class="option" data-value="Automatización de tareas" onclick="selectOption(this, 'tipo')">
-                    <span class="option-key">A</span>
-                    <span class="option-text">Automatización de tareas repetitivas</span>
-                </div>
-                <div class="option" data-value="Asistente IA" onclick="selectOption(this, 'tipo')">
-                    <span class="option-key">B</span>
-                    <span class="option-text">Asistente virtual con IA</span>
-                </div>
-                <div class="option" data-value="Análisis de datos" onclick="selectOption(this, 'tipo')">
-                    <span class="option-key">C</span>
-                    <span class="option-text">Análisis o procesamiento de datos</span>
-                </div>
-                <div class="option" data-value="Integración de servicios" onclick="selectOption(this, 'tipo')">
-                    <span class="option-key">D</span>
-                    <span class="option-text">Integración entre servicios/apps</span>
-                </div>
-                <div class="option" data-value="Otro" onclick="selectOption(this, 'tipo')">
-                    <span class="option-key">E</span>
-                    <span class="option-text">Otra cosa (lo cuento después)</span>
-                </div>
+            <h2>¿Qué aplicación te sueñas?</h2>
+            <p>Describe tu idea en una frase</p>
+            <div class="input-wrapper">
+                <textarea id="idea" placeholder="Ej: Una app que lea mis emails y cree automáticamente tareas en Notion..."></textarea>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="prevStep()">Atrás</button>
+                <button class="btn" onclick="nextStep()" id="btn2">
+                    Continuar
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
             </div>
         </div>
 
@@ -452,7 +440,7 @@
             </div>
         </div>
 
-        <!-- Q4: Para quién -->
+        <!-- Q4: Para quién (última pregunta - enviar) -->
         <div class="question" data-step="4">
             <span class="question-number">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -461,47 +449,27 @@
             <h2>¿Para quién sería útil?</h2>
             <p>¿Quién usaría esta aplicación?</p>
             <div class="options">
-                <div class="option" data-value="Para mí" onclick="selectOption(this, 'usuario')">
+                <div class="option" data-value="Para mí" onclick="selectOptionAndSubmit(this, 'usuario')">
                     <span class="option-key">A</span>
                     <span class="option-text">Solo para mí</span>
                 </div>
-                <div class="option" data-value="Mi equipo/empresa" onclick="selectOption(this, 'usuario')">
+                <div class="option" data-value="Mi equipo/empresa" onclick="selectOptionAndSubmit(this, 'usuario')">
                     <span class="option-key">B</span>
                     <span class="option-text">Mi equipo o empresa</span>
                 </div>
-                <div class="option" data-value="Clientes" onclick="selectOption(this, 'usuario')">
+                <div class="option" data-value="Clientes" onclick="selectOptionAndSubmit(this, 'usuario')">
                     <span class="option-key">C</span>
                     <span class="option-text">Mis clientes</span>
                 </div>
-                <div class="option" data-value="Público general" onclick="selectOption(this, 'usuario')">
+                <div class="option" data-value="Público general" onclick="selectOptionAndSubmit(this, 'usuario')">
                     <span class="option-key">D</span>
                     <span class="option-text">Cualquier persona</span>
                 </div>
             </div>
         </div>
 
-        <!-- Q5: Idea libre -->
-        <div class="question" data-step="5">
-            <span class="question-number">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                Pregunta 5
-            </span>
-            <h2>Describe tu idea en una frase</h2>
-            <p>Si tuvieras que explicar tu app en 1 oración, ¿qué dirías?</p>
-            <div class="input-wrapper">
-                <textarea id="idea" placeholder="Ej: Una app que lea mis emails y cree automáticamente tareas en Notion..."></textarea>
-            </div>
-            <div class="btn-group">
-                <button class="btn btn-secondary" onclick="prevStep()">Atrás</button>
-                <button class="btn" onclick="submitForm()" id="btnSubmit">
-                    Enviar idea
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                </button>
-            </div>
-        </div>
-
         <!-- Success -->
-        <div class="question" data-step="6">
+        <div class="question" data-step="5">
             <div class="success-screen">
                 <div class="success-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
@@ -517,16 +485,15 @@
     </div>
 
     <script>
-        const WEBHOOK_URL = 'https://jeronimo114.app.n8n.cloud/webhook-test/31f58804-884c-4eb2-bebc-49f4e365e253';
+        const WEBHOOK_URL = 'https://jeronimo114.app.n8n.cloud/webhook/31f58804-884c-4eb2-bebc-49f4e365e253';
 
         let currentStep = 0;
-        const totalSteps = 6;
+        const totalSteps = 5;
         const formData = {
             nombre: '',
-            tipo: '',
+            idea: '',
             problema: '',
             usuario: '',
-            idea: '',
             timestamp: ''
         };
 
@@ -586,8 +553,13 @@
                 formData.nombre = nombre;
             }
 
-            if (currentStep === 2 && !formData.tipo) {
-                return; // Must select option
+            if (currentStep === 2) {
+                const idea = document.getElementById('idea').value.trim();
+                if (!idea) {
+                    shakeInput('idea');
+                    return;
+                }
+                formData.idea = idea;
             }
 
             if (currentStep === 3) {
@@ -597,19 +569,6 @@
                     return;
                 }
                 formData.problema = problema;
-            }
-
-            if (currentStep === 4 && !formData.usuario) {
-                return;
-            }
-
-            if (currentStep === 5) {
-                const idea = document.getElementById('idea').value.trim();
-                if (!idea) {
-                    shakeInput('idea');
-                    return;
-                }
-                formData.idea = idea;
             }
 
             if (currentStep < totalSteps) {
@@ -631,6 +590,16 @@
 
             // Auto advance after selection
             setTimeout(() => nextStep(), 300);
+        }
+
+        function selectOptionAndSubmit(element, field) {
+            const options = element.parentElement.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            formData[field] = element.dataset.value;
+
+            // Submit after selection (last question)
+            setTimeout(() => submitForm(), 300);
         }
 
         function shakeInput(id) {
@@ -658,7 +627,7 @@
                     body: JSON.stringify(formData)
                 });
 
-                showStep(6);
+                showStep(5);
                 createConfetti();
             } catch (error) {
                 console.error('Error:', error);
@@ -685,21 +654,19 @@
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
-                if (currentStep === 5) {
-                    submitForm();
-                } else if (currentStep < totalSteps) {
+                if (currentStep < totalSteps) {
                     nextStep();
                 }
             }
 
-            // Option shortcuts (A, B, C, D, E)
-            if (currentStep === 2 || currentStep === 4) {
-                const keys = { 'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4 };
+            // Option shortcuts (A, B, C, D) for step 4 (usuario)
+            if (currentStep === 4) {
+                const keys = { 'a': 0, 'b': 1, 'c': 2, 'd': 3 };
                 const key = e.key.toLowerCase();
                 if (keys.hasOwnProperty(key)) {
                     const options = document.querySelector(`[data-step="${currentStep}"]`).querySelectorAll('.option');
                     if (options[keys[key]]) {
-                        selectOption(options[keys[key]], currentStep === 2 ? 'tipo' : 'usuario');
+                        selectOptionAndSubmit(options[keys[key]], 'usuario');
                     }
                 }
             }
