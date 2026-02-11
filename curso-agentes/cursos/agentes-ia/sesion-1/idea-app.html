@@ -619,20 +619,28 @@
 
             formData.timestamp = new Date().toISOString();
 
+            console.log('Enviando datos:', formData);
+            console.log('URL:', WEBHOOK_URL);
+
             try {
-                await fetch(WEBHOOK_URL, {
+                const response = await fetch(WEBHOOK_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
+                    mode: 'cors',
                     body: JSON.stringify(formData)
                 });
+
+                console.log('Response status:', response.status);
+                console.log('Response ok:', response.ok);
 
                 showStep(5);
                 createConfetti();
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error completo:', error);
+                console.error('Error message:', error.message);
                 btn.disabled = false;
                 btn.innerHTML = 'Enviar idea <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
-                alert('Hubo un error. Por favor intenta de nuevo.');
+                alert('Error: ' + error.message);
             }
         }
 
