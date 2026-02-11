@@ -449,22 +449,29 @@
             <h2>¿Para quién sería útil?</h2>
             <p>¿Quién usaría esta aplicación?</p>
             <div class="options">
-                <div class="option" data-value="Para mí" onclick="selectOptionAndSubmit(this, 'usuario')">
+                <div class="option" data-value="Para mí" onclick="selectOption(this, 'usuario', false)">
                     <span class="option-key">A</span>
                     <span class="option-text">Solo para mí</span>
                 </div>
-                <div class="option" data-value="Mi equipo/empresa" onclick="selectOptionAndSubmit(this, 'usuario')">
+                <div class="option" data-value="Mi equipo/empresa" onclick="selectOption(this, 'usuario', false)">
                     <span class="option-key">B</span>
                     <span class="option-text">Mi equipo o empresa</span>
                 </div>
-                <div class="option" data-value="Clientes" onclick="selectOptionAndSubmit(this, 'usuario')">
+                <div class="option" data-value="Clientes" onclick="selectOption(this, 'usuario', false)">
                     <span class="option-key">C</span>
                     <span class="option-text">Mis clientes</span>
                 </div>
-                <div class="option" data-value="Público general" onclick="selectOptionAndSubmit(this, 'usuario')">
+                <div class="option" data-value="Público general" onclick="selectOption(this, 'usuario', false)">
                     <span class="option-key">D</span>
                     <span class="option-text">Cualquier persona</span>
                 </div>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="prevStep()">Atrás</button>
+                <button class="btn" onclick="submitForm()" id="btnSubmit">
+                    Enviar idea
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </button>
             </div>
         </div>
 
@@ -582,24 +589,16 @@
             }
         }
 
-        function selectOption(element, field) {
+        function selectOption(element, field, autoAdvance = true) {
             const options = element.parentElement.querySelectorAll('.option');
             options.forEach(opt => opt.classList.remove('selected'));
             element.classList.add('selected');
             formData[field] = element.dataset.value;
 
-            // Auto advance after selection
-            setTimeout(() => nextStep(), 300);
-        }
-
-        function selectOptionAndSubmit(element, field) {
-            const options = element.parentElement.querySelectorAll('.option');
-            options.forEach(opt => opt.classList.remove('selected'));
-            element.classList.add('selected');
-            formData[field] = element.dataset.value;
-
-            // Submit after selection (last question)
-            setTimeout(() => submitForm(), 300);
+            // Auto advance after selection (if enabled)
+            if (autoAdvance) {
+                setTimeout(() => nextStep(), 300);
+            }
         }
 
         function shakeInput(id) {
@@ -654,7 +653,9 @@
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
-                if (currentStep < totalSteps) {
+                if (currentStep === 4 && formData.usuario) {
+                    submitForm();
+                } else if (currentStep < totalSteps) {
                     nextStep();
                 }
             }
@@ -666,7 +667,7 @@
                 if (keys.hasOwnProperty(key)) {
                     const options = document.querySelector(`[data-step="${currentStep}"]`).querySelectorAll('.option');
                     if (options[keys[key]]) {
-                        selectOptionAndSubmit(options[keys[key]], 'usuario');
+                        selectOption(options[keys[key]], 'usuario', false);
                     }
                 }
             }
