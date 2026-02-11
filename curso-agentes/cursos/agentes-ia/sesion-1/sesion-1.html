@@ -727,7 +727,7 @@
         <div class="progress-bar">
             <div class="progress-fill" id="progress"></div>
         </div>
-        <span class="slide-counter" id="counter">1 / 74</span>
+        <span class="slide-counter" id="counter">1 / 80</span>
 
         <!-- ========================================== -->
         <!-- APERTURA -->
@@ -1347,6 +1347,196 @@
             <p class="animate-in" style="color: var(--accent-green); margin-top: 1.5rem;">
                 ⏱️ 10 minutos para personalizar tu asistente
             </p>
+        </section>
+
+        <!-- Los 4 Frentes de Personalización -->
+        <section class="slide layout-visual" data-slide="17">
+            <span class="section-label">Personalización</span>
+            <h2 class="animate-in">Los <span class="accent">4 Frentes</span> para dominar tu LLM</h2>
+            <div class="animate-in" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 700px; margin: 2rem auto;">
+                <div style="background: rgba(0,122,255,0.1); border-radius: 12px; padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2.5rem;">🧠</div>
+                    <h3 style="margin: 0.5rem 0;">Memoria</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Que te recuerde</p>
+                </div>
+                <div style="background: rgba(147,51,234,0.1); border-radius: 12px; padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2.5rem;">⚙️</div>
+                    <h3 style="margin: 0.5rem 0;">Instrucciones</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Cómo debe comportarse</p>
+                </div>
+                <div style="background: rgba(16,185,129,0.1); border-radius: 12px; padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2.5rem;">📝</div>
+                    <h3 style="margin: 0.5rem 0;">Markdown</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Estructura tus prompts</p>
+                </div>
+                <div style="background: rgba(245,158,11,0.1); border-radius: 12px; padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2.5rem;">🔧</div>
+                    <h3 style="margin: 0.5rem 0;">Herramientas</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Conecta con el mundo</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frente 1: Memoria -->
+        <section class="slide layout-2col" data-slide="18">
+            <span class="section-label">Frente 1</span>
+            <h2>🧠 <span class="accent">Memoria</span> Persistente</h2>
+            <div class="col animate-in">
+                <h3>¿Qué es?</h3>
+                <p>El LLM recuerda información sobre ti entre conversaciones.</p>
+                <ul style="margin-top: 1rem;">
+                    <li>Tu nombre y profesión</li>
+                    <li>Tus preferencias</li>
+                    <li>Proyectos en los que trabajas</li>
+                    <li>Estilo de comunicación</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Dónde encontrarlo</h3>
+                <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1rem; margin-top: 0.5rem;">
+                    <p><strong>ChatGPT:</strong> Settings → Personalization → Memory</p>
+                    <p style="margin-top: 0.5rem;"><strong>Claude:</strong> Projects → Project Knowledge</p>
+                </div>
+                <p style="color: var(--accent-green); margin-top: 1rem;">💡 Revisa qué ha memorizado y edítalo</p>
+            </div>
+        </section>
+
+        <!-- Frente 2: Instrucciones Personalizadas -->
+        <section class="slide layout-2col" data-slide="19">
+            <span class="section-label">Frente 2</span>
+            <h2>⚙️ <span class="accent">Instrucciones</span> Personalizadas</h2>
+            <div class="col animate-in">
+                <h3>¿Qué es?</h3>
+                <p>Reglas que el LLM sigue en TODAS tus conversaciones.</p>
+                <ul style="margin-top: 1rem;">
+                    <li>Cómo debe responderte</li>
+                    <li>Qué tono usar</li>
+                    <li>Formato de respuestas</li>
+                    <li>Qué evitar</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Ejemplo</h3>
+                <div class="code-block" style="font-size: 0.8rem; text-align: left;">
+"Responde siempre en español.
+Sé conciso, máximo 3 párrafos.
+Si no sabes algo, dilo.
+Usa ejemplos prácticos.
+Evita frases como 'como IA...'
+Mi nivel técnico es avanzado."
+                </div>
+            </div>
+        </section>
+
+        <!-- Frente 3: Markdown -->
+        <section class="slide layout-2col" data-slide="20">
+            <span class="section-label">Frente 3</span>
+            <h2>📝 <span class="accent">Markdown</span> para Prompts</h2>
+            <div class="col animate-in">
+                <h3>¿Por qué usarlo?</h3>
+                <ul>
+                    <li>Estructura clara para el LLM</li>
+                    <li>Separa secciones de tu prompt</li>
+                    <li>Mejores respuestas</li>
+                </ul>
+                <div class="code-block" style="font-size: 0.75rem; text-align: left; margin-top: 1rem;">
+# Contexto
+Soy desarrollador web.
+
+# Tarea  
+Revisa este código.
+
+# Formato
+- Lista de errores
+- Sugerencias de mejora
+                </div>
+            </div>
+            <div class="col animate-in">
+                <h3>Sintaxis básica</h3>
+                <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1rem; font-family: var(--font-mono); font-size: 0.8rem; text-align: left;">
+                    <p><code># Título</code></p>
+                    <p><code>## Subtítulo</code></p>
+                    <p><code>**negrita**</code></p>
+                    <p><code>- lista</code></p>
+                    <p><code>1. numerada</code></p>
+                    <p><code>`código`</code></p>
+                    <p><code>```bloque```</code></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frente 4: Herramientas (MCPs) -->
+        <section class="slide layout-visual" data-slide="21">
+            <span class="section-label">Frente 4</span>
+            <h2>🔧 <span class="accent">Herramientas</span> y MCPs</h2>
+            <p class="animate-in" style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Conecta tu LLM con el mundo exterior
+            </p>
+            <div class="diagram animate-in">
+                <div class="diagram-box">
+                    <strong>🤖 LLM</strong><br>
+                    <small>Claude/GPT</small>
+                </div>
+                <div class="diagram-arrow">↔</div>
+                <div class="diagram-box highlight" style="background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(239,68,68,0.2));">
+                    <strong>🔌 MCP</strong><br>
+                    <small>Protocolo</small>
+                </div>
+                <div class="diagram-arrow">↔</div>
+                <div class="diagram-box">
+                    <strong>🌐 Servicios</strong><br>
+                    <small>APIs, DBs, Apps</small>
+                </div>
+            </div>
+            <div class="animate-in" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                <div style="text-align: center; padding: 1rem;">
+                    <div style="font-size: 1.8rem;">📁</div>
+                    <p style="font-size: 0.85rem;">Archivos locales</p>
+                </div>
+                <div style="text-align: center; padding: 1rem;">
+                    <div style="font-size: 1.8rem;">🗄️</div>
+                    <p style="font-size: 0.85rem;">Bases de datos</p>
+                </div>
+                <div style="text-align: center; padding: 1rem;">
+                    <div style="font-size: 1.8rem;">🌐</div>
+                    <p style="font-size: 0.85rem;">Navegar web</p>
+                </div>
+                <div style="text-align: center; padding: 1rem;">
+                    <div style="font-size: 1.8rem;">📧</div>
+                    <p style="font-size: 0.85rem;">Email</p>
+                </div>
+                <div style="text-align: center; padding: 1rem;">
+                    <div style="font-size: 1.8rem;">📅</div>
+                    <p style="font-size: 0.85rem;">Calendario</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MCPs en detalle -->
+        <section class="slide layout-2col" data-slide="22">
+            <span class="section-label">Frente 4 | Detalle</span>
+            <h2>¿Qué es un <span class="accent">MCP</span>?</h2>
+            <div class="col animate-in">
+                <h3>Model Context Protocol</h3>
+                <p>Estándar abierto creado por Anthropic para conectar LLMs con herramientas externas.</p>
+                <ul style="margin-top: 1rem;">
+                    <li>Un "USB universal" para IAs</li>
+                    <li>Cualquier app puede crear un MCP</li>
+                    <li>El LLM decide cuándo usarlo</li>
+                    <li>Seguro y controlado</li>
+                </ul>
+            </div>
+            <div class="col animate-in">
+                <h3>Ejemplos de MCPs</h3>
+                <div style="background: var(--bg-secondary); border-radius: 8px; padding: 1rem;">
+                    <p>📂 <strong>Filesystem</strong> - Leer/escribir archivos</p>
+                    <p>🔍 <strong>Brave Search</strong> - Buscar en internet</p>
+                    <p>🐙 <strong>GitHub</strong> - Gestionar repos</p>
+                    <p>📊 <strong>Google Sheets</strong> - Manipular datos</p>
+                    <p>🗃️ <strong>PostgreSQL</strong> - Consultar DBs</p>
+                    <p>📝 <strong>Notion</strong> - Gestionar notas</p>
+                </div>
+            </div>
         </section>
 
         <!-- VIDEO: Tipos de Mensajes -->
