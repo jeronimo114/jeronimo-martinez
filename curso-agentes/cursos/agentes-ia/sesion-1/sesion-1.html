@@ -638,18 +638,169 @@
         }
 
         /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            :root {
+                --h1-size: clamp(2rem, 6vw, 4rem);
+                --h2-size: clamp(1.5rem, 4vw, 2.5rem);
+                --support-size: clamp(1rem, 2.5vw, 1.5rem);
+                --slide-padding: clamp(1.5rem, 4vw, 4rem);
+            }
+        }
+
         @media (max-width: 768px) {
+            :root {
+                --h1-size: clamp(1.75rem, 5vw, 2.5rem);
+                --h2-size: clamp(1.25rem, 4vw, 1.75rem);
+                --support-size: clamp(0.9rem, 2vw, 1.25rem);
+                --body-size: clamp(0.875rem, 2vw, 1rem);
+                --slide-padding: 1.25rem;
+            }
+
             .layout-2col {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
+            }
+
+            .layout-3lines {
+                padding-left: 5%;
+                gap: 1.25rem;
+            }
+
+            .line {
+                font-size: 1.1rem;
+                gap: 1rem;
+            }
+
+            .line-number {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
             }
 
             .diagram {
                 flex-direction: column;
+                gap: 1rem;
             }
 
             .diagram-arrow {
                 transform: rotate(90deg);
+            }
+
+            .diagram-box {
+                min-width: 120px;
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.75rem;
+            }
+
+            .visual-box {
+                padding: 1.5rem;
+                max-width: 100%;
+            }
+
+            .code-block {
+                font-size: 0.8rem;
+                padding: 1rem;
+                overflow-x: auto;
+            }
+
+            .token-display {
+                gap: 0.35rem;
+            }
+
+            .token {
+                padding: 0.5rem 0.75rem;
+                font-size: 1rem;
+            }
+
+            .section-label {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin-bottom: 1rem;
+                display: block;
+            }
+
+            .slide-counter {
+                font-size: 0.75rem;
+                right: 12px;
+                top: 8px;
+            }
+
+            .nav-controls {
+                bottom: 12px;
+                gap: 0.5rem;
+            }
+
+            .nav-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .layout-video .video-container iframe,
+            .layout-video .video-container video {
+                height: 50vh;
+            }
+
+            .poll-box {
+                padding: 1.25rem;
+            }
+
+            .spectrum-labels {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            /* Fix grids in slides */
+            [style*="grid-template-columns: repeat(4"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            [style*="grid-template-columns: repeat(3"] {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --h1-size: 1.5rem;
+                --h2-size: 1.25rem;
+                --support-size: 0.9rem;
+                --slide-padding: 1rem;
+            }
+
+            .line {
+                font-size: 1rem;
+            }
+
+            .diagram-box {
+                min-width: 100px;
+                padding: 0.75rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+                font-size: 0.75rem;
+            }
+
+            [style*="grid-template-columns: repeat(4"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            [style*="grid-template-columns: repeat(2"] {
+                grid-template-columns: 1fr !important;
             }
         }
 
