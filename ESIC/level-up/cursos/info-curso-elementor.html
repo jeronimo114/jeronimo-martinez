@@ -1,0 +1,228 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+  .lu-info-wrap {
+    font-family: "DM Sans", sans-serif;
+    box-sizing: border-box;
+  }
+
+  .lu-info-wrap *, .lu-info-wrap *::before, .lu-info-wrap *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .lu-info-container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+  }
+
+  /* ── Headline ── */
+  .lu-info-headline {
+    font-family: "Sofia Sans Extra Condensed", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 600;
+    color: #0B132B;
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  .lu-info-headline em {
+    font-style: normal;
+    color: #0047E9;
+  }
+
+  /* ── Pills row ── */
+  .lu-info-pills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .lu-info-pill {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.4rem;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 19, 63, 0.08);
+    border: 1px solid rgba(0, 19, 63, 0.06);
+  }
+
+  .lu-info-pill-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .lu-info-pill-icon.blue {
+    background: rgba(0, 71, 233, 0.1);
+    color: #0047E9;
+  }
+
+  .lu-info-pill-icon.teal {
+    background: rgba(10, 228, 195, 0.12);
+    color: #059E88;
+  }
+
+  .lu-info-pill-icon.orange {
+    background: rgba(255, 150, 0, 0.12);
+    color: #E08500;
+  }
+
+  .lu-info-pill-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .lu-info-pill-text strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0B132B !important;
+    line-height: 1.3;
+  }
+
+  .lu-info-pill-text span {
+    font-size: 0.78rem;
+    color: #5F6B7A !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+
+  /* ── Mentor + Price ── */
+  .lu-info-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.8rem 2rem;
+    background: #FFFFFF;
+    border-radius: 22px;
+    box-shadow: 0 8px 30px rgba(0, 19, 63, 0.08);
+    border: 1px solid rgba(0, 19, 63, 0.06);
+  }
+
+  .lu-info-mentor {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+  }
+
+  .lu-info-mentor-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0047E9, #001E80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .lu-info-mentor p {
+    font-size: 0.92rem;
+    color: #5F6B7A !important;
+    line-height: 1.55;
+  }
+
+  .lu-info-mentor p strong {
+    color: #0B132B !important;
+    font-weight: 700;
+  }
+
+  .lu-info-price {
+    font-family: "Sofia Sans Extra Condensed", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #0047E9 !important;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  .lu-info-price small {
+    font-size: 0.4em;
+    font-weight: 500;
+    color: #5F6B7A !important;
+    margin-left: 0.2rem;
+    vertical-align: middle;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .lu-info-pills {
+      grid-template-columns: 1fr;
+    }
+
+    .lu-info-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .lu-info-price {
+      font-size: 2.6rem;
+    }
+  }
+</style>
+
+<div class="lu-info-wrap">
+  <div class="lu-info-container">
+
+    <p class="lu-info-headline">Aprende a usar IA en tu trabajo, ideas o negocio, <em>aunque no sepas programar.</em></p>
+
+    <div class="lu-info-pills">
+      <div class="lu-info-pill">
+        <div class="lu-info-pill-icon blue">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="lu-info-pill-text">
+          <strong>Sábado 21 y 28</strong>
+          <span>Febrero 2026</span>
+        </div>
+      </div>
+
+      <div class="lu-info-pill">
+        <div class="lu-info-pill-icon orange">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="lu-info-pill-text">
+          <strong>2 Sábados 4 horas cada uno</strong>
+          <span>Horario</span>
+        </div>
+      </div>
+
+      <div class="lu-info-pill">
+        <div class="lu-info-pill-icon teal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="lu-info-pill-text">
+          <strong>Campus ESIC Medellín</strong>
+          <span>Modalidad presencial</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lu-info-bottom">
+      <div class="lu-info-mentor">
+        <div class="lu-info-mentor-avatar">JE</div>
+        <p>Con <strong>Juan Esteban Jaramillo</strong>, experto en IA, marketing y transformación digital. Certificado de participación ESIC + acceso a herramientas + networking + materiales digitales.</p>
+      </div>
+      <div class="lu-info-price">$750.000 <small>COP</small></div>
+    </div>
+
+  </div>
+</div>

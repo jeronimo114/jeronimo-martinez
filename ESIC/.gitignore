@@ -1,0 +1,11 @@
+# Large PDF files removed (exceeded GitHub 100MB limit)
+# - levelup/Brochure Level Up IA.pdf (94MB)
+# - referencias/brochures/Brochure Máster DB 2026.pdf (58MB)
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+

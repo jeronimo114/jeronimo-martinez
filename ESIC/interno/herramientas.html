@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas IA - ESIC</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Sofia+Sans+Extra+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos Base ESIC (mismo sistema que induccion-2026-1.html) */
+        :root {
+            --brand-blue: #0047E9;
+            --brand-blue-dark: #00133F;
+            --bg: #F8F6F2;
+            --surface: #FFFFFF;
+            --text-main: #0B132B;
+            --radius-xl: 32px;
+            --shadow-soft: 0 20px 50px rgba(0, 19, 63, 0.12);
+            --display-font: "Sofia Sans Extra Condensed", sans-serif;
+            --body-font: "DM Sans", sans-serif;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-main);
+            background: var(--bg);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .esic-container {
+            width: min(1200px, 92%);
+            margin: 0 auto;
+        }
+
+        /* Sección Herramientas */
+        .esic-tools-section {
+            padding: 5rem 0;
+            background: var(--surface);
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .esic-section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .esic-section-tag {
+            font-family: var(--display-font);
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--brand-blue);
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .esic-section-tag::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--brand-blue);
+            margin: 5px auto 0;
+        }
+
+        .esic-section-title {
+            font-family: var(--display-font);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-transform: uppercase;
+            line-height: 1;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* Grid de Herramientas */
+        .esic-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        /* Card Base */
+        .esic-tool-card {
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-decoration: none; /* Quitamos subrayado al ser enlace */
+        }
+
+        .esic-tool-card:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Estilo Lovable */
+        .esic-tool-card.lovable {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        .esic-tool-card.lovable::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15), transparent 60%);
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        /* Estilo Gemini */
+        .esic-tool-card.gemini {
+            background: linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%);
+        }
+
+        .esic-tool-card.gemini::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.2), transparent 70%);
+        }
+
+        /* Contenido Card */
+        .tool-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .tool-logo-text {
+            font-family: "DM Sans", sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .tool-desc {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 400px;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .tool-tag {
+            display: inline-flex;
+            padding: 0.5rem 1.2rem;
+            border-radius: 99px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Badge específico Lovable */
+        .lovable .tool-logo-text { color: #FFFFFF; }
+        .lovable .tool-tag {
+            background:  linear-gradient(90deg, #8B5CF6, #EC4899);
+            color: #fff;
+        }
+
+        /* Badge específico Gemini */
+        .gemini .tool-logo-text { 
+            background: linear-gradient(90deg, #4AA9FF, #AFAEFE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gemini .tool-tag {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #4AA9FF;
+            backdrop-filter: blur(5px);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        @media (max-width: 768px) {
+            .esic-tools-grid { grid-template-columns: 1fr; }
+            .esic-tool-card { min-height: auto; padding: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="esic-tools-section">
+        <div class="esic-container">
+            
+            <div class="esic-section-header">
+                <span class="esic-section-tag">Powered by AI</span>
+                <h2 class="esic-section-title">Nuestras <span>Herramientas</span></h2>
+            </div>
+
+            <div class="esic-tools-grid">
+                
+                <!-- Lovable Card -->
+                <a href="https://lovable.dev" target="_blank" class="esic-tool-card lovable">
+                    <div class="tool-content">
+                        <div class="tool-logo-text">
+                            ❤️ Lovable
+                        </div>
+                        <p class="tool-desc">
+                            Desarrollo web full-stack asistido por IA. De la idea al código desplegado en segundos.
+                        </p>
+                        <span class="tool-tag">Generación de UI</span>
+                    </div>
+                </a>
+
+                <!-- Gemini Card -->
+                <a href="https://gemini.google.com/app" target="_blank" class="esic-tool-card gemini">
+                    <div class="tool-content">
+                        <div class="tool-logo-text">
+                            ✦ Gemini
+                        </div>
+                        <p class="tool-desc">
+                            El modelo multimodal más capaz de Google. Razonamiento, código y análisis visual avanzado.
+                        </p>
+                        <span class="tool-tag">Inteligencia Multimodal</span>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

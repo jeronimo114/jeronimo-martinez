@@ -1,0 +1,139 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+  .lu-mentor-wrap {
+    font-family: "DM Sans", sans-serif;
+    box-sizing: border-box;
+    container-type: inline-size;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible;
+  }
+
+  .lu-mentor-wrap *, .lu-mentor-wrap *::before, .lu-mentor-wrap *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .lu-mentor-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem 2.5rem;
+    padding: 2.2rem 2.8rem;
+    background: #FFFFFF;
+    border-radius: 22px;
+    box-shadow: 0 8px 30px rgba(0, 19, 63, 0.08);
+    border: 1px solid rgba(0, 19, 63, 0.06);
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .lu-mentor-left {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex: 1 1 320px;
+    min-width: 0;
+  }
+
+  .lu-mentor-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #E8EBF0 url('https://esic.co/wp-content/uploads/2026/01/foto-juan.png') center top / 150% no-repeat;
+    flex-shrink: 0;
+  }
+
+  .lu-mentor-left p {
+    font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+    color: #5F6B7A !important;
+    line-height: 1.6;
+    min-width: 0;
+  }
+
+  .lu-mentor-left p strong {
+    color: #0B132B !important;
+    font-weight: 700;
+  }
+
+  .lu-mentor-price {
+    font-family: "Sofia Sans Extra Condensed", sans-serif;
+    font-size: clamp(2.6rem, 3.5vw, 4rem);
+    font-weight: 700;
+    color: #0047E9 !important;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  .lu-mentor-price small {
+    font-size: 0.4em;
+    font-weight: 500;
+    color: #5F6B7A !important;
+    margin-left: 0.2rem;
+    vertical-align: middle;
+  }
+
+  /* Container query: cuando el contenedor es estrecho */
+  @container (max-width: 580px) {
+    .lu-mentor-card {
+      gap: 1.2rem;
+      padding: 1.8rem 1.5rem;
+    }
+
+    .lu-mentor-left {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .lu-mentor-avatar {
+      width: 60px;
+      height: 60px;
+    }
+
+    .lu-mentor-left p {
+      font-size: 0.88rem;
+    }
+
+    .lu-mentor-price {
+      font-size: 2.4rem;
+      width: 100%;
+      text-align: right;
+    }
+  }
+
+  /* Fallback para navegadores sin container queries */
+  @media (max-width: 600px) {
+    .lu-mentor-card {
+      gap: 1.2rem;
+      padding: 1.8rem 1.5rem;
+    }
+
+    .lu-mentor-avatar {
+      width: 60px;
+      height: 60px;
+    }
+
+    .lu-mentor-left p {
+      font-size: 0.88rem;
+    }
+
+    .lu-mentor-price {
+      font-size: 2.4rem;
+      width: 100%;
+      text-align: right;
+    }
+  }
+</style>
+
+<div class="lu-mentor-wrap">
+  <div class="lu-mentor-card">
+    <div class="lu-mentor-left">
+      <div class="lu-mentor-avatar"></div>
+      <p>Con <strong>Juan Esteban Jaramillo</strong>, experto en IA, marketing y transformación digital. Certificado de participación ESIC + acceso a herramientas + networking + materiales digitales.</p>
+    </div>
+    <div class="lu-mentor-price">$750.000 <small>COP</small></div>
+  </div>
+</div>

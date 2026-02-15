@@ -1,0 +1,599 @@
+<!-- Material Inducción 2026-1 - ESIC Medellín -->
+<!-- HTML compatible con Elementor - Estilos embebidos -->
+
+<!-- Carga robusta de fuentes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Permanent+Marker&family=Sofia+Sans+Extra+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================
+   ESIC INDUCCIÓN 2026-1 - ESTILOS EMBEBIDOS
+   ===================================================== */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&family=Bebas+Neue&family=Permanent+Marker&family=Caveat:wght@700&display=swap');
+
+/* Variables ESIC */
+.esic-induccion-wrapper {
+  --brand-blue: #0047E9;
+  --brand-blue-dark: #00133F;
+  --brand-teal: #0AE4C3;
+  --brand-orange: #FF9600;
+  --brand-orange-strong: #FE5000;
+  --bg: #F8F6F2;
+  --surface: #FFFFFF;
+  --surface-muted: #F4F1ED;
+  --text: #0B132B;
+  --text-muted: #5F6B7A;
+  --shadow-soft: 0 20px 50px rgba(0, 19, 63, 0.12);
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --display-font: "Sofia Sans Extra Condensed", sans-serif;
+  --body-font: "DM Sans", sans-serif;
+  
+  font-family: var(--body-font) !important;
+  color: var(--text) !important;
+  line-height: 1.6 !important;
+}
+
+.esic-induccion-wrapper * {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+}
+
+.esic-induccion-wrapper img {
+  max-width: 100% !important;
+  display: block !important;
+}
+
+/* Container */
+.esic-container {
+  width: min(1200px, 92%) !important;
+  margin: 0 auto !important;
+}
+
+/* =====================================================
+   HERO SECTION
+   ===================================================== */
+.esic-hero-induccion {
+  background: linear-gradient(135deg, var(--brand-blue-dark) 0%, var(--brand-blue) 100%) !important;
+  padding: 5rem 0 6rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 0 0 50px 50px !important;
+}
+
+.esic-hero-induccion::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: var(--brand-teal);
+  border-radius: 50%;
+  right: -150px;
+  top: -200px;
+  opacity: 0.15;
+  filter: blur(60px);
+}
+
+.esic-hero-induccion::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: var(--brand-orange);
+  border-radius: 50%;
+  left: -100px;
+  bottom: -150px;
+  opacity: 0.12;
+  filter: blur(50px);
+}
+
+.esic-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center !important;
+  color: #FFFFFF !important;
+}
+
+.esic-hero-tag {
+  font-family: var(--display-font) !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: var(--brand-teal) !important;
+  font-weight: 600 !important;
+  margin-bottom: 1rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+}
+
+.esic-hero-tag::before,
+.esic-hero-tag::after {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: var(--brand-teal) !important;
+}
+
+.esic-hero-title {
+  font-family: var(--display-font) !important;
+  font-size: clamp(3.5rem, 8vw, 6rem) !important;
+  line-height: 0.9 !important;
+  text-transform: uppercase !important;
+  margin-bottom: 1rem !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+}
+
+.esic-hero-title span {
+  color: var(--brand-orange) !important;
+}
+
+.esic-hero-subtitle {
+  font-size: 1.25rem !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+}
+
+/* =====================================================
+   SECCIÓN MATERIALES - Cards de Prompts
+   ===================================================== */
+.esic-materiales-section {
+  background: var(--bg) !important;
+  padding: 5rem 0 !important;
+  position: relative !important;
+  margin-top: -50px !important;
+  border-radius: 50px 50px 0 0 !important;
+  z-index: 3 !important;
+}
+
+.esic-section-header {
+  text-align: center !important;
+  margin-bottom: 3rem !important;
+}
+
+.esic-section-tag {
+  font-family: var(--display-font) !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: var(--brand-blue) !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.esic-section-tag::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--brand-blue) !important;
+}
+
+.esic-section-title {
+  font-family: var(--display-font) !important;
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  text-transform: uppercase !important;
+  line-height: 0.95 !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+}
+
+.esic-section-title span {
+  color: var(--brand-orange) !important;
+}
+
+/* Grid de Prompts */
+.esic-prompts-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 2rem !important;
+  margin-bottom: 3rem !important;
+}
+
+@media (max-width: 768px) {
+  .esic-prompts-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.esic-prompt-card {
+  background: var(--brand-blue) !important;
+  border-radius: var(--radius-xl) !important;
+  padding: 2.5rem !important;
+  color: #FFFFFF !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: var(--shadow-soft) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.esic-prompt-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 30px 60px rgba(0, 71, 233, 0.25) !important;
+}
+
+.esic-prompt-card::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  right: -50px;
+  top: -50px;
+}
+
+.esic-prompt-card-title {
+  font-family: var(--display-font) !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
+  text-transform: uppercase !important;
+  position: relative !important;
+  color: #FFFFFF !important;
+}
+
+.esic-prompt-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.esic-prompt-list li {
+  margin-bottom: 1.25rem !important;
+  padding-left: 0 !important;
+  position: relative !important;
+  color: #FFFFFF !important;
+}
+
+.esic-prompt-list .letter {
+  font-family: var(--display-font) !important;
+  font-weight: 700 !important;
+  font-size: 1.2rem !important;
+  color: var(--brand-teal) !important;
+}
+
+.esic-prompt-list .term {
+  font-weight: 700 !important;
+}
+
+.esic-prompt-list .desc {
+  font-size: 0.95rem !important;
+  opacity: 0.9 !important;
+  display: block !important;
+  margin-top: 0.2rem !important;
+}
+
+/* =====================================================
+   MAPA DE EMPATÍA
+   ===================================================== */
+.esic-empathy-section {
+  background: var(--surface) !important;
+  padding: 5rem 0 !important;
+  position: relative !important;
+}
+
+.esic-empathy-wrapper {
+  background: linear-gradient(145deg, #FFFFFF, #F4F7FC) !important;
+  border-radius: var(--radius-xl) !important;
+  padding: 3rem !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+.esic-empathy-wrapper img {
+  width: 100% !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+/* =====================================================
+   SECCIÓN RETO - ESTILO BAD BUNNY / AFICHE LATINO
+   ===================================================== */
+.esic-reto-section {
+  background: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, #FFD700 0%, #FFC700 50%, #FFB800 100%) !important;
+  background-blend-mode: overlay !important;
+  padding: 6rem 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.esic-reto-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 87, 51, 0.15), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(0, 150, 136, 0.12), transparent 40%) !important;
+}
+
+/* Elementos decorativos estilo afiche */
+.esic-reto-deco {
+  position: absolute !important;
+  font-family: "Permanent Marker", cursive !important;
+  color: rgba(0, 0, 0, 0.06) !important;
+  font-size: 8rem !important;
+  transform: rotate(-15deg) !important;
+  z-index: 1 !important;
+  user-select: none !important;
+}
+
+.esic-reto-deco.top-left {
+  top: -20px !important;
+  left: -30px !important;
+}
+
+.esic-reto-deco.bottom-right {
+  bottom: -30px !important;
+  right: -20px !important;
+  transform: rotate(12deg) !important;
+}
+
+.esic-reto-content {
+  position: relative !important;
+  z-index: 2 !important;
+  text-align: center !important;
+}
+
+.esic-reto-badge {
+  display: inline-block !important;
+  background: #000000 !important;
+  color: #FFD700 !important;
+  font-family: "Bebas Neue", sans-serif !important;
+  font-size: 1rem !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.15em !important;
+  margin-bottom: 1.5rem !important;
+  transform: rotate(-2deg) !important;
+}
+
+.esic-reto-title {
+  font-family: "Bebas Neue", sans-serif !important;
+  font-size: clamp(4rem, 12vw, 9rem) !important;
+  line-height: 0.85 !important;
+  color: #000000 !important;
+  text-transform: uppercase !important;
+  margin-bottom: 1rem !important;
+  text-shadow: 4px 4px 0 rgba(255, 255, 255, 0.3) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.esic-reto-subtitle {
+  font-family: "Caveat", cursive !important;
+  font-size: clamp(2rem, 5vw, 3.5rem) !important; /* Ajustado size */
+  color: #00838F !important;
+  margin-bottom: 0.5rem !important;
+  transform: rotate(-1deg) !important;
+}
+
+.esic-reto-tour {
+  font-family: "Permanent Marker", cursive !important;
+  font-size: clamp(1.5rem, 3vw, 2.5rem) !important;
+  color: #E53935 !important;
+  transform: rotate(2deg) !important;
+  display: inline-block !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Imágenes decorativas estilo collage */
+.esic-reto-images {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 2rem !important;
+  margin-top: 3rem !important;
+  flex-wrap: wrap !important;
+}
+
+.esic-reto-image {
+  width: 280px !important;
+  height: 320px !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.15) !important;
+  border: 4px solid #FFFFFF !important;
+  position: relative !important;
+  transition: transform 0.3s ease !important;
+}
+
+.esic-reto-image:nth-child(1) {
+  transform: rotate(-4deg) !important;
+}
+
+.esic-reto-image:nth-child(2) {
+  transform: rotate(3deg) !important;
+}
+
+.esic-reto-image:hover {
+  transform: rotate(0deg) scale(1.05) !important;
+  z-index: 10 !important;
+}
+
+.esic-reto-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.esic-reto-image-label {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)) !important;
+  color: #FFFFFF !important;
+  padding: 2rem 1rem 1rem !important;
+  font-family: "Permanent Marker", cursive !important;
+  font-size: 1rem !important;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 600px) {
+  .esic-hero-induccion {
+    padding: 3rem 0 4rem !important;
+  }
+  
+  .esic-prompt-card {
+    padding: 2rem !important;
+  }
+  
+  .esic-reto-images {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .esic-reto-image {
+    transform: rotate(0deg) !important;
+  }
+}
+</style>
+
+<!-- ========================================
+     CONTENIDO HTML - MATERIAL INDUCCIÓN 2026-1
+     ======================================== -->
+
+<div class="esic-induccion-wrapper">
+
+  <!-- Hero Section -->
+  <section class="esic-hero-induccion">
+    <div class="esic-container">
+      <div class="esic-hero-content">
+        <span class="esic-hero-tag">Bienvenidos</span>
+        <h1 class="esic-hero-title">Material<br><span>Inducción 2026-1</span></h1>
+        <p class="esic-hero-subtitle">Recursos y herramientas para la sesión</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Materiales - Prompts -->
+  <section class="esic-materiales-section">
+    <div class="esic-container">
+      
+      <div class="esic-section-header">
+        <span class="esic-section-tag">Técnicas de Prompting</span>
+        <h2 class="esic-section-title"><span>Prompts</span></h2>
+      </div>
+
+      <div class="esic-prompts-grid">
+        
+        <!-- Card Prompt SALTA -->
+        <div class="esic-prompt-card">
+          <h3 class="esic-prompt-card-title">Prompt SALTA</h3>
+          <ul class="esic-prompt-list">
+            <li>
+              <span class="letter">S</span> — <span class="term">Sujeto</span>
+              <span class="desc">Qué aparece y qué hace.</span>
+            </li>
+            <li>
+              <span class="letter">A</span> — <span class="term">Ambiente</span>
+              <span class="desc">Dónde está y qué lo rodea.</span>
+            </li>
+            <li>
+              <span class="letter">L</span> — <span class="term">Luz</span>
+              <span class="desc">Tipo de iluminación: suave, dura, natural, estudio.</span>
+            </li>
+            <li>
+              <span class="letter">T</span> — <span class="term">Tipo de imagen</span>
+              <span class="desc">Foto, realista, 3D, dibujo, cine, móvil, macro.</span>
+            </li>
+            <li>
+              <span class="letter">A</span> — <span class="term">Ajustes</span>
+              <span class="desc">Color, textura, calidad, tamaño, relación de aspecto.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card Prompt WEBS -->
+        <div class="esic-prompt-card">
+          <h3 class="esic-prompt-card-title">Prompt WEBS</h3>
+          <ul class="esic-prompt-list">
+            <li>
+              <span class="letter">W</span> — <span class="term">What</span>
+              <span class="desc">Qué quieres crear (tipo de sitio, objetivo).</span>
+            </li>
+            <li>
+              <span class="letter">E</span> — <span class="term">Estilo visual</span>
+              <span class="desc">Limpio, moderno, tradicional, minimalista.</span>
+            </li>
+            <li>
+              <span class="letter">B</span> — <span class="term">Bloques clave</span>
+              <span class="desc">Hero, servicios, productos, testimonios, CTA.</span>
+            </li>
+            <li>
+              <span class="letter">S</span> — <span class="term">Sensación</span>
+              <span class="desc">Confiable, premium, juvenil, técnico.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Mapa de Empatía -->
+  <section class="esic-empathy-section">
+    <div class="esic-container">
+      <div class="esic-section-header">
+        <span class="esic-section-tag">Herramienta de Diseño</span>
+        <h2 class="esic-section-title">Mapa de <span>Empatía</span></h2>
+      </div>
+      
+      <div class="esic-empathy-wrapper">
+        <!-- Placeholder para la imagen del mapa de empatía -->
+        <!-- Reemplaza el src con la URL de tu imagen subida -->
+        <img src="https://esic.co/wp-content/uploads/2026/01/Generated-Image-January-19-2026-8_07PM.jpeg" alt="Mapa de Empatía - Herramienta de Design Thinking" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección RETO - Estilo Bad Bunny / Afiche Latino -->
+  <section class="esic-reto-section">
+    <span class="esic-reto-deco top-left">★</span>
+    <span class="esic-reto-deco bottom-right">✦</span>
+    
+    <div class="esic-container">
+      <div class="esic-reto-content">
+        
+        <span class="esic-reto-badge">⚡ DESAFÍO INDUCCIÓN ⚡</span>
+        
+        <h2 class="esic-reto-title">EL RETO</h2>
+        
+        <p class="esic-reto-subtitle" style="font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; max-width: 900px; margin: 0 auto 1.5rem; transform: rotate(-1deg);">
+          Definir una solución para el problema identificado
+        </p>
+        
+        <p class="esic-reto-subtitle" style="font-family: 'Sofia Sans Extra Condensed', sans-serif; font-weight: 700; font-size: clamp(2rem, 5vw, 3.5rem); color: #00133F; text-transform: uppercase; transform: rotate(1deg); margin-bottom: 2rem;">
+          Usar Mapa de Empatía <span style="color: #FF9600;">+</span> Presentar Prototipo
+        </p>
+
+        <div style="margin-top: 1rem; margin-bottom: 3rem; font-family: 'Permanent Marker', cursive; color: #E53935; font-size: clamp(2.2rem, 6vw, 3.5rem); transform: rotate(-2deg); text-shadow: 3px 3px 0px rgba(0,0,0,0.15);">
+          ⏱️ 5 minutos por equipo
+        </div>
+
+        <!-- Imágenes decorativas -->
+        <div class="esic-reto-images">
+          <div class="esic-reto-image">
+            <img src="https://esic.co/wp-content/uploads/2026/01/Generated-Image-January-19-2026-8_05PM.jpeg" alt="Creatividad sin límites" />
+            <div class="esic-reto-image-label"></div>
+          </div>
+          <div class="esic-reto-image">
+            <img src="https://esic.co/wp-content/uploads/2026/01/Generated-Image-January-19-2026-8_03PM.jpeg" alt="Del código a la realidad" />
+            <div class="esic-reto-image-label"></div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+</div>
