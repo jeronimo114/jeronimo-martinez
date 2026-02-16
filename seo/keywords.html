@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Keywords SEO | ESIC Medellín</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../esic-theme.css">
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #00133F 0%, #0047E9 100%);
+      padding: 4rem 2rem;
+    }
+
+    .seo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .seo-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .seo-header h1 {
+      font-family: var(--display-font);
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+    }
+
+    .seo-header p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.1rem;
+    }
+
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .keyword-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .keyword-card h2 {
+      font-family: var(--display-font);
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--brand-teal);
+      margin-bottom: 0.5rem;
+    }
+
+    .keyword-card .page-path {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 1.5rem;
+      font-family: monospace;
+    }
+
+    .keyword-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .keyword-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.6rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      color: #FFFFFF;
+      font-size: 0.95rem;
+    }
+
+    .keyword-item::before {
+      content: "•";
+      color: var(--brand-teal);
+      font-weight: bold;
+    }
+
+    .keyword-item.primary {
+      background: rgba(9, 207, 144, 0.15);
+      border-left: 3px solid var(--brand-teal);
+    }
+
+    .keyword-item.secondary {
+      background: rgba(0, 71, 233, 0.15);
+      border-left: 3px solid #0047E9;
+    }
+
+    .keyword-item.secondary::before {
+      color: #0047E9;
+    }
+
+    .legend {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    .legend-dot.primary {
+      background: var(--brand-teal);
+    }
+
+    .legend-dot.secondary {
+      background: #0047E9;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: #FFFFFF;
+    }
+
+    .seo-footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .seo-footer p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="seo-container">
+    <a href="../mapa.html" class="back-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Volver al mapa
+    </a>
+
+    <header class="seo-header">
+      <h1>MAPA DE KEYWORDS SEO</h1>
+      <p>Distribución de keywords objetivo por página</p>
+    </header>
+
+    <div class="legend">
+      <div class="legend-item">
+        <span class="legend-dot primary"></span>
+        Keywords Primarias
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot secondary"></span>
+        Keywords Secundarias
+      </div>
+    </div>
+
+    <div class="keyword-grid">
+      <!-- HOME -->
+      <div class="keyword-card">
+        <h2>Home</h2>
+        <div class="page-path">index.html</div>
+        <div class="keyword-list">
+          <div class="keyword-item primary">ESIC Medellín</div>
+          <div class="keyword-item primary">escuela de negocios Medellín</div>
+          <div class="keyword-item secondary">universidad marketing Colombia</div>
+          <div class="keyword-item secondary">formación ejecutiva</div>
+          <div class="keyword-item secondary">pregrado Medellín</div>
+        </div>
+      </div>
+
+      <!-- PREGRADO GENERAL -->
+      <div class="keyword-card">
+        <h2>Pregrado General</h2>
+        <div class="page-path">pregrado/index.html</div>
+        <div class="keyword-list">
+          <div class="keyword-item primary">pregrado Medellín</div>
+          <div class="keyword-item primary">carreras universitarias marketing</div>
+          <div class="keyword-item secondary">estudiar negocios Colombia</div>
+          <div class="keyword-item secondary">universidad privada Medellín</div>
+        </div>
+      </div>
+
+      <!-- PREGRADO MARKETING GLOBAL -->
+      <div class="keyword-card">
+        <h2>Pregrado Marketing Global</h2>
+        <div class="page-path">pregrado/marketing-global.html</div>
+        <div class="keyword-list">
+          <div class="keyword-item primary">pregrado marketing</div>
+          <div class="keyword-item primary">dirección marketing global</div>
+          <div class="keyword-item secondary">carrera marketing Medellín</div>
+          <div class="keyword-item secondary">doble titulación marketing</div>
+        </div>
+      </div>
+
+      <!-- PREGRADO DIGITAL BUSINESS -->
+      <div class="keyword-card">
+        <h2>Pregrado Digital Business</h2>
+        <div class="page-path">pregrado/digital-business.html</div>
+        <div class="keyword-list">
+          <div class="keyword-item primary">pregrado digital business</div>
+          <div class="keyword-item primary">negocios digitales Medellín</div>
+          <div class="keyword-item secondary">carrera transformación digital</div>
+          <div class="keyword-item secondary">estudiar e-commerce Colombia</div>
+        </div>
+      </div>
+
+      <!-- MASTER GENERAL -->
+      <div class="keyword-card">
+        <h2>Máster General</h2>
+        <div class="page-path">master/v2.html</div>
+        <div class="keyword-list">
+          <div class="keyword-item primary">máster Medellín</div>
+          <div class="keyword-item primary">posgrado marketing digital</div>
+          <div class="keyword-item secondary">MBA Colombia</div>
+          <div class="keyword-item secondary">executive education</div>
+        </div>
+      </div>
+
+      <!-- MASTER DIGITAL BUSINESS -->
+      <div class="keyword-card">
+        <h2>Máster Digital Business</h2>
+        <div class="page-path">master/digital-business.html</div>
+        <div class="keyword-list">
+          <div class="keyword-item primary">máster digital business</div>
+          <div class="keyword-item primary">posgrado transformación digital</div>
+          <div class="keyword-item secondary">MBA digital Colombia</div>
+          <div class="keyword-item secondary">maestría e-commerce</div>
+        </div>
+      </div>
+
+      <!-- MASTER DIGITAL MARKETING -->
+      <div class="keyword-card">
+        <h2>Máster Digital Marketing</h2>
+        <div class="page-path">master/digital-marketing.html</div>
+        <div class="keyword-list">
+          <div class="keyword-item primary">máster marketing digital</div>
+          <div class="keyword-item primary">posgrado marketing Medellín</div>
+          <div class="keyword-item secondary">especialización SEO Colombia</div>
+          <div class="keyword-item secondary">maestría publicidad digital</div>
+        </div>
+      </div>
+
+      <!-- MASTER CUSTOMER EXPERIENCE -->
+      <div class="keyword-card">
+        <h2>Máster Customer Experience</h2>
+        <div class="page-path">master/customer-experience.html</div>
+        <div class="keyword-list">
+          <div class="keyword-item primary">máster customer experience</div>
+          <div class="keyword-item primary">posgrado CX Colombia</div>
+          <div class="keyword-item secondary">design thinking Medellín</div>
+          <div class="keyword-item secondary">experiencia de usuario maestría</div>
+        </div>
+      </div>
+
+      <!-- BECAS MASTER -->
+      <div class="keyword-card">
+        <h2>Becas Máster</h2>
+        <div class="page-path">master/becas.html</div>
+        <div class="keyword-list">
+          <div class="keyword-item primary">becas máster Colombia</div>
+          <div class="keyword-item primary">ayudas económicas posgrado</div>
+          <div class="keyword-item secondary">financiación estudios Medellín</div>
+          <div class="keyword-item secondary">descuentos maestría</div>
+        </div>
+      </div>
+
+      <!-- LEVEL UP -->
+      <div class="keyword-card">
+        <h2>Level Up</h2>
+        <div class="page-path">level-up/index.html</div>
+        <div class="keyword-list">
+          <div class="keyword-item primary">cursos cortos Medellín</div>
+          <div class="keyword-item primary">formación ejecutiva</div>
+          <div class="keyword-item secondary">workshops marketing</div>
+          <div class="keyword-item secondary">capacitación empresarial</div>
+        </div>
+      </div>
+
+      <!-- LEVEL UP IA -->
+      <div class="keyword-card">
+        <h2>Level Up - IA</h2>
+        <div class="page-path">level-up/ia.html</div>
+        <div class="keyword-list">
+          <div class="keyword-item primary">curso inteligencia artificial</div>
+          <div class="keyword-item primary">taller IA negocios</div>
+          <div class="keyword-item secondary">automatización marketing</div>
+          <div class="keyword-item secondary">ChatGPT empresas Colombia</div>
+        </div>
+      </div>
+
+      <!-- QUIENES SOMOS -->
+      <div class="keyword-card">
+        <h2>Quiénes Somos</h2>
+        <div class="page-path">institucional/quienes-somos.html</div>
+        <div class="keyword-list">
+          <div class="keyword-item primary">ESIC historia</div>
+          <div class="keyword-item primary">business school España</div>
+          <div class="keyword-item secondary">campus Medellín</div>
+          <div class="keyword-item secondary">universidad internacional Colombia</div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="seo-footer">
+      <p>ESIC Medellín - Mapa SEO 2025</p>
+    </footer>
+  </div>
+</body>
+</html>

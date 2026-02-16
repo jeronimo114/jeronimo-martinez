@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa del Sitio | ESIC Medellín</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="esic-theme.css">
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #00133F 0%, #0047E9 100%);
+      padding: 4rem 2rem;
+    }
+
+    .mapa-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .mapa-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .mapa-header h1 {
+      font-family: var(--display-font);
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+    }
+
+    .mapa-header p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.1rem;
+    }
+
+    .mapa-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .mapa-section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .mapa-section h2 {
+      font-family: var(--display-font);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--brand-teal);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mapa-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .mapa-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      color: #FFFFFF;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .mapa-link:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateX(5px);
+    }
+
+    .mapa-link svg {
+      width: 20px;
+      height: 20px;
+      opacity: 0.6;
+    }
+
+    .mapa-link span {
+      font-size: 0.95rem;
+    }
+
+    .mapa-link .tag {
+      margin-left: auto;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.6rem;
+      background: rgba(9, 207, 144, 0.2);
+      color: var(--brand-teal);
+      border-radius: 4px;
+    }
+
+    .mapa-link .tag.new {
+      background: rgba(255, 135, 1, 0.2);
+      color: #FF8701;
+    }
+
+    .mapa-footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mapa-footer p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="mapa-container">
+    <header class="mapa-header">
+      <h1>MAPA DEL SITIO</h1>
+      <p>Accede a todas las páginas del rediseño ESIC Medellín</p>
+    </header>
+
+    <div class="mapa-grid">
+      <!-- Principal -->
+      <div class="mapa-section">
+        <h2>Principal</h2>
+        <div class="mapa-links">
+          <a href="index.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Home</span>
+          </a>
+          <a href="institucional/quienes-somos.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span>Quiénes Somos</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Pregrados -->
+      <div class="mapa-section">
+        <h2>Pregrados</h2>
+        <div class="mapa-links">
+          <a href="pregrado/index.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span>Pregrados General</span>
+          </a>
+          <a href="pregrado/marketing-global.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span>Dirección de Marketing Global</span>
+            <span class="tag new">Nuevo</span>
+          </a>
+          <a href="pregrado/digital-business.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span>Digital Business</span>
+            <span class="tag new">Nuevo</span>
+          </a>
+          <a href="pregrado/especifico.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span>Marketing (Plantilla Original)</span>
+          </a>
+          <a href="pregrado/marketing-legacy.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span>Marketing (Versión Anterior)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Másters -->
+      <div class="mapa-section">
+        <h2>Másters</h2>
+        <div class="mapa-links">
+          <a href="master/v2.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Másters General</span>
+          </a>
+          <a href="master/digital-business.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Digital Business</span>
+            <span class="tag new">Nuevo</span>
+          </a>
+          <a href="master/digital-marketing.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Digital Marketing</span>
+            <span class="tag new">Nuevo</span>
+          </a>
+          <a href="master/customer-experience.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Customer Experience</span>
+            <span class="tag new">Nuevo</span>
+          </a>
+          <a href="master/becas.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span>Becas Máster</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Level Up -->
+      <div class="mapa-section">
+        <h2>Level Up</h2>
+        <div class="mapa-links">
+          <a href="level-up/index.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Level Up - Principal</span>
+          </a>
+          <a href="level-up/ia.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Level Up - IA</span>
+          </a>
+          <a href="level-up/cursos/info-curso-elementor.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Curso Elementor - Info</span>
+          </a>
+          <a href="level-up/cursos/modulos-elementor.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Curso Elementor - Módulos</span>
+          </a>
+          <a href="level-up/cursos/mentor-precio-elementor.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Curso Elementor - Precio</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Formularios -->
+      <div class="mapa-section">
+        <h2>Formularios</h2>
+        <div class="mapa-links">
+          <a href="formularios/contacto.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>Formulario de Contacto</span>
+          </a>
+          <a href="formularios/zoho.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>Formulario Zoho</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Interno -->
+      <div class="mapa-section">
+        <h2>Interno</h2>
+        <div class="mapa-links">
+          <a href="interno/induccion-2026-1.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span>Inducción 2026-1</span>
+          </a>
+          <a href="interno/herramientas.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <span>Herramientas</span>
+          </a>
+          <a href="interno/wifi.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+            <span>WiFi ESIC</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Documentación -->
+      <div class="mapa-section">
+        <h2>Documentación</h2>
+        <div class="mapa-links">
+          <a href="seo/keywords.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span>Mapa de Keywords SEO</span>
+            <span class="tag new">Nuevo</span>
+          </a>
+          <a href="docs/design-requirements.html" class="mapa-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Requerimientos de Diseño</span>
+            <span class="tag new">Nuevo</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mapa-footer">
+      <p>ESIC Medellín - Rediseño 2025</p>
+    </footer>
+  </div>
+</body>
+</html>
