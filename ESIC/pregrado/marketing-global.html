@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pregrado en Dirección de Marketing Global | ESIC Medellín</title>
-  <meta name="description" content="Pregrado en Dirección de Marketing Global de ESIC Medellín. 4 años de formación, doble titulación internacional e inmersión en más de 25 países.">
+  <meta name="description" content="Carrera de marketing en Medellín con visión global. Pregrado en Dirección de Marketing Global de ESIC con doble titulación internacional e inmersión en 25 países.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
@@ -574,26 +574,40 @@
     }
 
     .plan-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
     }
 
     .plan-item {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 0.5rem 0;
+      display: grid;
+      grid-template-columns: 12px minmax(140px, 200px) 1fr;
+      align-items: start;
+      gap: 1rem;
+      padding: 0.8rem 0;
       font-size: 0.95rem;
       color: var(--text);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .plan-item:last-child {
+      border-bottom: none;
     }
 
     .plan-item .bullet {
-      width: 6px;
-      height: 6px;
-      background: var(--text);
+      width: 12px;
+      height: 12px;
+      background: var(--pregrado-orange);
       border-radius: 50%;
       flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .plan-item strong {
+      font-weight: 600;
+      color: var(--brand-blue-dark);
+      line-height: 1.3;
+      padding-right: 0.5rem;
     }
 
     .plan-actions {
@@ -1045,7 +1059,7 @@
           <div class="hero-pregrado-actions">
             <a class="btn btn-primary btn-arrow" href="#formulario">
               SOLICITAR INFORMACIÓN
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
             </a>
             <a class="btn btn-outline btn-arrow" href="#plan-estudios">
               VER PLAN DE ESTUDIOS
@@ -1065,7 +1079,7 @@
             <p>Formamos líderes éticos, innovadores y orientados a resultados, listos para impulsar el marketing, los negocios digitales y la innovación aplicada en organizaciones de impacto regional y global.</p>
             <a class="btn btn-primary btn-arrow" href="#formulario">
               SOLICITAR INFORMACIÓN
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
             </a>
           </div>
           <div class="form-card reveal delay-1">
@@ -1240,7 +1254,7 @@
             </ul>
             <a class="btn btn-primary btn-arrow" href="#formulario">
               SOLICITAR INFORMACIÓN
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
             </a>
           </div>
 
@@ -1294,45 +1308,52 @@
               <div class="plan-content-header"></div>
 
               <div class="plan-content active" data-year="1">
+                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 1.5rem; text-transform: uppercase;">Currículo de Fundamentos de Carrera - Año 1</h4>
                 <div class="plan-grid">
-                  <div class="plan-item"><span class="bullet"></span> Pensamiento Empresarial</div>
-                  <div class="plan-item"><span class="bullet"></span> Mercado y Tendencias</div>
-                  <div class="plan-item"><span class="bullet"></span> Negocios y Mercados</div>
-                  <div class="plan-item"><span class="bullet"></span> Análisis del entorno y creatividad</div>
-                  <div class="plan-item"><span class="bullet"></span> Factor Humano en las Organizaciones</div>
-                  <div class="plan-item"><span class="bullet"></span> Currículos de profundización en Tecnología</div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Aldea Global</strong><span>Pensamiento Empresarial (Business Environment, Imágenes de la organización, Sistemas de información contable y financiera)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Business Intelligence</strong><span>Negocios y Mercados (Introducción al BI, Conducta del consumidor, Decisiones estratégicas de mercadeo)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Conciencia Organizacional</strong><span>Factor Humano en las Organizaciones (Clima y cultura organizacional, Relaciones de colaboración, Humanismo Digital)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Prospectiva</strong><span>Mercado y Tendencias (Análisis del entorno, Factores de cambio, Validación y escenarios, Estadística aplicada)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Laboratorio de Ideas</strong><span>Análisis del entorno y creatividad (Autoconocimiento, Proceso creativo, Marketing Social y Digital)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Profundización Tecnología</strong><span>Liderazgo Mente 2.0, Tecnologías Economía Digital, Arte Digital, Diseño de Producto Digital, Business Intelligence</span></div>
                 </div>
               </div>
 
               <div class="plan-content" data-year="2">
+                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 1.5rem; text-transform: uppercase;">Currículo de Fundamentos de Carrera - Año 2</h4>
                 <div class="plan-grid">
-                  <div class="plan-item"><span class="bullet"></span> Marketing Digital</div>
-                  <div class="plan-item"><span class="bullet"></span> Investigación de Mercados</div>
-                  <div class="plan-item"><span class="bullet"></span> Comportamiento del Consumidor</div>
-                  <div class="plan-item"><span class="bullet"></span> Gestión de Marca</div>
-                  <div class="plan-item"><span class="bullet"></span> Comunicación Integrada</div>
-                  <div class="plan-item"><span class="bullet"></span> Análisis de Datos</div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Aldea Global</strong><span>Business Tools and Techniques (Contexto económico internacional, Negocios internacionales, International Marketing)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Business Intelligence</strong><span>Negocios y Procesos (Poder del BI, Modelo de madurez, KPI's y análisis de datos, Dirección de ventas)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Conciencia Organizacional</strong><span>Gestión de relaciones con Stakeholders (Ética y buenas prácticas, Solución de conflictos)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Prospectiva</strong><span>Simulación y modelación empresarial (Estructuración de modelos, Gestión de riesgos, Planificación y control de ventas)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Laboratorio de Ideas</strong><span>Innovación y Viabilidad de Proyectos (Gestión de la innovación, Modelación de ideas, Estrategias de Producto y Precio, Marco legal del Marketing)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Profundización Tecnología</strong><span>Programación e IA, Data Management, Customer Experience, Estrategias de Marketing en Plataformas Digitales, Medios de Comunicación Digital</span></div>
                 </div>
+                <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,135,1,0.15); border-radius: 12px; font-size: 0.9rem; border-left: 4px solid #FF8701;"><strong>Summer Camp:</strong> 2 semanas de inmersión en Madrid, España (obligatorio)</p>
               </div>
 
               <div class="plan-content" data-year="3">
+                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 1.5rem; text-transform: uppercase;">Currículo de Fundamentos de Carrera - Año 3</h4>
                 <div class="plan-grid">
-                  <div class="plan-item"><span class="bullet"></span> Estrategia de Marketing</div>
-                  <div class="plan-item"><span class="bullet"></span> Marketing Internacional</div>
-                  <div class="plan-item"><span class="bullet"></span> Trade Marketing</div>
-                  <div class="plan-item"><span class="bullet"></span> E-commerce</div>
-                  <div class="plan-item"><span class="bullet"></span> Innovación y Emprendimiento</div>
-                  <div class="plan-item"><span class="bullet"></span> Práctica Empresarial</div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Aldea Global</strong><span>Multicultural Project (Multiculturalidad, Global Leadership, Transcultural Negotiation, Estrategia empresarial)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Business Intelligence</strong><span>Negocios y Finanzas (Finanzas de marketing, Administración financiera, Generación de valor, Dirección de marketing)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Conciencia Organizacional</strong><span>Gobierno Corporativo (Marco jurídico, Estructuras organizacionales, Desarrollo organizacional, Gestión del talento y liderazgo)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Prospectiva</strong><span>Becoming a Global Manager (Toma de decisiones estratégicas, Digital Advertising / Inbound Marketing, Creatividad publicitaria, Storytelling)</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Laboratorio de Ideas</strong><span>Creación de Empresas (Administración de emprendimientos, Tratamiento jurídico, Recursos frente a crisis, Dirección de empresas y RSE)</span></div>
                 </div>
+                <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,135,1,0.1); border-radius: 12px; font-size: 0.9rem; border-left: 4px solid #FF8701;"><strong>Opción:</strong> Alternativa de cursar el año en Campus de Madrid, España</p>
               </div>
 
               <div class="plan-content" data-year="4">
+                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 1.5rem; text-transform: uppercase;">Currículo Específico de Fundamentos de la Carrera - Año 4</h4>
                 <div class="plan-grid">
-                  <div class="plan-item"><span class="bullet"></span> Seminario de Tendencias</div>
-                  <div class="plan-item"><span class="bullet"></span> Proyecto de Grado</div>
-                  <div class="plan-item"><span class="bullet"></span> Electivas de Profundización</div>
-                  <div class="plan-item"><span class="bullet"></span> Inmersión Internacional</div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Marketing Digital</strong><span>Ecosistema del marketing digital, Dirección de comunicación en entornos digitales, Diseño gráfico / Producción audiovisual / Diseño web / Podcasting, SEO & SEM</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Generación de Estrategias</strong><span>Gerencia estratégica del marketing, Análisis situacional del plan de marketing, Global mindset, Global communications</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Estrategias CX</strong><span>CRM, Gestión de la experiencia del cliente, Marketing relacional, Marketing social y sostenibilidad</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Psicología Marketing</strong><span>Segmentación de mercados, Psicología del consumidor, Enfoque sociológico y antropológico, Neuromarketing</span></div>
+                  <div class="plan-item"><span class="bullet"></span><strong>Proyección Profesional</strong><span>Plan de negocio, Plan de fortalecimiento, Práctica empresarial, Misión académica cultural y empresarial, Investigación</span></div>
                 </div>
+                <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,135,1,0.1); border-radius: 12px; font-size: 0.9rem; border-left: 4px solid #FF8701;"><strong>Doble Titulación:</strong> Alternativa de cursar en Universidades aliadas a ESIC</p>
               </div>
             </div>
 
@@ -1348,7 +1369,7 @@
               </a>
               <a class="btn btn-outline btn-arrow" href="#formulario">
                 SOLICITAR INFORMACIÓN
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
               </a>
             </div>
             </div><!-- End plan-section-content estudios -->
@@ -1406,6 +1427,11 @@
             <p class="plan-note reveal">
               Plan de estudios impartido por CEIPA Business School.<br>
               Perfecciona tu titulación con la propuesta de ESIC Business School. Para más información, consulte en nuestra sección <a href="../master/becas.html">Programa de ayudas al estudio</a>.
+            </p>
+            <p class="plan-note reveal" style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-light);">
+              <strong>Registro Calificado:</strong> Resolución 019503 del 20 de octubre de 2023 por 7 años.<br>
+              <strong>Acreditación en Alta Calidad:</strong> Resolución 019503 del 20 de octubre de 2023 por 6 años.<br>
+              <strong>Código SNIES:</strong> 52785
             </p>
           </div>
         </div>
