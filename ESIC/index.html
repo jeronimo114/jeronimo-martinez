@@ -512,10 +512,12 @@
       opacity: 0.9;
     }
 
-    /* Cifras Section */
+    /* Cifras Section - Venn Diagram */
     .cifras-section {
-      padding: 5rem 0;
-      color: #FFFFFF;
+      background: #FFFFFF;
+      padding: 5rem 0 6rem;
+      position: relative;
+      overflow: hidden;
     }
 
     .cifras-header {
@@ -525,38 +527,137 @@
     .cifras-header h2 {
       font-family: var(--display-font);
       font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
+      font-weight: var(--display-weight);
       text-transform: uppercase;
       line-height: 0.95;
+      color: #00133F;
     }
 
-    .cifras-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+    .venn-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 550px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .cifra-item {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
+    .venn-circle {
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .cifra-number {
+    .venn-circle.teal {
+      width: 480px;
+      height: 480px;
+      background: #5EEDC3;
+      position: absolute;
+      left: 50px;
+      z-index: 1;
+    }
+
+    .venn-circle.blue {
+      width: 500px;
+      height: 500px;
+      background: #2D5BFF;
+      position: absolute;
+      right: 50px;
+      z-index: 2;
+    }
+
+    .venn-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .venn-circle.teal .venn-content {
+      padding: 2.5rem;
+      padding-right: 80px;
+    }
+
+    .venn-circle.blue .venn-content {
+      padding: 2.5rem;
+      padding-left: 80px;
+    }
+
+    .venn-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .venn-stat .number {
       font-family: var(--display-font);
-      font-size: clamp(3rem, 8vw, 5rem);
-      font-weight: 800;
+      font-size: 2.8rem;
+      font-weight: 400;
       line-height: 1;
-      color: var(--brand-teal);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.2rem;
     }
 
-    .cifra-label {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      opacity: 0.9;
+    .venn-circle.teal .number {
+      color: #00133F;
+    }
+
+    .venn-circle.blue .number {
+      color: #FFFFFF;
+    }
+
+    .venn-stat .label {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      max-width: 200px;
+    }
+
+    .venn-circle.teal .label {
+      color: #00133F;
+    }
+
+    .venn-circle.blue .label {
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    @media (max-width: 1024px) {
+      .venn-container {
+        min-height: 450px;
+      }
+      .venn-circle.teal {
+        width: 380px;
+        height: 380px;
+        left: 20px;
+      }
+      .venn-circle.blue {
+        width: 400px;
+        height: 400px;
+        right: 20px;
+      }
+      .venn-stat .number {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .venn-container {
+        flex-direction: column;
+        min-height: auto;
+        gap: 1.5rem;
+        padding: 1rem 0;
+      }
+      .venn-circle {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 24px;
+        max-width: 400px;
+      }
+      .venn-circle.teal .venn-content,
+      .venn-circle.blue .venn-content {
+        padding: 2rem;
+      }
     }
 
     /* Historias Section */
@@ -1169,24 +1270,53 @@
     </section>
 
     <!-- Cifras Section -->
-    <section class="section section-rounded section-blue cifras-section">
+    <section class="section section-rounded cifras-section">
       <div class="container">
         <div class="cifras-header">
           <h2>CIFRAS Y<br>RECONOCIMIENTO</h2>
         </div>
-
-        <div class="cifras-grid">
-          <div class="cifra-item">
-            <div class="cifra-number">92%</div>
-            <div class="cifra-label">Empleabilidad</div>
+        <div class="venn-container">
+          <!-- Círculo Teal (Izquierda) -->
+          <div class="venn-circle teal">
+            <div class="venn-content">
+              <div class="venn-stat">
+                <div class="number">+3000</div>
+                <div class="label">ofertas de prácticas</div>
+              </div>
+              <div class="venn-stat">
+                <div class="number">+1000</div>
+                <div class="label">alumnos en prácticas</div>
+              </div>
+              <div class="venn-stat">
+                <div class="number">+3000</div>
+                <div class="label">empresas colaboradoras</div>
+              </div>
+              <div class="venn-stat">
+                <div class="number">30%</div>
+                <div class="label">de prácticas pasa a contrato laboral</div>
+              </div>
+            </div>
           </div>
-          <div class="cifra-item">
-            <div class="cifra-number">+25</div>
-            <div class="cifra-label">Países con Convenios</div>
-          </div>
-          <div class="cifra-item">
-            <div class="cifra-number">+150</div>
-            <div class="cifra-label">Empresas Aliadas</div>
+          <!-- Círculo Azul (Derecha) -->
+          <div class="venn-circle blue">
+            <div class="venn-content">
+              <div class="venn-stat">
+                <div class="number">+2000</div>
+                <div class="label">ofertas de trabajo anuales, gestionadas desde ESIC</div>
+              </div>
+              <div class="venn-stat">
+                <div class="number">93%</div>
+                <div class="label">tasa de empleo de nuestro colectivo</div>
+              </div>
+              <div class="venn-stat">
+                <div class="number">3</div>
+                <div class="label">portales exclusivos para búsqueda de ofertas internacionales</div>
+              </div>
+              <div class="venn-stat">
+                <div class="number">75%</div>
+                <div class="label">de nuestro alumnado trabaja en una multinacional o gran empresa</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
