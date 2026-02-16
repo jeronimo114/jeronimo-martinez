@@ -136,112 +136,172 @@
       font-size: 0.95rem;
     }
 
-    /* Info stat cards - professional design */
-    .info-stats-section {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .info-stats-left h2 {
-      font-family: var(--display-font);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: var(--display-weight);
-      text-transform: uppercase;
-      line-height: 0.95;
-      margin-bottom: 1.5rem;
-    }
-
-    .info-stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 1rem;
-    }
-
-    .info-stat-card {
-      border-radius: 24px;
-      padding: 2rem;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      min-height: 160px;
+    /* Cifras Section - Venn Diagram Design */
+    .cifras-section {
+      background: #FFFFFF;
+      padding: 5rem 0 6rem;
       position: relative;
+      margin-top: -50px;
+      border-radius: 50px 50px 0 0;
+      z-index: 1;
       overflow: hidden;
     }
 
-    .info-stat-card::before {
-      content: "";
-      position: absolute;
-      top: -20px;
-      right: -20px;
-      width: 80px;
-      height: 80px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.15);
-      transform: rotate(15deg);
+    .cifras-header {
+      margin-bottom: 3rem;
     }
 
-    .info-stat-card::after {
-      content: "";
-      position: absolute;
-      bottom: 30px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .info-stat-card.large {
-      grid-row: span 2;
-    }
-
-    .info-stat-card.orange {
-      background: linear-gradient(135deg, #FF9600, #FE5000);
-    }
-
-    .info-stat-card.blue {
-      background: linear-gradient(135deg, #0047E9, #001E80);
-    }
-
-    .info-stat-card.teal {
-      background: linear-gradient(135deg, #09CF90, #07A872);
+    .cifras-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
       color: #00133F;
     }
 
-    .info-stat-card .stat-icon {
+    .venn-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 550px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .venn-circle {
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .venn-circle.teal {
+      width: 480px;
+      height: 480px;
+      background: #5EEDC3;
       position: absolute;
-      top: 1.2rem;
-      left: 1.5rem;
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.2);
-      display: grid;
-      place-items: center;
-      font-size: 1.2rem;
+      left: 50px;
+      z-index: 1;
     }
 
-    .info-stat-card strong {
+    .venn-circle.blue {
+      width: 500px;
+      height: 500px;
+      background: #2D5BFF;
+      position: absolute;
+      right: 50px;
+      z-index: 2;
+    }
+
+    .venn-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .venn-circle.teal .venn-content {
+      padding: 2.5rem;
+      padding-right: 80px;
+    }
+
+    .venn-circle.blue .venn-content {
+      padding: 2.5rem;
+      padding-left: 80px;
+    }
+
+    .venn-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .venn-stat .number {
       font-family: var(--display-font);
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: var(--display-weight);
+      font-size: 2.8rem;
+      font-weight: 400;
       line-height: 1;
+      margin-bottom: 0.2rem;
     }
 
-    .info-stat-card span {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      opacity: 0.9;
+    .venn-circle.teal .number {
+      color: #00133F;
     }
 
-    @media (max-width: 900px) {
-      .info-stats-section {
-        grid-template-columns: 1fr;
+    .venn-circle.blue .number {
+      color: #FFFFFF;
+    }
+
+    .venn-stat .label {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      max-width: 200px;
+    }
+
+    .venn-circle.teal .label {
+      color: #00133F;
+    }
+
+    .venn-circle.blue .label {
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    @media (max-width: 1024px) {
+      .venn-container {
+        min-height: 450px;
+      }
+
+      .venn-circle.teal {
+        width: 380px;
+        height: 380px;
+        left: 20px;
+      }
+
+      .venn-circle.blue {
+        width: 400px;
+        height: 400px;
+        right: 20px;
+      }
+
+      .venn-stat .number {
+        font-size: 2.2rem;
+      }
+
+      .venn-stat .label {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .venn-container {
+        flex-direction: column;
+        min-height: auto;
+        gap: 1.5rem;
+        padding: 1rem 0;
+      }
+
+      .venn-circle {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 24px;
+        max-width: 400px;
+      }
+
+      .venn-circle.teal .venn-content,
+      .venn-circle.blue .venn-content {
+        padding: 2rem;
+      }
+
+      .venn-stat .number {
+        font-size: 2.5rem;
+      }
+
+      .venn-stat .label {
+        font-size: 0.85rem;
+        max-width: 100%;
       }
     }
 
@@ -495,34 +555,53 @@
     </section>
 
     <!-- 3. Cifras y Reconocimiento -->
-    <section class="section section-overlap section-overlap-light">
-      <div class="container info-stats-section">
-        <div class="info-stats-left reveal">
-          <span class="section-tag">Cifras y reconocimiento</span>
-          <h2>Resultados<br>que respaldan</h2>
-          <a class="btn btn-primary" href="master.pdf">Brochure en PDF →</a>
+    <section class="cifras-section">
+      <div class="container">
+        <div class="cifras-header reveal">
+          <h2>Cifras y<br>Reconocimiento</h2>
         </div>
-        <div class="info-stats-grid reveal delay-1">
-          <div class="info-stat-card orange large">
-            <div class="stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        <div class="venn-container reveal">
+          <!-- Círculo Teal (Izquierda) -->
+          <div class="venn-circle teal">
+            <div class="venn-content">
+              <div class="venn-stat">
+                <div class="number">+3000</div>
+                <div class="label">ofertas de prácticas</div>
+              </div>
+              <div class="venn-stat">
+                <div class="number">+1000</div>
+                <div class="label">alumnos en prácticas</div>
+              </div>
+              <div class="venn-stat">
+                <div class="number">+3000</div>
+                <div class="label">empresas colaboradoras</div>
+              </div>
+              <div class="venn-stat">
+                <div class="number">30%</div>
+                <div class="label">de prácticas pasa a contrato laboral</div>
+              </div>
             </div>
-            <strong>92%</strong>
-            <span>Empleabilidad</span>
           </div>
-          <div class="info-stat-card blue">
-            <div class="stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <!-- Círculo Azul (Derecha) -->
+          <div class="venn-circle blue">
+            <div class="venn-content">
+              <div class="venn-stat">
+                <div class="number">+2000</div>
+                <div class="label">ofertas de trabajo anuales, gestionadas desde ESIC</div>
+              </div>
+              <div class="venn-stat">
+                <div class="number">93%</div>
+                <div class="label">tasa de empleo de nuestro colectivo</div>
+              </div>
+              <div class="venn-stat">
+                <div class="number">3</div>
+                <div class="label">portales exclusivos para búsqueda de ofertas internacionales</div>
+              </div>
+              <div class="venn-stat">
+                <div class="number">75%</div>
+                <div class="label">de nuestro alumnado trabaja en una multinacional o gran empresa</div>
+              </div>
             </div>
-            <strong>+25</strong>
-            <span>Países con convenios</span>
-          </div>
-          <div class="info-stat-card teal">
-            <div class="stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path></svg>
-            </div>
-            <strong>+150</strong>
-            <span>Empresas aliadas</span>
           </div>
         </div>
       </div>
