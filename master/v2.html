@@ -136,112 +136,68 @@
       font-size: 0.95rem;
     }
 
-    /* Info stat cards - professional design */
-    .info-stats-section {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 3rem;
-      align-items: center;
+    /* Cifras Section - New Design */
+    .cifras-section {
+      background: #0047E9;
+      padding: 4rem 0 5rem;
+      position: relative;
+      margin-top: -50px;
+      border-radius: 50px 50px 0 0;
+      z-index: 1;
     }
 
-    .info-stats-left h2 {
+    .cifras-header {
+      margin-bottom: 3rem;
+    }
+
+    .cifras-header h2 {
       font-family: var(--display-font);
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: var(--display-weight);
       text-transform: uppercase;
       line-height: 0.95;
-      margin-bottom: 1.5rem;
+      color: #FFFFFF;
     }
 
-    .info-stats-grid {
+    .cifras-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
 
-    .info-stat-card {
-      border-radius: 24px;
-      padding: 2rem;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      min-height: 160px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .info-stat-card::before {
-      content: "";
-      position: absolute;
-      top: -20px;
-      right: -20px;
-      width: 80px;
-      height: 80px;
-      border-radius: 20px;
+    .cifra-card {
       background: rgba(255, 255, 255, 0.15);
-      transform: rotate(15deg);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
     }
 
-    .info-stat-card::after {
-      content: "";
-      position: absolute;
-      bottom: 30px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .info-stat-card.large {
-      grid-row: span 2;
-    }
-
-    .info-stat-card.orange {
-      background: linear-gradient(135deg, #FF9600, #FE5000);
-    }
-
-    .info-stat-card.blue {
-      background: linear-gradient(135deg, #0047E9, #001E80);
-    }
-
-    .info-stat-card.teal {
-      background: linear-gradient(135deg, #09CF90, #07A872);
-      color: #00133F;
-    }
-
-    .info-stat-card .stat-icon {
-      position: absolute;
-      top: 1.2rem;
-      left: 1.5rem;
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.2);
-      display: grid;
-      place-items: center;
-      font-size: 1.2rem;
-    }
-
-    .info-stat-card strong {
+    .cifra-card .number {
       font-family: var(--display-font);
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(3rem, 6vw, 4.5rem);
       font-weight: var(--display-weight);
+      color: var(--master-highlight);
       line-height: 1;
+      margin-bottom: 0.5rem;
     }
 
-    .info-stat-card span {
+    .cifra-card .label {
       font-size: 0.85rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      opacity: 0.9;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
     }
 
-    @media (max-width: 900px) {
-      .info-stats-section {
+    @media (max-width: 768px) {
+      .cifras-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .cifra-card {
+        padding: 2rem 1.5rem;
       }
     }
 
@@ -495,34 +451,23 @@
     </section>
 
     <!-- 3. Cifras y Reconocimiento -->
-    <section class="section section-overlap section-overlap-light">
-      <div class="container info-stats-section">
-        <div class="info-stats-left reveal">
-          <span class="section-tag">Cifras y reconocimiento</span>
-          <h2>Resultados<br>que respaldan</h2>
-          <a class="btn btn-primary" href="master.pdf">Brochure en PDF →</a>
+    <section class="cifras-section">
+      <div class="container">
+        <div class="cifras-header reveal">
+          <h2>Cifras y<br>Reconocimiento</h2>
         </div>
-        <div class="info-stats-grid reveal delay-1">
-          <div class="info-stat-card orange large">
-            <div class="stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-            </div>
-            <strong>92%</strong>
-            <span>Empleabilidad</span>
+        <div class="cifras-grid reveal">
+          <div class="cifra-card">
+            <div class="number">92%</div>
+            <div class="label">Empleabilidad</div>
           </div>
-          <div class="info-stat-card blue">
-            <div class="stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <strong>+25</strong>
-            <span>Países con convenios</span>
+          <div class="cifra-card">
+            <div class="number">+25</div>
+            <div class="label">Países con convenios</div>
           </div>
-          <div class="info-stat-card teal">
-            <div class="stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path></svg>
-            </div>
-            <strong>+150</strong>
-            <span>Empresas aliadas</span>
+          <div class="cifra-card">
+            <div class="number">+150</div>
+            <div class="label">Empresas aliadas</div>
           </div>
         </div>
       </div>
