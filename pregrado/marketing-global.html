@@ -574,26 +574,40 @@
     }
 
     .plan-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
     }
 
     .plan-item {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 0.5rem 0;
+      display: grid;
+      grid-template-columns: 12px minmax(140px, 200px) 1fr;
+      align-items: start;
+      gap: 1rem;
+      padding: 0.8rem 0;
       font-size: 0.95rem;
       color: var(--text);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .plan-item:last-child {
+      border-bottom: none;
     }
 
     .plan-item .bullet {
-      width: 6px;
-      height: 6px;
+      width: 12px;
+      height: 12px;
       background: var(--text);
       border-radius: 50%;
       flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .plan-item strong {
+      font-weight: 600;
+      color: var(--brand-blue-dark);
+      line-height: 1.3;
+      padding-right: 0.5rem;
     }
 
     .plan-actions {
@@ -1294,50 +1308,50 @@
               <div class="plan-content-header"></div>
 
               <div class="plan-content active" data-year="1">
-                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 1rem; text-transform: uppercase;">Currículo de Fundamentos de Carrera - Año 1</h4>
-                <div class="plan-grid" style="grid-template-columns: 1fr;">
-                  <div class="plan-item"><span class="bullet" style="background: #FF8701;"></span> <strong>Aldea Global:</strong> Pensamiento Empresarial (Business Environment, Imágenes de la organización, Sistemas de información contable y financiera)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #0047E9;"></span> <strong>Business Intelligence:</strong> Negocios y Mercados (Introducción al BI, Conducta del consumidor, Decisiones estratégicas de mercadeo)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #09CF90;"></span> <strong>Conciencia Organizacional:</strong> Factor Humano en las Organizaciones (Clima y cultura organizacional, Relaciones de colaboración, Humanismo Digital)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #6B7280;"></span> <strong>Prospectiva:</strong> Mercado y Tendencias (Análisis del entorno, Factores de cambio, Validación y escenarios, Estadística aplicada)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #00133F;"></span> <strong>Laboratorio de Ideas:</strong> Análisis del entorno y creatividad (Autoconocimiento, Proceso creativo, Marketing Social y Digital)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #8B5CF6;"></span> <strong>Profundización Tecnología:</strong> Liderazgo Mente 2.0, Tecnologías Economía Digital, Arte Digital, Diseño de Producto Digital, Business Intelligence</div>
+                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 1.5rem; text-transform: uppercase;">Currículo de Fundamentos de Carrera - Año 1</h4>
+                <div class="plan-grid">
+                  <div class="plan-item"><span class="bullet" style="background: #FF8701;"></span><strong>Aldea Global</strong><span>Pensamiento Empresarial (Business Environment, Imágenes de la organización, Sistemas de información contable y financiera)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #0047E9;"></span><strong>Business Intelligence</strong><span>Negocios y Mercados (Introducción al BI, Conducta del consumidor, Decisiones estratégicas de mercadeo)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #09CF90;"></span><strong>Conciencia Organizacional</strong><span>Factor Humano en las Organizaciones (Clima y cultura organizacional, Relaciones de colaboración, Humanismo Digital)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #6B7280;"></span><strong>Prospectiva</strong><span>Mercado y Tendencias (Análisis del entorno, Factores de cambio, Validación y escenarios, Estadística aplicada)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #00133F;"></span><strong>Laboratorio de Ideas</strong><span>Análisis del entorno y creatividad (Autoconocimiento, Proceso creativo, Marketing Social y Digital)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #8B5CF6;"></span><strong>Profundización Tecnología</strong><span>Liderazgo Mente 2.0, Tecnologías Economía Digital, Arte Digital, Diseño de Producto Digital, Business Intelligence</span></div>
                 </div>
               </div>
 
               <div class="plan-content" data-year="2">
-                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 1rem; text-transform: uppercase;">Currículo de Fundamentos de Carrera - Año 2</h4>
-                <div class="plan-grid" style="grid-template-columns: 1fr;">
-                  <div class="plan-item"><span class="bullet" style="background: #FF8701;"></span> <strong>Aldea Global:</strong> Business Tools and Techniques (Contexto económico internacional, Negocios internacionales, International Marketing)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #0047E9;"></span> <strong>Business Intelligence:</strong> Negocios y Procesos (Poder del BI, Modelo de madurez, KPI's y análisis de datos, Dirección de ventas)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #09CF90;"></span> <strong>Conciencia Organizacional:</strong> Gestión de relaciones con Stakeholders (Ética y buenas prácticas, Solución de conflictos)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #6B7280;"></span> <strong>Prospectiva:</strong> Simulación y modelación empresarial (Estructuración de modelos, Gestión de riesgos, Planificación y control de ventas)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #00133F;"></span> <strong>Laboratorio de Ideas:</strong> Innovación y Viabilidad de Proyectos (Gestión de la innovación, Modelación de ideas, Estrategias de Producto y Precio, Marco legal del Marketing)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #8B5CF6;"></span> <strong>Profundización Tecnología:</strong> Programación e IA, Data Management, Customer Experience, Estrategias de Marketing en Plataformas Digitales, Medios de Comunicación Digital</div>
+                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 1.5rem; text-transform: uppercase;">Currículo de Fundamentos de Carrera - Año 2</h4>
+                <div class="plan-grid">
+                  <div class="plan-item"><span class="bullet" style="background: #FF8701;"></span><strong>Aldea Global</strong><span>Business Tools and Techniques (Contexto económico internacional, Negocios internacionales, International Marketing)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #0047E9;"></span><strong>Business Intelligence</strong><span>Negocios y Procesos (Poder del BI, Modelo de madurez, KPI's y análisis de datos, Dirección de ventas)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #09CF90;"></span><strong>Conciencia Organizacional</strong><span>Gestión de relaciones con Stakeholders (Ética y buenas prácticas, Solución de conflictos)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #6B7280;"></span><strong>Prospectiva</strong><span>Simulación y modelación empresarial (Estructuración de modelos, Gestión de riesgos, Planificación y control de ventas)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #00133F;"></span><strong>Laboratorio de Ideas</strong><span>Innovación y Viabilidad de Proyectos (Gestión de la innovación, Modelación de ideas, Estrategias de Producto y Precio, Marco legal del Marketing)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #8B5CF6;"></span><strong>Profundización Tecnología</strong><span>Programación e IA, Data Management, Customer Experience, Estrategias de Marketing en Plataformas Digitales, Medios de Comunicación Digital</span></div>
                 </div>
                 <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,135,1,0.15); border-radius: 12px; font-size: 0.9rem; border-left: 4px solid #FF8701;"><strong>Summer Camp:</strong> 2 semanas de inmersión en Madrid, España (obligatorio)</p>
               </div>
 
               <div class="plan-content" data-year="3">
-                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 1rem; text-transform: uppercase;">Currículo de Fundamentos de Carrera - Año 3</h4>
-                <div class="plan-grid" style="grid-template-columns: 1fr;">
-                  <div class="plan-item"><span class="bullet" style="background: #FF8701;"></span> <strong>Aldea Global:</strong> Multicultural Project (Multiculturalidad, Global Leadership, Transcultural Negotiation, Estrategia empresarial)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #0047E9;"></span> <strong>Business Intelligence:</strong> Negocios y Finanzas (Finanzas de marketing, Administración financiera, Generación de valor, Dirección de marketing)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #09CF90;"></span> <strong>Conciencia Organizacional:</strong> Gobierno Corporativo (Marco jurídico, Estructuras organizacionales, Desarrollo organizacional, Gestión del talento y liderazgo)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #6B7280;"></span> <strong>Prospectiva:</strong> Becoming a Global Manager (Toma de decisiones estratégicas, Digital Advertising / Inbound Marketing, Creatividad publicitaria, Storytelling)</div>
-                  <div class="plan-item"><span class="bullet" style="background: #00133F;"></span> <strong>Laboratorio de Ideas:</strong> Creación de Empresas (Administración de emprendimientos, Tratamiento jurídico, Recursos frente a crisis, Dirección de empresas y RSE)</div>
+                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 1.5rem; text-transform: uppercase;">Currículo de Fundamentos de Carrera - Año 3</h4>
+                <div class="plan-grid">
+                  <div class="plan-item"><span class="bullet" style="background: #FF8701;"></span><strong>Aldea Global</strong><span>Multicultural Project (Multiculturalidad, Global Leadership, Transcultural Negotiation, Estrategia empresarial)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #0047E9;"></span><strong>Business Intelligence</strong><span>Negocios y Finanzas (Finanzas de marketing, Administración financiera, Generación de valor, Dirección de marketing)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #09CF90;"></span><strong>Conciencia Organizacional</strong><span>Gobierno Corporativo (Marco jurídico, Estructuras organizacionales, Desarrollo organizacional, Gestión del talento y liderazgo)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #6B7280;"></span><strong>Prospectiva</strong><span>Becoming a Global Manager (Toma de decisiones estratégicas, Digital Advertising / Inbound Marketing, Creatividad publicitaria, Storytelling)</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #00133F;"></span><strong>Laboratorio de Ideas</strong><span>Creación de Empresas (Administración de emprendimientos, Tratamiento jurídico, Recursos frente a crisis, Dirección de empresas y RSE)</span></div>
                 </div>
                 <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,71,233,0.08); border-radius: 12px; font-size: 0.9rem; border-left: 4px solid #0047E9;"><strong>Opción:</strong> Alternativa de cursar el año en Campus de Madrid, España</p>
               </div>
 
               <div class="plan-content" data-year="4">
-                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 1rem; text-transform: uppercase;">Currículo Específico de Fundamentos de la Carrera - Año 4</h4>
-                <div class="plan-grid" style="grid-template-columns: 1fr;">
-                  <div class="plan-item"><span class="bullet" style="background: #FF8701;"></span> <strong>Estrategias de Marketing Digital:</strong> Ecosistema del marketing digital, Dirección de comunicación en entornos digitales, Diseño gráfico / Producción audiovisual / Diseño web / Podcasting, SEO & SEM</div>
-                  <div class="plan-item"><span class="bullet" style="background: #0047E9;"></span> <strong>Generación de Estrategias y Creación de Valor:</strong> Gerencia estratégica del marketing, Análisis situacional del plan de marketing, Global mindset, Global communications</div>
-                  <div class="plan-item"><span class="bullet" style="background: #09CF90;"></span> <strong>Estrategias Relacionales y CX:</strong> CRM, Gestión de la experiencia del cliente, Marketing relacional, Marketing social y sostenibilidad</div>
-                  <div class="plan-item"><span class="bullet" style="background: #6B7280;"></span> <strong>Psicología del Marketing:</strong> Segmentación de mercados, Psicología del consumidor, Enfoque sociológico y antropológico, Neuromarketing</div>
-                  <div class="plan-item"><span class="bullet" style="background: #00133F;"></span> <strong>Proyección Profesional:</strong> Plan de negocio, Plan de fortalecimiento, Práctica empresarial, Misión académica cultural y empresarial, Investigación</div>
+                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 1.5rem; text-transform: uppercase;">Currículo Específico de Fundamentos de la Carrera - Año 4</h4>
+                <div class="plan-grid">
+                  <div class="plan-item"><span class="bullet" style="background: #FF8701;"></span><strong>Marketing Digital</strong><span>Ecosistema del marketing digital, Dirección de comunicación en entornos digitales, Diseño gráfico / Producción audiovisual / Diseño web / Podcasting, SEO & SEM</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #0047E9;"></span><strong>Generación de Estrategias</strong><span>Gerencia estratégica del marketing, Análisis situacional del plan de marketing, Global mindset, Global communications</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #09CF90;"></span><strong>Estrategias CX</strong><span>CRM, Gestión de la experiencia del cliente, Marketing relacional, Marketing social y sostenibilidad</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #6B7280;"></span><strong>Psicología Marketing</strong><span>Segmentación de mercados, Psicología del consumidor, Enfoque sociológico y antropológico, Neuromarketing</span></div>
+                  <div class="plan-item"><span class="bullet" style="background: #00133F;"></span><strong>Proyección Profesional</strong><span>Plan de negocio, Plan de fortalecimiento, Práctica empresarial, Misión académica cultural y empresarial, Investigación</span></div>
                 </div>
                 <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(9,207,144,0.1); border-radius: 12px; font-size: 0.9rem; border-left: 4px solid #09CF90;"><strong>Doble Titulación:</strong> Alternativa de cursar en Universidades aliadas a ESIC</p>
               </div>
