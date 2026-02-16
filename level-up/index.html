@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level Up | Cursos Cortos y Formación Ejecutiva | ESIC Medellín</title>
+  <meta name="description" content="Cursos cortos y workshops de marketing en Medellín. Formación ejecutiva intensiva para actualizar habilidades digitales y acelerar tu carrera profesional.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../esic-theme.css">
+  <style>
+    /* ── Agenda 2026 section ── */
+    .agenda-section {
+      background: linear-gradient(135deg, #001E47 0%, #00133F 100%);
+      border-radius: 40px;
+      padding: 3.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .agenda-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(0, 71, 233, 0.18), transparent 45%),
+        radial-gradient(circle at 90% 80%, rgba(10, 228, 195, 0.10), transparent 45%);
+      pointer-events: none;
+    }
+
+    .agenda-section .section-header,
+    .agenda-section .event-grid {
+      position: relative;
+      z-index: 1;
+    }
+
+    .agenda-section .section-tag {
+      color: var(--brand-teal);
+    }
+
+    .agenda-section .section-tag::before {
+      background: var(--brand-teal);
+    }
+
+    .agenda-section .section-title {
+      color: #FFFFFF;
+    }
+
+    .agenda-section .section-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .event-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 22px;
+      padding: 1.6rem;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(10, 228, 195, 0.25);
+    }
+
+    .event-card .card-title {
+      color: #FFFFFF;
+    }
+
+    .event-card .card-text {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .event-date {
+      font-family: "Sofia Sans Extra Condensed", sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand-teal);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .resource-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .resource-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.4rem;
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .cta-panel {
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      background: linear-gradient(135deg, #0AE4C3, #00BFFF);
+      color: #00133F;
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+      justify-items: start;
+    }
+
+    .cta-panel .btn-primary {
+      background: #00133F;
+      color: #FFFFFF;
+    }
+
+    .cta-panel h2 {
+      font-family: "Sofia Sans Extra Condensed", sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      line-height: 0.95;
+    }
+  </style>
+</head>
+<body class="theme-dark">
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="hero-eyebrow">Level Up by ESIC</span>
+          <h1 class="hero-title">Aprende, aplica y <span>lidera</span></h1>
+          <p class="hero-subtitle">Cursos cortos y workshops de marketing en Medellín. Formación ejecutiva intensiva para actualizar habilidades digitales y acelerar tu carrera.</p>
+          <div class="hero-actions">
+            <a class="btn btn-teal" href="#registro">Inscríbete</a>
+            <a class="btn btn-outline" href="#agenda">Ver agenda</a>
+          </div>
+        </div>
+        <div class="hero-media reveal delay-2">
+          <img src="assets/images/level-up-hero.png" alt="Level Up Mente 2.0" class="hero-media-img">
+          <style>
+            .hero-media {
+              display: flex;
+              flex-direction: column;
+              padding: 0;
+              overflow: hidden;
+            }
+            .hero-media::before { display: none; }
+            .hero-media-img {
+              width: 100%;
+              height: auto;
+              border-radius: 24px 24px 0 0;
+              object-fit: cover;
+            }
+            .hero-card {
+              position: relative;
+              bottom: auto;
+              left: auto;
+              right: auto;
+              border-radius: 0 0 20px 20px;
+              margin: 0;
+            }
+          </style>
+          <div class="hero-card">
+            <h3>Próximo Level Up</h3>
+            <p>Marketing AI, growth y estrategia digital con expertos internacionales.</p>
+            <div class="hero-card-stats">
+              <div class="hero-card-stat">
+                <strong>2</strong>
+                <span>Sesiones</span>
+              </div>
+              <div class="hero-card-stat">
+                <strong>8</strong>
+                <span>Horas</span>
+              </div>
+              <div class="hero-card-stat">
+                <strong>+50</strong>
+                <span>Profesionales</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="agenda">
+      <div class="container">
+        <div class="agenda-section">
+          <div class="section-header">
+            <div>
+              <span class="section-tag">Próximos Level Up</span>
+              <h2 class="section-title">Agenda 2026</h2>
+              <p class="section-subtitle">Todos los Level Up son presenciales. Entrena las habilidades más demandadas en sesiones intensivas.</p>
+            </div>
+          </div>
+          <div class="event-grid">
+            <article class="event-card reveal">
+              <div class="event-date">Marzo 18 · Presencial</div>
+              <h3 class="card-title">Growth & Performance</h3>
+              <p class="card-text">Embudo, analítica y campañas con enfoque en resultados.</p>
+            </article>
+            <article class="event-card reveal delay-1">
+              <div class="event-date">Abril 05 · Presencial</div>
+              <h3 class="card-title">IA aplicada al marketing</h3>
+              <p class="card-text">Automatización, modelos generativos y contenido inteligente.</p>
+            </article>
+            <article class="event-card reveal delay-2">
+              <div class="event-date">Mayo 22 · Presencial</div>
+              <h3 class="card-title">CX & Experience Design</h3>
+              <p class="card-text">Diseño de experiencias con herramientas de innovación.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Versiones pasadas</span>
+            <h2 class="section-title">Lo que hemos vivido</h2>
+            <p class="section-subtitle">Resumen de sesiones anteriores, workshops y retos colaborativos.</p>
+          </div>
+        </div>
+        <div class="program-grid">
+          <article class="program-card blue reveal">
+            <div>
+              <h3>Level Up Automatizaciones</h3>
+              <p>Automatización de procesos y flujos de trabajo inteligentes.</p>
+              <div class="program-meta">Edición 2025</div>
+            </div>
+          </article>
+          <article class="program-card teal reveal delay-1">
+            <div>
+              <h3>Level Up Mente 2.0</h3>
+              <p>La nueva versión de ti mismo. Mentalidad y crecimiento personal.</p>
+              <div class="program-meta">Edición 2025</div>
+            </div>
+          </article>
+          <article class="program-card orange reveal delay-2">
+            <div>
+              <h3>Level Up Creatividad</h3>
+              <p>Pensamiento creativo, ideación y soluciones innovadoras.</p>
+              <div class="program-meta">Edición 2025</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="container">
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <blockquote>“Level Up me ayudó a actualizar mis skills en apenas semanas.”</blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div>Mariana Soto</div>
+                <small>Growth Manager</small>
+              </div>
+            </div>
+          </article>
+          <div class="testimonial-video reveal delay-1">
+            <div class="play-button">▶</div>
+            <strong>Comunidad Level Up</strong>
+            <span>Historias reales de quienes ya lo vivieron</span>
+          </div>
+          <article class="testimonial-card reveal delay-2">
+            <blockquote>“Aprendí estrategias accionables y conocí profesionales increíbles.”</blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div>David Ramírez</div>
+                <small>Product Lead</small>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="registro">
+      <div class="container">
+        <div class="cta-panel">
+          <h2>¿Listo para tu próximo Level Up?</h2>
+          <p>Reserva tu cupo y recibe información de fechas, descuentos y experiencias exclusivas.</p>
+          <a class="btn btn-primary" href="#registro">Quiero inscribirme</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-levelup">
+    <div class="container footer-levelup-grid">
+      <div class="footer-levelup-left">
+        <h2 class="footer-levelup-title">Transforma<br>tu futuro<br><span>en ESIC</span></h2>
+        <div class="footer-levelup-buttons">
+          <a href="sobre-nosotros.html" class="footer-btn">Institución <span>→</span></a>
+          <a href="#" class="footer-btn">Cifras <span>→</span></a>
+          <a href="#" class="footer-btn">Contáctanos <span>→</span></a>
+        </div>
+      </div>
+      <div class="footer-levelup-right">
+        <div class="footer-logo">ESIC <small>Business &<br>Marketing School</small></div>
+        <div class="footer-info">
+          <h4>Campus Medellín, Col.</h4>
+          <p>Calle 123 #45 - 67</p>
+        </div>
+        <div class="footer-info">
+          <h4>Contacto</h4>
+          <p>+57 604 123-4567</p>
+          <p>contacto@esic.com</p>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Spotify">sp</a>
+          <a href="#" aria-label="TikTok">tk</a>
+          <a href="#" aria-label="X">x</a>
+        </div>
+        <div class="footer-legal">
+          <a href="#">Términos y Condiciones</a>
+          <a href="#">Política de Tratamiento de Datos</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-levelup-bottom">
+      <span>© 2025 ESIC. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <style>
+    .footer-levelup {
+      background: var(--surface);
+      color: var(--text);
+      padding: 5rem 0 2rem;
+      border-radius: 50px 50px 0 0;
+      margin-top: -50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-levelup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .footer-levelup-title {
+      font-family: var(--display-font);
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--text);
+    }
+
+    .footer-levelup-title span {
+      color: var(--brand-teal);
+    }
+
+    .footer-levelup-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 0.9rem 1.4rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      background: var(--surface);
+      transition: all 0.2s ease;
+    }
+
+    .footer-btn:hover {
+      border-color: var(--brand-teal);
+      color: var(--brand-teal);
+    }
+
+    .footer-logo {
+      font-family: var(--display-font);
+      font-size: 2rem;
+      font-weight: var(--display-weight);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo small {
+      font-family: var(--body-font);
+      font-size: 0.6rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.3;
+      color: var(--text-muted);
+    }
+
+    .footer-info {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-info h4 {
+      font-family: var(--body-font);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: 0.2rem 0;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text);
+      transition: color 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      color: var(--brand-teal);
+    }
+
+    .footer-legal {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .footer-legal a {
+      font-size: 0.9rem;
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    .footer-legal a:hover {
+      color: var(--brand-teal);
+    }
+
+    .footer-levelup-bottom {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .footer-levelup-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .footer-levelup-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+  <a class="whatsapp-btn" href="#" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z" />
+    </svg>
+  </a>
+</body>
+</html>

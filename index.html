@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESIC Medellín | Transforma tu Futuro</title>
+  <meta name="description" content="ESIC Medellín - La escuela de negocios líder en Colombia. Pregrados y Másters en marketing con doble titulación internacional e inmersión global.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="esic-theme.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Hero Section */
+    .hero-home {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 180px;
+      overflow: hidden;
+    }
+
+    .hero-home-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-home-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-home-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+        rgba(0, 19, 63, 0.7) 0%,
+        rgba(0, 19, 63, 0.4) 50%,
+        rgba(0, 19, 63, 0.2) 100%);
+      z-index: 1;
+    }
+
+    .hero-home .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-home-content {
+      max-width: 600px;
+      color: #FFFFFF;
+    }
+
+    .hero-home-title {
+      font-family: var(--display-font);
+      font-size: clamp(4rem, 10vw, 7rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .hero-home-title span {
+      color: var(--brand-teal);
+    }
+
+    .hero-home-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-home .btn-primary {
+      background: var(--brand-blue);
+      color: #FFFFFF;
+    }
+
+    .hero-home .btn-outline {
+      border: 2px solid #FFFFFF;
+      color: #FFFFFF;
+      background: transparent;
+    }
+
+    .hero-home .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Section Overlap */
+    .section-overlap {
+      position: relative;
+      margin-top: -100px;
+      border-radius: 50px 50px 0 0;
+      z-index: 10;
+      padding-top: 60px;
+    }
+
+    .section-white {
+      background: #FFFFFF;
+    }
+
+    .section-cream {
+      background: #F8F6F2;
+    }
+
+    .section-dark {
+      background: var(--brand-blue-dark);
+    }
+
+    .section-blue {
+      background: var(--brand-blue);
+    }
+
+    /* Por Qué ESIC Section */
+    .porque-section {
+      padding: 4rem 0;
+    }
+
+    .porque-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .porque-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--brand-blue-dark);
+    }
+
+    .porque-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .porque-card {
+      background: var(--brand-blue);
+      border-radius: 20px;
+      padding: 2rem;
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .porque-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 120px;
+      height: 120px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 0 0 0 100%;
+    }
+
+    .porque-card h3 {
+      font-family: var(--display-font);
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .porque-card p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    /* Explora Programas Section */
+    .programas-section {
+      padding: 5rem 0;
+    }
+
+    .programas-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .programas-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--brand-blue);
+    }
+
+    .programas-tabs {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .programas-tab {
+      font-family: var(--body-font);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-light);
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+    }
+
+    .programas-tab:hover {
+      color: var(--text);
+    }
+
+    .programas-tab.active {
+      color: var(--brand-blue);
+      border-bottom-color: var(--brand-blue);
+    }
+
+    .programas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .programa-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: var(--brand-blue-dark);
+    }
+
+    .programa-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .programa-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .programa-card-content {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(0, 19, 63, 0.9) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      color: #FFFFFF;
+    }
+
+    .programa-card-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+
+    .programa-card h3 {
+      font-family: var(--display-font);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .programa-card .btn {
+      align-self: flex-start;
+      font-size: 0.75rem;
+      padding: 0.6rem 1.2rem;
+    }
+
+    /* La Vida en ESIC */
+    .vida-section {
+      padding: 5rem 0;
+    }
+
+    .vida-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .vida-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--brand-blue-dark);
+    }
+
+    .vida-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .vida-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 250px;
+    }
+
+    .vida-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    .vida-card-content {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 19, 63, 0.3) 0%, rgba(0, 19, 63, 0.8) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      color: #FFFFFF;
+    }
+
+    .vida-card h3 {
+      font-family: var(--display-font);
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .vida-card p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    /* Cifras Section */
+    .cifras-section {
+      padding: 5rem 0;
+      color: #FFFFFF;
+    }
+
+    .cifras-header {
+      margin-bottom: 3rem;
+    }
+
+    .cifras-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.95;
+    }
+
+    .cifras-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .cifra-item {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+    }
+
+    .cifra-number {
+      font-family: var(--display-font);
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 800;
+      line-height: 1;
+      color: var(--brand-teal);
+      margin-bottom: 0.5rem;
+    }
+
+    .cifra-label {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.9;
+    }
+
+    /* Historias Section */
+    .historias-section {
+      padding: 5rem 0;
+    }
+
+    .historias-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .historias-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--brand-blue-dark);
+    }
+
+    .historias-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .testimonio-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0, 19, 63, 0.08);
+    }
+
+    .testimonio-card blockquote {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonio-card blockquote::before {
+      content: """;
+      font-family: var(--display-font);
+      font-size: 3rem;
+      color: var(--brand-blue);
+      line-height: 0;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonio-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonio-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonio-author-info h4 {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .testimonio-author-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .historias-featured {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+    }
+
+    .historias-featured img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Fundadores Section */
+    .fundadores-section {
+      padding: 5rem 0;
+    }
+
+    .fundadores-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--brand-blue-dark);
+      margin-bottom: 2rem;
+    }
+
+    .fundadores-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .fundador-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+
+    .fundador-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    .fundador-logo img {
+      max-height: 40px;
+      max-width: 100%;
+    }
+
+    /* Rethink Section */
+    .rethink-section {
+      padding: 5rem 0;
+      background: var(--brand-blue-dark);
+      color: #FFFFFF;
+    }
+
+    .rethink-header {
+      margin-bottom: 2rem;
+    }
+
+    .rethink-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.95;
+    }
+
+    .rethink-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .rethink-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .rethink-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .rethink-card-image {
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+
+    .rethink-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .rethink-card-content {
+      padding: 1.5rem;
+    }
+
+    .rethink-card-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand-teal);
+      margin-bottom: 0.5rem;
+    }
+
+    .rethink-card h3 {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .rethink-card .btn {
+      font-size: 0.75rem;
+      padding: 0.5rem 1rem;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 5rem 0 2rem;
+      background: var(--brand-blue-dark);
+      color: #FFFFFF;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-cta h2 {
+      font-family: var(--display-font);
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.9;
+    }
+
+    .footer-cta h2 span {
+      color: var(--brand-teal);
+    }
+
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-family: var(--display-font);
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .footer-contact p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      opacity: 0.8;
+    }
+
+    .footer-contact strong {
+      display: block;
+      opacity: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      transition: background 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-social svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+      opacity: 0.6;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      color: #FFFFFF;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .porque-grid,
+      .programas-grid,
+      .rethink-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cifras-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .historias-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .historias-featured {
+        order: -1;
+      }
+
+      .fundadores-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-home {
+        min-height: 80vh;
+        padding: 100px 0 140px;
+      }
+
+      .hero-home-title {
+        font-size: clamp(3rem, 12vw, 5rem);
+      }
+
+      .section-overlap {
+        margin-top: -60px;
+        border-radius: 30px 30px 0 0;
+      }
+
+      .porque-grid,
+      .programas-grid,
+      .vida-grid,
+      .rethink-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cifras-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .fundadores-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .programas-tabs {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-home">
+      <div class="hero-home-bg">
+        <img src="assets/images/DSC02177_resultado.jpg" alt="Estudiantes ESIC">
+      </div>
+      <div class="container">
+        <div class="hero-home-content">
+          <h1 class="hero-home-title">TRANSFORMA TU FUTURO <span>EN ESIC</span></h1>
+          <div class="hero-home-actions">
+            <a class="btn btn-primary" href="#contacto">SOLICITA INFORMACIÓN</a>
+            <a class="btn btn-outline" href="#programas">EXPLORA PROGRAMAS</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Por Qué ESIC Section -->
+    <section class="section section-overlap section-white porque-section">
+      <div class="container">
+        <div class="porque-header">
+          <h2>POR QUÉ<br>ESTUDIAR<br>EN ESIC</h2>
+          <p style="max-width: 400px; color: var(--text-muted); margin-bottom: 1rem;">Somos la escuela de negocios en Medellín que forma líderes con visión global.</p>
+          <a class="btn btn-outline" href="quienes-somos.html">CONOCE LA EXPERIENCIA ESIC</a>
+        </div>
+
+        <div class="porque-grid">
+          <div class="porque-card">
+            <h3>Internacionalización</h3>
+            <p>Estudia con visión global. Accede a intercambios, inmersiones y doble titulación en más de 25 países.</p>
+          </div>
+          <div class="porque-card">
+            <h3>Metodología Práctica</h3>
+            <p>Aprende haciendo. Proyectos reales, casos de negocio y simulaciones desde el primer día.</p>
+          </div>
+          <div class="porque-card">
+            <h3>Networking Corporativo</h3>
+            <p>Conecta con +150 empresas aliadas. Mentorías, prácticas y oportunidades laborales directas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explora Programas Section -->
+    <section class="section section-cream programas-section" id="programas">
+      <div class="container">
+        <div class="programas-header">
+          <h2>EXPLORA<br>NUESTROS<br>PROGRAMAS</h2>
+          <div style="text-align: right;">
+            <p style="color: var(--text-muted); margin-bottom: 0.8rem; max-width: 320px;">La universidad de marketing líder en Colombia con programas diseñados para el mundo real.</p>
+            <a class="btn btn-primary" href="pregrado-general.html">VER TODOS LOS PROGRAMAS</a>
+          </div>
+        </div>
+
+        <div class="programas-tabs">
+          <button class="programas-tab active" data-tab="pregrados">Pregrados</button>
+          <button class="programas-tab" data-tab="master">Máster</button>
+          <button class="programas-tab" data-tab="continua">Educación Continua</button>
+        </div>
+
+        <div class="programas-content" data-tab="pregrados">
+          <div class="programas-grid">
+            <a href="pregrado-especifico.html" class="programa-card">
+              <img src="assets/images/DSC02274_resultado.jpg" alt="Marketing Global">
+              <div class="programa-card-content">
+                <span class="programa-card-tag">4 Años</span>
+                <h3>Dirección de Marketing Global</h3>
+                <span class="btn btn-outline">PLAN DE ESTUDIOS</span>
+              </div>
+            </a>
+            <a href="pregrado-digital-business.html" class="programa-card">
+              <img src="assets/images/DSC02307_resultado.jpg" alt="Digital Business">
+              <div class="programa-card-content">
+                <span class="programa-card-tag">4 Años</span>
+                <h3>Digital Business</h3>
+                <span class="btn btn-outline">PLAN DE ESTUDIOS</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="programas-content" data-tab="master" style="display: none;">
+          <div class="programas-grid">
+            <a href="master-digital-marketing.html" class="programa-card">
+              <img src="assets/images/DSC02331_resultado.jpg" alt="Digital Marketing">
+              <div class="programa-card-content">
+                <span class="programa-card-tag">1 Año / Híbrido</span>
+                <h3>Máster en Digital Marketing</h3>
+                <span class="btn btn-outline">PLAN DE ESTUDIOS</span>
+              </div>
+            </a>
+            <a href="master-digital-business.html" class="programa-card">
+              <img src="assets/images/DSC02270_resultado.jpg" alt="Digital Business">
+              <div class="programa-card-content">
+                <span class="programa-card-tag">1 Año / Híbrido</span>
+                <h3>Máster en Digital Business</h3>
+                <span class="btn btn-outline">PLAN DE ESTUDIOS</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="programas-content" data-tab="continua" style="display: none;">
+          <div class="programas-grid">
+            <a href="level-up.html" class="programa-card">
+              <img src="assets/images/DSC02284_resultado.jpg" alt="Level Up">
+              <div class="programa-card-content">
+                <span class="programa-card-tag">Cursos Cortos</span>
+                <h3>Level Up</h3>
+                <span class="btn btn-outline">VER CURSOS</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- La Vida en ESIC Section -->
+    <section class="section section-white vida-section">
+      <div class="container">
+        <div class="vida-header">
+          <h2>LA VIDA<br>EN ESIC</h2>
+          <a class="btn btn-primary" href="#contacto">AGENDAR TOUR</a>
+        </div>
+
+        <div class="vida-grid">
+          <div class="vida-card">
+            <img src="assets/images/DSC02274_resultado.jpg" alt="Aulas">
+            <div class="vida-card-content">
+              <h3>Aulas</h3>
+              <p>Espacios diseñados para el trabajo práctico.</p>
+            </div>
+          </div>
+          <div class="vida-card">
+            <img src="assets/images/DSC02307_resultado.jpg" alt="Cowork">
+            <div class="vida-card-content">
+              <h3>Cowork y Networking</h3>
+              <p>Conecta con personas que están construyendo.</p>
+            </div>
+          </div>
+          <div class="vida-card">
+            <img src="assets/images/DSC02331_resultado.jpg" alt="Eventos">
+            <div class="vida-card-content">
+              <h3>Eventos y Conferencias</h3>
+              <p>Eventos que te mantienen actualizado con lo que está pasando en los negocios y marketing.</p>
+            </div>
+          </div>
+          <div class="vida-card">
+            <img src="assets/images/DSC02270_resultado.jpg" alt="Campus">
+            <div class="vida-card-content">
+              <h3>Campus Medellín</h3>
+              <p>Vive la experiencia ESIC en una ubicación exclusiva.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cifras Section -->
+    <section class="section section-blue cifras-section">
+      <div class="container">
+        <div class="cifras-header">
+          <h2>CIFRAS Y<br>RECONOCIMIENTO</h2>
+        </div>
+
+        <div class="cifras-grid">
+          <div class="cifra-item">
+            <div class="cifra-number">92%</div>
+            <div class="cifra-label">Empleabilidad</div>
+          </div>
+          <div class="cifra-item">
+            <div class="cifra-number">+25</div>
+            <div class="cifra-label">Países con Convenios</div>
+          </div>
+          <div class="cifra-item">
+            <div class="cifra-number">+150</div>
+            <div class="cifra-label">Empresas Aliadas</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Historias de Éxito Section -->
+    <section class="section section-cream historias-section">
+      <div class="container">
+        <div class="historias-header">
+          <h2>HISTORIAS<br>DE ÉXITO</h2>
+          <a class="btn btn-outline" href="#">VER MÁS HISTORIAS</a>
+        </div>
+
+        <div class="historias-grid">
+          <div class="testimonio-card">
+            <blockquote>
+              ESIC impulsó mi carrera y me ayudó a encontrar lo que realmente me apasiona, lo recomiendo!
+            </blockquote>
+            <div class="testimonio-author">
+              <img src="assets/images/DSC02284_resultado.jpg" alt="Natalia López">
+              <div class="testimonio-author-info">
+                <h4>Natalia López</h4>
+                <p>Egresada Marketing Global</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="historias-featured">
+            <img src="assets/images/DSC02331_resultado.jpg" alt="Estudiante ESIC">
+          </div>
+
+          <div class="testimonio-card">
+            <blockquote>
+              La metodología práctica y las conexiones internacionales fueron clave para mi crecimiento profesional.
+            </blockquote>
+            <div class="testimonio-author">
+              <img src="assets/images/DSC02307_resultado.jpg" alt="Carlos Martínez">
+              <div class="testimonio-author-info">
+                <h4>Carlos Martínez</h4>
+                <p>Egresado Digital Business</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fundadores Section -->
+    <section class="section section-white fundadores-section">
+      <div class="container">
+        <div class="fundadores-header">
+          <h2>NUESTROS MIEMBROS<br>FUNDADORES</h2>
+        </div>
+
+        <div class="fundadores-grid">
+          <div class="fundador-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" alt="Accenture">
+          </div>
+          <div class="fundador-logo">
+            <img src="https://www.grupobios.co/wp-content/uploads/2021/03/logo-bios.svg" alt="Bios">
+          </div>
+          <div class="fundador-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Telef%C3%B3nica_Logo.svg" alt="Telefónica">
+          </div>
+          <div class="fundador-logo">
+            <img src="https://www.postobon.com/sites/default/files/logo-postobon.svg" alt="Postobón">
+          </div>
+          <div class="fundador-logo">
+            <img src="https://www.bancolombia.com/wcm/connect/www.bancolombia.com-26918/5e08e5c1-e057-4c0e-b0c7-6bfa84d06cdb/logo-bancolombia.svg" alt="Bancolombia">
+          </div>
+          <div class="fundador-logo">
+            <img src="https://www.rymel.com.co/wp-content/uploads/2020/03/logo-rymel.svg" alt="Rymel">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rethink Section -->
+    <section class="section rethink-section">
+      <div class="container">
+        <div class="rethink-header">
+          <h2>RETHINK</h2>
+        </div>
+
+        <div class="rethink-grid">
+          <div class="rethink-card">
+            <div class="rethink-card-image">
+              <img src="assets/images/DSC02274_resultado.jpg" alt="IA en Marketing">
+            </div>
+            <div class="rethink-card-content">
+              <span class="rethink-card-tag">Artículo</span>
+              <h3>La IA en Marketing y Cómo Utilizarla</h3>
+              <a class="btn btn-outline" href="#">LEER</a>
+            </div>
+          </div>
+          <div class="rethink-card">
+            <div class="rethink-card-image">
+              <img src="assets/images/DSC02307_resultado.jpg" alt="ESIC Transformando">
+            </div>
+            <div class="rethink-card-content">
+              <span class="rethink-card-tag">Noticia</span>
+              <h3>ESIC: Transformando la Educación en el Mundo</h3>
+              <a class="btn btn-outline" href="#">LEER</a>
+            </div>
+          </div>
+          <div class="rethink-card">
+            <div class="rethink-card-image">
+              <img src="assets/images/DSC02331_resultado.jpg" alt="StartCo">
+            </div>
+            <div class="rethink-card-content">
+              <span class="rethink-card-tag">Artículo</span>
+              <h3>StartCo Medellín 2025, La Subasta de Startups</h3>
+              <a class="btn btn-outline" href="#">LEER</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-cta">
+            <h2>TRANSFORMA TU FUTURO <span>EN ESIC</span></h2>
+          </div>
+          <div class="footer-info">
+            <div class="footer-logo">ESIC</div>
+            <div class="footer-contact">
+              <strong>Campus Medellín, Col.</strong>
+              <p>Calle 17 Sur 44 - 80<br>Medellín, Colombia</p>
+            </div>
+            <div class="footer-contact">
+              <strong>Contacto</strong>
+              <p>+57 604 312 6037<br>esicmedellin@esic.edu</p>
+            </div>
+            <div class="footer-social">
+              <a href="#" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+              </a>
+              <a href="#" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-5c0-1 1-2 2-2s2 1 2 2v5"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2025 ESIC. Todos los derechos reservados.</p>
+          <div class="footer-links">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Tratamiento de Datos</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Tabs functionality
+    document.querySelectorAll('.programas-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.programas-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        document.querySelectorAll('.programas-content').forEach(content => content.style.display = 'none');
+        const tabName = tab.getAttribute('data-tab');
+        document.querySelector(`.programas-content[data-tab="${tabName}"]`).style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>

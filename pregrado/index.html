@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pregrados ESIC Medellín | Formación con Visión Global</title>
+  <meta name="description" content="Carreras universitarias en marketing y negocios en ESIC Medellín. Pregrados en Digital Business y Dirección de Marketing Global con doble titulación internacional.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../esic-theme.css">
+  <style>
+    /* Pregrado highlight color */
+    :root {
+      --pregrado-highlight: #FF8701;
+      --pregrado-highlight-dark: #E67600;
+    }
+
+    /* Section overlap pattern */
+    .section-overlap {
+      position: relative;
+      margin-top: -50px;
+      border-radius: 50px 50px 0 0;
+      z-index: 1;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .section-overlap-light {
+      background: var(--bg);
+    }
+
+    .section-overlap-white {
+      background: var(--surface);
+    }
+
+    .section-overlap-highlight {
+      background: var(--pregrado-highlight);
+    }
+
+    /* Hero with dark overlay */
+    .hero-pregrado {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      padding-bottom: 100px;
+      position: relative;
+    }
+
+    .hero-pregrado::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 19, 63, 0.75) 0%, rgba(0, 19, 63, 0.5) 100%);
+      z-index: 1;
+    }
+
+    .hero-pregrado .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-pregrado .hero-content {
+      max-width: 680px;
+    }
+
+    .hero-pregrado .hero-title span {
+      color: var(--pregrado-highlight);
+    }
+
+    .hero-pregrado .btn-primary {
+      background: var(--pregrado-highlight);
+      box-shadow: 0 16px 35px rgba(255, 135, 1, 0.3);
+    }
+
+    .hero-pregrado .btn-primary:hover {
+      background: var(--pregrado-highlight-dark);
+    }
+
+    /* Program selector grid */
+    .program-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .program-selector-card {
+      border-radius: 24px;
+      padding: 2rem;
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .program-selector-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .program-selector-card::after {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 30px;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      transform: rotate(12deg);
+    }
+
+    .program-selector-card.pregrado-digital-business {
+      background: linear-gradient(135deg, var(--pregrado-highlight), var(--pregrado-highlight-dark));
+    }
+
+    .program-selector-card.pregrado-marketing {
+      background: linear-gradient(135deg, #0047E9, #001E80);
+    }
+
+    .program-selector-card h3 {
+      font-family: var(--display-font);
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-weight: var(--display-weight);
+    }
+
+    .program-selector-card p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .program-selector-card .program-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+
+    .program-selector-card .program-cta:hover {
+      text-decoration: underline;
+    }
+
+    /* Info stat cards - professional design */
+    .info-stats-section {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .info-stats-left h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .info-stat-card {
+      border-radius: 24px;
+      padding: 1.5rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 140px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-stat-card::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      transform: rotate(15deg);
+    }
+
+    .info-stat-card.orange {
+      background: linear-gradient(135deg, #FF9600, #FE5000);
+    }
+
+    .info-stat-card.blue {
+      background: linear-gradient(135deg, #0047E9, #001E80);
+    }
+
+    .info-stat-card.teal {
+      background: linear-gradient(135deg, #09CF90, #07A872);
+      color: #00133F;
+    }
+
+    .info-stat-card.purple {
+      background: linear-gradient(135deg, #6B21A8, #4C1D95);
+    }
+
+    .info-stat-card .stat-icon {
+      position: absolute;
+      top: 1rem;
+      left: 1.2rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      display: grid;
+      place-items: center;
+    }
+
+    .info-stat-card .stat-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .info-stat-card strong {
+      font-family: var(--display-font);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: var(--display-weight);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .info-stat-card span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 900px) {
+      .info-stats-section {
+        grid-template-columns: 1fr;
+      }
+      .info-stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .info-stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Comparador section */
+    .comparador-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .comparador-card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow-soft);
+      border-left: 4px solid var(--pregrado-highlight);
+    }
+
+    .comparador-card .interest {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .comparador-card h4 {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .comparador-card .recommendation {
+      color: var(--pregrado-highlight);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* Highlight section - improved contrast */
+    .section-highlight {
+      color: #FFFFFF;
+    }
+
+    .section-highlight .section-tag {
+      color: #FFFFFF;
+    }
+
+    .section-highlight .section-tag::before {
+      background: #FFFFFF;
+    }
+
+    .section-highlight .section-title {
+      color: #FFFFFF;
+    }
+
+    .section-highlight .section-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .section-highlight .btn-primary {
+      background: #FFFFFF;
+      color: var(--pregrado-highlight);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-highlight .btn-primary:hover {
+      background: #F0F0F0;
+      transform: translateY(-2px);
+    }
+
+    .section-highlight .btn-outline {
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .section-highlight .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .highlight-content {
+      max-width: 650px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .highlight-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    /* Form section */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .form-intro h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    .form-intro p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-family: var(--body-font);
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--pregrado-highlight);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--pregrado-highlight);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      font-family: var(--body-font);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .form-submit:hover {
+      background: var(--pregrado-highlight-dark);
+    }
+
+    @media (max-width: 900px) {
+      .section-overlap {
+        margin-top: -30px;
+        border-radius: 30px 30px 0 0;
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <!-- 1. Hero Section -->
+    <section class="hero hero-photo hero-pregrado" style="--hero-image: url('assets/images/DSC02284_resultado.jpg'); --hero-position: center right;">
+      <div class="container">
+        <div class="hero-content reveal">
+          <span class="hero-eyebrow">Pregrados + Doble Titulación</span>
+          <h1 class="hero-title">Pregrados <span>ESIC Medellín</span></h1>
+          <p class="hero-subtitle">Estudiar negocios en Colombia con visión global: formación universitaria con enfoque digital, doble titulación internacional e inmersión en más de 25 países.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#formulario">Solicita información</a>
+            <a class="btn btn-outline" href="#programas">Explora programas</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Selector de Pregrados -->
+    <section class="section section-overlap section-overlap-white" id="programas">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Explora nuestros programas</span>
+            <h2 class="section-title">Pregrados disponibles</h2>
+            <p class="section-subtitle">Dos carreras universitarias en marketing y negocios digitales para construir tu futuro profesional.</p>
+          </div>
+        </div>
+        <div class="program-selector-grid">
+          <article class="program-selector-card pregrado-digital-business reveal">
+            <div>
+              <h3>Pregrado en Digital Business</h3>
+              <p>Lidera la transformación digital de las organizaciones con visión estratégica, innovación y gestión tecnológica.</p>
+            </div>
+            <a class="program-cta" href="#">Explora aquí →</a>
+          </article>
+          <article class="program-selector-card pregrado-marketing reveal delay-1">
+            <div>
+              <h3>Pregrado en Dirección de Marketing Global</h3>
+              <p>Domina la estrategia comercial, el branding y la gestión integral de mercados internacionales.</p>
+            </div>
+            <a class="program-cta" href="#">Explora aquí →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Información Común -->
+    <section class="section section-overlap section-overlap-light">
+      <div class="container info-stats-section">
+        <div class="info-stats-left reveal">
+          <span class="section-tag">Lo que incluye tu pregrado</span>
+          <h2>Formación<br>integral</h2>
+          <a class="btn btn-primary" href="programas.pdf">Descargar pensum →</a>
+        </div>
+        <div class="info-stats-grid reveal delay-1">
+          <div class="info-stat-card orange">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <strong>8 Semestres</strong>
+            <span>Duración</span>
+          </div>
+          <div class="info-stat-card blue">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <strong>Medellín</strong>
+            <span>Colombia</span>
+          </div>
+          <div class="info-stat-card teal">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+            </div>
+            <strong>Doble Título</strong>
+            <span>ESIC + Universidad aliada</span>
+          </div>
+          <div class="info-stat-card purple">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <strong>+25 Países</strong>
+            <span>Inmersión internacional</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Comparador Rápido -->
+    <section class="section section-overlap section-overlap-white">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">¿Cuál es para ti?</span>
+            <h2 class="section-title">Encuentra tu pregrado ideal</h2>
+            <p class="section-subtitle">Una guía rápida para ayudarte a decidir según tus intereses profesionales.</p>
+          </div>
+        </div>
+        <div class="comparador-grid">
+          <div class="comparador-card reveal">
+            <div class="interest">Si te interesa...</div>
+            <h4>Tecnología, innovación y gestión de negocios digitales</h4>
+            <div class="recommendation">→ Pregrado en Digital Business</div>
+          </div>
+          <div class="comparador-card reveal delay-1">
+            <div class="interest">Si te interesa...</div>
+            <h4>Estrategia comercial, branding y mercados globales</h4>
+            <div class="recommendation">→ Pregrado en Dirección de Marketing Global</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Highlight Section -->
+    <section class="section section-overlap section-overlap-highlight section-highlight">
+      <div class="container">
+        <div class="highlight-content reveal">
+          <span class="section-tag">Da el primer paso</span>
+          <h2 class="section-title">Tu carrera profesional comienza aquí</h2>
+          <p class="section-subtitle" style="max-width: 100%;">Descarga el pensum completo de nuestros programas o agenda una sesión con nuestro equipo de admisiones para resolver todas tus dudas.</p>
+          <div class="highlight-actions">
+            <a class="btn btn-outline" href="programas.pdf">Descargar pensum</a>
+            <a class="btn btn-primary" href="#formulario">Solicitar información</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Formulario -->
+    <section class="section section-overlap section-overlap-light" id="formulario">
+      <div class="container">
+        <div class="form-grid">
+          <div class="form-intro reveal">
+            <span class="section-tag">Contáctanos</span>
+            <h2>Solicita información</h2>
+            <p>Completa el formulario y un asesor de admisiones se pondrá en contacto contigo para guiarte en el proceso.</p>
+            <div style="margin-top: 2rem;">
+              <p style="font-weight: 600; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +57 604 123 4567
+              </p>
+              <p style="color: var(--text-muted);">contacto@esic.co</p>
+            </div>
+          </div>
+          <form class="contact-form reveal delay-1">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+              </div>
+              <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+57 300 000 0000">
+            </div>
+            <div class="form-group">
+              <label for="programa">Programa de interés</label>
+              <select id="programa" name="programa" required>
+                <option value="">Selecciona un programa</option>
+                <option value="digital-business">Pregrado en Digital Business</option>
+                <option value="marketing-global">Pregrado en Dirección de Marketing Global</option>
+              </select>
+            </div>
+            <button type="submit" class="form-submit">Enviar solicitud</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3 class="section-title">Transforma tu futuro en <span>ESIC</span></h3>
+        <p>Formamos líderes en marketing, negocios digitales e innovación con una visión global y práctica.</p>
+      </div>
+      <div>
+        <h4>Institución</h4>
+        <p><a href="quienes-somos.html">Sobre nosotros</a></p>
+        <p><a href="#">Campus</a></p>
+        <p><a href="#">Docentes</a></p>
+      </div>
+      <div>
+        <h4>Programas</h4>
+        <p><a href="index.html">Pregrado</a></p>
+        <p><a href="master-general-v2.html">Máster</a></p>
+        <p><a href="level-up.html">Level Up</a></p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Medellín, Colombia</p>
+        <p>+57 604 123 4567</p>
+        <p>contacto@esic.co</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2025 ESIC Medellín. Todos los derechos reservados.</span>
+      <span>Política de tratamiento de datos · Términos y condiciones</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-btn" href="#" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z" />
+    </svg>
+  </a>
+</body>
+</html>

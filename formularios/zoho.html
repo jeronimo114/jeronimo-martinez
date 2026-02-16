@@ -1,0 +1,398 @@
+<!--
+  Formulario Zoho CRM - Estilo ESIC
+  Para usar: incluir este código donde se necesite el formulario.
+  Requiere: esic-theme.css y las fuentes de Google (DM Sans, Sofia Sans Extra Condensed)
+-->
+
+<style>
+  /* Form Container */
+  .esic-form {
+    background: var(--surface, #FFFFFF);
+    border-radius: 32px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 50px rgba(0, 19, 63, 0.12);
+    position: relative;
+    overflow: hidden;
+    max-width: 560px;
+  }
+
+  .esic-form::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 160px;
+    height: 160px;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #0047E9, #0AE4C3);
+    opacity: 0.08;
+    transform: rotate(12deg);
+  }
+
+  .esic-form-title {
+    font-family: "Sofia Sans Extra Condensed", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: var(--text, #0B132B);
+  }
+
+  /* Form Groups */
+  .esic-form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .esic-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .esic-form-label {
+    display: block;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text, #0B132B);
+  }
+
+  .esic-form-label .required {
+    color: #FF9600;
+    margin-left: 0.25rem;
+  }
+
+  /* Inputs */
+  .esic-form-input,
+  .esic-form-select {
+    width: 100%;
+    padding: 0.95rem 1.1rem;
+    border: 1px solid rgba(0, 19, 63, 0.12);
+    border-radius: 14px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+    background: var(--bg, #F8F6F2);
+    color: var(--text, #0B132B);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .esic-form-input:focus,
+  .esic-form-select:focus {
+    outline: none;
+    border-color: #0047E9;
+    box-shadow: 0 0 0 3px rgba(0, 71, 233, 0.12);
+  }
+
+  .esic-form-input::placeholder {
+    color: #97A2B1;
+  }
+
+  /* Select with custom arrow */
+  .esic-select-wrapper {
+    position: relative;
+  }
+
+  .esic-select-wrapper::after {
+    content: "";
+    position: absolute;
+    right: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #5F6B7A;
+    pointer-events: none;
+  }
+
+  .esic-form-select {
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+
+  /* Checkbox / Privacy */
+  .esic-form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .esic-form-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 19, 63, 0.12);
+    border-radius: 6px;
+    background: var(--bg, #F8F6F2);
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: all 0.2s ease;
+  }
+
+  .esic-form-checkbox input[type="checkbox"]:checked {
+    background: #0047E9;
+    border-color: #0047E9;
+  }
+
+  .esic-form-checkbox input[type="checkbox"]:checked::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin: 2px auto 0;
+  }
+
+  .esic-form-checkbox input[type="checkbox"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 71, 233, 0.12);
+  }
+
+  .esic-form-checkbox-text {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.875rem;
+    color: #5F6B7A;
+    line-height: 1.5;
+  }
+
+  .esic-form-checkbox-text a {
+    color: #0047E9;
+    text-decoration: underline;
+  }
+
+  .esic-privacy-error {
+    font-size: 0.8rem;
+    color: #FF9600;
+    margin-top: 0.5rem;
+    display: none;
+  }
+
+  .esic-privacy-error.visible {
+    display: block;
+  }
+
+  /* Buttons */
+  .esic-form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .esic-form-submit {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: #0047E9;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 999px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 16px 35px rgba(0, 71, 233, 0.25);
+  }
+
+  .esic-form-submit:hover {
+    background: #0037B4;
+    transform: translateY(-2px);
+  }
+
+  .esic-form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .esic-form-reset {
+    padding: 1rem 1.5rem;
+    background: transparent;
+    color: #5F6B7A;
+    border: 1px solid rgba(0, 19, 63, 0.12);
+    border-radius: 999px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .esic-form-reset:hover {
+    border-color: #5F6B7A;
+    color: #0B132B;
+  }
+
+  /* Hidden fields */
+  .esic-hidden {
+    display: none !important;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .esic-form {
+      padding: 1.75rem;
+      border-radius: 24px;
+    }
+
+    .esic-form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .esic-form-actions {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<div class="esic-form">
+  <form id="webform5728323000047294001" action="https://crm.zoho.com/crm/WebToLeadForm" name="WebToLeads5728323000047294001" method="POST" onsubmit="javascript:document.charset='UTF-8'; return checkMandatory5728323000047294001()" accept-charset="UTF-8">
+
+    <!-- Do not remove this code - Hidden Zoho fields -->
+    <input type="text" class="esic-hidden" name="xnQsjsdp" value="ec287f77441d9bd2595462c6fcbcb0ebece78e875c262661dd61362d0c57d20a">
+    <input type="hidden" name="zc_gad" id="zc_gad" value="">
+    <input type="text" class="esic-hidden" name="xmIwtLD" value="067df4461e7ef7141bec67254706b74e712fc0e3f319be8c17b39584ac3651dd084e6da136e9a45f3c044cfb4422f8a8">
+    <input type="text" class="esic-hidden" name="actionType" value="TGVhZHM=">
+    <input type="text" class="esic-hidden" name="returnURL" value="https://esic.co/contactenos/">
+
+    <h2 class="esic-form-title">Contáctanos</h2>
+
+    <div class="esic-form-row">
+      <div class="esic-form-group">
+        <label class="esic-form-label" for="First_Name">Nombre</label>
+        <input type="text" class="esic-form-input" id="First_Name" name="First Name" maxlength="40" placeholder="Tu nombre">
+      </div>
+      <div class="esic-form-group">
+        <label class="esic-form-label" for="Last_Name">Apellidos <span class="required">*</span></label>
+        <input type="text" class="esic-form-input" id="Last_Name" name="Last Name" maxlength="80" placeholder="Tus apellidos" aria-required="true">
+      </div>
+    </div>
+
+    <div class="esic-form-group">
+      <label class="esic-form-label" for="Email">Correo electrónico <span class="required">*</span></label>
+      <input type="email" class="esic-form-input" id="Email" name="Email" ftype="email" maxlength="100" placeholder="tu@email.com" aria-required="true">
+    </div>
+
+    <div class="esic-form-group">
+      <label class="esic-form-label" for="Mobile">Móvil <span class="required">*</span></label>
+      <input type="tel" class="esic-form-input" id="Mobile" name="Mobile" maxlength="30" placeholder="+57 300 000 0000" aria-required="true">
+    </div>
+
+    <div class="esic-form-row">
+      <div class="esic-form-group">
+        <label class="esic-form-label" for="LEADCF45">Medio de contacto</label>
+        <div class="esic-select-wrapper">
+          <select class="esic-form-select" id="LEADCF45" name="LEADCF45">
+            <option value="-None-">Selecciona</option>
+            <option value="Mensaje por WhatsApp">WhatsApp</option>
+            <option value="Correo electrónico">Correo</option>
+            <option value="Llamada telefónica">Llamada</option>
+          </select>
+        </div>
+      </div>
+      <div class="esic-form-group">
+        <label class="esic-form-label" for="LEADCF10">Tipo de programa</label>
+        <div class="esic-select-wrapper">
+          <select class="esic-form-select" id="LEADCF10" name="LEADCF10">
+            <option value="-None-">Selecciona</option>
+            <option value="Pregrado">Pregrado</option>
+            <option value="Corporate">Corporate</option>
+            <option value="Diplomado">Diplomado</option>
+            <option value="Curso">Curso</option>
+            <option value="Executive">Executive</option>
+            <option value="Educación continua">Educación continua</option>
+            <option value="Level Up">Level Up</option>
+            <option value="Open Day">Open Day</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Lead Status -->
+    <select class="esic-hidden" id="Lead_Status" name="Lead Status">
+      <option selected value="Por Gestionar">Por Gestionar</option>
+    </select>
+
+    <div class="esic-form-checkbox">
+      <input type="checkbox" id="privacyTool5728323000047294001" onclick="disableErr5728323000047294001()">
+      <div>
+        <span class="esic-form-checkbox-text">Acepto la <a href="#">Política de privacidad</a> y los <a href="#">Términos de servicio</a>.</span>
+        <div id="privacyErr5728323000047294001" class="esic-privacy-error">Por favor, acepta los términos.</div>
+      </div>
+    </div>
+
+    <!-- Honeypot -->
+    <input type="text" class="esic-hidden" name="aG9uZXlwb3Q" value="">
+
+    <div class="esic-form-actions">
+      <button type="submit" id="formsubmit" class="esic-form-submit">Enviar solicitud</button>
+      <button type="reset" class="esic-form-reset">Limpiar</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  function privacyAlert5728323000047294001() {
+    var privacyTool = document.getElementById('privacyTool5728323000047294001');
+    var privacyErr = document.getElementById('privacyErr5728323000047294001');
+    if (privacyTool && !privacyTool.checked) {
+      privacyErr.classList.add('visible');
+      privacyTool.focus();
+      return false;
+    }
+    return true;
+  }
+
+  function disableErr5728323000047294001() {
+    var privacyTool = document.getElementById('privacyTool5728323000047294001');
+    var privacyErr = document.getElementById('privacyErr5728323000047294001');
+    if (privacyTool && privacyTool.checked && privacyErr) {
+      privacyErr.classList.remove('visible');
+    }
+  }
+
+  function validateEmail5728323000047294001() {
+    var form = document.forms['WebToLeads5728323000047294001'];
+    var emailFld = form.querySelectorAll('[ftype=email]');
+    for (var i = 0; i < emailFld.length; i++) {
+      var emailVal = emailFld[i].value.trim();
+      if (emailVal.length != 0) {
+        var atpos = emailVal.indexOf('@');
+        var dotpos = emailVal.lastIndexOf('.');
+        if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
+          alert('Por favor, introduce un correo electrónico válido.');
+          emailFld[i].focus();
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  function checkMandatory5728323000047294001() {
+    var mndFileds = ['Last Name', 'Email', 'Mobile'];
+    var fldLangVal = ['Apellidos', 'Correo electrónico', 'Móvil'];
+    for (var i = 0; i < mndFileds.length; i++) {
+      var fieldObj = document.forms['WebToLeads5728323000047294001'][mndFileds[i]];
+      if (fieldObj && fieldObj.value.trim().length == 0) {
+        alert(fldLangVal[i] + ' no puede estar vacío.');
+        fieldObj.focus();
+        return false;
+      }
+    }
+    if (!validateEmail5728323000047294001()) return false;
+    if (!privacyAlert5728323000047294001()) return false;
+    document.querySelector('.esic-form-submit').disabled = true;
+  }
+</script>
+
+<!-- Do not remove - Analytics -->
+<script id="wf_anal" src="https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=3462ead53f1fe2ce55dbca18482ecd445ec4cfeedab7f0ea6609f4fa898ba7661b8748fd8a037a0120524be3a12a064dgidf5899a2ccaaf81342524a0a9b899e95c7750ca8af48458fc3006d5d3e6a35cc6gid0839cdedc45a71a549fe387fa134c0b547ebd3efa32683dfc50ab8d8ffaed791gid625f77b33a034a55ab13d1ec99e24e4d0f6c9eeb5d4dba0fb4dad33647c1e1a6&tw=c58ff9fec05d8aa130262e241027931299d4291f2aabb0c55ee6157b88c87ee6"></script>

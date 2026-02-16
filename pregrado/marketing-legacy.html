@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pregrado en Dirección de Marketing Global | ESIC Medellín</title>
+  <meta name="description" content="Pregrado en Dirección de Marketing Global de ESIC Medellín. 4 años de formación, doble titulación internacional e inmersión global.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../esic-theme.css">
+  <style>
+    /* Pregrado highlight color */
+    :root {
+      --pregrado-highlight: #FF8701;
+      --pregrado-highlight-dark: #E67600;
+    }
+
+    /* Section overlap pattern */
+    .section-overlap {
+      position: relative;
+      margin-top: -50px;
+      border-radius: 50px 50px 0 0;
+      z-index: 1;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .section-overlap-light {
+      background: var(--bg);
+    }
+
+    .section-overlap-white {
+      background: var(--surface);
+    }
+
+    .section-overlap-highlight {
+      background: var(--pregrado-highlight);
+    }
+
+    .section-overlap-warm {
+      background: #F5F2EE;
+    }
+
+    .section-overlap-dark {
+      background: linear-gradient(135deg, #001E47 0%, #00133F 100%);
+    }
+
+    /* Hero with dark overlay */
+    .hero-pregrado-marketing {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding-bottom: 120px;
+      position: relative;
+      background-image: url('https://esic.co/wp-content/uploads/2026/02/hero-pregrado-marketing.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-pregrado-marketing::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 71, 233, 0.85) 0%, rgba(0, 19, 63, 0.7) 100%);
+      z-index: 1;
+    }
+
+    .hero-pregrado-marketing .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-pregrado-marketing .hero-content {
+      max-width: 800px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .hero-pregrado-marketing .hero-eyebrow {
+      color: #fff;
+      opacity: 0.9;
+    }
+
+    .hero-pregrado-marketing .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: #fff;
+    }
+
+    .hero-pregrado-marketing .hero-title span {
+      display: block;
+      color: var(--pregrado-highlight);
+      font-size: clamp(4rem, 10vw, 8rem);
+    }
+
+    .hero-pregrado-marketing .hero-actions {
+      justify-content: center;
+    }
+
+    .hero-pregrado-marketing .btn-primary {
+      background: var(--pregrado-highlight);
+      box-shadow: 0 16px 35px rgba(255, 135, 1, 0.35);
+    }
+
+    .hero-pregrado-marketing .btn-primary:hover {
+      background: var(--pregrado-highlight-dark);
+    }
+
+    .hero-pregrado-marketing .btn-outline {
+      border-color: rgba(255, 255, 255, 0.5);
+      color: #fff;
+    }
+
+    .hero-pregrado-marketing .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Explore section - two columns */
+    .explore-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .explore-content h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 1.2rem;
+    }
+
+    .explore-content h2 span {
+      color: var(--pregrado-highlight);
+    }
+
+    .explore-content p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .explore-form-card {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: var(--shadow-soft);
+      border-top: 4px solid var(--pregrado-highlight);
+    }
+
+    .explore-form-card h3 {
+      font-family: var(--display-font);
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      font-weight: var(--display-weight);
+      color: var(--brand-blue);
+    }
+
+    /* Banner Becas */
+    .banner-becas {
+      background: var(--pregrado-highlight);
+      border-radius: 24px;
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .banner-becas h3 {
+      font-family: var(--display-font);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0;
+    }
+
+    .banner-becas .btn-primary {
+      background: #fff;
+      color: var(--pregrado-highlight);
+    }
+
+    .banner-becas .btn-primary:hover {
+      background: #f0f0f0;
+    }
+
+    /* Benefits Grid - 4 columns */
+    .benefits-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .benefit-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .benefit-item .benefit-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-dark));
+      display: grid;
+      place-items: center;
+      color: #fff;
+    }
+
+    .benefit-item .benefit-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .benefit-item .benefit-text {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    /* Testimonials Dark Section */
+    .testimonials-dark {
+      color: #fff;
+    }
+
+    .testimonials-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .testimonial-text-block h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    .testimonial-text-block p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-video-card {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      min-height: 320px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .testimonial-video-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 19, 63, 0.3) 0%, rgba(0, 19, 63, 0.7) 100%);
+    }
+
+    .testimonial-video-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      gap: 1rem;
+    }
+
+    .testimonial-video-overlay .play-btn {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-video-overlay .play-btn:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(1.05);
+    }
+
+    .testimonial-video-overlay .play-btn svg {
+      width: 28px;
+      height: 28px;
+      margin-left: 4px;
+    }
+
+    /* Plan de Estudios */
+    .curriculum-section h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 0.5rem;
+    }
+
+    .curriculum-nav {
+      display: flex;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .curriculum-nav-item {
+      font-family: var(--display-font);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      font-weight: var(--display-weight);
+      color: var(--text-muted);
+      padding-bottom: 1rem;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+    }
+
+    .curriculum-nav-item.active {
+      color: var(--text);
+      border-bottom-color: var(--pregrado-highlight);
+    }
+
+    .curriculum-tabs-wrapper {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .curriculum-pills {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .curriculum-pill {
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text-muted);
+    }
+
+    .curriculum-pill.active {
+      background: var(--brand-blue);
+      color: #fff;
+      border-color: var(--brand-blue);
+    }
+
+    .curriculum-content {
+      display: none;
+    }
+
+    .curriculum-content.active {
+      display: block;
+    }
+
+    .curriculum-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem 2rem;
+    }
+
+    .curriculum-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .curriculum-list li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--pregrado-highlight);
+      flex-shrink: 0;
+    }
+
+    .curriculum-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .curriculum-actions .btn {
+      font-size: 0.9rem;
+    }
+
+    /* Institution Cards */
+    .institution-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .institution-card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .institution-card .card-header {
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      color: #fff;
+      font-family: var(--display-font);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      font-weight: var(--display-weight);
+    }
+
+    .institution-card.esic .card-header {
+      background: var(--brand-blue);
+    }
+
+    .institution-card.ceipa .card-header {
+      background: var(--pregrado-highlight);
+    }
+
+    .institution-card .logo-placeholder {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display-font);
+      font-size: 2rem;
+      font-weight: var(--display-weight);
+      margin-bottom: 0.5rem;
+    }
+
+    .institution-card.esic .logo-placeholder {
+      color: var(--brand-blue);
+    }
+
+    .institution-card.ceipa .logo-placeholder {
+      color: var(--pregrado-highlight);
+    }
+
+    .legal-text {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Footer Level Up style */
+    .footer-pregrado {
+      background: var(--surface);
+      color: var(--text);
+      padding: 5rem 0 2rem;
+      border-radius: 50px 50px 0 0;
+      margin-top: -50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-pregrado-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .footer-pregrado-title {
+      font-family: var(--display-font);
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--text);
+    }
+
+    .footer-pregrado-title span {
+      color: var(--pregrado-highlight);
+    }
+
+    .footer-pregrado-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 0.9rem 1.4rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      background: var(--surface);
+      transition: all 0.2s ease;
+    }
+
+    .footer-btn:hover {
+      border-color: var(--pregrado-highlight);
+      color: var(--pregrado-highlight);
+    }
+
+    .footer-logo {
+      font-family: var(--display-font);
+      font-size: 2rem;
+      font-weight: var(--display-weight);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo small {
+      font-family: var(--body-font);
+      font-size: 0.6rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.3;
+      color: var(--text-muted);
+    }
+
+    .footer-info {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-info h4 {
+      font-family: var(--body-font);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: 0.2rem 0;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text);
+      transition: color 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      color: var(--pregrado-highlight);
+    }
+
+    .footer-legal {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .footer-legal a {
+      font-size: 0.9rem;
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    .footer-legal a:hover {
+      color: var(--pregrado-highlight);
+    }
+
+    .footer-pregrado-bottom {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Form styles */
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-family: var(--body-font);
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease;
+      background: var(--bg);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--pregrado-highlight);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-row-phone {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0.5rem;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--brand-blue);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      font-family: var(--body-font);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .form-submit:hover {
+      background: var(--brand-blue-dark);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .section-overlap {
+        margin-top: -30px;
+        border-radius: 30px 30px 0 0;
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      .explore-grid,
+      .testimonials-layout,
+      .institution-cards,
+      .footer-pregrado-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .curriculum-list {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .banner-becas {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .benefits-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .footer-pregrado-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <!-- 1. Hero Section -->
+    <section class="hero hero-pregrado-marketing">
+      <div class="container">
+        <div class="hero-content reveal">
+          <h1 class="hero-title">No estudies satisfacción<span>Dirígelo</span></h1>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#formulario">Solicitar información</a>
+            <a class="btn btn-outline" href="#programas">Encuentra tu programa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Explora / Solicita información -->
+    <section class="section section-overlap section-overlap-white" id="programas">
+      <div class="container">
+        <div class="explore-grid">
+          <div class="explore-content reveal">
+            <h2>Explora<br>nuestros<br><span>programas</span></h2>
+            <p>Sumérgete en el dinámico mundo del marketing con el Pregrado en Dirección de Marketing Global de ESIC Medellín. Desarrollarás habilidades esenciales para sobresalir en el mercado internacional.</p>
+            <a class="btn btn-primary" href="#" style="background: var(--pregrado-highlight); box-shadow: 0 16px 35px rgba(255, 135, 1, 0.25);">Descarga el brochure</a>
+          </div>
+          <div class="explore-form-card reveal delay-1" id="formulario">
+            <h3>Pregrado en Dirección de Marketing Global</h3>
+            <form>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nombre">Nombres</label>
+                  <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                  <label for="apellido">Apellidos</label>
+                  <input type="text" id="apellido" name="apellido" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <div class="form-row-phone">
+                  <input type="text" id="pref" name="pref" placeholder="Pref:" style="text-align: center;">
+                  <input type="tel" id="telefono" name="telefono">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contacto">¿Cómo prefieres que nos comuniquemos contigo?</label>
+                <select id="contacto" name="contacto">
+                  <option value="">Selecciona una opción</option>
+                  <option value="whatsapp">WhatsApp</option>
+                  <option value="llamada">Llamada telefónica</option>
+                  <option value="email">Correo electrónico</option>
+                </select>
+              </div>
+              <button type="submit" class="form-submit">Enviar solicitud</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Banner Becas -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;">
+      <div class="container">
+        <div class="banner-becas reveal">
+          <h3>¡Conoce nuestro programa de becas!</h3>
+          <a class="btn btn-primary" href="../master/becas.html">Más información</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Benefits Section -->
+    <section class="section">
+      <div class="container">
+        <div class="benefits-row reveal">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <div class="benefit-text">4 Años</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+            </div>
+            <div class="benefit-text">Doble<br>Titulación</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="benefit-text">Medellín</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <div class="benefit-text">Inmersión<br>internacional</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Testimonios -->
+    <section class="section section-overlap section-overlap-dark testimonials-dark">
+      <div class="container">
+        <div class="testimonials-layout">
+          <div class="testimonial-text-block reveal">
+            <h2>Testimonios</h2>
+            <p>Este programa te ofrece una visión internacional del marketing moderno, combinando teoría y práctica para formar profesionales capaces de innovar y liderar en mercados globales.</p>
+            <p>Aprende sobre estrategias de mercado, comportamiento del consumidor, marketing digital, y gestión de marcas a través de un currículo enfocado en la relevancia global y la innovación.</p>
+          </div>
+          <div class="testimonial-video-card reveal delay-1" style="background-image: url('assets/images/DSC02331_resultado.jpg');">
+            <div class="testimonial-video-overlay">
+              <div class="play-btn" aria-label="Reproducir video">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Plan de Estudios -->
+    <section class="section section-overlap section-overlap-light">
+      <div class="container curriculum-section">
+        <div class="section-header">
+          <div>
+            <h2>Plan de<br>Estudios</h2>
+          </div>
+        </div>
+
+        <div class="curriculum-nav reveal">
+          <button class="curriculum-nav-item active">Plan de estudios</button>
+          <button class="curriculum-nav-item">Ver programas</button>
+        </div>
+
+        <div class="curriculum-tabs-wrapper reveal delay-1">
+          <div class="curriculum-pills">
+            <button class="curriculum-pill active" data-year="1">Año 1</button>
+            <button class="curriculum-pill" data-year="2">Año 2</button>
+            <button class="curriculum-pill" data-year="3">Año 3</button>
+            <button class="curriculum-pill" data-year="4">Año 4</button>
+          </div>
+
+          <div class="curriculum-content active" data-year="1">
+            <ul class="curriculum-list">
+              <li>Pensamiento Empresarial</li>
+              <li>Mercado y Tendencias</li>
+              <li>Negocios y Mercados</li>
+              <li>Análisis del entorno y creatividad</li>
+              <li>Factor Humano en las Organizaciones</li>
+              <li>Currículos de profundización en Tecnología</li>
+            </ul>
+          </div>
+
+          <div class="curriculum-content" data-year="2">
+            <ul class="curriculum-list">
+              <li>Marketing Estratégico</li>
+              <li>Investigación de Mercados</li>
+              <li>Comportamiento del Consumidor</li>
+              <li>Comunicación Integrada</li>
+              <li>Marketing Digital</li>
+              <li>Gestión de Ventas</li>
+            </ul>
+          </div>
+
+          <div class="curriculum-content" data-year="3">
+            <ul class="curriculum-list">
+              <li>Branding y Gestión de Marca</li>
+              <li>Trade Marketing</li>
+              <li>Marketing Internacional</li>
+              <li>Analítica de Marketing</li>
+              <li>Innovación y Desarrollo de Productos</li>
+              <li>Inmersión Internacional</li>
+            </ul>
+          </div>
+
+          <div class="curriculum-content" data-year="4">
+            <ul class="curriculum-list">
+              <li>Dirección de Marketing</li>
+              <li>Plan de Marketing</li>
+              <li>Práctica Profesional</li>
+              <li>Proyecto de Grado</li>
+              <li>Ética y Responsabilidad Social</li>
+              <li>Seminario de Tendencias Globales</li>
+            </ul>
+          </div>
+
+          <div class="curriculum-actions">
+            <a class="btn btn-outline" href="#">Brochure del programa</a>
+            <a class="btn btn-outline" href="index.html">Explora otros programas</a>
+          </div>
+        </div>
+
+        <!-- Instituciones de respaldo -->
+        <div class="institution-cards reveal">
+          <div class="institution-card esic">
+            <div class="card-header">Dirección de Marketing Global</div>
+            <div class="logo-placeholder">ESIC</div>
+            <small>Business & Marketing School</small>
+          </div>
+          <div class="institution-card ceipa">
+            <div class="card-header">Administración de Mercadeo</div>
+            <div class="logo-placeholder">CEIPA</div>
+            <small>Business School</small>
+          </div>
+        </div>
+
+        <p class="legal-text reveal">
+          Plan de estudios respaldado por CEIPA Business School<br>
+          Registro Calificado: Resolución 3258 de 05 de marzo de 2020 por 7 años.<br>
+          Acreditación en Alta Calidad con Resolución 3258 del 05 de marzo de 2020 por 4 años.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-pregrado">
+    <div class="container footer-pregrado-grid">
+      <div class="footer-pregrado-left">
+        <h2 class="footer-pregrado-title">Transforma<br>tu futuro<br><span>en ESIC</span></h2>
+        <div class="footer-pregrado-buttons">
+          <a href="quienes-somos.html" class="footer-btn">Institución <span>→</span></a>
+          <a href="#" class="footer-btn">Cifras <span>→</span></a>
+          <a href="#" class="footer-btn">Contáctanos <span>→</span></a>
+        </div>
+      </div>
+      <div class="footer-pregrado-right">
+        <div class="footer-logo">ESIC <small>Business &<br>Marketing School</small></div>
+        <div class="footer-info">
+          <h4>Campus Medellín, Col.</h4>
+          <p>Calle 123 #45 - 67</p>
+        </div>
+        <div class="footer-info">
+          <h4>Contacto</h4>
+          <p>+57 604 123-4567</p>
+          <p>contacto@esic.com</p>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Spotify">sp</a>
+          <a href="#" aria-label="TikTok">tk</a>
+          <a href="#" aria-label="X">x</a>
+        </div>
+        <div class="footer-legal">
+          <a href="#">Términos y Condiciones</a>
+          <a href="#">Política de Tratamiento de Datos</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-pregrado-bottom">
+      <span>© 2025 ESIC. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-btn" href="#" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z" />
+    </svg>
+  </a>
+
+  <script>
+    // Tab functionality for curriculum pills
+    document.querySelectorAll('.curriculum-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        // Remove active from all pills
+        document.querySelectorAll('.curriculum-pill').forEach(p => p.classList.remove('active'));
+        // Add active to clicked pill
+        pill.classList.add('active');
+
+        // Hide all content
+        document.querySelectorAll('.curriculum-content').forEach(content => content.classList.remove('active'));
+        // Show selected content
+        const year = pill.getAttribute('data-year');
+        document.querySelector(`.curriculum-content[data-year="${year}"]`).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

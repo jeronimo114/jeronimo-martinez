@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiénes Somos | ESIC Medellín - Business School España en Colombia</title>
+  <meta name="description" content="Conoce la historia de ESIC, la business school de España con más de 50 años formando líderes. Nuestro campus en Medellín une visión global con innovación local.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../esic-theme.css">
+  <style>
+    /* Secciones con overlap */
+    .section-overlap {
+      position: relative;
+      margin-top: -50px;
+      border-radius: 50px 50px 0 0;
+      background: var(--bg);
+      z-index: 1;
+      padding-top: 80px;
+      padding-bottom: 100px;
+    }
+
+    .section-overlap-white {
+      background: var(--surface);
+    }
+
+    /* Hero simplificado */
+    .hero-simple {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-simple .hero-title {
+      font-size: clamp(3.5rem, 8vw, 6rem);
+    }
+
+    /* =============================================
+       MEJORA 1: Bloque Editorial + Visual Abstracto
+       ============================================= */
+    .editorial-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .editorial-content {
+      max-width: 520px;
+    }
+
+    .editorial-overline {
+      font-family: var(--display-font);
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+      font-weight: var(--display-weight);
+      margin-bottom: 1rem;
+    }
+
+    .editorial-title {
+      font-family: var(--display-font);
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      line-height: 0.92;
+      margin-bottom: 1.5rem;
+    }
+
+    .editorial-title span {
+      color: var(--text);
+    }
+
+    .editorial-text {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 460px;
+    }
+
+    .editorial-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 380px;
+    }
+
+    .editorial-illustration {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      opacity: 0.12;
+    }
+
+    /* =============================================
+       MEJORA 2: Manifiesto Refinado
+       ============================================= */
+    .manifiesto-section {
+      padding: 6rem 0;
+    }
+
+    .manifiesto-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .manifiesto-tag {
+      font-family: var(--display-font);
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      font-weight: var(--display-weight);
+      margin-bottom: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .manifiesto-tag::before,
+    .manifiesto-tag::after {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--brand-blue);
+      opacity: 0.4;
+    }
+
+    .manifiesto-intro {
+      font-size: 1.25rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    .manifiesto-anchor {
+      background: linear-gradient(135deg, var(--brand-blue-dark) 0%, var(--brand-blue) 100%);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .manifiesto-anchor::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(10, 228, 195, 0.15), transparent 50%);
+      pointer-events: none;
+    }
+
+    .manifiesto-anchor-text {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: #FFFFFF;
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .manifiesto-anchor-text span {
+      color: var(--brand-teal);
+    }
+
+    .manifiesto-closing {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .manifiesto-signature {
+      font-family: var(--display-font);
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text);
+      font-weight: var(--display-weight);
+    }
+
+    /* =============================================
+       MEJORA 3: Tarjetas Conceptuales Premium
+       ============================================= */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .value-card {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 2rem 1.5rem 1.8rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 19, 63, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0, 19, 63, 0.1);
+    }
+
+    .value-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      border-radius: 24px 24px 0 0;
+    }
+
+    .value-card.orange::before { background: var(--brand-orange); }
+    .value-card.blue::before { background: var(--brand-blue); }
+    .value-card.teal::before { background: var(--brand-teal); }
+
+    .value-card-arc {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 140px;
+      height: 140px;
+      pointer-events: none;
+      opacity: 0.07;
+    }
+
+    .value-card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .value-card.orange .value-card-icon {
+      background: rgba(255, 150, 0, 0.10);
+    }
+
+    .value-card.blue .value-card-icon {
+      background: rgba(0, 71, 233, 0.10);
+    }
+
+    .value-card.teal .value-card-icon {
+      background: rgba(10, 228, 195, 0.10);
+    }
+
+    .value-card-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .value-card h3 {
+      font-family: var(--display-font);
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      font-weight: var(--display-weight);
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .value-card h3::after {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 3px;
+      background: var(--text);
+      margin-top: 0.6rem;
+      border-radius: 2px;
+      opacity: 0.2;
+    }
+
+    .value-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Socios Fundadores */
+    .fundadores-section {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .fundadores-title {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      line-height: 0.95;
+    }
+
+    .fundadores-image {
+      width: 100%;
+      border-radius: var(--radius-lg);
+    }
+
+    /* Cifras y Reconocimiento */
+    .cifras-section {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .cifras-left h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+    }
+
+    .cifras-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+
+    .cifra-card {
+      border-radius: 24px;
+      padding: 2rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 140px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cifra-card .card-illustration {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 100px;
+      height: 100px;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .cifra-card.large .card-illustration {
+      width: 150px;
+      height: 150px;
+      top: 15px;
+      right: 15px;
+    }
+
+    .cifra-card.large {
+      grid-row: span 2;
+    }
+
+    .cifra-card.orange {
+      background: linear-gradient(145deg, #FF9600 0%, #FE5000 100%);
+    }
+
+    .cifra-card.blue {
+      background: linear-gradient(145deg, #0066FF 0%, #001E80 100%);
+    }
+
+    .cifra-card.teal {
+      background: linear-gradient(145deg, #0AE4C3 0%, #00A896 100%);
+      color: #00133F;
+    }
+
+    .cifra-card strong {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: var(--display-weight);
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cifra-card span {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Scroll Break Highlight */
+    .scroll-break {
+      background: linear-gradient(135deg, #001E47 0%, #00133F 100%);
+      padding: 5rem 0;
+      position: relative;
+      margin-top: -50px;
+      border-radius: 50px 50px 0 0;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .scroll-break::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(0, 71, 233, 0.15), transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(10, 228, 195, 0.08), transparent 40%);
+      pointer-events: none;
+    }
+
+    .scroll-break-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .scroll-break-illustration {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    .scroll-break-illustration.left {
+      left: -50px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .scroll-break-illustration.right {
+      right: -50px;
+      top: 50%;
+      transform: translateY(-50%) scaleX(-1);
+    }
+
+    .scroll-break h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: #FFFFFF;
+      line-height: 0.95;
+      margin-bottom: 1rem;
+      max-width: 700px;
+    }
+
+    .scroll-break h2 span {
+      color: var(--brand-teal);
+    }
+
+    .scroll-break p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 1.15rem;
+      max-width: 550px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .scroll-break .btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #FFFFFF;
+    }
+
+    .scroll-break .btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* =============================================
+       MEJORA 4: Cierre Narrativo "Agenda una visita"
+       ============================================= */
+    .cta-cierre {
+      position: relative;
+      margin-top: -50px;
+      border-radius: 50px 50px 0 0;
+      background: var(--surface);
+      z-index: 3;
+      padding: 5rem 0 6rem;
+    }
+
+    .cta-cierre-wrapper {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-cierre-tag {
+      font-family: var(--display-font);
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      font-weight: var(--display-weight);
+      margin-bottom: 1rem;
+    }
+
+    .cta-cierre h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    .cta-cierre h2 span {
+      color: var(--brand-orange);
+    }
+
+    .cta-cierre p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 1100px) {
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .editorial-section,
+      .fundadores-section,
+      .cifras-section {
+        grid-template-columns: 1fr;
+      }
+
+      .editorial-visual {
+        min-height: 280px;
+        order: -1;
+      }
+
+      .section-overlap {
+        margin-top: -30px;
+        border-radius: 30px 30px 0 0;
+      }
+
+      .scroll-break,
+      .cta-cierre {
+        margin-top: -30px;
+        border-radius: 30px 30px 0 0;
+      }
+
+      .scroll-break {
+        padding: 4rem 0;
+      }
+
+      .scroll-break-illustration {
+        display: none;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .manifiesto-anchor {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero hero-photo" style="--hero-image: url('assets/images/DSC02307_resultado.jpg'); --hero-position: center right; min-height: 80vh; display: flex; align-items: center;">
+      <div class="container hero-simple">
+        <div class="hero-content reveal">
+          <span class="hero-eyebrow">ESIC Medellín</span>
+          <h1 class="hero-title">Somos una escuela que <span>transforma</span></h1>
+          <p class="hero-subtitle">La business school de España con más de 50 años de historia llega a Colombia. Nuestro campus en Medellín forma líderes éticos, innovadores y orientados a resultados.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="pregrado-general.html">Conoce nuestros programas</a>
+            <a class="btn btn-outline" href="#manifiesto">Nuestro manifiesto</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEJORA 2: Manifiesto Refinado -->
+    <section class="section section-overlap manifiesto-section" id="manifiesto">
+      <div class="container">
+        <div class="manifiesto-wrapper reveal">
+          <span class="manifiesto-tag">Nuestro Manifiesto</span>
+          <p class="manifiesto-intro">
+            Es un movimiento de mentes valientes.<br>
+            Creemos en el marketing con propósito,<br>
+            la economía que transforma,<br>
+            y la tecnología que mejora vidas.
+          </p>
+          <div class="manifiesto-anchor">
+            <p class="manifiesto-anchor-text">
+              No formamos egresados.<br>
+              Formamos <span>transformadores</span>.
+            </p>
+          </div>
+          <p class="manifiesto-closing">
+            Si vienes a encajar, este no es tu lugar.<br>
+            Si vienes a cambiar el juego... bienvenido a casa.
+          </p>
+          <p class="manifiesto-signature">ESIC Medellín</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEJORA 3: Valores como Tarjetas Conceptuales Premium -->
+    <section class="section section-overlap section-overlap-white">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 3rem;">
+          <div>
+            <span class="section-tag">Nuestros valores</span>
+            <h2 class="section-title">Lo que nos <span>mueve</span></h2>
+          </div>
+        </div>
+        <div class="values-grid">
+          <article class="value-card orange reveal">
+            <svg class="value-card-arc" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M140 0C140 77.3-62.7 140 0 140" stroke="var(--brand-orange)" stroke-width="2"/>
+              <path d="M140 30C140 90.8-30.8 140 0 140" stroke="var(--brand-orange)" stroke-width="1.5"/>
+              <path d="M140 60C140 104.2 4.2 140 0 140" stroke="var(--brand-orange)" stroke-width="1"/>
+            </svg>
+            <div class="value-card-icon">
+              <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="13" cy="13" r="11" stroke="var(--brand-orange)" stroke-width="1.5" fill="rgba(255,150,0,0.08)"/>
+                <ellipse cx="13" cy="13" rx="4.5" ry="11" stroke="var(--brand-orange)" stroke-width="1.2"/>
+                <line x1="2" y1="13" x2="24" y2="13" stroke="var(--brand-orange)" stroke-width="1.2"/>
+                <path d="M4.5 8h17" stroke="var(--brand-orange)" stroke-width="0.8" opacity="0.45"/>
+                <path d="M4.5 18h17" stroke="var(--brand-orange)" stroke-width="0.8" opacity="0.45"/>
+              </svg>
+            </div>
+            <h3>Internacionalización</h3>
+            <p>Tu transformación es nuestra manera de cambiar el mundo.</p>
+          </article>
+          <article class="value-card blue reveal delay-1">
+            <svg class="value-card-arc" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M140 0C140 77.3-62.7 140 0 140" stroke="var(--brand-blue)" stroke-width="2"/>
+              <path d="M140 30C140 90.8-30.8 140 0 140" stroke="var(--brand-blue)" stroke-width="1.5"/>
+              <path d="M140 60C140 104.2 4.2 140 0 140" stroke="var(--brand-blue)" stroke-width="1"/>
+            </svg>
+            <div class="value-card-icon">
+              <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 4a7 7 0 0 1 4.6 12.3V19H8.4v-2.7A7 7 0 0 1 13 4z" stroke="var(--brand-blue)" stroke-width="1.5" fill="rgba(0,71,233,0.08)"/>
+                <line x1="9.5" y1="21.5" x2="16.5" y2="21.5" stroke="var(--brand-blue)" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="10.5" y1="24" x2="15.5" y2="24" stroke="var(--brand-blue)" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M13 4V2.5" stroke="var(--brand-blue)" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M20.5 7l1-1M5.5 7l-1-1M23 13h1.2M3 13H1.8" stroke="var(--brand-blue)" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+              </svg>
+            </div>
+            <h3>Innovación</h3>
+            <p>Aprendizaje continuo para anticipar y liderar los cambios del mercado.</p>
+          </article>
+          <article class="value-card teal reveal delay-2">
+            <svg class="value-card-arc" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M140 0C140 77.3-62.7 140 0 140" stroke="var(--brand-teal)" stroke-width="2"/>
+              <path d="M140 30C140 90.8-30.8 140 0 140" stroke="var(--brand-teal)" stroke-width="1.5"/>
+              <path d="M140 60C140 104.2 4.2 140 0 140" stroke="var(--brand-teal)" stroke-width="1"/>
+            </svg>
+            <div class="value-card-icon">
+              <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 3L3 8v2l10 5 10-5V8L13 3z" stroke="var(--brand-teal)" stroke-width="1.5" stroke-linejoin="round" fill="rgba(10,228,195,0.08)"/>
+                <path d="M5 11.5v5l8 4 8-4v-5" stroke="var(--brand-teal)" stroke-width="1.3" stroke-linejoin="round"/>
+                <line x1="13" y1="15" x2="13" y2="23" stroke="var(--brand-teal)" stroke-width="1.2" opacity="0.4"/>
+                <circle cx="13" cy="23.5" r="1" fill="var(--brand-teal)" opacity="0.4"/>
+              </svg>
+            </div>
+            <h3>Ética</h3>
+            <p>Formamos líderes responsables, con impacto social y empresarial.</p>
+          </article>
+          <article class="value-card orange reveal delay-3">
+            <svg class="value-card-arc" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M140 0C140 77.3-62.7 140 0 140" stroke="var(--brand-orange)" stroke-width="2"/>
+              <path d="M140 30C140 90.8-30.8 140 0 140" stroke="var(--brand-orange)" stroke-width="1.5"/>
+              <path d="M140 60C140 104.2 4.2 140 0 140" stroke="var(--brand-orange)" stroke-width="1"/>
+            </svg>
+            <div class="value-card-icon">
+              <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="14" width="4.5" height="9" rx="1.2" stroke="var(--brand-orange)" stroke-width="1.5" fill="rgba(255,150,0,0.08)"/>
+                <rect x="10.75" y="8" width="4.5" height="15" rx="1.2" stroke="var(--brand-orange)" stroke-width="1.5" fill="rgba(255,150,0,0.08)"/>
+                <rect x="17.5" y="11" width="4.5" height="12" rx="1.2" stroke="var(--brand-orange)" stroke-width="1.5" fill="rgba(255,150,0,0.08)"/>
+                <path d="M5 12l6-6.5 4 3.5L21 3.5" stroke="var(--brand-orange)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+                <circle cx="21" cy="3.5" r="1.2" fill="var(--brand-orange)" opacity="0.45"/>
+              </svg>
+            </div>
+            <h3>Resultados</h3>
+            <p>Metodologías que convierten el conocimiento en acciones medibles.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Socios Fundadores -->
+    <section class="section section-overlap section-overlap-white">
+      <div class="container fundadores-section">
+        <div class="reveal">
+          <h2 class="fundadores-title">Nuestros<br>Miembros<br>Fundadores</h2>
+        </div>
+        <div class="reveal delay-1">
+          <img src="assets/images/socios-fundadores.png" alt="Socios Fundadores: Accenture, Grupo Bios, Telefónica, Postobón, Bancolombia, Crystal" class="fundadores-image">
+        </div>
+      </div>
+    </section>
+
+    <!-- Cifras y Reconocimiento -->
+    <section class="section section-overlap">
+      <div class="container cifras-section">
+        <div class="cifras-left reveal">
+          <h2>Cifras y<br>Reconocimiento</h2>
+          <a class="btn btn-primary" href="#">Brochure en PDF</a>
+        </div>
+        <div class="cifras-grid reveal delay-1">
+          <div class="cifra-card orange large">
+            <svg class="card-illustration" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="60" cy="60" r="55" stroke="currentColor" stroke-width="2"/>
+              <circle cx="60" cy="60" r="40" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+              <path d="M60 20V60L85 85" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="60" cy="60" r="8" fill="currentColor" opacity="0.5"/>
+            </svg>
+            <strong>92%</strong>
+            <span>Empleabilidad</span>
+          </div>
+          <div class="cifra-card blue">
+            <svg class="card-illustration" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="60" cy="55" r="25" stroke="currentColor" stroke-width="2"/>
+              <path d="M35 90C35 75 45 65 60 65C75 65 85 75 85 90" stroke="currentColor" stroke-width="2"/>
+              <circle cx="30" cy="45" r="12" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <circle cx="90" cy="45" r="12" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            </svg>
+            <strong>+25</strong>
+            <span>Países con convenios</span>
+          </div>
+          <div class="cifra-card teal">
+            <svg class="card-illustration" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="25" y="35" width="70" height="50" rx="8" stroke="currentColor" stroke-width="2"/>
+              <path d="M40 55L55 70L80 45" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="95" cy="30" r="12" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            </svg>
+            <strong>+150</strong>
+            <span>Empresas aliadas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scroll Break Highlight -->
+    <section class="scroll-break">
+      <!-- Ilustraciones decorativas de fondo -->
+      <svg class="scroll-break-illustration left" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="150" r="140" stroke="white" stroke-width="1"/>
+        <circle cx="150" cy="150" r="100" stroke="white" stroke-width="1"/>
+        <circle cx="150" cy="150" r="60" stroke="white" stroke-width="1"/>
+        <path d="M150 10V290M10 150H290" stroke="white" stroke-width="0.5" opacity="0.5"/>
+        <path d="M50 50L250 250M250 50L50 250" stroke="white" stroke-width="0.5" opacity="0.3"/>
+      </svg>
+      <svg class="scroll-break-illustration right" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="150" r="140" stroke="white" stroke-width="1"/>
+        <circle cx="150" cy="150" r="100" stroke="white" stroke-width="1"/>
+        <circle cx="150" cy="150" r="60" stroke="white" stroke-width="1"/>
+        <path d="M150 10V290M10 150H290" stroke="white" stroke-width="0.5" opacity="0.5"/>
+        <path d="M50 50L250 250M250 50L50 250" stroke="white" stroke-width="0.5" opacity="0.3"/>
+      </svg>
+      <div class="container scroll-break-content">
+        <h2>Transformamos el <span>talento</span> en impacto real</h2>
+        <p>Más de seis décadas formando líderes que entienden el mercado, innovan con propósito y construyen el futuro de los negocios.</p>
+        <a class="btn" href="#contacto">Conoce nuestra historia</a>
+      </div>
+    </section>
+
+    <!-- MEJORA 4: Cierre Narrativo -->
+    <section class="cta-cierre" id="contacto">
+      <div class="container">
+        <div class="cta-cierre-wrapper reveal">
+          <span class="cta-cierre-tag">El siguiente paso</span>
+          <h2>Agenda una <span>visita</span></h2>
+          <p>Conoce nuestro campus, conversa con nuestro equipo y descubre si ESIC es el lugar donde quieres transformarte.</p>
+          <a class="btn btn-primary" href="mailto:contacto@esic.co">Escríbenos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3 class="section-title">Transforma tu futuro en <span>ESIC</span></h3>
+        <p>Formación global con impacto local en Medellín.</p>
+      </div>
+      <div>
+        <h4>Institución</h4>
+        <p><a href="quienes-somos.html">Quienes somos</a></p>
+        <p><a href="#">Campus</a></p>
+        <p><a href="#">Docentes</a></p>
+      </div>
+      <div>
+        <h4>Programas</h4>
+        <p><a href="pregrado-general.html">Pregrado</a></p>
+        <p><a href="master-general.html">Máster</a></p>
+        <p><a href="level-up.html">Level Up</a></p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Medellín, Colombia</p>
+        <p>+57 604 123 4567</p>
+        <p>contacto@esic.co</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2025 ESIC Medellín. Todos los derechos reservados.</span>
+      <span>Política de tratamiento de datos · Términos y condiciones</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-btn" href="#" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z" />
+    </svg>
+  </a>
+</body>
+</html>
