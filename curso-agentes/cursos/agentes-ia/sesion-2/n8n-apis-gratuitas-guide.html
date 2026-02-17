@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIs Gratuitas para tu Bot - Guía n8n</title>
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-blue: #007AFF;
+            --accent-blue-dim: rgba(0, 122, 255, 0.3);
+            --accent-green: #30D158;
+            --accent-red: #FF453A;
+            --accent-yellow: #FFD60A;
+            --accent-purple: #BF5AF2;
+            --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'SF Mono', 'Menlo', 'Monaco', monospace;
+            --h1-size: clamp(3rem, 8vw, 6rem);
+            --h2-size: clamp(2rem, 5vw, 3.5rem);
+            --support-size: clamp(1.25rem, 3vw, 1.75rem);
+            --slide-padding: clamp(2rem, 5vw, 6rem);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #deck-container { position: relative; width: 100%; height: 100%; }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--bg-secondary);
+            z-index: 1000;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-blue);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 12px;
+            right: 24px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            z-index: 1000;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+            padding: var(--slide-padding);
+            overflow: hidden;
+        }
+
+        .slide.active {
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide.entering { animation: slideIn 0.5s ease forwards; }
+        .slide.leaving {
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideOut 0.3s ease forwards;
+            pointer-events: none;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideOut {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        /* ==================== LAYOUT: BIG STATEMENT ==================== */
+        .layout-big-statement {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .layout-big-statement h1 {
+            font-size: var(--h1-size);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .layout-big-statement .support {
+            font-size: var(--support-size);
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        .accent { color: var(--accent-blue); }
+        .accent-green { color: var(--accent-green); }
+        .accent-yellow { color: var(--accent-yellow); }
+        .accent-purple { color: var(--accent-purple); }
+
+        /* ==================== LAYOUT: DIVIDER ==================== */
+        .layout-divider {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #0a0a0a 100%);
+        }
+
+        .layout-divider .module-number {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            opacity: 0.3;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%);
+        }
+
+        .layout-divider h1 {
+            font-size: var(--h1-size);
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .layout-divider .subtitle {
+            font-size: var(--support-size);
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        /* ==================== LAYOUT: 3 LINES ==================== */
+        .layout-3lines {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2rem;
+            padding-left: 15%;
+        }
+
+        .layout-3lines h2 {
+            font-size: var(--h2-size);
+            margin-bottom: 2rem;
+        }
+
+        .line {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .line-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .line-text { color: var(--text-secondary); }
+        .line-text strong { color: var(--text-primary); }
+
+        .section-label {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ==================== CODE BOX ==================== */
+        .code-box {
+            background: var(--bg-secondary);
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 1.5rem 2.5rem;
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            margin: 1.5rem 0;
+            color: var(--accent-blue);
+        }
+
+        .code-box.small {
+            font-size: 1rem;
+            padding: 1rem 1.5rem;
+        }
+
+        .code-box .json-key { color: var(--accent-purple); }
+        .code-box .json-string { color: var(--accent-green); }
+        .code-box .json-number { color: var(--accent-yellow); }
+
+        /* ==================== TIP BOX ==================== */
+        .tip-box {
+            background: rgba(48, 209, 88, 0.1);
+            border: 2px solid var(--accent-green);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-top: 1.5rem;
+            max-width: 700px;
+        }
+
+        .tip-box h3 { color: var(--accent-green); margin-bottom: 0.5rem; }
+        .tip-box p { color: var(--text-secondary); }
+
+        /* ==================== WARNING BOX ==================== */
+        .warning-box {
+            background: rgba(255, 69, 58, 0.08);
+            border: 2px solid var(--accent-red);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-top: 1.5rem;
+            max-width: 700px;
+        }
+
+        .warning-box h3 { color: var(--accent-red); margin-bottom: 0.5rem; }
+        .warning-box p { color: var(--text-secondary); }
+
+        /* ==================== EXERCISE BOX ==================== */
+        .exercise-box {
+            background: rgba(48, 209, 88, 0.1);
+            border: 2px solid var(--accent-green);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .exercise-box h3 { color: var(--accent-green); margin-bottom: 1rem; font-size: 1.25rem; }
+        .exercise-box ol, .exercise-box ul { color: var(--text-secondary); padding-left: 1.5rem; }
+        .exercise-box li { margin-bottom: 0.5rem; font-size: 1rem; }
+        .exercise-box li strong { color: var(--text-primary); }
+
+        /* ==================== EXPECTED RESULT ==================== */
+        .expected-box {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            max-width: 700px;
+            text-align: left;
+        }
+
+        .expected-box .label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .expected-box .result {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--accent-green);
+            background: rgba(48, 209, 88, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(48, 209, 88, 0.3);
+        }
+
+        /* ==================== LINE DETAIL ==================== */
+        .line-detail {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* ==================== NAV ==================== */
+        .nav-controls {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        body:hover .nav-controls { opacity: 1; }
+
+        .nav-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover { background: var(--accent-blue); }
+        .nav-btn svg { width: 24px; height: 24px; }
+
+        /* ==================== ANIMATIONS ==================== */
+        .animate-in { opacity: 0; transform: translateY(20px); }
+        .slide.active .animate-in { animation: fadeUp 0.5s ease forwards; }
+        .slide.active .animate-in:nth-child(1) { animation-delay: 0s; }
+        .slide.active .animate-in:nth-child(2) { animation-delay: 0.1s; }
+        .slide.active .animate-in:nth-child(3) { animation-delay: 0.2s; }
+        .slide.active .animate-in:nth-child(4) { animation-delay: 0.3s; }
+        .slide.active .animate-in:nth-child(5) { animation-delay: 0.4s; }
+        .slide.active .animate-in:nth-child(6) { animation-delay: 0.5s; }
+        .slide.active .animate-in:nth-child(7) { animation-delay: 0.6s; }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .layout-3lines { padding-left: 8%; }
+            .line { font-size: 1.25rem; }
+            .code-box { font-size: 1rem; padding: 1rem 1.5rem; }
+            .code-box.small { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="deck-container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+        <span class="slide-counter" id="counter">1 / 18</span>
+
+        <!-- ============================================================ -->
+        <!-- 1. PORTADA -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement active">
+            <h1 class="animate-in"><span class="accent">APIs Gratuitas</span> para tu Bot</h1>
+            <p class="support animate-in">Conecta tu agente al mundo real</p>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 2. QUE ES UNA API -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <h1 class="animate-in">Que es una <span class="accent">API</span>?</h1>
+            <p class="support animate-in">Tu bot envia una peticion &rarr; recibe datos &rarr; los usa en su respuesta</p>
+            <div class="tip-box animate-in">
+                <h3>GET Request</h3>
+                <p>La mayoria de estas APIs usan peticiones GET: simplemente visitas una URL y te devuelve datos en formato JSON. Es como abrir una pagina web, pero en vez de HTML recibes datos estructurados.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 3. COMO USAR EN N8N -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <h1 class="animate-in">Como usar en <span class="accent">n8n</span></h1>
+            <p class="support animate-in">Usamos el nodo <strong>HTTP Request Tool</strong> (no el HTTP Request normal)</p>
+            <div class="code-box animate-in">HTTP Request Tool</div>
+            <div class="tip-box animate-in">
+                <h3>Importante</h3>
+                <p>El nodo HTTP Request Tool permite que el agente DECIDA cuando llamar a la API. El agente lee la pregunta del usuario, decide si necesita datos externos, y hace la llamada automaticamente.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 4. API 1: CHISTES -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">API 1</span>
+            <h1 class="animate-in"><span class="accent">icanhazdadjoke</span>.com</h1>
+            <p class="support animate-in">Chistes en ingles (dad jokes)</p>
+            <div class="code-box animate-in">https://icanhazdadjoke.com/</div>
+            <div class="code-box small animate-in">Header &rarr; Accept: application/json</div>
+            <div class="expected-box animate-in">
+                <div class="label">Response JSON</div>
+                <div class="result">{ "id": "R7UfaahV...", "joke": "What do you call a...", "status": 200 }</div>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Header requerido</h3>
+                <p>Esta API requiere el header <strong>Accept: application/json</strong> para devolver JSON. Sin el, devuelve texto plano.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 5. EJERCICIO 1: CHISTES -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">Ejercicio 1</span>
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Chistes</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Agrega un nodo <strong>HTTP Request Tool</strong> al canvas</li>
+                    <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
+                    <li>URL: <strong>https://icanhazdadjoke.com/</strong></li>
+                    <li>Method: <strong>GET</strong></li>
+                    <li>Agrega Header: <strong>Accept</strong> = <strong>application/json</strong></li>
+                    <li>Prueba: <strong>"Cuentame un chiste"</strong></li>
+                </ol>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Verificacion</h3>
+                <p>El agente deberia responder con un chiste diferente cada vez. Revisa los logs para confirmar que se hizo la llamada HTTP.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 6. API 2: ADIVINAR EDAD -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">API 2</span>
+            <h1 class="animate-in"><span class="accent">api.agify</span>.io</h1>
+            <p class="support animate-in">Adivina la edad basandose en el nombre</p>
+            <div class="code-box animate-in">https://api.agify.io?name=Juan</div>
+            <div class="expected-box animate-in">
+                <div class="label">Response JSON</div>
+                <div class="result">{ "count": 1234, "name": "Juan", "age": 45 }</div>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Parametro dinamico</h3>
+                <p>Puedes cambiar <strong>"Juan"</strong> por cualquier nombre. El agente puede construir la URL con el nombre que el usuario mencione.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 7. EJERCICIO 2: ADIVINAR EDAD -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">Ejercicio 2</span>
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Edad</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Agrega un nuevo <strong>HTTP Request Tool</strong></li>
+                    <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
+                    <li>URL: <strong>https://api.agify.io?name=Juan</strong></li>
+                    <li>El agente debe extraer el nombre del usuario y pasarlo como parametro</li>
+                    <li>Prueba: <strong>"Que edad crees que tengo? Me llamo Carlos"</strong></li>
+                    <li>Verifica que responda con una edad estimada</li>
+                </ol>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>URL dinamica</h3>
+                <p>El agente puede construir la URL dinamicamente reemplazando el nombre en el parametro <strong>?name=</strong> segun lo que diga el usuario.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 8. API 3: FOTOS DE PERROS -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">API 3</span>
+            <h1 class="animate-in"><span class="accent">dog.ceo</span>/api</h1>
+            <p class="support animate-in">Fotos aleatorias de perros</p>
+            <div class="code-box animate-in">https://dog.ceo/api/breeds/image/random</div>
+            <div class="expected-box animate-in">
+                <div class="label">Response JSON</div>
+                <div class="result">{ "message": "https://images.dog.ceo/breeds/...", "status": "success" }</div>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Imagen aleatoria</h3>
+                <p>Devuelve una URL de imagen aleatoria de un perro. Cada llamada genera una imagen diferente.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 9. EJERCICIO 3: FOTOS DE PERROS -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">Ejercicio 3</span>
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Perros</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Agrega un nuevo <strong>HTTP Request Tool</strong></li>
+                    <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
+                    <li>URL: <strong>https://dog.ceo/api/breeds/image/random</strong></li>
+                    <li>Method: <strong>GET</strong></li>
+                    <li>Prueba: <strong>"Mandame una foto de un perro"</strong></li>
+                    <li>El bot deberia devolver el link de la imagen</li>
+                </ol>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Telegram</h3>
+                <p>Si tu bot esta conectado a Telegram, puede mostrar imagenes directamente si envias la URL. El usuario vera la foto del perro en el chat.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 10. API 4: CLIMA -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">API 4</span>
+            <h1 class="animate-in"><span class="accent">Open-Meteo</span></h1>
+            <p class="support animate-in">Clima en tiempo real (sin API key)</p>
+            <div class="code-box small animate-in">https://api.open-meteo.com/v1/forecast?latitude=6.25&longitude=-75.56&current_weather=true</div>
+            <div class="expected-box animate-in">
+                <div class="label">Response JSON (parcial)</div>
+                <div class="result">{ "current_weather": { "temperature": 22.5, "windspeed": 8.3, "weathercode": 1 } }</div>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Coordenadas</h3>
+                <p>Medellin: lat=6.25, lon=-75.56 | Bogota: lat=4.71, lon=-74.07 | CDMX: lat=19.43, lon=-99.13. Cambia latitude y longitude para otras ciudades.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 11. EJERCICIO 4: CLIMA -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">Ejercicio 4</span>
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Clima</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Agrega un nuevo <strong>HTTP Request Tool</strong></li>
+                    <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
+                    <li>URL: <strong>https://api.open-meteo.com/v1/forecast?latitude=6.25&longitude=-75.56&current_weather=true</strong></li>
+                    <li>Prueba: <strong>"Como esta el clima en Medellin?"</strong></li>
+                    <li>Verifica que devuelve temperatura y velocidad del viento</li>
+                </ol>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Avanzado</h3>
+                <p>El agente podria buscar las coordenadas de diferentes ciudades y construir la URL dinamicamente. Intenta preguntar por otra ciudad!</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 12. API 5: FRASES CELEBRES -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">API 5</span>
+            <h1 class="animate-in"><span class="accent">zenquotes</span>.io</h1>
+            <p class="support animate-in">Frases celebres e inspiradoras</p>
+            <div class="code-box animate-in">https://zenquotes.io/api/random</div>
+            <div class="expected-box animate-in">
+                <div class="label">Response JSON</div>
+                <div class="result">[{ "q": "The only way to do great work...", "a": "Steve Jobs", "h": "..." }]</div>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Bot motivacional</h3>
+                <p>Perfecta para un bot motivacional o coach. El campo <strong>"q"</strong> es la frase y <strong>"a"</strong> es el autor.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 13. EJERCICIO 5: FRASES -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">Ejercicio 5</span>
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Frases</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Agrega un nuevo <strong>HTTP Request Tool</strong></li>
+                    <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
+                    <li>URL: <strong>https://zenquotes.io/api/random</strong></li>
+                    <li>Prueba: <strong>"Dame una frase motivacional"</strong></li>
+                    <li>El bot deberia formatear la frase con el autor</li>
+                    <li><strong>Bonus:</strong> agrega al System Prompt que siempre termine con una frase inspiradora</li>
+                </ol>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Formato ideal</h3>
+                <p>Pide al agente en el System Prompt que formatee como: <strong>"La frase..." - Autor</strong></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 14. API 6: DATOS DE PAISES -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">API 6</span>
+            <h1 class="animate-in"><span class="accent">restcountries</span>.com</h1>
+            <p class="support animate-in">Datos completos de cualquier pais</p>
+            <div class="code-box animate-in">https://restcountries.com/v3.1/name/colombia</div>
+            <div class="expected-box animate-in">
+                <div class="label">Response JSON (parcial)</div>
+                <div class="result">{ "capital": ["Bogota"], "population": 50882891, "languages": { "spa": "Spanish" }, "currencies": { "COP": { "name": "Colombian peso" } } }</div>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Uso ideal</h3>
+                <p>Ideal para un asistente de viajes o cultura general. Devuelve capital, poblacion, idiomas, moneda, bandera y mucho mas.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 15. EJERCICIO 6: PAISES -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">Ejercicio 6</span>
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Paises</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Agrega un nuevo <strong>HTTP Request Tool</strong></li>
+                    <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
+                    <li>URL: <strong>https://restcountries.com/v3.1/name/colombia</strong></li>
+                    <li>Prueba: <strong>"Cuentame sobre Japon"</strong></li>
+                    <li>El bot deberia dar: capital, poblacion, idiomas y moneda</li>
+                </ol>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Combina herramientas</h3>
+                <p>Combina con <strong>Calculator</strong> para convertir monedas o calcular diferencias de poblacion entre paises!</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 16. MULTIPLES APIs -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <h1 class="animate-in">Multiples <span class="accent">APIs</span></h1>
+            <p class="support animate-in">Puedes conectar VARIAS APIs al mismo agente</p>
+            <div class="tip-box animate-in">
+                <h3>Como funciona</h3>
+                <p>Cada HTTP Request Tool es independiente. El agente decide cual usar segun la pregunta del usuario. Puedes tener 2, 3 o mas APIs conectadas al mismo tiempo.</p>
+            </div>
+            <div class="exercise-box animate-in">
+                <h3>Reto</h3>
+                <ol>
+                    <li>Conecta al menos <strong>2 APIs diferentes</strong> al mismo agente</li>
+                    <li>Prueba haciendo preguntas variadas: <strong>"Cuentame un chiste y despues dime el clima"</strong></li>
+                    <li>Verifica que el agente use la API correcta para cada pregunta</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 17. MAS APIs PARA EXPLORAR -->
+        <!-- ============================================================ -->
+        <section class="slide layout-3lines">
+            <span class="section-label">Referencia</span>
+            <h2 class="animate-in">Mas APIs para explorar</h2>
+            <div class="line animate-in">
+                <div class="line-number">1</div>
+                <div class="line-text">
+                    <strong>numbersapi.com/random/trivia</strong>
+                    <div class="line-detail">Datos curiosos de numeros</div>
+                </div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">2</div>
+                <div class="line-text">
+                    <strong>catfact.ninja/fact</strong>
+                    <div class="line-detail">Datos curiosos de gatos</div>
+                </div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">3</div>
+                <div class="line-text">
+                    <strong>api.publicapis.org/entries</strong>
+                    <div class="line-detail">Directorio de APIs publicas</div>
+                </div>
+            </div>
+            <div class="tip-box animate-in" style="margin-left: 0;">
+                <h3>Miles de APIs</h3>
+                <p>Busca "public APIs" en Google para encontrar miles de APIs gratuitas. Cualquier API que devuelva JSON funciona con n8n.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 18. CIERRE -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <h1 class="animate-in"><span class="accent-green">A explorar!</span></h1>
+            <p class="support animate-in">Cada API es un nuevo superpoder para tu bot</p>
+        </section>
+
+        <!-- Navigation -->
+        <div class="nav-controls">
+            <button class="nav-btn" onclick="prevSlide()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <button class="nav-btn" onclick="nextSlide()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progress = document.getElementById('progress');
+        const counter = document.getElementById('counter');
+
+        function showSlide(index) {
+            if (index < 0) index = 0;
+            if (index >= totalSlides) index = totalSlides - 1;
+            if (index === currentSlide) return;
+
+            const prevSlide = currentSlide;
+            slides[prevSlide].classList.remove('active');
+            slides[prevSlide].classList.add('leaving');
+
+            currentSlide = index;
+            slides[currentSlide].classList.add('active', 'entering');
+
+            setTimeout(() => slides[prevSlide].classList.remove('leaving'), 300);
+            setTimeout(() => slides[currentSlide].classList.remove('entering'), 500);
+
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const percentage = ((currentSlide + 1) / totalSlides) * 100;
+            progress.style.width = percentage + '%';
+            counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            history.replaceState(null, null, `#${currentSlide}`);
+        }
+
+        function nextSlide() { showSlide(currentSlide + 1); }
+        function prevSlide() { showSlide(currentSlide - 1); }
+
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowRight': case 'ArrowDown': case ' ': case 'PageDown':
+                    e.preventDefault(); nextSlide(); break;
+                case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
+                    e.preventDefault(); prevSlide(); break;
+                case 'Home': e.preventDefault(); showSlide(0); break;
+                case 'End': e.preventDefault(); showSlide(totalSlides - 1); break;
+                case 'f': e.preventDefault(); toggleFullscreen(); break;
+            }
+        });
+
+        let touchStartX = 0, touchEndX = 0;
+        document.addEventListener('touchstart', (e) => touchStartX = e.changedTouches[0].screenX);
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
+        });
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+            else document.exitFullscreen();
+        }
+
+        function loadFromHash() {
+            const hash = window.location.hash.slice(1);
+            const slideIndex = parseInt(hash);
+            if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < totalSlides) {
+                currentSlide = slideIndex;
+                slides.forEach(s => s.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
+                updateProgress();
+            }
+        }
+
+        loadFromHash();
+        updateProgress();
+    </script>
+</body>
+</html>
