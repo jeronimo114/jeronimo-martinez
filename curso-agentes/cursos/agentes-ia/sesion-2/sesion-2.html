@@ -461,6 +461,113 @@
                 right: 10px;
             }
         }
+
+        /* ==================== LAYOUT: BIG STATEMENT ==================== */
+        .layout-big-statement {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .layout-big-statement h1 {
+            font-size: var(--h1-size);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .layout-big-statement .support {
+            font-size: var(--support-size);
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+        .accent { color: var(--accent-blue); }
+        .accent-green { color: var(--accent-green); }
+        .accent-red { color: var(--accent-red); }
+        .accent-yellow { color: var(--accent-yellow); }
+        .accent-purple { color: var(--accent-purple); }
+
+        /* ==================== LAYOUT: 3 LINES ==================== */
+        .layout-3lines {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2rem;
+            padding-left: 15%;
+        }
+        .layout-3lines h2 {
+            font-size: var(--h2-size);
+            margin-bottom: 2rem;
+        }
+        .line {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 1.75rem;
+        }
+        .line-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .line-text { color: var(--text-secondary); }
+        .line-text strong { color: var(--text-primary); }
+
+        /* ==================== CODE BLOCK ==================== */
+        .code-block {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            text-align: left;
+            max-width: 700px;
+        }
+
+        /* ==================== TIP BOX ==================== */
+        .tip-box {
+            background: rgba(0, 122, 255, 0.1);
+            border: 2px solid var(--accent-blue);
+            border-radius: 12px;
+            padding: 1.25rem 1.75rem;
+            margin-top: 1.5rem;
+            max-width: 700px;
+            text-align: left;
+        }
+        .tip-box h3 { color: var(--accent-blue); margin-bottom: 0.5rem; font-size: 1rem; }
+        .tip-box p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        /* ==================== EXERCISE BOX ==================== */
+        .exercise-box {
+            background: rgba(48, 209, 88, 0.1);
+            border: 2px solid var(--accent-green);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 800px;
+            text-align: left;
+        }
+        .exercise-box h3 { color: var(--accent-green); margin-bottom: 1rem; font-size: 1.25rem; }
+        .exercise-box ol, .exercise-box ul { color: var(--text-secondary); padding-left: 1.5rem; }
+        .exercise-box li { margin-bottom: 0.5rem; font-size: 1rem; }
+
+        /* ==================== LAYOUT: BREAK ==================== */
+        .layout-break {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0a0a0a, #111);
+        }
+        .layout-break .break-icon { font-size: 6rem; margin-bottom: 1rem; }
+        .layout-break h1 { font-size: var(--h2-size); }
+        .layout-break .support { font-size: var(--support-size); color: var(--text-secondary); margin-top: 1rem; }
     </style>
 </head>
 <body>
@@ -469,7 +576,7 @@
         <div class="progress-bar">
             <div class="progress-fill" id="progress"></div>
         </div>
-        <span class="slide-counter" id="counter">1 / 5</span>
+        <span class="slide-counter" id="counter">1 / 44</span>
 
         <!-- ========================================== -->
         <!-- RECAP SECTION -->
@@ -535,6 +642,502 @@
                 </div>
             </div>
             <p class="stop-subtitle">Fin del repaso</p>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- AGENDA -->
+        <!-- ========================================== -->
+
+        <!-- Slide 6: Divider - Sesión 2 -->
+        <section class="slide layout-divider" data-slide="5">
+            <div class="module-number">2</div>
+            <h1 class="animate-in">Sesión <span style="color: var(--accent-blue);">2</span></h1>
+            <p class="subtitle animate-in">Construye tu Agente</p>
+        </section>
+
+        <!-- Slide 7: Big Statement - Hoy construimos -->
+        <section class="slide layout-big-statement" data-slide="6">
+            <h1 class="animate-in">Hoy <span class="accent">construimos</span></h1>
+            <p class="support animate-in">Un chatbot completo con:<br><strong>System Prompt</strong> + <strong>Memoria</strong> + <strong>Herramientas</strong> + <strong>Lógica condicional</strong></p>
+        </section>
+
+        <!-- Slide 8: 3lines - Agenda -->
+        <section class="slide layout-3lines" data-slide="7">
+            <h2 class="animate-in">4 bloques</h2>
+            <div class="line animate-in">
+                <div class="line-number">1</div>
+                <div class="line-text"><strong>System Prompt</strong> — 45 min</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">2</div>
+                <div class="line-text"><strong>Memoria</strong> — 45 min</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">3</div>
+                <div class="line-text"><strong>Herramientas + IF</strong> — 90 min</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">4</div>
+                <div class="line-text"><strong>Proyecto Final</strong> — 60 min</div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- BLOQUE 1: SYSTEM PROMPT -->
+        <!-- ========================================== -->
+
+        <!-- Slide 9: Divider - System Prompt -->
+        <section class="slide layout-divider" data-slide="8">
+            <div class="module-number">1</div>
+            <h1 class="animate-in">System Prompt</h1>
+        </section>
+
+        <!-- Slide 10: Video - System Prompt -->
+        <section class="slide layout-video-controls" data-slide="9">
+            <div class="video-title-overlay">¿Qué es un System Prompt?</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/s2-system-prompt.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 11: Exercise - System Prompt -->
+        <section class="slide layout-big-statement" data-slide="10">
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">System Prompt</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Abre tu workflow</li>
+                    <li>Doble click en <strong>AI Agent</strong></li>
+                    <li>Escribe tu <strong>System Prompt</strong></li>
+                    <li>Prueba enviando <strong>"Hola"</strong></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Slide 12: Code Block - Prompt Template -->
+        <section class="slide layout-big-statement" data-slide="11">
+            <h1 class="animate-in">Ejemplo de <span class="accent">Prompt</span></h1>
+            <div class="code-block animate-in">
+                <span style="color: #6A9955;">// System Prompt ejemplo</span><br>
+                <span style="color: #CE9178;">Eres un asistente amable que ayuda<br>
+                con preguntas sobre cocina.<br><br>
+                Reglas:<br>
+                - Responde siempre en español<br>
+                - Sé conciso (máx 3 oraciones)<br>
+                - Si no sabes, di "No estoy seguro"</span>
+            </div>
+        </section>
+
+        <!-- Slide 13: Video - JSON -->
+        <section class="slide layout-video-controls" data-slide="12">
+            <div class="video-title-overlay">JSON y Datos en n8n</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/s2-json.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 14: Tips de System Prompt -->
+        <section class="slide layout-big-statement" data-slide="13">
+            <h1 class="animate-in">Tips de <span class="accent">System Prompt</span></h1>
+            <div class="tip-box animate-in">
+                <h3>Tip</h3>
+                <p>Sé específico con el rol, el tono y las restricciones. Un buen System Prompt define <strong>qué hace</strong>, <strong>cómo responde</strong> y <strong>qué NO debe hacer</strong> tu agente.</p>
+            </div>
+        </section>
+
+        <!-- Slide 15: Stop - System Prompt -->
+        <section class="slide layout-stop" data-slide="14">
+            <div class="stop-sign-container">
+                <div class="stop-sign animate-in">
+                    <span>STOP</span>
+                </div>
+            </div>
+            <p class="stop-subtitle">¿Todos tienen su System Prompt funcionando?</p>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- BLOQUE 2: MEMORIA -->
+        <!-- ========================================== -->
+
+        <!-- Slide 16: Divider - Memoria -->
+        <section class="slide layout-divider" data-slide="15">
+            <div class="module-number">2</div>
+            <h1 class="animate-in">Memoria</h1>
+        </section>
+
+        <!-- Slide 17: Video - Memoria -->
+        <section class="slide layout-video-controls" data-slide="16">
+            <div class="video-title-overlay">¿Qué es la Memoria?</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/s2-memoria.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 18: Exercise - Memoria -->
+        <section class="slide layout-big-statement" data-slide="17">
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Memoria</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Buscar <strong>Window Buffer Memory</strong></li>
+                    <li>Conectar al puerto <strong>Memory</strong></li>
+                    <li>windowSize = <strong>10</strong></li>
+                    <li>sessionId = <code>{{ $json.message.chat.id }}</code></li>
+                    <li>Probar: <strong>"Me llamo [nombre]"</strong> → <strong>"¿Cómo me llamo?"</strong></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Slide 19: sessionId Expression -->
+        <section class="slide layout-big-statement" data-slide="18">
+            <h1 class="animate-in">La expresión <span class="accent">sessionId</span></h1>
+            <div class="code-block animate-in">
+                <span style="color: #DCDCAA;">{{ $json.message.chat.id }}</span>
+            </div>
+            <p class="support animate-in">Cada chat de Telegram tiene un ID único. Esto permite que cada usuario tenga su <strong>propia memoria</strong> independiente.</p>
+        </section>
+
+        <!-- Slide 20: Tip - Costos de Memoria -->
+        <section class="slide layout-big-statement" data-slide="19">
+            <h1 class="animate-in">Sobre la <span class="accent">Memoria</span></h1>
+            <div class="tip-box animate-in">
+                <h3>Tip: Costos</h3>
+                <p>Más memoria = más tokens enviados al LLM en cada mensaje. Un <strong>windowSize de 10</strong> es un buen balance entre contexto y costo. Ajusta según tu caso de uso.</p>
+            </div>
+        </section>
+
+        <!-- Slide 21: Stop - Memoria -->
+        <section class="slide layout-stop" data-slide="20">
+            <div class="stop-sign-container">
+                <div class="stop-sign animate-in">
+                    <span>STOP</span>
+                </div>
+            </div>
+            <p class="stop-subtitle">¿La memoria funciona?</p>
+        </section>
+
+        <!-- Slide 22: Break 1 -->
+        <section class="slide layout-break" data-slide="21">
+            <div class="break-icon animate-in">☕</div>
+            <h1 class="animate-in">Break</h1>
+            <p class="support animate-in">10 minutos</p>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- BLOQUE 3: HERRAMIENTAS -->
+        <!-- ========================================== -->
+
+        <!-- Slide 23: Divider - Herramientas -->
+        <section class="slide layout-divider" data-slide="22">
+            <div class="module-number">3</div>
+            <h1 class="animate-in">Herramientas</h1>
+        </section>
+
+        <!-- Slide 24: Video - Herramientas -->
+        <section class="slide layout-video-controls" data-slide="23">
+            <div class="video-title-overlay">¿Qué son las Herramientas?</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/s2-herramientas.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 25: Video - Calculator -->
+        <section class="slide layout-video-controls" data-slide="24">
+            <div class="video-title-overlay">Calculator Tool</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/s2-calculator.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 26: Exercise - Calculator -->
+        <section class="slide layout-big-statement" data-slide="25">
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Calculator</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Buscar <strong>Calculator</strong></li>
+                    <li>Conectar al puerto <strong>Tool</strong></li>
+                    <li>Probar: <strong>"¿Cuánto es 1547 × 23?"</strong></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Slide 27: Stop - Calculator -->
+        <section class="slide layout-stop" data-slide="26">
+            <div class="stop-sign-container">
+                <div class="stop-sign animate-in">
+                    <span>STOP</span>
+                </div>
+            </div>
+            <p class="stop-subtitle">¿Calculator funciona?</p>
+        </section>
+
+        <!-- Slide 28: Video - HTTP Request -->
+        <section class="slide layout-video-controls" data-slide="27">
+            <div class="video-title-overlay">HTTP Request Tool</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/s2-http-request.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 29: Exercise - HTTP Request -->
+        <section class="slide layout-big-statement" data-slide="28">
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">HTTP Request</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Buscar <strong>HTTP Request Tool</strong> (no el normal!)</li>
+                    <li>Conectar al puerto <strong>Tool</strong></li>
+                    <li>Probar: <strong>"Dime un chiste"</strong></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Slide 30: Video - APIs Gratuitas -->
+        <section class="slide layout-video-controls" data-slide="29">
+            <div class="video-title-overlay">APIs Gratuitas</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/s2-apis-gratuitas.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 31: APIs para probar -->
+        <section class="slide layout-3lines" data-slide="30">
+            <h2 class="animate-in">APIs para probar</h2>
+            <div class="line animate-in">
+                <div class="line-number">1</div>
+                <div class="line-text"><strong>icanhazdadjoke.com</strong> — Chistes</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">2</div>
+                <div class="line-text"><strong>api.agify.io</strong> — Adivina edad por nombre</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">3</div>
+                <div class="line-text"><strong>dog.ceo/api</strong> — Fotos de perros</div>
+            </div>
+        </section>
+
+        <!-- Slide 32: Stop - HTTP Request -->
+        <section class="slide layout-stop" data-slide="31">
+            <div class="stop-sign-container">
+                <div class="stop-sign animate-in">
+                    <span>STOP</span>
+                </div>
+            </div>
+            <p class="stop-subtitle">¿HTTP Request funciona?</p>
+        </section>
+
+        <!-- Slide 33: Video - IF Node -->
+        <section class="slide layout-video-controls" data-slide="32">
+            <div class="video-title-overlay">Nodo IF</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/s2-if-node.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 34: Exercise - IF -->
+        <section class="slide layout-big-statement" data-slide="33">
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">IF</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Buscar <strong>IF</strong></li>
+                    <li>Colocar entre <strong>Telegram</strong> y <strong>AI Agent</strong></li>
+                    <li>Condición: message contains <strong>"urgente"</strong></li>
+                    <li>True → <strong>AI Agent</strong></li>
+                    <li>False → <strong>Respuesta simple</strong></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- BREAK 2 -->
+        <!-- ========================================== -->
+
+        <!-- Slide 35: Break 2 -->
+        <section class="slide layout-break" data-slide="34">
+            <div class="break-icon animate-in">☕</div>
+            <h1 class="animate-in">Break</h1>
+            <p class="support animate-in">10 minutos</p>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- PROYECTO FINAL -->
+        <!-- ========================================== -->
+
+        <!-- Slide 36: Divider - Proyecto Final -->
+        <section class="slide layout-divider" data-slide="35">
+            <div class="module-number">4</div>
+            <h1 class="animate-in">Proyecto Final</h1>
+        </section>
+
+        <!-- Slide 37: Video - Arquitectura Chatbot -->
+        <section class="slide layout-video-controls" data-slide="36">
+            <div class="video-title-overlay">Tu Chatbot Completo</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/s2-arquitectura-chatbot.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 38: Video - Flujo de un Mensaje -->
+        <section class="slide layout-video-controls" data-slide="37">
+            <div class="video-title-overlay">El Flujo de un Mensaje</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/s2-flujo-mensaje.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 39: El Reto -->
+        <section class="slide layout-big-statement" data-slide="38">
+            <h1 class="animate-in">El <span class="accent">Reto</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Construye un chatbot personalizado</h3>
+                <ol>
+                    <li>Elige un tema (<strong>Chef, Tutor, Coach...</strong>)</li>
+                    <li><strong>System Prompt</strong> específico</li>
+                    <li><strong>Memoria</strong> configurada</li>
+                    <li>Al menos <strong>1 herramienta</strong></li>
+                    <li>(Bonus) Nodo <strong>IF</strong></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Slide 40: Video - Buenas Prácticas -->
+        <section class="slide layout-video-controls" data-slide="39">
+            <div class="video-title-overlay">Buenas Prácticas</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/s2-buenas-practicas.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 41: Video - Ideas de Chatbots -->
+        <section class="slide layout-video-controls" data-slide="40">
+            <div class="video-title-overlay">Ideas de Chatbots</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/s2-ideas-chatbots.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- CIERRE -->
+        <!-- ========================================== -->
+
+        <!-- Slide 42: Lo que aprendiste hoy -->
+        <section class="slide layout-3lines" data-slide="41">
+            <h2 class="animate-in">Lo que aprendiste hoy</h2>
+            <div class="line animate-in">
+                <div class="line-number">1</div>
+                <div class="line-text"><strong>System Prompt</strong> — personalidad</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">2</div>
+                <div class="line-text"><strong>Memoria</strong> — contexto</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">3</div>
+                <div class="line-text"><strong>Herramientas</strong> — capacidades</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">4</div>
+                <div class="line-text"><strong>IF</strong> — lógica</div>
+            </div>
+        </section>
+
+        <!-- Slide 43: Próxima sesión -->
+        <section class="slide layout-big-statement" data-slide="42">
+            <h1 class="animate-in">Próxima <span class="accent">sesión</span></h1>
+            <p class="support animate-in">Agentes autónomos — llevamos todo al siguiente nivel</p>
+        </section>
+
+        <!-- Slide 44: Gracias -->
+        <section class="slide layout-big-statement" data-slide="43">
+            <h1 class="animate-in"><span class="accent-green">¡Gracias!</span></h1>
+            <p class="support animate-in">Practica y experimenta</p>
         </section>
 
         <!-- Navigation Controls -->

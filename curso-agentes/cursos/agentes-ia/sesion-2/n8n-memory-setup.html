@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memoria en n8n - Window Buffer Memory</title>
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-blue: #007AFF;
+            --accent-blue-dim: rgba(0, 122, 255, 0.3);
+            --accent-green: #30D158;
+            --accent-red: #FF453A;
+            --accent-yellow: #FFD60A;
+            --accent-purple: #BF5AF2;
+            --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'SF Mono', 'Menlo', 'Monaco', monospace;
+            --h1-size: clamp(3rem, 8vw, 6rem);
+            --h2-size: clamp(2rem, 5vw, 3.5rem);
+            --support-size: clamp(1.25rem, 3vw, 1.75rem);
+            --slide-padding: clamp(2rem, 5vw, 6rem);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #deck-container { position: relative; width: 100%; height: 100%; }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--bg-secondary);
+            z-index: 1000;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-blue);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 12px;
+            right: 24px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            z-index: 1000;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+            padding: var(--slide-padding);
+            overflow: hidden;
+        }
+
+        .slide.active {
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide.entering { animation: slideIn 0.5s ease forwards; }
+        .slide.leaving {
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideOut 0.3s ease forwards;
+            pointer-events: none;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideOut {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        .layout-big-statement {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .layout-big-statement h1 {
+            font-size: var(--h1-size);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .layout-big-statement .support {
+            font-size: var(--support-size);
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        .accent { color: var(--accent-blue); }
+        .accent-green { color: var(--accent-green); }
+
+        .layout-3lines {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2rem;
+            padding-left: 15%;
+        }
+
+        .layout-3lines h2 {
+            font-size: var(--h2-size);
+            margin-bottom: 2rem;
+        }
+
+        .line {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .line-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .line-text { color: var(--text-secondary); }
+        .line-text strong { color: var(--text-primary); }
+
+        .section-label {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ==================== CODE BOX ==================== */
+        .code-box {
+            background: var(--bg-secondary);
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 1.5rem 2.5rem;
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            margin: 1.5rem 0;
+            color: var(--accent-blue);
+        }
+
+        /* ==================== TIP BOX ==================== */
+        .tip-box {
+            background: rgba(48, 209, 88, 0.1);
+            border: 2px solid var(--accent-green);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-top: 1.5rem;
+            max-width: 700px;
+        }
+
+        .tip-box h3 { color: var(--accent-green); margin-bottom: 0.5rem; }
+        .tip-box p { color: var(--text-secondary); }
+
+        /* ==================== STEP NUMBER ==================== */
+        .step-number {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            width: 48px;
+            height: 48px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        /* ==================== NAV ==================== */
+        .nav-controls {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        body:hover .nav-controls { opacity: 1; }
+
+        .nav-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover { background: var(--accent-blue); }
+        .nav-btn svg { width: 24px; height: 24px; }
+
+        .animate-in { opacity: 0; transform: translateY(20px); }
+        .slide.active .animate-in { animation: fadeUp 0.5s ease forwards; }
+        .slide.active .animate-in:nth-child(1) { animation-delay: 0s; }
+        .slide.active .animate-in:nth-child(2) { animation-delay: 0.1s; }
+        .slide.active .animate-in:nth-child(3) { animation-delay: 0.2s; }
+        .slide.active .animate-in:nth-child(4) { animation-delay: 0.3s; }
+        .slide.active .animate-in:nth-child(5) { animation-delay: 0.4s; }
+        .slide.active .animate-in:nth-child(6) { animation-delay: 0.5s; }
+        .slide.active .animate-in:nth-child(7) { animation-delay: 0.6s; }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .layout-3lines { padding-left: 8%; }
+            .line { font-size: 1.25rem; }
+            .code-box { font-size: 1rem; padding: 1rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="deck-container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+        <span class="slide-counter" id="counter">1 / 10</span>
+
+        <!-- SLIDE 1: PORTADA -->
+        <section class="slide layout-big-statement active">
+            <h1 class="animate-in"><span class="accent">Memoria</span> en n8n</h1>
+            <p class="support animate-in">Tu agente recuerda la conversacion</p>
+        </section>
+
+        <!-- SLIDE 2: RESUMEN -->
+        <section class="slide layout-3lines">
+            <span class="section-label">Resumen</span>
+            <h2 class="animate-in">4 pasos</h2>
+            <div class="line animate-in">
+                <div class="line-number">1</div>
+                <div class="line-text">Buscar <strong>Window Buffer Memory</strong></div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">2</div>
+                <div class="line-text">Conectar al puerto <strong>Memory</strong></div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">3</div>
+                <div class="line-text">Configurar <strong>windowSize</strong></div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">4</div>
+                <div class="line-text">Configurar <strong>sessionId</strong></div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: PASO 1 -->
+        <section class="slide layout-big-statement">
+            <div class="step-number">1</div>
+            <h1 class="animate-in">Busca <span class="accent">Window Buffer Memory</span></h1>
+            <p class="support animate-in">En el panel de nodos, escribe 'Window Buffer Memory'</p>
+            <div class="code-box animate-in">Window Buffer Memory</div>
+        </section>
+
+        <!-- SLIDE 4: PASO 2 -->
+        <section class="slide layout-big-statement">
+            <div class="step-number">2</div>
+            <h1 class="animate-in">Arrastra al <span class="accent">canvas</span></h1>
+            <p class="support animate-in">Colocalo debajo del nodo AI Agent</p>
+            <div class="tip-box animate-in">
+                <h3>Tip</h3>
+                <p>Debe estar cerca del AI Agent para conectar facil</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: PASO 3 -->
+        <section class="slide layout-big-statement">
+            <div class="step-number">3</div>
+            <h1 class="animate-in">Conecta al puerto <span class="accent">Memory</span></h1>
+            <p class="support animate-in">El AI Agent tiene un puerto inferior llamado 'Memory'. Arrastra una linea desde Window Buffer Memory hasta ese puerto</p>
+            <div class="tip-box animate-in">
+                <h3>Tip</h3>
+                <p>La linea debe ser del puerto de salida al puerto Memory</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: PASO 4 -->
+        <section class="slide layout-big-statement">
+            <div class="step-number">4</div>
+            <h1 class="animate-in">Configura <span class="accent">windowSize</span></h1>
+            <p class="support animate-in">Doble click en Window Buffer Memory. Cambia 'Window Size' a 10</p>
+            <div class="code-box animate-in">Window Size: 10</div>
+            <p class="support animate-in">El bot recordara los ultimos 10 mensajes de cada conversacion</p>
+        </section>
+
+        <!-- SLIDE 7: PASO 5 -->
+        <section class="slide layout-big-statement">
+            <div class="step-number">5</div>
+            <h1 class="animate-in">Configura <span class="accent">sessionId</span></h1>
+            <p class="support animate-in">En el campo Session ID, escribe:</p>
+            <div class="code-box animate-in">{{ $json.message.chat.id }}</div>
+            <p class="support animate-in">Esto separa la memoria por cada usuario de Telegram</p>
+        </section>
+
+        <!-- SLIDE 8: POR QUE IMPORTA -->
+        <section class="slide layout-3lines">
+            <span class="section-label">Contexto</span>
+            <h2 class="animate-in">Por que importa</h2>
+            <div class="line animate-in">
+                <div class="line-number">1</div>
+                <div class="line-text"><strong>Sin memoria</strong> &rarr; el bot olvida todo entre mensajes</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">2</div>
+                <div class="line-text"><strong>Con memoria</strong> &rarr; mantiene el contexto de la conversacion</div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">3</div>
+                <div class="line-text"><strong>sessionId</strong> &rarr; cada usuario tiene su propia memoria</div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: PROBAR -->
+        <section class="slide layout-big-statement">
+            <h1 class="animate-in">Prueba la <span class="accent">memoria</span></h1>
+            <p class="support animate-in">Envia varios mensajes y verifica que el bot recuerda lo anterior</p>
+            <div class="tip-box animate-in">
+                <h3>Prueba</h3>
+                <p>'Me llamo Juan' &rarr; luego pregunta '&iquest;Como me llamo?'</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: CIERRE -->
+        <section class="slide layout-big-statement">
+            <h1 class="animate-in"><span class="accent-green">Listo</span></h1>
+            <p class="support animate-in">Tu agente ahora tiene memoria</p>
+        </section>
+
+        <!-- Navigation -->
+        <div class="nav-controls">
+            <button class="nav-btn" onclick="prevSlide()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <button class="nav-btn" onclick="nextSlide()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progress = document.getElementById('progress');
+        const counter = document.getElementById('counter');
+
+        function showSlide(index) {
+            if (index < 0) index = 0;
+            if (index >= totalSlides) index = totalSlides - 1;
+            if (index === currentSlide) return;
+
+            const prevSlide = currentSlide;
+            slides[prevSlide].classList.remove('active');
+            slides[prevSlide].classList.add('leaving');
+
+            currentSlide = index;
+            slides[currentSlide].classList.add('active', 'entering');
+
+            setTimeout(() => slides[prevSlide].classList.remove('leaving'), 300);
+            setTimeout(() => slides[currentSlide].classList.remove('entering'), 500);
+
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const percentage = ((currentSlide + 1) / totalSlides) * 100;
+            progress.style.width = percentage + '%';
+            counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            history.replaceState(null, null, `#${currentSlide}`);
+        }
+
+        function nextSlide() { showSlide(currentSlide + 1); }
+        function prevSlide() { showSlide(currentSlide - 1); }
+
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowRight': case 'ArrowDown': case ' ': case 'PageDown':
+                    e.preventDefault(); nextSlide(); break;
+                case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
+                    e.preventDefault(); prevSlide(); break;
+                case 'Home': e.preventDefault(); showSlide(0); break;
+                case 'End': e.preventDefault(); showSlide(totalSlides - 1); break;
+                case 'f': e.preventDefault(); toggleFullscreen(); break;
+            }
+        });
+
+        let touchStartX = 0, touchEndX = 0;
+        document.addEventListener('touchstart', (e) => touchStartX = e.changedTouches[0].screenX);
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
+        });
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+            else document.exitFullscreen();
+        }
+
+        function loadFromHash() {
+            const hash = window.location.hash.slice(1);
+            const slideIndex = parseInt(hash);
+            if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < totalSlides) {
+                currentSlide = slideIndex;
+                slides.forEach(s => s.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
+                updateProgress();
+            }
+        }
+
+        loadFromHash();
+        updateProgress();
+    </script>
+</body>
+</html>
