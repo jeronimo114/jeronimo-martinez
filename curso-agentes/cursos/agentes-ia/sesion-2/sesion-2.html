@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión 2: IA en Workflows | Taller de Agentes</title>
+    <style>
+        :root {
+            /* Colors */
+            --bg-primary: #000000;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-blue: #007AFF;
+            --accent-blue-dim: rgba(0, 122, 255, 0.3);
+            --accent-green: #30D158;
+            --accent-red: #FF453A;
+            --accent-yellow: #FFD60A;
+            --accent-purple: #BF5AF2;
+
+            /* Typography */
+            --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'SF Mono', 'Menlo', 'Monaco', monospace;
+
+            /* Sizes */
+            --h1-size: clamp(3rem, 8vw, 6rem);
+            --h2-size: clamp(2rem, 5vw, 3.5rem);
+            --support-size: clamp(1.25rem, 3vw, 1.75rem);
+            --body-size: clamp(1rem, 2vw, 1.25rem);
+
+            /* Spacing */
+            --slide-padding: clamp(2rem, 5vw, 6rem);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* ==================== PRESENTATION CONTAINER ==================== */
+        #deck-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ==================== PROGRESS BAR ==================== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--bg-secondary);
+            z-index: 1000;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-blue);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 12px;
+            right: 24px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            z-index: 1000;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ==================== SLIDES ==================== */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+            padding: var(--slide-padding);
+            overflow: hidden;
+        }
+
+        .slide.active {
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide.entering {
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .slide.leaving {
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideOut 0.3s ease forwards;
+            pointer-events: none;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideOut {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        /* ==================== LAYOUT: DIVIDER ==================== */
+        .layout-divider {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #0a0a0a 100%);
+        }
+
+        .layout-divider .module-number {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            opacity: 0.3;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%);
+        }
+
+        .layout-divider h1 {
+            font-size: var(--h1-size);
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .layout-divider .subtitle {
+            font-size: var(--support-size);
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        /* ==================== LAYOUT: VIDEO WITH CONTROLS ==================== */
+        .layout-video-controls {
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            position: relative;
+        }
+
+        .layout-video-controls .video-wrapper {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .layout-video-controls video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+
+        /* Custom video controls overlay */
+        .video-controls {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            z-index: 10;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-controls:hover {
+            opacity: 1;
+        }
+
+        .ctrl-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .ctrl-btn:hover {
+            background: rgba(0, 122, 255, 0.4);
+            border-color: var(--accent-blue);
+        }
+
+        .ctrl-btn:active {
+            transform: scale(0.95);
+        }
+
+        .ctrl-btn.play-pause {
+            width: 64px;
+            height: 64px;
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            font-size: 1.75rem;
+        }
+
+        .ctrl-btn.play-pause:hover {
+            background: #0066CC;
+        }
+
+        /* Video title overlay */
+        .video-title-overlay {
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.25rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 24px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 10;
+            opacity: 0.7;
+            font-weight: 500;
+        }
+
+        /* ==================== LAYOUT: STOP SIGN ==================== */
+        .layout-stop {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background: var(--bg-primary);
+        }
+
+        .stop-sign {
+            width: 280px;
+            height: 280px;
+            background: var(--accent-red);
+            clip-path: polygon(
+                30% 0%, 70% 0%,
+                100% 30%, 100% 70%,
+                70% 100%, 30% 100%,
+                0% 70%, 0% 30%
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: stopBounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            box-shadow: 0 0 60px rgba(255, 69, 58, 0.4);
+            position: relative;
+        }
+
+        .stop-sign::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 4px solid rgba(255, 255, 255, 0.4);
+            clip-path: polygon(
+                30% 0%, 70% 0%,
+                100% 30%, 100% 70%,
+                70% 100%, 30% 100%,
+                0% 70%, 0% 30%
+            );
+        }
+
+        .stop-sign span {
+            font-family: var(--font-primary);
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 0.1em;
+        }
+
+        @keyframes stopBounceIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .stop-sign-container {
+            animation: stopPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes stopPulse {
+            0%, 100% {
+                filter: drop-shadow(0 0 30px rgba(255, 69, 58, 0.3));
+            }
+            50% {
+                filter: drop-shadow(0 0 60px rgba(255, 69, 58, 0.6));
+            }
+        }
+
+        .stop-subtitle {
+            font-size: var(--h2-size);
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.5s ease 0.8s forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== SLIDE ANIMATIONS ==================== */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .slide.active .animate-in {
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        .slide.active .animate-in:nth-child(1) { animation-delay: 0s; }
+        .slide.active .animate-in:nth-child(2) { animation-delay: 0.1s; }
+        .slide.active .animate-in:nth-child(3) { animation-delay: 0.2s; }
+
+        /* ==================== NAVIGATION ==================== */
+        .nav-btn {
+            position: fixed;
+            bottom: 50%;
+            transform: translateY(50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.08);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            z-index: 1000;
+            opacity: 0;
+        }
+
+        body:hover .nav-btn {
+            opacity: 1;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent-blue);
+        }
+
+        .nav-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .nav-btn.nav-prev {
+            left: 20px;
+        }
+
+        .nav-btn.nav-next {
+            right: 20px;
+        }
+
+        /* ==================== SECTION LABEL ==================== */
+        .section-label {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            :root {
+                --h1-size: clamp(1.75rem, 5vw, 2.5rem);
+                --h2-size: clamp(1.25rem, 4vw, 1.75rem);
+                --support-size: clamp(0.9rem, 2vw, 1.25rem);
+                --body-size: clamp(0.875rem, 2vw, 1rem);
+                --slide-padding: 1.25rem;
+            }
+
+            .stop-sign {
+                width: 180px;
+                height: 180px;
+            }
+
+            .stop-sign span {
+                font-size: 2.5rem;
+            }
+
+            .ctrl-btn {
+                width: 44px;
+                height: 44px;
+                font-size: 1.25rem;
+            }
+
+            .ctrl-btn.play-pause {
+                width: 52px;
+                height: 52px;
+            }
+
+            .video-controls {
+                bottom: 30px;
+                gap: 16px;
+            }
+
+            .nav-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .nav-btn.nav-prev {
+                left: 10px;
+            }
+
+            .nav-btn.nav-next {
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="deck-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+        <span class="slide-counter" id="counter">1 / 5</span>
+
+        <!-- ========================================== -->
+        <!-- RECAP SECTION -->
+        <!-- ========================================== -->
+
+        <!-- Slide 1: Recap Title Divider -->
+        <section class="slide layout-divider active" data-slide="0">
+            <div class="module-number">R</div>
+            <h1 class="animate-in">Repaso <span style="color: var(--accent-blue);">Sesión 1</span></h1>
+            <p class="subtitle animate-in">Conceptos clave antes de continuar</p>
+        </section>
+
+        <!-- Slide 2: Video 1 - ¿Qué es un LLM? -->
+        <section class="slide layout-video-controls" data-slide="1">
+            <div class="video-title-overlay">¿Qué es un LLM?</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/recap-que-es-llm.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 3: Video 2 - ¿Qué es un Agente? -->
+        <section class="slide layout-video-controls" data-slide="2">
+            <div class="video-title-overlay">¿Qué es un Agente?</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/recap-que-es-agente.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 4: Video 3 - API y MCP -->
+        <section class="slide layout-video-controls" data-slide="3">
+            <div class="video-title-overlay">API y MCP</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/recap-que-es-api-mcp.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">−</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">▶</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 5: Stop Sign -->
+        <section class="slide layout-stop" data-slide="4">
+            <div class="stop-sign-container">
+                <div class="stop-sign animate-in">
+                    <span>STOP</span>
+                </div>
+            </div>
+            <p class="stop-subtitle">Fin del repaso</p>
+        </section>
+
+        <!-- Navigation Controls -->
+        <button class="nav-btn nav-prev" onclick="prevSlide()" title="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        <button class="nav-btn nav-next" onclick="nextSlide()" title="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        // ==================== Video Controls ====================
+
+        function togglePlay(btn) {
+            const slide = btn.closest('.slide');
+            const video = slide.querySelector('video');
+            if (!video) return;
+
+            if (video.paused) {
+                video.play();
+                btn.textContent = '⏸';
+            } else {
+                video.pause();
+                btn.textContent = '▶';
+            }
+        }
+
+        function skipVideo(btn, seconds) {
+            const slide = btn.closest('.slide');
+            const video = slide.querySelector('video');
+            if (!video) return;
+
+            video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
+        }
+
+        // ==================== Slide Management ====================
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progress = document.getElementById('progress');
+        const counter = document.getElementById('counter');
+
+        function showSlide(index) {
+            if (index < 0) index = 0;
+            if (index >= totalSlides) index = totalSlides - 1;
+            if (index === currentSlide) return;
+
+            const prevSlide = currentSlide;
+
+            // Hide current slide
+            slides[prevSlide].classList.remove('active');
+            slides[prevSlide].classList.add('leaving');
+
+            // Pause videos on previous slide & reset play button
+            const prevVideos = slides[prevSlide].querySelectorAll('video');
+            prevVideos.forEach(video => {
+                video.pause();
+                video.currentTime = 0;
+            });
+            const prevPlayBtn = slides[prevSlide].querySelector('.play-pause');
+            if (prevPlayBtn) prevPlayBtn.textContent = '▶';
+
+            // Show new slide
+            currentSlide = index;
+            slides[currentSlide].classList.add('active', 'entering');
+
+            // Play videos on current slide
+            const currentVideos = slides[currentSlide].querySelectorAll('video');
+            currentVideos.forEach(video => {
+                video.play().then(() => {
+                    const playBtn = slides[currentSlide].querySelector('.play-pause');
+                    if (playBtn) playBtn.textContent = '⏸';
+                }).catch(() => {
+                    // Autoplay blocked — user must click play
+                });
+            });
+
+            // Clean up animations
+            setTimeout(() => {
+                slides[prevSlide].classList.remove('leaving');
+            }, 300);
+
+            setTimeout(() => {
+                slides[currentSlide].classList.remove('entering');
+            }, 500);
+
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const percentage = ((currentSlide + 1) / totalSlides) * 100;
+            progress.style.width = percentage + '%';
+            counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            history.replaceState(null, null, `#${currentSlide}`);
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // ==================== Keyboard Navigation ====================
+
+        document.addEventListener('keydown', (e) => {
+            // Don't navigate when video controls are focused
+            if (e.target.closest('.video-controls')) return;
+
+            switch(e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                case 'PageDown':
+                    e.preventDefault();
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                case 'PageUp':
+                    e.preventDefault();
+                    prevSlide();
+                    break;
+                case ' ':
+                    e.preventDefault();
+                    // Space toggles video if on a video slide, else advances
+                    const currentPlayBtn = slides[currentSlide].querySelector('.play-pause');
+                    if (currentPlayBtn) {
+                        togglePlay(currentPlayBtn);
+                    } else {
+                        nextSlide();
+                    }
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    showSlide(0);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    showSlide(totalSlides - 1);
+                    break;
+                case 'f':
+                    e.preventDefault();
+                    toggleFullscreen();
+                    break;
+            }
+        });
+
+        // ==================== Touch/Swipe Navigation ====================
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            // Don't capture touch on video controls
+            if (e.target.closest('.video-controls')) return;
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            if (e.target.closest('.video-controls')) return;
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+
+        // ==================== Fullscreen ====================
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // ==================== URL Hash ====================
+
+        function loadFromHash() {
+            const hash = window.location.hash.slice(1);
+            const slideIndex = parseInt(hash);
+            if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < totalSlides) {
+                currentSlide = slideIndex;
+                slides.forEach(s => s.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
+                updateProgress();
+            }
+        }
+
+        // ==================== Initialize ====================
+
+        loadFromHash();
+        updateProgress();
+
+        // Play videos on initial slide if any
+        const initialVideos = slides[currentSlide].querySelectorAll('video');
+        initialVideos.forEach(video => {
+            video.play().then(() => {
+                const playBtn = slides[currentSlide].querySelector('.play-pause');
+                if (playBtn) playBtn.textContent = '⏸';
+            }).catch(() => {});
+        });
+    </script>
+</body>
+</html>
