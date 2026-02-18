@@ -366,7 +366,7 @@
         <div class="progress-bar">
             <div class="progress-fill" id="progress"></div>
         </div>
-        <span class="slide-counter" id="counter">1 / 18</span>
+        <span class="slide-counter" id="counter">1 / 22</span>
 
         <!-- ============================================================ -->
         <!-- 1. PORTADA -->
@@ -402,90 +402,88 @@
         </section>
 
         <!-- ============================================================ -->
-        <!-- 4. API 1: CHISTES -->
+        <!-- 4. API 1: CAT FACTS -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
             <span class="section-label">API 1</span>
-            <h1 class="animate-in"><span class="accent">icanhazdadjoke</span>.com</h1>
-            <p class="support animate-in">Chistes en ingles (dad jokes)</p>
-            <div class="code-box animate-in">https://icanhazdadjoke.com/</div>
-            <div class="code-box small animate-in">Header &rarr; Accept: application/json</div>
+            <h1 class="animate-in"><span class="accent">catfact</span>.ninja</h1>
+            <p class="support animate-in">Datos curiosos de gatos</p>
+            <div class="code-box animate-in">https://catfact.ninja/fact</div>
             <div class="expected-box animate-in">
                 <div class="label">Response JSON</div>
-                <div class="result">{ "id": "R7UfaahV...", "joke": "What do you call a...", "status": 200 }</div>
+                <div class="result">{ "fact": "An adult lion's roar can be heard up to five miles away.", "length": 56 }</div>
             </div>
             <div class="tip-box animate-in">
-                <h3>Header requerido</h3>
-                <p>Esta API requiere el header <strong>Accept: application/json</strong> para devolver JSON. Sin el, devuelve texto plano.</p>
+                <h3>La mas simple</h3>
+                <p>Solo 2 campos en la respuesta: <strong>fact</strong> (el dato) y <strong>length</strong> (largo del texto). Perfecta para empezar.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 5. EJERCICIO 1: CHISTES -->
+        <!-- 5. EJERCICIO 1: CAT FACTS -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
             <span class="section-label">Ejercicio 1</span>
-            <h1 class="animate-in">Ejercicio: <span class="accent-green">Chistes</span></h1>
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Cat Facts</span></h1>
             <div class="exercise-box animate-in">
                 <h3>Pasos</h3>
                 <ol>
                     <li>Agrega un nodo <strong>HTTP Request Tool</strong> al canvas</li>
                     <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
-                    <li>URL: <strong>https://icanhazdadjoke.com/</strong></li>
+                    <li>URL: <strong>https://catfact.ninja/fact</strong></li>
                     <li>Method: <strong>GET</strong></li>
-                    <li>Agrega Header: <strong>Accept</strong> = <strong>application/json</strong></li>
-                    <li>Prueba: <strong>"Cuentame un chiste"</strong></li>
+                    <li>Description: <strong>"Gets a random cat fact"</strong></li>
+                    <li>Prueba: <strong>"Dime un dato curioso de gatos"</strong></li>
                 </ol>
             </div>
             <div class="tip-box animate-in">
                 <h3>Verificacion</h3>
-                <p>El agente deberia responder con un chiste diferente cada vez. Revisa los logs para confirmar que se hizo la llamada HTTP.</p>
+                <p>El agente deberia responder con un dato diferente cada vez. Revisa los logs para confirmar que se hizo la llamada HTTP.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 6. API 2: ADIVINAR EDAD -->
+        <!-- 6. API 2: CHUCK NORRIS -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
             <span class="section-label">API 2</span>
-            <h1 class="animate-in"><span class="accent">api.agify</span>.io</h1>
-            <p class="support animate-in">Adivina la edad basandose en el nombre</p>
-            <div class="code-box animate-in">https://api.agify.io?name=Juan</div>
+            <h1 class="animate-in"><span class="accent">Chuck Norris</span></h1>
+            <p class="support animate-in">Chistes de Chuck Norris</p>
+            <div class="code-box animate-in">https://api.chucknorris.io/jokes/random</div>
             <div class="expected-box animate-in">
                 <div class="label">Response JSON</div>
-                <div class="result">{ "count": 1234, "name": "Juan", "age": 45 }</div>
+                <div class="result">{ "value": "Chuck Norris once had an interim job at Denny's..." }</div>
             </div>
             <div class="tip-box animate-in">
-                <h3>Parametro dinamico</h3>
-                <p>Puedes cambiar <strong>"Juan"</strong> por cualquier nombre. El agente puede construir la URL con el nombre que el usuario mencione.</p>
+                <h3>Campo clave</h3>
+                <p>El chiste esta en el campo <strong>"value"</strong>. El resto de campos (id, url, icon_url) son metadata que el agente puede ignorar.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 7. EJERCICIO 2: ADIVINAR EDAD -->
+        <!-- 7. EJERCICIO 2: CHUCK NORRIS -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
             <span class="section-label">Ejercicio 2</span>
-            <h1 class="animate-in">Ejercicio: <span class="accent-green">Edad</span></h1>
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Chuck Norris</span></h1>
             <div class="exercise-box animate-in">
                 <h3>Pasos</h3>
                 <ol>
                     <li>Agrega un nuevo <strong>HTTP Request Tool</strong></li>
                     <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
-                    <li>URL: <strong>https://api.agify.io?name=Juan</strong></li>
-                    <li>El agente debe extraer el nombre del usuario y pasarlo como parametro</li>
-                    <li>Prueba: <strong>"Que edad crees que tengo? Me llamo Carlos"</strong></li>
-                    <li>Verifica que responda con una edad estimada</li>
+                    <li>URL: <strong>https://api.chucknorris.io/jokes/random</strong></li>
+                    <li>Description: <strong>"Gets a random Chuck Norris joke"</strong></li>
+                    <li>Prueba: <strong>"Cuentame un chiste de Chuck Norris"</strong></li>
                 </ol>
             </div>
             <div class="tip-box animate-in">
-                <h3>URL dinamica</h3>
-                <p>El agente puede construir la URL dinamicamente reemplazando el nombre en el parametro <strong>?name=</strong> segun lo que diga el usuario.</p>
+                <h3>Descripcion importa</h3>
+                <p>La descripcion del tool le dice al agente <strong>cuando</strong> usarlo. Si dices "Gets a Chuck Norris joke", el agente solo lo llamara cuando le pidan un chiste de Chuck Norris.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 8. API 3: FOTOS DE PERROS -->
+        <!-- 8. API 3: DOG PHOTOS -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
             <span class="section-label">API 3</span>
@@ -494,16 +492,16 @@
             <div class="code-box animate-in">https://dog.ceo/api/breeds/image/random</div>
             <div class="expected-box animate-in">
                 <div class="label">Response JSON</div>
-                <div class="result">{ "message": "https://images.dog.ceo/breeds/...", "status": "success" }</div>
+                <div class="result">{ "message": "https://images.dog.ceo/breeds/terrier/...", "status": "success" }</div>
             </div>
             <div class="tip-box animate-in">
                 <h3>Imagen aleatoria</h3>
-                <p>Devuelve una URL de imagen aleatoria de un perro. Cada llamada genera una imagen diferente.</p>
+                <p>Devuelve una URL de imagen aleatoria de un perro. Cada llamada genera una imagen diferente. El agente puede compartir el link.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 9. EJERCICIO 3: FOTOS DE PERROS -->
+        <!-- 9. EJERCICIO 3: DOG PHOTOS -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
             <span class="section-label">Ejercicio 3</span>
@@ -514,80 +512,151 @@
                     <li>Agrega un nuevo <strong>HTTP Request Tool</strong></li>
                     <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
                     <li>URL: <strong>https://dog.ceo/api/breeds/image/random</strong></li>
-                    <li>Method: <strong>GET</strong></li>
+                    <li>Description: <strong>"Gets a random dog photo URL"</strong></li>
                     <li>Prueba: <strong>"Mandame una foto de un perro"</strong></li>
                     <li>El bot deberia devolver el link de la imagen</li>
                 </ol>
             </div>
-            <div class="tip-box animate-in">
-                <h3>Telegram</h3>
-                <p>Si tu bot esta conectado a Telegram, puede mostrar imagenes directamente si envias la URL. El usuario vera la foto del perro en el chat.</p>
-            </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 10. API 4: CLIMA -->
+        <!-- 10. API 4: USELESS FACTS -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
             <span class="section-label">API 4</span>
-            <h1 class="animate-in"><span class="accent">Open-Meteo</span></h1>
-            <p class="support animate-in">Clima en tiempo real (sin API key)</p>
-            <div class="code-box small animate-in">https://api.open-meteo.com/v1/forecast?latitude=6.25&longitude=-75.56&current_weather=true</div>
+            <h1 class="animate-in"><span class="accent">Useless Facts</span></h1>
+            <p class="support animate-in">Datos curiosos e inútiles</p>
+            <div class="code-box small animate-in">https://uselessfacts.jsph.pl/api/v2/facts/random</div>
             <div class="expected-box animate-in">
-                <div class="label">Response JSON (parcial)</div>
-                <div class="result">{ "current_weather": { "temperature": 22.5, "windspeed": 8.3, "weathercode": 1 } }</div>
+                <div class="label">Response JSON</div>
+                <div class="result">{ "id": "c01b...", "text": "Every acre of American crops contains 100 pounds of insects.", "source": "djtech.net" }</div>
             </div>
             <div class="tip-box animate-in">
-                <h3>Coordenadas</h3>
-                <p>Medellin: lat=6.25, lon=-75.56 | Bogota: lat=4.71, lon=-74.07 | CDMX: lat=19.43, lon=-99.13. Cambia latitude y longitude para otras ciudades.</p>
+                <h3>Campo clave</h3>
+                <p>El dato curioso esta en el campo <strong>"text"</strong>. Perfecto para un bot de curiosidades o trivia.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 11. EJERCICIO 4: CLIMA -->
+        <!-- 11. EJERCICIO 4: USELESS FACTS -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
             <span class="section-label">Ejercicio 4</span>
-            <h1 class="animate-in">Ejercicio: <span class="accent-green">Clima</span></h1>
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Datos Curiosos</span></h1>
             <div class="exercise-box animate-in">
                 <h3>Pasos</h3>
                 <ol>
                     <li>Agrega un nuevo <strong>HTTP Request Tool</strong></li>
                     <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
-                    <li>URL: <strong>https://api.open-meteo.com/v1/forecast?latitude=6.25&longitude=-75.56&current_weather=true</strong></li>
-                    <li>Prueba: <strong>"Como esta el clima en Medellin?"</strong></li>
-                    <li>Verifica que devuelve temperatura y velocidad del viento</li>
+                    <li>URL: <strong>https://uselessfacts.jsph.pl/api/v2/facts/random</strong></li>
+                    <li>Description: <strong>"Gets a random useless fun fact"</strong></li>
+                    <li>Prueba: <strong>"Dime un dato curioso"</strong></li>
                 </ol>
-            </div>
-            <div class="tip-box animate-in">
-                <h3>Avanzado</h3>
-                <p>El agente podria buscar las coordenadas de diferentes ciudades y construir la URL dinamicamente. Intenta preguntar por otra ciudad!</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 12. API 5: FRASES CELEBRES -->
+        <!-- 12. API 5: BORED API -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
             <span class="section-label">API 5</span>
+            <h1 class="animate-in"><span class="accent">Bored</span> API</h1>
+            <p class="support animate-in">Sugerencias de actividades</p>
+            <div class="code-box small animate-in">https://bored-api.appbrewery.com/random</div>
+            <div class="expected-box animate-in">
+                <div class="label">Response JSON</div>
+                <div class="result">{ "activity": "Listen to a new music genre", "type": "music", "participants": 1, "price": 0 }</div>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Metadata util</h3>
+                <p>Ademas de la actividad, incluye <strong>type</strong>, <strong>participants</strong> y <strong>price</strong>. El agente puede filtrar o recomendar basandose en estos datos.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 13. EJERCICIO 5: BORED API -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">Ejercicio 5</span>
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Actividades</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Agrega un nuevo <strong>HTTP Request Tool</strong></li>
+                    <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
+                    <li>URL: <strong>https://bored-api.appbrewery.com/random</strong></li>
+                    <li>Description: <strong>"Suggests a random activity when bored"</strong></li>
+                    <li>Prueba: <strong>"Estoy aburrido, que puedo hacer?"</strong></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 14. API 6: DAD JOKES -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">API 6</span>
+            <h1 class="animate-in"><span class="accent">icanhazdadjoke</span>.com</h1>
+            <p class="support animate-in">Chistes en ingles (dad jokes)</p>
+            <div class="code-box animate-in">https://icanhazdadjoke.com/</div>
+            <div class="code-box small animate-in">Header &rarr; Accept: application/json</div>
+            <div class="expected-box animate-in">
+                <div class="label">Response JSON</div>
+                <div class="result">{ "id": "ucxPZDAlGlb", "joke": "If two vegans are having an argument...", "status": 200 }</div>
+            </div>
+            <div class="warning-box animate-in">
+                <h3>Header requerido</h3>
+                <p>Esta API requiere el header <strong>Accept: application/json</strong> para devolver JSON. Sin el, devuelve texto plano.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 15. EJERCICIO 6: DAD JOKES -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">Ejercicio 6</span>
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Chistes</span></h1>
+            <div class="exercise-box animate-in">
+                <h3>Pasos</h3>
+                <ol>
+                    <li>Agrega un nodo <strong>HTTP Request Tool</strong> al canvas</li>
+                    <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
+                    <li>URL: <strong>https://icanhazdadjoke.com/</strong></li>
+                    <li>Method: <strong>GET</strong></li>
+                    <li>Agrega Header: <strong>Accept</strong> = <strong>application/json</strong></li>
+                    <li>Description: <strong>"Gets a random dad joke"</strong></li>
+                    <li>Prueba: <strong>"Cuentame un chiste"</strong></li>
+                </ol>
+            </div>
+            <div class="tip-box animate-in">
+                <h3>Headers en n8n</h3>
+                <p>En el nodo HTTP Request Tool, abre <strong>Options</strong> &rarr; <strong>Headers</strong> &rarr; agrega Name: <strong>Accept</strong>, Value: <strong>application/json</strong></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 16. API 7: ZENQUOTES -->
+        <!-- ============================================================ -->
+        <section class="slide layout-big-statement">
+            <span class="section-label">API 7</span>
             <h1 class="animate-in"><span class="accent">zenquotes</span>.io</h1>
             <p class="support animate-in">Frases celebres e inspiradoras</p>
             <div class="code-box animate-in">https://zenquotes.io/api/random</div>
             <div class="expected-box animate-in">
                 <div class="label">Response JSON</div>
-                <div class="result">[{ "q": "The only way to do great work...", "a": "Steve Jobs", "h": "..." }]</div>
+                <div class="result">[{ "q": "Love is the expression of one's values.", "a": "Ayn Rand" }]</div>
             </div>
             <div class="tip-box animate-in">
-                <h3>Bot motivacional</h3>
-                <p>Perfecta para un bot motivacional o coach. El campo <strong>"q"</strong> es la frase y <strong>"a"</strong> es el autor.</p>
+                <h3>Respuesta es un array</h3>
+                <p>Ojo: la respuesta viene dentro de <strong>[ ]</strong> (un array). El campo <strong>"q"</strong> es la frase y <strong>"a"</strong> es el autor. El agente sabe extraer los datos.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 13. EJERCICIO 5: FRASES -->
+        <!-- 17. EJERCICIO 7: ZENQUOTES -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
-            <span class="section-label">Ejercicio 5</span>
+            <span class="section-label">Ejercicio 7</span>
             <h1 class="animate-in">Ejercicio: <span class="accent-green">Frases</span></h1>
             <div class="exercise-box animate-in">
                 <h3>Pasos</h3>
@@ -595,8 +664,8 @@
                     <li>Agrega un nuevo <strong>HTTP Request Tool</strong></li>
                     <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
                     <li>URL: <strong>https://zenquotes.io/api/random</strong></li>
+                    <li>Description: <strong>"Gets a random inspirational quote"</strong></li>
                     <li>Prueba: <strong>"Dame una frase motivacional"</strong></li>
-                    <li>El bot deberia formatear la frase con el autor</li>
                     <li><strong>Bonus:</strong> agrega al System Prompt que siempre termine con una frase inspiradora</li>
                 </ol>
             </div>
@@ -607,47 +676,48 @@
         </section>
 
         <!-- ============================================================ -->
-        <!-- 14. API 6: DATOS DE PAISES -->
+        <!-- 18. API 8: OPEN-METEO -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
-            <span class="section-label">API 6</span>
-            <h1 class="animate-in"><span class="accent">restcountries</span>.com</h1>
-            <p class="support animate-in">Datos completos de cualquier pais</p>
-            <div class="code-box animate-in">https://restcountries.com/v3.1/name/colombia</div>
+            <span class="section-label">API 8</span>
+            <h1 class="animate-in"><span class="accent">Open-Meteo</span></h1>
+            <p class="support animate-in">Clima en tiempo real (sin API key)</p>
+            <div class="code-box small animate-in">https://api.open-meteo.com/v1/forecast?latitude=40.45&longitude=-3.7&current_weather=true</div>
             <div class="expected-box animate-in">
                 <div class="label">Response JSON (parcial)</div>
-                <div class="result">{ "capital": ["Bogota"], "population": 50882891, "languages": { "spa": "Spanish" }, "currencies": { "COP": { "name": "Colombian peso" } } }</div>
+                <div class="result">{ "current_weather": { "temperature": 10.7, "windspeed": 20.2, "weathercode": 3 } }</div>
             </div>
             <div class="tip-box animate-in">
-                <h3>Uso ideal</h3>
-                <p>Ideal para un asistente de viajes o cultura general. Devuelve capital, poblacion, idiomas, moneda, bandera y mucho mas.</p>
+                <h3>Coordenadas (Madrid por defecto)</h3>
+                <p>Madrid: lat=40.45, lon=-3.7 | Barcelona: lat=41.39, lon=2.17 | Bogota: lat=4.71, lon=-74.07. Cambia latitude y longitude para otras ciudades.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 15. EJERCICIO 6: PAISES -->
+        <!-- 19. EJERCICIO 8: OPEN-METEO -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
-            <span class="section-label">Ejercicio 6</span>
-            <h1 class="animate-in">Ejercicio: <span class="accent-green">Paises</span></h1>
+            <span class="section-label">Ejercicio 8</span>
+            <h1 class="animate-in">Ejercicio: <span class="accent-green">Clima</span></h1>
             <div class="exercise-box animate-in">
                 <h3>Pasos</h3>
                 <ol>
                     <li>Agrega un nuevo <strong>HTTP Request Tool</strong></li>
                     <li>Conectalo al puerto <strong>Tool</strong> del AI Agent</li>
-                    <li>URL: <strong>https://restcountries.com/v3.1/name/colombia</strong></li>
-                    <li>Prueba: <strong>"Cuentame sobre Japon"</strong></li>
-                    <li>El bot deberia dar: capital, poblacion, idiomas y moneda</li>
+                    <li>URL: <strong>https://api.open-meteo.com/v1/forecast?latitude=40.45&longitude=-3.7&current_weather=true</strong></li>
+                    <li>Description: <strong>"Gets current weather for Madrid"</strong></li>
+                    <li>Prueba: <strong>"Como esta el clima en Madrid?"</strong></li>
+                    <li>Verifica que devuelve temperatura y velocidad del viento</li>
                 </ol>
             </div>
             <div class="tip-box animate-in">
-                <h3>Combina herramientas</h3>
-                <p>Combina con <strong>Calculator</strong> para convertir monedas o calcular diferencias de poblacion entre paises!</p>
+                <h3>Query params</h3>
+                <p>Esta API usa parametros en la URL (<strong>?latitude=...&longitude=...</strong>). Esto es comun en APIs mas avanzadas que reciben datos del usuario.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 16. MULTIPLES APIs -->
+        <!-- 20. MULTIPLES APIs -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
             <h1 class="animate-in">Multiples <span class="accent">APIs</span></h1>
@@ -660,47 +730,71 @@
                 <h3>Reto</h3>
                 <ol>
                     <li>Conecta al menos <strong>2 APIs diferentes</strong> al mismo agente</li>
-                    <li>Prueba haciendo preguntas variadas: <strong>"Cuentame un chiste y despues dime el clima"</strong></li>
+                    <li>Prueba haciendo preguntas variadas: <strong>"Dime un dato de gatos y despues el clima"</strong></li>
                     <li>Verifica que el agente use la API correcta para cada pregunta</li>
                 </ol>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 17. MAS APIs PARA EXPLORAR -->
+        <!-- 21. REFERENCIA RAPIDA -->
         <!-- ============================================================ -->
         <section class="slide layout-3lines">
             <span class="section-label">Referencia</span>
-            <h2 class="animate-in">Mas APIs para explorar</h2>
+            <h2 class="animate-in">8 APIs disponibles</h2>
             <div class="line animate-in">
                 <div class="line-number">1</div>
                 <div class="line-text">
-                    <strong>numbersapi.com/random/trivia</strong>
-                    <div class="line-detail">Datos curiosos de numeros</div>
+                    <strong>catfact.ninja/fact</strong>
+                    <div class="line-detail">Datos de gatos</div>
                 </div>
             </div>
             <div class="line animate-in">
                 <div class="line-number">2</div>
                 <div class="line-text">
-                    <strong>catfact.ninja/fact</strong>
-                    <div class="line-detail">Datos curiosos de gatos</div>
+                    <strong>api.chucknorris.io/jokes/random</strong>
+                    <div class="line-detail">Chistes de Chuck Norris</div>
                 </div>
             </div>
             <div class="line animate-in">
                 <div class="line-number">3</div>
                 <div class="line-text">
-                    <strong>api.publicapis.org/entries</strong>
-                    <div class="line-detail">Directorio de APIs publicas</div>
+                    <strong>dog.ceo/api/breeds/image/random</strong>
+                    <div class="line-detail">Fotos de perros</div>
                 </div>
             </div>
-            <div class="tip-box animate-in" style="margin-left: 0;">
-                <h3>Miles de APIs</h3>
-                <p>Busca "public APIs" en Google para encontrar miles de APIs gratuitas. Cualquier API que devuelva JSON funciona con n8n.</p>
+            <div class="line animate-in">
+                <div class="line-number">4</div>
+                <div class="line-text">
+                    <strong>uselessfacts.jsph.pl/api/v2/facts/random</strong>
+                    <div class="line-detail">Datos curiosos</div>
+                </div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">5</div>
+                <div class="line-text">
+                    <strong>bored-api.appbrewery.com/random</strong>
+                    <div class="line-detail">Sugerencias de actividad</div>
+                </div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">6</div>
+                <div class="line-text">
+                    <strong>icanhazdadjoke.com</strong>
+                    <div class="line-detail">Dad jokes (necesita header)</div>
+                </div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">7</div>
+                <div class="line-text">
+                    <strong>zenquotes.io/api/random</strong>
+                    <div class="line-detail">Frases motivacionales</div>
+                </div>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- 18. CIERRE -->
+        <!-- 22. CIERRE -->
         <!-- ============================================================ -->
         <section class="slide layout-big-statement">
             <h1 class="animate-in"><span class="accent-green">A explorar!</span></h1>
