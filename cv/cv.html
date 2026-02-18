@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Jerónimo Martínez Jaramillo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: #fff;
+            font-size: 11pt;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #2563eb;
+        }
+
+        .header-left h1 {
+            font-size: 28pt;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .header-left .tagline {
+            font-size: 12pt;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 10pt;
+            color: #4b5563;
+        }
+
+        .header-right a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .header-right p {
+            margin-bottom: 3px;
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 13pt;
+            font-weight: 700;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .summary {
+            color: #374151;
+            font-size: 11pt;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-category h3 {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .skill-category li {
+            background: #f3f4f6;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 10pt;
+            color: #4b5563;
+        }
+
+        .experience-item, .project-item, .education-item {
+            margin-bottom: 18px;
+        }
+
+        .experience-item:last-child, .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .item-header h3 {
+            font-size: 12pt;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .item-header .date {
+            font-size: 10pt;
+            color: #6b7280;
+        }
+
+        .item-subtitle {
+            font-size: 10pt;
+            color: #2563eb;
+            margin-bottom: 5px;
+        }
+
+        .item-description {
+            font-size: 10pt;
+            color: #4b5563;
+        }
+
+        .item-description ul {
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        .item-description li {
+            margin-bottom: 3px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 8px;
+        }
+
+        .tech-tag {
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 9pt;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <h1>Jerónimo Martínez Jaramillo</h1>
+                <p class="tagline">Desarrollador Web & Automatización con IA</p>
+            </div>
+            <div class="header-right">
+                <p>jeronimomartinezjaramillo@gmail.com</p>
+                <p>+57 305 246 3800</p>
+                <p>Medellín, Colombia</p>
+                <p><a href="https://linkedin.com/in/jerónimo-martínez-jaramillo-91702b1b8">LinkedIn</a> | <a href="https://github.com/jeronimo114">GitHub</a></p>
+            </div>
+        </header>
+
+        <section>
+            <h2>Perfil Profesional</h2>
+            <p class="summary">
+                Desarrollador web y especialista en automatización con IA con experiencia implementando soluciones tecnológicas que aceleran procesos de negocio. Especializado en desarrollo frontend con React y TypeScript, automatización de flujos de trabajo con n8n, e integración de modelos de lenguaje (LLMs). Enfocado en entregar proyectos de idea a producción con velocidad y eficiencia.
+            </p>
+        </section>
+
+        <section>
+            <h2>Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Desarrollo Web</h3>
+                    <ul>
+                        <li>React</li>
+                        <li>TypeScript</li>
+                        <li>JavaScript</li>
+                        <li>HTML/CSS</li>
+                        <li>Node.js</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>IA & Automatización</h3>
+                    <ul>
+                        <li>n8n</li>
+                        <li>LLMs</li>
+                        <li>RAG</li>
+                        <li>Prompt Engineering</li>
+                        <li>Agentes IA</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Herramientas</h3>
+                    <ul>
+                        <li>Git/GitHub</li>
+                        <li>Remotion</li>
+                        <li>Google APIs</li>
+                        <li>Telegram Bot API</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Diseño</h3>
+                    <ul>
+                        <li>UI/UX</li>
+                        <li>Diseño Responsivo</li>
+                        <li>Figma</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Proyectos Destacados</h2>
+
+            <div class="project-item">
+                <div class="item-header">
+                    <h3>ESIC Business School</h3>
+                    <span class="date">2025</span>
+                </div>
+                <p class="item-subtitle">Rediseño y Mantenimiento Web</p>
+                <p class="item-description">
+                    Rediseño completo del sitio web institucional con mejoras de UX y optimización de rendimiento. Implementación de diseño moderno y responsive que mejora la experiencia del usuario.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Web Development</span>
+                    <span class="tech-tag">UX Design</span>
+                    <span class="tech-tag">Performance</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="item-header">
+                    <h3>Diagnóstico de Madurez Digital - CEIPA</h3>
+                    <span class="date">2024</span>
+                </div>
+                <p class="item-subtitle">Plataforma Web Interactiva</p>
+                <p class="item-description">
+                    Desarrollo de plataforma que permite a empresas evaluar su nivel de madurez digital mediante una herramienta de diagnóstico interactiva. Diseño de experiencia de usuario intuitiva y generación de reportes automatizados.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">UX Design</span>
+                    <span class="tech-tag">Web Platform</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="item-header">
+                    <h3>MELØ - E-Commerce</h3>
+                    <span class="date">2024</span>
+                </div>
+                <p class="item-subtitle">Plataforma de Comercio Electrónico</p>
+                <p class="item-description">
+                    Diseño y desarrollo completo de tienda en línea para marca de suplementos nootrópicos. Implementación de catálogo de productos, carrito de compras y pasarela de pagos.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">E-Commerce</span>
+                    <span class="tech-tag">Full Stack</span>
+                    <span class="tech-tag">UX/UI</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Experiencia</h2>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <h3>Desarrollador Web & Consultor en Automatización</h3>
+                    <span class="date">2020 - Presente</span>
+                </div>
+                <p class="item-subtitle">Freelance / Independiente</p>
+                <div class="item-description">
+                    <ul>
+                        <li>Desarrollo de sitios web y aplicaciones para clientes corporativos y startups</li>
+                        <li>Implementación de flujos de automatización con n8n para optimizar procesos de negocio</li>
+                        <li>Integración de modelos de IA para automatizar tareas repetitivas</li>
+                        <li>Consultoría en transformación digital y adopción de tecnologías de IA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <h3>Instructor - Curso "Agentes IA en Acción"</h3>
+                    <span class="date">2024 - Presente</span>
+                </div>
+                <p class="item-subtitle">Educación en Tecnología</p>
+                <div class="item-description">
+                    <ul>
+                        <li>Diseño y facilitación de curso práctico sobre agentes de IA y automatización</li>
+                        <li>Enseñanza de fundamentos de LLMs, n8n, RAG y sistemas multi-agente</li>
+                        <li>Metodología hands-on con demostraciones en vivo y ejercicios prácticos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Idiomas</h2>
+            <p class="summary">Español (Nativo) | Inglés (Profesional)</p>
+        </section>
+    </div>
+</body>
+</html>
