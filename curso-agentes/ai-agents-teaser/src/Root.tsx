@@ -15,6 +15,10 @@ import { S2APIsGratuitas } from "./sesion2/S2APIsGratuitas";
 import { S2FlujoMensaje } from "./sesion2/S2FlujoMensaje";
 import { S2BuenasPracticas } from "./sesion2/S2BuenasPracticas";
 import { S2IdeasChatbots } from "./sesion2/S2IdeasChatbots";
+import { S2ShowcaseReservas } from "./sesion2-showcases/S2ShowcaseReservas";
+import { S2ShowcaseEcommerce } from "./sesion2-showcases/S2ShowcaseEcommerce";
+import { S2ShowcaseEducativo } from "./sesion2-showcases/S2ShowcaseEducativo";
+import { S2ShowcaseEntretenimiento } from "./sesion2-showcases/S2ShowcaseEntretenimiento";
 import { RECAP_VIDEO, SESSION2_VIDEO } from "./utils/constants";
 
 export const RemotionRoot: React.FC = () => {
@@ -146,6 +150,40 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="S2IdeasChatbots"
           component={S2IdeasChatbots}
+          durationInFrames={SESSION2_VIDEO.durationInFrames}
+          fps={SESSION2_VIDEO.fps}
+          width={SESSION2_VIDEO.width}
+          height={SESSION2_VIDEO.height}
+        />
+      </Folder>
+      <Folder name="Sesion2-Showcases">
+        <Composition
+          id="S2ShowcaseReservas"
+          component={S2ShowcaseReservas}
+          durationInFrames={SESSION2_VIDEO.durationInFrames}
+          fps={SESSION2_VIDEO.fps}
+          width={SESSION2_VIDEO.width}
+          height={SESSION2_VIDEO.height}
+        />
+        <Composition
+          id="S2ShowcaseEcommerce"
+          component={S2ShowcaseEcommerce}
+          durationInFrames={SESSION2_VIDEO.durationInFrames}
+          fps={SESSION2_VIDEO.fps}
+          width={SESSION2_VIDEO.width}
+          height={SESSION2_VIDEO.height}
+        />
+        <Composition
+          id="S2ShowcaseEducativo"
+          component={S2ShowcaseEducativo}
+          durationInFrames={SESSION2_VIDEO.durationInFrames}
+          fps={SESSION2_VIDEO.fps}
+          width={SESSION2_VIDEO.width}
+          height={SESSION2_VIDEO.height}
+        />
+        <Composition
+          id="S2ShowcaseEntretenimiento"
+          component={S2ShowcaseEntretenimiento}
           durationInFrames={SESSION2_VIDEO.durationInFrames}
           fps={SESSION2_VIDEO.fps}
           width={SESSION2_VIDEO.width}

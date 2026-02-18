@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía: Bot Educativo - Sesión 2</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      color: #ffffff;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(40, 40, 40, 0.9);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+    h1 {
+      color: #007AFF;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #007AFF;
+      font-size: 28px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #007AFF;
+      padding-bottom: 10px;
+    }
+    h3 {
+      color: #5AC8FA;
+      font-size: 22px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    ul, ol {
+      margin: 15px 0;
+      padding-left: 30px;
+    }
+    li {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+    code {
+      background: #1E1E1E;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 14px;
+    }
+    pre {
+      background: #1E1E1E;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .architecture {
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .highlight {
+      color: #5AC8FA;
+      font-weight: 600;
+    }
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+    .checklist li {
+      padding: 10px;
+      margin: 5px 0;
+      background: rgba(0, 122, 255, 0.1);
+      border-left: 4px solid #007AFF;
+      border-radius: 4px;
+    }
+    .checklist li::before {
+      content: "✅ ";
+    }
+    .section {
+      background: rgba(0, 122, 255, 0.05);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    a {
+      color: #5AC8FA;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background: #007AFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .back-link:hover {
+      background: #0056B3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="materiales.html" class="back-link">← Volver a Materiales</a>
+
+    <h1>📚️ Guía: Bot Educativo</h1>
+    <p style="font-size: 20px; color: #5AC8FA;">Sesión 2 - Agentes de IA</p>
+
+    <h2>📋 Índice</h2>
+    <ol>
+      <li><a href="#intro">Introducción</a></li>
+      <li><a href="#setup">Setup Inicial</a></li>
+      <li><a href="#paso1">Paso 1: Telegram Trigger</a></li>
+      <li><a href="#paso2">Paso 2: AI Agent + System Prompt</a></li>
+      <li><a href="#paso3">Paso 3: Simple Memory</a></li>
+      <li><a href="#paso4">Paso 4: Calculator Tool (Progreso)</a></li>
+      <li><a href="#paso5">Paso 5: HTTP Request (Cursos)</a></li>
+      <li><a href="#testing">Testing Completo</a></li>
+      <li><a href="#bonus">Bonus: Mejoras</a></li>
+    </ol>
+
+    <h2 id="intro">1. Introducción</h2>
+    <p><strong>Objetivo:</strong> Crear un tutor personalizado de cursos.</p>
+    <p><strong>Arquitectura:</strong></p>
+    <div class="architecture">
+      Telegram Trigger → AI Agent → Calculator + HTTP Request → Telegram Response<br>
+      ↓<br>
+      Simple Memory
+    </div>
+
+    <h2 id="setup">2. Setup Inicial</h2>
+    <p><strong>Prerrequisitos:</strong></p>
+    <ul class="checklist">
+      <li>Cuenta en n8n.cloud</li>
+      <li>Token de Telegram</li>
+      <li>Datos de cursos (simulados en JSON)</li>
+    </ul>
+
+    <p><strong>Crear Workflow en n8n:</strong></p>
+    <ol>
+      <li>Nuevo workflow vacío</li>
+      <li>Guardar como: <code>Bot-Educativo-[tu-nombre]</code></li>
+    </ol>
+
+    <h2 id="paso1">3. Paso 1: Telegram Trigger</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>Telegram Trigger</strong></p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Bot Token: [pegar tu token de @BotFather]</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Click "Execute Node"</li>
+      <li>Envía un mensaje: "Hola" a tu bot en Telegram</li>
+      <li>Debería ver el trigger en n8n</li>
+    </ol>
+
+    <h2 id="paso2">4. Paso 2: AI Agent + System Prompt</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>Chat (AI Agent)</strong></p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Resource: gpt-4o-mini
+
+System Prompt:
+Eres TutorBot, tutor personalizado de cursos de programación y tecnología.
+
+Idioma: español
+
+Tono: paciente, motivador, claro y pedagógico
+
+Funciones:
+- Explicar conceptos técnicos de forma accesible
+- Dar ejemplos prácticos y del día a día
+- Proponer ejercicios para reforzar aprendizaje
+- Adaptar explicaciones según nivel del estudiante
+- Ofecer motivación y ánimo constante
+- Recomendar recursos adicionales cuando sea apropiado
+
+Reglas:
+- Si el estudiante no entiende, reformula usando analogías simples
+- Usa ejemplos concretos antes de teoría abstracta
+- Mantén explicaciones breves (máximo 100-150 palabras)
+- Nunca juzgues ni te frustes: reconoce cuando algo está fuera de tu conocimiento
+- Ofrece ánimo y motívación: "¡Excelente pregunta!", "Lo estás haciendo muy bien"
+- Si el estudiante está atascado, ofrece: ¿Qué tal si lo explicamos de otra manera?
+- Siempre termina con un follow-up: ¿Te queda claro? ¿Tienes alguna otra duda?</code></pre>
+
+    <p><strong>Memory Configuration:</strong></p>
+    <pre><code>Memory Type: Simple Memory
+Session ID: {{ $json.message.chat.id }}
+Window Size: 15 (mayor para contexto educativo)</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Ejecuta el workflow</li>
+      <li>Conversa con el bot</li>
+      <li>Verifica que recuerda el progreso del estudiante</li>
+    </ol>
+
+    <h2 id="paso3">5. Paso 3: Simple Memory</h2>
+    <p>El nodo <strong>Simple Memory</strong> ya está configurado en el paso anterior. Este nodo mantiene los últimos 15 mensajes de la conversación, permitiendo un mayor contexto educativo.</p>
+
+    <h2 id="paso4">6. Paso 4: Calculator Tool (Progreso)</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>Calculator</strong></p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Operation: Multiplicación
+Input 1: Número de módulos
+Input 2: Horas por módulo
+
+Tool Name: calculate_total_hours
+Tool Description: Calcula total de horas del curso</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Pregunta: "¿Cuántas horas tiene el curso?"</li>
+      <li>Debería responder: "12 horas" (4 módulos × 3h = 12h)</li>
+    </ol>
+
+    <h2 id="paso5">7. Paso 5: HTTP Request (Cursos)</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>HTTP Request</strong> con JSON simulado</p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Crear nodo "Set" con este JSON como valor inicial:
+{
+  "cursos": {
+    "python-intro": {
+      "name": "Introducción a Python",
+      "modules": ["Variables", "Loops", "Funciones"],
+      "duration": 12,
+      "hours_per_module": 3,
+      "level": "principiante",
+      "description": "Aprende desde cero con proyectos prácticos"
+    },
+    "javascript-basics": {
+      "name": "JavaScript Básico",
+      "modules": ["Variables", "Funciones", "DOM", "Eventos"],
+      "duration": 20,
+      "hours_per_module": 4,
+      "level": "intermedio",
+      "description": "Crea interfaces web interactivas"
+    },
+    "react-fundamentals": {
+      "name": "React Fundamentals",
+      "modules": ["Componentes", "Props", "State", "Hooks"],
+      "duration": 30,
+      "hours_per_module": 6,
+      "level": "avanzado",
+      "description": "Construye aplicaciones modernas con React"
+    }
+  }
+}
+
+Tool Name: get_course_info
+Tool Description: Obtiene información de curso</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Pregunta: "¿Qué cursos tienen?"</li>
+      <li>Debería listar los 3 cursos disponibles</li>
+    </ol>
+
+    <h2 id="testing">8. Testing Completo</h2>
+    <p><strong>Escenarios de Prueba:</strong></p>
+
+    <div class="section">
+      <h3>✅ Escenario 1: Recomendación de curso</h3>
+      <pre><code>Usuario: ¿Qué curso me recomiendas para empezar programación?
+Bot: Para empezar, te recomiendo Introducción a Python. Es ideal para principiantes.</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>✅ Escenario 2: Detalles del curso</h3>
+      <pre><code>Usuario: ¿De qué trata?
+Bot: Contiene 4 módulos: Variables, Loops, Funciones, y Proyectos Prácticos. Dura 12 horas.</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>✅ Escenario 3: Dificultad del curso</h3>
+      <pre><code>Usuario: ¿Qué tan difícil es?
+Bot: Nivel principiante. Perfecto si nunca has programado. ¿Te gustaría ver el temario detallado?</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>✅ Escenario 4: Segunda pregunta con memoria</h3>
+      <pre><code>Usuario: ¿Es difícil?
+Bot: [Debe recordar que estábamos hablando del mismo curso]</code></pre>
+    </div>
+
+    <h2 id="bonus">9. Bonus: Mejoras</h2>
+    <p><strong>Ideas para extender el bot:</strong></p>
+    <ul>
+      <li>Integrar sistema de progreso personalizado</li>
+      <li>Agregar ejercicios prácticos</li>
+      <li>Crear sistema de evaluaciones</li>
+      <li>Soporte para diferentes niveles</li>
+      <li>Integrar repositorios de GitHub</li>
+    </ul>
+
+    <hr style="border-color: #007AFF; margin: 40px 0;">
+
+    <p style="text-align: center; font-size: 20px; color: #5AC8FA;">
+      🎉 ¡Felicidades! Ya tienes tu Bot Educativo funcionando
+    </p>
+
+    <a href="materiales.html" class="back-link">← Volver a Materiales</a>
+  </div>
+</body>
+</html>

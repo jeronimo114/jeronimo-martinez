@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía: Bot de Entretenimiento - Sesión 2</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      color: #ffffff;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(40, 40, 40, 0.9);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+    h1 {
+      color: #BF5AF2;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #BF5AF2;
+      font-size: 28px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #BF5AF2;
+      padding-bottom: 10px;
+    }
+    h3 {
+      color: #FF2D55;
+      font-size: 22px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    ul, ol {
+      margin: 15px 0;
+      padding-left: 30px;
+    }
+    li {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+    code {
+      background: #1E1E1E;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 14px;
+    }
+    pre {
+      background: #1E1E1E;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .architecture {
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .highlight {
+      color: #FF2D55;
+      font-weight: 600;
+    }
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+    .checklist li {
+      padding: 10px;
+      margin: 5px 0;
+      background: rgba(191, 90, 242, 0.1);
+      border-left: 4px solid #BF5AF2;
+      border-radius: 4px;
+    }
+    .checklist li::before {
+      content: "✅ ";
+    }
+    .section {
+      background: rgba(191, 90, 242, 0.05);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    a {
+      color: #FF2D55;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background: #BF5AF2;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .back-link:hover {
+      background: #8E55F7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="materiales.html" class="back-link">← Volver a Materiales</a>
+
+    <h1>🎲️ Guía: Bot de Entretenimiento</h1>
+    <p style="font-size: 20px; color: #FF2D55;">Sesión 2 - Agentes de IA</p>
+
+    <h2>📋 Índice</h2>
+    <ol>
+      <li><a href="#intro">Introducción</a></li>
+      <li><a href="#setup">Setup Inicial</a></li>
+      <li><a href="#paso1">Paso 1: Telegram Trigger</a></li>
+      <li><a href="#paso2">Paso 2: AI Agent + System Prompt</a></li>
+      <li><a href="#paso3">Paso 3: Simple Memory</a></li>
+      <li><a href="#paso4">Paso 4: Calculator Tool (Streak)</a></li>
+      <li><a href="#paso5">Paso 5: HTTP Request (Cat Facts API)</a></li>
+      <li><a href="#testing">Testing Completo</a></li>
+      <li><a href="#bonus">Bonus: Más APIs Gratuitas</a></li>
+    </ol>
+
+    <h2 id="intro">1. Introducción</h2>
+    <p><strong>Objetivo:</strong> Crear un bot de entretenimiento y curiosidades.</p>
+    <p><strong>Arquitectura:</strong></p>
+    <div class="architecture">
+      Telegram Trigger → AI Agent → Calculator + HTTP Request → Telegram Response<br>
+      ↓<br>
+      Simple Memory
+    </div>
+
+    <h2 id="setup">2. Setup Inicial</h2>
+    <p><strong>Prerrequisitos:</strong></p>
+    <ul class="checklist">
+      <li>Cuenta en n8n.cloud</li>
+      <li>Token de Telegram</li>
+      <li>APIs gratuitas (sin autenticación)</li>
+    </ul>
+
+    <p><strong>Crear Workflow en n8n:</strong></p>
+    <ol>
+      <li>Nuevo workflow vacío</li>
+      <li>Guardar como: <code>Bot-Entretenimiento-[tu-nombre]</code></li>
+    </ol>
+
+    <h2 id="paso1">3. Paso 1: Telegram Trigger</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>Telegram Trigger</strong></p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Bot Token: [pegar tu token de @BotFather]</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Click "Execute Node"</li>
+      <li>Envía un mensaje: "Hola" a tu bot en Telegram</li>
+      <li>Debería ver el trigger en n8n</li>
+    </ol>
+
+    <h2 id="paso2">4. Paso 2: AI Agent + System Prompt</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>Chat (AI Agent)</strong></p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Resource: gpt-4o-mini
+
+System Prompt:
+Eres FunBot, bot de entretenimiento y curiosidades.
+
+Idioma: español
+
+Tono: divertido, casual, entusiasta y amigable
+
+Funciones:
+- Compartir datos curiosos y fun facts de todo tipo
+- Contar chistes, acertijos y adivinanzas
+- Proponer mini-juegos y preguntas de trivia
+- Mostrar emojis y mantener tono festivo
+- Adaptar contenido según preferencias del usuario si las expresa
+- Cambiar de tema para mantener conversación fresca
+
+Reglas:
+- Siempre usa emojis 🎉😂🤣😆 para expresar emociones
+- Cambia de tema cada 3-4 mensajes para no ser monótono
+- Sé positivo y alegre: contagia buen humor
+- Si algo es inapropiado, responde: "Eso no puedo, ¡pero hablemos de otra cosa!"
+- Nunca seas ofensivo ni agresivo
+- Mantén conversaciones ligeras y divertidas
+- Usa datos curiosos reales (no inventes)</code></pre>
+
+    <p><strong>Memory Configuration:</strong></p>
+    <pre><code>Memory Type: Simple Memory
+Session ID: {{ $json.message.chat.id }}
+Window Size: 8 (conversaciones ligeras)</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Ejecuta el workflow</li>
+      <li>Conversa con el bot</li>
+      <li>Verifica que es divertido y usa emojis 🎉</li>
+    </ol>
+
+    <h2 id="paso3">5. Paso 3: Simple Memory</h2>
+    <p>El nodo <strong>Simple Memory</strong> ya está configurado en el paso anterior. Este nodo mantiene los últimos 8 mensajes de la conversación.</p>
+
+    <h2 id="paso4">6. Paso 4: Calculator Tool (Streak)</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>Calculator</strong></p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Operation: Suma
+Input 1: Días consecutivos de uso
+
+Tool Name: calculate_streak
+Tool Description: Calcula racha de días consecutivos</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Pregunta: "¿Cuántos días llevo usando el bot?"</li>
+      <li>Debería responder: "7 días consecutivos = 🔥 En racha!"</li>
+    </ol>
+
+    <h2 id="paso5">7. Paso 5: HTTP Request (Cat Facts API)</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>HTTP Request</strong></p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>URL: https://catfact.ninja/fact
+Method: GET
+
+Tool Name: get_cat_fact
+Tool Description: Obtiene un dato curioso sobre gatos
+
+No requiere:
+- API Key ❌
+- Autenticación ❌
+- Headers especiales ❌</code></pre>
+
+    <p><strong>Respuesta esperada:</strong></p>
+    <pre><code>{
+  "fact": "Un dato curioso sobre gatos"
+}</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Pregunta: "Dame un dato curioso"</li>
+      <li>Debería responder con un dato curioso sobre gatos 🐱</li>
+    </ol>
+
+    <h2 id="testing">8. Testing Completo</h2>
+    <p><strong>Escenarios de Prueba:</strong></p>
+
+    <div class="section">
+      <h3>✅ Escenario 1: Dato curioso</h3>
+      <pre><code>Usuario: Dame un dato curioso
+Bot: Claro que sí... 🤔... ¡Lo tengo! 💡\n\nUn grupo de gatos se llama clowder.</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>✅ Escenario 2: Segundo dato</h3>
+      <pre><code>Usuario: 😂 Increíble. ¿Otro?
+Bot: Por supuesto! 🎲️\n\nDato curioso: ¿Sabías que los gatos pasan el 70% de su vida durmiendo?</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>✅ Escenario 3: Chiste</h3>
+      <pre><code>Usuario: No, no lo sabía
+Bot: ¡Pues sí! Un dato gatuno 🐱\n\n¿Te cuento un chiste?</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>✅ Escenario 4: Respuesta divertida</h3>
+      <pre><code>Usuario: ¡Sí!
+Bot: 🎉\n\n¿Qué le dice un pez a otro pez? Nada... 😂\n\nBla bla bla... ¡Nada! 🤣\n\n¿Quieres otro dato curioso?</code></pre>
+    </div>
+
+    <h2 id="bonus">9. Bonus: Más APIs Gratuitas</h2>
+    <p><strong>Todas sin autenticación:</strong></p>
+
+    <div class="section">
+      <h3>🎉 1. Chuck Norris Jokes</h3>
+      <pre><code>URL: https://api.chucknorris.io/jokes/random
+Tool Name: get_chuck_norris_joke
+Tool Description: Obtiene un chiste de Chuck Norris</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>🐶 2. Dog Photos</h3>
+      <pre><code>URL: https://dog.ceo/api/breeds/image/random
+Tool Name: get_dog_photo
+Tool Description: Obtiene una foto aleatoria de perro</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>🤔 3. Useless Facts</h3>
+      <pre><code>URL: https://uselessfacts.jsph.pl/random
+Tool Name: get_useless_fact
+Tool Description: Obtiene un dato inútil</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>🎮 4. Bored API</h3>
+      <pre><code>URL: https://bored-api.appbrewery.com/random
+Tool Name: get_bored_activity
+Tool Description: Sugiere una actividad cuando te aburres</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>👨 5. Dad Jokes</h3>
+      <pre><code>URL: https://icanhazdadjoke.com/
+Method: GET
+Headers: Accept: application/json
+Tool Name: get_dad_joke
+Tool Description: Obtiene un chiste de papá</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>🧘 6. ZenQuotes</h3>
+      <pre><code>URL: https://zenquotes.io/api/random
+Tool Name: get_quote
+Tool Description: Obtiene una cita inspiradora</code></pre>
+    </div>
+
+    <hr style="border-color: #BF5AF2; margin: 40px 0;">
+
+    <p style="text-align: center; font-size: 20px; color: #FF2D55;">
+      🎉 ¡Felicidades! Ya tienes tu Bot de Entretenimiento funcionando
+    </p>
+
+    <a href="materiales.html" class="back-link">← Volver a Materiales</a>
+  </div>
+</body>
+</html>

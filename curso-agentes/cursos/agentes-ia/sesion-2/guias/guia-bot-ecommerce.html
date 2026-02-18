@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía: Bot de E-commerce - Sesión 2</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      color: #ffffff;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(40, 40, 40, 0.9);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+    h1 {
+      color: #30D158;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #30D158;
+      font-size: 28px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #30D158;
+      padding-bottom: 10px;
+    }
+    h3 {
+      color: #34C759;
+      font-size: 22px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    ul, ol {
+      margin: 15px 0;
+      padding-left: 30px;
+    }
+    li {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+    code {
+      background: #1E1E1E;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 14px;
+    }
+    pre {
+      background: #1E1E1E;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .architecture {
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .highlight {
+      color: #34C759;
+      font-weight: 600;
+    }
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+    .checklist li {
+      padding: 10px;
+      margin: 5px 0;
+      background: rgba(48, 209, 88, 0.1);
+      border-left: 4px solid #30D158;
+      border-radius: 4px;
+    }
+    .checklist li::before {
+      content: "✅ ";
+    }
+    .section {
+      background: rgba(48, 209, 88, 0.05);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    a {
+      color: #34C759;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background: #30D158;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .back-link:hover {
+      background: #28A745;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="materiales.html" class="back-link">← Volver a Materiales</a>
+
+    <h1>🛒️ Guía: Bot de E-commerce</h1>
+    <p style="font-size: 20px; color: #34C759;">Sesión 2 - Agentes de IA</p>
+
+    <h2>📋 Índice</h2>
+    <ol>
+      <li><a href="#intro">Introducción</a></li>
+      <li><a href="#setup">Setup Inicial</a></li>
+      <li><a href="#paso1">Paso 1: Telegram Trigger</a></li>
+      <li><a href="#paso2">Paso 2: AI Agent + System Prompt</a></li>
+      <li><a href="#paso3">Paso 3: Simple Memory</a></li>
+      <li><a href="#paso4">Paso 4: Calculator Tool (Descuentos)</a></li>
+      <li><a href="#paso5">Paso 5: HTTP Request (Stock)</a></li>
+      <li><a href="#testing">Testing Completo</a></li>
+      <li><a href="#bonus">Bonus: Mejoras</a></li>
+    </ol>
+
+    <h2 id="intro">1. Introducción</h2>
+    <p><strong>Objetivo:</strong> Crear un bot de soporte al cliente para e-commerce.</p>
+    <p><strong>Arquitectura:</strong></p>
+    <div class="architecture">
+      Telegram Trigger → AI Agent → Calculator + HTTP Request → Telegram Response<br>
+      ↓<br>
+      Simple Memory
+    </div>
+
+    <h2 id="setup">2. Setup Inicial</h2>
+    <p><strong>Prerrequisitos:</strong></p>
+    <ul class="checklist">
+      <li>Cuenta en n8n.cloud</li>
+      <li>Token de Telegram</li>
+      <li>Datos de productos (simulados en JSON)</li>
+    </ul>
+
+    <p><strong>Crear Workflow en n8n:</strong></p>
+    <ol>
+      <li>Nuevo workflow vacío</li>
+      <li>Guardar como: <code>Bot-Ecommerce-[tu-nombre]</code></li>
+    </ol>
+
+    <h2 id="paso1">3. Paso 1: Telegram Trigger</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>Telegram Trigger</strong></p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Bot Token: [pegar tu token de @BotFather]</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Click "Execute Node"</li>
+      <li>Envía un mensaje: "Hola" a tu bot en Telegram</li>
+      <li>Debería ver el trigger en n8n</li>
+    </ol>
+
+    <h2 id="paso2">4. Paso 2: AI Agent + System Prompt</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>Chat (AI Agent)</strong></p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Resource: gpt-4o-mini
+
+System Prompt:
+Eres ECommerceBot, especialista en productos de nuestra tienda online.
+
+Idioma: español
+
+Tono: empático, paciente y resolutivo
+
+Funciones:
+- Consultar estado de pedido
+- Informar sobre productos y características
+- Procesar solicitudes de devolución
+- Recomendar productos basados en necesidades
+- Calcular precios con descuentos
+
+Reglas:
+- Siempre pide número de pedido antes de dar información de estado
+- Para devoluciones, primero verifica política de devolución (30 días)
+- Aplica descuento del 15% para nuevos clientes
+- Si el usuario pregunta por un producto que no existe, sugiere alternativas
+- Nunca prometas fechas de entrega, solo "2-3 días hábiles"
+- Si no tienes información, sé honesto: "Lo siento, no tengo esa información"</code></pre>
+
+    <p><strong>Memory Configuration:</strong></p>
+    <pre><code>Memory Type: Simple Memory
+Session ID: {{ $json.message.chat.id }}
+Window Size: 10</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Ejecuta el workflow</li>
+      <li>Conversa con el bot</li>
+      <li>Verifica que recuerda información de mensajes anteriores</li>
+    </ol>
+
+    <h2 id="paso3">5. Paso 3: Simple Memory</h2>
+    <p>El nodo <strong>Simple Memory</strong> ya está configurado en el paso anterior. Este nodo mantiene los últimos 10 mensajes de la conversación.</p>
+
+    <h2 id="paso4">6. Paso 4: Calculator Tool (Descuentos)</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>Calculator</strong></p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Operation: Calcular descuento
+Formula: Precio × (1 - PorcentajeDescuento / 100)
+Input 1: Precio del producto
+Input 2: Porcentaje de descuento (ej: 15)
+
+Tool Name: calculate_discount
+Tool Description: Calcula precio con descuento aplicado</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Pregunta: "¿Cuánto cuesta el iPhone 15 con 15% de descuento?"</li>
+      <li>Debería responder: "$849.15" (999 - 15% = 849.15)</li>
+    </ol>
+
+    <h2 id="paso5">7. Paso 5: HTTP Request (Stock)</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>HTTP Request</strong></p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Method: GET
+URL: /api/products/iphone15
+
+Tool Name: check_stock
+Tool Description: Consulta stock de producto</code></pre>
+
+    <p><strong>Opción: JSON Simulado (más fácil para demo)</strong></p>
+    <pre><code>Crear nodo "Set" con este JSON como valor inicial:
+{
+  "products": {
+    "iphone15": { "name": "iPhone 15", "stock": 15, "price": 999 },
+    "macbook": { "name": "MacBook Pro", "stock": 5, "price": 1999 },
+    "airpods": { "name": "AirPods Pro", "stock": 30, "price": 249 }
+  }
+}
+
+Tool Name: get_product_info
+Tool Description: Obtiene información de producto (simulado)</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Pregunta: "¿Tienen el iPhone 15?"</li>
+      <li>Debería responder: "Sí, 15 unidades en stock, precio: $999"</li>
+    </ol>
+
+    <h2 id="testing">8. Testing Completo</h2>
+    <p><strong>Escenarios de Prueba:</strong></p>
+
+    <div class="section">
+      <h3>✅ Escenario 1: Consulta de producto</h3>
+      <pre><code>Usuario: ¿Tienen el iPhone 15?
+Bot: Sí, 15 unidades en stock, precio: $999</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>✅ Escenario 2: Cálculo con descuento</h3>
+      <pre><code>Usuario: ¿Cuánto con el 15% de descuento para nuevos clientes?
+Bot: Aplicando descuento... $999 - 15% = $849.15</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>✅ Escenario 3: Producto sin stock</h3>
+      <pre><code>Usuario: ¿Tienen el MacBook Pro?
+Bot: Lo siento, el MacBook Pro está agotado. Solo quedan 5 unidades.</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>✅ Escenario 4: Segunda pregunta con memoria</h3>
+      <pre><code>Usuario: ¿El iPhone 15 tiene buena batería?
+Bot: [Debe recordar que estábamos hablando del iPhone 15]</code></pre>
+    </div>
+
+    <h2 id="bonus">9. Bonus: Mejoras</h2>
+    <p><strong>Ideas para extender el bot:</strong></p>
+    <ul>
+      <li>Integrar base de datos real de productos</li>
+      <li>Agregar tracking de pedidos</li>
+      <li>Crear sistema de recomendaciones</li>
+      <li>Soporte para devoluciones</li>
+      <li>Integrar pasarela de pago</li>
+    </ul>
+
+    <hr style="border-color: #30D158; margin: 40px 0;">
+
+    <p style="text-align: center; font-size: 20px; color: #34C759;">
+      🎉 ¡Felicidades! Ya tienes tu Bot de E-commerce funcionando
+    </p>
+
+    <a href="materiales.html" class="back-link">← Volver a Materiales</a>
+  </div>
+</body>
+</html>

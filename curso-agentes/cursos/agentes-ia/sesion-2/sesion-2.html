@@ -568,6 +568,25 @@
         .layout-break .break-icon { font-size: 6rem; margin-bottom: 1rem; }
         .layout-break h1 { font-size: var(--h2-size); }
         .layout-break .support { font-size: var(--support-size); color: var(--text-secondary); margin-top: 1rem; }
+
+        /* ==================== LAYOUT: YOUTUBE ==================== */
+        .layout-youtube {
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .layout-youtube .yt-wrapper {
+            width: 100%;
+            max-width: 960px;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .layout-youtube .yt-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -576,7 +595,7 @@
         <div class="progress-bar">
             <div class="progress-fill" id="progress"></div>
         </div>
-        <span class="slide-counter" id="counter">1 / 43</span>
+        <span class="slide-counter" id="counter">1 / 44</span>
 
         <!-- ========================================== -->
         <!-- RECAP SECTION -->
@@ -642,6 +661,13 @@
                 </div>
             </div>
             <p class="stop-subtitle">Fin del repaso</p>
+        </section>
+
+        <!-- Slide 6: Video YouTube -->
+        <section class="slide layout-youtube" data-slide="5">
+            <div class="yt-wrapper">
+                <iframe src="https://www.youtube.com/embed/kQRu7DdTTVA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </section>
 
         <!-- ========================================== -->

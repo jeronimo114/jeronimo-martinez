@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía: Bot de Reservas - Sesión 2</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      color: #ffffff;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(40, 40, 40, 0.9);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+    h1 {
+      color: #FF9F0A;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #FF9F0A;
+      font-size: 28px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #FF9F0A;
+      padding-bottom: 10px;
+    }
+    h3 {
+      color: #FFB74D;
+      font-size: 22px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    ul, ol {
+      margin: 15px 0;
+      padding-left: 30px;
+    }
+    li {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+    code {
+      background: #1E1E1E;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 14px;
+    }
+    pre {
+      background: #1E1E1E;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .architecture {
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .highlight {
+      color: #FFD60A;
+      font-weight: 600;
+    }
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+    .checklist li {
+      padding: 10px;
+      margin: 5px 0;
+      background: rgba(255, 159, 10, 0.1);
+      border-left: 4px solid #FF9F0A;
+      border-radius: 4px;
+    }
+    .checklist li::before {
+      content: "✅ ";
+    }
+    .section {
+      background: rgba(255, 159, 10, 0.05);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    a {
+      color: #FFB74D;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background: #FF9F0A;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .back-link:hover {
+      background: #E67E22;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="materiales.html" class="back-link">← Volver a Materiales</a>
+
+    <h1>🍽️ Guía: Bot de Reservas</h1>
+    <p style="font-size: 20px; color: #FFB74D;">Sesión 2 - Agentes de IA</p>
+
+    <h2>📋 Índice</h2>
+    <ol>
+      <li><a href="#intro">Introducción</a></li>
+      <li><a href="#setup">Setup Inicial</a></li>
+      <li><a href="#paso1">Paso 1: Telegram Trigger</a></li>
+      <li><a href="#paso2">Paso 2: AI Agent + System Prompt</a></li>
+      <li><a href="#paso3">Paso 3: Simple Memory</a></li>
+      <li><a href="#paso4">Paso 4: Calculator Tool</a></li>
+      <li><a href="#paso5">Paso 5: HTTP Request (Clima)</a></li>
+      <li><a href="#testing">Testing Completo</a></li>
+      <li><a href="#bonus">Bonus: Mejoras</a></li>
+    </ol>
+
+    <h2 id="intro">1. Introducción</h2>
+    <p><strong>Objetivo:</strong> Crear un bot de reservas de restaurantes/eventos.</p>
+    <p><strong>Arquitectura:</strong></p>
+    <div class="architecture">
+      Telegram Trigger → AI Agent → Calculator + HTTP Request → Telegram Response<br>
+      ↓<br>
+      Simple Memory
+    </div>
+
+    <h2 id="setup">2. Setup Inicial</h2>
+    <p><strong>Prerrequisitos:</strong></p>
+    <ul class="checklist">
+      <li>Cuenta en n8n.cloud</li>
+      <li>Token de Telegram (via @BotFather)</li>
+      <li>API Key de OpenAI</li>
+    </ul>
+
+    <p><strong>Crear Workflow en n8n:</strong></p>
+    <ol>
+      <li>Nuevo workflow vacío</li>
+      <li>Guardar como: <code>Bot-Reservas-[tu-nombre]</code></li>
+    </ol>
+
+    <h2 id="paso1">3. Paso 1: Telegram Trigger</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>Telegram Trigger</strong></p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Bot Token: [pegar tu token de @BotFather]</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Click "Execute Node"</li>
+      <li>Envía un mensaje: "Hola" a tu bot en Telegram</li>
+      <li>Debería ver el trigger en n8n</li>
+    </ol>
+
+    <h2 id="paso2">4. Paso 2: AI Agent + System Prompt</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>Chat (AI Agent)</strong> después del trigger</p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Resource: gpt-4o-mini (recomendado - barato y rápido)
+
+System Prompt:
+Eres ReservaBot, asistente de reservas de restaurantes y eventos.
+
+Idioma: siempre responde en español.
+
+Tono: amable, profesional y servicial.
+
+Funciones:
+- Reservar mesas y citas
+- Consultar disponibilidad
+- Confirmar reservas con nombre
+
+Reglas:
+- NUNCA reserves sin confirmar antes
+- Si el usuario pregunta por disponibilidad general, primero pregunta: fecha, hora, número de personas
+- Para cancelaciones, pide: número de reserva</code></pre>
+
+    <p><strong>Memory Configuration:</strong></p>
+    <pre><code>Memory Type: Simple Memory
+Session ID: {{ $json.message.chat.id }}
+Window Size: 10 (últimos 10 mensajes)</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Ejecuta el workflow</li>
+      <li>Conversa con el bot</li>
+      <li>Verifica que recuerda información de mensajes anteriores</li>
+    </ol>
+
+    <h2 id="paso3">5. Paso 3: Simple Memory</h2>
+    <p>El nodo <strong>Simple Memory</strong> ya está configurado en el paso anterior. Este nodo mantiene los últimos 10 mensajes de la conversación, permitiendo al bot recordar contexto de mensajes previos.</p>
+
+    <h2 id="paso4">6. Paso 4: Calculator Tool</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>Calculator</strong> como herramienta del AI Agent</p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Operation: Multiplicación
+Input 1: Número de personas
+Input 2: Precio por persona
+
+Tool Name: calculate_total
+Tool Description: Calcula el precio total de la reserva</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>En el chat, pregunta: "¿Cuánto cuesta para 3 personas a $40 cada una?"</li>
+      <li>Debería responder: "$120"</li>
+    </ol>
+
+    <h2 id="paso5">7. Paso 5: HTTP Request (Clima)</h2>
+    <p><strong>Acción:</strong> Añadir nodo <strong>HTTP Request</strong> como herramienta del AI Agent</p>
+    <p><strong>Configuración:</strong></p>
+    <pre><code>Method: GET
+URL: https://api.open-meteo.com/v1/forecast
+Query Parameters:
+  latitude: 40.4168  (Madrid)
+  longitude: -3.7038
+  current_weather: true
+
+Tool Name: get_weather
+Tool Description: Obtiene el clima actual para una ciudad</code></pre>
+
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Pregunta: "¿Qué clima hace en Madrid?"</li>
+      <li>Debería responder con clima actual</li>
+    </ol>
+
+    <h2 id="testing">8. Testing Completo</h2>
+    <p><strong>Escenarios de Prueba:</strong></p>
+
+    <div class="section">
+      <h3>✅ Escenario 1: Reserva básica</h3>
+      <pre><code>Usuario: Quiero reservar 3 personas mañana a las 14h
+Bot: [Confirmar detalles: fecha, hora, nombre]</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>✅ Escenario 2: Segunda reserva con memoria</h3>
+      <pre><code>Usuario: Por cierto, cambia a 4 personas
+Bot: [Debe recordar conversación anterior + actualizar]</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>✅ Escenario 3: Consulta de clima antes de reservar</h3>
+      <pre><code>Usuario: ¿Qué clima hace?
+Bot: [Consultar API Open-Meteo]</code></pre>
+    </div>
+
+    <div class="section">
+      <h3>✅ Escenario 4: Cálculo de precio</h3>
+      <pre><code>Usuario: ¿Cuánto cuestan 5 personas a $25?
+Bot: [Usar Calculator: 5 × 25 = $125]</code></pre>
+    </div>
+
+    <h2 id="bonus">9. Bonus: Mejoras</h2>
+    <p><strong>Ideas para extender el bot:</strong></p>
+    <ul>
+      <li>Integrar Google Calendar para guardar reservas</li>
+      <li>Agregar notificaciones de recordatorio</li>
+      <li>Crear sistema de cancelación con confirmación</li>
+      <li>Soporte para reservar múltiples fechas</li>
+      <li>Estimar tiempo de espera estimado</li>
+    </ul>
+
+    <hr style="border-color: #FF9F0A; margin: 40px 0;">
+
+    <p style="text-align: center; font-size: 20px; color: #FFB74D;">
+      🎉 ¡Felicidades! Ya tienes tu Bot de Reservas funcionando
+    </p>
+
+    <a href="materiales.html" class="back-link">← Volver a Materiales</a>
+  </div>
+</body>
+</html>

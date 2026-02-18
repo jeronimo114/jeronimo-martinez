@@ -391,10 +391,80 @@ export const S2_BUENAS_PRACTICAS = {
 export const S2_IDEAS_CHATBOTS = {
   TITULO:  { start: 0,    end: 90 },
   IDEA_1:  { start: 90,   end: 330 },
-  IDEA_2:  { start: 330,  end: 570 },
-  IDEA_3:  { start: 570,  end: 810 },
-  IDEA_4:  { start: 810,  end: 1050 },
+  IDEA_2:  { start: 330,   end: 570 },
+  IDEA_3:  { start: 570,   end: 810 },
+  IDEA_4:  { start: 810,   end: 1050 },
   IDEA_5:  { start: 1050, end: 1290 },
   TU_TURNO:{ start: 1290, end: 1500 },
   FADE:    { start: 1500, end: 1800 },
+} as const;
+
+// ==================== SESSION 2 SHOWCASE VIDEOS (4 Chatbots) ====================
+
+// Video 13: Bot de Reservas Showcase (60s)
+export const S2_SHOWCASE_RESERVAS = {
+  INTRO:           { start: 0,    end: 90 },
+  SYSTEM_PROMPT:    { start: 90,   end: 270 },
+  MEMORY_CALC:      { start: 270,  end: 540 },
+  HTTP_REQUEST:     { start: 540,  end: 810 },
+  DEMO:             { start: 810,  end: 1140 },
+  CTA:              { start: 1140, end: 1350 },
+  FADE:             { start: 1350, end: 1800 },
+} as const;
+
+// Video 14: Bot de E-commerce Showcase (60s)
+export const S2_SHOWCASE_ECOMMERCE = {
+  INTRO:           { start: 0,    end: 90 },
+  SYSTEM_PROMPT:    { start: 90,   end: 270 },
+  MEMORY_CALC:      { start: 270,  end: 540 },
+  HTTP_REQUEST:     { start: 540,  end: 810 },
+  DEMO:             { start: 810,  end: 1140 },
+  CTA:              { start: 1140, end: 1350 },
+  FADE:             { start: 1350, end: 1800 },
+} as const;
+
+// Video 15: Bot Educativo Showcase (60s)
+export const S2_SHOWCASE_EDUCATIVO = {
+  INTRO:           { start: 0,    end: 90 },
+  SYSTEM_PROMPT:    { start: 90,   end: 270 },
+  MEMORY_CALC:      { start: 270,  end: 540 },
+  HTTP_REQUEST:     { start: 540,  end: 810 },
+  DEMO:             { start: 810,  end: 1140 },
+  CTA:              { start: 1140, end: 1350 },
+  FADE:             { start: 1350, end: 1800 },
+} as const;
+
+// Video 16: Bot de Entretenimiento Showcase (60s)
+export const S2_SHOWCASE_ENTRETENIMIENTO = {
+  INTRO:           { start: 0,    end: 90 },
+  SYSTEM_PROMPT:    { start: 90,   end: 270 },
+  MEMORY_CALC:      { start: 270,  end: 540 },
+  HTTP_REQUEST:     { start: 540,  end: 810 },
+  DEMO:             { start: 810,  end: 1140 },
+  CTA:              { start: 1140, end: 1350 },
+  FADE:             { start: 1350, end: 1800 },
+} as const;
+
+// Showcase colors for each chatbot
+export const SHOWCASE_COLORS = {
+  reservas: {
+    primary: "#FF9F0A",
+    secondary: "#E67E22",
+    accent: "#FFD60A",
+  },
+  ecommerce: {
+    primary: "#30D158",
+    secondary: "#28A745",
+    accent: "#34C759",
+  },
+  educativo: {
+    primary: "#007AFF",
+    secondary: "#0056B3",
+    accent: "#5AC8FA",
+  },
+  entretenimiento: {
+    primary: "#BF5AF2",
+    secondary: "#8E55F7",
+    accent: "#FF2D55",
+  },
 } as const;
