@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materiales - Sesión 2 - Agentes de IA</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      color: #ffffff;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #ffffff;
+      font-size: 56px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .subtitle {
+      color: #a0a0a0;
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .section-title {
+      color: #ffffff;
+      font-size: 36px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #666;
+      padding-bottom: 15px;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .card {
+      background: rgba(40, 40, 40, 0.9);
+      border-radius: 12px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .card-title {
+      font-size: 28px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-description {
+      color: #a0a0a0;
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .card-tools {
+      background: rgba(255,255,255,0.05);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .card-tools h4 {
+      margin: 0 0 10px 0;
+      color: #ffffff;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .card-tools ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #a0a0a0;
+      font-size: 14px;
+    }
+    .card-tools li {
+      margin: 5px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-primary {
+      background: #666;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #888;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 10px 20px;
+      background: #666;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .back-link:hover {
+      background: #888;
+    }
+
+    /* Chatbot-specific styles */
+    .card.reservas .card-title { color: #FF9F0A; }
+    .card.reservas .btn-primary { background: #FF9F0A; }
+    .card.reservas .btn-primary:hover { background: #E67E22; }
+
+    .card.ecommerce .card-title { color: #30D158; }
+    .card.ecommerce .btn-primary { background: #30D158; }
+    .card.ecommerce .btn-primary:hover { background: #28A745; }
+
+    .card.educativo .card-title { color: #007AFF; }
+    .card.educativo .btn-primary { background: #007AFF; }
+    .card.educativo .btn-primary:hover { background: #0056B3; }
+
+    .card.entretenimiento .card-title { color: #BF5AF2; }
+    .card.entretenimiento .btn-primary { background: #BF5AF2; }
+    .card.entretenimiento .btn-primary:hover { background: #8E55F7; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Volver al Curso</a>
+
+    <h1>📚 Materiales - Sesión 2</h1>
+    <p class="subtitle">Construye tu Chatbot Completo con Agentes de IA</p>
+
+    <div class="section">
+      <h2 class="section-title">🤖 Elige tu tipo de Chatbot</h2>
+      <p style="font-size: 18px; color: #a0a0a0; margin-bottom: 30px;">
+        Cada estudiante puede elegir entre 4 tipos de chatbots. Todos comparten la misma arquitectura base pero se especializan en diferentes casos de negocio.
+      </p>
+
+      <div class="cards-grid">
+        <!-- Bot de Reservas -->
+        <div class="card reservas">
+          <h3 class="card-title">🍽️ Bot de Reservas</h3>
+          <p class="card-description">
+            Reserva mesas, citas y eventos en tiempo real. Perfecto para el sector restaurantero y de eventos.
+          </p>
+          <div class="card-tools">
+            <h4>Herramientas</h4>
+            <ul>
+              <li>Calculator: Precio total de reserva</li>
+              <li>HTTP Request: API Open-Meteo (clima)</li>
+            </ul>
+          </div>
+          <a href="guias/guia-bot-reservas.html" class="btn btn-primary">
+            Ver Guía Paso a Paso →
+          </a>
+        </div>
+
+        <!-- Bot de E-commerce -->
+        <div class="card ecommerce">
+          <h3 class="card-title">🛒️ Bot de E-commerce</h3>
+          <p class="card-description">
+            Soporte al cliente: estado de pedidos, stock de productos y cálculo de descuentos.
+          </p>
+          <div class="card-tools">
+            <h4>Herramientas</h4>
+            <ul>
+              <li>Calculator: Descuentos para clientes</li>
+              <li>HTTP Request: API de stock (JSON)</li>
+            </ul>
+          </div>
+          <a href="guias/guia-bot-ecommerce.html" class="btn btn-primary">
+            Ver Guía Paso a Paso →
+          </a>
+        </div>
+
+        <!-- Bot Educativo -->
+        <div class="card educativo">
+          <h3 class="card-title">📚️ Bot Educativo</h3>
+          <p class="card-description">
+            Tutorías personalizadas: explica conceptos, proporciona ejercicios y tracking de progreso.
+          </p>
+          <div class="card-tools">
+            <h4>Herramientas</h4>
+            <ul>
+              <li>Calculator: Horas totales del curso</li>
+              <li>HTTP Request: API de cursos (temario)</li>
+            </ul>
+          </div>
+          <a href="guias/guia-bot-educativo.html" class="btn btn-primary">
+            Ver Guía Paso a Paso →
+          </a>
+        </div>
+
+        <!-- Bot de Entretenimiento -->
+        <div class="card entretenimiento">
+          <h3 class="card-title">🎲️ Bot de Entretenimiento</h3>
+          <p class="card-description">
+            Diversión y curiosidades: datos curiosos, chistes, gatitos y trivia.
+          </p>
+          <div class="card-tools">
+            <h4>Herramientas</h4>
+            <ul>
+              <li>Calculator: Streak de días consecutivos</li>
+              <li>HTTP Request: Cat Facts API (GRATIS)</li>
+            </ul>
+          </div>
+          <a href="guias/guia-bot-entretenimiento.html" class="btn btn-primary">
+            Ver Guía Paso a Paso →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">🏗️ Arquitectura Base (Común a todos)</h2>
+      <div style="background: rgba(40, 40, 40, 0.9); padding: 30px; border-radius: 12px; text-align: center; font-family: 'SF Mono', monospace; font-size: 16px; line-height: 2;">
+        [Telegram Trigger] → [AI Agent (Tools Agent)]<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[System Prompt personalizado]<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Simple Memory] (window size 10)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Calculator Tool] + [HTTP Request Tool]<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Respuesta por Telegram]
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">📊 Videos Showcase</h2>
+      <p style="font-size: 18px; color: #a0a0a0;">
+        Cada chatbot tiene un video showcase de 60 segundos que muestra la arquitectura, system prompt, herramientas y demo en vivo.
+      </p>
+      <div class="cards-grid">
+        <div class="card">
+          <h3 class="card-title">🍽️ Bot de Reservas</h3>
+          <p class="card-description">
+            60 segundos mostrando el sistema de reservas con cálculo de precios y consulta de clima.
+          </p>
+          <a href="#" class="btn btn-primary">Ver Video →</a>
+        </div>
+        <div class="card">
+          <h3 class="card-title">🛒️ Bot de E-commerce</h3>
+          <p class="card-description">
+            60 segundos mostrando el sistema de soporte al cliente con descuentos y stock.
+          </p>
+          <a href="#" class="btn btn-primary">Ver Video →</a>
+        </div>
+        <div class="card">
+          <h3 class="card-title">📚️ Bot Educativo</h3>
+          <p class="card-description">
+            60 segundos mostrando el sistema de tutorías con recomendación de cursos.
+          </p>
+          <a href="#" class="btn btn-primary">Ver Video →</a>
+        </div>
+        <div class="card">
+          <h3 class="card-title">🎲️ Bot de Entretenimiento</h3>
+          <p class="card-description">
+            60 segundos mostrando el sistema de datos curiosos con gatitos y chistes.
+          </p>
+          <a href="#" class="btn btn-primary">Ver Video →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">✅ Nodos n8n Nativos Utilizados</h2>
+      <div style="background: rgba(40, 40, 40, 0.9); padding: 30px; border-radius: 12px;">
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="padding: 15px; margin: 10px 0; background: rgba(255,159,10,0.1); border-left: 4px solid #FF9F0A; border-radius: 4px;">
+            <strong>✅ Telegram Trigger</strong> - Punto de entrada, dinamismo en clase
+          </li>
+          <li style="padding: 15px; margin: 10px 0; background: rgba(48,209,88,0.1); border-left: 4px solid #30D158; border-radius: 4px;">
+            <strong>✅ Chat/AI Agent</strong> - Cerebro con system prompt personalizado
+          </li>
+          <li style="padding: 15px; margin: 10px 0; background: rgba(0,122,255,0.1); border-left: 4px solid #007AFF; border-radius: 4px;">
+            <strong>✅ Simple Memory</strong> - Window buffer, mantiene contexto
+          </li>
+          <li style="padding: 15px; margin: 10px 0; background: rgba(191,90,242,0.1); border-left: 4px solid #BF5AF2; border-radius: 4px;">
+            <strong>✅ Calculator</strong> - Herramienta nativa, matemáticas exactas
+          </li>
+          <li style="padding: 15px; margin: 10px 0; background: rgba(255,45,85,0.1); border-left: 4px solid #FF2D55; border-radius: 4px;">
+            <strong>✅ HTTP Request</strong> - Herramienta nativa, APIs externas
+          </li>
+          <li style="padding: 15px; margin: 10px 0; background: rgba(90,200,250,0.1); border-left: 4px solid #5AC8FA; border-radius: 4px;">
+            <strong>✅ OpenAI Chat Model</strong> - gpt-4o-mini, barato y rápido
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">🎯 Ventajas de esta arquitectura</h2>
+      <div style="background: rgba(40, 40, 40, 0.9); padding: 30px; border-radius: 12px;">
+        <ol style="color: #a0a0a0; font-size: 18px; line-height: 2;">
+          <li><strong>Misma arquitectura</strong> → Los estudiantes aprenden una vez</li>
+          <li><strong>Casos de negocio reales</strong> → Cada uno aplica a diferentes sectores</li>
+          <li><strong>Solo nodos nativos</strong> → Sin complejidades, HTTP requests mínimos</li>
+          <li><strong>Telegram优先</strong> → Dinamismo en clase, feedback instantáneo</li>
+          <li><strong>Videos impresionantes</strong> → Estilo startup >$1B USD</li>
+        </ol>
+      </div>
+    </div>
+
+    <a href="../index.html" class="back-link">← Volver al Curso</a>
+  </div>
+</body>
+</html>
