@@ -1165,21 +1165,22 @@
       justify-content: center;
       flex-shrink: 0;
       padding: 0.5rem 1rem;
-      filter: grayscale(100%);
-      opacity: 0.5;
-      transition: all 0.4s ease;
-    }
-
-    .fundador-logo:hover {
-      filter: grayscale(0%);
-      opacity: 1;
+      height: 50px;
     }
 
     .fundador-logo img {
-      max-height: 44px;
-      max-width: 160px;
+      height: 100%;
+      width: auto;
       object-fit: contain;
     }
+
+    /* Per-logo visual sizing — normalized so logos LOOK the same size */
+    .fundador-logo.logo-bios       { height: 40px; }
+    .fundador-logo.logo-bancolombia { height: 38px; }
+    .fundador-logo.logo-crystal     { height: 34px; }
+    .fundador-logo.logo-telefonica  { height: 28px; }
+    .fundador-logo.logo-accenture   { height: 30px; }
+    .fundador-logo.logo-postobon    { height: 48px; }
 
     /* Rethink Section */
     .rethink-section {
@@ -2048,19 +2049,19 @@
         <div class="fundadores-marquee">
           <div class="fundadores-track">
             <!-- Set 1 -->
-            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Grupo Bios"></div>
-            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/g6@4x.png" alt="Bancolombia"></div>
-            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-1@4x.png" alt="Crystal"></div>
-            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Telefonica-logo.png" alt="Telefonica"></div>
-            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/layer1@4x.png" alt="Accenture"></div>
-            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-3@4x.png" alt="Postobon"></div>
+            <div class="fundador-logo logo-bios"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Grupo Bios"></div>
+            <div class="fundador-logo logo-bancolombia"><img src="https://esic.co/wp-content/uploads/2024/08/g6@4x.png" alt="Bancolombia"></div>
+            <div class="fundador-logo logo-crystal"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-1@4x.png" alt="Crystal"></div>
+            <div class="fundador-logo logo-telefonica"><img src="https://esic.co/wp-content/uploads/2024/08/Telefonica-logo.png" alt="Telefonica"></div>
+            <div class="fundador-logo logo-accenture"><img src="https://esic.co/wp-content/uploads/2024/08/layer1@4x.png" alt="Accenture"></div>
+            <div class="fundador-logo logo-postobon"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-3@4x.png" alt="Postobon"></div>
             <!-- Set 2 (duplicate for seamless loop) -->
-            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Grupo Bios"></div>
-            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/g6@4x.png" alt="Bancolombia"></div>
-            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-1@4x.png" alt="Crystal"></div>
-            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Telefonica-logo.png" alt="Telefonica"></div>
-            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/layer1@4x.png" alt="Accenture"></div>
-            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-3@4x.png" alt="Postobon"></div>
+            <div class="fundador-logo logo-bios"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Grupo Bios"></div>
+            <div class="fundador-logo logo-bancolombia"><img src="https://esic.co/wp-content/uploads/2024/08/g6@4x.png" alt="Bancolombia"></div>
+            <div class="fundador-logo logo-crystal"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-1@4x.png" alt="Crystal"></div>
+            <div class="fundador-logo logo-telefonica"><img src="https://esic.co/wp-content/uploads/2024/08/Telefonica-logo.png" alt="Telefonica"></div>
+            <div class="fundador-logo logo-accenture"><img src="https://esic.co/wp-content/uploads/2024/08/layer1@4x.png" alt="Accenture"></div>
+            <div class="fundador-logo logo-postobon"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-3@4x.png" alt="Postobon"></div>
           </div>
         </div>
       </div>
