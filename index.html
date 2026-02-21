@@ -1119,7 +1119,7 @@
       object-fit: cover;
     }
 
-    /* Fundadores Section */
+    /* Fundadores Section — Marquee */
     .fundadores-section {
       padding: 5rem 0;
     }
@@ -1134,21 +1134,40 @@
       margin-bottom: 2rem;
     }
 
-    .fundadores-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 2rem;
+    .fundadores-marquee {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+
+    .fundadores-track {
+      display: flex;
+      gap: 4rem;
       align-items: center;
+      width: max-content;
+      animation: marquee-scroll 25s linear infinite;
+    }
+
+    .fundadores-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .fundador-logo {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
+      flex-shrink: 0;
+      padding: 0.5rem 1rem;
       filter: grayscale(100%);
-      opacity: 0.6;
-      transition: all 0.3s ease;
+      opacity: 0.5;
+      transition: all 0.4s ease;
     }
 
     .fundador-logo:hover {
@@ -1157,8 +1176,9 @@
     }
 
     .fundador-logo img {
-      max-height: 40px;
-      max-width: 100%;
+      max-height: 44px;
+      max-width: 160px;
+      object-fit: contain;
     }
 
     /* Rethink Section */
@@ -1279,9 +1299,6 @@
         order: -1;
       }
 
-      .fundadores-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
     }
 
     @media (max-width: 768px) {
@@ -1337,9 +1354,6 @@
         gap: 1rem;
       }
 
-      .fundadores-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
 
       .programas-tabs {
         flex-wrap: wrap;
@@ -2031,24 +2045,22 @@
           <h2>NUESTROS MIEMBROS<br>FUNDADORES</h2>
         </div>
 
-        <div class="fundadores-grid">
-          <div class="fundador-logo">
-            <img src="https://placehold.co/200x80/FFFFFF/E31C23?text=Postobón&font=playfair-display" alt="Postobón">
-          </div>
-          <div class="fundador-logo">
-            <img src="https://placehold.co/200x80/FFFFFF/1A1A1A?text=Crystal+S.A.S.&font=montserrat" alt="Crystal S.A.S.">
-          </div>
-          <div class="fundador-logo">
-            <img src="https://placehold.co/200x80/FFFFFF/0066FF?text=Telefónica&font=montserrat" alt="Telefónica">
-          </div>
-          <div class="fundador-logo">
-            <img src="https://placehold.co/200x80/FFFFFF/FDDA24?text=Bancolombia&font=montserrat" alt="Bancolombia">
-          </div>
-          <div class="fundador-logo">
-            <img src="https://placehold.co/200x80/FFFFFF/A100FF?text=accenture&font=montserrat" alt="Accenture">
-          </div>
-          <div class="fundador-logo">
-            <img src="https://placehold.co/200x80/FFFFFF/7AB800?text=Grupo+Bios&font=montserrat" alt="Grupo Bios">
+        <div class="fundadores-marquee">
+          <div class="fundadores-track">
+            <!-- Set 1 -->
+            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Grupo Bios"></div>
+            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/g6@4x.png" alt="Bancolombia"></div>
+            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-1@4x.png" alt="Crystal"></div>
+            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Telefonica-logo.png" alt="Telefonica"></div>
+            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/layer1@4x.png" alt="Accenture"></div>
+            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-3@4x.png" alt="Postobon"></div>
+            <!-- Set 2 (duplicate for seamless loop) -->
+            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Grupo Bios"></div>
+            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/g6@4x.png" alt="Bancolombia"></div>
+            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-1@4x.png" alt="Crystal"></div>
+            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Telefonica-logo.png" alt="Telefonica"></div>
+            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/layer1@4x.png" alt="Accenture"></div>
+            <div class="fundador-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-3@4x.png" alt="Postobon"></div>
           </div>
         </div>
       </div>
