@@ -1121,7 +1121,7 @@
 
     /* Fundadores Section — Marquee */
     .fundadores-section {
-      padding: 5rem 0;
+      padding: 6rem 0 7rem;
     }
 
     .fundadores-header h2 {
@@ -1131,23 +1131,24 @@
       text-transform: uppercase;
       line-height: 0.95;
       color: var(--brand-blue-dark);
-      margin-bottom: 2rem;
+      margin-bottom: 3.5rem;
     }
 
     .fundadores-marquee {
       overflow: hidden;
       position: relative;
       width: 100%;
-      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      padding: 2rem 0;
+      mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
     }
 
     .fundadores-track {
       display: flex;
-      gap: 4rem;
+      gap: 5rem;
       align-items: center;
       width: max-content;
-      animation: marquee-scroll 25s linear infinite;
+      animation: marquee-scroll 30s linear infinite;
     }
 
     .fundadores-track:hover {
@@ -1164,8 +1165,8 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      padding: 0.5rem 1rem;
-      height: 50px;
+      padding: 0.5rem 1.5rem;
+      height: 70px;
     }
 
     .fundador-logo img {
@@ -1174,13 +1175,13 @@
       object-fit: contain;
     }
 
-    /* Per-logo visual sizing — normalized so logos LOOK the same size */
-    .fundador-logo.logo-bios       { height: 40px; }
-    .fundador-logo.logo-bancolombia { height: 38px; }
-    .fundador-logo.logo-crystal     { height: 34px; }
-    .fundador-logo.logo-telefonica  { height: 28px; }
-    .fundador-logo.logo-accenture   { height: 30px; }
-    .fundador-logo.logo-postobon    { height: 48px; }
+    /* Per-logo visual sizing — tuned so logos LOOK the same visual weight */
+    .fundador-logo.logo-bios       { height: 60px; }
+    .fundador-logo.logo-bancolombia { height: 56px; }
+    .fundador-logo.logo-crystal     { height: 52px; }
+    .fundador-logo.logo-telefonica  { height: 44px; }
+    .fundador-logo.logo-accenture   { height: 50px; }
+    .fundador-logo.logo-postobon    { height: 70px; }
 
     /* Rethink Section */
     .rethink-section {
