@@ -660,9 +660,21 @@
       box-shadow: 0 10px 40px rgba(0, 19, 63, 0.08);
     }
 
+    .institutions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .institution-card {
+      display: flex;
+      flex-direction: column;
+    }
+
     .institution-card-header {
       background: var(--pregrado-orange);
       padding: 1.5rem;
+      min-height: 100px;
     }
 
     .institution-card-header h4 {
@@ -671,6 +683,7 @@
       font-weight: var(--display-weight);
       text-transform: uppercase;
       line-height: 1.1;
+      color: #fff;
     }
 
     .institution-card-header small {
