@@ -1220,6 +1220,38 @@ body.theme-dark .footer {
   background: #080B14;
 }
 
+body.theme-dark .footer.footer-light {
+  background: #FFFFFF;
+  color: var(--brand-blue-dark);
+}
+
+body.theme-dark .footer.footer-light .footer-cta h2,
+body.theme-dark .footer.footer-light .footer-contact p,
+body.theme-dark .footer.footer-light .footer-bottom p {
+  color: var(--brand-blue-dark);
+}
+
+body.theme-dark .footer.footer-light .footer-cta h2 span {
+  color: var(--brand-teal);
+}
+
+body.theme-dark .footer.footer-light .footer-cta-buttons a {
+  border-color: var(--brand-blue-dark);
+  color: var(--brand-blue-dark);
+}
+
+body.theme-dark .footer.footer-light .footer-social a {
+  color: var(--brand-blue-dark);
+}
+
+body.theme-dark .footer.footer-light .footer-links a {
+  color: var(--brand-blue-dark);
+}
+
+body.theme-dark .footer.footer-light .footer-bottom {
+  border-color: rgba(0, 19, 63, 0.1);
+}
+
 @media (max-width: 1024px) {
   .hero-grid,
   .reasons-grid {
