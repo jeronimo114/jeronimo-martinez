@@ -1111,12 +1111,66 @@
       border-radius: 20px;
       overflow: hidden;
       aspect-ratio: 1/1;
+      position: relative;
     }
 
     .historias-featured img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    /* Boilerplate overlay */
+    .boilerplate-overlay {
+      position: relative;
+    }
+
+    .boilerplate-overlay::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 71, 233, 0.12) 0%, rgba(10, 228, 195, 0.10) 100%);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .boilerplate-tag {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      background: rgba(0, 71, 233, 0.9);
+      color: #fff;
+      font-family: var(--display-font);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .testimonio-card.boilerplate-overlay blockquote,
+    .testimonio-card.boilerplate-overlay .testimonio-author-info h4,
+    .testimonio-card.boilerplate-overlay .testimonio-author-info p {
+      color: transparent;
+      background: linear-gradient(90deg, #e0e5ec 40%, #f0f2f5 60%);
+      background-size: 200% 100%;
+      border-radius: 4px;
+      -webkit-background-clip: text;
+      background-clip: text;
+      user-select: none;
+    }
+
+    .testimonio-card.boilerplate-overlay blockquote::before {
+      color: rgba(0, 71, 233, 0.15);
+    }
+
+    .testimonio-card.boilerplate-overlay .testimonio-author img {
+      opacity: 0.3;
+      filter: grayscale(1);
     }
 
     /* Fundadores Section — Marquee */
@@ -2007,32 +2061,35 @@
         </div>
 
         <div class="historias-grid">
-          <div class="testimonio-card">
+          <div class="testimonio-card boilerplate-overlay">
+            <span class="boilerplate-tag">Testimonio 1</span>
             <blockquote>
-              ESIC impulsó mi carrera y me ayudó a encontrar lo que realmente me apasiona, lo recomiendo!
+              Texto del testimonio del egresado. Esta sección será completada con testimonios reales.
             </blockquote>
             <div class="testimonio-author">
-              <img src="assets/images/DSC02284_resultado.jpg" alt="Natalia López">
+              <img src="assets/images/DSC02284_resultado.jpg" alt="Placeholder">
               <div class="testimonio-author-info">
-                <h4>Natalia López</h4>
-                <p>Egresada Marketing Global</p>
+                <h4>Nombre Apellido</h4>
+                <p>Egresado/a Máster</p>
               </div>
             </div>
           </div>
 
-          <div class="historias-featured">
+          <div class="historias-featured boilerplate-overlay">
             <img src="assets/images/DSC02331_resultado.jpg" alt="Estudiante ESIC">
+            <span class="boilerplate-tag">Foto destacada</span>
           </div>
 
-          <div class="testimonio-card">
+          <div class="testimonio-card boilerplate-overlay">
+            <span class="boilerplate-tag">Testimonio 2</span>
             <blockquote>
-              La metodología práctica y las conexiones internacionales fueron clave para mi crecimiento profesional.
+              Texto del testimonio del egresado. Esta sección será completada con testimonios reales.
             </blockquote>
             <div class="testimonio-author">
-              <img src="assets/images/DSC02307_resultado.jpg" alt="Carlos Martínez">
+              <img src="assets/images/DSC02307_resultado.jpg" alt="Placeholder">
               <div class="testimonio-author-info">
-                <h4>Carlos Martínez</h4>
-                <p>Egresado Digital Business</p>
+                <h4>Nombre Apellido</h4>
+                <p>Egresado/a Máster</p>
               </div>
             </div>
           </div>

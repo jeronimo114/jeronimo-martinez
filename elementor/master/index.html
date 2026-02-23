@@ -1,0 +1,1160 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+/* Scoped reset */
+.esic-master *,
+.esic-master *::before,
+.esic-master *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables + base styles */
+.esic-master {
+  --brand-blue: #0047E9;
+  --brand-blue-dark: #00133F;
+  --brand-teal: #0AE4C3;
+  --brand-orange: #FF9600;
+  --brand-orange-strong: #FE5000;
+  --brand-yellow: #FFD100;
+  --brand-sky: #00BFFF;
+  --brand-gold: #C09C2E;
+  --brand-brown: #857550;
+  --bg: #F8F6F2;
+  --bg-alt: #F2F5FB;
+  --surface: #FFFFFF;
+  --surface-muted: #F4F1ED;
+  --text: #0B132B;
+  --text-muted: #5F6B7A;
+  --text-light: #97A2B1;
+  --border: rgba(0, 19, 63, 0.12);
+  --shadow-soft: 0 20px 50px rgba(0, 19, 63, 0.12);
+  --shadow-strong: 0 30px 70px rgba(0, 19, 63, 0.2);
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --display-font: "Sofia Sans Extra Condensed", "Arial Narrow", Arial, sans-serif;
+  --body-font: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display-weight: 600;
+  --accent: var(--brand-blue);
+  --accent-strong: #0037B4;
+  --accent-contrast: #FFFFFF;
+  --accent-soft: rgba(0, 71, 233, 0.12);
+
+  font-family: var(--body-font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Base element styles */
+.esic-master h1,
+.esic-master h2,
+.esic-master h3,
+.esic-master h4,
+.esic-master h5 {
+  font-family: var(--display-font);
+  font-weight: var(--display-weight);
+}
+
+.esic-master img {
+  max-width: 100%;
+  display: block;
+}
+
+.esic-master a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.esic-master button {
+  font-family: inherit;
+}
+
+.esic-master small {
+  color: var(--text-light);
+  font-size: 0.8rem;
+}
+
+/* Layout */
+.esic-master .container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+.esic-master .section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.esic-master .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.esic-master .section-tag {
+  font-family: var(--display-font);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: var(--display-weight);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.esic-master .section-tag::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.esic-master .section-title {
+  font-family: var(--display-font);
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin: 0.6rem 0 0.6rem;
+  font-weight: var(--display-weight);
+}
+
+.esic-master .section-title span {
+  color: var(--brand-orange);
+}
+
+.esic-master .section-subtitle {
+  color: var(--text-muted);
+  max-width: 520px;
+  font-size: 1.05rem;
+}
+
+/* Buttons */
+.esic-master .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.esic-master .btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: 0 16px 35px rgba(0, 71, 233, 0.25);
+}
+
+.esic-master .btn-primary:hover {
+  background: var(--accent-strong);
+  transform: translateY(-2px);
+}
+
+.esic-master .btn-outline {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.esic-master .btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Hero */
+.esic-master .hero {
+  padding: 9rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.esic-master .hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0, 71, 233, 0.08), transparent 60%);
+  z-index: -1;
+}
+
+.esic-master .hero.hero-photo {
+  color: #FFFFFF;
+  background-image: linear-gradient(120deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.25)), linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.08)), var(--hero-image);
+  background-size: cover;
+  background-position: var(--hero-position, center);
+}
+
+.esic-master .hero.hero-photo::after {
+  background: none;
+}
+
+.esic-master .hero.hero-photo .hero-eyebrow,
+.esic-master .hero.hero-photo .hero-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.esic-master .hero.hero-photo .btn-outline {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.esic-master .hero.hero-photo .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.esic-master .hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.esic-master .hero-eyebrow {
+  font-family: var(--display-font);
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  font-weight: var(--display-weight);
+}
+
+.esic-master .hero-title {
+  font-family: var(--display-font);
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  margin: 1.2rem 0 1.4rem;
+  font-weight: var(--display-weight);
+}
+
+.esic-master .hero-title span {
+  color: var(--brand-orange);
+}
+
+.esic-master .hero-subtitle {
+  font-size: 1.15rem;
+  max-width: 520px;
+  color: var(--text-muted);
+}
+
+.esic-master .hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.8rem;
+}
+
+.esic-master .hero-media {
+  position: relative;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(145deg, #EBF1FF, #FFFFFF);
+  padding: 2rem;
+  min-height: 420px;
+  box-shadow: var(--shadow-strong);
+  overflow: hidden;
+}
+
+.esic-master .hero-media::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: var(--brand-teal);
+  border-radius: 50%;
+  right: -60px;
+  top: -70px;
+  opacity: 0.25;
+  filter: blur(10px);
+}
+
+.esic-master .hero-media-frame {
+  position: absolute;
+  inset: 1.5rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--brand-blue-dark), var(--brand-blue));
+  overflow: hidden;
+}
+
+.esic-master .hero-media-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.55));
+}
+
+.esic-master .hero-card {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  z-index: 2;
+  color: var(--text);
+}
+
+.esic-master .hero-card h3 {
+  font-family: var(--display-font);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-weight: var(--display-weight);
+}
+
+.esic-master .hero-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.esic-master .hero-card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.esic-master .hero-card-stat {
+  background: var(--surface-muted);
+  border-radius: 12px;
+  padding: 0.6rem;
+  text-align: center;
+}
+
+.esic-master .hero-card-stat strong {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--brand-blue);
+}
+
+.esic-master .hero-card-stat span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-light);
+  letter-spacing: 0.08em;
+}
+
+/* Reasons */
+.esic-master .reasons {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  margin: 0 auto;
+  box-shadow: var(--shadow-soft);
+}
+
+.esic-master .reasons-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.esic-master .reasons-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.esic-master .feature-card {
+  background: var(--surface-muted);
+  border-radius: 18px;
+  padding: 1.4rem;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.esic-master .feature-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 71, 233, 0.12);
+  color: var(--brand-blue);
+  font-weight: 700;
+}
+
+.esic-master .card-title {
+  font-family: var(--display-font);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  font-weight: var(--display-weight);
+}
+
+.esic-master .card-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Programs */
+.esic-master .programs {
+  background: var(--bg-alt);
+  border-radius: var(--radius-xl);
+}
+
+.esic-master .program-tabs {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+  font-family: var(--display-font);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  font-weight: var(--display-weight);
+}
+
+.esic-master .program-tab {
+  color: var(--text-light);
+  padding-bottom: 0.8rem;
+  border-bottom: 3px solid transparent;
+}
+
+.esic-master .program-tab.active {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.esic-master .program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.esic-master .program-card {
+  border-radius: 26px;
+  padding: 1.8rem;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-soft);
+}
+
+.esic-master .program-card::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: rotate(12deg);
+}
+
+.esic-master .program-card h3 {
+  font-family: var(--display-font);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  font-weight: var(--display-weight);
+}
+
+.esic-master .program-card p {
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+
+.esic-master .program-card .program-meta {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin-top: 0.6rem;
+}
+
+.esic-master .program-card.blue {
+  background: linear-gradient(135deg, #0047E9, #001E80);
+}
+
+.esic-master .program-card.teal {
+  background: linear-gradient(135deg, #0AE4C3, #00BFA5);
+  color: #00133F;
+}
+
+.esic-master .program-card.orange {
+  background: linear-gradient(135deg, #FF9600, #FE5000);
+}
+
+.esic-master .program-cta {
+  margin-top: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+/* Life */
+.esic-master .life-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.esic-master .life-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 210px;
+  background: linear-gradient(135deg, #0B132B, #0047E9);
+  color: #FFFFFF;
+  background-size: cover;
+  background-position: center;
+}
+
+.esic-master .life-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.55));
+}
+
+.esic-master .life-card.aulas {
+  /* IMAGEN: DSC02274_resultado.jpg */
+  background-image: none;
+}
+
+.esic-master .life-card.cowork {
+  /* IMAGEN: DSC02270_resultado.jpg */
+  background-image: none;
+}
+
+.esic-master .life-card.eventos {
+  /* IMAGEN: DSC02284_resultado.jpg */
+  background-image: none;
+}
+
+.esic-master .life-card.campus {
+  /* IMAGEN: DSC02307_resultado.jpg */
+  background-image: none;
+}
+
+.esic-master .life-card .life-info {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  z-index: 1;
+}
+
+.esic-master .life-card small {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* Stats */
+.esic-master .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.esic-master .stat-card {
+  border-radius: 26px;
+  padding: 2rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.esic-master .stat-card strong {
+  font-size: 2.2rem;
+  display: block;
+}
+
+.esic-master .stat-card span {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.esic-master .stat-card.orange {
+  background: linear-gradient(135deg, #FF9600, #FE5000);
+  color: #FFFFFF;
+}
+
+.esic-master .stat-card.blue {
+  background: linear-gradient(135deg, #0039B8, #0047E9);
+  color: #FFFFFF;
+}
+
+.esic-master .stat-card.teal {
+  background: linear-gradient(135deg, #0AE4C3, #00BFA5);
+  color: #00133F;
+}
+
+/* Testimonials */
+.esic-master .testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.esic-master .testimonial-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.esic-master .testimonial-card blockquote {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.esic-master .testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 600;
+}
+
+.esic-master .testimonial-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFFFFF, #DDE6FF);
+  background-size: cover;
+  background-position: center;
+}
+
+.esic-master .testimonial-video {
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #00133F, #0047E9);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.esic-master .play-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Partners */
+.esic-master .partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.esic-master .partner-card {
+  border-radius: 16px;
+  padding: 1.2rem;
+  background: var(--surface);
+  text-align: center;
+  font-family: var(--display-font);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  box-shadow: var(--shadow-soft);
+  font-weight: var(--display-weight);
+}
+
+/* Insights */
+.esic-master .insights-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr;
+  gap: 1.5rem;
+}
+
+.esic-master .insight-card {
+  border-radius: 24px;
+  padding: 1.8rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-height: 240px;
+}
+
+.esic-master .insight-tag {
+  display: inline-flex;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(0, 71, 233, 0.1);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.esic-master .insight-card.orange .insight-tag {
+  background: rgba(255, 150, 0, 0.2);
+}
+
+.esic-master .insight-card.orange {
+  background: linear-gradient(135deg, rgba(255, 150, 0, 0.12), #FFFFFF);
+}
+
+/* Footer */
+.esic-master .footer {
+  padding: 5rem 0 2rem;
+  background: #FFFFFF;
+  color: var(--brand-blue-dark);
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+}
+
+.esic-master .footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+.esic-master .footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #E0E0E0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* WhatsApp */
+.esic-master .whatsapp-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+}
+
+/* Animations */
+.esic-master .reveal {
+  animation: fadeUp 0.8s ease both;
+}
+
+.esic-master .delay-1 {
+  animation-delay: 0.15s;
+}
+
+.esic-master .delay-2 {
+  animation-delay: 0.3s;
+}
+
+.esic-master .delay-3 {
+  animation-delay: 0.45s;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .esic-master .hero-grid,
+  .esic-master .reasons-grid {
+    grid-template-columns: 1fr;
+  }
+  .esic-master .reasons-cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .esic-master .insights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .esic-master .hero {
+    padding-top: 7.5rem;
+  }
+  .esic-master .hero-media {
+    min-height: 360px;
+  }
+  .esic-master .program-tabs {
+    flex-wrap: wrap;
+  }
+  .esic-master .stats-grid,
+  .esic-master .testimonials-grid,
+  .esic-master .life-grid {
+    grid-template-columns: 1fr;
+  }
+  .esic-master .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .esic-master .section {
+    padding: 3.5rem 0;
+  }
+  .esic-master .hero-title {
+    font-size: clamp(2.8rem, 10vw, 3.6rem);
+  }
+  .esic-master .hero-card-stats {
+    grid-template-columns: 1fr;
+  }
+  .esic-master .footer {
+    border-radius: 30px 30px 0 0;
+    margin-top: -30px;
+  }
+  .esic-master .whatsapp-btn {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .esic-master .reveal,
+  .esic-master .btn,
+  .esic-master .btn-primary {
+    animation: none;
+    transition: none;
+  }
+}
+</style>
+
+<!-- IMAGEN: DSC02331_resultado.jpg (hero background) -->
+<div class="esic-master">
+  <main>
+    <section class="hero hero-photo" style="--hero-image: none; --hero-position: center right;">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="hero-eyebrow">Máster + Global Management Program</span>
+          <h1 class="hero-title">Transforma tu futuro <span>en ESIC</span></h1>
+          <p class="hero-subtitle">Programas de máster para líderes que quieren impulsar la innovación, el marketing digital y la experiencia del cliente con una visión global.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#programas">Solicita información</a>
+            <a class="btn btn-outline" href="#programas">Explora programas</a>
+          </div>
+        </div>
+        <div class="hero-media reveal delay-2">
+          <div class="hero-media-frame">
+          </div>
+          <div class="hero-card">
+            <h3>Máster en Digital Marketing</h3>
+            <p>Domina la estrategia digital, el análisis de datos y la gestión de audiencias para liderar la transformación de tu organización.</p>
+            <div class="hero-card-stats">
+              <div class="hero-card-stat">
+                <strong>92%</strong>
+                <span>Empleabilidad</span>
+              </div>
+              <div class="hero-card-stat">
+                <strong>+25</strong>
+                <span>Países</span>
+              </div>
+              <div class="hero-card-stat">
+                <strong>+150</strong>
+                <span>Empresas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reasons">
+      <div class="container reasons-grid">
+        <div class="reasons-intro reveal">
+          <span class="section-tag">Por qué ESIC</span>
+          <h2 class="section-title">Por qué estudiar en ESIC</h2>
+          <p class="section-subtitle">Una experiencia académica con visión global, metodología práctica y acceso a un ecosistema empresarial activo en Medellín.</p>
+          <a class="btn btn-outline" href="sobre-nosotros.html">Conoce la experiencia</a>
+        </div>
+        <div class="reasons-cards">
+          <article class="feature-card reveal delay-1">
+            <div class="feature-icon">01</div>
+            <h3 class="card-title">Internacionalización</h3>
+            <p class="card-text">Experiencias con docentes internacionales y enfoque global en marketing y negocios digitales.</p>
+          </article>
+          <article class="feature-card reveal delay-2">
+            <div class="feature-icon">02</div>
+            <h3 class="card-title">Metodología práctica</h3>
+            <p class="card-text">Proyectos reales, simuladores y acompañamiento con empresas aliadas.</p>
+          </article>
+          <article class="feature-card reveal delay-3">
+            <div class="feature-icon">03</div>
+            <h3 class="card-title">Networking corporativo</h3>
+            <p class="card-text">Una red activa de expertos, egresados y líderes para crecer profesionalmente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section programs" id="programas">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Explora nuestros programas</span>
+            <h2 class="section-title">Másters disponibles</h2>
+            <p class="section-subtitle">Elige el programa que mejor se adapta a tus objetivos y acelera tu carrera.</p>
+          </div>
+          <a class="btn btn-outline" href="programas.pdf">Ver todos los programas</a>
+        </div>
+        <div class="program-tabs">
+          <span class="program-tab">Pregrado</span>
+          <span class="program-tab active">Máster</span>
+          <span class="program-tab">Educación continua</span>
+        </div>
+        <div class="program-grid">
+          <article class="program-card blue reveal">
+            <div>
+              <h3>Máster en Digital Marketing</h3>
+              <p>Estrategia digital, analítica y gestión de canales para decisiones basadas en datos.</p>
+              <div class="program-meta">1 año · Híbrido</div>
+            </div>
+            <a class="program-cta" href="#">Plan de estudios →</a>
+          </article>
+          <article class="program-card teal reveal delay-1">
+            <div>
+              <h3>Máster en Digital Business</h3>
+              <p>Transformación digital, innovación y liderazgo en modelos de negocio digitales.</p>
+              <div class="program-meta">1 año · Híbrido</div>
+            </div>
+            <a class="program-cta" href="#">Plan de estudios →</a>
+          </article>
+          <article class="program-card orange reveal delay-2">
+            <div>
+              <h3>Máster en Customer Experience & Design Thinking</h3>
+              <p>Diseño de experiencias memorables con metodologías de innovación.</p>
+              <div class="program-meta">1 año · Híbrido</div>
+            </div>
+            <a class="program-cta" href="#">Plan de estudios →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section life">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">La vida en ESIC</span>
+            <h2 class="section-title">Vive la experiencia ESIC</h2>
+            <p class="section-subtitle">Un campus diseñado para la colaboración, el networking y el aprendizaje práctico.</p>
+          </div>
+          <a class="btn btn-outline" href="#">Agendar tour</a>
+        </div>
+        <div class="life-grid">
+          <article class="life-card aulas reveal">
+            <div class="life-info">
+              <small>Aulas</small>
+              <h3>Espacios para el trabajo práctico</h3>
+            </div>
+          </article>
+          <article class="life-card cowork reveal delay-1">
+            <div class="life-info">
+              <small>Coworking</small>
+              <h3>Networking con expertos</h3>
+            </div>
+          </article>
+          <article class="life-card eventos reveal delay-2">
+            <div class="life-info">
+              <small>Eventos</small>
+              <h3>Conferencias y workshops</h3>
+            </div>
+          </article>
+          <article class="life-card campus reveal delay-3">
+            <div class="life-info">
+              <small>Campus Medellín</small>
+              <h3>Ubicación estratégica</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stats">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Cifras y reconocimiento</span>
+            <h2 class="section-title">Resultados que respaldan</h2>
+            <p class="section-subtitle">Nuestra comunidad crece con alianzas globales y una alta empleabilidad.</p>
+          </div>
+          <a class="btn btn-outline" href="programas.pdf">Brochure en PDF</a>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card orange reveal">
+            <strong>92%</strong>
+            <span>Empleabilidad</span>
+          </article>
+          <article class="stat-card blue reveal delay-1">
+            <strong>+25</strong>
+            <span>Países con convenios</span>
+          </article>
+          <article class="stat-card teal reveal delay-2">
+            <strong>+150</strong>
+            <span>Empresas aliadas</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Historias de éxito</span>
+            <h2 class="section-title">Lo que dicen nuestros graduados</h2>
+          </div>
+        </div>
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <blockquote>"El máster me permitió liderar la transformación digital de mi compañía con una visión estratégica."</blockquote>
+            <div class="testimonial-author">
+              <!-- IMAGEN: DSC02220_resultado.jpg -->
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div>Andrea López</div>
+                <small>Máster Digital Marketing</small>
+              </div>
+            </div>
+          </article>
+          <div class="testimonial-video reveal delay-1">
+            <div class="play-button">▶</div>
+            <strong>Historias ESIC</strong>
+            <span>Conoce el impacto real en nuestros egresados</span>
+          </div>
+          <article class="testimonial-card reveal delay-2">
+            <blockquote>"La red de contactos y el enfoque práctico marcaron la diferencia en mi crecimiento profesional."</blockquote>
+            <div class="testimonial-author">
+              <!-- IMAGEN: DSC02190_resultado.jpg -->
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div>Daniel Ruiz</div>
+                <small>Máster Digital Business</small>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Nuestros miembros fundadores</span>
+            <h2 class="section-title">Alianzas que potencian</h2>
+            <p class="section-subtitle">Empresas líderes respaldan nuestra propuesta académica.</p>
+          </div>
+        </div>
+        <div class="partners-grid">
+          <div class="partner-card">Accenture</div>
+          <div class="partner-card">Bios</div>
+          <div class="partner-card">Telefónica</div>
+          <div class="partner-card">Postobón</div>
+          <div class="partner-card">Bancolombia</div>
+          <div class="partner-card">Rysal</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Rethink</span>
+            <h2 class="section-title">Ideas que inspiran</h2>
+            <p class="section-subtitle">Contenido de investigación, tendencias y casos reales.</p>
+          </div>
+        </div>
+        <div class="insights-grid">
+          <article class="insight-card reveal">
+            <span class="insight-tag">Artículo</span>
+            <h3>IA aplicada al marketing estratégico</h3>
+            <p class="card-text">Tácticas para integrar IA en el ciclo de decisión sin perder el enfoque humano.</p>
+            <a class="btn btn-outline" href="#">Leer</a>
+          </article>
+          <article class="insight-card reveal delay-1">
+            <span class="insight-tag">Noticia</span>
+            <h3>ESIC Medellín expande su red corporativa</h3>
+            <p class="card-text">Nuevas alianzas para proyectos con empresas líderes de la región.</p>
+            <a class="btn btn-outline" href="#">Leer</a>
+          </article>
+          <article class="insight-card orange reveal delay-2">
+            <span class="insight-tag">Artículo</span>
+            <h3>Startups y growth marketing 2025</h3>
+            <p class="card-text">Lo que están haciendo las marcas emergentes para escalar rápido.</p>
+            <a class="btn btn-outline" href="#">Leer</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3 class="section-title">Transforma tu futuro en <span>ESIC</span></h3>
+        <p>Formamos líderes en marketing, negocios digitales e innovación con una visión global y práctica.</p>
+      </div>
+      <div>
+        <h4>Institución</h4>
+        <p><a href="sobre-nosotros.html">Sobre nosotros</a></p>
+        <p><a href="#">Campus</a></p>
+        <p><a href="#">Docentes</a></p>
+      </div>
+      <div>
+        <h4>Programas</h4>
+        <p><a href="../pregrado/index.html">Pregrado</a></p>
+        <p><a href="index.html">Máster</a></p>
+        <p><a href="level-up.html">Level Up</a></p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Medellín, Colombia</p>
+        <p>+57 604 123 4567</p>
+        <p>contacto@esic.co</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2025 ESIC Medellín. Todos los derechos reservados.</span>
+      <span>Política de tratamiento de datos · Términos y condiciones</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-btn" href="#" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z" />
+    </svg>
+  </a>
+</div>

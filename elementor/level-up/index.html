@@ -1,0 +1,991 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+/* Scoped reset */
+.esic-levelup *, .esic-levelup *::before, .esic-levelup *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+/* Variables + base (theme-dark) */
+.esic-levelup {
+  --brand-blue: #0047E9;
+  --brand-blue-dark: #00133F;
+  --brand-teal: #0AE4C3;
+  --brand-orange: #FF9600;
+  --brand-orange-strong: #FE5000;
+  --brand-yellow: #FFD100;
+  --brand-sky: #00BFFF;
+  --brand-gold: #C09C2E;
+  --brand-brown: #857550;
+  --bg: #0B0F1A;
+  --bg-alt: #0E1424;
+  --surface: #12192C;
+  --surface-muted: #151F34;
+  --text: #F8FAFF;
+  --text-muted: #C9CCD6;
+  --text-light: #8692A7;
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow-soft: 0 20px 50px rgba(0, 0, 0, 0.4);
+  --shadow-strong: 0 30px 70px rgba(0, 0, 0, 0.55);
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --display-font: "Sofia Sans Extra Condensed", "Arial Narrow", Arial, sans-serif;
+  --body-font: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display-weight: 600;
+  --accent: var(--brand-teal);
+  --accent-strong: #12BFA0;
+  --accent-contrast: #FFFFFF;
+  --accent-soft: rgba(10, 228, 195, 0.2);
+  font-family: var(--body-font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Base element styles */
+.esic-levelup h1, .esic-levelup h2, .esic-levelup h3, .esic-levelup h4, .esic-levelup h5 {
+  font-family: var(--display-font);
+  font-weight: var(--display-weight);
+}
+
+.esic-levelup img {
+  max-width: 100%;
+  display: block;
+}
+
+.esic-levelup a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.esic-levelup button {
+  font-family: inherit;
+}
+
+.esic-levelup small {
+  color: var(--text-light);
+  font-size: 0.8rem;
+}
+
+/* Container */
+.esic-levelup .container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+/* Section */
+.esic-levelup .section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.esic-levelup .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.esic-levelup .section-tag {
+  font-family: var(--display-font);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: var(--display-weight);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.esic-levelup .section-tag::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.esic-levelup .section-title {
+  font-family: var(--display-font);
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin: 0.6rem 0 0.6rem;
+  font-weight: var(--display-weight);
+}
+
+.esic-levelup .section-title span {
+  color: var(--brand-teal);
+}
+
+.esic-levelup .section-subtitle {
+  color: var(--text-muted);
+  max-width: 520px;
+  font-size: 1.05rem;
+}
+
+/* Buttons */
+.esic-levelup .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.esic-levelup .btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: 0 16px 35px rgba(0, 71, 233, 0.25);
+}
+
+.esic-levelup .btn-primary:hover {
+  background: var(--accent-strong);
+  transform: translateY(-2px);
+}
+
+.esic-levelup .btn-outline {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.esic-levelup .btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.esic-levelup .btn-teal {
+  background: var(--brand-teal);
+  color: var(--brand-blue-dark);
+}
+
+.esic-levelup .btn-teal:hover {
+  background: #05D2B4;
+  transform: translateY(-2px);
+}
+
+/* Hero */
+.esic-levelup .hero {
+  padding: 9rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.esic-levelup .hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0, 71, 233, 0.08), transparent 60%);
+  z-index: -1;
+}
+
+.esic-levelup .hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.esic-levelup .hero-eyebrow {
+  font-family: var(--display-font);
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  font-weight: var(--display-weight);
+}
+
+.esic-levelup .hero-title {
+  font-family: var(--display-font);
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  margin: 1.2rem 0 1.4rem;
+  font-weight: var(--display-weight);
+}
+
+.esic-levelup .hero-title span {
+  color: var(--brand-teal);
+}
+
+.esic-levelup .hero-subtitle {
+  font-size: 1.15rem;
+  max-width: 520px;
+  color: var(--text-muted);
+}
+
+.esic-levelup .hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.8rem;
+}
+
+.esic-levelup .hero-media {
+  position: relative;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(145deg, #111827, #1C2434);
+  min-height: 420px;
+  box-shadow: var(--shadow-strong);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.esic-levelup .hero-media::before {
+  display: none;
+}
+
+.esic-levelup .hero-media-img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px 24px 0 0;
+  object-fit: cover;
+}
+
+.esic-levelup .hero-card {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  border-radius: 0 0 20px 20px;
+  margin: 0;
+  background: rgba(12, 18, 32, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  z-index: 2;
+  color: var(--text);
+}
+
+.esic-levelup .hero-card h3 {
+  font-family: var(--display-font);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-weight: var(--display-weight);
+}
+
+.esic-levelup .hero-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.esic-levelup .hero-card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.esic-levelup .hero-card-stat {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.6rem;
+  text-align: center;
+}
+
+.esic-levelup .hero-card-stat strong {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--brand-teal);
+}
+
+.esic-levelup .hero-card-stat span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-light);
+  letter-spacing: 0.08em;
+}
+
+/* Card styles */
+.esic-levelup .card-title {
+  font-family: var(--display-font);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  font-weight: var(--display-weight);
+}
+
+.esic-levelup .card-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Program cards */
+.esic-levelup .program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.esic-levelup .program-card {
+  border-radius: 26px;
+  padding: 1.8rem;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-soft);
+}
+
+.esic-levelup .program-card::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: rotate(12deg);
+}
+
+.esic-levelup .program-card h3 {
+  font-family: var(--display-font);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  font-weight: var(--display-weight);
+}
+
+.esic-levelup .program-card p {
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+
+.esic-levelup .program-card .program-meta {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin-top: 0.6rem;
+}
+
+.esic-levelup .program-card.blue {
+  background: linear-gradient(135deg, #0047E9, #001E80);
+}
+
+.esic-levelup .program-card.teal {
+  background: linear-gradient(135deg, #0AE4C3, #00BFA5);
+  color: #00133F;
+}
+
+.esic-levelup .program-card.orange {
+  background: linear-gradient(135deg, #FF9600, #FE5000);
+}
+
+/* Testimonials */
+.esic-levelup .testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.esic-levelup .testimonial-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.esic-levelup .testimonial-card blockquote {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.esic-levelup .testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 600;
+}
+
+.esic-levelup .testimonial-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFFFFF, #DDE6FF);
+  background-size: cover;
+  background-position: center;
+}
+
+.esic-levelup .testimonial-video {
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #00133F, #0047E9);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.esic-levelup .play-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Agenda section */
+.esic-levelup .agenda-section {
+  background: linear-gradient(135deg, #001E47 0%, #00133F 100%);
+  border-radius: 40px;
+  padding: 3.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.esic-levelup .agenda-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(0, 71, 233, 0.18), transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(10, 228, 195, 0.10), transparent 45%);
+  pointer-events: none;
+}
+
+.esic-levelup .agenda-section .section-header,
+.esic-levelup .agenda-section .event-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.esic-levelup .agenda-section .section-tag {
+  color: var(--brand-teal);
+}
+
+.esic-levelup .agenda-section .section-tag::before {
+  background: var(--brand-teal);
+}
+
+.esic-levelup .agenda-section .section-title {
+  color: #FFFFFF;
+}
+
+.esic-levelup .agenda-section .section-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.esic-levelup .event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.esic-levelup .event-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 22px;
+  padding: 1.6rem;
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.esic-levelup .event-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(10, 228, 195, 0.25);
+}
+
+.esic-levelup .event-card .card-title {
+  color: #FFFFFF;
+}
+
+.esic-levelup .event-card .card-text {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.esic-levelup .event-date {
+  font-family: "Sofia Sans Extra Condensed", "Arial Narrow", Arial, sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-teal);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+/* CTA panel */
+.esic-levelup .cta-panel {
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  background: linear-gradient(135deg, #0AE4C3, #00BFFF);
+  color: #00133F;
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  justify-items: start;
+}
+
+.esic-levelup .cta-panel .btn-primary {
+  background: #00133F;
+  color: #FFFFFF;
+}
+
+.esic-levelup .cta-panel h2 {
+  font-family: "Sofia Sans Extra Condensed", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  line-height: 0.95;
+}
+
+/* WhatsApp */
+.esic-levelup .whatsapp-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+}
+
+/* Footer */
+.esic-levelup .footer-levelup {
+  background: var(--surface);
+  color: var(--text);
+  padding: 5rem 0 2rem;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 1;
+}
+
+.esic-levelup .footer-levelup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.esic-levelup .footer-levelup-title {
+  font-family: var(--display-font);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: var(--display-weight);
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--text);
+}
+
+.esic-levelup .footer-levelup-title span {
+  color: var(--brand-teal);
+}
+
+.esic-levelup .footer-levelup-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.esic-levelup .footer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.9rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  background: var(--surface);
+  transition: all 0.2s ease;
+}
+
+.esic-levelup .footer-btn:hover {
+  border-color: var(--brand-teal);
+  color: var(--brand-teal);
+}
+
+.esic-levelup .footer-logo {
+  font-family: var(--display-font);
+  font-size: 2rem;
+  font-weight: var(--display-weight);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.esic-levelup .footer-logo small {
+  font-family: var(--body-font);
+  font-size: 0.6rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  color: var(--text-muted);
+}
+
+.esic-levelup .footer-info {
+  margin-bottom: 1.5rem;
+}
+
+.esic-levelup .footer-info h4 {
+  font-family: var(--body-font);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.esic-levelup .footer-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0.2rem 0;
+}
+
+.esic-levelup .footer-social {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.esic-levelup .footer-social a {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+.esic-levelup .footer-social a:hover {
+  color: var(--brand-teal);
+}
+
+.esic-levelup .footer-legal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.esic-levelup .footer-legal a {
+  font-size: 0.9rem;
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.esic-levelup .footer-legal a:hover {
+  color: var(--brand-teal);
+}
+
+.esic-levelup .footer-levelup-bottom {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Reveal animations */
+.esic-levelup .reveal {
+  animation: fadeUp 0.8s ease both;
+}
+
+.esic-levelup .delay-1 {
+  animation-delay: 0.15s;
+}
+
+.esic-levelup .delay-2 {
+  animation-delay: 0.3s;
+}
+
+.esic-levelup .delay-3 {
+  animation-delay: 0.45s;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .esic-levelup .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .esic-levelup .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .esic-levelup .footer-levelup-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .esic-levelup .footer-levelup-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .esic-levelup .section {
+    padding: 3.5rem 0;
+  }
+
+  .esic-levelup .hero-title {
+    font-size: clamp(2.8rem, 10vw, 3.6rem);
+  }
+
+  .esic-levelup .hero-card-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .esic-levelup .whatsapp-btn {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .esic-levelup .reveal,
+  .esic-levelup .btn,
+  .esic-levelup .btn-primary,
+  .esic-levelup .btn-teal {
+    animation: none;
+    transition: none;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+
+<div class="esic-levelup">
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="hero-eyebrow">Level Up by ESIC</span>
+          <h1 class="hero-title">Aprende, aplica y <span>lidera</span></h1>
+          <p class="hero-subtitle">Cursos cortos y workshops de marketing en Medellin. Formacion ejecutiva intensiva para actualizar habilidades digitales y acelerar tu carrera.</p>
+          <div class="hero-actions">
+            <a class="btn btn-teal" href="#registro">Inscribete</a>
+            <a class="btn btn-outline" href="#agenda">Ver agenda</a>
+          </div>
+        </div>
+        <div class="hero-media reveal delay-2">
+          <!-- IMAGEN: level-up-hero.png -->
+          <img src="" alt="Level Up Mente 2.0" class="hero-media-img">
+          <div class="hero-card">
+            <h3>Proximo Level Up</h3>
+            <p>Marketing AI, growth y estrategia digital con expertos internacionales.</p>
+            <div class="hero-card-stats">
+              <div class="hero-card-stat">
+                <strong>2</strong>
+                <span>Sesiones</span>
+              </div>
+              <div class="hero-card-stat">
+                <strong>8</strong>
+                <span>Horas</span>
+              </div>
+              <div class="hero-card-stat">
+                <strong>+50</strong>
+                <span>Profesionales</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="agenda">
+      <div class="container">
+        <div class="agenda-section">
+          <div class="section-header">
+            <div>
+              <span class="section-tag">Proximos Level Up</span>
+              <h2 class="section-title">Agenda 2026</h2>
+              <p class="section-subtitle">Todos los Level Up son presenciales. Entrena las habilidades mas demandadas en sesiones intensivas.</p>
+            </div>
+          </div>
+          <div class="event-grid">
+            <article class="event-card reveal">
+              <div class="event-date">Marzo 18 &middot; Presencial</div>
+              <h3 class="card-title">Growth &amp; Performance</h3>
+              <p class="card-text">Embudo, analitica y campanas con enfoque en resultados.</p>
+            </article>
+            <article class="event-card reveal delay-1">
+              <div class="event-date">Abril 05 &middot; Presencial</div>
+              <h3 class="card-title">IA aplicada al marketing</h3>
+              <p class="card-text">Automatizacion, modelos generativos y contenido inteligente.</p>
+            </article>
+            <article class="event-card reveal delay-2">
+              <div class="event-date">Mayo 22 &middot; Presencial</div>
+              <h3 class="card-title">CX &amp; Experience Design</h3>
+              <p class="card-text">Diseno de experiencias con herramientas de innovacion.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Versiones pasadas</span>
+            <h2 class="section-title">Lo que hemos vivido</h2>
+            <p class="section-subtitle">Resumen de sesiones anteriores, workshops y retos colaborativos.</p>
+          </div>
+        </div>
+        <div class="program-grid">
+          <article class="program-card blue reveal">
+            <div>
+              <h3>Level Up Automatizaciones</h3>
+              <p>Automatizacion de procesos y flujos de trabajo inteligentes.</p>
+              <div class="program-meta">Edicion 2025</div>
+            </div>
+          </article>
+          <article class="program-card teal reveal delay-1">
+            <div>
+              <h3>Level Up Mente 2.0</h3>
+              <p>La nueva version de ti mismo. Mentalidad y crecimiento personal.</p>
+              <div class="program-meta">Edicion 2025</div>
+            </div>
+          </article>
+          <article class="program-card orange reveal delay-2">
+            <div>
+              <h3>Level Up Creatividad</h3>
+              <p>Pensamiento creativo, ideacion y soluciones innovadoras.</p>
+              <div class="program-meta">Edicion 2025</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <blockquote>"Level Up me ayudo a actualizar mis skills en apenas semanas."</blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div>Mariana Soto</div>
+                <small>Growth Manager</small>
+              </div>
+            </div>
+          </article>
+          <div class="testimonial-video reveal delay-1">
+            <div class="play-button">&#9654;</div>
+            <strong>Comunidad Level Up</strong>
+            <span>Historias reales de quienes ya lo vivieron</span>
+          </div>
+          <article class="testimonial-card reveal delay-2">
+            <blockquote>"Aprendi estrategias accionables y conoci profesionales increibles."</blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div>David Ramirez</div>
+                <small>Product Lead</small>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="registro">
+      <div class="container">
+        <div class="cta-panel">
+          <h2>¿Listo para tu proximo Level Up?</h2>
+          <p>Reserva tu cupo y recibe informacion de fechas, descuentos y experiencias exclusivas.</p>
+          <a class="btn btn-primary" href="#registro">Quiero inscribirme</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-levelup">
+    <div class="container footer-levelup-grid">
+      <div class="footer-levelup-left">
+        <h2 class="footer-levelup-title">Transforma<br>tu futuro<br><span>en ESIC</span></h2>
+        <div class="footer-levelup-buttons">
+          <a href="sobre-nosotros.html" class="footer-btn">Institucion <span>&rarr;</span></a>
+          <a href="#" class="footer-btn">Cifras <span>&rarr;</span></a>
+          <a href="#" class="footer-btn">Contactanos <span>&rarr;</span></a>
+        </div>
+      </div>
+      <div class="footer-levelup-right">
+        <div class="footer-logo">ESIC <small>Business &amp;<br>Marketing School</small></div>
+        <div class="footer-info">
+          <h4>Campus Medellin, Col.</h4>
+          <p>Calle 123 #45 - 67</p>
+        </div>
+        <div class="footer-info">
+          <h4>Contacto</h4>
+          <p>+57 604 123-4567</p>
+          <p>contacto@esic.com</p>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Spotify">sp</a>
+          <a href="#" aria-label="TikTok">tk</a>
+          <a href="#" aria-label="X">x</a>
+        </div>
+        <div class="footer-legal">
+          <a href="#">Terminos y Condiciones</a>
+          <a href="#">Politica de Tratamiento de Datos</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-levelup-bottom">
+      <span>&copy; 2025 ESIC. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-btn" href="#" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z" />
+    </svg>
+  </a>
+</div>

@@ -1,0 +1,1518 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+/* Scoped reset */
+.esic-master-digital-marketing *,
+.esic-master-digital-marketing *::before,
+.esic-master-digital-marketing *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+/* Variables + base */
+.esic-master-digital-marketing {
+  --brand-blue: #0047E9;
+  --brand-blue-dark: #00133F;
+  --brand-teal: #0AE4C3;
+  --brand-orange: #FF9600;
+  --brand-orange-strong: #FE5000;
+  --brand-yellow: #FFD100;
+  --brand-sky: #00BFFF;
+  --brand-gold: #C09C2E;
+  --brand-brown: #857550;
+  --bg: #F8F6F2;
+  --bg-alt: #F2F5FB;
+  --surface: #FFFFFF;
+  --surface-muted: #F4F1ED;
+  --text: #0B132B;
+  --text-muted: #5F6B7A;
+  --text-light: #97A2B1;
+  --border: rgba(0, 19, 63, 0.12);
+  --shadow-soft: 0 20px 50px rgba(0, 19, 63, 0.12);
+  --shadow-strong: 0 30px 70px rgba(0, 19, 63, 0.2);
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --display-font: "Sofia Sans Extra Condensed", "Arial Narrow", Arial, sans-serif;
+  --body-font: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display-weight: 600;
+  --accent: var(--brand-blue);
+  --accent-strong: #0037B4;
+  --accent-contrast: #FFFFFF;
+  --accent-soft: rgba(0, 71, 233, 0.12);
+  font-family: var(--body-font);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Base elements */
+.esic-master-digital-marketing h1,
+.esic-master-digital-marketing h2,
+.esic-master-digital-marketing h3,
+.esic-master-digital-marketing h4,
+.esic-master-digital-marketing h5 {
+  font-family: var(--display-font);
+  font-weight: var(--display-weight);
+}
+
+.esic-master-digital-marketing img {
+  max-width: 100%;
+  display: block;
+}
+
+.esic-master-digital-marketing a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.esic-master-digital-marketing button {
+  font-family: inherit;
+}
+
+.esic-master-digital-marketing small {
+  color: var(--text-light);
+  font-size: 0.8rem;
+}
+
+/* Layout */
+.esic-master-digital-marketing .container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+.esic-master-digital-marketing .section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.esic-master-digital-marketing .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+/* Section typography */
+.esic-master-digital-marketing .section-tag {
+  font-family: var(--display-font);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: var(--display-weight);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.esic-master-digital-marketing .section-tag::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.esic-master-digital-marketing .section-title {
+  font-family: var(--display-font);
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin: 0.6rem 0 0.6rem;
+  font-weight: var(--display-weight);
+}
+
+.esic-master-digital-marketing .section-title span {
+  color: var(--brand-orange);
+}
+
+.esic-master-digital-marketing .section-subtitle {
+  color: var(--text-muted);
+  max-width: 520px;
+  font-size: 1.05rem;
+}
+
+/* Buttons */
+.esic-master-digital-marketing .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.esic-master-digital-marketing .btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: 0 16px 35px rgba(0, 71, 233, 0.25);
+}
+
+.esic-master-digital-marketing .btn-primary:hover {
+  background: var(--accent-strong);
+  transform: translateY(-2px);
+}
+
+.esic-master-digital-marketing .btn-outline {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.esic-master-digital-marketing .btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.esic-master-digital-marketing .btn-accent {
+  background: var(--brand-orange);
+  color: #FFFFFF;
+}
+
+.esic-master-digital-marketing .btn-accent:hover {
+  background: var(--brand-orange-strong);
+  transform: translateY(-2px);
+}
+
+.esic-master-digital-marketing .btn-teal {
+  background: var(--brand-teal);
+  color: var(--brand-blue-dark);
+}
+
+.esic-master-digital-marketing .btn-teal:hover {
+  background: #05D2B4;
+  transform: translateY(-2px);
+}
+
+/* Cards */
+.esic-master-digital-marketing .card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.esic-master-digital-marketing .card-title {
+  font-family: var(--display-font);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  font-weight: var(--display-weight);
+}
+
+.esic-master-digital-marketing .card-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Animations */
+.esic-master-digital-marketing .reveal {
+  animation: esicFadeUp 0.8s ease both;
+}
+
+.esic-master-digital-marketing .delay-1 {
+  animation-delay: 0.15s;
+}
+
+.esic-master-digital-marketing .delay-2 {
+  animation-delay: 0.3s;
+}
+
+.esic-master-digital-marketing .delay-3 {
+  animation-delay: 0.45s;
+}
+
+@keyframes esicFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================== */
+/* PAGE-SPECIFIC STYLES  */
+/* ===================== */
+
+.esic-master-digital-marketing {
+  --master-blue: #0047E9;
+  --master-blue-dark: #001E80;
+}
+
+/* Hero Section */
+.esic-master-digital-marketing .hero-master {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0 180px;
+  overflow: hidden;
+}
+
+.esic-master-digital-marketing .hero-master-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg, #0047E9 0%, #001E80 40%, #00133F 100%);
+}
+
+.esic-master-digital-marketing .hero-master .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.esic-master-digital-marketing .hero-master-content {
+  text-align: right;
+  color: #FFFFFF;
+  max-width: 100%;
+  margin-left: auto;
+  padding-left: 40%;
+  padding-right: 5%;
+}
+
+.esic-master-digital-marketing .hero-master-eyebrow {
+  font-family: var(--display-font);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.esic-master-digital-marketing .hero-master-title {
+  font-family: var(--display-font);
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.85;
+  color: #FFFFFF;
+  margin-bottom: 1.5rem;
+}
+
+.esic-master-digital-marketing .hero-master-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 500px;
+  margin-left: auto;
+  margin-bottom: 2rem;
+}
+
+.esic-master-digital-marketing .hero-master-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.esic-master-digital-marketing .hero-master .btn-primary {
+  background: #09CF90;
+  color: #00133F;
+  padding: 1.1rem 2.2rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.esic-master-digital-marketing .hero-master .btn-primary:hover {
+  background: #07B57E;
+}
+
+.esic-master-digital-marketing .hero-master .btn-outline {
+  border: 2px solid #FFFFFF;
+  color: #FFFFFF;
+  background: transparent;
+  padding: 1.1rem 2.2rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.esic-master-digital-marketing .hero-master .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.esic-master-digital-marketing .btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.esic-master-digital-marketing .btn-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Section Overlap Pattern */
+.esic-master-digital-marketing .section-overlap {
+  position: relative;
+  margin-top: -180px;
+  border-radius: 50px 50px 0 0;
+  z-index: 10;
+  padding-top: 80px;
+}
+
+.esic-master-digital-marketing .section-white {
+  background: #FFFFFF;
+}
+
+.esic-master-digital-marketing .section-blue {
+  background: var(--master-blue);
+}
+
+.esic-master-digital-marketing .section-teal {
+  background: #09CF90;
+}
+
+.esic-master-digital-marketing .section-cream {
+  background: #F8F6F2;
+}
+
+.esic-master-digital-marketing .section-dark {
+  background: var(--brand-blue-dark);
+}
+
+/* Explora Section */
+.esic-master-digital-marketing .explora-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.esic-master-digital-marketing .explora-content h2 {
+  font-family: var(--display-font);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: var(--display-weight);
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+  color: #0047E9;
+}
+
+.esic-master-digital-marketing .explora-content p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.esic-master-digital-marketing .explora-content .btn-primary {
+  background: var(--master-blue);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.esic-master-digital-marketing .explora-content .btn-primary:hover {
+  background: var(--master-blue-dark);
+}
+
+/* Form Card */
+.esic-master-digital-marketing .form-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 19, 63, 0.12);
+}
+
+.esic-master-digital-marketing .form-card h3 {
+  font-family: var(--display-font);
+  font-size: 1.8rem;
+  font-weight: var(--display-weight);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 2rem;
+  color: var(--master-blue);
+}
+
+.esic-master-digital-marketing .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.esic-master-digital-marketing .form-group {
+  margin-bottom: 1rem;
+}
+
+.esic-master-digital-marketing .form-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.esic-master-digital-marketing .form-group input,
+.esic-master-digital-marketing .form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--body-font);
+  font-size: 0.95rem;
+  background: #FFFFFF;
+  transition: border-color 0.2s ease;
+}
+
+.esic-master-digital-marketing .form-group input:focus,
+.esic-master-digital-marketing .form-group select:focus {
+  outline: none;
+  border-color: var(--master-blue);
+}
+
+.esic-master-digital-marketing .form-submit-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.esic-master-digital-marketing .form-submit-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem;
+  background: var(--master-blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--body-font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.esic-master-digital-marketing .form-submit-btn:hover {
+  background: var(--master-blue-dark);
+}
+
+.esic-master-digital-marketing .form-submit-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Becas Banner */
+.esic-master-digital-marketing .becas-banner {
+  padding: 2rem 0;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: calc(100% - 4rem);
+  border-radius: 24px;
+}
+
+.esic-master-digital-marketing .becas-banner .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.esic-master-digital-marketing .becas-banner h3 {
+  font-family: var(--display-font);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: var(--display-weight);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.esic-master-digital-marketing .becas-banner .btn {
+  background: #FFFFFF;
+  color: #09CF90;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  padding: 1rem 1.5rem;
+}
+
+.esic-master-digital-marketing .becas-banner .btn:hover {
+  background: #F0F0F0;
+}
+
+/* Benefits Section */
+.esic-master-digital-marketing .benefits-section {
+  padding: 5rem 0;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 5;
+}
+
+.esic-master-digital-marketing .benefits-section .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.esic-master-digital-marketing .benefits-grid {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.esic-master-digital-marketing .benefit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-width: 150px;
+}
+
+.esic-master-digital-marketing .benefit-icon {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.esic-master-digital-marketing .benefit-icon svg {
+  width: 70px;
+  height: 70px;
+  color: var(--master-blue);
+}
+
+.esic-master-digital-marketing .benefit-text h4 {
+  font-family: var(--display-font);
+  font-size: 1.8rem;
+  font-weight: var(--display-weight);
+  text-transform: uppercase;
+  line-height: 1;
+  color: #0047E9;
+}
+
+/* Testimonios Section */
+.esic-master-digital-marketing .testimonios-section {
+  padding: 5rem 0;
+  color: #FFFFFF;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 6;
+}
+
+.esic-master-digital-marketing .testimonios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.esic-master-digital-marketing .testimonios-content h2 {
+  font-family: var(--display-font);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: var(--display-weight);
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+}
+
+.esic-master-digital-marketing .testimonios-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.esic-master-digital-marketing .testimonios-video {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  background: linear-gradient(180deg, #09CF90 0%, #07A872 50%, #00133F 100%);
+}
+
+.esic-master-digital-marketing .play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease;
+}
+
+.esic-master-digital-marketing .play-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.esic-master-digital-marketing .play-btn svg {
+  width: 24px;
+  height: 24px;
+  color: #FFFFFF;
+  margin-left: 4px;
+}
+
+/* Pricing Section */
+.esic-master-digital-marketing .pricing-section {
+  padding: 5rem 0;
+  background: #FFFFFF;
+  min-height: auto;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 7;
+}
+
+.esic-master-digital-marketing .pricing-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.esic-master-digital-marketing .pricing-header h2 {
+  font-family: var(--display-font);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: var(--display-weight);
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: #0047E9;
+  margin-bottom: 1rem;
+}
+
+.esic-master-digital-marketing .pricing-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.esic-master-digital-marketing .pricing-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.esic-master-digital-marketing .pricing-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 50px rgba(0, 19, 63, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.esic-master-digital-marketing .pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(0, 19, 63, 0.15);
+}
+
+.esic-master-digital-marketing .pricing-card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.esic-master-digital-marketing .pricing-card-header h3 {
+  font-family: var(--display-font);
+  font-size: 1.5rem;
+  font-weight: var(--display-weight);
+  text-transform: uppercase;
+  color: #0047E9;
+  margin-bottom: 0.5rem;
+}
+
+.esic-master-digital-marketing .pricing-card-header .price {
+  font-family: var(--display-font);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--master-blue);
+  line-height: 1;
+}
+
+.esic-master-digital-marketing .pricing-card-header .price span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.esic-master-digital-marketing .pricing-features {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.esic-master-digital-marketing .pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.esic-master-digital-marketing .pricing-features li svg {
+  width: 20px;
+  height: 20px;
+  color: var(--master-blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.esic-master-digital-marketing .pricing-card .btn {
+  width: 100%;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.esic-master-digital-marketing .pricing-card .btn-primary {
+  background: var(--master-blue);
+}
+
+.esic-master-digital-marketing .pricing-card .btn-primary:hover {
+  background: var(--master-blue-dark);
+}
+
+/* Pricing Note Card */
+.esic-master-digital-marketing .pricing-note-card {
+  background: linear-gradient(135deg, #F8F6F2 0%, #FFFFFF 100%);
+  border-radius: 24px;
+  padding: 2.5rem;
+  border: 2px dashed var(--border);
+}
+
+.esic-master-digital-marketing .pricing-note-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(0, 71, 233, 0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.esic-master-digital-marketing .pricing-note-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--master-blue);
+}
+
+.esic-master-digital-marketing .pricing-note-card h4 {
+  font-family: var(--display-font);
+  font-size: 1.5rem;
+  font-weight: var(--display-weight);
+  text-transform: uppercase;
+  color: #0047E9;
+  margin-bottom: 1rem;
+}
+
+.esic-master-digital-marketing .pricing-note-card > p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.esic-master-digital-marketing .pricing-note-card .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Plan de Estudios */
+.esic-master-digital-marketing .plan-section {
+  padding: 5rem 0;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 8;
+}
+
+.esic-master-digital-marketing .plan-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.esic-master-digital-marketing .plan-title-block h2 {
+  font-family: var(--display-font);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.9;
+  color: #0047E9;
+}
+
+.esic-master-digital-marketing .plan-main {
+  width: 100%;
+}
+
+/* Module Tabs */
+.esic-master-digital-marketing .plan-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.esic-master-digital-marketing .plan-tab {
+  padding: 1rem 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-family: var(--body-font);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.esic-master-digital-marketing .plan-tab:hover {
+  border-color: var(--master-blue);
+  color: var(--master-blue);
+}
+
+.esic-master-digital-marketing .plan-tab.active {
+  background: var(--master-blue);
+  border-color: var(--master-blue);
+  color: #FFFFFF;
+}
+
+/* Content Card */
+.esic-master-digital-marketing .plan-content-wrapper {
+  background: #FFFFFF;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 19, 63, 0.08);
+}
+
+.esic-master-digital-marketing .plan-content-header {
+  background: var(--master-blue);
+  height: 12px;
+}
+
+.esic-master-digital-marketing .plan-content {
+  display: none;
+  padding: 2rem;
+}
+
+.esic-master-digital-marketing .plan-content.active {
+  display: block;
+}
+
+.esic-master-digital-marketing .plan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem 2rem;
+}
+
+.esic-master-digital-marketing .plan-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.esic-master-digital-marketing .plan-item .bullet {
+  width: 6px;
+  height: 6px;
+  background: var(--master-teal);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.esic-master-digital-marketing .plan-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.esic-master-digital-marketing .plan-actions .btn {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.esic-master-digital-marketing .plan-actions .btn-primary {
+  background: var(--master-blue);
+}
+
+.esic-master-digital-marketing .plan-actions .btn-primary:hover {
+  background: var(--master-blue-dark);
+}
+
+/* Institutions */
+.esic-master-digital-marketing .institutions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.esic-master-digital-marketing .institution-card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 19, 63, 0.08);
+}
+
+.esic-master-digital-marketing .institution-card-header {
+  background: var(--master-blue);
+  padding: 1.5rem;
+}
+
+.esic-master-digital-marketing .institution-card-header h4 {
+  font-family: var(--display-font);
+  font-size: 1.5rem;
+  font-weight: var(--display-weight);
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.esic-master-digital-marketing .institution-card-body {
+  background: #FFFFFF;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.esic-master-digital-marketing .institution-logo img {
+  max-height: 45px;
+  max-width: 140px;
+}
+
+.esic-master-digital-marketing .plan-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2rem;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.esic-master-digital-marketing .plan-note a {
+  color: var(--master-blue);
+  text-decoration: underline;
+}
+
+/* ===================== */
+/* RESPONSIVE            */
+/* ===================== */
+
+@media (max-width: 1024px) {
+  .esic-master-digital-marketing .hero-master {
+    min-height: 80vh;
+    padding: 100px 0 160px;
+  }
+
+  .esic-master-digital-marketing .hero-master-content {
+    padding-left: 20%;
+  }
+
+  .esic-master-digital-marketing .hero-master-title {
+    font-size: clamp(5rem, 12vw, 9rem);
+  }
+
+  .esic-master-digital-marketing .explora-grid,
+  .esic-master-digital-marketing .testimonios-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .esic-master-digital-marketing .pricing-layout {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .esic-master-digital-marketing .plan-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .esic-master-digital-marketing .plan-title-block h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .esic-master-digital-marketing .hero-master {
+    min-height: 70vh;
+    padding: 100px 0 140px;
+  }
+
+  .esic-master-digital-marketing .hero-master-content {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .esic-master-digital-marketing .hero-master-subtitle {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .esic-master-digital-marketing .hero-master-eyebrow {
+    font-size: 1.5rem;
+  }
+
+  .esic-master-digital-marketing .hero-master-title {
+    font-size: clamp(4rem, 15vw, 7rem);
+  }
+
+  .esic-master-digital-marketing .section-overlap {
+    margin-top: -100px;
+    border-radius: 30px 30px 0 0;
+  }
+
+  .esic-master-digital-marketing .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .esic-master-digital-marketing .benefits-grid {
+    gap: 2rem;
+  }
+
+  .esic-master-digital-marketing .plan-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .esic-master-digital-marketing .institutions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .esic-master-digital-marketing .plan-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .esic-master-digital-marketing .hero-master-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .esic-master-digital-marketing .section {
+    padding: 3.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .esic-master-digital-marketing .benefits-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .esic-master-digital-marketing .hero-master-actions {
+    flex-direction: column;
+  }
+
+  .esic-master-digital-marketing .hero-master-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .esic-master-digital-marketing .reveal,
+  .esic-master-digital-marketing .btn,
+  .esic-master-digital-marketing .btn-primary,
+  .esic-master-digital-marketing .btn-accent,
+  .esic-master-digital-marketing .btn-teal {
+    animation: none;
+    transition: none;
+  }
+}
+</style>
+
+<div class="esic-master-digital-marketing">
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-master">
+      <div class="hero-master-bg"></div>
+      <div class="container">
+        <div class="hero-master-content reveal">
+          <p class="hero-master-eyebrow">MASTER · 11 MESES · HIBRIDO</p>
+          <h1 class="hero-master-title">DIGITAL MARKETING</h1>
+          <p class="hero-master-subtitle">Domina la estrategia digital, el analisis de datos, SEO y la gestion de redes sociales para liderar campanas de alto impacto.</p>
+          <div class="hero-master-actions">
+            <a class="btn btn-primary btn-arrow" href="#formulario">
+              SOLICITAR INFORMACION
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            </a>
+            <a class="btn btn-outline btn-arrow" href="#plan-estudios">
+              VER PLAN DE ESTUDIOS
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explora Section -->
+    <section class="section section-overlap section-white" id="formulario">
+      <div class="container">
+        <div class="explora-grid">
+          <div class="explora-content reveal">
+            <h2>ACELERA TU CARRERA</h2>
+            <p>Desarrolla competencias en planificacion digital estrategica, analitica de datos, SEO y gestion de redes sociales. Preparate para implementar estrategias globales efectivas y gestionar la transformacion digital en empresas.</p>
+            <a class="btn btn-primary btn-arrow" href="#formulario">
+              SOLICITAR INFORMACION
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            </a>
+          </div>
+          <div class="form-card reveal delay-1">
+            <h3>Master en Digital Marketing</h3>
+            <form>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="dm-nombres">Nombres</label>
+                  <input type="text" id="dm-nombres" name="nombres" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="dm-apellidos">Apellidos</label>
+                  <input type="text" id="dm-apellidos" name="apellidos" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="dm-email">Correo electronico:</label>
+                <input type="email" id="dm-email" name="email" placeholder="">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="dm-pref">Pref:</label>
+                  <input type="text" id="dm-pref" name="pref" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="dm-telefono">Telefono</label>
+                  <input type="tel" id="dm-telefono" name="telefono" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="dm-comunicacion">Como prefieres que nos comuniquemos contigo?</label>
+                <select id="dm-comunicacion" name="comunicacion">
+                  <option value="">Selecciona una opcion</option>
+                  <option value="email">Correo electronico</option>
+                  <option value="telefono">Telefono</option>
+                  <option value="whatsapp">WhatsApp</option>
+                </select>
+              </div>
+              <div class="form-submit-row">
+                <button type="submit" class="form-submit-btn">
+                  Enviar
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Becas Banner -->
+      <div class="becas-banner section-teal">
+        <div class="container">
+          <h3>BECAS Y AYUDAS ECONOMICAS DISPONIBLES</h3>
+          <a class="btn btn-arrow" href="becas.html">
+            VER POLITICA DE BECAS
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section section-white">
+      <div class="container">
+        <div class="benefits-grid reveal">
+          <!-- 11 Meses -->
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <path d="M16 2v4M8 2v4M3 10h18"/>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4>11 Meses</h4>
+            </div>
+          </div>
+          <!-- Hibrido -->
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Hibrido</h4>
+            </div>
+          </div>
+          <!-- Madrid -->
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Inmersion Madrid</h4>
+            </div>
+          </div>
+          <!-- Titulo Espanol -->
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Titulo Espanol</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section class="section testimonios-section section-teal">
+      <div class="container">
+        <div class="testimonios-grid">
+          <div class="testimonios-content reveal">
+            <h2>TESTIMONIOS</h2>
+            <p>Conoce las historias de exito de nuestros egresados que estan liderando estrategias de marketing digital en empresas de toda Latinoamerica y el mundo.</p>
+            <p>Formamos profesionales capaces de disenar, ejecutar y optimizar campanas digitales de alto impacto con vision estrategica y analitica.</p>
+          </div>
+          <div class="testimonios-video reveal delay-1">
+            <button class="play-btn" aria-label="Reproducir video">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing-section">
+      <div class="container">
+        <div class="pricing-header reveal">
+          <h2>INVERSION EN TU FUTURO</h2>
+          <p>Conoce el valor de tu formacion de posgrado en ESIC Medellin.</p>
+        </div>
+
+        <div class="pricing-layout reveal">
+          <!-- Pricing Card -->
+          <div class="pricing-card">
+            <div class="pricing-card-header">
+              <h3>Valor Total</h3>
+              <div class="price">$32.000.000 <span>COP</span></div>
+            </div>
+            <ul class="pricing-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                11 meses de formacion intensiva
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                Inmersion internacional en Madrid
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                Titulo propio espanol
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                Global Management Program
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                Certificaciones digitales incluidas
+              </li>
+            </ul>
+            <a class="btn btn-primary btn-arrow" href="#formulario">
+              SOLICITAR INFORMACION
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Payment Note -->
+          <div class="pricing-note-card">
+            <div class="pricing-note-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+            </div>
+            <h4>Personaliza tu plan de pagos</h4>
+            <p>Nuestro equipo de admisiones esta listo para guiarte. Financiacion directa disponible.</p>
+            <a class="btn btn-outline btn-arrow" href="#formulario">
+              AGENDA UNA ASESORIA PERSONALIZADA
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plan de Estudios Section -->
+    <section class="section plan-section section-cream" id="plan-estudios">
+      <div class="container">
+        <div class="plan-layout">
+          <!-- Title Block -->
+          <div class="plan-title-block reveal">
+            <h2>PLAN DE<br>ESTUDIOS</h2>
+          </div>
+
+          <!-- Main Content -->
+          <div class="plan-main">
+            <!-- Module Tabs -->
+            <div class="plan-tabs reveal">
+              <button class="plan-tab active" data-module="1">Modulo 1</button>
+              <button class="plan-tab" data-module="2">Modulo 2</button>
+              <button class="plan-tab" data-module="3">Modulo 3</button>
+              <button class="plan-tab" data-module="4">Modulo 4</button>
+            </div>
+
+            <!-- Content Card -->
+            <div class="plan-content-wrapper reveal">
+              <div class="plan-content-header"></div>
+
+              <div class="plan-content active" data-module="1">
+                <div class="plan-grid">
+                  <div class="plan-item"><span class="bullet"></span> Estrategia de Marketing Digital</div>
+                  <div class="plan-item"><span class="bullet"></span> Comportamiento del Consumidor Digital</div>
+                  <div class="plan-item"><span class="bullet"></span> Branding Digital</div>
+                  <div class="plan-item"><span class="bullet"></span> Customer Journey Mapping</div>
+                  <div class="plan-item"><span class="bullet"></span> Marketing de Contenidos</div>
+                  <div class="plan-item"><span class="bullet"></span> Storytelling Digital</div>
+                </div>
+              </div>
+
+              <div class="plan-content" data-module="2">
+                <div class="plan-grid">
+                  <div class="plan-item"><span class="bullet"></span> SEO y SEM Avanzado</div>
+                  <div class="plan-item"><span class="bullet"></span> Google Ads y Meta Ads</div>
+                  <div class="plan-item"><span class="bullet"></span> Performance Marketing</div>
+                  <div class="plan-item"><span class="bullet"></span> Email Marketing Automation</div>
+                  <div class="plan-item"><span class="bullet"></span> Conversion Rate Optimization</div>
+                  <div class="plan-item"><span class="bullet"></span> Growth Marketing</div>
+                </div>
+              </div>
+
+              <div class="plan-content" data-module="3">
+                <div class="plan-grid">
+                  <div class="plan-item"><span class="bullet"></span> Data Analytics para Marketing</div>
+                  <div class="plan-item"><span class="bullet"></span> Google Analytics 4</div>
+                  <div class="plan-item"><span class="bullet"></span> Social Media Analytics</div>
+                  <div class="plan-item"><span class="bullet"></span> Dashboards y Reporting</div>
+                  <div class="plan-item"><span class="bullet"></span> Marketing Attribution</div>
+                  <div class="plan-item"><span class="bullet"></span> Predictive Analytics</div>
+                </div>
+              </div>
+
+              <div class="plan-content" data-module="4">
+                <div class="plan-grid">
+                  <div class="plan-item"><span class="bullet"></span> Global Management Program</div>
+                  <div class="plan-item"><span class="bullet"></span> Proyecto Final de Master</div>
+                  <div class="plan-item"><span class="bullet"></span> Inmersion Internacional Madrid</div>
+                  <div class="plan-item"><span class="bullet"></span> Networking Global</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="plan-actions reveal">
+              <a class="btn btn-primary btn-arrow" href="#">
+                BROCHURE DEL PROGRAMA
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a class="btn btn-outline btn-arrow" href="index.html">
+                EXPLORAR OTROS MASTERS
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <!-- Institutions -->
+            <div class="institutions-grid reveal">
+              <div class="institution-card">
+                <div class="institution-card-header">
+                  <h4>Master en<br>Digital Marketing</h4>
+                </div>
+                <div class="institution-card-body">
+                  <div class="institution-logo">
+                    <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC">
+                  </div>
+                </div>
+              </div>
+              <div class="institution-card">
+                <div class="institution-card-header">
+                  <h4>Global Management<br>Program</h4>
+                </div>
+                <div class="institution-card-body">
+                  <div class="institution-logo">
+                    <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC Madrid">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="plan-note reveal">
+              Titulo propio emitido por ESIC Business & Marketing School (Espana).<br>
+              Para mas informacion sobre financiacion, consulta nuestra seccion de <a href="becas.html">Becas y ayudas economicas</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+(function() {
+  var w = document.querySelector('.esic-master-digital-marketing');
+  w.querySelectorAll('.plan-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      w.querySelectorAll('.plan-tab').forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      w.querySelectorAll('.plan-content').forEach(function(content) { content.classList.remove('active'); });
+      var module = tab.getAttribute('data-module');
+      w.querySelector('.plan-content[data-module="' + module + '"]').classList.add('active');
+    });
+  });
+})();
+</script>
