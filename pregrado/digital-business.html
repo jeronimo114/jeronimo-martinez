@@ -661,17 +661,17 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
+      grid-auto-rows: 1fr;
     }
 
     .institution-card {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-rows: 1fr auto;
     }
 
     .institution-card-header {
       background: var(--pregrado-orange);
       padding: 1.5rem;
-      min-height: 100px;
     }
 
     .institution-card-header h4 {
