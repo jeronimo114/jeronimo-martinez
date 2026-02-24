@@ -233,35 +233,35 @@
       text-align: center;
     }
     .info-col-icon {
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 0.8rem;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
     }
-    .info-col-icon svg { width: 28px; height: 28px; stroke: rgba(255,255,255,0.8); }
+    .info-col-icon svg { width: 32px; height: 32px; stroke: #FFFFFF; }
     .info-col h3 {
       font-family: var(--display-font);
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       text-transform: uppercase;
       color: #FFFFFF;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
     .info-col p {
-      font-size: 0.85rem;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.8);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
     }
     .info-col .precio {
       font-family: var(--display-font);
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 800;
       color: var(--brand-teal);
       line-height: 1;
     }
     .info-col .nota {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.6);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.65);
       font-style: italic;
-      margin-top: 0.3rem;
+      margin-top: 0.4rem;
     }
 
     /* ── Estructura ── */
@@ -390,22 +390,24 @@
       flex-wrap: wrap;
     }
     .logo-item {
-      width: 180px;
-      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .logo-item img {
-      width: 100%;
-      height: 100%;
       object-fit: contain;
-      opacity: 0.65;
-      transition: opacity 0.3s;
+      filter: grayscale(100%);
+      opacity: 0.5;
+      transition: all 0.3s;
     }
     .logo-item img:hover {
+      filter: grayscale(0%);
       opacity: 1;
     }
+    /* Tamaño individual para alineación visual */
+    .logo-item.logo-esic img { height: 55px; }
+    .logo-item.logo-prestigio img { height: 40px; }
+    .logo-item.logo-accenture img { height: 38px; }
     .logo-item .logo-text {
       font-family: var(--display-font);
       font-size: 1.6rem;
@@ -706,13 +708,13 @@
       <div class="container">
         <h2>Programa cocreado por</h2>
         <div class="logos-row">
-          <div class="logo-item">
+          <div class="logo-item logo-esic">
             <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC">
           </div>
-          <div class="logo-item">
+          <div class="logo-item logo-prestigio">
             <img src="https://prestigio.com.co/wp-content/uploads/2024/04/logo-prestigio.webp" alt="Prestigio">
           </div>
-          <div class="logo-item">
+          <div class="logo-item logo-accenture">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/3840px-Accenture.svg.png" alt="Accenture">
           </div>
         </div>
