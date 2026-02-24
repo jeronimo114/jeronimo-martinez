@@ -35,9 +35,9 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(135deg,
-        rgba(0, 19, 63, 0.92) 0%,
-        rgba(0, 71, 233, 0.75) 50%,
-        rgba(0, 71, 233, 0.5) 100%);
+        rgba(0, 19, 63, 0.65) 0%,
+        rgba(0, 71, 233, 0.4) 50%,
+        rgba(0, 71, 233, 0.2) 100%);
       z-index: 1;
     }
     .hero-exec .container { position: relative; z-index: 2; }
@@ -84,6 +84,15 @@
       filter: brightness(0) invert(1);
       opacity: 0.85;
     }
+    .hero-exec-partners .partner-name {
+      font-family: var(--display-font);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      opacity: 0.85;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
 
     /* ── Stats Bar ── */
     .stats-bar {
@@ -114,9 +123,17 @@
       margin-top: 0.4rem;
     }
 
+    /* ── Section overlap pattern ── */
+    .s-overlap {
+      position: relative;
+      margin-top: -50px;
+      border-radius: 50px 50px 0 0;
+      z-index: 1;
+    }
+
     /* ── Propósito + Metodología (merged) ── */
     .proposito {
-      padding: 5rem 0;
+      padding: 5rem 0 6rem;
       background: #F5F3EF;
     }
     .proposito-grid {
@@ -187,7 +204,7 @@
 
     /* ── Info General ── */
     .info-section {
-      padding: 4rem 0;
+      padding: 5rem 0 6rem;
       background: #FFFFFF;
     }
     .info-section h2 {
@@ -242,7 +259,7 @@
 
     /* ── Estructura ── */
     .estructura {
-      padding: 5rem 0;
+      padding: 5rem 0 6rem;
       background: #F5F3EF;
     }
     .estructura h2 {
@@ -345,7 +362,7 @@
 
     /* ── Cocreadores ── */
     .cocreadores {
-      padding: 3rem 0;
+      padding: 4rem 0 5rem;
       background: #FFFFFF;
       text-align: center;
     }
@@ -372,15 +389,22 @@
       height: 40px;
       width: auto;
       margin-bottom: 0.5rem;
-      filter: grayscale(100%);
-      opacity: 0.6;
+      opacity: 0.7;
       transition: all 0.3s;
     }
     .logo-item img:hover {
-      filter: grayscale(0%);
       opacity: 1;
     }
-    .logo-item span {
+    .logo-item .logo-text {
+      font-family: var(--display-font);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .logo-item span.logo-sub {
       display: block;
       font-size: 0.75rem;
       color: var(--text-light);
@@ -516,8 +540,8 @@
           <div class="hero-exec-partners">
             <span>Programa cocreado por:</span>
             <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC">
-            <img src="https://placehold.co/120x30/FFFFFF/FFFFFF?text=Prestigio&font=montserrat" alt="Prestigio">
-            <img src="https://placehold.co/120x30/FFFFFF/FFFFFF?text=accenture&font=montserrat" alt="Accenture">
+            <span class="partner-name">Prestigio</span>
+            <span class="partner-name">Accenture</span>
           </div>
         </div>
       </div>
@@ -546,7 +570,7 @@
     </section>
 
     <!-- ═══ Propósito + Metodología ═══ -->
-    <section class="proposito">
+    <section class="proposito s-overlap">
       <div class="container">
         <div class="proposito-grid">
           <div>
@@ -587,7 +611,7 @@
     </section>
 
     <!-- ═══ Información General ═══ -->
-    <section class="info-section">
+    <section class="info-section s-overlap">
       <div class="container">
         <h2>INFORMACIÓN GENERAL</h2>
         <div class="info-row">
@@ -625,7 +649,7 @@
     </section>
 
     <!-- ═══ Estructura del Programa ═══ -->
-    <section class="estructura">
+    <section class="estructura s-overlap">
       <div class="container">
         <h2>ESTRUCTURA DEL PROGRAMA</h2>
         <div class="modulos-grid">
@@ -674,28 +698,28 @@
     </section>
 
     <!-- ═══ Cocreadores ═══ -->
-    <section class="cocreadores">
+    <section class="cocreadores s-overlap">
       <div class="container">
         <h2>Programa cocreado por</h2>
         <div class="logos-row">
           <div class="logo-item">
             <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC">
-            <span>ESIC</span>
+            <span class="logo-sub">Business & Marketing School</span>
           </div>
           <div class="logo-item">
-            <img src="https://placehold.co/140x40/F8F6F2/333333?text=Prestigio&font=montserrat" alt="Prestigio">
-            <span>Prestigio</span>
+            <span class="logo-text">Prestigio</span>
+            <span class="logo-sub">Liderazgo desde el SER</span>
           </div>
           <div class="logo-item">
-            <img src="https://placehold.co/140x40/F8F6F2/A100FF?text=accenture&font=montserrat" alt="Accenture">
-            <span>Accenture</span>
+            <span class="logo-text">Accenture</span>
+            <span class="logo-sub">Transformación Digital</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ═══ Quote + Contacto ═══ -->
-    <section class="quote-cta" id="contacto">
+    <section class="quote-cta s-overlap" id="contacto">
       <div class="container">
         <blockquote>"ES MOMENTO DE TRANSFORMAR,<br><em>no de adaptarse.</em><br>Tú marcas la diferencia"</blockquote>
         <div class="quote-cta-divider"></div>
