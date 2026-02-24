@@ -1348,7 +1348,9 @@ button {
 .rethink-filter,
 .rethink-card a,
 .program-cta,
-.program-selector-card a {
+.program-selector-card a,
+.mapa-link,
+.archived-toggle {
   pointer-events: auto;
   cursor: pointer;
 }
