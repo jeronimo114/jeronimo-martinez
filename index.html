@@ -1291,12 +1291,16 @@
     }
 
     .rethink-card-tag {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--brand-teal);
       margin-bottom: 0.5rem;
+      font-weight: 600;
     }
+    .rethink-card-tag.tag-blog { color: var(--brand-teal); }
+    .rethink-card-tag.tag-noticia { color: #FF9600; }
+    .rethink-card-tag.tag-podcast { color: #A78BFA; }
 
     .rethink-card h3 {
       font-family: var(--display-font);
@@ -1310,6 +1314,40 @@
     .rethink-card .btn {
       font-size: 0.75rem;
       padding: 0.5rem 1rem;
+    }
+
+    /* Rethink Filter Tabs */
+    .rethink-filters {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .rethink-filter {
+      font-family: var(--display-font);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: transparent;
+      color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .rethink-filter:hover {
+      border-color: rgba(255,255,255,0.5);
+      color: #FFFFFF;
+    }
+    .rethink-filter.active {
+      background: var(--brand-teal);
+      border-color: var(--brand-teal);
+      color: var(--brand-blue-dark);
+    }
+    .rethink-card.hidden {
+      display: none;
     }
 
     /* Responsive */
@@ -2182,35 +2220,78 @@
           <h2>RETHINK</h2>
         </div>
 
+        <div class="rethink-filters">
+          <button class="rethink-filter active" data-filter="todo">Todo</button>
+          <button class="rethink-filter" data-filter="blog">Blog</button>
+          <button class="rethink-filter" data-filter="noticia">Noticias</button>
+          <button class="rethink-filter" data-filter="podcast">Podcast</button>
+        </div>
+
         <div class="rethink-grid">
-          <div class="rethink-card">
+          <!-- Blog -->
+          <div class="rethink-card" data-category="blog">
             <div class="rethink-card-image">
               <img src="assets/images/DSC02274_resultado.webp" alt="IA en Marketing" width="1600" height="900" loading="lazy">
             </div>
             <div class="rethink-card-content">
-              <span class="rethink-card-tag">Artículo</span>
+              <span class="rethink-card-tag tag-blog">Blog</span>
               <h3>La IA en Marketing y Cómo Utilizarla</h3>
               <a class="btn btn-outline" href="#">LEER</a>
             </div>
           </div>
-          <div class="rethink-card">
+          <!-- Noticia -->
+          <div class="rethink-card" data-category="noticia">
             <div class="rethink-card-image">
               <img src="assets/images/DSC02307_resultado.webp" alt="ESIC Transformando" width="1600" height="900" loading="lazy">
             </div>
             <div class="rethink-card-content">
-              <span class="rethink-card-tag">Noticia</span>
+              <span class="rethink-card-tag tag-noticia">Noticia</span>
               <h3>ESIC: Transformando la Educación en el Mundo</h3>
               <a class="btn btn-outline" href="#">LEER</a>
             </div>
           </div>
-          <div class="rethink-card">
+          <!-- Podcast -->
+          <div class="rethink-card" data-category="podcast">
             <div class="rethink-card-image">
-              <img src="assets/images/DSC02331_resultado.webp" alt="StartCo" width="1600" height="900" loading="lazy">
+              <img src="assets/images/DSC02331_resultado.webp" alt="Infinite Version Podcast" width="1600" height="900" loading="lazy">
             </div>
             <div class="rethink-card-content">
-              <span class="rethink-card-tag">Artículo</span>
+              <span class="rethink-card-tag tag-podcast">Podcast · Ep. 1</span>
+              <h3>Infinite Version: Porque lo Digital No Tiene Versión Final</h3>
+              <a class="btn btn-outline" href="#">ESCUCHAR</a>
+            </div>
+          </div>
+          <!-- Blog -->
+          <div class="rethink-card" data-category="blog">
+            <div class="rethink-card-image">
+              <img src="assets/images/DSC02284_resultado.webp" alt="Transformación Digital" width="1600" height="900" loading="lazy">
+            </div>
+            <div class="rethink-card-content">
+              <span class="rethink-card-tag tag-blog">Blog</span>
+              <h3>Transformación Digital: Del Concepto a la Ejecución</h3>
+              <a class="btn btn-outline" href="#">LEER</a>
+            </div>
+          </div>
+          <!-- Noticia -->
+          <div class="rethink-card" data-category="noticia">
+            <div class="rethink-card-image">
+              <img src="assets/images/DSC02270_resultado.webp" alt="StartCo" width="1600" height="900" loading="lazy">
+            </div>
+            <div class="rethink-card-content">
+              <span class="rethink-card-tag tag-noticia">Noticia</span>
               <h3>StartCo Medellín 2025, La Subasta de Startups</h3>
               <a class="btn btn-outline" href="#">LEER</a>
+            </div>
+          </div>
+          <!-- Podcast -->
+          <div class="rethink-card" data-category="podcast">
+            <div class="rethink-card-image">
+              <img src="assets/images/DSC02220_resultado.webp" alt="Liderazgo Digital Podcast" width="1600" height="1140" loading="lazy">
+            </div>
+            <div class="rethink-card-content">
+              <span class="rethink-card-tag tag-podcast">Podcast · Ep. 2</span>
+              <h3>Liderazgo Digital: ¿Cómo Liderar Equipos en la Era de la IA?</h3>
+              <a class="btn btn-outline" href="#">ESCUCHAR</a>
             </div>
           </div>
         </div>
@@ -2274,15 +2355,30 @@
   </main>
 
   <script>
-    // Tabs functionality
+    // Programas tabs
     document.querySelectorAll('.programas-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.programas-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-
         document.querySelectorAll('.programas-content').forEach(content => content.style.display = 'none');
         const tabName = tab.getAttribute('data-tab');
         document.querySelector(`.programas-content[data-tab="${tabName}"]`).style.display = 'block';
+      });
+    });
+
+    // Rethink filters
+    document.querySelectorAll('.rethink-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.rethink-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.rethink-card').forEach(card => {
+          if (filter === 'todo' || card.getAttribute('data-category') === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
       });
     });
   </script>
