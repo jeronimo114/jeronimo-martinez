@@ -1342,7 +1342,8 @@ button {
 .nav button,
 .nav-actions a,
 .nav-overlay a,
-.nav-overlay button {
+.nav-overlay button,
+.faq-q {
   pointer-events: auto;
   cursor: pointer;
 }
