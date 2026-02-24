@@ -1345,7 +1345,8 @@ button {
 .nav-overlay button,
 .faq-q,
 .programas-tab,
-.rethink-filter {
+.rethink-filter,
+.rethink-card a {
   pointer-events: auto;
   cursor: pointer;
 }
