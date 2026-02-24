@@ -18,7 +18,7 @@
       min-height: 85vh;
       display: flex;
       align-items: flex-end;
-      padding: 0 0 5rem;
+      padding: 0 0 6rem;
     }
     .hero-exec-bg {
       position: absolute;
@@ -79,8 +79,10 @@
       letter-spacing: 0.1em;
     }
     .hero-exec-partners img {
-      height: 30px;
+      height: 24px;
       width: auto;
+      max-width: 120px;
+      object-fit: contain;
       filter: brightness(0) invert(1);
       opacity: 0.85;
     }
@@ -133,8 +135,10 @@
 
     /* ── Propósito + Metodología (merged) ── */
     .proposito {
-      padding: 6rem 0 6rem;
+      margin-top: -120px;
+      padding: 8rem 0 6rem;
       background: #F5F3EF;
+      z-index: 2;
     }
     .proposito-grid {
       display: grid;
@@ -386,8 +390,10 @@
       text-align: center;
     }
     .logo-item img {
-      height: 40px;
+      height: 36px;
       width: auto;
+      max-width: 160px;
+      object-fit: contain;
       margin-bottom: 0.5rem;
       opacity: 0.7;
       transition: all 0.3s;
@@ -545,9 +551,11 @@
           </div>
         </div>
       </div>
-      <!-- Stats Bar (inside hero for proper overlap) -->
-      <div class="container">
-        <div class="stats-bar">
+    </section>
+
+    <!-- ═══ Stats Bar ═══ -->
+    <div class="container" style="position:relative;z-index:12;">
+      <div class="stats-bar">
         <div class="stat-item">
           <div class="stat-number">4</div>
           <div class="stat-label">Meses de duración</div>
@@ -565,8 +573,7 @@
           <div class="stat-label">Dedicación semanal</div>
         </div>
       </div>
-      </div>
-    </section>
+    </div>
 
     <!-- ═══ Propósito + Metodología ═══ -->
     <section class="proposito s-overlap">
