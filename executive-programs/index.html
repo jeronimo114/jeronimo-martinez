@@ -34,10 +34,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg,
-        rgba(0, 19, 63, 0.65) 0%,
-        rgba(0, 71, 233, 0.4) 50%,
-        rgba(0, 71, 233, 0.2) 100%);
+      background: rgba(0, 0, 0, 0.55);
       z-index: 1;
     }
     .hero-exec .container { position: relative; z-index: 2; }
@@ -79,19 +76,18 @@
       letter-spacing: 0.1em;
     }
     .hero-exec-partners .partner-logo {
-      width: 120px;
-      height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .hero-exec-partners .partner-logo img {
-      width: 100%;
-      height: 100%;
       object-fit: contain;
       filter: brightness(0) invert(1);
       opacity: 0.9;
     }
+    .hero-exec-partners .partner-logo.p-esic img { height: 40px; }
+    .hero-exec-partners .partner-logo.p-prestigio img { height: 28px; }
+    .hero-exec-partners .partner-logo.p-accenture img { height: 26px; }
 
     /* ── Stats Bar ── */
     .stats-bar {
@@ -552,9 +548,9 @@
           <div class="hero-exec-year">2026</div>
           <div class="hero-exec-partners">
             <span>Programa cocreado por:</span>
-            <div class="partner-logo"><img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC"></div>
-            <div class="partner-logo"><img src="https://prestigio.com.co/wp-content/uploads/2024/04/logo-prestigio.webp" alt="Prestigio"></div>
-            <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/3840px-Accenture.svg.png" alt="Accenture"></div>
+            <div class="partner-logo p-esic"><img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC"></div>
+            <div class="partner-logo p-prestigio"><img src="https://prestigio.com.co/wp-content/uploads/2024/04/logo-prestigio.webp" alt="Prestigio"></div>
+            <div class="partner-logo p-accenture"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/3840px-Accenture.svg.png" alt="Accenture"></div>
           </div>
         </div>
       </div>
