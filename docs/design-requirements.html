@@ -154,6 +154,25 @@
       aspect-ratio: 4/5;
     }
 
+    .asset-grid.compact {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+
+    .compact .asset-info {
+      padding: 0.75rem;
+    }
+
+    .compact .asset-info h3 {
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+
+    .compact .asset-dimensions {
+      font-size: 0.6rem;
+      padding: 0.2rem 0.4rem;
+    }
+
     .variant-label {
       font-size: 0.7rem;
       font-weight: 700;
@@ -358,7 +377,7 @@
       </div>
 
       <h3 style="color: rgba(255,255,255,0.5); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;">Pregrados</h3>
-      <div class="asset-grid" style="margin-bottom: 2rem;">
+      <div class="asset-grid compact" style="margin-bottom: 2rem;">
         <div class="asset-card">
           <div class="asset-preview portrait">
             <img src="https://placehold.co/800x1000/FF8701/FFFFFF?text=Mkt+Global" alt="Marketing Global">
@@ -381,7 +400,7 @@
       </div>
 
       <h3 style="color: rgba(255,255,255,0.5); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;">Máster</h3>
-      <div class="asset-grid" style="margin-bottom: 2rem;">
+      <div class="asset-grid compact" style="margin-bottom: 2rem;">
         <div class="asset-card">
           <div class="asset-preview portrait">
             <img src="https://placehold.co/800x1000/09CF90/FFFFFF?text=Digital+Marketing" alt="Digital Marketing">
@@ -414,7 +433,7 @@
       </div>
 
       <h3 style="color: rgba(255,255,255,0.5); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;">Executive Programs</h3>
-      <div class="asset-grid">
+      <div class="asset-grid compact">
         <div class="asset-card">
           <div class="asset-preview portrait">
             <img src="https://placehold.co/800x1000/0047E9/FFFFFF?text=Executive" alt="Executive Programs">
