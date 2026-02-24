@@ -1346,7 +1346,9 @@ button {
 .faq-q,
 .programas-tab,
 .rethink-filter,
-.rethink-card a {
+.rethink-card a,
+.program-cta,
+.program-selector-card a {
   pointer-events: auto;
   cursor: pointer;
 }
