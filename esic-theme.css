@@ -1350,7 +1350,9 @@ button {
 .program-cta,
 .program-selector-card a,
 .mapa-link,
-.archived-toggle {
+.archived-toggle,
+.banner-nav,
+.banner-dot {
   pointer-events: auto;
   cursor: pointer;
 }

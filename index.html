@@ -7,7 +7,7 @@
   <meta name="description" content="ESIC Medellín - La escuela de negocios líder en Colombia. Pregrados y Másters en marketing con doble titulación internacional e inmersión global.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="assets/images/DSC02177_resultado.webp" type="image/webp">
+  <link rel="preload" as="image" href="https://esic.co/wp-content/uploads/2026/02/BANNER_DESKTOP_PREGRADO-1.png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="esic-theme.css">
   <style>
@@ -15,81 +15,84 @@
       scroll-behavior: smooth;
     }
 
-    /* Hero Section */
-    .hero-home {
-      min-height: 70vh;
+    /* Banner Carousel */
+    .banner-carousel {
       position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: var(--brand-blue-dark);
+    }
+
+    .banner-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .banner-slide {
+      min-width: 100%;
+      flex-shrink: 0;
+    }
+
+    .banner-slide picture {
+      display: block;
+      width: 100%;
+    }
+
+    .banner-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .banner-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: #FFFFFF;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
       display: flex;
       align-items: center;
-      padding: 120px 0 120px;
-      overflow: hidden;
+      justify-content: center;
+      z-index: 3;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s;
     }
 
-    .hero-home-bg {
+    .banner-nav:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .banner-prev { left: 1.5rem; }
+    .banner-next { right: 1.5rem; }
+
+    .banner-dots {
       position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .hero-home-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-home-bg::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg,
-        rgba(0, 19, 63, 0.7) 0%,
-        rgba(0, 19, 63, 0.4) 50%,
-        rgba(0, 19, 63, 0.2) 100%);
-      z-index: 1;
-    }
-
-    .hero-home .container {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-home-content {
-      max-width: 600px;
-      color: #FFFFFF;
-    }
-
-    .hero-home-title {
-      font-family: var(--display-font);
-      font-size: clamp(3rem, 8vw, 5rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.9;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-home-title span {
-      color: var(--brand-blue);
-    }
-
-    .hero-home-actions {
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
+      gap: 0.5rem;
+      z-index: 3;
     }
 
-    .hero-home .btn-primary {
-      background: var(--brand-blue);
-      color: #FFFFFF;
+    .banner-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s;
     }
 
-    .hero-home .btn-outline {
-      border: 2px solid #FFFFFF;
-      color: #FFFFFF;
-      background: transparent;
-    }
-
-    .hero-home .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.1);
+    .banner-dot.active {
+      background: #FFFFFF;
     }
 
     /* Section Overlap */
@@ -1398,14 +1401,15 @@
     }
 
     @media (max-width: 768px) {
-      .hero-home {
-        min-height: auto;
-        padding: 100px 0 80px;
+      .banner-nav {
+        width: 36px;
+        height: 36px;
       }
 
-      .hero-home-title {
-        font-size: clamp(2.5rem, 10vw, 4rem);
-      }
+      .banner-prev { left: 0.75rem; }
+      .banner-next { right: 0.75rem; }
+
+      .banner-dots { bottom: 1rem; }
 
       .section-overlap {
         margin-top: -60px;
@@ -1512,19 +1516,59 @@
     </div>
   </div>
   <main>
-    <!-- Hero Section -->
-    <section class="hero-home">
-      <div class="hero-home-bg">
-        <img src="assets/images/DSC02177_resultado.webp" alt="Estudiantes ESIC" width="1600" height="1114" fetchpriority="high">
-      </div>
-      <div class="container">
-        <div class="hero-home-content">
-          <h1 class="hero-home-title">TRANSFORMA TU FUTURO <span>EN ESIC</span></h1>
-          <div class="hero-home-actions">
-            <a class="btn btn-primary" href="#contacto">SOLICITA INFORMACIÓN</a>
-            <a class="btn btn-outline" href="#programas">EXPLORA PROGRAMAS</a>
-          </div>
+    <!-- Banner Carousel -->
+    <section class="banner-carousel">
+      <div class="banner-track">
+        <div class="banner-slide">
+          <picture>
+            <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/02/MOBILE_DESKTOP_PREGRADO-1.png">
+            <img src="https://esic.co/wp-content/uploads/2026/02/BANNER_DESKTOP_PREGRADO-1.png" alt="Pregrado ESIC" width="2560" height="1068" fetchpriority="high">
+          </picture>
         </div>
+        <div class="banner-slide">
+          <picture>
+            <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/02/MOBILE_PASANTIAS-1.png">
+            <img src="https://esic.co/wp-content/uploads/2026/02/BANNER_PASANTIAS-1.png" alt="Pasantías ESIC" width="2560" height="1068" loading="lazy">
+          </picture>
+        </div>
+        <div class="banner-slide">
+          <picture>
+            <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/02/BANNER_MOBILE_MASTER_2026-1.png">
+            <img src="https://esic.co/wp-content/uploads/2026/02/BANNERHOME_master2026-1.png" alt="Máster ESIC 2026" width="2560" height="1068" loading="lazy">
+          </picture>
+        </div>
+        <div class="banner-slide">
+          <picture>
+            <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/02/MOBILE_BLOG_ESIC2026-1.png">
+            <img src="https://esic.co/wp-content/uploads/2026/02/DESKTOP_BLOG_ESIC2026-1.png" alt="Blog ESIC" width="2560" height="1068" loading="lazy">
+          </picture>
+        </div>
+        <div class="banner-slide">
+          <picture>
+            <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/02/MOBILE_EPISODIO_2026.png">
+            <img src="https://esic.co/wp-content/uploads/2026/02/DESKTOP_EPISODIO_2026.png" alt="Podcast ESIC" width="2560" height="1068" loading="lazy">
+          </picture>
+        </div>
+        <div class="banner-slide">
+          <picture>
+            <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/02/MOBILE_MARCAEsic2026_.png">
+            <img src="https://esic.co/wp-content/uploads/2026/02/DESKTOP_MARCAEsic2026_.png" alt="Marca ESIC" width="2560" height="1068" loading="lazy">
+          </picture>
+        </div>
+      </div>
+      <button class="banner-nav banner-prev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="banner-nav banner-next" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="banner-dots">
+        <button class="banner-dot active" data-slide="0" aria-label="Banner 1"></button>
+        <button class="banner-dot" data-slide="1" aria-label="Banner 2"></button>
+        <button class="banner-dot" data-slide="2" aria-label="Banner 3"></button>
+        <button class="banner-dot" data-slide="3" aria-label="Banner 4"></button>
+        <button class="banner-dot" data-slide="4" aria-label="Banner 5"></button>
+        <button class="banner-dot" data-slide="5" aria-label="Banner 6"></button>
       </div>
     </section>
 
@@ -2365,6 +2409,29 @@
         document.querySelector(`.programas-content[data-tab="${tabName}"]`).style.display = 'block';
       });
     });
+
+    // Banner carousel
+    (() => {
+      const track = document.querySelector('.banner-track');
+      const slides = document.querySelectorAll('.banner-slide');
+      const dots = document.querySelectorAll('.banner-dot');
+      const total = slides.length;
+      let current = 0;
+      let interval;
+
+      function goTo(i) {
+        current = (i + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+      }
+
+      document.querySelector('.banner-prev').addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+      document.querySelector('.banner-next').addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+      dots.forEach(dot => dot.addEventListener('click', () => { goTo(+dot.dataset.slide); resetAuto(); }));
+
+      function resetAuto() { clearInterval(interval); interval = setInterval(() => goTo(current + 1), 5000); }
+      resetAuto();
+    })();
 
     // Rethink filters
     document.querySelectorAll('.rethink-filter').forEach(btn => {
