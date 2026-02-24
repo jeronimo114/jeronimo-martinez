@@ -97,26 +97,26 @@
     }
 
     /* =============================================
-       MEJORA 2: Manifiesto Refinado
+       MEJORA 2: Manifiesto
        ============================================= */
     .manifiesto-section {
-      padding: 6rem 0;
+      padding: 7rem 0;
     }
 
     .manifiesto-wrapper {
-      max-width: 720px;
+      max-width: 750px;
       margin: 0 auto;
       text-align: center;
     }
 
     .manifiesto-tag {
       font-family: var(--display-font);
-      font-size: 0.8rem;
+      font-size: 1rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--brand-blue);
       font-weight: var(--display-weight);
-      margin-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
@@ -131,63 +131,28 @@
       opacity: 0.4;
     }
 
-    .manifiesto-intro {
-      font-size: 1.25rem;
-      color: var(--text);
-      line-height: 1.7;
-      margin-bottom: 3rem;
-    }
-
-    .manifiesto-anchor {
-      background: linear-gradient(135deg, var(--brand-blue-dark) 0%, var(--brand-blue) 100%);
-      border-radius: 24px;
-      padding: 3rem 2.5rem;
-      margin-bottom: 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .manifiesto-anchor::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 80% 20%, rgba(10, 228, 195, 0.15), transparent 50%);
-      pointer-events: none;
-    }
-
-    .manifiesto-anchor-text {
+    .manifiesto-text {
       font-family: var(--display-font);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: var(--display-weight);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
       text-transform: uppercase;
-      color: #FFFFFF;
-      line-height: 1;
-      position: relative;
-      z-index: 1;
+      line-height: 1.15;
+      color: var(--brand-blue-dark);
     }
 
-    .manifiesto-anchor-text span {
-      color: var(--brand-teal);
-    }
-
-    .manifiesto-closing {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      font-style: italic;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+    .manifiesto-text em {
+      font-style: normal;
+      color: var(--brand-blue);
     }
 
     .manifiesto-signature {
       font-family: var(--display-font);
-      font-size: 0.9rem;
-      letter-spacing: 0.15em;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text);
+      color: var(--text-muted);
       font-weight: var(--display-weight);
+      margin-top: 2.5rem;
     }
 
     /* =============================================
@@ -990,9 +955,6 @@
         grid-template-columns: 1fr;
       }
 
-      .manifiesto-anchor {
-        padding: 2rem 1.5rem;
-      }
     }
   </style>
 </head>
@@ -1067,23 +1029,20 @@
       <div class="container">
         <div class="manifiesto-wrapper reveal">
           <span class="manifiesto-tag">Nuestro Manifiesto</span>
-          <p class="manifiesto-intro">
+          <p class="manifiesto-text">
+            ESIC Medellín no es solo una escuela.<br>
             Es un movimiento de mentes valientes.<br>
             Creemos en el marketing con propósito,<br>
             la economía que transforma,<br>
-            y la tecnología que mejora vidas.
-          </p>
-          <div class="manifiesto-anchor">
-            <p class="manifiesto-anchor-text">
-              No formamos egresados.<br>
-              Formamos <span>transformadores</span>.
-            </p>
-          </div>
-          <p class="manifiesto-closing">
+            y la tecnología que mejora vidas.<br><br>
+            Aquí se piensa distinto.<br>
+            Se actúa con ética.<br>
+            Se impacta con sentido.<br><br>
+            <em>No formamos egresados. Formamos transformadores.</em><br><br>
             Si vienes a encajar, este no es tu lugar.<br>
-            Si vienes a cambiar el juego... bienvenido a casa.
+            Si vienes a cambiar el juego, bienvenido a casa.
           </p>
-          <p class="manifiesto-signature">ESIC Medellín</p>
+          <p class="manifiesto-signature">ESIC Medellín — diseñando futuros.</p>
         </div>
       </div>
     </section>
@@ -1400,7 +1359,6 @@
       <div class="container scroll-break-content">
         <h2>Transformamos el <span>talento</span> en impacto real</h2>
         <p>Más de seis décadas formando líderes que entienden el mercado, innovan con propósito y construyen el futuro de los negocios.</p>
-        <a class="btn" href="#contacto">Conoce nuestra historia</a>
       </div>
     </section>
 
