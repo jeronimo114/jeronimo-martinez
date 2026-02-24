@@ -1343,7 +1343,8 @@ button {
 .nav-actions a,
 .nav-overlay a,
 .nav-overlay button,
-.faq-q {
+.faq-q,
+.programas-tab {
   pointer-events: auto;
   cursor: pointer;
 }
