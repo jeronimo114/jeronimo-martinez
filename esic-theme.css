@@ -1332,6 +1332,21 @@ body.theme-dark .footer.footer-light .footer-bottom {
   }
 }
 
+/* ── Disable all buttons/links except navigation ── */
+a,
+button {
+  pointer-events: none;
+  cursor: default;
+}
+.nav a,
+.nav button,
+.nav-actions a,
+.nav-overlay a,
+.nav-overlay button {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .btn,

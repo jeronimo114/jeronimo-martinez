@@ -3,112 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Executive Programs | ESIC Medellín</title>
-  <meta name="description" content="Executive Programs de ESIC Medellín. Programas de 6 meses para CEOs y ejecutivos enfocados en liderazgo, transformación digital e innovación estratégica.">
+  <title>Executive Program: Digital Business Transformation 2026 | ESIC Medellín</title>
+  <meta name="description" content="Executive Program Digital Business Transformation 2026. Programa cocreado por ESIC, Prestigio y Accenture. Impulsa la transformación digital de tu organización.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../esic-theme.css">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
-    /* Hero Section */
-    .hero-executive {
+    /* ── Hero ── */
+    .hero-exec {
       position: relative;
+      min-height: 85vh;
       display: flex;
-      align-items: center;
-      padding: 120px 0 80px;
+      align-items: flex-end;
+      padding: 0 0 6rem;
     }
-
-    .hero-executive-bg {
+    .hero-exec-bg {
       position: absolute;
       inset: 0;
       z-index: 0;
     }
-
-    .hero-executive-bg img {
+    .hero-exec-bg img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
-    .hero-executive-bg::before {
+    .hero-exec-bg::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg,
-        rgba(0, 71, 233, 0.85) 0%,
-        rgba(0, 71, 233, 0.6) 50%,
-        rgba(0, 71, 233, 0.4) 100%);
+      background: linear-gradient(135deg,
+        rgba(0, 19, 63, 0.92) 0%,
+        rgba(0, 71, 233, 0.75) 50%,
+        rgba(0, 71, 233, 0.5) 100%);
       z-index: 1;
     }
-
-    .hero-executive .container {
+    .hero-exec .container {
       position: relative;
       z-index: 2;
     }
-
-    .hero-executive-content {
-      max-width: 700px;
+    .hero-exec-content {
+      max-width: 800px;
       color: #FFFFFF;
     }
-
-    .hero-executive-eyebrow {
+    .hero-exec-eyebrow {
       font-family: var(--display-font);
-      font-size: 0.9rem;
-      letter-spacing: 0.3em;
+      font-size: 1.1rem;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.8);
-      font-weight: 600;
-      margin-bottom: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
     }
-
-    .hero-executive-title {
+    .hero-exec-title {
       font-family: var(--display-font);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-size: clamp(3rem, 7vw, 5.5rem);
       font-weight: 800;
       text-transform: uppercase;
-      line-height: 0.9;
-      margin-bottom: 1.5rem;
+      line-height: 0.88;
+      margin-bottom: 0.5rem;
     }
-
-    .hero-executive-subtitle {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      opacity: 0.9;
+    .hero-exec-year {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--brand-teal);
       margin-bottom: 2rem;
-      max-width: 550px;
     }
-
-    .hero-executive-actions {
+    .hero-exec-partners {
       display: flex;
-      gap: 1rem;
+      align-items: center;
+      gap: 1.5rem;
       flex-wrap: wrap;
     }
-
-    .hero-executive .btn-primary {
-      background: #FFFFFF;
-      color: var(--brand-blue);
+    .hero-exec-partners span {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .hero-exec-partners img {
+      height: 30px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
     }
 
-    .hero-executive .btn-primary:hover {
-      background: rgba(255, 255, 255, 0.9);
-    }
-
-    .hero-executive .btn-outline {
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      color: #FFFFFF;
-      background: transparent;
-    }
-
-    .hero-executive .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: #FFFFFF;
-    }
-
-    /* Stats Bar */
+    /* ── Stats Bar ── */
     .stats-bar {
       background: #FFFFFF;
       border-radius: 20px;
@@ -121,41 +104,34 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
     }
-
-    .stat-item {
-      text-align: center;
-    }
-
-    .stat-item-number {
+    .stat-item { text-align: center; }
+    .stat-number {
       font-family: var(--display-font);
       font-size: 2.5rem;
       font-weight: 800;
       color: var(--brand-blue);
       line-height: 1;
     }
-
-    .stat-item-label {
-      font-size: 0.85rem;
+    .stat-label {
+      font-size: 0.8rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-top: 0.5rem;
+      margin-top: 0.4rem;
     }
 
-    /* Program Info Section */
-    .program-info-section {
+    /* ── Propósito ── */
+    .proposito {
       padding: 5rem 0;
-      background: #F8F6F2;
+      background: #F5F3EF;
     }
-
-    .program-info-grid {
+    .proposito-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
     }
-
-    .program-info-content h2 {
+    .proposito h2 {
       font-family: var(--display-font);
       font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 800;
@@ -164,152 +140,62 @@
       color: var(--brand-blue-dark);
       margin-bottom: 1.5rem;
     }
-
-    .program-info-content p {
+    .proposito p {
       font-size: 1.1rem;
       line-height: 1.7;
       color: var(--text-muted);
-      margin-bottom: 1.5rem;
     }
-
-    .program-info-list {
-      list-style: none;
-      padding: 0;
-      margin: 2rem 0;
-    }
-
-    .program-info-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid rgba(0, 19, 63, 0.08);
-    }
-
-    .program-info-list li:last-child {
-      border-bottom: none;
-    }
-
-    .program-info-list .icon {
-      width: 24px;
-      height: 24px;
-      color: var(--brand-blue);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .program-info-list strong {
-      color: var(--brand-blue-dark);
-    }
-
-    .program-info-image {
+    .proposito-image {
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 30px 60px rgba(0, 19, 63, 0.15);
     }
-
-    .program-info-image img {
+    .proposito-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    /* Partners Section */
-    .partners-section {
-      padding: 4rem 0;
-      background: #FFFFFF;
-    }
-
-    .partners-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .partners-header h2 {
-      font-family: var(--display-font);
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
-    }
-
-    .partners-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 4rem;
-      flex-wrap: wrap;
-    }
-
-    .partner-logo {
-      padding: 1.5rem 2rem;
-      filter: grayscale(100%);
-      opacity: 0.6;
-      transition: all 0.3s ease;
-    }
-
-    .partner-logo:hover {
-      filter: grayscale(0%);
-      opacity: 1;
-    }
-
-    .partner-logo img {
-      max-height: 50px;
-      max-width: 180px;
-    }
-
-    /* Focus Areas */
-    .focus-section {
+    /* ── Metodología ── */
+    .metodologia {
       padding: 5rem 0;
       background: var(--brand-blue-dark);
       color: #FFFFFF;
     }
-
-    .focus-header {
+    .metodologia-header {
       text-align: center;
       margin-bottom: 3rem;
     }
-
-    .focus-header h2 {
+    .metodologia-header h2 {
       font-family: var(--display-font);
       font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 800;
       text-transform: uppercase;
       line-height: 0.95;
     }
-
-    .focus-header p {
+    .metodologia-header p {
       color: rgba(255, 255, 255, 0.7);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       max-width: 600px;
       margin: 1rem auto 0;
     }
-
-    .focus-grid {
+    .pilares-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
+      margin-bottom: 3rem;
     }
-
-    .focus-card {
-      background: rgba(255, 255, 255, 0.05);
+    .pilar-card {
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 20px;
-      padding: 2rem;
+      padding: 2.5rem 2rem;
       text-align: center;
-      transition: all 0.3s ease;
     }
-
-    .focus-card:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-5px);
-    }
-
-    .focus-card-icon {
+    .pilar-card-icon {
       width: 60px;
       height: 60px;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 1.2rem;
       background: rgba(10, 228, 195, 0.15);
       border-radius: 16px;
       display: flex;
@@ -317,80 +203,38 @@
       justify-content: center;
       color: var(--brand-teal);
     }
-
-    .focus-card-icon svg {
-      width: 28px;
-      height: 28px;
-    }
-
-    .focus-card h3 {
+    .pilar-card-icon svg { width: 28px; height: 28px; }
+    .pilar-card h3 {
       font-family: var(--display-font);
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       font-weight: 700;
       text-transform: uppercase;
-      margin-bottom: 0.8rem;
     }
-
-    .focus-card p {
+    .metodo-items {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .metodo-tag {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50px;
+      padding: 0.6rem 1.5rem;
       font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.7);
-      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.9);
     }
 
-    /* Immersion Section */
-    .immersion-section {
+    /* ── Info General ── */
+    .info-general {
       padding: 5rem 0;
       background: #FFFFFF;
     }
-
-    .immersion-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .immersion-image {
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 30px 60px rgba(0, 19, 63, 0.15);
-    }
-
-    .immersion-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .immersion-content h2 {
-      font-family: var(--display-font);
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.95;
-      color: var(--brand-blue-dark);
-      margin-bottom: 1.5rem;
-    }
-
-    .immersion-content p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    /* Target Audience */
-    .audience-section {
-      padding: 5rem 0;
-      background: #F8F6F2;
-    }
-
-    .audience-header {
+    .info-general-header {
       text-align: center;
       margin-bottom: 3rem;
     }
-
-    .audience-header h2 {
+    .info-general-header h2 {
       font-family: var(--display-font);
       font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 800;
@@ -398,121 +242,398 @@
       line-height: 0.95;
       color: var(--brand-blue-dark);
     }
-
-    .audience-grid {
+    .info-cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
     }
-
-    .audience-card {
-      background: #FFFFFF;
+    .info-card {
+      background: #F5F3EF;
       border-radius: 20px;
-      padding: 2.5rem;
-      text-align: center;
-      box-shadow: 0 10px 40px rgba(0, 19, 63, 0.08);
+      padding: 2rem;
     }
-
-    .audience-card-icon {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 1.5rem;
+    .info-card-icon {
+      width: 48px;
+      height: 48px;
       background: var(--brand-blue);
-      border-radius: 50%;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #FFFFFF;
+      margin-bottom: 1.2rem;
+    }
+    .info-card-icon svg { width: 24px; height: 24px; }
+    .info-card h3 {
+      font-family: var(--display-font);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--brand-blue-dark);
+      margin-bottom: 0.8rem;
+    }
+    .info-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.3rem;
+    }
+    .info-card .precio {
+      font-family: var(--display-font);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--brand-blue);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .info-card .nota {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-style: italic;
     }
 
-    .audience-card-icon svg {
-      width: 32px;
-      height: 32px;
+    /* ── Estructura del Programa ── */
+    .estructura {
+      padding: 5rem 0;
+      background: #F5F3EF;
     }
-
-    .audience-card h3 {
+    .estructura-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .estructura-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--brand-blue-dark);
+    }
+    .modulo {
+      margin-bottom: 2.5rem;
+    }
+    .modulo-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .modulo-badge {
+      font-family: var(--display-font);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #FFFFFF;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+    }
+    .modulo-badge.liderazgo { background: var(--brand-blue); }
+    .modulo-badge.tech { background: var(--brand-teal); color: var(--brand-blue-dark); }
+    .modulo-badge.innovacion { background: var(--brand-orange); }
+    .modulo-badge.internacional { background: var(--brand-blue-dark); }
+    .modulo-title {
       font-family: var(--display-font);
       font-size: 1.3rem;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--brand-blue-dark);
+    }
+    .sesiones {
+      display: grid;
+      gap: 0.5rem;
+      padding-left: 1.5rem;
+      border-left: 3px solid rgba(0, 19, 63, 0.1);
+    }
+    .sesion {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .sesion-fecha {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      white-space: nowrap;
+      min-width: 140px;
+    }
+    .sesion-titulo {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--brand-blue-dark);
+    }
+    .sesion-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 50px;
+      background: rgba(0, 71, 233, 0.1);
+      color: var(--brand-blue);
+      white-space: nowrap;
+    }
+    .sesion-badge.presencial {
+      background: rgba(255, 150, 0, 0.12);
+      color: var(--brand-orange);
+    }
+    .sesion.highlight {
+      background: var(--brand-blue-dark);
+    }
+    .sesion.highlight .sesion-fecha,
+    .sesion.highlight .sesion-titulo {
+      color: #FFFFFF;
+    }
+
+    /* ── Experiencia Internacional ── */
+    .madrid {
+      padding: 5rem 0;
+      background: #FFFFFF;
+    }
+    .madrid-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .madrid-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--brand-blue-dark);
+    }
+    .madrid-header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-top: 0.5rem;
+    }
+    .madrid-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .madrid-day {
+      background: #F5F3EF;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .madrid-day-label {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      margin-bottom: 0.5rem;
+    }
+    .madrid-day-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .madrid-nota {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    .madrid-empresas {
+      text-align: center;
+    }
+    .madrid-empresas h3 {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── Docentes ── */
+    .docentes {
+      padding: 3rem 0;
+      background: #F5F3EF;
+      text-align: center;
+    }
+    .docentes h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--brand-blue-dark);
+      margin-bottom: 0.5rem;
+    }
+    .docentes p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* ── Cocreadores ── */
+    .cocreadores {
+      padding: 5rem 0;
+      background: #FFFFFF;
+    }
+    .cocreadores-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .cocreadores-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--brand-blue-dark);
+    }
+    .cocreador {
+      margin-bottom: 3rem;
+      padding: 3rem;
+      border-radius: 24px;
+      background: #F5F3EF;
+    }
+    .cocreador:last-child { margin-bottom: 0; }
+    .cocreador-top {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .cocreador-logo {
+      height: 40px;
+      width: auto;
+    }
+    .cocreador-stat {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--brand-blue);
+      text-transform: uppercase;
+    }
+    .cocreador h3 {
+      font-family: var(--display-font);
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--brand-blue-dark);
+      margin-bottom: 1rem;
+    }
+    .cocreador p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .cocreador p:last-child { margin-bottom: 0; }
+    .cocreador h4 {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--brand-blue-dark);
+      margin-top: 1.5rem;
       margin-bottom: 0.8rem;
     }
-
-    .audience-card p {
-      font-size: 0.95rem;
+    .cocreador ul {
+      list-style: none;
+      padding: 0;
+    }
+    .cocreador ul li {
+      font-size: 0.9rem;
       color: var(--text-muted);
       line-height: 1.6;
+      padding: 0.3rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .cocreador ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--brand-blue);
+      font-weight: 700;
     }
 
-    /* CTA Section */
-    .cta-section {
+    /* ── Quote ── */
+    .quote-section {
       padding: 5rem 0;
       background: var(--brand-blue);
       color: #FFFFFF;
       text-align: center;
     }
-
-    .cta-section h2 {
+    .quote-section blockquote {
       font-family: var(--display-font);
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 800;
       text-transform: uppercase;
       line-height: 0.95;
-      margin-bottom: 1rem;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
     }
-
-    .cta-section p {
+    .quote-section blockquote em {
+      font-style: normal;
+      color: var(--brand-teal);
+    }
+    .quote-section p {
       font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 500px;
-      margin: 0 auto 2rem;
+      opacity: 0.8;
     }
 
-    .cta-section .btn-primary {
-      background: #FFFFFF;
-      color: var(--brand-blue);
+    /* ── Contacto ── */
+    .contacto-section {
+      padding: 4rem 0;
+      background: var(--brand-blue-dark);
+      color: #FFFFFF;
+      text-align: center;
+    }
+    .contacto-section h2 {
+      font-family: var(--display-font);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .contacto-section .cargo {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.8rem;
+    }
+    .contacto-section .telefono {
+      font-family: var(--display-font);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--brand-teal);
     }
 
-    /* Responsive */
+    /* ── Responsive ── */
     @media (max-width: 1024px) {
-      .stats-bar {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .program-info-grid,
-      .immersion-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .focus-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .audience-grid {
-        grid-template-columns: 1fr;
-      }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .proposito-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .pilares-grid { grid-template-columns: 1fr; }
+      .info-cards { grid-template-columns: 1fr; }
+      .madrid-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
-      .hero-executive {
-        padding: 100px 0 120px;
-      }
-
+      .hero-exec { min-height: 70vh; padding: 0 0 4rem; }
       .stats-bar {
-        grid-template-columns: 1fr;
-        padding: 1.5rem 2rem;
-        gap: 1.5rem;
+        grid-template-columns: 1fr 1fr;
+        padding: 1.5rem;
+        gap: 1.2rem;
       }
+      .sesion { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+      .sesion-fecha { min-width: unset; }
+      .madrid-grid { grid-template-columns: 1fr 1fr; }
+      .cocreador { padding: 2rem; }
+    }
 
-      .focus-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .partners-logos {
-        gap: 2rem;
-      }
+    @media (max-width: 480px) {
+      .stats-bar { grid-template-columns: 1fr; }
+      .madrid-grid { grid-template-columns: 1fr; }
+      .hero-exec-partners { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -565,203 +686,388 @@
       <a href="https://www.tiktok.com/@esic.colombia" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.57 6.33 6.33 0 0 0 9.37 22a6.33 6.33 0 0 0 6.33-6.33V9.18a8.16 8.16 0 0 0 3.89.98V6.69z"/></svg></a>
     </div>
   </div>
+
   <main>
-    <!-- Hero Section -->
-    <section class="hero-executive">
-      <div class="hero-executive-bg">
-        <img src="../assets/images/DSC02284_resultado.jpg" alt="Executive Programs ESIC">
+    <!-- ═══ Hero ═══ -->
+    <section class="hero-exec">
+      <div class="hero-exec-bg">
+        <img src="../assets/images/DSC02284_resultado.jpg" alt="Executive Program ESIC">
       </div>
       <div class="container">
-        <div class="hero-executive-content">
-          <span class="hero-executive-eyebrow">Executive Programs</span>
-          <h1 class="hero-executive-title">LIDERA LA TRANSFORMACIÓN DIGITAL</h1>
-          <p class="hero-executive-subtitle">Programas intensivos de 6 meses diseñados para impulsar el desarrollo de habilidades de liderazgo y gestión en un contexto digital y global.</p>
-          <div class="hero-executive-actions">
-            <a class="btn btn-primary" href="#contacto">SOLICITAR INFORMACIÓN</a>
-            <a class="btn btn-outline" href="#programa">CONOCER MÁS</a>
+        <div class="hero-exec-content">
+          <span class="hero-exec-eyebrow">Executive Program:</span>
+          <h1 class="hero-exec-title">DIGITAL BUSINESS<br>TRANSFORMATION</h1>
+          <div class="hero-exec-year">2026</div>
+          <div class="hero-exec-partners">
+            <span>Programa cocreado por:</span>
+            <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC">
+            <img src="https://placehold.co/120x30/FFFFFF/FFFFFF?text=Prestigio&font=montserrat" alt="Prestigio">
+            <img src="https://placehold.co/120x30/FFFFFF/FFFFFF?text=accenture&font=montserrat" alt="Accenture">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Stats Bar -->
+    <!-- ═══ Stats Bar ═══ -->
     <section class="container">
       <div class="stats-bar">
         <div class="stat-item">
-          <div class="stat-item-number">6</div>
-          <div class="stat-item-label">Meses de duración</div>
+          <div class="stat-number">4</div>
+          <div class="stat-label">Meses de duración</div>
         </div>
         <div class="stat-item">
-          <div class="stat-item-number">1</div>
-          <div class="stat-item-label">Inmersión internacional</div>
+          <div class="stat-number">MADRID</div>
+          <div class="stat-label">Inmersión internacional</div>
         </div>
         <div class="stat-item">
-          <div class="stat-item-number">+60</div>
-          <div class="stat-item-label">Años de experiencia</div>
+          <div class="stat-number">$6.900</div>
+          <div class="stat-label">USD Inversión</div>
         </div>
         <div class="stat-item">
-          <div class="stat-item-number">2</div>
-          <div class="stat-item-label">Partners estratégicos</div>
+          <div class="stat-number">2h</div>
+          <div class="stat-label">Dedicación semanal</div>
         </div>
       </div>
     </section>
 
-    <!-- Program Info Section -->
-    <section class="program-info-section" id="programa">
+    <!-- ═══ Propósito ═══ -->
+    <section class="proposito" id="proposito">
       <div class="container">
-        <div class="program-info-grid">
-          <div class="program-info-content">
-            <h2>PROGRAMA DISEÑADO PARA EJECUTIVOS</h2>
-            <p>Los Executive Programs combinan sesiones teóricas y prácticas intensivas, dirigidas a CEOs, ejecutivos y líderes empresariales que buscan desarrollar competencias estratégicas en transformación digital.</p>
-
-            <ul class="program-info-list">
-              <li>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <div><strong>Sesiones estratégicas</strong> con enfoque en retos reales de negocio</div>
-              </li>
-              <li>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <div><strong>Inmersión internacional</strong> incluida en el programa</div>
-              </li>
-              <li>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <div><strong>Roadmap de transformación digital</strong> técnico y adaptativo</div>
-              </li>
-              <li>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <div><strong>Networking ejecutivo</strong> con líderes de la región</div>
-              </li>
-            </ul>
-
-            <a class="btn btn-primary" href="#contacto">Solicitar información</a>
+        <div class="proposito-grid">
+          <div>
+            <h2>PROPÓSITO DEL PROGRAMA</h2>
+            <p>Impulsar a los altos ejecutivos a liderar la transformación digital de manera estratégica y sistémica, acelerando el desarrollo de un pensamiento digital que genere impacto en la cultura, la innovación y la competitividad de sus organizaciones.</p>
           </div>
-          <div class="program-info-image">
-            <img src="../assets/images/DSC02307_resultado.jpg" alt="Executive Program">
+          <div class="proposito-image">
+            <img src="../assets/images/DSC02307_resultado.jpg" alt="Executive Program ESIC">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Partners Section -->
-    <section class="partners-section">
+    <!-- ═══ Metodología ═══ -->
+    <section class="metodologia">
       <div class="container">
-        <div class="partners-header">
-          <h2>En alianza con</h2>
+        <div class="metodologia-header">
+          <h2>METODOLOGÍA</h2>
+          <p>Tres ejes fundamentales que articulan toda la experiencia de aprendizaje.</p>
         </div>
-        <div class="partners-logos">
-          <div class="partner-logo">
-            <img src="https://placehold.co/180x50/FFFFFF/333333?text=Prestigio&font=montserrat" alt="Prestigio">
-          </div>
-          <div class="partner-logo">
-            <img src="https://placehold.co/180x50/FFFFFF/A100FF?text=accenture&font=montserrat" alt="Accenture">
-          </div>
-          <div class="partner-logo">
-            <img src="https://placehold.co/180x50/FFFFFF/0047E9?text=ESIC&font=montserrat" alt="ESIC">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Focus Areas -->
-    <section class="focus-section">
-      <div class="container">
-        <div class="focus-header">
-          <h2>ÁREAS DE ENFOQUE</h2>
-          <p>Desarrolla las competencias más demandadas en el mundo ejecutivo actual.</p>
-        </div>
-        <div class="focus-grid">
-          <div class="focus-card">
-            <div class="focus-card-icon">
+        <div class="pilares-grid">
+          <div class="pilar-card">
+            <div class="pilar-card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <h3>Liderazgo</h3>
-            <p>Desarrollo de competencias de liderazgo para contextos digitales y globales.</p>
           </div>
-          <div class="focus-card">
-            <div class="focus-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <h3>Transformación Digital</h3>
-            <p>Estrategias y herramientas para liderar la transformación en tu organización.</p>
-          </div>
-          <div class="focus-card">
-            <div class="focus-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            </div>
-            <h3>Innovación Estratégica</h3>
-            <p>Metodologías para generar e implementar innovación de impacto.</p>
-          </div>
-          <div class="focus-card">
-            <div class="focus-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <div class="pilar-card">
+            <div class="pilar-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
             <h3>Tecnologías Emergentes</h3>
-            <p>Aplicación de nuevas tecnologías para resolver retos de negocio.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Immersion Section -->
-    <section class="immersion-section" id="inmersion">
-      <div class="container">
-        <div class="immersion-grid">
-          <div class="immersion-image">
-            <img src="../assets/images/DSC02331_resultado.jpg" alt="Inmersión Internacional">
-          </div>
-          <div class="immersion-content">
-            <h2>INMERSIÓN INTERNACIONAL</h2>
-            <p>El programa incluye una experiencia de inmersión internacional que te permitirá expandir tu visión, conectar con ecosistemas de innovación globales y aplicar lo aprendido en contextos internacionales.</p>
-            <p>Una plataforma única para la innovación y el desarrollo estratégico, donde podrás crear tu propio roadmap de transformación digital.</p>
-            <a class="btn btn-primary" href="#contacto">Más información</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Target Audience -->
-    <section class="audience-section">
-      <div class="container">
-        <div class="audience-header">
-          <h2>¿PARA QUIÉN ES?</h2>
-        </div>
-        <div class="audience-grid">
-          <div class="audience-card">
-            <div class="audience-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div class="pilar-card">
+            <div class="pilar-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
             </div>
-            <h3>CEOs</h3>
-            <p>Directores generales que buscan liderar la transformación de sus organizaciones con visión estratégica.</p>
+            <h3>Innovación</h3>
           </div>
-          <div class="audience-card">
-            <div class="audience-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="metodo-items">
+          <span class="metodo-tag">DMLA (Digital Maturity & Leadership Assessment)</span>
+          <span class="metodo-tag">Masterclasses</span>
+          <span class="metodo-tag">Casos con protagonista</span>
+          <span class="metodo-tag">Mentorías individuales</span>
+          <span class="metodo-tag">Experiencias presenciales</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Información General ═══ -->
+    <section class="info-general" id="info">
+      <div class="container">
+        <div class="info-general-header">
+          <h2>INFORMACIÓN GENERAL</h2>
+        </div>
+        <div class="info-cards">
+          <!-- Fechas -->
+          <div class="info-card">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             </div>
-            <h3>Ejecutivos</h3>
-            <p>Directivos y gerentes de área que necesitan actualizar sus competencias de gestión digital.</p>
+            <h3>Fechas</h3>
+            <p><strong>Fecha de inicio:</strong> martes 2 de junio 2026</p>
+            <p><strong>Fecha de finalización:</strong> viernes 2 de octubre 2026</p>
           </div>
-          <div class="audience-card">
-            <div class="audience-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+          <!-- Inmersión -->
+          <div class="info-card">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
-            <h3>Líderes de Negocio</h3>
-            <p>Emprendedores y líderes que quieren escalar sus empresas con estrategias de innovación.</p>
+            <h3>Inmersión Internacional</h3>
+            <p><strong>Madrid – 4 días</strong></p>
+            <p>Martes 29 de septiembre a viernes 2 de octubre 2026</p>
+          </div>
+          <!-- Duración -->
+          <div class="info-card">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Duración</h3>
+            <p><strong>Duración del programa:</strong> 4 meses</p>
+            <p><strong>Dedicación semanal:</strong> 2 horas en sesiones virtuales, los jueves de 7:00 a 9:00am</p>
+            <p>2 experiencias presenciales en ESIC Medellín</p>
+          </div>
+          <!-- Inversión -->
+          <div class="info-card">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3>Inversión</h3>
+            <div class="precio">$6.900 USD</div>
+            <p class="nota">*No incluye gastos de tiquetes ni hospedaje en Madrid</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contacto">
+    <!-- ═══ Estructura del Programa ═══ -->
+    <section class="estructura" id="estructura">
       <div class="container">
-        <h2>¿LISTO PARA TRANSFORMAR TU LIDERAZGO?</h2>
-        <p>Solicita información sobre el próximo Executive Program y da el siguiente paso en tu carrera.</p>
-        <a class="btn btn-primary" href="mailto:info@esic.co">CONTACTAR AHORA</a>
+        <div class="estructura-header">
+          <h2>ESTRUCTURA DEL PROGRAMA</h2>
+        </div>
+
+        <!-- Módulo 1: Liderazgo -->
+        <div class="modulo">
+          <div class="modulo-header">
+            <span class="modulo-badge liderazgo">Módulo 1</span>
+            <span class="modulo-title">Liderazgo</span>
+          </div>
+          <div class="sesiones">
+            <div class="sesion">
+              <span class="sesion-fecha">Martes 2 de junio</span>
+              <span class="sesion-titulo">KICKOFF</span>
+              <span class="sesion-badge presencial">Presencial</span>
+            </div>
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 4 de junio</span>
+              <span class="sesion-titulo">Los cambios sociales I</span>
+            </div>
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 11 de junio</span>
+              <span class="sesion-titulo">Los cambios sociales II</span>
+            </div>
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 18 de junio</span>
+              <span class="sesion-titulo">Cultura Digital</span>
+            </div>
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 25 de junio</span>
+              <span class="sesion-titulo">Liderazgo</span>
+              <span class="sesion-badge presencial">Experiencia presencial</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Módulo 2: Tecnologías Emergentes -->
+        <div class="modulo">
+          <div class="modulo-header">
+            <span class="modulo-badge tech">Módulo 2</span>
+            <span class="modulo-title">Tecnologías Emergentes</span>
+          </div>
+          <div class="sesiones">
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 16 de julio</span>
+              <span class="sesion-titulo">Peer mentoring</span>
+            </div>
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 23 de julio</span>
+              <span class="sesion-titulo">Caso con protagonista</span>
+            </div>
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 30 de julio</span>
+              <span class="sesion-titulo">IoT</span>
+            </div>
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 6 de agosto</span>
+              <span class="sesion-titulo">Ciberseguridad</span>
+            </div>
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 13 de agosto</span>
+              <span class="sesion-titulo">Blockchain</span>
+            </div>
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 20 de agosto</span>
+              <span class="sesion-titulo">Workshop IA</span>
+              <span class="sesion-badge presencial">Presencial</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Módulo 3: Innovación -->
+        <div class="modulo">
+          <div class="modulo-header">
+            <span class="modulo-badge innovacion">Módulo 3</span>
+            <span class="modulo-title">Innovación</span>
+          </div>
+          <div class="sesiones">
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 3 de septiembre</span>
+              <span class="sesion-titulo">Caso con protagonista</span>
+            </div>
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 10 de septiembre</span>
+              <span class="sesion-titulo">Innovación I</span>
+            </div>
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 17 de septiembre</span>
+              <span class="sesion-titulo">Innovación II</span>
+            </div>
+            <div class="sesion">
+              <span class="sesion-fecha">Jueves 24 de septiembre</span>
+              <span class="sesion-titulo">Caso con protagonista</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experiencia Internacional -->
+        <div class="modulo">
+          <div class="modulo-header">
+            <span class="modulo-badge internacional">Inmersión</span>
+            <span class="modulo-title">Experiencia Internacional Madrid</span>
+          </div>
+          <div class="sesiones">
+            <div class="sesion highlight">
+              <span class="sesion-fecha">Martes 29 de septiembre a viernes 2 de octubre 2026</span>
+              <span class="sesion-titulo">Madrid – 4 días</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer section-rounded" id="contacto">
+    <!-- ═══ Experiencia Internacional Madrid ═══ -->
+    <section class="madrid">
+      <div class="container">
+        <div class="madrid-header">
+          <h2>EXPERIENCIA INTERNACIONAL</h2>
+          <p>Inmersión de 4 días en Madrid, España</p>
+        </div>
+        <div class="madrid-grid">
+          <div class="madrid-day">
+            <div class="madrid-day-label">Martes</div>
+            <div class="madrid-day-date">29 de septiembre</div>
+          </div>
+          <div class="madrid-day">
+            <div class="madrid-day-label">Miércoles</div>
+            <div class="madrid-day-date">30 de septiembre</div>
+          </div>
+          <div class="madrid-day">
+            <div class="madrid-day-label">Jueves</div>
+            <div class="madrid-day-date">1 de octubre</div>
+          </div>
+          <div class="madrid-day">
+            <div class="madrid-day-label">Viernes</div>
+            <div class="madrid-day-date">2 de octubre</div>
+          </div>
+        </div>
+        <p class="madrid-nota">*sujeto a cambios</p>
+        <div class="madrid-empresas">
+          <h3>Empresas visitadas antes:</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Docentes ═══ -->
+    <section class="docentes">
+      <div class="container">
+        <h2>DOCENTES DEL PROGRAMA</h2>
+        <p>*sujeto a cambios</p>
+      </div>
+    </section>
+
+    <!-- ═══ Cocreadores ═══ -->
+    <section class="cocreadores" id="cocreadores">
+      <div class="container">
+        <div class="cocreadores-header">
+          <h2>PROGRAMA COCREADO POR</h2>
+        </div>
+
+        <!-- ESIC -->
+        <div class="cocreador">
+          <div class="cocreador-top">
+            <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC" class="cocreador-logo">
+            <span class="cocreador-stat">+58 Años Formando a profesionales</span>
+          </div>
+          <p>Fundada en 1965 con la misión de formar profesionales que den respuesta a las necesidades, reales y cambiantes, de las empresas y la Sociedad.</p>
+          <p>Nuestra alta vinculación con el entorno empresarial nos ha facilitado integrar la academia y realidad empresarial, dotando a todos los programas de la flexibilidad que permite al alumnado salir de nuestras aulas realmente capacitados para enfrentarse a los retos actuales de organizaciones modernas con posibilidades reales de éxito, siendo además motores de cambio en las mismas.</p>
+          <p>Son más de cinco décadas en la que hemos generado programas innovadores, impartidos por un profesorado cualificado de excelente perfil académico, aprobada experiencia docente y reconocida trayectoria profesional.</p>
+          <p>En el 2021 ESIC gestó una alianza sin precedentes con los principales empresarios de Colombia, para hacer viable la llegada de una Business School de primer mundo, destacada no solo por ser un motor de innovación y de educación en España, sino por formar a exitosos lideres empresariales.</p>
+          <p>Es así como llega ESIC a Medellín, convirtiéndose en el Campus #13 de la escuela en el mundo y su puerta de entrada hacia América Latina.</p>
+        </div>
+
+        <!-- Prestigio -->
+        <div class="cocreador">
+          <div class="cocreador-top">
+            <img src="https://placehold.co/140x40/F5F3EF/333333?text=Prestigio&font=montserrat" alt="Prestigio" class="cocreador-logo">
+          </div>
+          <p>Prestigio es una organización que nació en 2009 con el propósito de transformar organizaciones y movilizar personas desde un liderazgo desde el SER.</p>
+          <p>Orientados por valores de servicio, impacto medible, profundidad práctica y profundamente humanos, ponemos al servicio de nuestros clientes procesos transformadores desde el profundo convencimiento del potencial del SER humano y de que sólo a través de liderazgo colaborativo, adaptativo y desde el SER podemos acelerar el cambio exponencial al que estamos desafiados:</p>
+          <h4>Datos de Valor</h4>
+          <ul>
+            <li>+ de 20,000 líderes impactados en 10 países de Iberoamérica</li>
+            <li>Oficinas en Miami, Medellín, Buenos Aires y Madrid.</li>
+            <li>Trabajamos con 7 de las 10 empresas más grandes de Colombia y con los 3 principales bancos de Colombia.</li>
+            <li>Relaciones duraderas de valor con las áreas de RR.HH. y CEO (+ de 6 años en promedio de trabajo con nuestros clientes)</li>
+            <li>Socios estratégicos en el diseño y ejecución de programas de liderazgo para Westfield Business School, EIG (Escuela Internacional de Gerencia) y ESIC Colombia.</li>
+            <li>Altos índices de satisfacción (RR.HH. y CEO) y participantes.</li>
+            <li>Experiencia de más de 5 años en programas de liderazgo online y blended, con impacto REAL y MEDIBLE.</li>
+            <li>+ de 12 años de experiencia en América Latina y España.</li>
+            <li>Sistema de medición cuantificable de los programas, con un alto foco en generar transformación de comportamientos en los participantes con data analytics.</li>
+          </ul>
+        </div>
+
+        <!-- Accenture -->
+        <div class="cocreador">
+          <div class="cocreador-top">
+            <img src="https://placehold.co/140x40/F5F3EF/A100FF?text=accenture&font=montserrat" alt="Accenture" class="cocreador-logo">
+          </div>
+          <p>Nuestra misión es ayudar a las organizaciones a navegar y capitalizar los cambios en un mundo que exige adaptación y visión de futuro como nunca antes. A través de nuestra extensa red global y profundo conocimiento en diversas industrias, colaboramos estrechamente con nuestros clientes en cada etapa de su transformación para crear valor sostenible que trasciende.</p>
+
+          <h4>Presencia Global, Impacto Local</h4>
+          <p>Con más de 733,000 empleados comprometidos y una presencia en 200 ciudades alrededor del mundo, nuestra capacidad para influir y ejecutar proyectos de transformación es incomparable. Esta vasta red no solo amplifica nuestra capacidad operativa, sino que también enriquece nuestra comprensión y sensibilidad hacia las dinámicas locales, permitiéndonos ofrecer soluciones verdaderamente personalizadas y efectivas.</p>
+
+          <h4>Un Compromiso con el Aprendizaje Mutuo</h4>
+          <p>En Accenture, creemos en el poder de la colaboración y el aprendizaje continuo. Es por eso que nos enorgullece decir que impactamos y aprendemos junto a más de 9,000 clientes en todo el mundo. Cada interacción con nuestros clientes es una oportunidad para crecer, adaptarnos y mejorar, asegurando que las soluciones que ofrecemos no solo respondan a las necesidades actuales, sino que también anticipen los desafíos futuros.</p>
+
+          <h4>Educación y Transformación Humana</h4>
+          <p>Estamos convencidos de que el verdadero cambio comienza con la educación. Por ello, apoyamos y creemos en los sistemas educativos que colocan el SER en el centro de la transformación. Esta filosofía nos guía para desarrollar soluciones que no solo transformen estructuras y procesos, sino que también fomenten el desarrollo humano integral y sostenible.</p>
+
+          <h4>En Accenture, Enfrentamos el Cambio y lo Lideramos</h4>
+          <p>Invitamos a todas las organizaciones, sin importar en qué punto se encuentren en su camino de transformación, a unirse a nosotros en este viaje hacia un futuro más prometedor y sostenible. Juntos, podemos generar un impacto duradero que se extienda en todas direcciones, beneficiando a empresas, sociedades y el mundo en general.</p>
+          <p>Descubre más sobre cómo podemos ayudarte a transformar tu organización para el mundo de mañana.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Quote ═══ -->
+    <section class="quote-section">
+      <div class="container">
+        <blockquote>"ES MOMENTO DE TRANSFORMAR,<br><em>no de adaptarse.</em><br>Tú marcas la diferencia"</blockquote>
+      </div>
+    </section>
+
+    <!-- ═══ Contacto ═══ -->
+    <section class="contacto-section" id="contacto">
+      <div class="container">
+        <h2>JUAN MANUEL JIMÉNEZ</h2>
+        <p class="cargo">Director Comercial ESIC Medellín</p>
+        <a class="telefono" href="tel:+573042364804">+57 304 2364804</a>
+      </div>
+    </section>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="footer section-rounded" id="footer">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-cta">
@@ -782,8 +1088,8 @@
               <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC Business & Marketing School" style="height:50px;width:auto;">
             </div>
             <div class="footer-contact">
-            <p>info@esic.co</p>
-          </div>
+              <p>info@esic.co</p>
+            </div>
             <div class="footer-social">
               <a href="https://www.linkedin.com/school/esic-medellin/" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -804,13 +1110,18 @@
             </div>
           </div>
         </div>
-
         <div class="footer-bottom">
-          <p>© 2025 ESIC. Todos los derechos reservados.</p>
+          <p>&copy; 2025 ESIC. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
   </main>
-<script src="../nav.js"></script>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/573042364804" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="../nav.js"></script>
 </body>
 </html>

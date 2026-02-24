@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Becas Pregrado | ESIC Medellín</title>
-  <meta name="description" content="Becas y ayudas económicas para pregrado en ESIC Medellín. Excelencia académica, movilidad nacional, hermanos matriculados, familiar antiguo alumno, Desafío Junior y Open Day.">
+  <meta name="description" content="Becas y ayudas económicas para pregrado en ESIC Medellín. Excelencia académica, movilidad nacional, hermanos matriculados y familiar antiguo alumno.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
@@ -134,9 +134,8 @@
     /* ── Beca cards ── */
     .beca-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
-      max-width: 960px;
       margin: 0 auto;
     }
 
@@ -207,7 +206,7 @@
     }
 
     .req-box {
-      background: var(--brand-blue-dark);
+      background: var(--pregrado-orange);
       color: #FFFFFF;
       padding: 2.5rem;
     }
@@ -241,7 +240,7 @@
     .req-box li::before {
       content: counter(req) ".";
       font-weight: 700;
-      color: var(--pregrado-orange);
+      color: #FFFFFF;
       min-width: 1.2rem;
     }
 
@@ -377,7 +376,7 @@
 
     /* ── CTA bottom ── */
     .cta-box {
-      background: var(--brand-blue-dark);
+      background: var(--pregrado-orange);
       border-radius: 24px;
       padding: clamp(2rem, 5vw, 3.5rem);
       display: flex;
@@ -415,8 +414,8 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.9rem 1.8rem;
-      background: var(--pregrado-orange);
-      color: #FFFFFF;
+      background: #FFFFFF;
+      color: var(--pregrado-orange);
       border-radius: 999px;
       font-size: 0.8rem;
       font-weight: 600;
@@ -434,7 +433,7 @@
     }
 
     /* ── Responsive ── */
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
       .beca-grid { grid-template-columns: repeat(2, 1fr); }
       .req-grid { grid-template-columns: 1fr; }
       .req-img { min-height: 250px; }
@@ -565,29 +564,6 @@
             </div>
           </div>
 
-          <div class="beca-card">
-            <div class="beca-card-top"></div>
-            <div class="beca-card-body">
-              <div class="beca-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-              </div>
-              <h3>Desafío Junior</h3>
-              <div class="beca-pct">Beca del 50%</div>
-              <p>Participa y sé ganador del Desafío Junior convocado por ESIC Medellín.</p>
-            </div>
-          </div>
-
-          <div class="beca-card">
-            <div class="beca-card-top"></div>
-            <div class="beca-card-body">
-              <div class="beca-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              </div>
-              <h3>Open Day</h3>
-              <div class="beca-pct">Beca del 20%</div>
-              <p>Participa y sé ganador del Open Day convocado por ESIC Medellín.</p>
-            </div>
-          </div>
 
         </div>
       </div>
