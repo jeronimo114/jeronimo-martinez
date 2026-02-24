@@ -420,7 +420,7 @@ body.nav-open {
 }
 
 .hero {
-  padding: 7rem 0 3rem;
+  padding: 120px 0 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -1277,7 +1277,7 @@ body.theme-dark .footer.footer-light .footer-bottom {
   }
 
   .hero {
-    padding-top: 6rem;
+    padding-top: 100px;
   }
 
   .hero-media {
