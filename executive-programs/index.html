@@ -69,7 +69,7 @@
     .hero-exec-partners {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 2rem;
       flex-wrap: wrap;
     }
     .hero-exec-partners span {
@@ -78,22 +78,19 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
-    .hero-exec-partners img {
-      height: 24px;
-      width: auto;
-      max-width: 120px;
+    .hero-exec-partners .partner-logo {
+      width: 120px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-exec-partners .partner-logo img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       filter: brightness(0) invert(1);
-      opacity: 0.85;
-    }
-    .hero-exec-partners .partner-name {
-      font-family: var(--display-font);
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      opacity: 0.85;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+      opacity: 0.9;
     }
 
     /* ── Stats Bar ── */
@@ -393,20 +390,18 @@
       flex-wrap: wrap;
     }
     .logo-item {
-      text-align: center;
-      width: 160px;
+      width: 180px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .logo-item img {
-      height: auto;
       width: 100%;
-      max-height: 45px;
+      height: 100%;
       object-fit: contain;
-      margin-bottom: 0.5rem;
-      opacity: 0.7;
-      transition: all 0.3s;
+      opacity: 0.65;
+      transition: opacity 0.3s;
     }
     .logo-item img:hover {
       opacity: 1;
@@ -555,9 +550,9 @@
           <div class="hero-exec-year">2026</div>
           <div class="hero-exec-partners">
             <span>Programa cocreado por:</span>
-            <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC">
-            <img src="https://prestigio.com.co/wp-content/uploads/2024/04/logo-prestigio.webp" alt="Prestigio">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/3840px-Accenture.svg.png" alt="Accenture">
+            <div class="partner-logo"><img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC"></div>
+            <div class="partner-logo"><img src="https://prestigio.com.co/wp-content/uploads/2024/04/logo-prestigio.webp" alt="Prestigio"></div>
+            <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/3840px-Accenture.svg.png" alt="Accenture"></div>
           </div>
         </div>
       </div>
