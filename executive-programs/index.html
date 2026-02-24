@@ -100,8 +100,9 @@
     .stats-bar {
       background: #FFFFFF;
       border-radius: 20px;
-      padding: 2rem 3rem;
-      margin-top: -60px;
+      padding: 2.5rem 3rem;
+      margin-top: -50px;
+      margin-bottom: 2rem;
       position: relative;
       z-index: 10;
       box-shadow: 0 20px 60px rgba(0,19,63,0.12);
@@ -128,15 +129,15 @@
     /* ── Section overlap pattern ── */
     .s-overlap {
       position: relative;
-      margin-top: -50px;
+      margin-top: -40px;
       border-radius: 50px 50px 0 0;
       z-index: 1;
     }
 
     /* ── Propósito + Metodología (merged) ── */
     .proposito {
-      margin-top: -120px;
-      padding: 8rem 0 6rem;
+      margin-top: -100px;
+      padding: 10rem 0 7rem;
       background: #F5F3EF;
       z-index: 2;
     }
@@ -153,12 +154,13 @@
       text-transform: uppercase;
       line-height: 0.95;
       color: var(--brand-blue-dark);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
     .proposito p {
       font-size: 1.05rem;
       line-height: 1.7;
       color: var(--text-muted);
+      margin-bottom: 0;
     }
     .pilares {
       display: flex;
@@ -208,8 +210,8 @@
 
     /* ── Info General ── */
     .info-section {
-      padding: 5rem 0 6rem;
-      background: #FFFFFF;
+      padding: 6rem 0 7rem;
+      background: #0047E9;
     }
     .info-section h2 {
       font-family: var(--display-font);
@@ -217,9 +219,9 @@
       font-weight: 800;
       text-transform: uppercase;
       line-height: 0.95;
-      color: var(--brand-blue-dark);
+      color: #FFFFFF;
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
     .info-row {
       display: grid;
@@ -230,40 +232,40 @@
       text-align: center;
     }
     .info-col-icon {
-      color: var(--brand-blue);
+      color: rgba(255,255,255,0.8);
       margin-bottom: 0.8rem;
     }
-    .info-col-icon svg { width: 28px; height: 28px; }
+    .info-col-icon svg { width: 28px; height: 28px; stroke: rgba(255,255,255,0.8); }
     .info-col h3 {
       font-family: var(--display-font);
       font-size: 1rem;
       font-weight: 700;
       text-transform: uppercase;
-      color: var(--brand-blue-dark);
+      color: #FFFFFF;
       margin-bottom: 0.4rem;
     }
     .info-col p {
       font-size: 0.85rem;
       line-height: 1.5;
-      color: var(--text-muted);
+      color: rgba(255,255,255,0.8);
     }
     .info-col .precio {
       font-family: var(--display-font);
       font-size: 1.8rem;
       font-weight: 800;
-      color: var(--brand-blue);
+      color: var(--brand-teal);
       line-height: 1;
     }
     .info-col .nota {
       font-size: 0.75rem;
-      color: var(--text-light);
+      color: rgba(255,255,255,0.6);
       font-style: italic;
       margin-top: 0.3rem;
     }
 
     /* ── Estructura ── */
     .estructura {
-      padding: 5rem 0 6rem;
+      padding: 6rem 0 7rem;
       background: #F5F3EF;
     }
     .estructura h2 {
@@ -274,7 +276,7 @@
       line-height: 0.95;
       color: var(--brand-blue-dark);
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
     .modulos-grid {
       display: grid;
@@ -366,7 +368,7 @@
 
     /* ── Cocreadores ── */
     .cocreadores {
-      padding: 4rem 0 5rem;
+      padding: 5rem 0 6rem;
       background: #FFFFFF;
       text-align: center;
     }
@@ -377,22 +379,26 @@
       text-transform: uppercase;
       color: var(--text-muted);
       letter-spacing: 0.1em;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
     .logos-row {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 4rem;
+      gap: 5rem;
       flex-wrap: wrap;
     }
     .logo-item {
       text-align: center;
+      width: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .logo-item img {
-      height: 36px;
-      width: auto;
-      max-width: 160px;
+      height: auto;
+      width: 100%;
+      max-height: 45px;
       object-fit: contain;
       margin-bottom: 0.5rem;
       opacity: 0.7;
@@ -420,8 +426,8 @@
 
     /* ── Quote + Contacto ── */
     .quote-cta {
-      padding: 5rem 0;
-      background: var(--brand-blue);
+      padding: 6rem 0;
+      background: var(--brand-blue-dark);
       color: #FFFFFF;
       text-align: center;
     }
