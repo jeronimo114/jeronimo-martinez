@@ -18,7 +18,7 @@
       min-height: 85vh;
       display: flex;
       align-items: flex-end;
-      padding: 0 0 6rem;
+      padding: 0 0 5rem;
     }
     .hero-exec-bg {
       position: absolute;
@@ -133,7 +133,7 @@
 
     /* ── Propósito + Metodología (merged) ── */
     .proposito {
-      padding: 5rem 0 6rem;
+      padding: 6rem 0 6rem;
       background: #F5F3EF;
     }
     .proposito-grid {
@@ -295,9 +295,9 @@
       border-radius: 50px;
       margin-bottom: 0.8rem;
     }
-    .modulo-badge.lid { background: var(--brand-blue); }
-    .modulo-badge.tech { background: var(--brand-teal); color: var(--brand-blue-dark); }
-    .modulo-badge.innov { background: var(--brand-orange); }
+    .modulo-badge.lid,
+    .modulo-badge.tech,
+    .modulo-badge.innov { background: #0047E9; }
     .modulo-col h3 {
       font-family: var(--display-font);
       font-size: 1.15rem;
@@ -331,12 +331,12 @@
       text-transform: uppercase;
       padding: 0.1rem 0.4rem;
       border-radius: 50px;
-      background: rgba(255,150,0,0.12);
-      color: var(--brand-orange);
+      background: rgba(0,71,233,0.1);
+      color: #0047E9;
       white-space: nowrap;
     }
     .madrid-highlight {
-      background: var(--brand-blue-dark);
+      background: #0047E9;
       border-radius: 12px;
       padding: 1.2rem 1.5rem;
       display: flex;
@@ -545,11 +545,9 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- ═══ Stats Bar ═══ -->
-    <section class="container">
-      <div class="stats-bar">
+      <!-- Stats Bar (inside hero for proper overlap) -->
+      <div class="container">
+        <div class="stats-bar">
         <div class="stat-item">
           <div class="stat-number">4</div>
           <div class="stat-label">Meses de duración</div>
@@ -566,6 +564,7 @@
           <div class="stat-number">2h</div>
           <div class="stat-label">Dedicación semanal</div>
         </div>
+      </div>
       </div>
     </section>
 
@@ -597,13 +596,6 @@
                 </div>
                 <span>Innovación</span>
               </div>
-            </div>
-            <div class="metodo-tags">
-              <span class="metodo-tag">DMLA</span>
-              <span class="metodo-tag">Masterclasses</span>
-              <span class="metodo-tag">Casos con protagonista</span>
-              <span class="metodo-tag">Mentorías individuales</span>
-              <span class="metodo-tag">Experiencias presenciales</span>
             </div>
           </div>
         </div>
