@@ -98,13 +98,6 @@
       aspect-ratio: 1/1;
     }
 
-    .asset-preview.avatar {
-      aspect-ratio: 1/1;
-      max-width: 120px;
-      margin: 0 auto;
-      border-radius: 50%;
-    }
-
     .asset-preview.logo {
       aspect-ratio: 2/1;
     }
@@ -125,18 +118,6 @@
       padding: 0.3rem 0.6rem;
       border-radius: 4px;
       font-family: monospace;
-    }
-
-    .asset-id {
-      position: absolute;
-      top: 0.5rem;
-      left: 0.5rem;
-      background: var(--brand-teal);
-      color: #00133F;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
     }
 
     .asset-info {
@@ -171,45 +152,6 @@
       font-style: italic;
     }
 
-    .summary-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .summary-table th,
-    .summary-table td {
-      padding: 1rem;
-      text-align: left;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .summary-table th {
-      background: rgba(0, 0, 0, 0.3);
-      color: var(--brand-teal);
-      font-family: var(--display-font);
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-
-    .summary-table td {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.9rem;
-    }
-
-    .summary-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .summary-table .id-cell {
-      font-family: monospace;
-      color: var(--brand-teal);
-    }
-
     .design-footer {
       text-align: center;
       margin-top: 4rem;
@@ -222,15 +164,29 @@
       font-size: 0.9rem;
     }
 
-    .avatar-row {
-      display: flex;
+    .banner-variants {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
       gap: 1.5rem;
-      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
     }
 
-    .avatar-row .asset-card {
-      flex: 0 0 auto;
-      width: 200px;
+    .banner-variants .asset-card:last-child .asset-preview {
+      aspect-ratio: 4/5;
+    }
+
+    .variant-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand-teal);
+      padding: 0.3rem 0.6rem;
+      background: rgba(9, 207, 144, 0.15);
+      border-radius: 4px;
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
     }
   </style>
 </head>
@@ -248,131 +204,202 @@
 
     <!-- BANNERS HERO -->
     <section class="asset-section">
-      <h2 class="section-title">Banners Hero (1920x1080)</h2>
-      <div class="asset-grid">
+      <h2 class="section-title">Banners Hero</h2>
+
+      <div class="banner-variants">
         <div class="asset-card">
           <div class="asset-preview">
-            <img src="https://placehold.co/1920x1080/00133F/FFFFFF?text=Hero+Home" alt="Hero Home">
-            <span class="asset-id">B01</span>
-            <span class="asset-dimensions">1920x1080</span>
+            <img src="https://placehold.co/2560x1068/00133F/FFFFFF?text=Home" alt="Hero Home Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
           </div>
           <div class="asset-info">
             <h3>Home</h3>
-            <div class="page">index.html</div>
             <div class="description">Estudiantes en campus, ambiente profesional y moderno</div>
             <div class="style">Foto real, luz natural, diversidad</div>
           </div>
         </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/00133F/FFFFFF?text=Home+Mobile" alt="Hero Home Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="banner-variants">
         <div class="asset-card">
           <div class="asset-preview">
-            <img src="https://placehold.co/1920x1080/FF8701/FFFFFF?text=Pregrado" alt="Pregrado">
-            <span class="asset-id">B02</span>
-            <span class="asset-dimensions">1920x1080</span>
+            <img src="https://placehold.co/2560x1068/FF8701/FFFFFF?text=Pregrado" alt="Pregrado Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
           </div>
           <div class="asset-info">
             <h3>Pregrado General</h3>
-            <div class="page">pregrado/index.html</div>
             <div class="description">Aulas con estudiantes jóvenes, energía joven</div>
             <div class="style">Energético, colores cálidos, juventud</div>
           </div>
         </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/FF8701/FFFFFF?text=Pregrado+Mobile" alt="Pregrado Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="banner-variants">
         <div class="asset-card">
           <div class="asset-preview">
-            <img src="https://placehold.co/1920x1080/0047E9/FFFFFF?text=Marketing+Global" alt="Marketing Global">
-            <span class="asset-id">B03</span>
-            <span class="asset-dimensions">1920x1080</span>
+            <img src="https://placehold.co/2560x1068/0047E9/FFFFFF?text=Marketing+Global" alt="Marketing Global Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
           </div>
           <div class="asset-info">
             <h3>Marketing Global</h3>
-            <div class="page">pregrado/marketing-global.html</div>
             <div class="description">Ambiente internacional, negocios globales</div>
             <div class="style">Profesional, azul dominante, cosmopolita</div>
           </div>
         </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/0047E9/FFFFFF?text=Mkt+Global+Mobile" alt="Marketing Global Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="banner-variants">
         <div class="asset-card">
           <div class="asset-preview">
-            <img src="https://placehold.co/1920x1080/FF8701/FFFFFF?text=Digital+Business" alt="Digital Business">
-            <span class="asset-id">B04</span>
-            <span class="asset-dimensions">1920x1080</span>
+            <img src="https://placehold.co/2560x1068/FF8701/FFFFFF?text=Digital+Business" alt="Digital Business Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
           </div>
           <div class="asset-info">
             <h3>Digital Business</h3>
-            <div class="page">pregrado/digital-business.html</div>
             <div class="description">Tech/digital, pantallas, innovación</div>
             <div class="style">Moderno, naranja accent, tecnológico</div>
           </div>
         </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/FF8701/FFFFFF?text=Dig+Business+Mobile" alt="Digital Business Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="banner-variants">
         <div class="asset-card">
           <div class="asset-preview">
-            <img src="https://placehold.co/1920x1080/09CF90/FFFFFF?text=Master" alt="Master">
-            <span class="asset-id">B05</span>
-            <span class="asset-dimensions">1920x1080</span>
+            <img src="https://placehold.co/2560x1068/09CF90/FFFFFF?text=Master" alt="Máster Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
           </div>
           <div class="asset-info">
             <h3>Máster General</h3>
-            <div class="page">master/v2.html</div>
             <div class="description">Ejecutivos, networking, ambiente corporativo</div>
             <div class="style">Sofisticado, verde teal, profesional</div>
           </div>
         </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/09CF90/FFFFFF?text=Master+Mobile" alt="Máster Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="banner-variants">
         <div class="asset-card">
           <div class="asset-preview">
-            <img src="https://placehold.co/1920x1080/0047E9/FFFFFF?text=Digital+Marketing" alt="Digital Marketing">
-            <span class="asset-id">B06</span>
-            <span class="asset-dimensions">1920x1080</span>
+            <img src="https://placehold.co/2560x1068/0047E9/FFFFFF?text=Digital+Marketing" alt="Digital Marketing Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
           </div>
           <div class="asset-info">
             <h3>Digital Marketing</h3>
-            <div class="page">master/digital-marketing.html</div>
             <div class="description">Data, analytics, estrategias de marketing</div>
             <div class="style">Azul tech, datos visuales, moderno</div>
           </div>
         </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/0047E9/FFFFFF?text=Dig+Mkt+Mobile" alt="Digital Marketing Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="banner-variants">
         <div class="asset-card">
           <div class="asset-preview">
-            <img src="https://placehold.co/1920x1080/09CF90/FFFFFF?text=Customer+Experience" alt="Customer Experience">
-            <span class="asset-id">B07</span>
-            <span class="asset-dimensions">1920x1080</span>
+            <img src="https://placehold.co/2560x1068/09CF90/FFFFFF?text=Customer+Experience" alt="Customer Experience Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
           </div>
           <div class="asset-info">
             <h3>Customer Experience</h3>
-            <div class="page">master/customer-experience.html</div>
             <div class="description">Diseño, innovación, experiencia de usuario</div>
             <div class="style">Naranja creativo, design thinking</div>
           </div>
         </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/09CF90/FFFFFF?text=CX+Mobile" alt="Customer Experience Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="banner-variants">
         <div class="asset-card">
           <div class="asset-preview">
-            <img src="https://placehold.co/1200x800/0047E9/FFFFFF?text=Level+Up" alt="Level Up">
-            <span class="asset-id">B08</span>
-            <span class="asset-dimensions">1200x800</span>
+            <img src="https://placehold.co/2560x1068/0047E9/FFFFFF?text=Level+Up" alt="Level Up Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
           </div>
           <div class="asset-info">
             <h3>Level Up</h3>
-            <div class="page">level-up/index.html</div>
             <div class="description">Workshop, capacitación, aprendizaje activo</div>
             <div class="style">Dinámico, energético, colaborativo</div>
           </div>
         </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/0047E9/FFFFFF?text=Level+Up+Mobile" alt="Level Up Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="banner-variants">
         <div class="asset-card">
           <div class="asset-preview">
-            <img src="https://placehold.co/1920x1080/00133F/FFFFFF?text=Quienes+Somos" alt="Quienes Somos">
-            <span class="asset-id">B09</span>
-            <span class="asset-dimensions">1920x1080</span>
+            <img src="https://placehold.co/2560x1068/00133F/FFFFFF?text=Quienes+Somos" alt="Quiénes Somos Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
           </div>
           <div class="asset-info">
             <h3>Quiénes Somos</h3>
-            <div class="page">institucional/quienes-somos.html</div>
             <div class="description">Campus aéreo o fachada institucional</div>
             <div class="style">Institucional, elegante, arquitectura</div>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/00133F/FFFFFF?text=Quienes+Somos+Mobile" alt="Quiénes Somos Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
           </div>
         </div>
       </div>
@@ -385,12 +412,10 @@
         <div class="asset-card">
           <div class="asset-preview portrait">
             <img src="https://placehold.co/800x1000/0047E9/FFFFFF?text=Marketing" alt="Marketing">
-            <span class="asset-id">C01</span>
-            <span class="asset-dimensions">800x1000</span>
+            <span class="asset-dimensions">800 × 1000</span>
           </div>
           <div class="asset-info">
             <h3>Marketing</h3>
-            <div class="page">index.html - Programas</div>
             <div class="description">Estudiante de marketing, ambiente de marcas y creatividad</div>
           </div>
         </div>
@@ -398,12 +423,10 @@
         <div class="asset-card">
           <div class="asset-preview portrait">
             <img src="https://placehold.co/800x1000/FF8701/FFFFFF?text=Digital+Business" alt="Digital Business">
-            <span class="asset-id">C02</span>
-            <span class="asset-dimensions">800x1000</span>
+            <span class="asset-dimensions">800 × 1000</span>
           </div>
           <div class="asset-info">
             <h3>Digital Business</h3>
-            <div class="page">index.html - Programas</div>
             <div class="description">Tech, transformación digital, innovación</div>
           </div>
         </div>
@@ -411,12 +434,10 @@
         <div class="asset-card">
           <div class="asset-preview portrait">
             <img src="https://placehold.co/800x1000/09CF90/FFFFFF?text=Level+Up" alt="Level Up">
-            <span class="asset-id">C03</span>
-            <span class="asset-dimensions">800x1000</span>
+            <span class="asset-dimensions">800 × 1000</span>
           </div>
           <div class="asset-info">
             <h3>Level Up</h3>
-            <div class="page">index.html - Programas</div>
             <div class="description">Workshop, capacitación corta, aprendizaje rápido</div>
           </div>
         </div>
@@ -430,12 +451,10 @@
         <div class="asset-card">
           <div class="asset-preview">
             <img src="https://placehold.co/600x400/0047E9/FFFFFF?text=Aulas" alt="Aulas">
-            <span class="asset-id">V01</span>
-            <span class="asset-dimensions">600x400</span>
+            <span class="asset-dimensions">600 × 400</span>
           </div>
           <div class="asset-info">
             <h3>Aulas</h3>
-            <div class="page">index.html - Vida ESIC</div>
             <div class="description">Salón de clase moderno, tecnología educativa</div>
           </div>
         </div>
@@ -443,12 +462,10 @@
         <div class="asset-card">
           <div class="asset-preview">
             <img src="https://placehold.co/600x400/09CF90/FFFFFF?text=Cowork" alt="Cowork">
-            <span class="asset-id">V02</span>
-            <span class="asset-dimensions">600x400</span>
+            <span class="asset-dimensions">600 × 400</span>
           </div>
           <div class="asset-info">
             <h3>Cowork</h3>
-            <div class="page">index.html - Vida ESIC</div>
             <div class="description">Espacio colaborativo, trabajo en equipo</div>
           </div>
         </div>
@@ -456,12 +473,10 @@
         <div class="asset-card">
           <div class="asset-preview">
             <img src="https://placehold.co/600x400/FF8701/FFFFFF?text=Eventos" alt="Eventos">
-            <span class="asset-id">V03</span>
-            <span class="asset-dimensions">600x400</span>
+            <span class="asset-dimensions">600 × 400</span>
           </div>
           <div class="asset-info">
             <h3>Eventos</h3>
-            <div class="page">index.html - Vida ESIC</div>
             <div class="description">Conferencia o networking, ambiente profesional</div>
           </div>
         </div>
@@ -469,115 +484,11 @@
         <div class="asset-card">
           <div class="asset-preview">
             <img src="https://placehold.co/600x400/00133F/FFFFFF?text=Campus" alt="Campus">
-            <span class="asset-id">V04</span>
-            <span class="asset-dimensions">600x400</span>
+            <span class="asset-dimensions">600 × 400</span>
           </div>
           <div class="asset-info">
             <h3>Campus</h3>
-            <div class="page">index.html - Vida ESIC</div>
             <div class="description">Exteriores, zonas verdes, arquitectura</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALES -->
-    <section class="asset-section">
-      <h2 class="section-title">Testimoniales</h2>
-
-      <h3 style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: 1.1rem;">Featured (600x600)</h3>
-      <div class="asset-grid" style="margin-bottom: 2rem;">
-        <div class="asset-card">
-          <div class="asset-preview square">
-            <img src="https://placehold.co/600x600/FF8701/FFFFFF?text=Video+Testimonio" alt="Video Testimonio">
-            <span class="asset-id">T01</span>
-            <span class="asset-dimensions">600x600</span>
-          </div>
-          <div class="asset-info">
-            <h3>Testimonio Featured</h3>
-            <div class="page">Páginas de programa</div>
-            <div class="description">Thumbnail de video testimonial, estudiante o egresado</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: 1.1rem;">Avatares (100x100)</h3>
-      <div class="avatar-row">
-        <div class="asset-card">
-          <div class="asset-preview avatar">
-            <img src="https://placehold.co/100x100/0047E9/FFFFFF?text=Avatar" alt="Avatar 1" style="border-radius: 50%;">
-            <span class="asset-id" style="top: -0.5rem; left: 50%; transform: translateX(-50%);">T02</span>
-          </div>
-          <div class="asset-info">
-            <h3>Avatar 1</h3>
-            <div class="description">Estudiante activo</div>
-          </div>
-        </div>
-
-        <div class="asset-card">
-          <div class="asset-preview avatar">
-            <img src="https://placehold.co/100x100/09CF90/FFFFFF?text=Avatar" alt="Avatar 2" style="border-radius: 50%;">
-            <span class="asset-id" style="top: -0.5rem; left: 50%; transform: translateX(-50%);">T03</span>
-          </div>
-          <div class="asset-info">
-            <h3>Avatar 2</h3>
-            <div class="description">Estudiante activo</div>
-          </div>
-        </div>
-
-        <div class="asset-card">
-          <div class="asset-preview avatar">
-            <img src="https://placehold.co/100x100/FF8701/FFFFFF?text=Avatar" alt="Avatar 3" style="border-radius: 50%;">
-            <span class="asset-id" style="top: -0.5rem; left: 50%; transform: translateX(-50%);">T04</span>
-          </div>
-          <div class="asset-info">
-            <h3>Avatar 3</h3>
-            <div class="description">Egresado</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ARTÍCULOS -->
-    <section class="asset-section">
-      <h2 class="section-title">Artículos / Blog (800x500)</h2>
-      <div class="asset-grid">
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="https://placehold.co/800x500/00133F/FFFFFF?text=Articulo+1" alt="Artículo 1">
-            <span class="asset-id">A01</span>
-            <span class="asset-dimensions">800x500</span>
-          </div>
-          <div class="asset-info">
-            <h3>Artículo Rethink 1</h3>
-            <div class="page">index.html - Rethink</div>
-            <div class="description">Imagen para artículo de tendencias marketing</div>
-          </div>
-        </div>
-
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="https://placehold.co/800x500/0047E9/FFFFFF?text=Articulo+2" alt="Artículo 2">
-            <span class="asset-id">A02</span>
-            <span class="asset-dimensions">800x500</span>
-          </div>
-          <div class="asset-info">
-            <h3>Artículo Rethink 2</h3>
-            <div class="page">index.html - Rethink</div>
-            <div class="description">Imagen para artículo de innovación</div>
-          </div>
-        </div>
-
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="https://placehold.co/800x500/09CF90/FFFFFF?text=Articulo+3" alt="Artículo 3">
-            <span class="asset-id">A03</span>
-            <span class="asset-dimensions">800x500</span>
-          </div>
-          <div class="asset-info">
-            <h3>Artículo Rethink 3</h3>
-            <div class="page">index.html - Rethink</div>
-            <div class="description">Imagen para artículo de transformación digital</div>
           </div>
         </div>
       </div>
@@ -585,145 +496,68 @@
 
     <!-- LOGOS SOCIOS -->
     <section class="asset-section">
-      <h2 class="section-title">Logos Socios (200x100)</h2>
+      <h2 class="section-title">Logos Socios Fundadores (200x100)</h2>
       <div class="asset-grid">
         <div class="asset-card">
           <div class="asset-preview logo">
             <img src="https://placehold.co/200x100/FFFFFF/00133F?text=Accenture" alt="Accenture">
-            <span class="asset-id">L01</span>
-            <span class="asset-dimensions">200x100</span>
+            <span class="asset-dimensions">200 × 100</span>
           </div>
           <div class="asset-info">
             <h3>Accenture</h3>
-            <div class="page">institucional/quienes-somos.html</div>
           </div>
         </div>
 
         <div class="asset-card">
           <div class="asset-preview logo">
             <img src="https://placehold.co/200x100/FFFFFF/00133F?text=Grupo+Bios" alt="Grupo Bios">
-            <span class="asset-id">L02</span>
-            <span class="asset-dimensions">200x100</span>
+            <span class="asset-dimensions">200 × 100</span>
           </div>
           <div class="asset-info">
             <h3>Grupo Bios</h3>
-            <div class="page">institucional/quienes-somos.html</div>
           </div>
         </div>
 
         <div class="asset-card">
           <div class="asset-preview logo">
             <img src="https://placehold.co/200x100/FFFFFF/00133F?text=Telefonica" alt="Telefónica">
-            <span class="asset-id">L03</span>
-            <span class="asset-dimensions">200x100</span>
+            <span class="asset-dimensions">200 × 100</span>
           </div>
           <div class="asset-info">
             <h3>Telefónica</h3>
-            <div class="page">institucional/quienes-somos.html</div>
           </div>
         </div>
 
         <div class="asset-card">
           <div class="asset-preview logo">
             <img src="https://placehold.co/200x100/FFFFFF/00133F?text=Postobon" alt="Postobón">
-            <span class="asset-id">L04</span>
-            <span class="asset-dimensions">200x100</span>
+            <span class="asset-dimensions">200 × 100</span>
           </div>
           <div class="asset-info">
             <h3>Postobón</h3>
-            <div class="page">institucional/quienes-somos.html</div>
           </div>
         </div>
 
         <div class="asset-card">
           <div class="asset-preview logo">
             <img src="https://placehold.co/200x100/FFFFFF/00133F?text=Bancolombia" alt="Bancolombia">
-            <span class="asset-id">L05</span>
-            <span class="asset-dimensions">200x100</span>
+            <span class="asset-dimensions">200 × 100</span>
           </div>
           <div class="asset-info">
             <h3>Bancolombia</h3>
-            <div class="page">institucional/quienes-somos.html</div>
           </div>
         </div>
 
         <div class="asset-card">
           <div class="asset-preview logo">
             <img src="https://placehold.co/200x100/FFFFFF/00133F?text=Rymel" alt="Rymel">
-            <span class="asset-id">L06</span>
-            <span class="asset-dimensions">200x100</span>
+            <span class="asset-dimensions">200 × 100</span>
           </div>
           <div class="asset-info">
             <h3>Rymel</h3>
-            <div class="page">institucional/quienes-somos.html</div>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- RESUMEN -->
-    <section class="asset-section">
-      <h2 class="section-title">Resumen de Assets</h2>
-      <table class="summary-table">
-        <thead>
-          <tr>
-            <th>Categoría</th>
-            <th>Cantidad</th>
-            <th>Dimensiones</th>
-            <th>IDs</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Banners Hero</td>
-            <td>9</td>
-            <td>1920x1080 / 1200x800</td>
-            <td class="id-cell">B01-B09</td>
-          </tr>
-          <tr>
-            <td>Cards Programa</td>
-            <td>3</td>
-            <td>800x1000</td>
-            <td class="id-cell">C01-C03</td>
-          </tr>
-          <tr>
-            <td>Cards Vida Campus</td>
-            <td>4</td>
-            <td>600x400</td>
-            <td class="id-cell">V01-V04</td>
-          </tr>
-          <tr>
-            <td>Testimoniales Featured</td>
-            <td>1</td>
-            <td>600x600</td>
-            <td class="id-cell">T01</td>
-          </tr>
-          <tr>
-            <td>Avatares</td>
-            <td>3</td>
-            <td>100x100</td>
-            <td class="id-cell">T02-T04</td>
-          </tr>
-          <tr>
-            <td>Artículos</td>
-            <td>3</td>
-            <td>800x500</td>
-            <td class="id-cell">A01-A03</td>
-          </tr>
-          <tr>
-            <td>Logos Socios</td>
-            <td>6</td>
-            <td>200x100</td>
-            <td class="id-cell">L01-L06</td>
-          </tr>
-          <tr>
-            <td><strong>TOTAL</strong></td>
-            <td><strong>29</strong></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
     </section>
 
     <footer class="design-footer">
