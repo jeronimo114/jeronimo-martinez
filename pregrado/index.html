@@ -12,8 +12,8 @@
   <style>
     /* Pregrado highlight color */
     :root {
-      --pregrado-highlight: #FF8701;
-      --pregrado-highlight-dark: #E67600;
+      --pregrado-highlight: #FE5000;
+      --pregrado-highlight-dark: #E04500;
     }
 
     /* Section overlap pattern */
@@ -78,78 +78,117 @@
     }
 
     /* Program selector grid */
-    .program-selector-grid {
+    .programas-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
 
-    .program-selector-card {
-      border-radius: 24px;
-      padding: 2rem;
-      color: #FFFFFF;
+    .programa-card {
       position: relative;
+      border-radius: 24px;
       overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       min-height: 280px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-soft);
+      text-decoration: none;
+      background: #FE5000;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .program-selector-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-strong);
+    .programa-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 19, 63, 0.15);
     }
 
-    .program-selector-card::after {
-      content: "";
-      position: absolute;
-      top: -40px;
-      right: -40px;
-      width: 120px;
-      height: 120px;
-      border-radius: 30px;
-      border: 2px solid rgba(255, 255, 255, 0.25);
-      transform: rotate(12deg);
+    .programa-card-info {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #FFFFFF;
     }
 
-    .program-selector-card.pregrado-digital-business {
-      background: linear-gradient(135deg, var(--pregrado-highlight), var(--pregrado-highlight-dark));
-    }
-
-    .program-selector-card.pregrado-marketing {
-      background: linear-gradient(135deg, var(--pregrado-highlight), var(--pregrado-highlight-dark));
-    }
-
-    .program-selector-card h3 {
+    .programa-card-info h3 {
       font-family: var(--display-font);
-      text-transform: uppercase;
       font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.05;
       margin-bottom: 0.5rem;
-      font-weight: var(--display-weight);
     }
 
-    .program-selector-card p {
-      font-size: 0.95rem;
+    .programa-card-duration {
+      font-size: 0.9rem;
       opacity: 0.9;
-      line-height: 1.5;
+      margin-top: 0.5rem;
     }
 
-    .program-selector-card .program-cta {
+    .programa-card-flags {
+      display: inline-flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .programa-card-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      font-weight: 600;
-      margin-top: 1.5rem;
-      font-size: 0.95rem;
+      gap: 0.6rem;
+      padding: 0.7rem 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 8px;
       color: #FFFFFF;
-      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      background: transparent;
+      transition: all 0.2s ease;
+      width: fit-content;
     }
 
-    .program-selector-card .program-cta:hover {
-      text-decoration: underline;
+    .programa-card-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .programa-card-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .programa-card-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .programa-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .programa-card:hover .programa-card-image img {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .programas-grid {
+        grid-template-columns: 1fr;
+      }
+      .programa-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .programa-card-info {
+        padding: 1.5rem;
+        order: 2;
+      }
+      .programa-card-image {
+        order: 1;
+        min-height: 180px;
+      }
     }
 
     /* Info stat cards - professional design */
@@ -200,7 +239,7 @@
     }
 
     .info-stat-card.orange {
-      background: linear-gradient(135deg, #FF9600, #FE5000);
+      background: linear-gradient(135deg, #FE5000, #E04500);
     }
 
     .info-stat-card.blue {
@@ -1045,21 +1084,47 @@
             <p class="section-subtitle">Dos pregrados en marketing y negocios digitales para construir tu futuro profesional.</p>
           </div>
         </div>
-        <div class="program-selector-grid">
-          <article class="program-selector-card pregrado-digital-business reveal">
-            <div>
-              <h3>Pregrado en Digital Business</h3>
-              <p>Lidera la transformación digital de las organizaciones con visión estratégica, innovación y gestión tecnológica.</p>
+        <div class="programas-grid">
+          <a href="marketing-global.html" class="programa-card reveal">
+            <div class="programa-card-info">
+              <div>
+                <h3>DIRECCIÓN DE MARKETING GLOBAL</h3>
+                <span class="programa-card-duration">4 años · Doble titulación<br>
+                  <span class="programa-card-flags">
+                    <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+                    <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/><rect x="7" y="7" width="4" height="6" rx="0.5" fill="#AA151B" opacity="0.8"/><rect x="7" y="7" width="4" height="3" rx="0.5" fill="#c8a400"/><circle cx="9" cy="7" r="0.8" fill="#AA151B"/></svg>
+                  </span>
+                </span>
+              </div>
+              <span class="programa-card-btn">
+                VER PROGRAMA
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
             </div>
-            <a class="program-cta" href="#">Explora aquí →</a>
-          </article>
-          <article class="program-selector-card pregrado-marketing reveal delay-1">
-            <div>
-              <h3>Pregrado en Dirección de Marketing Global</h3>
-              <p>Domina la estrategia comercial, el branding y la gestión integral de mercados internacionales.</p>
+            <div class="programa-card-image">
+              <img src="../assets/images/DSC02274_resultado.webp" alt="Marketing Global" width="1600" height="900" loading="lazy">
             </div>
-            <a class="program-cta" href="#">Explora aquí →</a>
-          </article>
+          </a>
+          <a href="digital-business.html" class="programa-card reveal delay-1">
+            <div class="programa-card-info">
+              <div>
+                <h3>DIGITAL BUSINESS</h3>
+                <span class="programa-card-duration">4 años · Doble titulación<br>
+                  <span class="programa-card-flags">
+                    <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+                    <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/><rect x="7" y="7" width="4" height="6" rx="0.5" fill="#AA151B" opacity="0.8"/><rect x="7" y="7" width="4" height="3" rx="0.5" fill="#c8a400"/><circle cx="9" cy="7" r="0.8" fill="#AA151B"/></svg>
+                  </span>
+                </span>
+              </div>
+              <span class="programa-card-btn">
+                VER PROGRAMA
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+            <div class="programa-card-image">
+              <img src="../assets/images/DSC02307_resultado.webp" alt="Digital Business" width="1600" height="900" loading="lazy">
+            </div>
+          </a>
         </div>
       </div>
     </section>

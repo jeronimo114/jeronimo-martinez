@@ -1352,7 +1352,13 @@ button {
 .mapa-link,
 .archived-toggle,
 .banner-ind,
-.banner-track {
+.banner-track,
+.programa-card,
+.category-card,
+.btn-teal,
+.btn-white,
+.levelup-card,
+.levelup-card-btn {
   pointer-events: auto;
   cursor: pointer;
 }
