@@ -3,7 +3,7 @@
   --brand-blue-dark: #00133F;
   --brand-teal: #0AE4C3;
   --brand-orange: #FF9600;
-  --brand-orange-strong: #FE5000;
+  --brand-orange-strong: #FF9600;
   --brand-yellow: #FFD100;
   --brand-sky: #00BFFF;
   --brand-gold: #C09C2E;
@@ -744,7 +744,7 @@ body.nav-open {
 }
 
 .program-card.orange {
-  background: linear-gradient(135deg, #FF9600, #FE5000);
+  background: linear-gradient(135deg, #FF9600, #FF9600);
 }
 
 .program-cta {
@@ -837,7 +837,7 @@ body.nav-open {
 }
 
 .stat-card.orange {
-  background: linear-gradient(135deg, #FF9600, #FE5000);
+  background: linear-gradient(135deg, #FF9600, #FF9600);
   color: #FFFFFF;
 }
 
