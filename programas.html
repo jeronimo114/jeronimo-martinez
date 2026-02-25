@@ -90,11 +90,9 @@
       position: relative;
       border-radius: 24px;
       overflow: hidden;
-      padding: 2.5rem 2rem;
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 280px;
       text-decoration: none;
       color: #FFFFFF;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -110,14 +108,21 @@
     .category-card.blue   { background: #0047E9; }
     .category-card.dark   { background: #00133F; }
 
+    .category-card-info {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .category-card-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       background: rgba(255, 255, 255, 0.2);
       display: grid;
       place-items: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .category-card.teal .category-card-icon {
@@ -125,34 +130,33 @@
     }
 
     .category-card-icon svg {
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
     }
 
     .category-card h3 {
       font-family: var(--display-font);
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-size: clamp(1.5rem, 2.5vw, 1.9rem);
       font-weight: 700;
       text-transform: uppercase;
-      line-height: 1;
+      line-height: 1.05;
       margin-bottom: 0.5rem;
     }
 
     .category-card-sub {
-      font-size: 1.05rem;
+      font-size: 1rem;
       opacity: 0.9;
-      margin-bottom: 1.5rem;
-      line-height: 1.4;
+      margin-top: 0.3rem;
     }
 
     .category-card-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      padding: 0.8rem 1.4rem;
+      padding: 0.7rem 1.2rem;
       border: 1px solid rgba(255, 255, 255, 0.4);
       border-radius: 8px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.03em;
@@ -177,8 +181,24 @@
     }
 
     .category-card-btn svg {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
+    }
+
+    .category-card-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .category-card:hover .category-card-image img {
+      transform: scale(1.05);
     }
 
     /* ── Level Up section ── */
@@ -555,7 +575,13 @@
       }
 
       .category-card {
-        min-height: 220px;
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .category-card-image {
+        min-height: 180px;
+        order: -1;
       }
 
       .levelup-inner {
@@ -687,62 +713,70 @@
         <div class="category-grid">
           <!-- Pregrado -->
           <a href="pregrado/index.html" class="category-card orange">
-            <div>
-              <div class="category-card-icon">
-                <svg><use href="#ico-pregrado"/></svg>
+            <div class="category-card-info">
+              <div>
+                <h3>Pregrado</h3>
+                <p class="category-card-sub">4 años · Doble titulación</p>
               </div>
-              <h3>Pregrado</h3>
-              <p class="category-card-sub">4 años · Doble titulación</p>
+              <span class="category-card-btn">
+                VER PROGRAMAS
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
             </div>
-            <span class="category-card-btn">
-              VER PROGRAMAS
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
+            <div class="category-card-image">
+              <img src="assets/images/DSC02274_resultado.webp" alt="Pregrado ESIC" width="1600" height="900" loading="lazy">
+            </div>
           </a>
 
           <!-- Máster -->
           <a href="master/v2.html" class="category-card teal">
-            <div>
-              <div class="category-card-icon">
-                <svg><use href="#ico-master"/></svg>
+            <div class="category-card-info">
+              <div>
+                <h3>Máster</h3>
+                <p class="category-card-sub">1 año · Modalidad híbrida</p>
               </div>
-              <h3>Máster</h3>
-              <p class="category-card-sub">1 año · Modalidad híbrida</p>
+              <span class="category-card-btn">
+                VER PROGRAMAS
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
             </div>
-            <span class="category-card-btn">
-              VER PROGRAMAS
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
+            <div class="category-card-image">
+              <img src="assets/images/DSC02331_resultado.webp" alt="Máster ESIC" width="1600" height="900" loading="lazy">
+            </div>
           </a>
 
           <!-- Executive Programs -->
           <a href="executive-programs/index.html" class="category-card blue">
-            <div>
-              <div class="category-card-icon">
-                <svg><use href="#ico-ejecutivo"/></svg>
+            <div class="category-card-info">
+              <div>
+                <h3>Executive Programs</h3>
+                <p class="category-card-sub">6 Meses · Liderazgo y transformación</p>
               </div>
-              <h3>Executive Programs</h3>
-              <p class="category-card-sub">6 Meses · Liderazgo y transformación</p>
+              <span class="category-card-btn">
+                VER PROGRAMA
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
             </div>
-            <span class="category-card-btn">
-              VER PROGRAMA
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
+            <div class="category-card-image">
+              <img src="assets/images/DSC02284_resultado.webp" alt="Executive Programs ESIC" width="1600" height="900" loading="lazy">
+            </div>
           </a>
 
           <!-- Tailor / A la Medida -->
           <a href="#asesoria" class="category-card dark">
-            <div>
-              <div class="category-card-icon">
-                <svg><use href="#ico-medida"/></svg>
+            <div class="category-card-info">
+              <div>
+                <h3>Tailor</h3>
+                <p class="category-card-sub">Formaciones a la Medida</p>
               </div>
-              <h3>Tailor</h3>
-              <p class="category-card-sub">Formaciones a la Medida</p>
+              <span class="category-card-btn">
+                CONTÁCTANOS
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
             </div>
-            <span class="category-card-btn">
-              CONTÁCTANOS
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
+            <div class="category-card-image">
+              <img src="assets/images/DSC02307_resultado.webp" alt="Tailor ESIC" width="1600" height="900" loading="lazy">
+            </div>
           </a>
         </div>
       </div>
