@@ -18,6 +18,9 @@
   --shadow-soft: 0 20px 50px rgba(0, 19, 63, 0.12);
   --display-font: "Sofia Sans Extra Condensed", sans-serif;
   --body-font: "DM Sans", sans-serif;
+  --eh-nav-height: 60px;
+  --eh-nav-top: 16px;
+  --eh-nav-offset: 76px;
   font-family: var(--body-font);
   color: var(--text);
   background: var(--bg);
@@ -199,6 +202,7 @@
   width: 100%;
   overflow: hidden;
   background: var(--brand-blue-dark);
+  padding-top: var(--eh-nav-offset);
 }
 .esic-home .eh-banner-track {
   display: flex;
@@ -212,7 +216,7 @@
   width: 100vw;
   flex: 0 0 100vw;
   position: relative;
-  padding: 100px 0 50px;
+  padding: 0 0 50px;
   overflow: hidden;
 }
 .esic-home .eh-banner-slide::before {
@@ -832,7 +836,7 @@
 @media (max-width: 768px) {
   .esic-home .eh-nav { padding: 0.5rem 0.5rem 0.5rem 1rem; }
   .esic-home .eh-nav-cta { display: none; }
-  .esic-home .eh-banner-slide { padding: 100px 0 30px; }
+  .esic-home .eh-banner-slide { padding: 0 0 30px; }
   .esic-home .eh-banner-slide img { border-radius: 0; }
   .esic-home .eh-banner-slide::before { filter: blur(20px) brightness(0.7); }
   .esic-home .eh-banner-indicators { bottom: 40px; }
@@ -878,6 +882,16 @@
 @media (prefers-reduced-motion: reduce) {
   .esic-home .eh-reveal, .esic-home .eh-btn, .esic-home .eh-fundadores-track { animation: none; }
   .esic-home *, .esic-home *::before, .esic-home *::after { transition: none; }
+}
+
+/* Elementor Compatibility */
+.elementor-widget-container > .esic-home,
+.elementor .esic-home {
+  padding-top: 0;
+}
+.elementor-widget-container .eh-banner-carousel,
+.elementor .eh-banner-carousel {
+  padding-top: var(--eh-nav-offset);
 }
 </style>
 
