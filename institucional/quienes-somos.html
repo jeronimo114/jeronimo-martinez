@@ -106,43 +106,30 @@
     .manifiesto-wrapper {
       max-width: 750px;
       margin: 0 auto;
-      text-align: center;
+      text-align: left;
     }
 
     .manifiesto-tag {
       font-family: var(--display-font);
-      font-size: 1rem;
-      letter-spacing: 0.25em;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
       text-transform: uppercase;
-      color: var(--brand-blue);
-      font-weight: var(--display-weight);
-      margin-bottom: 2.5rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .manifiesto-tag::before,
-    .manifiesto-tag::after {
-      content: "";
-      width: 24px;
-      height: 1px;
-      background: var(--brand-blue);
-      opacity: 0.4;
+      color: var(--brand-blue-dark);
+      margin-bottom: 2rem;
+      display: block;
     }
 
     .manifiesto-text {
-      font-family: var(--display-font);
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 1.15;
-      color: var(--brand-blue-dark);
+      font-family: var(--body-font);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 400;
+      text-transform: none;
+      line-height: 1.8;
+      color: var(--text);
     }
 
     .manifiesto-text em {
-      font-style: normal;
-      color: var(--brand-blue);
+      font-style: italic;
     }
 
     .manifiesto-signature {
@@ -927,6 +914,10 @@
         grid-template-columns: 1fr;
       }
 
+      .fundadores-logos {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .editorial-visual {
         min-height: 280px;
         order: -1;
@@ -1028,19 +1019,18 @@
     <section class="section section-overlap manifiesto-section" id="manifiesto">
       <div class="container">
         <div class="manifiesto-wrapper reveal">
-          <span class="manifiesto-tag">Nuestro Manifiesto</span>
+          <h2 class="manifiesto-tag">Nuestro Manifiesto</h2>
           <p class="manifiesto-text">
-            ESIC Medellín no es solo una escuela.<br>
-            Es un movimiento de mentes valientes.<br>
-            Creemos en el marketing con propósito,<br>
-            la economía que transforma,<br>
-            y la tecnología que mejora vidas.<br><br>
-            Aquí se piensa distinto.<br>
-            Se actúa con ética.<br>
-            Se impacta con sentido.<br><br>
-            <em>No formamos egresados. Formamos transformadores.</em><br><br>
-            Si vienes a encajar, este no es tu lugar.<br>
-            Si vienes a cambiar el juego, bienvenido a casa.
+            ESIC Medellín no es solo una escuela. Es un movimiento de mentes valientes. Creemos en el marketing con propósito, la economía que transforma, y la tecnología que mejora vidas.
+          </p>
+          <p class="manifiesto-text">
+            Aquí se piensa distinto. Se actúa con ética. Se impacta con sentido.
+          </p>
+          <p class="manifiesto-text">
+            No formamos egresados. Formamos transformadores.
+          </p>
+          <p class="manifiesto-text">
+            Si vienes a encajar, este no es tu lugar. Si vienes a cambiar el juego, bienvenido a casa.
           </p>
           <p class="manifiesto-signature">ESIC Medellín — diseñando futuros.</p>
         </div>

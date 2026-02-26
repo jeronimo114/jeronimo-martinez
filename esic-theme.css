@@ -1358,7 +1358,14 @@ button {
 .btn-teal,
 .btn-white,
 .levelup-card,
-.levelup-card-btn {
+.levelup-card-btn,
+.plan-tab,
+.plan-main-tab,
+.plan-actions a,
+.curriculum-pill,
+.btn,
+.btn-primary,
+.btn-outline {
   pointer-events: auto;
   cursor: pointer;
 }

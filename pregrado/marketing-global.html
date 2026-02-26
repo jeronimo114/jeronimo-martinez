@@ -954,7 +954,9 @@
     /* Responsive */
     @media (max-width: 1024px) {
       .hero-pregrado {
-        padding: 100px 0 120px;
+        height: auto;
+        min-height: 70vh;
+        padding: 120px 1.5rem 160px;
       }
 
       .hero-pregrado-content {
@@ -962,7 +964,7 @@
       }
 
       .hero-pregrado-title {
-        font-size: clamp(3rem, 7vw, 5rem);
+        font-size: clamp(2.5rem, 7vw, 5rem);
       }
 
       .explora-grid,
@@ -972,6 +974,7 @@
       }
 
       .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem 3rem;
       }
 
@@ -1000,7 +1003,8 @@
 
     @media (max-width: 768px) {
       .hero-pregrado {
-        padding: 100px 0 140px;
+        padding: 110px 1.5rem 160px;
+        min-height: 60vh;
       }
 
       .hero-pregrado-content {
@@ -1009,17 +1013,28 @@
       }
 
       .hero-pregrado-subtitle {
-        margin-left: 0;
+        margin-left: auto;
         margin-right: auto;
         text-align: center;
+        font-size: 1rem;
       }
 
       .hero-pregrado-eyebrow {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
 
       .hero-pregrado-title {
-        font-size: clamp(2.2rem, 10vw, 3.5rem);
+        font-size: clamp(2rem, 9vw, 3rem);
+      }
+
+      .hero-pregrado .btn-primary,
+      .hero-pregrado .btn-outline {
+        padding: 0.85rem 1.5rem;
+        font-size: 0.75rem;
+      }
+
+      .hero-pregrado-actions {
+        justify-content: center;
       }
 
       .section-overlap {
@@ -1032,11 +1047,38 @@
       }
 
       .benefits-grid {
-        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
       }
 
-      .plan-grid {
-        grid-template-columns: 1fr;
+      .benefit-icon {
+        width: 60px;
+        height: 60px;
+      }
+
+      .benefit-icon svg {
+        width: 50px;
+        height: 50px;
+      }
+
+      .benefit-text h4 {
+        font-size: 1.3rem;
+      }
+
+      .benefit-text p {
+        font-size: 0.8rem;
+      }
+
+      .plan-item {
+        grid-template-columns: 12px 1fr;
+        gap: 0.75rem;
+      }
+
+      .plan-item span:last-child {
+        grid-column: 1 / -1;
+        padding-left: 1.5rem;
+        font-size: 0.85rem;
+        color: var(--text-muted);
       }
 
       .institutions-grid {
@@ -1056,15 +1098,34 @@
         font-size: 0.8rem;
       }
 
-      .hero-pregrado-actions {
-        justify-content: center;
+      .programas-cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonios-section {
+        border-radius: 30px 30px 0 0;
+      }
+
+      .plan-section {
+        border-radius: 30px 30px 0 0;
+      }
+
+      .pricing-section {
+        border-radius: 30px 30px 0 0;
       }
     }
 
     @media (max-width: 480px) {
-      .benefits-grid {
-        flex-direction: column;
-        gap: 1.5rem;
+      .hero-pregrado {
+        padding: 100px 1.25rem 140px;
+      }
+
+      .hero-pregrado-title {
+        font-size: 2rem;
+      }
+
+      .hero-pregrado-eyebrow {
+        font-size: 1rem;
       }
 
       .hero-pregrado-actions {
@@ -1074,6 +1135,31 @@
       .hero-pregrado-actions .btn {
         width: 100%;
         justify-content: center;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+
+      .benefit-text h4 {
+        font-size: 1.1rem;
+      }
+
+      .plan-tab {
+        flex: 1 1 100%;
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .section-overlap {
+        margin-top: -80px;
+        border-radius: 24px 24px 0 0;
+      }
+
+      .becas-banner {
+        border-radius: 16px;
+        max-width: calc(100% - 2rem);
       }
     }
   </style>
