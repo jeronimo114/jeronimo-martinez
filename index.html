@@ -418,6 +418,20 @@
 .esic-home .eh-programa-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
 .esic-home .eh-programa-card:hover .eh-programa-card-image img { transform: scale(1.05); }
 .esic-home .eh-programa-card.eh-blue { background: #FF9600; }
+.esic-home .eh-programa-card.eh-marketing {
+  background: url('https://esic.co/assets/images/pregrado-marketing-hero.jpeg') center/cover no-repeat;
+  grid-template-columns: 1fr;
+}
+.esic-home .eh-programa-card.eh-marketing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 71, 233, 0.92) 0%, rgba(0, 71, 233, 0.75) 40%, rgba(0, 71, 233, 0.3) 70%, transparent 100%);
+  z-index: 1;
+  border-radius: inherit;
+}
+.esic-home .eh-programa-card.eh-marketing .eh-programa-card-info { position: relative; z-index: 2; width: 55%; }
+.esic-home .eh-programa-card.eh-marketing .eh-programa-card-image { display: none; }
 .esic-home .eh-programa-card.eh-teal { background: #09CF90; }
 .esic-home .eh-programa-card.eh-teal .eh-programa-card-info { color: var(--brand-blue-dark); }
 .esic-home .eh-programa-card.eh-teal .eh-programa-card-btn { border-color: rgba(0, 19, 63, 0.3); color: var(--brand-blue-dark); }
@@ -808,6 +822,8 @@
   .esic-home .eh-vida-grid, .esic-home .eh-rethink-grid { grid-template-columns: 1fr; }
   .esic-home .eh-programa-card { grid-template-columns: 1fr; min-height: auto; }
   .esic-home .eh-programa-card-info { padding: 1.5rem; order: 2; }
+  .esic-home .eh-programa-card.eh-marketing .eh-programa-card-info { width: 100%; }
+  .esic-home .eh-programa-card.eh-marketing::before { background: linear-gradient(180deg, rgba(0, 71, 233, 0.5) 0%, rgba(0, 71, 233, 0.9) 100%); }
   .esic-home .eh-programa-card-image { order: 1; min-height: 180px; }
   .esic-home .eh-programas-tabs { gap: 1.5rem; }
   .esic-home .eh-programas-tab { font-size: 0.75rem; }
@@ -1033,7 +1049,7 @@
 
       <div class="eh-programas-content eh-active" data-tab="pregrados">
         <div class="eh-programas-grid">
-          <a href="https://esic.co/pregrado/marketing-global.html" class="eh-programa-card eh-blue">
+          <a href="https://esic.co/pregrado/marketing-global.html" class="eh-programa-card eh-marketing">
             <div class="eh-programa-card-info">
               <div>
                 <h3>DIRECCIÓN DE MARKETING GLOBAL</h3>
@@ -1045,9 +1061,6 @@
                 </span>
               </div>
               <span class="eh-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-            <div class="eh-programa-card-image">
-              <img src="https://esic.co/assets/images/DSC02274_resultado.webp" alt="Marketing Global" width="1600" height="900" loading="lazy">
             </div>
           </a>
           <a href="https://esic.co/pregrado/digital-business.html" class="eh-programa-card eh-blue">
