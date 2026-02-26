@@ -421,16 +421,37 @@
 .esic-home .eh-programa-card.eh-marketing {
   background: url('https://esic.co/wp-content/uploads/2026/02/card-pregrado.jpeg') center/cover no-repeat;
   grid-template-columns: 1fr;
+  min-height: 500px;
 }
 .esic-home .eh-programa-card.eh-marketing::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 0%, transparent 45%, rgba(0, 71, 233, 0.4) 60%, rgba(0, 71, 233, 0.95) 100%);
+  background: linear-gradient(180deg, transparent 0%, transparent 40%, rgba(0, 19, 63, 0.6) 60%, rgba(0, 19, 63, 0.95) 80%, #00133F 100%);
   z-index: 1;
   border-radius: inherit;
+  transition: background 0.3s ease;
 }
-.esic-home .eh-programa-card.eh-marketing .eh-programa-card-info { position: relative; z-index: 2; width: 100%; align-self: flex-end; }
+.esic-home .eh-programa-card.eh-marketing:hover::before {
+  background: linear-gradient(180deg, transparent 0%, transparent 35%, rgba(0, 19, 63, 0.7) 55%, rgba(0, 19, 63, 0.98) 80%, #00133F 100%);
+}
+.esic-home .eh-programa-card.eh-marketing .eh-programa-card-info {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  align-self: flex-end;
+  color: #FFFFFF;
+  padding: 2rem;
+}
+.esic-home .eh-programa-card.eh-marketing .eh-programa-card-info h3 { color: #FFFFFF; }
+.esic-home .eh-programa-card.eh-marketing .eh-programa-card-btn {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+}
+.esic-home .eh-programa-card.eh-marketing .eh-programa-card-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.6);
+}
 .esic-home .eh-programa-card.eh-marketing .eh-programa-card-image { display: none; }
 .esic-home .eh-programa-card.eh-teal { background: #09CF90; }
 .esic-home .eh-programa-card.eh-teal .eh-programa-card-info { color: var(--brand-blue-dark); }
@@ -822,8 +843,9 @@
   .esic-home .eh-vida-grid, .esic-home .eh-rethink-grid { grid-template-columns: 1fr; }
   .esic-home .eh-programa-card { grid-template-columns: 1fr; min-height: auto; }
   .esic-home .eh-programa-card-info { padding: 1.5rem; order: 2; }
+  .esic-home .eh-programa-card.eh-marketing { min-height: 400px; }
   .esic-home .eh-programa-card.eh-marketing .eh-programa-card-info { width: 100%; }
-  .esic-home .eh-programa-card.eh-marketing::before { background: linear-gradient(180deg, transparent 0%, transparent 35%, rgba(0, 71, 233, 0.5) 55%, rgba(0, 71, 233, 0.95) 100%); }
+  .esic-home .eh-programa-card.eh-marketing::before { background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(0, 19, 63, 0.7) 50%, rgba(0, 19, 63, 0.98) 75%, #00133F 100%); }
   .esic-home .eh-programa-card-image { order: 1; min-height: 180px; }
   .esic-home .eh-programas-tabs { gap: 1.5rem; }
   .esic-home .eh-programas-tab { font-size: 0.75rem; }
