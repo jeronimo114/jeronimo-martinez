@@ -434,7 +434,7 @@
       justify-content: center;
       align-items: center;
       gap: 0;
-      padding: 3rem 2rem;
+      padding: 3rem 2rem 2rem;
       background: var(--brand-blue-dark);
     }
     .pilares-row .pilar-item {
@@ -467,7 +467,7 @@
     
     .intl-experience-bar {
       background: linear-gradient(135deg, #8B6914 0%, #D4AF37 30%, #B8860B 70%, #8B6914 100%);
-      padding: 4rem 2rem;
+      padding: 3rem 2rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -490,41 +490,21 @@
       box-shadow: inset 0 0 60px rgba(0,0,0,0.3);
       pointer-events: none;
     }
-    .spain-flag {
-      width: 140px;
-      height: 90px;
-      margin: 0 auto 1.8rem;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 40px rgba(212, 175, 55, 0.3);
-      position: relative;
-      z-index: 1;
+    .spain-flag-stripe {
       display: flex;
       flex-direction: column;
+      width: 200px;
+      margin: 0 auto 1.5rem;
+      position: relative;
+      z-index: 1;
     }
-    .spain-flag .flag-red { flex: 1; background: #AA151B; }
-    .spain-flag .flag-yellow { flex: 2; background: #F1BF00; position: relative; }
-    .spain-flag .flag-yellow::before {
-      content: "";
-      position: absolute;
-      left: 15%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 20%;
-      height: 60%;
+    .spain-flag-stripe .stripe-red {
+      height: 4px;
       background: #AA151B;
-      border-radius: 2px;
     }
-    .spain-flag .flag-yellow::after {
-      content: "";
-      position: absolute;
-      left: 15%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 20%;
-      height: 30%;
+    .spain-flag-stripe .stripe-yellow {
+      height: 8px;
       background: #F1BF00;
-      border-radius: 2px;
     }
     .intl-experience-bar h3 {
       font-family: var(--display-font);
@@ -567,8 +547,10 @@
         height: 1px;
         width: 80%;
       }
-      .spain-flag { width: 100px; height: 65px; }
-      .intl-experience-bar { padding: 3rem 1.5rem; }
+      .spain-flag-stripe { width: 140px; }
+      .spain-flag-stripe .stripe-red { height: 3px; }
+      .spain-flag-stripe .stripe-yellow { height: 6px; }
+      .intl-experience-bar { padding: 2.5rem 1.5rem; }
     }
 
     /* ── Quote + Contacto ── */
@@ -878,10 +860,10 @@
         <div class="pilar-item"><span>EXPERIENCIAS PRESENCIALES</span></div>
       </div>
       <div class="intl-experience-bar">
-        <div class="spain-flag">
-          <div class="flag-red"></div>
-          <div class="flag-yellow"></div>
-          <div class="flag-red"></div>
+        <div class="spain-flag-stripe">
+          <div class="stripe-red"></div>
+          <div class="stripe-yellow"></div>
+          <div class="stripe-red"></div>
         </div>
         <h3>EXPERIENCIA INTERNACIONAL</h3>
         <p class="intl-subtitle">Inmersión de 4 días en Madrid, España</p>
