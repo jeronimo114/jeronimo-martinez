@@ -893,6 +893,159 @@
 .elementor .eh-banner-carousel {
   padding-top: var(--eh-nav-offset);
 }
+
+/* Contact Popup Modal */
+.eh-contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.eh-contact-modal.eh-modal-open {
+  opacity: 1;
+  visibility: visible;
+}
+.eh-contact-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 19, 63, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.eh-contact-modal-content {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 24px;
+  width: min(520px, 94%);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 80px rgba(0, 19, 63, 0.3);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+.eh-contact-modal.eh-modal-open .eh-contact-modal-content {
+  transform: translateY(0);
+}
+.eh-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #F5F5F5;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 1;
+}
+.eh-modal-close:hover { background: #E5E5E5; }
+.eh-modal-close svg { width: 18px; height: 18px; color: #666; }
+
+.eh-modal-header {
+  padding: 2rem 2rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #F0F0F0;
+}
+.eh-modal-header h2 {
+  font-family: var(--display-font);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--brand-blue-dark);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+.eh-modal-header p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.eh-modal-body {
+  padding: 1.5rem 2rem 2rem;
+}
+.eh-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.eh-form-group {
+  margin-bottom: 1rem;
+}
+.eh-form-group.full-width {
+  grid-column: 1 / -1;
+}
+.eh-form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+.eh-form-group label em {
+  color: #E53935;
+  font-style: normal;
+  margin-left: 2px;
+}
+.eh-form-group input,
+.eh-form-group select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid #E0E0E0;
+  border-radius: 10px;
+  font-family: var(--body-font);
+  font-size: 0.95rem;
+  background: #FAFAFA;
+  transition: border-color 0.2s, background 0.2s;
+}
+.eh-form-group input:focus,
+.eh-form-group select:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  background: #FFFFFF;
+}
+.eh-form-group input::placeholder {
+  color: #AAA;
+}
+.eh-form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  padding-right: 2.5rem;
+}
+.eh-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--brand-blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--body-font);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+.eh-submit-btn:hover { background: var(--brand-blue-dark); }
+
+@media (max-width: 480px) {
+  .eh-form-row { grid-template-columns: 1fr; }
+  .eh-modal-header { padding: 1.5rem 1.5rem 1rem; }
+  .eh-modal-body { padding: 1rem 1.5rem 1.5rem; }
+}
 </style>
 
 <!-- Navigation -->
@@ -1549,7 +1702,7 @@
           <div class="eh-footer-cta-buttons">
             <a href="https://esic.co/institucional/quienes-somos.html">INSTITUCIÓN<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             <a href="#eh-cifras">CIFRAS<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            <a href="#contacto">CONTÁCTANOS<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="#" class="eh-contact-trigger">CONTÁCTANOS<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
         </div>
         <div class="eh-footer-info">
@@ -1570,6 +1723,82 @@
       <div class="eh-footer-bottom"><p>© 2025 ESIC. Todos los derechos reservados.</p></div>
     </div>
   </footer>
+
+  <!-- Contact Modal -->
+  <div class="eh-contact-modal" id="contactModal">
+    <div class="eh-contact-modal-overlay"></div>
+    <div class="eh-contact-modal-content">
+      <button class="eh-modal-close" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="eh-modal-header">
+        <h2>Contáctanos</h2>
+        <p>Estamos aquí para ayudarte. Cuéntanos sobre ti.</p>
+      </div>
+      <div class="eh-modal-body">
+        <form action="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit" name="form" id="form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+          <input type="hidden" name="zf_referrer_name" value="">
+          <input type="hidden" name="zf_redirect_url" value="">
+          <input type="hidden" name="zc_gad" value="">
+          
+          <div class="eh-form-row">
+            <div class="eh-form-group">
+              <label>Nombre <em>*</em></label>
+              <input type="text" maxlength="255" name="Name_First" placeholder="Tu nombre" required>
+            </div>
+            <div class="eh-form-group">
+              <label>Apellido</label>
+              <input type="text" maxlength="255" name="Name_Last" placeholder="Tu apellido">
+            </div>
+          </div>
+          
+          <div class="eh-form-group full-width">
+            <label>Correo electrónico <em>*</em></label>
+            <input type="email" maxlength="255" name="Email" placeholder="tu@email.com" required>
+          </div>
+          
+          <div class="eh-form-row">
+            <div class="eh-form-group">
+              <label>Código</label>
+              <input type="text" name="PhoneNumber_countrycode" maxlength="20" placeholder="+57">
+            </div>
+            <div class="eh-form-group">
+              <label>Teléfono <em>*</em></label>
+              <input type="tel" name="PhoneNumber_countrycodeval" maxlength="20" placeholder="300 123 4567" required>
+            </div>
+          </div>
+          
+          <div class="eh-form-row">
+            <div class="eh-form-group">
+              <label>Tipo de programa <em>*</em></label>
+              <select name="Dropdown" required>
+                <option value="">Selecciona...</option>
+                <option value="Pregrado">Pregrado</option>
+                <option value="Corporate">Corporate</option>
+                <option value="Diplomado">Diplomado</option>
+                <option value="Curso">Curso</option>
+                <option value="Executive">Executive</option>
+                <option value="Educación continua">Educación continua</option>
+                <option value="Level Up">Level Up</option>
+                <option value="Open Day">Open Day</option>
+              </select>
+            </div>
+            <div class="eh-form-group">
+              <label>Medio de contacto <em>*</em></label>
+              <select name="Dropdown3" required>
+                <option value="">Selecciona...</option>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Correo">Correo</option>
+                <option value="Llamada">Llamada</option>
+              </select>
+            </div>
+          </div>
+          
+          <button type="submit" class="eh-submit-btn">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </main>
 
 <script>
@@ -1713,6 +1942,47 @@
         card.classList.toggle('eh-hidden', filter !== 'todo' && card.getAttribute('data-category') !== filter);
       });
     });
+  });
+
+  // Contact Modal
+  var contactModal = document.getElementById('contactModal');
+  var contactTriggers = wrapper.querySelectorAll('.eh-contact-trigger');
+  var modalClose = contactModal ? contactModal.querySelector('.eh-modal-close') : null;
+  var modalOverlay = contactModal ? contactModal.querySelector('.eh-contact-modal-overlay') : null;
+
+  function openModal() {
+    if (contactModal) {
+      contactModal.classList.add('eh-modal-open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeModal() {
+    if (contactModal) {
+      contactModal.classList.remove('eh-modal-open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  contactTriggers.forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  if (modalClose) {
+    modalClose.addEventListener('click', closeModal);
+  }
+
+  if (modalOverlay) {
+    modalOverlay.addEventListener('click', closeModal);
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && contactModal && contactModal.classList.contains('eh-modal-open')) {
+      closeModal();
+    }
   });
 })();
 </script>
