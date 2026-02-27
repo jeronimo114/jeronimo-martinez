@@ -137,7 +137,8 @@
     .info-section.s-overlap { z-index: 3; }
     .estructura.s-overlap { z-index: 4; }
     .cocreadores.s-overlap { z-index: 5; }
-    .quote-cta.s-overlap { z-index: 6; }
+    .pilares-intl-section.s-overlap { z-index: 6; }
+    .quote-cta.s-overlap { z-index: 7; }
     .proposito-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -416,6 +417,157 @@
       color: var(--text-light);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+    }
+
+    /* ── Pilares + Experiencia Internacional ── */
+    .pilares-intl-section {
+      padding: 0;
+      background: var(--brand-blue-dark);
+      position: relative;
+      z-index: 6;
+    }
+    .pilares-intl-section.s-overlap { z-index: 6; }
+    
+    .pilares-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      padding: 3rem 2rem;
+      background: var(--brand-blue-dark);
+    }
+    .pilares-row .pilar-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 2.5rem;
+      position: relative;
+    }
+    .pilares-row .pilar-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 60%;
+      width: 1px;
+      background: rgba(212, 175, 55, 0.4);
+    }
+    .pilares-row .pilar-item span {
+      font-family: var(--display-font);
+      font-size: clamp(0.85rem, 2vw, 1.1rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #D4AF37;
+      letter-spacing: 0.08em;
+      text-align: center;
+      white-space: nowrap;
+    }
+    
+    .intl-experience-bar {
+      background: linear-gradient(135deg, #8B6914 0%, #D4AF37 30%, #B8860B 70%, #8B6914 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .intl-experience-bar::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      animation: shimmer 3s infinite;
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .intl-experience-bar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 60px rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+    .spain-flag {
+      width: 140px;
+      height: 90px;
+      margin: 0 auto 1.8rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 40px rgba(212, 175, 55, 0.3);
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .spain-flag .flag-red { flex: 1; background: #AA151B; }
+    .spain-flag .flag-yellow { flex: 2; background: #F1BF00; position: relative; }
+    .spain-flag .flag-yellow::before {
+      content: "";
+      position: absolute;
+      left: 15%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20%;
+      height: 60%;
+      background: #AA151B;
+      border-radius: 2px;
+    }
+    .spain-flag .flag-yellow::after {
+      content: "";
+      position: absolute;
+      left: 15%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20%;
+      height: 30%;
+      background: #F1BF00;
+      border-radius: 2px;
+    }
+    .intl-experience-bar h3 {
+      font-family: var(--display-font);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      letter-spacing: 0.15em;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .intl-experience-bar .intl-subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      margin-top: 0.8rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    @media (max-width: 768px) {
+      .pilares-row { 
+        flex-wrap: wrap; 
+        gap: 1rem; 
+        padding: 2rem 1rem;
+      }
+      .pilares-row .pilar-item { 
+        padding: 0.8rem 1.2rem; 
+        width: 45%;
+      }
+      .pilares-row .pilar-item:not(:last-child)::after { display: none; }
+      .pilares-row .pilar-item:nth-child(2)::after {
+        display: block;
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: 0;
+        transform: translateX(-50%);
+        height: 1px;
+        width: 80%;
+      }
+      .spain-flag { width: 100px; height: 65px; }
+      .intl-experience-bar { padding: 3rem 1.5rem; }
     }
 
     /* ── Quote + Contacto ── */
@@ -713,6 +865,25 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/3840px-Accenture.svg.png" alt="Accenture">
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ═══ Pilares + Experiencia Internacional ═══ -->
+    <section class="pilares-intl-section s-overlap">
+      <div class="pilares-row">
+        <div class="pilar-item"><span>MASTERCLASSES</span></div>
+        <div class="pilar-item"><span>CASOS CON PROTAGONISTA</span></div>
+        <div class="pilar-item"><span>MENTORÍAS INDIVIDUALES</span></div>
+        <div class="pilar-item"><span>EXPERIENCIAS PRESENCIALES</span></div>
+      </div>
+      <div class="intl-experience-bar">
+        <div class="spain-flag">
+          <div class="flag-red"></div>
+          <div class="flag-yellow"></div>
+          <div class="flag-red"></div>
+        </div>
+        <h3>EXPERIENCIA INTERNACIONAL</h3>
+        <p class="intl-subtitle">Inmersión de 4 días en Madrid, España</p>
       </div>
     </section>
 
