@@ -66,7 +66,7 @@
     .hero-exec-partners {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 3rem;
       flex-wrap: wrap;
     }
     .hero-exec-partners span {
@@ -85,8 +85,8 @@
       filter: brightness(0) invert(1);
       opacity: 0.9;
     }
-    .hero-exec-partners .partner-logo.p-esic img { height: 70px; }
-    .hero-exec-partners .partner-logo.p-prestigio img { height: 52px; }
+    .hero-exec-partners .partner-logo.p-esic img { height: 68px; }
+    .hero-exec-partners .partner-logo.p-prestigio img { height: 58px; }
     .hero-exec-partners .partner-logo.p-accenture img { height: 48px; }
 
     /* ── Stats Bar ── */
@@ -397,9 +397,9 @@
     .logo-item img:hover {
       transform: scale(1.05);
     }
-    /* Tamaño individual para alineación visual */
-    .logo-item.logo-esic img { height: 65px; }
-    .logo-item.logo-prestigio img { height: 48px; }
+    /* Tamaño individual para alineación visual - optical balance */
+    .logo-item.logo-esic img { height: 63px; }
+    .logo-item.logo-prestigio img { height: 54px; }
     .logo-item.logo-accenture img { height: 45px; }
     .logo-item .logo-text {
       font-family: var(--display-font);
@@ -475,9 +475,9 @@
       .hero-exec { min-height: 70vh; padding: 0 0 4rem; }
       .stats-bar { grid-template-columns: 1fr 1fr; padding: 1.5rem; gap: 1.2rem; }
       .info-row { grid-template-columns: 1fr 1fr; }
-      .logos-row { gap: 3rem; }
-      .logo-item.logo-esic img { height: 50px; }
-      .logo-item.logo-prestigio img { height: 38px; }
+      .logos-row { gap: 3rem; flex-direction: column; }
+      .logo-item.logo-esic img { height: 49px; }
+      .logo-item.logo-prestigio img { height: 42px; }
       .logo-item.logo-accenture img { height: 35px; }
     }
     @media (max-width: 480px) {
