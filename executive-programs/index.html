@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Executive Program: Digital Business Transformation 2026 | ESIC Medellín</title>
-  <meta name="description" content="Executive Program Digital Business Transformation 2026. Programa cocreado por ESIC, Prestigio y Accenture. Impulsa la transformación digital de tu organización.">
+  <title>Executive Program: Digital Business Transformation | ESIC Medellín</title>
+  <meta name="description" content="Executive Program Digital Business Transformation. Programa cocreado por ESIC, Prestigio y Accenture. Impulsa la transformación digital de tu organización.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
@@ -382,7 +382,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 5rem;
+      gap: 8rem;
       flex-wrap: wrap;
     }
     .logo-item {
@@ -392,18 +392,15 @@
     }
     .logo-item img {
       object-fit: contain;
-      filter: grayscale(100%);
-      opacity: 0.5;
       transition: all 0.3s;
     }
     .logo-item img:hover {
-      filter: grayscale(0%);
-      opacity: 1;
+      transform: scale(1.05);
     }
-    /* Tamaño individual para alineación visual */
-    .logo-item.logo-esic img { height: 55px; }
-    .logo-item.logo-prestigio img { height: 40px; }
-    .logo-item.logo-accenture img { height: 38px; }
+    /* Tamaño individual para alineación visual - MUCHO MÁS GRANDES */
+    .logo-item.logo-esic img { height: 120px; }
+    .logo-item.logo-prestigio img { height: 90px; }
+    .logo-item.logo-accenture img { height: 85px; }
     .logo-item .logo-text {
       font-family: var(--display-font);
       font-size: 1.6rem;
@@ -478,7 +475,10 @@
       .hero-exec { min-height: 70vh; padding: 0 0 4rem; }
       .stats-bar { grid-template-columns: 1fr 1fr; padding: 1.5rem; gap: 1.2rem; }
       .info-row { grid-template-columns: 1fr 1fr; }
-      .logos-row { gap: 2rem; }
+      .logos-row { gap: 3rem; }
+      .logo-item.logo-esic img { height: 80px; }
+      .logo-item.logo-prestigio img { height: 60px; }
+      .logo-item.logo-accenture img { height: 55px; }
     }
     @media (max-width: 480px) {
       .stats-bar { grid-template-columns: 1fr; }
@@ -545,7 +545,6 @@
         <div class="hero-exec-content">
           <span class="hero-exec-eyebrow">Executive Program:</span>
           <h1 class="hero-exec-title">DIGITAL BUSINESS<br>TRANSFORMATION</h1>
-          <div class="hero-exec-year">2026</div>
           <div class="hero-exec-partners">
             <span>Programa cocreado por:</span>
             <div class="partner-logo p-esic"><img src="https://esic.co/wp-content/uploads/2025/10/1_03._LOGO_ESIC_BUSINESS__MARKETING_SCHOOL.png" alt="ESIC" style="filter:none;"></div>
