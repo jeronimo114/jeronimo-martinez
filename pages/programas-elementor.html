@@ -915,6 +915,136 @@
     font-size: 0.85rem !important;
   }
 }
+
+/* ── Contact Modal ── */
+.esic-prog-page__modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0, 19, 63, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}
+.esic-prog-page__modal-overlay.esic-prog-page__modal-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.esic-prog-page__modal-container {
+  background: #FFFFFF !important;
+  border-radius: 24px !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+  transform: translateY(20px) scale(0.95) !important;
+  transition: transform 0.3s ease !important;
+  box-shadow: 0 25px 80px rgba(0, 19, 63, 0.3) !important;
+}
+.esic-prog-page__modal-overlay.esic-prog-page__modal-active .esic-prog-page__modal-container {
+  transform: translateY(0) scale(1) !important;
+}
+.esic-prog-page__modal-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 1.75rem 2rem !important;
+  border-bottom: 1px solid rgba(0, 19, 63, 0.1) !important;
+  background: linear-gradient(135deg, var(--esic-blue) 0%, var(--esic-blue-dark) 100%) !important;
+  border-radius: 24px 24px 0 0 !important;
+}
+.esic-prog-page__modal-header h3 {
+  font-family: var(--esic-font-display) !important;
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  color: #FFFFFF !important;
+  margin: 0 !important;
+}
+.esic-prog-page__modal-close {
+  width: 36px !important;
+  height: 36px !important;
+  border: none !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #FFFFFF !important;
+  font-size: 1.5rem !important;
+  line-height: 1 !important;
+  transition: background 0.2s ease !important;
+}
+.esic-prog-page__modal-close:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+.esic-prog-page__modal-body {
+  padding: 2rem !important;
+}
+.esic-prog-page__form-group {
+  margin-bottom: 1.25rem !important;
+}
+.esic-prog-page__form-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1rem !important;
+}
+@media (max-width: 480px) {
+  .esic-prog-page__form-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+.esic-prog-page__form-group label {
+  display: block !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: var(--esic-blue-dark) !important;
+  margin-bottom: 0.4rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+}
+.esic-prog-page__form-group label em {
+  color: var(--esic-orange) !important;
+  font-style: normal !important;
+  margin-left: 2px !important;
+}
+.esic-prog-page__form-group input,
+.esic-prog-page__form-group select {
+  width: 100% !important;
+  padding: 0.9rem 1rem !important;
+  border: 1.5px solid rgba(0, 19, 63, 0.12) !important;
+  border-radius: 12px !important;
+  font-family: var(--esic-font-body) !important;
+  font-size: 1rem !important;
+  background: #FFFFFF !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+}
+.esic-prog-page__form-group input:focus,
+.esic-prog-page__form-group select:focus {
+  outline: none !important;
+  border-color: var(--esic-blue) !important;
+  box-shadow: 0 0 0 3px rgba(0, 71, 233, 0.1) !important;
+}
+.esic-prog-page__form-group input::placeholder {
+  color: #97A2B1 !important;
+  opacity: 0.7 !important;
+}
+.esic-prog-page__form-group select {
+  cursor: pointer !important;
+  appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%230B132B' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 1rem center !important;
+  padding-right: 2.5rem !important;
+}
 </style>
 
 <!-- ========================================
@@ -950,7 +1080,7 @@
         <h2>EXPLORA<br>NUESTROS<br>PROGRAMAS</h2>
         <div class="esic-prog-page__section-header-info">
           <p>Formación práctica, internacional y conectada con el mundo real.</p>
-          <a class="esic-prog-page__btn esic-prog-page__btn--primary" href="/contacto/">AGENDA UNA ASESORÍA</a>
+          <a class="esic-prog-page__btn esic-prog-page__btn--primary" href="#" onclick="document.getElementById('progModal').classList.add('esic-prog-page__modal-active'); return false;">AGENDA UNA ASESORÍA</a>
         </div>
       </div>
 
@@ -1097,12 +1227,87 @@
       <div class="esic-prog-page__cta-inner">
         <h2>AGENDA UNA ASESORÍA PERSONALIZADA</h2>
         <p>Conversemos sobre tu futuro. Nuestro equipo te acompaña para encontrar el programa ideal.</p>
-        <a href="/contacto/" class="esic-prog-page__btn esic-prog-page__btn--white">
+        <a href="#" class="esic-prog-page__btn esic-prog-page__btn--white" onclick="document.getElementById('progModal').classList.add('esic-prog-page__modal-active'); return false;">
           AGENDAR ASESORÍA
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
   </section>
+
+<!-- Contact Modal -->
+<div class="esic-prog-page__modal-overlay" id="progModal" onclick="if(event.target === this) this.classList.remove('esic-prog-page__modal-active');">
+  <div class="esic-prog-page__modal-container">
+    <div class="esic-prog-page__modal-header">
+      <h3>Solicitar Información</h3>
+      <button class="esic-prog-page__modal-close" onclick="document.getElementById('progModal').classList.remove('esic-prog-page__modal-active');" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="esic-prog-page__modal-body">
+      <form action='https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit' name='form' id='zohoForm' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
+        <input type="hidden" name="zf_referrer_name" value="">
+        <input type="hidden" name="zf_redirect_url" value="">
+        <input type="hidden" name="zc_gad" value="">
+        
+        <div class="esic-prog-page__form-row">
+          <div class="esic-prog-page__form-group">
+            <label>Nombre <em>*</em></label>
+            <input type="text" maxlength="255" name="Name_First" placeholder="Tu nombre" required />
+          </div>
+          <div class="esic-prog-page__form-group">
+            <label>Apellido</label>
+            <input type="text" maxlength="255" name="Name_Last" placeholder="Tu apellido" />
+          </div>
+        </div>
+        
+        <div class="esic-prog-page__form-group">
+          <label>Correo electrónico <em>*</em></label>
+          <input type="email" maxlength="255" name="Email" placeholder="tu@email.com" required />
+        </div>
+        
+        <div class="esic-prog-page__form-group">
+          <label>Teléfono <em>*</em></label>
+          <input type="tel" name="PhoneNumber_countrycode" maxlength="20" placeholder="+57 300 123 4567" required />
+        </div>
+        
+        <div class="esic-prog-page__form-group">
+          <label>Tipo de programa <em>*</em></label>
+          <select name="Dropdown" required>
+            <option selected disabled value="">Selecciona un programa</option>
+            <option value="Pregrado">Pregrado</option>
+            <option value="Corporate">Corporate</option>
+            <option value="Diplomado">Diplomado</option>
+            <option value="Curso">Curso</option>
+            <option value="Executive">Executive</option>
+            <option value="Educación continua">Educación continua</option>
+            <option value="Level Up">Level Up</option>
+            <option value="Open Day">Open Day</option>
+          </select>
+        </div>
+        
+        <div class="esic-prog-page__form-group">
+          <label>Medio de contacto preferido <em>*</em></label>
+          <select name="Dropdown3" required>
+            <option selected disabled value="">Selecciona un medio</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Correo">Correo</option>
+            <option value="Llamada">Llamada</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="esic-prog-page__btn esic-prog-page__btn--primary" style="width:100%;">Enviar solicitud</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.getElementById('progModal').classList.remove('esic-prog-page__modal-active');
+    }
+  });
+})();
+</script>
 
 </div>
