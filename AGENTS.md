@@ -18,6 +18,13 @@ cat /ruta/al/archivo.html | pbcopy
 
 ---
 
+## ⭐ Página Oficial de Pregrado General
+
+> **`pregrado-definitiva/index.html`** es la página oficial y definitiva de pregrados generales.
+> Usar SIEMPRE esta versión. El archivo `pregrado/index.html` es una versión anterior — no actualizar.
+
+---
+
 ## Pregrado Definitiva Page (`pregrado-definitiva/index.html`)
 
 ### Hero Section
