@@ -55,64 +55,31 @@
 .esic-pregrado-db .epdb-btn-outline:hover { background: rgba(255, 150, 0, 0.1); }
 .esic-pregrado-db .epdb-btn svg { width: 16px; height: 16px; }
 
-/* Hero Section */
-.esic-pregrado-db .epdb-hero {
-  height: 85vh;
-  min-height: 500px;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 100px 2rem 15rem;
-}
-.esic-pregrado-db .epdb-hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(135deg, #FF9600 0%, #FF9600 40%, #00133F 100%);
-}
-.esic-pregrado-db .epdb-hero .epdb-container { height: 100%; display: flex; align-items: flex-end; position: relative; z-index: 2; width: 100%; }
-.esic-pregrado-db .epdb-hero-content {
-  text-align: right;
-  color: #FFFFFF;
+/* Hero Banner */
+.esic-pregrado-db .epdb-hero-banner {
+  width: 100%;
   max-width: 100%;
-  margin-left: auto;
-  padding-left: 40%;
-  padding-right: 5%;
+  overflow: hidden;
+  line-height: 0;
 }
-.esic-pregrado-db .epdb-hero-eyebrow {
-  font-family: var(--display-font);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-  color: rgba(255, 255, 255, 0.9);
+.esic-pregrado-db .epdb-hero-banner a {
+  display: block;
+  text-decoration: none;
 }
-.esic-pregrado-db .epdb-hero-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  line-height: 0.85;
-  color: #FFFFFF;
-  margin-bottom: 0.8rem;
+.esic-pregrado-db .epdb-hero-banner picture {
+  display: block;
+  width: 100%;
 }
-.esic-pregrado-db .epdb-hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 500px;
-  margin-left: auto;
-  margin-bottom: 2rem;
+.esic-pregrado-db .epdb-hero-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
-.esic-pregrado-db .epdb-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end; }
-.esic-pregrado-db .epdb-hero .epdb-btn-primary { background: var(--brand-blue-dark); color: #FFFFFF; }
-.esic-pregrado-db .epdb-hero .epdb-btn-primary:hover { background: #001a52; }
-.esic-pregrado-db .epdb-hero .epdb-btn-outline { border-color: #FFFFFF; color: #FFFFFF; }
-.esic-pregrado-db .epdb-hero .epdb-btn-outline:hover { background: rgba(255, 255, 255, 0.1); }
 
 /* Section Overlap */
-.esic-pregrado-db .epdb-section-overlap { position: relative; margin-top: -180px; border-radius: 50px 50px 0 0; z-index: 10; padding-top: 80px; }
+.esic-pregrado-db .epdb-section-overlap { position: relative; margin-top: -50px; border-radius: 50px 50px 0 0; z-index: 10; padding-top: 80px; }
 .esic-pregrado-db .epdb-section-white { background: #FFFFFF; }
 .esic-pregrado-db .epdb-section-orange { background: var(--brand-orange); }
 .esic-pregrado-db .epdb-section-cream { background: #F8F6F2; }
@@ -429,19 +396,18 @@
 
 <main>
   <!-- Hero Section -->
-  <section class="epdb-hero">
-    <div class="epdb-hero-bg"></div>
-    <div class="epdb-container">
-      <div class="epdb-hero-content epdb-reveal">
-        <p class="epdb-hero-eyebrow">PREGRADO · 4 AÑOS</p>
-        <h1 class="epdb-hero-title">DIGITAL BUSINESS</h1>
-        <p class="epdb-hero-subtitle">Formamos líderes orientados a resultados, listos para impulsar los negocios digitales y la innovación aplicada en organizaciones de impacto.</p>
-        <div class="epdb-hero-actions">
-          <a class="epdb-btn epdb-btn-primary" href="#formulario">SOLICITAR INFORMACIÓN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-          <a class="epdb-btn epdb-btn-outline" href="#plan-estudios">VER PLAN DE ESTUDIOS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-    </div>
+  <!-- Hero Banner Digital Business -->
+  <section class="epdb-hero-banner">
+    <a href="#formulario" aria-label="Solicitar información sobre Digital Business">
+      <picture>
+        <!-- Mobile -->
+        <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-digital-business-mobile.webp" type="image/webp">
+        <!-- Desktop -->
+        <source media="(min-width: 769px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-digital-business-desktop.webp" type="image/webp">
+        <!-- Fallback -->
+        <img src="https://esic.co/wp-content/uploads/2026/03/banner-digital-business-desktop.webp" alt="Pregrado en Digital Business - ESIC Medellín" loading="eager">
+      </picture>
+    </a>
   </section>
 
   <!-- Explora + Form Section -->

@@ -106,6 +106,7 @@
   font-family: var(--body-font) !important;
   text-decoration: none !important;
   background: transparent !important;
+  cursor: pointer !important;
 }
 
 .esic-footer-global .ef-footer-cta-buttons a:hover {
@@ -215,7 +216,193 @@
   color: inherit !important;
 }
 
-/* Responsive */
+/* === POPUP NATIVO ESIC === */
+.esic-popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 19, 63, 0.85) !important;
+  backdrop-filter: blur(4px);
+  z-index: 99999 !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.esic-popup-overlay.active {
+  display: flex !important;
+}
+
+.esic-popup-container {
+  background: #FFFFFF !important;
+  border-radius: 24px !important;
+  width: 100% !important;
+  max-width: 560px !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+  position: relative !important;
+  animation: esicPopupSlide 0.3s ease-out !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 19, 63, 0.25) !important;
+}
+
+@keyframes esicPopupSlide {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.esic-popup-header {
+  background: linear-gradient(135deg, #0047E9 0%, #00133F 100%) !important;
+  padding: 2.5rem 2rem 2rem !important;
+  border-radius: 24px 24px 0 0 !important;
+  position: relative !important;
+}
+
+.esic-popup-header h3 {
+  font-family: "Sofia Sans Extra Condensed", sans-serif !important;
+  font-size: 2.5rem !important;
+  font-weight: 800 !important;
+  color: #FFFFFF !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+.esic-popup-header p {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 1rem !important;
+  color: rgba(255,255,255,0.9) !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+}
+
+.esic-popup-close {
+  position: absolute !important;
+  top: 1rem !important;
+  right: 1rem !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: none !important;
+  background: rgba(255,255,255,0.15) !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  padding: 0 !important;
+}
+
+.esic-popup-close:hover {
+  background: rgba(255,255,255,0.3) !important;
+}
+
+.esic-popup-close svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: #FFFFFF !important;
+}
+
+.esic-popup-body {
+  padding: 2rem !important;
+}
+
+/* Formulario Zoho Styles */
+.esic-form-group {
+  margin-bottom: 1.25rem !important;
+}
+
+.esic-form-group label {
+  display: block !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: #00133F !important;
+  margin-bottom: 0.5rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+}
+
+.esic-form-group input,
+.esic-form-group select {
+  width: 100% !important;
+  padding: 0.875rem 1rem !important;
+  border: 1.5px solid #E0E0E0 !important;
+  border-radius: 10px !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 1rem !important;
+  color: #00133F !important;
+  background: #FFFFFF !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+}
+
+.esic-form-group input:focus,
+.esic-form-group select:focus {
+  outline: none !important;
+  border-color: #0047E9 !important;
+  box-shadow: 0 0 0 3px rgba(0, 71, 233, 0.1) !important;
+}
+
+.esic-form-group input::placeholder {
+  color: #9CA3AF !important;
+}
+
+.esic-form-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1rem !important;
+}
+
+.esic-form-note {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 0.75rem !important;
+  line-height: 1.5 !important;
+  color: #5F6B7A !important;
+  margin-bottom: 1.25rem !important;
+  text-align: justify !important;
+}
+
+.esic-form-note a {
+  color: #0047E9 !important;
+  text-decoration: underline !important;
+}
+
+.esic-form-submit {
+  width: 100% !important;
+  padding: 1rem 2rem !important;
+  background: #0047E9 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.esic-form-submit:hover {
+  background: #E68600 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(255, 150, 0, 0.3) !important;
+}
+
+/* Error messages */
+.esic-error-message {
+  display: none;
+  color: #dc2626;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  font-family: "DM Sans", sans-serif;
+}
+
+/* Responsive Footer */
 @media (max-width: 1024px) {
   .esic-footer-global .ef-footer-grid {
     gap: 3rem !important;
@@ -245,6 +432,18 @@
   .esic-footer-global .ef-footer-logo img {
     height: 40px !important;
   }
+
+  .esic-popup-header h3 {
+    font-size: 2rem !important;
+  }
+  
+  .esic-form-row {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .esic-popup-body {
+    padding: 1.5rem !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -269,7 +468,7 @@
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </a>
-            <a href="/?contacto">
+            <a href="#" onclick="document.getElementById('esic-popup-contacto').classList.add('active'); return false;">
               CONTÁCTANOS
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -332,3 +531,132 @@
     </div>
   </footer>
 </div>
+
+<!-- POPUP NATIVO: Formulario Zoho -->
+<div id="esic-popup-contacto" class="esic-popup-overlay" onclick="if(event.target === this) this.classList.remove('active')">
+  <div class="esic-popup-container">
+    <!-- Header -->
+    <div class="esic-popup-header">
+      <button class="esic-popup-close" onclick="document.getElementById('esic-popup-contacto').classList.remove('active')" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <h3>Ingresa tus datos</h3>
+      <p>Déjanos tus datos y te contactaremos para ayudarte.</p>
+    </div>
+    
+    <!-- Formulario Zoho -->
+    <div class="esic-popup-body">
+      <form action='https://forms.zohopublic.com/esicmedellin/form/Ingresatusdatos11/formperma/dPq5C9JHP3oAbujERJYMFFjsh95aHD8OrAqiB880QOI/htmlRecords/submit' 
+            name='esicZohoForm' 
+            method='POST' 
+            onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();' 
+            accept-charset='UTF-8' 
+            enctype='multipart/form-data' 
+            id='esicZohoForm'>
+        
+        <input type="hidden" name="zf_referrer_name" value="">
+        <input type="hidden" name="zf_redirect_url" value="">
+        <input type="hidden" name="zc_gad" value="">
+        
+        <!-- Nombre y Apellido -->
+        <div class="esic-form-row">
+          <div class="esic-form-group">
+            <label for="Name_First">Nombre <span style="color:#dc2626">*</span></label>
+            <input type="text" id="Name_First" name="Name_First" maxlength="255" fieldType="7" placeholder="" required>
+          </div>
+          <div class="esic-form-group">
+            <label for="Name_Last">Apellidos <span style="color:#dc2626">*</span></label>
+            <input type="text" id="Name_Last" name="Name_Last" maxlength="255" fieldType="7" placeholder="" required>
+          </div>
+        </div>
+        
+        <!-- Email -->
+        <div class="esic-form-group">
+          <label for="Email">Correo electrónico <span style="color:#dc2626">*</span></label>
+          <input type="email" id="Email" name="Email" checktype="c5" maxlength="255" fieldType="9" placeholder="" required>
+        </div>
+        
+        <!-- Teléfono -->
+        <div class="esic-form-group">
+          <label for="PhoneNumber_countrycode">Móvil o teléfono de contacto <span style="color:#dc2626">*</span></label>
+          <input type="tel" id="PhoneNumber_countrycode" name="PhoneNumber_countrycode" maxlength="20" checktype="c7" phoneFormat="1" isCountryCodeEnabled="false" fieldType="11" valType="number" phoneFormatType="1" placeholder="" required>
+        </div>
+        
+        <!-- Programa de interés -->
+        <div class="esic-form-group">
+          <label for="Programa">Programa de interés</label>
+          <select id="Programa" name="Programa">
+            <option value="">Selecciona un programa</option>
+            <option value="Marketing Global">Marketing Global</option>
+            <option value="Digital Business">Digital Business</option>
+            <option value="Máster en Marketing Digital">Máster en Marketing Digital</option>
+            <option value="Máster en Digital Business">Máster en Digital Business</option>
+            <option value="Máster en Customer Experience">Máster en Customer Experience</option>
+            <option value="Otros programas">Otros programas</option>
+          </select>
+        </div>
+        
+        <!-- Nota legal -->
+        <div class="esic-form-note">
+          Prisma Colombia S.A.S atenderá tu solicitud de información sobre nuestros servicios formativos. Para esta finalidad y las siguientes, puedes oponerte y acceder, rectificar o suprimir tus datos y ejercitar otros derechos como se indica en nuestra 
+          <a href="https://www.esic.co/politica-privacidad/" target="_blank" rel="noopener noreferrer">política de privacidad</a>.
+        </div>
+        
+        <!-- Botón Submit -->
+        <button type="submit" class="esic-form-submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+// === ZOHO FORM VALIDATION ===
+var zf_MandArray = ["Name_First", "Name_Last", "Email", "PhoneNumber_countrycode"]; 
+var zf_FieldArray = ["Name_First", "Name_Last", "Email", "PhoneNumber_countrycode"];
+
+function zf_ValidateAndSubmit() {
+  var isValid = true;
+  
+  // Validar campos obligatorios
+  for(var i = 0; i < zf_MandArray.length; i++) {
+    var field = document.forms['esicZohoForm'][zf_MandArray[i]];
+    if(field && field.value.trim() === '') {
+      isValid = false;
+      field.style.borderColor = '#dc2626';
+    } else if(field) {
+      field.style.borderColor = '#E0E0E0';
+    }
+  }
+  
+  // Validar email
+  var emailField = document.forms['esicZohoForm']['Email'];
+  if(emailField && emailField.value !== '') {
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(emailField.value)) {
+      isValid = false;
+      emailField.style.borderColor = '#dc2626';
+    }
+  }
+  
+  if(!isValid) {
+    return false;
+  }
+  
+  // Cerrar popup al enviar
+  document.getElementById('esic-popup-contacto').classList.remove('active');
+  return true;
+}
+
+// === POPUP FUNCIONALIDAD ===
+(function() {
+  // Cerrar popup con tecla ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.getElementById('esic-popup-contacto').classList.remove('active');
+    }
+  });
+})();
+</script>

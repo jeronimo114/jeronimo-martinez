@@ -1,0 +1,1488 @@
+<!-- ESIC Quienes Somos - Elementor HTML Widget -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-quienes-somos {
+  --qs-brand-blue: #0047E9;
+  --qs-brand-blue-dark: #00133F;
+  --qs-brand-teal: #0AE4C3;
+  --qs-brand-orange: #FF9600;
+  --qs-bg: #F8F6F2;
+  --qs-bg-alt: #F2F5FB;
+  --qs-surface: #FFFFFF;
+  --qs-text: #0B132B;
+  --qs-text-muted: #5F6B7A;
+  --qs-text-light: #97A2B1;
+  --qs-border: rgba(0, 19, 63, 0.12);
+  --qs-display-font: "Sofia Sans Extra Condensed", sans-serif;
+  --qs-body-font: "DM Sans", sans-serif;
+  --qs-display-weight: 700;
+  font-family: var(--qs-body-font);
+  color: var(--qs-text);
+  line-height: 1.6;
+}
+
+
+.esic-quienes-somos * {
+  box-sizing: border-box;
+}
+
+.esic-quienes-somos img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.esic-quienes-somos .qs-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Section base */
+.esic-quienes-somos .qs-section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.esic-quienes-somos .qs-section-overlap {
+  position: relative;
+  margin-top: -50px;
+  border-radius: 50px 50px 0 0;
+  background: var(--qs-bg);
+  z-index: 1;
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.esic-quienes-somos .qs-section-white {
+  background: var(--qs-surface);
+}
+
+/* Hero */
+/* Hero Banner */
+.esic-quienes-somos .qs-hero-banner {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.esic-quienes-somos .qs-hero-banner a {
+  display: block;
+  text-decoration: none;
+}
+
+.esic-quienes-somos .qs-hero-banner picture {
+  display: block;
+  width: 100%;
+}
+
+.esic-quienes-somos .qs-hero-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Buttons */
+.esic-quienes-somos .qs-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.esic-quienes-somos .qs-btn-primary {
+  background: var(--qs-brand-blue);
+  color: #FFFFFF;
+  box-shadow: 0 16px 35px rgba(0, 71, 233, 0.25);
+}
+
+.esic-quienes-somos .qs-btn-primary:hover {
+  background: #0037B4;
+  transform: translateY(-2px);
+}
+
+.esic-quienes-somos .qs-btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+}
+
+.esic-quienes-somos .qs-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Section Header */
+.esic-quienes-somos .qs-section-header {
+  margin-bottom: 3rem;
+}
+
+.esic-quienes-somos .qs-section-title {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: var(--qs-display-weight);
+  text-transform: uppercase;
+  color: var(--qs-brand-blue-dark);
+  line-height: 0.95;
+}
+
+.esic-quienes-somos .qs-section-title span {
+  color: var(--qs-brand-orange);
+}
+
+/* Manifiesto */
+.esic-quienes-somos .qs-manifiesto-section {
+  padding: 7rem 0;
+}
+
+.esic-quienes-somos .qs-manifiesto-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.esic-quienes-somos .qs-manifiesto-tag {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--qs-brand-blue-dark);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.esic-quienes-somos .qs-manifiesto-text {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  color: var(--qs-text);
+  margin-bottom: 1.5rem;
+}
+
+.esic-quienes-somos .qs-manifiesto-signature {
+  font-family: var(--qs-display-font);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--qs-text-muted);
+  font-weight: var(--qs-display-weight);
+  margin-top: 2.5rem;
+}
+
+/* Values Grid */
+.esic-quienes-somos .qs-values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.esic-quienes-somos .qs-value-card {
+  background: var(--qs-surface);
+  border-radius: 24px;
+  padding: 2rem 1.5rem 1.8rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 19, 63, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.esic-quienes-somos .qs-value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 19, 63, 0.1);
+}
+
+.esic-quienes-somos .qs-value-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  border-radius: 24px 24px 0 0;
+}
+
+.esic-quienes-somos .qs-value-card.qs-orange::before { background: var(--qs-brand-orange); }
+.esic-quienes-somos .qs-value-card.qs-blue::before { background: var(--qs-brand-blue); }
+.esic-quienes-somos .qs-value-card.qs-teal::before { background: var(--qs-brand-teal); }
+
+.esic-quienes-somos .qs-value-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.esic-quienes-somos .qs-value-card.qs-orange .qs-value-card-icon {
+  background: rgba(255, 150, 0, 0.10);
+}
+
+.esic-quienes-somos .qs-value-card.qs-blue .qs-value-card-icon {
+  background: rgba(0, 71, 233, 0.10);
+}
+
+.esic-quienes-somos .qs-value-card.qs-teal .qs-value-card-icon {
+  background: rgba(10, 228, 195, 0.10);
+}
+
+.esic-quienes-somos .qs-value-card-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.esic-quienes-somos .qs-value-card h3 {
+  font-family: var(--qs-display-font);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: var(--qs-display-weight);
+  color: var(--qs-text);
+  margin-bottom: 0.6rem;
+}
+
+.esic-quienes-somos .qs-value-card h3::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: var(--qs-text);
+  margin-top: 0.6rem;
+  border-radius: 2px;
+  opacity: 0.2;
+}
+
+.esic-quienes-somos .qs-value-card p {
+  font-size: 0.9rem;
+  color: var(--qs-text-muted);
+  line-height: 1.5;
+}
+
+/* Fundadores */
+.esic-quienes-somos .qs-fundadores-section {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.esic-quienes-somos .qs-fundadores-title {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--qs-display-weight);
+  text-transform: uppercase;
+  color: var(--qs-brand-blue);
+  line-height: 0.95;
+}
+
+.esic-quienes-somos .qs-fundadores-logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem 2rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.esic-quienes-somos .qs-fundador-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  padding: 0.5rem 1rem;
+}
+
+.esic-quienes-somos .qs-fundador-logo img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Logo optical size adjustments - Postobón is baseline (100%) */
+.esic-quienes-somos .qs-fundador-logo.qs-logo-accenture img { transform: scale(0.88); }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-bancolombia img { transform: scale(1.12); }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-crystal img { transform: scale(1.22); }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-bios img { transform: scale(1.27); }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-telefonica img { transform: scale(1.38); }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-postobon img { transform: scale(1); }
+
+/* Cifras Section */
+.esic-quienes-somos .qs-cifras-section {
+  background: #FFFFFF;
+  padding: 5rem 0 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.esic-quienes-somos .qs-cifras-header h2 {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: var(--qs-display-weight);
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: #00133F;
+  margin-bottom: 2rem;
+}
+
+/* Variant Selector */
+.esic-quienes-somos .qs-variant-selector {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 3rem;
+  background: #F0F0F0;
+  border-radius: 50px;
+  padding: 5px;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.esic-quienes-somos .qs-variant-btn {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--qs-body-font);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: #666;
+}
+
+.esic-quienes-somos .qs-variant-btn.qs-active {
+  background: #E53935;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.35);
+}
+
+.esic-quienes-somos .qs-variant-btn:not(.qs-active):hover {
+  background: #E0E0E0;
+  color: #333;
+}
+
+.esic-quienes-somos .qs-cifras-variant { display: none; }
+.esic-quienes-somos .qs-cifras-variant.qs-active { display: block; }
+
+/* Zone label */
+.esic-quienes-somos .qs-zone-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.esic-quienes-somos .qs-zone-label span {
+  font-family: var(--qs-display-font);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
+
+.esic-quienes-somos .qs-flag-icon {
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+/* Stats */
+.esic-quienes-somos .qs-cifras-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.esic-quienes-somos .qs-cifras-stat .qs-num {
+  font-family: var(--qs-display-font);
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 0.15rem;
+}
+
+.esic-quienes-somos .qs-cifras-stat .qs-desc {
+  font-size: 0.8rem;
+  line-height: 1.3;
+  max-width: 150px;
+}
+
+/* Checklist */
+.esic-quienes-somos .qs-cifras-check {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.esic-quienes-somos .qs-cifras-check li {
+  font-size: 0.85rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.4;
+}
+
+.esic-quienes-somos .qs-cifras-check li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 14px;
+  height: 14px;
+  background: #0038E3;
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 7l2.5 2.5L10 5' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.esic-quienes-somos .qs-cifras-check.qs-on-dark li { color: rgba(255,255,255,0.9); }
+.esic-quienes-somos .qs-cifras-check.qs-on-dark li::before { background-color: #5EEDC3; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 7l2.5 2.5L10 5' stroke='%2300133F' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+
+/* CTA Link */
+.esic-quienes-somos .qs-cifras-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.esic-quienes-somos .qs-cifras-cta:hover { opacity: 0.75; }
+.esic-quienes-somos .qs-cifras-cta svg { width: 16px; height: 16px; }
+
+/* Variante C - Side by Side */
+.esic-quienes-somos .qs-vc-card {
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.esic-quienes-somos .qs-vc-left {
+  background: #00133F;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.esic-quienes-somos .qs-vc-left .qs-zone-label span { color: #5EEDC3; }
+
+.esic-quienes-somos .qs-vc-left-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.esic-quienes-somos .qs-vc-left-stats .qs-cifras-stat .qs-num { color: #fff; font-size: 1.8rem; }
+.esic-quienes-somos .qs-vc-left-stats .qs-cifras-stat .qs-desc { color: rgba(255,255,255,0.6); font-size: 0.75rem; }
+
+.esic-quienes-somos .qs-vc-left-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.esic-quienes-somos .qs-vc-left-bottom .qs-cifras-cta { color: #5EEDC3; }
+
+.esic-quienes-somos .qs-vc-right {
+  background: #FFFFFF;
+  border: 1.5px solid #E8E8E8;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.esic-quienes-somos .qs-vc-right .qs-zone-label span { color: #00133F; }
+
+.esic-quienes-somos .qs-vc-prog {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.esic-quienes-somos .qs-vc-prog .qs-prog-icon { 
+  width: 28px; 
+  height: 28px; 
+  color: #0038E3; 
+  margin-top: 0.15rem; 
+  flex-shrink: 0;
+}
+
+.esic-quienes-somos .qs-vc-prog-info h4 {
+  font-family: var(--qs-display-font);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #0038E3;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.esic-quienes-somos .qs-vc-prog-info .qs-num {
+  font-family: var(--qs-display-font);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #00133F;
+  line-height: 1;
+}
+
+.esic-quienes-somos .qs-vc-prog-info .qs-desc {
+  font-size: 0.72rem;
+  color: #888;
+}
+
+.esic-quienes-somos .qs-vc-prog-info p {
+  font-size: 0.7rem;
+  color: #aaa;
+  margin: 0.1rem 0 0;
+  line-height: 1.3;
+}
+
+/* Scroll Break */
+.esic-quienes-somos .qs-scroll-break {
+  background: linear-gradient(135deg, #001E47 0%, #00133F 100%);
+  padding: 5rem 0;
+  position: relative;
+  margin-top: -50px;
+  border-radius: 50px 50px 0 0;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.esic-quienes-somos .qs-scroll-break::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(0, 71, 233, 0.15), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(10, 228, 195, 0.08), transparent 40%);
+  pointer-events: none;
+}
+
+.esic-quienes-somos .qs-scroll-break-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.esic-quienes-somos .qs-scroll-break h2 {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--qs-display-weight);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  line-height: 0.95;
+  margin-bottom: 1rem;
+  max-width: 700px;
+}
+
+.esic-quienes-somos .qs-scroll-break h2 span {
+  color: var(--qs-brand-teal);
+}
+
+.esic-quienes-somos .qs-scroll-break p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.15rem;
+  max-width: 550px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* CTA Cierre */
+.esic-quienes-somos .qs-cta-cierre {
+  position: relative;
+  margin-top: -50px;
+  border-radius: 50px 50px 0 0;
+  background: var(--qs-surface);
+  z-index: 3;
+  padding: 5rem 0 6rem;
+}
+
+.esic-quienes-somos .qs-cta-cierre-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.esic-quienes-somos .qs-cta-cierre-tag {
+  font-family: var(--qs-display-font);
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--qs-brand-blue);
+  font-weight: var(--qs-display-weight);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.esic-quienes-somos .qs-cta-cierre h2 {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--qs-display-weight);
+  text-transform: uppercase;
+  color: var(--qs-text);
+  line-height: 0.95;
+  margin-bottom: 1rem;
+}
+
+.esic-quienes-somos .qs-cta-cierre h2 span {
+  color: var(--qs-brand-orange);
+}
+
+.esic-quienes-somos .qs-cta-cierre p {
+  font-size: 1.1rem;
+  color: var(--qs-text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Footer */
+  padding: 5rem 0 2rem;
+  background: #FFFFFF;
+  color: var(--qs-brand-blue-dark);
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 9;
+}
+
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+  font-family: var(--qs-display-font);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.9;
+  color: var(--qs-brand-blue-dark);
+}
+
+  color: var(--qs-brand-blue);
+}
+
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  color: var(--qs-brand-blue-dark);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+  border-color: var(--qs-brand-blue);
+  color: var(--qs-brand-blue);
+}
+
+  width: 16px;
+  height: 16px;
+}
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+  height: 50px;
+  width: auto;
+}
+
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--qs-text-muted);
+}
+
+  display: flex;
+  gap: 1rem;
+}
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--qs-brand-blue-dark);
+  transition: color 0.2s ease;
+}
+
+  color: var(--qs-brand-blue);
+}
+
+  width: 22px;
+  height: 22px;
+}
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+  color: var(--qs-brand-blue-dark);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+  color: var(--qs-brand-blue);
+}
+
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #E0E0E0;
+  font-size: 0.85rem;
+  color: var(--qs-text-muted);
+}
+
+/* Contact Modal */
+.esic-quienes-somos .qs-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 19, 63, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: -9999 !important;
+  display: none !important;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.esic-quienes-somos .qs-modal-overlay.qs-active {
+  z-index: 9999 !important;
+  display: flex !important;
+  opacity: 1;
+  visibility: visible;
+}
+
+.esic-quienes-somos .qs-modal-container {
+  background: #FFFFFF;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.3s ease;
+  box-shadow: 0 25px 80px rgba(0, 19, 63, 0.3);
+}
+
+.esic-quienes-somos .qs-modal-overlay.qs-active .qs-modal-container {
+  transform: translateY(0) scale(1);
+}
+
+.esic-quienes-somos .qs-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid rgba(0, 19, 63, 0.1);
+  background: var(--qs-brand-blue-dark);
+  border-radius: 24px 24px 0 0;
+}
+
+.esic-quienes-somos .qs-modal-header h3 {
+  font-family: var(--qs-display-font);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.esic-quienes-somos .qs-modal-close {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+  line-height: 1;
+}
+
+.esic-quienes-somos .qs-modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.esic-quienes-somos .qs-modal-body {
+  padding: 2rem;
+}
+
+.esic-quienes-somos .qs-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.esic-quienes-somos .qs-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.esic-quienes-somos .qs-form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--qs-brand-blue-dark);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.esic-quienes-somos .qs-form-group label em {
+  color: var(--qs-brand-orange);
+  font-style: normal;
+  margin-left: 2px;
+}
+
+.esic-quienes-somos .qs-form-group input,
+.esic-quienes-somos .qs-form-group select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1.5px solid var(--qs-border);
+  border-radius: 12px;
+  font-family: var(--qs-body-font);
+  font-size: 1rem;
+  color: var(--qs-text);
+  background: #FFFFFF;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.esic-quienes-somos .qs-form-group input:focus,
+.esic-quienes-somos .qs-form-group select:focus {
+  border-color: var(--qs-brand-blue);
+  box-shadow: 0 0 0 3px rgba(0, 71, 233, 0.1);
+}
+
+.esic-quienes-somos .qs-form-group input::placeholder {
+  color: var(--qs-text-light);
+  opacity: 0.7;
+}
+
+.esic-quienes-somos .qs-form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%230B132B' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.esic-quienes-somos .qs-btn-full {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .esic-quienes-somos .qs-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .esic-quienes-somos .qs-fundadores-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .esic-quienes-somos .qs-fundadores-logos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .esic-quienes-somos .qs-vc-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .esic-quienes-somos .qs-vc-right {
+    border-left: 1.5px solid #E8E8E8;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .esic-quienes-somos .qs-vc-left-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .esic-quienes-somos .qs-section-overlap {
+    margin-top: -30px;
+    border-radius: 30px 30px 0 0;
+    padding-top: 60px;
+  }
+  
+  .esic-quienes-somos .qs-values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .esic-quienes-somos .qs-vc-left-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .esic-quienes-somos .qs-variant-selector {
+    max-width: 160px;
+  }
+  
+  .esic-quienes-somos .qs-variant-btn {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.82rem;
+  }
+  
+  .esic-quienes-somos .qs-vc-left,
+  .esic-quienes-somos .qs-vc-right {
+    padding: 1.5rem;
+  }
+  
+  .esic-quienes-somos .qs-scroll-break,
+  .esic-quienes-somos .qs-cta-cierre {
+    margin-top: -30px;
+    border-radius: 30px 30px 0 0;
+  }
+  
+    border-radius: 30px 30px 0 0;
+    margin-top: -30px;
+  }
+  
+    flex-direction: column;
+  }
+  
+    justify-content: space-between;
+  }
+  
+  .esic-quienes-somos .qs-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .esic-quienes-somos .qs-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .esic-quienes-somos .qs-section {
+    padding: 3.5rem 0;
+  }
+  
+  .esic-quienes-somos .qs-fundadores-logos {
+    gap: 1rem;
+  }
+  
+  .esic-quienes-somos .qs-fundador-logo {
+    height: 50px;
+  }
+  
+  .esic-quienes-somos .qs-modal-header {
+    padding: 1.5rem;
+  }
+  
+  .esic-quienes-somos .qs-modal-body {
+    padding: 1.5rem;
+  }
+}
+
+/* =====================================================
+   Cifras & Reconocimiento — Prestige Statement
+   Dark navy; numbers as heroes, no cards
+   ===================================================== */
+.eh-cifras-section {
+  background: #00133F;
+  padding: 4.5rem 0 5rem;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+}
+.eh-cifras-section .eh-cifras-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.eh-cifras-eyebrow {
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.32);
+  margin-bottom: 0.75rem;
+}
+.eh-cifras-header { margin-bottom: 3.5rem; }
+.eh-cifras-header h2 {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.92;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.eh-cifras-body {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 4rem;
+  align-items: start;
+}
+.eh-cifras-divider { background: rgba(255,255,255,0.08); align-self: stretch; }
+.eh-cifras-column { display: flex; flex-direction: column; }
+.eh-cifras-section .eh-country-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 0;
+}
+.eh-cifras-section .eh-country-flag { width: 22px; height: 15px; border-radius: 2px; flex-shrink: 0; }
+.eh-cifras-section .eh-country-name {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.4);
+}
+.eh-cifras-column.eh-espana .eh-country-name { color: #7BA8FF; }
+.eh-cifras-column.eh-medellin .eh-country-name { color: #FFB740; }
+.eh-cifras-stats { flex: 1; }
+.eh-cifra-item { padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.eh-cifra-item:last-child { border-bottom: none; padding-bottom: 0.5rem; }
+.eh-cifra-num {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: clamp(3.75rem, 6vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  color: #FFFFFF;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.4rem;
+}
+.eh-cifra-desc { font-size: 0.85rem; font-weight: 400; color: rgba(255,255,255,0.45); line-height: 1.4; }
+.eh-cifras-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 50px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: all 0.22s ease;
+  width: fit-content;
+}
+.eh-cifras-cta:hover {
+  border-color: rgba(255,255,255,0.4);
+  color: #FFFFFF;
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-1px);
+}
+.eh-cifras-cta svg { width: 13px; height: 13px; flex-shrink: 0; }
+@media (max-width: 768px) {
+  .eh-cifras-body { grid-template-columns: 1fr; gap: 3rem 0; }
+  .eh-cifras-divider { display: none; }
+  .eh-cifra-num { font-size: clamp(3.25rem, 12vw, 4.5rem); }
+}
+@media (max-width: 480px) {
+  .eh-cifra-num { font-size: 3.25rem; }
+}
+
+
+/* Elementor Compatibility - Fix overlap */
+.elementor-widget-container > .esic-quienes-somos,
+.elementor .esic-quienes-somos {
+  margin-top: -100px !important;
+  position: relative;
+  z-index: 1;
+}
+.elementor-widget-container,
+.elementor-element,
+.e-con-inner,
+.e-con {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+</style>
+
+<main class="esic-quienes-somos">
+  <!-- Hero Banner -->
+  <section class="qs-hero-banner">
+    <a href="#manifiesto" aria-label="Ver más sobre ESIC">
+      <picture>
+        <!-- Mobile -->
+        <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-mobile-1-scaled.webp" type="image/webp">
+        <!-- Desktop -->
+        <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-desktop-1.webp" type="image/webp">
+        <!-- Fallback -->
+        <img src="https://esic.co/wp-content/uploads/2026/03/banner-desktop-1.webp" alt="Quiénes Somos ESIC" loading="eager">
+      </picture>
+    </a>
+  </section>
+
+  <!-- Manifiesto -->
+  <section class="qs-section qs-section-overlap qs-manifiesto-section" id="manifiesto">
+    <div class="qs-container">
+      <div class="qs-manifiesto-wrapper">
+        <h2 class="qs-manifiesto-tag">Nuestro Manifiesto</h2>
+        <p class="qs-manifiesto-text">ESIC Medellín no es solo una escuela. Es un movimiento de mentes valientes. Creemos en el marketing con propósito, la economía que transforma, y la tecnología que mejora vidas.</p>
+        <p class="qs-manifiesto-text">Aquí se piensa distinto. Se actúa con ética. Se impacta con sentido.</p>
+        <p class="qs-manifiesto-text">No formamos egresados. Formamos transformadores.</p>
+        <p class="qs-manifiesto-text">Si vienes a encajar, este no es tu lugar. Si vienes a cambiar el juego, bienvenido a casa.</p>
+        <p class="qs-manifiesto-signature">ESIC Medellín — diseñando futuros.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="qs-section qs-section-overlap qs-section-white">
+    <div class="qs-container">
+      <div class="qs-section-header">
+        <h2 class="qs-section-title">Lo que nos <span>mueve</span></h2>
+      </div>
+      <div class="qs-values-grid">
+        <article class="qs-value-card qs-orange">
+          <div class="qs-value-card-icon">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="13" cy="13" r="11" stroke="#FF9600" stroke-width="1.5" fill="rgba(255,150,0,0.08)"/>
+              <ellipse cx="13" cy="13" rx="4.5" ry="11" stroke="#FF9600" stroke-width="1.2"/>
+              <line x1="2" y1="13" x2="24" y2="13" stroke="#FF9600" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <h3>Internacionalización</h3>
+          <p>Tu transformación es nuestra manera de cambiar el mundo.</p>
+        </article>
+        <article class="qs-value-card qs-blue">
+          <div class="qs-value-card-icon">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 4a7 7 0 0 1 4.6 12.3V19H8.4v-2.7A7 7 0 0 1 13 4z" stroke="#0047E9" stroke-width="1.5" fill="rgba(0,71,233,0.08)"/>
+              <line x1="9.5" y1="21.5" x2="16.5" y2="21.5" stroke="#0047E9" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Innovación</h3>
+          <p>Aprendizaje continuo para anticipar y liderar los cambios del mercado.</p>
+        </article>
+        <article class="qs-value-card qs-teal">
+          <div class="qs-value-card-icon">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 3L3 8v2l10 5 10-5V8L13 3z" stroke="#0AE4C3" stroke-width="1.5" stroke-linejoin="round" fill="rgba(10,228,195,0.08)"/>
+              <path d="M5 11.5v5l8 4 8-4v-5" stroke="#0AE4C3" stroke-width="1.3" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Ética</h3>
+          <p>Formamos líderes responsables, con impacto social y empresarial.</p>
+        </article>
+        <article class="qs-value-card qs-orange">
+          <div class="qs-value-card-icon">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="14" width="4.5" height="9" rx="1.2" stroke="#FF9600" stroke-width="1.5" fill="rgba(255,150,0,0.08)"/>
+              <rect x="10.75" y="8" width="4.5" height="15" rx="1.2" stroke="#FF9600" stroke-width="1.5" fill="rgba(255,150,0,0.08)"/>
+              <rect x="17.5" y="11" width="4.5" height="12" rx="1.2" stroke="#FF9600" stroke-width="1.5" fill="rgba(255,150,0,0.08)"/>
+            </svg>
+          </div>
+          <h3>Resultados</h3>
+          <p>Metodologías que convierten el conocimiento en acciones medibles.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Socios Fundadores -->
+  <section class="qs-section qs-section-overlap qs-section-white">
+    <div class="qs-container qs-fundadores-section">
+      <div>
+        <h2 class="qs-fundadores-title">Nuestros<br>Miembros<br>Fundadores</h2>
+      </div>
+      <div class="qs-fundadores-logos">
+        <div class="qs-fundador-logo qs-logo-bios"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Grupo Bios"></div>
+        <div class="qs-fundador-logo qs-logo-bancolombia"><img src="https://esic.co/wp-content/uploads/2024/08/g6@4x.png" alt="Bancolombia"></div>
+        <div class="qs-fundador-logo qs-logo-crystal"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-1@4x.png" alt="Crystal"></div>
+        <div class="qs-fundador-logo qs-logo-telefonica"><img src="https://esic.co/wp-content/uploads/2024/08/Telefonica-logo.png" alt="Telefonica"></div>
+        <div class="qs-fundador-logo qs-logo-accenture"><img src="https://esic.co/wp-content/uploads/2024/08/layer1@4x.png" alt="Accenture"></div>
+        <div class="qs-fundador-logo qs-logo-postobon"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-3@4x.png" alt="Postobon"></div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Cifras & Reconocimiento — Prestige Statement -->
+  <section class="eh-cifras-section" id="cifras">
+    <div class="eh-cifras-container">
+      <div class="eh-cifras-header">
+        <span class="eh-cifras-eyebrow">Trayectoria &amp; Presencia Global</span>
+        <h2>CIFRAS Y<br>RECONOCIMIENTO</h2>
+      </div>
+      <div class="eh-cifras-body">
+
+        <!-- ESIC España -->
+        <div class="eh-cifras-column eh-espana">
+          <div class="eh-country-header">
+            <svg class="eh-country-flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
+            <span class="eh-country-name">ESIC España</span>
+          </div>
+          <div class="eh-cifras-stats">
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">TOP 1</div>
+              <div class="eh-cifra-desc">Marketing y Economía Digital</div>
+            </div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">62K+</div>
+              <div class="eh-cifra-desc">Alumni de 80+ nacionalidades</div>
+            </div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">60</div>
+              <div class="eh-cifra-desc">Años formando profesionales</div>
+            </div>
+          </div>
+          <a href="https://www.esic.edu" target="_blank" rel="noopener" class="eh-cifras-cta">
+            Conoce ESIC España
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="eh-cifras-divider" aria-hidden="true"></div>
+
+        <!-- ESIC Medellín -->
+        <div class="eh-cifras-column eh-medellin">
+          <div class="eh-country-header">
+            <svg class="eh-country-flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+            <span class="eh-country-name">ESIC Medellín</span>
+          </div>
+          <div class="eh-cifras-stats">
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">+3,000</div>
+              <div class="eh-cifra-desc">Participantes a la medida</div>
+            </div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">230</div>
+              <div class="eh-cifra-desc">Máster graduados</div>
+            </div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">252</div>
+              <div class="eh-cifra-desc">Pregrado activos</div>
+            </div>
+          </div>
+          <a href="#contacto" class="eh-cifras-cta">
+            Conoce ESIC Medellín
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div><!-- /.eh-cifras-body -->
+    </div>
+  </section>
+
+  <!-- Scroll Break -->
+  <section class="qs-scroll-break">
+    <div class="qs-container qs-scroll-break-content">
+      <h2>Transformamos el <span>talento</span> en impacto real</h2>
+      <p>Más de seis décadas formando líderes que entienden el mercado, innovan con propósito y construyen el futuro de los negocios.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+
+
+  <!-- Contact Modal -->
+  <div class="qs-modal-overlay" id="contactModal" style="display: none !important; opacity: 0 !important; visibility: hidden !important;">
+    <div class="qs-modal-container">
+      <div class="qs-modal-header">
+        <h3>Solicitar Información</h3>
+        <button class="qs-modal-close" aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="qs-modal-body">
+        <form id="zohoForm" action="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+          <input type="hidden" name="zf_referrer_name" value="">
+          <input type="hidden" name="zf_redirect_url" value="">
+          <input type="hidden" name="zc_gad" value="">
+          
+          <div class="qs-form-row">
+            <div class="qs-form-group">
+              <label>Nombre <em>*</em></label>
+              <input type="text" maxlength="255" name="Name_First" placeholder="Tu nombre" required />
+            </div>
+            <div class="qs-form-group">
+              <label>Apellido</label>
+              <input type="text" maxlength="255" name="Name_Last" placeholder="Tu apellido" />
+            </div>
+          </div>
+          
+          <div class="qs-form-group">
+            <label>Correo electrónico <em>*</em></label>
+            <input type="email" maxlength="255" name="Email" placeholder="tu@email.com" required />
+          </div>
+          
+          <div class="qs-form-group">
+            <label>Teléfono <em>*</em></label>
+            <input type="tel" name="PhoneNumber_countrycode" maxlength="20" placeholder="+57 300 123 4567" required />
+          </div>
+          
+          <div class="qs-form-row">
+            <div class="qs-form-group">
+              <label>Tipo de programa <em>*</em></label>
+              <select name="Dropdown" required>
+                <option value="" disabled selected>Selecciona...</option>
+                <option value="Pregrado">Pregrado</option>
+                <option value="Corporate">Corporate</option>
+                <option value="Diplomado">Diplomado</option>
+                <option value="Curso">Curso</option>
+                <option value="Executive">Executive</option>
+                <option value="Educación continua">Educación continua</option>
+                <option value="Level Up">Level Up</option>
+                <option value="Open Day">Open Day</option>
+              </select>
+            </div>
+            <div class="qs-form-group">
+              <label>Medio de contacto <em>*</em></label>
+              <select name="Dropdown3" required>
+                <option value="" disabled selected>Selecciona...</option>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Correo">Correo</option>
+                <option value="Llamada">Llamada</option>
+              </select>
+            </div>
+          </div>
+          
+          <button type="submit" class="qs-btn qs-btn-primary qs-btn-full">Enviar solicitud</button>
+        </form>
+      </div>
+    </div>
+
+</main>
+
+<script>
+(function() {
+  var wrapper = document.querySelector('.esic-quienes-somos');
+  if (!wrapper) return;
+  
+  
+    });
+  }
+  
+      });
+    }
+  });
+  
+  // Variant selector
+  var variantBtns = wrapper.querySelectorAll('.qs-variant-btn');
+  var variantPanels = wrapper.querySelectorAll('.qs-cifras-variant');
+  
+  variantBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var variant = btn.getAttribute('data-variant');
+      variantBtns.forEach(function(b) { b.classList.remove('qs-active'); });
+      variantPanels.forEach(function(p) { p.classList.remove('qs-active'); });
+      btn.classList.add('qs-active');
+      document.getElementById('qs-variant-' + variant).classList.add('qs-active');
+    });
+  });
+
+  // Contact Modal
+  var contactTriggers = wrapper.querySelectorAll('.qs-contact-trigger');
+  var contactModal = wrapper.querySelector('#contactModal');
+  var modalClose = wrapper.querySelector('.qs-modal-close');
+
+  contactTriggers.forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (contactModal) {
+        contactModal.style.display = '';
+        contactModal.style.opacity = '';
+        contactModal.style.visibility = '';
+        contactModal.classList.add('qs-active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+  
+  function closeModal() {
+    if (contactModal) {
+      contactModal.classList.remove('qs-active');
+      contactModal.style.display = 'none';
+      contactModal.style.opacity = '0';
+      contactModal.style.visibility = 'hidden';
+      document.body.style.overflow = '';
+    }
+  }
+  
+  if (modalClose && contactModal) {
+    modalClose.addEventListener('click', closeModal);
+  }
+  
+  if (contactModal) {
+    contactModal.addEventListener('click', function(e) {
+      if (e.target === contactModal) {
+        closeModal();
+      }
+    });
+  }
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && contactModal && contactModal.classList.contains('qs-active')) {
+      closeModal();
+    }
+  });
+})();
+</script>

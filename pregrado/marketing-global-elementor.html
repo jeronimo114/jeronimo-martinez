@@ -173,60 +173,31 @@
 .esic-pregrado-mkt .epm-nav-overlay-social a:hover { color: #FFFFFF; }
 .esic-pregrado-mkt .epm-nav-overlay-social svg { width: 22px; height: 22px; }
 
-/* Hero Section */
-.esic-pregrado-mkt .epm-hero {
-  height: 85vh;
-  min-height: 500px;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 100px 2rem 15rem;
-}
-.esic-pregrado-mkt .epm-hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(135deg, #0047E9 0%, #00133F 50%, rgba(255,135,1,0.2) 100%);
-}
-.esic-pregrado-mkt .epm-hero .epm-container { height: 100%; display: flex; align-items: flex-end; position: relative; z-index: 2; width: 100%; }
-.esic-pregrado-mkt .epm-hero-content {
-  text-align: right;
-  color: #FFFFFF;
+/* Hero Banner */
+.esic-pregrado-mkt .epm-hero-banner {
+  width: 100%;
   max-width: 100%;
-  margin-left: auto;
-  padding-left: 40%;
-  padding-right: 5%;
+  overflow: hidden;
+  line-height: 0;
 }
-.esic-pregrado-mkt .epm-hero-eyebrow {
-  font-family: var(--display-font);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-  color: rgba(255, 255, 255, 0.9);
+.esic-pregrado-mkt .epm-hero-banner a {
+  display: block;
+  text-decoration: none;
 }
-.esic-pregrado-mkt .epm-hero-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  line-height: 0.85;
-  color: var(--brand-orange);
-  margin-bottom: 0.8rem;
+.esic-pregrado-mkt .epm-hero-banner picture {
+  display: block;
+  width: 100%;
 }
-.esic-pregrado-mkt .epm-hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 500px;
-  margin-left: auto;
-  margin-bottom: 2rem;
+.esic-pregrado-mkt .epm-hero-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
-.esic-pregrado-mkt .epm-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end; }
 
 /* Section Overlap */
-.esic-pregrado-mkt .epm-section-overlap { position: relative; margin-top: -180px; border-radius: 50px 50px 0 0; z-index: 10; padding-top: 80px; }
+.esic-pregrado-mkt .epm-section-overlap { position: relative; margin-top: -50px; border-radius: 50px 50px 0 0; z-index: 10; padding-top: 80px; }
 .esic-pregrado-mkt .epm-section-white { background: #FFFFFF; }
 .esic-pregrado-mkt .epm-section-orange { background: var(--brand-orange); }
 .esic-pregrado-mkt .epm-section-cream { background: #F8F6F2; }
@@ -526,19 +497,18 @@
 
 <main>
   <!-- Hero Section -->
-  <section class="epm-hero">
-    <div class="epm-hero-bg"></div>
-    <div class="epm-container">
-      <div class="epm-hero-content epm-reveal">
-        <p class="epm-hero-eyebrow">PREGRADO · 4 AÑOS</p>
-        <h1 class="epm-hero-title">DIRECCIÓN DE MARKETING GLOBAL</h1>
-        <p class="epm-hero-subtitle">Formamos líderes éticos e innovadores, listos para impulsar el marketing en organizaciones de impacto regional y global.</p>
-        <div class="epm-hero-actions">
-          <a class="epm-btn epm-btn-primary" href="#formulario">SOLICITAR INFORMACIÓN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-          <a class="epm-btn epm-btn-outline" href="#plan-estudios">VER PLAN DE ESTUDIOS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-    </div>
+  <!-- Hero Banner Marketing Global -->
+  <section class="epm-hero-banner">
+    <a href="#formulario" aria-label="Solicitar información sobre Dirección de Marketing Global">
+      <picture>
+        <!-- Mobile -->
+        <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-direccion-marketing-global-mobile.webp" type="image/webp">
+        <!-- Desktop -->
+        <source media="(min-width: 769px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-direccion-marketing-global-desktop.webp" type="image/webp">
+        <!-- Fallback -->
+        <img src="https://esic.co/wp-content/uploads/2026/03/banner-direccion-marketing-global-desktop.webp" alt="Pregrado en Dirección de Marketing Global - ESIC Medellín" loading="eager">
+      </picture>
+    </a>
   </section>
 
   <!-- Explora Section -->

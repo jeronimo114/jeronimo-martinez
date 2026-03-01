@@ -18,6 +18,70 @@ cat /ruta/al/archivo.html | pbcopy
 
 ---
 
+## Reglas Técnicas Elementor — Lecciones Aprendidas
+
+### 1. Sin nav ni footer en widgets HTML
+Los widgets HTML de Elementor **nunca** deben incluir `<nav>` ni `<footer>`. Esos elementos son globales y los maneja el tema de Elementor. Incluirlos genera duplicados y conflictos visuales.
+
+### 2. Sin CSS ni JS externos
+Nunca usar `<link rel="stylesheet" href="...">` ni `<script src="...">` en archivos destinados a Elementor. Todo debe estar **inlineado** en `<style>` y `<script>` dentro del mismo archivo. Referencia de patrón: `pregrado-definitiva/index.html`.
+
+### 3. Hover de botones `<a>` — siempre usar `!important`
+Elementor sobreescribe el color de hover de todos los `<a>` con el color de tema (naranja por defecto). En cualquier botón estilizado como `<a>`, agregar `!important` en los estados hover/focus/visited:
+
+```css
+.mi-boton:hover,
+.mi-boton:focus,
+.mi-boton:visited {
+  background: #color !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+}
+```
+
+### 4. Banderas SVG — siempre envolver en `<span>`
+`border-radius` + `overflow: hidden` sobre un `<svg>` es inconsistente entre navegadores y falla en Elementor. **Siempre** envolver la bandera en un `<span>` HTML:
+
+```html
+<span style="display:inline-flex;width:22px;height:15px;border-radius:2px;overflow:hidden;flex-shrink:0;">
+  <svg viewBox="0 0 30 20" style="width:100%;height:100%;display:block;">...</svg>
+</span>
+```
+
+### 5. Patrón de secciones apiladas — z-index y border-radius
+El patrón `margin-top: -50px; border-radius: 50px 50px 0 0` crea el efecto de secciones apiladas. Reglas:
+
+- **Esquinas solo superiores** (por defecto): `border-radius: 50px 50px 0 0`
+- **Todas las esquinas redondeadas** (una sección aislada visualmente): `border-radius: 50px` + `z-index: 2` en esa sección + `z-index: 0` en la sección siguiente
+- La sección posterior siempre tiene z-index menor para que las esquinas inferiores de la anterior sean visibles
+
+```html
+<!-- Sección con todas las esquinas redondeadas -->
+<section class="section section-overlap section-overlap-white" style="border-radius: 50px; z-index: 2;">
+
+<!-- Sección siguiente — z-index menor -->
+<section class="section section-overlap section-overlap-highlight" style="z-index: 0;">
+```
+
+### 6. Cards en grids — aspect-ratio según columnas
+- **2 columnas**: `aspect-ratio: 16/9`
+- **3 columnas**: `aspect-ratio: 4/3` (más altas, evitan el efecto "cropped")
+- `background-position: center center` para retratos de personas
+
+### 7. Cards de programas — usar siempre el estilo del home
+Las cards de programas (pregrado y máster) deben usar el estilo fotográfico de `index.html` (`.eh-programa-card`) con imágenes de fondo de WordPress. **No** usar cards de color sólido. Imágenes disponibles:
+
+```
+master_dm.webp / mobile_master_dm.webp
+master_db.webp / mobile_master_db.webp
+master_cx.webp / mobile_master_cx.webp
+pregrado_mkt_global_.webp / mobile_pregrado_mkt_global_.webp
+pregrado_digital_business.webp / mobile_pregrado_digital_business.webp
+```
+Base URL: `https://esic.co/wp-content/uploads/2026/02/`
+
+---
+
 ## ⭐ Página Oficial de Pregrado General
 
 > **`pregrado-definitiva/index.html`** es la página oficial y definitiva de pregrados generales.

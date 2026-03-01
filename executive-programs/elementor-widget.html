@@ -1,0 +1,1057 @@
+<!-- Executive Program: Digital Business Transformation - Elementor HTML Widget -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.exec-program-widget {
+  --brand-blue: #0047E9;
+  --brand-blue-dark: #00133F;
+  --brand-teal: #0AE4C3;
+  --brand-orange: #FF9600;
+  --brand-gold: #C09C2E;
+  --brand-gold-dark: #8B7420;
+  --display-font: "Sofia Sans Extra Condensed", sans-serif;
+  --body-font: "DM Sans", sans-serif;
+  --text-muted: #5F6B7A;
+  --text-light: #97A2B1;
+  font-family: var(--body-font);
+  color: #0B132B;
+}
+
+.exec-program-widget * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.exec-program-widget .container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+/* ── Hero Banner ── */
+.exec-hero-banner {
+  position: relative;
+  width: 100%;
+}
+
+.exec-hero-banner a {
+  display: block;
+  width: 100%;
+}
+
+.exec-hero-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Stats Bar ── */
+.exec-stats-bar {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 2.5rem 3rem;
+  margin-top: -50px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 20px 60px rgba(0,19,63,0.12);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.exec-stat-item {
+  text-align: center;
+}
+
+.exec-stat-number {
+  font-family: var(--display-font);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--brand-blue);
+  line-height: 1;
+}
+
+.exec-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.4rem;
+}
+
+/* ── Section overlap pattern ── */
+.exec-s-overlap {
+  position: relative;
+  margin-top: -50px;
+  border-radius: 50px 50px 0 0;
+}
+
+/* ── Propósito ── */
+.exec-proposito {
+  margin-top: -100px;
+  padding: 10rem 0 7rem;
+  background: #F5F3EF;
+  z-index: 2;
+}
+
+.exec-proposito-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.exec-proposito h2 {
+  font-family: var(--display-font);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--brand-blue-dark);
+  margin-bottom: 1.5rem;
+}
+
+.exec-proposito p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+.exec-pilares {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.exec-pilar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.2rem;
+  background: #FFFFFF;
+  border-radius: 12px;
+}
+
+.exec-pilar-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 10px;
+  background: var(--brand-blue);
+  display: grid;
+  place-items: center;
+  color: #FFFFFF;
+}
+
+.exec-pilar-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.exec-pilar span {
+  font-family: var(--display-font);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-blue-dark);
+}
+
+/* ── Info General ── */
+.exec-info-section {
+  padding: 6rem 0 7rem;
+  background: #0047E9;
+  z-index: 3;
+}
+
+.exec-info-section h2 {
+  font-family: var(--display-font);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.exec-info-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.exec-info-col {
+  text-align: center;
+}
+
+.exec-info-col-icon {
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.exec-info-col-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke: #FFFFFF;
+}
+
+.exec-info-col h3 {
+  font-family: var(--display-font);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
+.exec-info-col p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+}
+
+.exec-info-col .exec-precio {
+  font-family: var(--display-font);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--brand-teal);
+  line-height: 1;
+}
+
+.exec-info-col .exec-nota {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  font-style: italic;
+  margin-top: 0.4rem;
+}
+
+/* ── Estructura ── */
+.exec-estructura {
+  padding: 6rem 0 7rem;
+  background: #F5F3EF;
+  z-index: 4;
+}
+
+.exec-estructura h2 {
+  font-family: var(--display-font);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--brand-blue-dark);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.exec-modulos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.exec-modulo-col {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.exec-modulo-badge {
+  display: inline-block;
+  font-family: var(--display-font);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  margin-bottom: 0.8rem;
+  background: #0047E9;
+}
+
+.exec-modulo-col h3 {
+  font-family: var(--display-font);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-blue-dark);
+  margin-bottom: 0.6rem;
+}
+
+.exec-modulo-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.exec-modulo-col li {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.exec-modulo-col li:last-child {
+  border-bottom: none;
+}
+
+.exec-modulo-col li .exec-fecha {
+  color: var(--text-light);
+  white-space: nowrap;
+  font-size: 0.75rem;
+}
+
+.exec-modulo-col li .exec-badge-p {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.1rem 0.4rem;
+  border-radius: 50px;
+  background: rgba(0,71,233,0.1);
+  color: #0047E9;
+  white-space: nowrap;
+}
+
+.exec-madrid-highlight {
+  background: #0047E9;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.exec-madrid-highlight span {
+  font-family: var(--display-font);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.exec-madrid-highlight .exec-fecha-m {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 400;
+  font-family: var(--body-font);
+  text-transform: none;
+}
+
+/* ── Cocreadores ── */
+.exec-cocreadores {
+  padding: 5rem 0 6rem;
+  background: #FFFFFF;
+  text-align: center;
+  z-index: 5;
+}
+
+.exec-cocreadores h2 {
+  font-family: var(--display-font);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 2.5rem;
+}
+
+.exec-logos-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  flex-wrap: wrap;
+}
+
+.exec-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exec-logo-item img {
+  object-fit: contain;
+  transition: all 0.3s;
+}
+
+.exec-logo-item img:hover {
+  transform: scale(1.05);
+}
+
+.exec-logo-item.logo-esic img {
+  height: 63px;
+}
+
+.exec-logo-item.logo-prestigio img {
+  height: 54px;
+}
+
+.exec-logo-item.logo-accenture img {
+  height: 45px;
+}
+
+/* ── Metodología ── */
+.exec-metodologia {
+  padding: 0;
+  background: var(--brand-blue-dark);
+  position: relative;
+  z-index: 6;
+}
+
+.exec-metodologia-header {
+  background: linear-gradient(90deg, #8B7420 0%, #C09C2E 50%, #8B7420 100%);
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.exec-metodologia-header h2 {
+  font-family: var(--display-font);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--brand-blue-dark);
+  letter-spacing: 0.15em;
+  margin: 0;
+}
+
+.exec-metodologia-circles {
+  padding: 4rem 2rem 3rem;
+  position: relative;
+}
+
+.exec-metodologia-circles-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.exec-metodologia-curve {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 60px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.exec-metodologia-curve svg {
+  width: 100%;
+  height: 100%;
+}
+
+.exec-metodologia-curve path {
+  fill: none;
+  stroke: #C09C2E;
+  stroke-width: 3;
+}
+
+.exec-metodologia-circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.exec-metodologia-circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C09C2E 0%, #9A7A24 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(192, 156, 46, 0.3), inset 0 2px 4px rgba(255,255,255,0.2);
+  position: relative;
+}
+
+.exec-metodologia-circle span {
+  font-family: var(--display-font);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 1.2;
+  padding: 0 0.5rem;
+}
+
+.exec-metodologia-plus {
+  font-family: var(--display-font);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.exec-metodologia-dmla {
+  text-align: center;
+  padding: 0 2rem 3rem;
+}
+
+.exec-metodologia-dmla h3 {
+  font-family: var(--display-font);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+
+.exec-metodologia-dmla p {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: rgba(255,255,255,0.8);
+  margin: 0.5rem 0 0;
+}
+
+.exec-metodologia-categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 2.5rem 2rem;
+  border-top: 1px solid rgba(192, 156, 46, 0.2);
+  border-bottom: 1px solid rgba(192, 156, 46, 0.2);
+}
+
+.exec-metodologia-categories .exec-cat-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.exec-metodologia-categories .exec-cat-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 1px;
+  background: rgba(192, 156, 46, 0.5);
+}
+
+.exec-metodologia-categories .exec-cat-item span {
+  font-family: var(--display-font);
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #C09C2E;
+  letter-spacing: 0.08em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.exec-intl-experience-bar {
+  background: linear-gradient(135deg, #8B7420 0%, #C09C2E 30%, #9A7A24 70%, #8B7420 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.exec-intl-experience-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: execShimmer 3s infinite;
+}
+
+@keyframes execShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.exec-spain-flag-stripe {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.exec-spain-flag-stripe .exec-stripe-red {
+  height: 4px;
+  background: #AA151B;
+}
+
+.exec-spain-flag-stripe .exec-stripe-yellow {
+  height: 8px;
+  background: #F1BF00;
+}
+
+.exec-intl-experience-bar h3 {
+  font-family: var(--display-font);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  letter-spacing: 0.15em;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.exec-intl-experience-bar .exec-intl-subtitle {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
+  margin-top: 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Quote CTA ── */
+.exec-quote-cta {
+  padding: 6rem 0;
+  background: var(--brand-blue-dark);
+  color: #FFFFFF;
+  text-align: center;
+  z-index: 7;
+}
+
+.exec-quote-cta blockquote {
+  font-family: var(--display-font);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+}
+
+.exec-quote-cta blockquote em {
+  font-style: normal;
+  color: var(--brand-teal);
+}
+
+.exec-quote-cta-divider {
+  width: 50px;
+  height: 2px;
+  background: rgba(255,255,255,0.3);
+  margin: 0 auto 2rem;
+}
+
+.exec-quote-cta h3 {
+  font-family: var(--display-font);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.exec-quote-cta .exec-cargo {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 0.5rem;
+}
+
+.exec-quote-cta .exec-telefono {
+  font-family: var(--display-font);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--brand-teal);
+  text-decoration: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .exec-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .exec-proposito-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .exec-info-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .exec-modulos-grid {
+    grid-template-columns: 1fr;
+  }
+  .exec-metodologia-circle {
+    width: 110px;
+    height: 110px;
+  }
+  .exec-metodologia-plus {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .exec-stats-bar {
+    grid-template-columns: 1fr 1fr;
+    padding: 1.5rem;
+    gap: 1.2rem;
+  }
+  .exec-info-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .exec-logos-row {
+    gap: 3rem;
+    flex-direction: column;
+  }
+  .exec-logo-item.logo-esic img {
+    height: 49px;
+  }
+  .exec-logo-item.logo-prestigio img {
+    height: 42px;
+  }
+  .exec-logo-item.logo-accenture img {
+    height: 35px;
+  }
+  .exec-metodologia-circles {
+    padding: 3rem 1.5rem 2rem;
+  }
+  .exec-metodologia-circles-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .exec-metodologia-curve {
+    display: none;
+  }
+  .exec-metodologia-plus {
+    font-size: 1.5rem;
+    transform: rotate(90deg);
+  }
+  .exec-metodologia-circle {
+    width: 100px;
+    height: 100px;
+  }
+  .exec-metodologia-categories {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+  .exec-metodologia-categories .exec-cat-item {
+    padding: 0.6rem 1rem;
+    width: 45%;
+  }
+  .exec-metodologia-categories .exec-cat-item:not(:last-child)::after {
+    display: none;
+  }
+  .exec-spain-flag-stripe {
+    width: 140px;
+  }
+  .exec-spain-flag-stripe .exec-stripe-red {
+    height: 3px;
+  }
+  .exec-spain-flag-stripe .exec-stripe-yellow {
+    height: 6px;
+  }
+  .exec-intl-experience-bar {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .exec-stats-bar {
+    grid-template-columns: 1fr;
+  }
+  .exec-info-row {
+    grid-template-columns: 1fr;
+  }
+  .exec-metodologia-categories .exec-cat-item {
+    width: 100%;
+  }
+}
+</style>
+
+<div class="exec-program-widget">
+  <!-- Hero Banner -->
+  <section class="exec-hero-banner">
+    <a href="#contacto" aria-label="Más información sobre Digital Business Transformation">
+      <picture>
+        <!-- Mobile -->
+        <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-digital-business-mobile.webp" type="image/webp">
+        <!-- Desktop -->
+        <source media="(min-width: 769px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-digital-business-desktop.webp" type="image/webp">
+        <!-- Fallback -->
+        <img src="https://esic.co/wp-content/uploads/2026/03/banner-digital-business-desktop.webp" alt="Digital Business Transformation - Executive Program ESIC" loading="eager" style="width:100%;height:auto;display:block;">
+      </picture>
+    </a>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="container" style="position:relative;z-index:12;">
+    <div class="exec-stats-bar">
+      <div class="exec-stat-item">
+        <div class="exec-stat-number">4</div>
+        <div class="exec-stat-label">Meses de duración</div>
+      </div>
+      <div class="exec-stat-item">
+        <div class="exec-stat-number">MADRID</div>
+        <div class="exec-stat-label">Inmersión internacional</div>
+      </div>
+      <div class="exec-stat-item">
+        <div class="exec-stat-number">$6.900</div>
+        <div class="exec-stat-label">USD Inversión</div>
+      </div>
+      <div class="exec-stat-item">
+        <div class="exec-stat-number">2h</div>
+        <div class="exec-stat-label">Dedicación semanal</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Propósito -->
+  <section class="exec-proposito exec-s-overlap">
+    <div class="container">
+      <div class="exec-proposito-grid">
+        <div>
+          <h2>PROPÓSITO DEL PROGRAMA</h2>
+          <p>Impulsar a los altos ejecutivos a liderar la transformación digital de manera estratégica y sistémica, acelerando el desarrollo de un pensamiento digital que genere impacto en la cultura, la innovación y la competitividad de sus organizaciones.</p>
+        </div>
+        <div>
+          <div class="exec-pilares">
+            <div class="exec-pilar">
+              <div class="exec-pilar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <span>Liderazgo</span>
+            </div>
+            <div class="exec-pilar">
+              <div class="exec-pilar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <span>Tecnologías Emergentes</span>
+            </div>
+            <div class="exec-pilar">
+              <div class="exec-pilar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                  <polyline points="2 17 12 22 22 17"/>
+                  <polyline points="2 12 12 17 22 12"/>
+                </svg>
+              </div>
+              <span>Innovación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Información General -->
+  <section class="exec-info-section exec-s-overlap">
+    <div class="container">
+      <h2>INFORMACIÓN GENERAL</h2>
+      <div class="exec-info-row">
+        <div class="exec-info-col">
+          <div class="exec-info-col-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3>Fechas</h3>
+          <p>Inicio: martes 2 de junio 2026<br>Fin: viernes 2 de octubre 2026</p>
+        </div>
+        <div class="exec-info-col">
+          <div class="exec-info-col-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3>Inmersión Internacional</h3>
+          <p>Madrid – 4 días<br>Sep 29 a Oct 2, 2026</p>
+        </div>
+        <div class="exec-info-col">
+          <div class="exec-info-col-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Duración</h3>
+          <p>4 meses · 2h/semana<br>Jueves 7:00–9:00am<br>2 sesiones presenciales</p>
+        </div>
+        <div class="exec-info-col">
+          <div class="exec-info-col-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3>Inversión</h3>
+          <div class="exec-precio">$6.900 USD</div>
+          <p class="exec-nota">*No incluye tiquetes ni hospedaje en Madrid</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Estructura del Programa -->
+  <section class="exec-estructura exec-s-overlap">
+    <div class="container">
+      <h2>ESTRUCTURA DEL PROGRAMA</h2>
+      <div class="exec-modulos-grid">
+        <!-- Liderazgo -->
+        <div class="exec-modulo-col">
+          <span class="exec-modulo-badge">Junio</span>
+          <h3>Liderazgo</h3>
+          <ul>
+            <li>KICKOFF <span class="exec-badge-p">Presencial</span> <span class="exec-fecha">Jun 2</span></li>
+            <li>Los cambios sociales I <span class="exec-fecha">Jun 4</span></li>
+            <li>Los cambios sociales II <span class="exec-fecha">Jun 11</span></li>
+            <li>Cultura Digital <span class="exec-fecha">Jun 18</span></li>
+            <li>Liderazgo <span class="exec-badge-p">Presencial</span> <span class="exec-fecha">Jun 25</span></li>
+          </ul>
+        </div>
+        <!-- Tecnologías Emergentes -->
+        <div class="exec-modulo-col">
+          <span class="exec-modulo-badge">Julio – Agosto</span>
+          <h3>Tecnologías Emergentes</h3>
+          <ul>
+            <li>Peer mentoring <span class="exec-fecha">Jul 16</span></li>
+            <li>Caso con protagonista <span class="exec-fecha">Jul 23</span></li>
+            <li>IoT <span class="exec-fecha">Jul 30</span></li>
+            <li>Ciberseguridad <span class="exec-fecha">Ago 6</span></li>
+            <li>Blockchain <span class="exec-fecha">Ago 13</span></li>
+            <li>Workshop IA <span class="exec-badge-p">Presencial</span> <span class="exec-fecha">Ago 20</span></li>
+          </ul>
+        </div>
+        <!-- Innovación -->
+        <div class="exec-modulo-col">
+          <span class="exec-modulo-badge">Septiembre – Octubre</span>
+          <h3>Innovación</h3>
+          <ul>
+            <li>Caso con protagonista <span class="exec-fecha">Sep 3</span></li>
+            <li>Innovación I <span class="exec-fecha">Sep 10</span></li>
+            <li>Innovación II <span class="exec-fecha">Sep 17</span></li>
+            <li>Caso con protagonista <span class="exec-fecha">Sep 24</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="exec-madrid-highlight">
+        <span>Experiencia Internacional Madrid — 4 días</span>
+        <span class="exec-fecha-m">Martes 29 de septiembre a viernes 2 de octubre 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cocreadores -->
+  <section class="exec-cocreadores exec-s-overlap">
+    <div class="container">
+      <h2>Programa cocreado por</h2>
+      <div class="exec-logos-row">
+        <div class="exec-logo-item logo-esic">
+          <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC">
+        </div>
+        <div class="exec-logo-item logo-prestigio">
+          <img src="https://prestigio.com.co/wp-content/uploads/2024/04/logo-prestigio.webp" alt="Prestigio">
+        </div>
+        <div class="exec-logo-item logo-accenture">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/3840px-Accenture.svg.png" alt="Accenture">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodología -->
+  <section class="exec-metodologia exec-s-overlap">
+    <div class="exec-metodologia-header">
+      <h2>METODOLOGÍA:</h2>
+    </div>
+    
+    <div class="exec-metodologia-circles">
+      <div class="exec-metodologia-circles-container">
+        <div class="exec-metodologia-curve">
+          <svg viewBox="0 0 800 60" preserveAspectRatio="none">
+            <path d="M0,30 Q200,0 400,30 T800,30" />
+          </svg>
+        </div>
+        
+        <div class="exec-metodologia-circle-item">
+          <div class="exec-metodologia-circle">
+            <span>Liderazgo</span>
+          </div>
+        </div>
+        
+        <span class="exec-metodologia-plus">+</span>
+        
+        <div class="exec-metodologia-circle-item">
+          <div class="exec-metodologia-circle">
+            <span>Tecnologías<br>Emergentes</span>
+          </div>
+        </div>
+        
+        <span class="exec-metodologia-plus">+</span>
+        
+        <div class="exec-metodologia-circle-item">
+          <div class="exec-metodologia-circle">
+            <span>Innovación</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="exec-metodologia-dmla">
+      <h3>DMLA</h3>
+      <p>(Digital Maturity & Leadership Assessment)</p>
+    </div>
+    
+    <div class="exec-metodologia-categories">
+      <div class="exec-cat-item"><span>MASTERCLASSES</span></div>
+      <div class="exec-cat-item"><span>CASOS CON PROTAGONISTA</span></div>
+      <div class="exec-cat-item"><span>MENTORÍAS INDIVIDUALES</span></div>
+      <div class="exec-cat-item"><span>EXPERIENCIAS PRESENCIALES</span></div>
+    </div>
+    
+    <div class="exec-intl-experience-bar">
+      <div class="exec-spain-flag-stripe">
+        <div class="exec-stripe-red"></div>
+        <div class="exec-stripe-yellow"></div>
+        <div class="exec-stripe-red"></div>
+      </div>
+      <h3>EXPERIENCIA INTERNACIONAL</h3>
+      <p class="exec-intl-subtitle">Inmersión de 4 días en Madrid, España</p>
+    </div>
+  </section>
+
+  <!-- Quote CTA -->
+  <section class="exec-quote-cta exec-s-overlap" id="contacto">
+    <div class="container">
+      <blockquote>"ES MOMENTO DE TRANSFORMAR,<br><em>no de adaptarse.</em><br>Tú marcas la diferencia"</blockquote>
+      <div class="exec-quote-cta-divider"></div>
+      <h3>JUAN MANUEL JIMÉNEZ</h3>
+      <p class="exec-cargo">Director Comercial ESIC Medellín</p>
+      <a class="exec-telefono" href="tel:+573042364804">+57 304 2364804</a>
+    </div>
+  </section>
+</div>
