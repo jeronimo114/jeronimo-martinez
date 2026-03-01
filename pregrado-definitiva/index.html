@@ -1252,20 +1252,141 @@
 <body>
 
   <main>
-    <!-- 1. Hero Section -->
-    <section class="hero hero-photo hero-pregrado" style="--hero-image: url('assets/images/DSC02284_resultado.webp'); --hero-position: center right;">
-      <div class="container">
-        <div class="hero-content reveal">
-          <span class="hero-eyebrow">Pregrados con doble titulación</span>
-          <h1 class="hero-title">Pregrados <span>ESIC Medellín</span></h1>
-          <p class="hero-subtitle">Estudiar negocios y marketing en Colombia con visión global: formación profesional con enfoque digital, doble titulación internacional e inmersión en más de 25 países.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#formulario">Solicita información</a>
-            <a class="btn btn-outline" href="#programas">Explora programas</a>
-          </div>
-        </div>
+    <!-- 1. Hero Section - Banner General Pregrados -->
+    <section class="hero-banner-pregrados">
+      <div class="hero-banner-container">
+        <a href="#programas" class="hero-banner-link" aria-label="Ver programas de pregrado">
+          <picture class="hero-banner-picture">
+            <!-- Mobile: hasta 768px -->
+            <source 
+              media="(max-width: 768px)" 
+              srcset="https://esic.co/wp-content/uploads/2026/03/banner-esic-vertical-scaled.webp" 
+              type="image/webp">
+            <source 
+              media="(max-width: 768px)" 
+              srcset="https://esic.co/wp-content/uploads/2026/03/banner-esic-vertical-scaled.png" 
+              type="image/png">
+            
+            <!-- Desktop: 769px en adelante -->
+            <source 
+              media="(min-width: 769px)" 
+              srcset="https://esic.co/wp-content/uploads/2026/03/banner-general-pregrado-desktop.webp" 
+              type="image/webp">
+            <source 
+              media="(min-width: 769px)" 
+              srcset="https://esic.co/wp-content/uploads/2026/03/banner-general-pregrado-desktop.png" 
+              type="image/png">
+            
+            <!-- Fallback -->
+            <img 
+              src="https://esic.co/wp-content/uploads/2026/03/banner-general-pregrado-desktop.png" 
+              alt="Programas de Pregrado ESIC - Inscripciones abiertas" 
+              class="hero-banner-img"
+              loading="eager"
+              width="2560"
+              height="1168">
+          </picture>
+        </a>
+        
+        <!-- CTA Button -->
+        <a href="#programas" class="hero-banner-cta">
+          Ver programas
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </a>
       </div>
     </section>
+
+    <style>
+      .hero-banner-pregrados {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        line-height: 0;
+      }
+      
+      .hero-banner-container {
+        position: relative;
+        width: 100%;
+      }
+      
+      .hero-banner-link {
+        display: block;
+        text-decoration: none;
+      }
+      
+      .hero-banner-picture {
+        display: block;
+        width: 100%;
+      }
+      
+      .hero-banner-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      /* CTA Button - Desktop: 90% from left (more to the right), 80% from top */
+      .hero-banner-cta {
+        position: absolute;
+        left: 90%;
+        top: 80%;
+        transform: translate(-50%, -50%);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 1.25rem 2.5rem;
+        background: #FF9600;
+        color: #FFFFFF;
+        font-family: "DM Sans", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 999px;
+        box-shadow: 0 10px 30px rgba(255, 150, 0, 0.4);
+        transition: all 0.25s ease;
+        z-index: 10;
+        white-space: nowrap;
+      }
+      
+      .hero-banner-cta:hover {
+        background: #E68700;
+        transform: translate(-50%, -50%) translateY(-3px);
+        box-shadow: 0 15px 40px rgba(255, 150, 0, 0.5);
+      }
+      
+      .hero-banner-cta svg {
+        width: 22px;
+        height: 22px;
+        transform: rotate(-90deg);
+      }
+      
+      /* Mobile: smaller button, centered */
+      @media (max-width: 768px) {
+        .hero-banner-cta {
+          left: 50%;
+          top: auto;
+          bottom: 12%;
+          transform: translateX(-50%);
+          width: auto;
+          padding: 0.75rem 1.25rem;
+          font-size: 0.85rem;
+        }
+        
+        .hero-banner-cta:hover {
+          transform: translateX(-50%) translateY(-2px);
+        }
+        
+        .hero-banner-cta svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    </style>
 
     <!-- 2. Selector de Pregrados -->
     <section class="section section-overlap section-overlap-white" id="programas">
