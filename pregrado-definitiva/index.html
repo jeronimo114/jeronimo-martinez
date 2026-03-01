@@ -155,6 +155,79 @@
       background: var(--pregrado-highlight);
     }
 
+    /* Hero base styles */
+    .hero {
+      padding: 120px 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero.hero-photo {
+      color: #FFFFFF;
+      background-image:
+        linear-gradient(120deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.25)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.08)),
+        var(--hero-image);
+      background-size: cover;
+      background-position: var(--hero-position, center);
+    }
+
+    .hero.hero-photo .hero-eyebrow,
+    .hero.hero-photo .hero-subtitle {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .hero.hero-photo .btn-outline {
+      border-color: rgba(255, 255, 255, 0.55);
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero.hero-photo .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-content {
+      max-width: 680px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      font-weight: var(--display-weight);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: var(--display-font);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+      margin: 0.8rem 0 1rem;
+      font-weight: var(--display-weight);
+    }
+
+    .hero-title span {
+      color: var(--brand-orange);
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      max-width: 520px;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
     /* Hero with dark overlay */
     .hero-pregrado {
       min-height: 70vh;
@@ -178,11 +251,17 @@
     }
 
     .hero-pregrado .hero-content {
-      max-width: 680px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-pregrado .hero-title span {
       color: var(--pregrado-highlight);
+    }
+
+    .hero-pregrado .hero-eyebrow,
+    .hero-pregrado .hero-subtitle {
+      color: rgba(255, 255, 255, 0.9);
     }
 
     .hero-pregrado .btn-primary {
