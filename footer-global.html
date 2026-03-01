@@ -215,6 +215,161 @@
   color: inherit !important;
 }
 
+/* Contact Modal */
+.esic-footer-global .ef-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0, 19, 63, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 2rem !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}
+.esic-footer-global .ef-modal-overlay.ef-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.esic-footer-global .ef-modal-container {
+  background: #FFFFFF !important;
+  border-radius: 24px !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+  transform: translateY(20px) scale(0.95) !important;
+  transition: transform 0.3s ease !important;
+  box-shadow: 0 25px 80px rgba(0, 19, 63, 0.3) !important;
+}
+.esic-footer-global .ef-modal-overlay.ef-active .ef-modal-container {
+  transform: translateY(0) scale(1) !important;
+}
+.esic-footer-global .ef-modal-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 1.75rem 2rem !important;
+  border-bottom: 1px solid rgba(0, 19, 63, 0.1) !important;
+  background: var(--brand-blue-dark) !important;
+  border-radius: 24px 24px 0 0 !important;
+}
+.esic-footer-global .ef-modal-header h3 {
+  font-family: var(--display-font) !important;
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  color: #FFFFFF !important;
+  letter-spacing: 0.02em !important;
+  margin: 0 !important;
+}
+.esic-footer-global .ef-modal-close {
+  background: none !important;
+  border: none !important;
+  color: #FFFFFF !important;
+  font-size: 2rem !important;
+  font-weight: 300 !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  transition: background 0.2s ease !important;
+  line-height: 1 !important;
+}
+.esic-footer-global .ef-modal-close:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+.esic-footer-global .ef-modal-body {
+  padding: 2rem !important;
+}
+.esic-footer-global .ef-form-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1rem !important;
+}
+.esic-footer-global .ef-form-group {
+  margin-bottom: 1.25rem !important;
+}
+.esic-footer-global .ef-form-group label {
+  display: block !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: var(--brand-blue-dark) !important;
+  margin-bottom: 0.4rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+  font-family: var(--body-font) !important;
+}
+.esic-footer-global .ef-form-group label em {
+  color: var(--brand-orange) !important;
+  font-style: normal !important;
+  margin-left: 2px !important;
+}
+.esic-footer-global .ef-form-group input,
+.esic-footer-global .ef-form-group select {
+  width: 100% !important;
+  padding: 0.9rem 1rem !important;
+  border: 1.5px solid #D1D9E6 !important;
+  border-radius: 12px !important;
+  font-family: var(--body-font) !important;
+  font-size: 1rem !important;
+  color: var(--brand-blue-dark) !important;
+  background: #FFFFFF !important;
+  transition: all 0.2s ease !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+.esic-footer-global .ef-form-group input:focus,
+.esic-footer-global .ef-form-group select:focus {
+  border-color: var(--brand-blue) !important;
+  box-shadow: 0 0 0 3px rgba(0, 71, 233, 0.1) !important;
+}
+.esic-footer-global .ef-form-group input::placeholder {
+  color: #8A97A8 !important;
+  opacity: 0.7 !important;
+}
+.esic-footer-global .ef-form-group select {
+  cursor: pointer !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%230B132B' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 1rem center !important;
+  padding-right: 2.5rem !important;
+}
+.esic-footer-global .ef-btn-submit {
+  width: 100% !important;
+  margin-top: 0.5rem !important;
+  padding: 1rem 1.5rem !important;
+  background: var(--brand-blue) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-family: var(--body-font) !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease !important;
+}
+.esic-footer-global .ef-btn-submit:hover {
+  background: #003CC5 !important;
+}
+@media (max-width: 480px) {
+  .esic-footer-global .ef-form-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .esic-footer-global .ef-footer-grid {
@@ -333,17 +488,116 @@
   </footer>
 </div>
 
+<!-- Contact Modal -->
+<div class="ef-modal-overlay" id="efContactModal">
+  <div class="ef-modal-container">
+    <div class="ef-modal-header">
+      <h3>Solicitar Información</h3>
+      <button class="ef-modal-close" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="ef-modal-body">
+      <form action='https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit' name='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
+        <input type="hidden" name="zf_referrer_name" value="">
+        <input type="hidden" name="zf_redirect_url" value="">
+        <input type="hidden" name="zc_gad" value="">
+
+        <div class="ef-form-row">
+          <div class="ef-form-group">
+            <label>Nombre <em>*</em></label>
+            <input type="text" maxlength="255" name="Name_First" placeholder="Tu nombre" required />
+          </div>
+          <div class="ef-form-group">
+            <label>Apellido</label>
+            <input type="text" maxlength="255" name="Name_Last" placeholder="Tu apellido" />
+          </div>
+        </div>
+
+        <div class="ef-form-group">
+          <label>Correo electrónico <em>*</em></label>
+          <input type="email" maxlength="255" name="Email" placeholder="tu@email.com" required />
+        </div>
+
+        <div class="ef-form-group">
+          <label>Teléfono <em>*</em></label>
+          <input type="tel" name="PhoneNumber_countrycode" maxlength="20" placeholder="+57 300 123 4567" required />
+        </div>
+
+        <div class="ef-form-group">
+          <label>Tipo de programa <em>*</em></label>
+          <select name="Dropdown" required>
+            <option selected disabled value="">Selecciona un programa</option>
+            <option value="Pregrado">Pregrado</option>
+            <option value="Corporate">Corporate</option>
+            <option value="Diplomado">Diplomado</option>
+            <option value="Curso">Curso</option>
+            <option value="Executive">Executive</option>
+            <option value="Educación continua">Educación continua</option>
+            <option value="Level Up">Level Up</option>
+            <option value="Open Day">Open Day</option>
+          </select>
+        </div>
+
+        <div class="ef-form-group">
+          <label>Medio de contacto preferido <em>*</em></label>
+          <select name="Dropdown3" required>
+            <option selected disabled value="">Selecciona un medio</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Correo">Correo</option>
+            <option value="Llamada">Llamada</option>
+          </select>
+        </div>
+
+        <button type="submit" class="ef-btn-submit">Enviar solicitud</button>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script>
 (function() {
-  // Contact Modal Trigger
+  var modal = document.getElementById('efContactModal');
+  var closeBtn = modal ? modal.querySelector('.ef-modal-close') : null;
+
+  function openModal() {
+    if (modal) {
+      modal.classList.add('ef-active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove('ef-active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Botón CONTÁCTANOS del footer
   var contactTriggers = document.querySelectorAll('.ef-contact-trigger');
-  
   contactTriggers.forEach(function(trigger) {
     trigger.addEventListener('click', function(e) {
       e.preventDefault();
-      // Disparar evento personalizado para abrir modal de contacto
-      document.dispatchEvent(new CustomEvent('esic:openContactModal'));
+      openModal();
     });
+  });
+
+  // Cerrar con X
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  // Cerrar al hacer clic fuera
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  // Cerrar con Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal && modal.classList.contains('ef-active')) {
+      closeModal();
+    }
   });
 })();
 </script>
