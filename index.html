@@ -1792,8 +1792,8 @@
               <div class="eh-cifra-desc">Pregrado activos</div>
             </div>
           </div>
-          <a href="#contacto" class="eh-cifras-cta">
-            Conoce ESIC Medellín
+          <a href="#" class="eh-cifras-cta eh-contact-trigger">
+            Solicitar Información
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -2241,17 +2241,19 @@
   });
 
   // Contact Modal
-  var contactTrigger = wrapper.querySelector('.eh-contact-trigger');
+  var contactTriggers = wrapper.querySelectorAll('.eh-contact-trigger');
   var contactModal = wrapper.querySelector('#contactModal');
   var modalClose = wrapper.querySelector('.eh-modal-close');
-  
-  if (contactTrigger && contactModal) {
-    contactTrigger.addEventListener('click', function(e) {
+
+  contactTriggers.forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
       e.preventDefault();
-      contactModal.classList.add('eh-active');
-      document.body.style.overflow = 'hidden';
+      if (contactModal) {
+        contactModal.classList.add('eh-active');
+        document.body.style.overflow = 'hidden';
+      }
     });
-  }
+  });
   
   if (modalClose && contactModal) {
     modalClose.addEventListener('click', function() {
