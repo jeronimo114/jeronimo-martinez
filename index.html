@@ -770,15 +770,15 @@
   }
 }
 
-/* Historias Section - Aligned Layout */
-.esic-home .eh-historias-section { padding: 5rem 0; }
-.esic-home .eh-historias-header { 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: flex-end; 
-  margin-bottom: 1.5rem; 
-  flex-wrap: wrap; 
-  gap: 1rem; 
+/* Historias Section */
+.esic-home .eh-historias-section { padding: 5rem 0 5.5rem; }
+.esic-home .eh-historias-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 .esic-home .eh-historias-header h2 {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
@@ -788,63 +788,66 @@
   color: var(--brand-blue-dark);
 }
 
-/* Grid - All items same height and vertically centered */
-.esic-home .eh-historias-grid { 
-  display: grid; 
-  grid-template-columns: 1fr 1.3fr 1fr; 
-  gap: 2rem; 
+/* Grid */
+.esic-home .eh-historias-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 1.5rem;
   align-items: stretch;
 }
 
-/* Text Cards - Fixed height with centered content */
-.esic-home .eh-testimonio-card { 
-  background: #FFFFFF; 
-  border-radius: 20px; 
-  padding: 1.75rem; 
-  box-shadow: 0 2px 12px rgba(0, 19, 63, 0.08);
+/* Testimonial Cards — centered, tall, refined */
+.esic-home .eh-testimonio-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 2.5rem 2.25rem 2rem;
+  box-shadow: 0 2px 20px rgba(0, 19, 63, 0.07);
   border: 1px solid rgba(0, 19, 63, 0.06);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 380px;
-  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 480px;
+  text-align: center;
 }
 
-.esic-home .eh-testimonio-card blockquote { 
-  font-size: 0.9rem; 
-  line-height: 1.55; 
-  color: var(--text); 
-  margin-bottom: 1.5rem; 
-  margin-top: 0;
-  font-style: italic; 
+.esic-home .eh-testimonio-card blockquote {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0;
+  font-style: italic;
   width: 100%;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
+  flex: 1;
 }
 
 .esic-home .eh-testimonio-card blockquote::before {
-  content: """;
-  font-family: var(--display-font);
-  font-size: 1.75rem;
+  content: "\201C";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4rem;
   color: var(--brand-blue);
-  line-height: 1;
+  line-height: 0.85;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.35;
 }
 
-.esic-home .eh-testimonio-author { 
-  display: flex; 
-  align-items: center; 
-  gap: 1rem; 
+/* Author — centered, stacked, separated by hairline */
+.esic-home .eh-testimonio-author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
   width: 100%;
+  padding-top: 1.5rem;
+  margin-top: 1.75rem;
+  border-top: 1px solid rgba(0, 19, 63, 0.07);
 }
 
-/* Avatar placeholder */
+/* Avatar */
 .esic-home .eh-avatar-placeholder {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-teal) 100%);
   display: flex;
@@ -852,28 +855,32 @@
   justify-content: center;
   color: #fff;
   font-family: var(--display-font);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   flex-shrink: 0;
 }
 
-.esic-home .eh-testimonio-author-info h4 { 
-  font-weight: 600; 
-  color: var(--text); 
-  font-size: 1rem; 
+.esic-home .eh-testimonio-author-info {
+  text-align: center;
 }
-.esic-home .eh-testimonio-author-info p { 
-  font-size: 0.85rem; 
-  color: var(--text-muted); 
+.esic-home .eh-testimonio-author-info h4 {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.9rem;
+  margin-bottom: 0.15rem;
+}
+.esic-home .eh-testimonio-author-info p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
 }
 
-/* Video Container - Same height as cards */
-.esic-home .eh-historias-featured { 
-  border-radius: 20px; 
-  overflow: hidden; 
-  height: 380px;
+/* Video Container — matches card height */
+.esic-home .eh-historias-featured {
+  border-radius: 24px;
+  overflow: hidden;
+  height: 480px;
   position: relative;
-  box-shadow: 0 8px 32px rgba(0, 19, 63, 0.12);
+  box-shadow: 0 8px 40px rgba(0, 19, 63, 0.14);
 }
 
 .esic-home .eh-historias-featured .eh-video-container,
@@ -1053,13 +1060,12 @@
   .esic-home .eh-historias-featured {
     grid-column: 1 / -1;
     order: 2;
-    height: 480px;
-    max-width: 320px;
+    height: 420px;
+    max-width: 360px;
     margin: 0 auto;
   }
   .esic-home .eh-testimonio-card {
-    height: auto;
-    min-height: 280px;
+    min-height: auto;
     max-width: 500px;
     margin: 0 auto;
     width: 100%;
@@ -1078,11 +1084,7 @@
     gap: 1rem;
   }
   .esic-home .eh-testimonio-card {
-    min-height: auto;
-    padding: 1.5rem;
-  }
-  .esic-home .eh-testimonio-card blockquote {
-    font-size: 0.9rem;
+    padding: 2rem 1.75rem 1.75rem;
   }
 }
 .esic-home .eh-testimonio-card.eh-boilerplate-overlay blockquote,
