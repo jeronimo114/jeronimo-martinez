@@ -1287,6 +1287,119 @@
     padding: 1.5rem;
   }
 }
+
+/* =====================================================
+   Cifras & Reconocimiento — Prestige Statement
+   Dark navy; numbers as heroes, no cards
+   ===================================================== */
+.eh-cifras-section {
+  background: #00133F;
+  padding: 4.5rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px 40px 0 0;
+  margin-top: -40px;
+}
+.eh-cifras-section .eh-cifras-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.eh-cifras-eyebrow {
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.32);
+  margin-bottom: 0.75rem;
+}
+.eh-cifras-header { margin-bottom: 3.5rem; }
+.eh-cifras-header h2 {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.92;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.eh-cifras-body {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 4rem;
+  align-items: start;
+}
+.eh-cifras-divider { background: rgba(255,255,255,0.08); align-self: stretch; }
+.eh-cifras-column { display: flex; flex-direction: column; }
+.eh-cifras-section .eh-country-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 0;
+}
+.eh-cifras-section .eh-country-flag { width: 22px; height: 15px; border-radius: 2px; flex-shrink: 0; }
+.eh-cifras-section .eh-country-name {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.4);
+}
+.eh-cifras-column.eh-espana .eh-country-name { color: #7BA8FF; }
+.eh-cifras-column.eh-medellin .eh-country-name { color: #FFB740; }
+.eh-cifras-stats { flex: 1; }
+.eh-cifra-item { padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.eh-cifra-item:last-child { border-bottom: none; padding-bottom: 0.5rem; }
+.eh-cifra-num {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: clamp(3.75rem, 6vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  color: #FFFFFF;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.4rem;
+}
+.eh-cifra-desc { font-size: 0.85rem; font-weight: 400; color: rgba(255,255,255,0.45); line-height: 1.4; }
+.eh-cifras-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 50px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: all 0.22s ease;
+  width: fit-content;
+}
+.eh-cifras-cta:hover {
+  border-color: rgba(255,255,255,0.4);
+  color: #FFFFFF;
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-1px);
+}
+.eh-cifras-cta svg { width: 13px; height: 13px; flex-shrink: 0; }
+@media (max-width: 768px) {
+  .eh-cifras-body { grid-template-columns: 1fr; gap: 3rem 0; }
+  .eh-cifras-divider { display: none; }
+  .eh-cifra-num { font-size: clamp(3.25rem, 12vw, 4.5rem); }
+}
+@media (max-width: 480px) {
+  .eh-cifra-num { font-size: 3.25rem; }
+}
+
 </style>
 
 <div class="esic-quienes-somos">
@@ -1433,150 +1546,70 @@
     </div>
   </section>
 
-  <!-- Cifras y Reconocimiento -->
-  <section class="qs-section qs-section-overlap qs-cifras-section">
-    <div class="qs-container">
-      <div class="qs-cifras-header">
+    <!-- Cifras & Reconocimiento — Prestige Statement -->
+  <section class="eh-cifras-section" id="cifras">
+    <div class="eh-cifras-container">
+      <div class="eh-cifras-header">
+        <span class="eh-cifras-eyebrow">Trayectoria &amp; Presencia Global</span>
         <h2>CIFRAS Y<br>RECONOCIMIENTO</h2>
       </div>
-      
-      <div class="qs-variant-selector">
-        <button class="qs-variant-btn qs-active" data-variant="a">España</button>
-        <button class="qs-variant-btn" data-variant="b">Medellín</button>
-      </div>
-      
-      <!-- Variante A: ESIC España -->
-      <div class="qs-cifras-variant qs-active" id="qs-variant-a">
-        <div class="qs-vc-card">
-          <div class="qs-vc-left">
-            <div class="qs-zone-label">
-              <svg class="qs-flag-icon" width="24" height="16" viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
-              <span>ESIC España</span>
+      <div class="eh-cifras-body">
+
+        <!-- ESIC España -->
+        <div class="eh-cifras-column eh-espana">
+          <div class="eh-country-header">
+            <svg class="eh-country-flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
+            <span class="eh-country-name">ESIC España</span>
+          </div>
+          <div class="eh-cifras-stats">
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">TOP 1</div>
+              <div class="eh-cifra-desc">Marketing y Economía Digital</div>
             </div>
-            <div class="qs-vc-left-stats">
-              <div class="qs-cifras-stat"><span class="qs-num">TOP 1</span><span class="qs-desc">Marketing y Economía Digital</span></div>
-              <div class="qs-cifras-stat"><span class="qs-num">+60</span><span class="qs-desc">años formando profesionales</span></div>
-              <div class="qs-cifras-stat"><span class="qs-num">13</span><span class="qs-desc">Campus en 4 continentes</span></div>
-              <div class="qs-cifras-stat"><span class="qs-num">62K+</span><span class="qs-desc">alumni de 80+ nacionalidades</span></div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">62K+</div>
+              <div class="eh-cifra-desc">Alumni de 80+ nacionalidades</div>
             </div>
-            <div class="qs-vc-left-bottom">
-              <ul class="qs-cifras-check qs-on-dark">
-                <li>Acuerdos en 40+ países</li>
-                <li>Referente europeo en negocios</li>
-              </ul>
-              <a href="https://www.esic.edu" target="_blank" class="qs-cifras-cta">ESIC España <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">60</div>
+              <div class="eh-cifra-desc">Años formando profesionales</div>
             </div>
           </div>
-          <div class="qs-vc-right">
-            <div class="qs-zone-label">
-              <svg class="qs-flag-icon" width="24" height="16" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
-              <span>ESIC Medellín</span>
-            </div>
-            <div class="qs-vc-prog">
-              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><path d="M20 6L2 16l18 10 18-10L20 6z" stroke-linejoin="round"/><path d="M8 20v10c0 0 4 5 12 5s12-5 12-5V20" stroke-linejoin="round"/></svg>
-              <div class="qs-vc-prog-info">
-                <h4>Pregrado</h4>
-                <span class="qs-num">252</span>
-                <span class="qs-desc">activos</span>
-                <p>Proy. 2026: 452 · Proy. 2029: 1,000</p>
-              </div>
-            </div>
-            <div class="qs-vc-prog">
-              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><circle cx="14" cy="12" r="5"/><path d="M4 32c0-6 4-10 10-10s10 4 10 10" stroke-linecap="round"/></svg>
-              <div class="qs-vc-prog-info">
-                <h4>Master</h4>
-                <span class="qs-num">230</span>
-                <span class="qs-desc">graduados</span>
-                <p>141 activos</p>
-              </div>
-            </div>
-            <div class="qs-vc-prog">
-              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><circle cx="20" cy="8" r="4"/><circle cx="8" cy="28" r="4"/><circle cx="32" cy="28" r="4"/><line x1="18" y1="12" x2="10" y2="24"/><line x1="22" y1="12" x2="30" y2="24"/></svg>
-              <div class="qs-vc-prog-info">
-                <h4>A la Medida</h4>
-                <span class="qs-num">+3,000</span>
-                <span class="qs-desc">participantes</span>
-              </div>
-            </div>
-            <div class="qs-vc-prog">
-              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><rect x="4" y="14" width="32" height="20" rx="3"/><path d="M14 14V10a4 4 0 014-4h4a4 4 0 014 4v4"/><line x1="4" y1="24" x2="36" y2="24"/></svg>
-              <div class="qs-vc-prog-info">
-                <h4>Ejecutivo</h4>
-                <span class="qs-num">198</span>
-                <span class="qs-desc">estudiantes</span>
-                <p>4 cohortes</p>
-              </div>
-            </div>
-          </div>
+          <a href="https://www.esic.edu" target="_blank" rel="noopener" class="eh-cifras-cta">
+            Conoce ESIC España
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-      </div>
-      
-      <!-- Variante B: ESIC Medellín -->
-      <div class="qs-cifras-variant" id="qs-variant-b">
-        <div class="qs-vc-card">
-          <div class="qs-vc-left" style="background: linear-gradient(135deg, #0047E9 0%, #00133F 100%);">
-            <div class="qs-zone-label">
-              <svg class="qs-flag-icon" width="24" height="16" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
-              <span style="color: #fff;">ESIC Medellín</span>
+
+        <div class="eh-cifras-divider" aria-hidden="true"></div>
+
+        <!-- ESIC Medellín -->
+        <div class="eh-cifras-column eh-medellin">
+          <div class="eh-country-header">
+            <svg class="eh-country-flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+            <span class="eh-country-name">ESIC Medellín</span>
+          </div>
+          <div class="eh-cifras-stats">
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">+3,000</div>
+              <div class="eh-cifra-desc">Participantes a la medida</div>
             </div>
-            <div class="qs-vc-left-stats">
-              <div class="qs-cifras-stat"><span class="qs-num" style="color: #0AE4C3;">252</span><span class="qs-desc">estudiantes pregrado</span></div>
-              <div class="qs-cifras-stat"><span class="qs-num" style="color: #0AE4C3;">230</span><span class="qs-desc">graduados master</span></div>
-              <div class="qs-cifras-stat"><span class="qs-num" style="color: #0AE4C3;">+3,000</span><span class="qs-desc">ejecutivos formados</span></div>
-              <div class="qs-cifras-stat"><span class="qs-num" style="color: #0AE4C3;">4</span><span class="qs-desc">cohortes ejecutivas</span></div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">230</div>
+              <div class="eh-cifra-desc">Máster graduados</div>
             </div>
-            <div class="qs-vc-left-bottom">
-              <ul class="qs-cifras-check qs-on-dark">
-                <li>Proyección 2026: 452 estudiantes</li>
-                <li>Proyección 2029: 1,000 estudiantes</li>
-              </ul>
-              <a href="#contacto" class="qs-cifras-cta" style="color: #0AE4C3;">Conoce más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">252</div>
+              <div class="eh-cifra-desc">Pregrado activos</div>
             </div>
           </div>
-          <div class="qs-vc-right">
-            <div class="qs-zone-label">
-              <svg class="qs-flag-icon" width="24" height="16" viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
-              <span>ESIC España - Grupo Planeta</span>
-            </div>
-            <div class="qs-vc-prog">
-              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><circle cx="20" cy="20" r="16"/><path d="M20 4v32M4 20h32"/></svg>
-              <div class="qs-vc-prog-info">
-                <h4>Ranking</h4>
-                <span class="qs-num">TOP 1</span>
-                <span class="qs-desc">Marketing y Digital</span>
-                <p>En España y referente europeo</p>
-              </div>
-            </div>
-            <div class="qs-vc-prog">
-              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><circle cx="20" cy="20" r="8"/><circle cx="20" cy="20" r="14"/></svg>
-              <div class="qs-vc-prog-info">
-                <h4>Trayectoria</h4>
-                <span class="qs-num">+60</span>
-                <span class="qs-desc">años de historia</span>
-                <p>Formando líderes desde 1965</p>
-              </div>
-            </div>
-            <div class="qs-vc-prog">
-              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><path d="M8 32V20l12-8 12 8v12"/><path d="M4 20h32"/></svg>
-              <div class="qs-vc-prog-info">
-                <h4>Presencia Global</h4>
-                <span class="qs-num">13</span>
-                <span class="qs-desc">campus internacionales</span>
-                <p>En 4 continentes</p>
-              </div>
-            </div>
-            <div class="qs-vc-prog">
-              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><circle cx="20" cy="14" r="6"/><path d="M8 36c0-8 5.4-14 12-14s12 6 12 14"/></svg>
-              <div class="qs-vc-prog-info">
-                <h4>Comunidad</h4>
-                <span class="qs-num">62K+</span>
-                <span class="qs-desc">alumni global</span>
-                <p>De más de 80 nacionalidades</p>
-              </div>
-            </div>
-          </div>
+          <a href="#contacto" class="eh-cifras-cta">
+            Conoce ESIC Medellín
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-      </div>
+
+      </div><!-- /.eh-cifras-body -->
     </div>
   </section>
 

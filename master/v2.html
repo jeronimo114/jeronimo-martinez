@@ -1007,7 +1007,120 @@
       .eh-modal-header { padding: 1.5rem 1.5rem 1rem; }
       .eh-modal-body { padding: 1rem 1.5rem 1.5rem; }
     }
-  </style>
+  
+/* =====================================================
+   Cifras & Reconocimiento — Prestige Statement
+   Dark navy; numbers as heroes, no cards
+   ===================================================== */
+.eh-cifras-section {
+  background: #00133F;
+  padding: 4.5rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px 40px 0 0;
+  margin-top: -40px;
+}
+.eh-cifras-section .eh-cifras-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.eh-cifras-eyebrow {
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.32);
+  margin-bottom: 0.75rem;
+}
+.eh-cifras-header { margin-bottom: 3.5rem; }
+.eh-cifras-header h2 {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.92;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.eh-cifras-body {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 4rem;
+  align-items: start;
+}
+.eh-cifras-divider { background: rgba(255,255,255,0.08); align-self: stretch; }
+.eh-cifras-column { display: flex; flex-direction: column; }
+.eh-cifras-section .eh-country-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 0;
+}
+.eh-cifras-section .eh-country-flag { width: 22px; height: 15px; border-radius: 2px; flex-shrink: 0; }
+.eh-cifras-section .eh-country-name {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.4);
+}
+.eh-cifras-column.eh-espana .eh-country-name { color: #7BA8FF; }
+.eh-cifras-column.eh-medellin .eh-country-name { color: #FFB740; }
+.eh-cifras-stats { flex: 1; }
+.eh-cifra-item { padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.eh-cifra-item:last-child { border-bottom: none; padding-bottom: 0.5rem; }
+.eh-cifra-num {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: clamp(3.75rem, 6vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  color: #FFFFFF;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.4rem;
+}
+.eh-cifra-desc { font-size: 0.85rem; font-weight: 400; color: rgba(255,255,255,0.45); line-height: 1.4; }
+.eh-cifras-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 50px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: all 0.22s ease;
+  width: fit-content;
+}
+.eh-cifras-cta:hover {
+  border-color: rgba(255,255,255,0.4);
+  color: #FFFFFF;
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-1px);
+}
+.eh-cifras-cta svg { width: 13px; height: 13px; flex-shrink: 0; }
+@media (max-width: 768px) {
+  .eh-cifras-body { grid-template-columns: 1fr; gap: 3rem 0; }
+  .eh-cifras-divider { display: none; }
+  .eh-cifra-num { font-size: clamp(3.25rem, 12vw, 4.5rem); }
+}
+@media (max-width: 480px) {
+  .eh-cifra-num { font-size: 3.25rem; }
+}
+
+</style>
 </head>
 <body>
   <!-- Global Nav -->
@@ -1112,356 +1225,74 @@
     </section>
 
     <!-- 3. Cifras y Reconocimiento — A/B/C Test -->
-    <section class="section section-rounded cifras-section">
-      <div class="container">
-        <div class="cifras-header">
-          <h2>CIFRAS Y<br>RECONOCIMIENTO</h2>
-        </div>
-
-        <!-- Selector A / B / C -->
-        <div class="variant-selector">
-          <button class="variant-btn active" data-variant="a">A</button>
-          <button class="variant-btn" data-variant="b">B</button>
-          <button class="variant-btn" data-variant="c">C</button>
-        </div>
-
-        <!-- SVG icon definitions (hidden) -->
-        <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
-          <!-- Graduation cap — Pregrado -->
-          <symbol id="ico-pregrado" viewBox="0 0 40 40">
-            <path d="M20 6L2 16l18 10 18-10L20 6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M8 20v10c0 0 4 5 12 5s12-5 12-5V20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <line x1="36" y1="16" x2="36" y2="32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </symbol>
-          <!-- People — Máster -->
-          <symbol id="ico-master" viewBox="0 0 40 40">
-            <circle cx="14" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M4 32c0-6 4-10 10-10s10 4 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="28" cy="10" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M28 18c4 0 8 3 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </symbol>
-          <!-- Connected nodes — A la Medida -->
-          <symbol id="ico-medida" viewBox="0 0 40 40">
-            <circle cx="20" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-            <circle cx="8" cy="28" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-            <circle cx="32" cy="28" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-            <circle cx="20" cy="32" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
-            <line x1="18" y1="12" x2="10" y2="24" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="22" y1="12" x2="30" y2="24" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="12" y1="28" x2="17" y2="31" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="28" y1="28" x2="23" y2="31" stroke="currentColor" stroke-width="1.5"/>
-          </symbol>
-          <!-- Briefcase — Ejecutivo -->
-          <symbol id="ico-ejecutivo" viewBox="0 0 40 40">
-            <rect x="4" y="14" width="32" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M14 14V10a4 4 0 014-4h4a4 4 0 014 4v4" fill="none" stroke="currentColor" stroke-width="2"/>
-            <line x1="4" y1="24" x2="36" y2="24" stroke="currentColor" stroke-width="2"/>
-            <rect x="17" y="22" width="6" height="4" rx="1" fill="currentColor"/>
-          </symbol>
-          <!-- Flags -->
-          <symbol id="flag-col" viewBox="0 0 30 20">
-            <rect width="30" height="10" fill="#FCD116"/>
-            <rect y="10" width="30" height="5" fill="#003893"/>
-            <rect y="15" width="30" height="5" fill="#CE1126"/>
-          </symbol>
-          <symbol id="flag-esp" viewBox="0 0 30 20">
-            <rect width="30" height="20" fill="#AA151B"/>
-            <rect y="5" width="30" height="10" fill="#F1BF00"/>
-            <rect x="7" y="7" width="4" height="6" rx="0.5" fill="#AA151B" opacity="0.8"/>
-            <rect x="7" y="7" width="4" height="3" rx="0.5" fill="#c8a400"/>
-            <circle cx="9" cy="7" r="0.8" fill="#AA151B"/>
-          </symbol>
-        </svg>
-
-        <!-- ════ VARIANTE A — Full dark unified ════ -->
-        <div class="cifras-variant" id="variant-c">
-          <div class="va-card">
-
-            <!-- Top: España (image + stats) -->
-            <div class="va-top">
-              <img class="va-top-img" src="../assets/images/DSC02284_resultado.webp" alt="ESIC Campus">
-              <div class="va-top-content">
-                <div class="cifras-zone-label">
-                  <svg class="flag-icon" width="24" height="16" style="border-radius:2px;"><use href="#flag-esp"/></svg>
-                  <span>ESIC España</span>
-                </div>
-                <div class="va-top-stats">
-                  <div class="cifras-stat">
-                    <span class="num">TOP 1</span>
-                    <span class="desc">Marketing y Economia Digital</span>
-                  </div>
-                  <div class="cifras-stat">
-                    <span class="num">+60</span>
-                    <span class="desc">anos formando profesionales</span>
-                  </div>
-                  <div class="cifras-stat">
-                    <span class="num">13</span>
-                    <span class="desc">Campus en 4 continentes</span>
-                  </div>
-                  <div class="cifras-stat">
-                    <span class="num">62K+</span>
-                    <span class="desc">alumni de 80+ nacionalidades</span>
-                  </div>
-                </div>
-                <div class="va-top-bottom">
-                  <ul class="cifras-check on-dark">
-                    <li>Acuerdos en 40+ paises</li>
-                    <li>Referente europeo en negocios</li>
-                  </ul>
-                  <a href="https://www.esic.edu" target="_blank" class="cifras-cta">
-                    Conoce ESIC España
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bottom: Medellín (same dark card) -->
-            <div class="va-med">
-              <div class="cifras-zone-label">
-                <svg class="flag-icon" width="24" height="16" style="border-radius:2px;"><use href="#flag-col"/></svg>
-                <span>ESIC Medellin</span>
-              </div>
-              <div class="va-med-grid">
-                <div class="va-med-item">
-                  <svg class="prog-icon"><use href="#ico-pregrado"/></svg>
-                  <div class="va-med-info">
-                    <h4>Pregrado</h4>
-                    <span class="num">252</span>
-                    <span class="desc">activos</span>
-                    <p>Proy. 2026: 452 · Proy. 2029: 1,000</p>
-                  </div>
-                </div>
-                <div class="va-med-item">
-                  <svg class="prog-icon"><use href="#ico-master"/></svg>
-                  <div class="va-med-info">
-                    <h4>Master</h4>
-                    <span class="num">230</span>
-                    <span class="desc">graduados</span>
-                    <p>141 activos</p>
-                  </div>
-                </div>
-                <div class="va-med-item">
-                  <svg class="prog-icon"><use href="#ico-medida"/></svg>
-                  <div class="va-med-info">
-                    <h4>A la Medida</h4>
-                    <span class="num">+3,000</span>
-                    <span class="desc">participantes</span>
-                  </div>
-                </div>
-                <div class="va-med-item">
-                  <svg class="prog-icon"><use href="#ico-ejecutivo"/></svg>
-                  <div class="va-med-info">
-                    <h4>Ejecutivo</h4>
-                    <span class="num">198</span>
-                    <span class="desc">estudiantes</span>
-                    <p>4 cohortes</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ════ VARIANTE B — Single stacked card ════ -->
-        <div class="cifras-variant" id="variant-b">
-          <div class="vb-card">
-
-            <!-- Top: España (dark + image) -->
-            <div class="vb-top">
-              <img class="vb-top-img" src="../assets/images/DSC02284_resultado.webp" alt="ESIC Campus">
-              <div class="vb-top-content">
-                <div class="cifras-zone-label">
-                  <svg class="flag-icon" width="24" height="16" style="border-radius:2px;"><use href="#flag-esp"/></svg>
-                  <span>ESIC España</span>
-                </div>
-                <div class="vb-top-stats">
-                  <div class="cifras-stat">
-                    <span class="num">TOP 1</span>
-                    <span class="desc">Marketing y Economia Digital</span>
-                  </div>
-                  <div class="cifras-stat">
-                    <span class="num">+60</span>
-                    <span class="desc">anos formando profesionales</span>
-                  </div>
-                  <div class="cifras-stat">
-                    <span class="num">13</span>
-                    <span class="desc">Campus en 4 continentes</span>
-                  </div>
-                  <div class="cifras-stat">
-                    <span class="num">62K+</span>
-                    <span class="desc">alumni de 80+ nacionalidades</span>
-                  </div>
-                </div>
-                <div class="vb-top-bottom">
-                  <ul class="cifras-check on-dark">
-                    <li>Acuerdos en 40+ paises</li>
-                    <li>Referente europeo en negocios</li>
-                  </ul>
-                  <a href="https://www.esic.edu" target="_blank" class="cifras-cta">
-                    Conoce ESIC España
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bottom: Medellín (white) -->
-            <div class="vb-bottom">
-              <div class="cifras-zone-label">
-                <svg class="flag-icon" width="24" height="16" style="border-radius:2px;"><use href="#flag-col"/></svg>
-                <span>ESIC Medellin</span>
-              </div>
-              <div class="vb-med-row">
-                <div class="vb-med-item">
-                  <svg class="prog-icon" style="color:#0038E3"><use href="#ico-pregrado"/></svg>
-                  <div class="vb-med-info">
-                    <h4>Pregrado</h4>
-                    <span class="num">252</span>
-                    <span class="desc">activos</span>
-                    <p>Proy. 2026: 452 · Proy. 2029: 1,000</p>
-                  </div>
-                </div>
-                <div class="vb-med-item">
-                  <svg class="prog-icon" style="color:#0038E3"><use href="#ico-master"/></svg>
-                  <div class="vb-med-info">
-                    <h4>Master</h4>
-                    <span class="num">230</span>
-                    <span class="desc">graduados</span>
-                    <p>141 activos</p>
-                  </div>
-                </div>
-                <div class="vb-med-item">
-                  <svg class="prog-icon" style="color:#0038E3"><use href="#ico-medida"/></svg>
-                  <div class="vb-med-info">
-                    <h4>A la Medida</h4>
-                    <span class="num">+3,000</span>
-                    <span class="desc">participantes</span>
-                  </div>
-                </div>
-                <div class="vb-med-item">
-                  <svg class="prog-icon" style="color:#0038E3"><use href="#ico-ejecutivo"/></svg>
-                  <div class="vb-med-info">
-                    <h4>Ejecutivo</h4>
-                    <span class="num">198</span>
-                    <span class="desc">estudiantes</span>
-                    <p>4 cohortes</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ════ VARIANTE C — Side by side ════ -->
-        <div class="cifras-variant active" id="variant-a">
-          <div class="vc-card">
-
-            <!-- Left: España -->
-            <div class="vc-left">
-              <div class="cifras-zone-label">
-                <svg class="flag-icon" width="24" height="16" style="border-radius:2px;"><use href="#flag-esp"/></svg>
-                <span>ESIC España</span>
-              </div>
-              <div class="vc-left-stats">
-                <div class="cifras-stat">
-                  <span class="num">TOP 1</span>
-                  <span class="desc">Marketing y Economia Digital</span>
-                </div>
-                <div class="cifras-stat">
-                  <span class="num">+60</span>
-                  <span class="desc">anos formando profesionales</span>
-                </div>
-                <div class="cifras-stat">
-                  <span class="num">13</span>
-                  <span class="desc">Campus en 4 continentes</span>
-                </div>
-                <div class="cifras-stat">
-                  <span class="num">62K+</span>
-                  <span class="desc">alumni de 80+ nacionalidades</span>
-                </div>
-              </div>
-              <div class="vc-left-bottom">
-                <ul class="cifras-check on-dark">
-                  <li>Acuerdos en 40+ paises</li>
-                  <li>Referente europeo en negocios</li>
-                </ul>
-                <a href="https://www.esic.edu" target="_blank" class="cifras-cta">
-                  ESIC España
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-              </div>
-            </div>
-
-            <!-- Right: Medellín -->
-            <div class="vc-right">
-              <div class="cifras-zone-label">
-                <svg class="flag-icon" width="24" height="16" style="border-radius:2px;"><use href="#flag-col"/></svg>
-                <span>ESIC Medellin</span>
-              </div>
-              <div class="vc-prog">
-                <svg class="prog-icon"><use href="#ico-pregrado"/></svg>
-                <div class="vc-prog-info">
-                  <h4>Pregrado</h4>
-                  <span class="num">252</span>
-                  <span class="desc">activos</span>
-                  <p>Proy. 2026: 452 · Proy. 2029: 1,000</p>
-                </div>
-              </div>
-              <div class="vc-prog">
-                <svg class="prog-icon"><use href="#ico-master"/></svg>
-                <div class="vc-prog-info">
-                  <h4>Master</h4>
-                  <span class="num">230</span>
-                  <span class="desc">graduados</span>
-                  <p>141 activos</p>
-                </div>
-              </div>
-              <div class="vc-prog">
-                <svg class="prog-icon"><use href="#ico-medida"/></svg>
-                <div class="vc-prog-info">
-                  <h4>A la Medida</h4>
-                  <span class="num">+3,000</span>
-                  <span class="desc">participantes</span>
-                </div>
-              </div>
-              <div class="vc-prog">
-                <svg class="prog-icon"><use href="#ico-ejecutivo"/></svg>
-                <div class="vc-prog-info">
-                  <h4>Ejecutivo</h4>
-                  <span class="num">198</span>
-                  <span class="desc">estudiantes</span>
-                  <p>4 cohortes</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+      <!-- Cifras & Reconocimiento — Prestige Statement -->
+  <section class="eh-cifras-section" id="cifras">
+    <div class="eh-cifras-container">
+      <div class="eh-cifras-header">
+        <span class="eh-cifras-eyebrow">Trayectoria &amp; Presencia Global</span>
+        <h2>CIFRAS Y<br>RECONOCIMIENTO</h2>
       </div>
-    </section>
+      <div class="eh-cifras-body">
 
-    <!-- Cifras A/B/C Toggle Script -->
-    <script>
-    (function() {
-      var btns = document.querySelectorAll('.variant-btn');
-      var panels = document.querySelectorAll('.cifras-variant');
-      btns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var t = btn.getAttribute('data-variant');
-          btns.forEach(function(b) { b.classList.remove('active'); });
-          panels.forEach(function(p) { p.classList.remove('active'); });
-          btn.classList.add('active');
-          document.getElementById('variant-' + t).classList.add('active');
-        });
-      });
-    })();
-    </script>
+        <!-- ESIC España -->
+        <div class="eh-cifras-column eh-espana">
+          <div class="eh-country-header">
+            <svg class="eh-country-flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
+            <span class="eh-country-name">ESIC España</span>
+          </div>
+          <div class="eh-cifras-stats">
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">TOP 1</div>
+              <div class="eh-cifra-desc">Marketing y Economía Digital</div>
+            </div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">62K+</div>
+              <div class="eh-cifra-desc">Alumni de 80+ nacionalidades</div>
+            </div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">60</div>
+              <div class="eh-cifra-desc">Años formando profesionales</div>
+            </div>
+          </div>
+          <a href="https://www.esic.edu" target="_blank" rel="noopener" class="eh-cifras-cta">
+            Conoce ESIC España
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
 
-    <!-- 4. Comparador Rápido -->
+        <div class="eh-cifras-divider" aria-hidden="true"></div>
+
+        <!-- ESIC Medellín -->
+        <div class="eh-cifras-column eh-medellin">
+          <div class="eh-country-header">
+            <svg class="eh-country-flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+            <span class="eh-country-name">ESIC Medellín</span>
+          </div>
+          <div class="eh-cifras-stats">
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">+3,000</div>
+              <div class="eh-cifra-desc">Participantes a la medida</div>
+            </div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">230</div>
+              <div class="eh-cifra-desc">Máster graduados</div>
+            </div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">252</div>
+              <div class="eh-cifra-desc">Pregrado activos</div>
+            </div>
+          </div>
+          <a href="#contacto" class="eh-cifras-cta">
+            Conoce ESIC Medellín
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div><!-- /.eh-cifras-body -->
+    </div>
+  </section>
+
+  <!-- 4. Comparador Rápido -->
     <section class="section section-overlap section-overlap-white">
       <div class="container">
         <div class="section-header">
