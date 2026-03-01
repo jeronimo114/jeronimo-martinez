@@ -204,7 +204,6 @@
   width: 100%;
   overflow: hidden;
   background: var(--brand-blue-dark);
-  padding-top: var(--eh-nav-offset);
 }
 .esic-home .eh-banner-track {
   display: flex;
@@ -595,168 +594,179 @@
   text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
-/* Cifras Section - Button Cards */
+/* =====================================================
+   Cifras & Reconocimiento — Prestige Statement
+   Dark navy section; numbers as heroes, no cards
+   ===================================================== */
 .esic-home .eh-cifras-section {
-  background: #FFFFFF;
-  padding: 3rem 0 4rem;
+  background: var(--brand-blue-dark);
+  padding: 4.5rem 0 5rem;
   position: relative;
   overflow: hidden;
   border-radius: 40px 40px 0 0;
   margin-top: -40px;
 }
 
-/* Header */
-.esic-home .eh-cifras-header { 
-  margin-bottom: 2rem; 
-  text-align: center;
+/* Eyebrow */
+.esic-home .eh-cifras-eyebrow {
+  display: block;
+  font-family: var(--body-font);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.32);
+  margin-bottom: 0.75rem;
+}
+
+/* Header — left-aligned, large */
+.esic-home .eh-cifras-header {
+  margin-bottom: 3.5rem;
 }
 .esic-home .eh-cifras-header h2 {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
   font-weight: 800;
   text-transform: uppercase;
-  line-height: 1;
-  color: #00133F;
-  letter-spacing: -0.01em;
+  line-height: 0.92;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
 }
 
-/* Country Sections */
-.esic-home .eh-stats-country {
-  margin-bottom: 2rem;
-}
-.esic-home .eh-stats-country:last-of-type {
-  margin-bottom: 1.5rem;
+/* Two-column body with thin center divider */
+.esic-home .eh-cifras-body {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 4rem;
+  align-items: start;
 }
 
-/* Country Header */
+.esic-home .eh-cifras-divider {
+  background: rgba(255, 255, 255, 0.08);
+  align-self: stretch;
+}
+
+.esic-home .eh-cifras-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Country header */
 .esic-home .eh-country-header {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 0.6rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0;
 }
+
 .esic-home .eh-country-flag {
-  width: 24px;
-  height: 16px;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 22px;
+  height: 15px;
+  border-radius: 2px;
+  flex-shrink: 0;
 }
+
 .esic-home .eh-country-name {
-  font-family: var(--display-font);
-  font-size: 0.85rem;
+  font-family: var(--body-font);
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #8B929D;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
 }
 
-/* Stats Grid - Button Style */
-.esic-home .eh-stats-clean {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+.esic-home .eh-cifras-column.eh-españa .eh-country-name {
+  color: #7BA8FF;
 }
 
-/* Stat Block - Card with Breaking Number */
-.esic-home .eh-stat-block {
-  background: #F5F7FA;
-  border-radius: 16px;
-  padding: 3.5rem 1rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  transition: all 0.2s ease;
-  border: 2px solid transparent;
-  position: relative;
-  overflow: visible;
-  min-height: 180px;
-}
-.esic-home .eh-stat-block:hover {
-  background: #FFFFFF;
-  border-color: #E2E8F0;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  transform: translateY(-4px);
+.esic-home .eh-cifras-column.eh-medellin .eh-country-name {
+  color: #FFB740;
 }
 
-/* Accent by Country */
-.esic-home .eh-stats-country.eh-españa .eh-stat-block {
-  border-left: 4px solid #0047E9;
-}
-.esic-home .eh-stats-country.eh-medellin .eh-stat-block {
-  border-left: 4px solid #FF9600;
+/* Stats list */
+.esic-home .eh-cifras-stats {
+  flex: 1;
 }
 
-/* The Number - Big Breaking Out Effect */
-.esic-home .eh-stat-number {
+.esic-home .eh-cifra-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.esic-home .eh-cifra-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0.5rem;
+}
+
+/* Number — the hero */
+.esic-home .eh-cifra-num {
   font-family: var(--display-font);
-  font-size: clamp(4rem, 9vw, 5.5rem);
-  font-weight: 800;
-  line-height: 0.8;
-  color: #00133F;
-  margin-bottom: 0.5rem;
-  position: absolute;
-  top: -20px;
-  left: 1rem;
-  z-index: 2;
+  font-size: clamp(3.75rem, 6vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  color: #FFFFFF;
   letter-spacing: -0.03em;
-  text-shadow: 4px 4px 0 rgba(255,255,255,0.8);
+  margin-bottom: 0.4rem;
 }
 
-.esic-home .eh-stats-country.eh-españa .eh-stat-number {
-  color: #0047E9;
-}
-
-.esic-home .eh-stats-country.eh-medellin .eh-stat-number {
-  color: #FF9600;
-}
-
-/* The Label */
-.esic-home .eh-stat-label {
+/* Label */
+.esic-home .eh-cifra-desc {
   font-size: 0.85rem;
-  font-weight: 500;
-  color: #5F6B7A;
-  line-height: 1.3;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.4;
 }
 
-/* CTA */
-.esic-home .eh-stats-cta {
-  display: flex;
-  justify-content: center;
-}
-.esic-home .eh-stats-cta-btn {
+/* Per-column CTAs */
+.esic-home .eh-cifras-cta {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.875rem 1.75rem;
-  background: #00133F;
-  color: #FFFFFF;
-  font-size: 0.9rem;
+  margin-top: 2rem;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50px;
+  font-family: var(--body-font);
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.07em;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  border-radius: 50px;
-  white-space: nowrap;
-  transition: all 0.2s ease;
+  transition: all 0.22s ease;
+  width: fit-content;
 }
-.esic-home .eh-stats-cta-btn:hover {
-  background: #0047E9;
-  transform: translateY(-2px);
+
+.esic-home .eh-cifras-cta:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+.esic-home .eh-cifras-cta svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .esic-home .eh-stats-clean {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+  .esic-home .eh-cifras-body {
+    grid-template-columns: 1fr;
+    gap: 3rem 0;
   }
-  .esic-home .eh-stat-block {
-    padding: 1rem 1.25rem;
+  .esic-home .eh-cifras-divider {
+    display: none;
+  }
+  .esic-home .eh-cifra-num {
+    font-size: clamp(3.25rem, 12vw, 4.5rem);
   }
 }
 @media (max-width: 480px) {
-  .esic-home .eh-stats-clean {
-    grid-template-columns: 1fr;
+  .esic-home .eh-cifra-num {
+    font-size: 3.25rem;
   }
 }
 
@@ -1425,48 +1435,60 @@
 }
 .elementor-widget-container .eh-banner-carousel,
 .elementor .eh-banner-carousel {
-  padding-top: var(--eh-nav-offset);
+  /* No extra padding needed - banners are full height */
 }
 </style>
 
 <main>
-  <!-- Banner Carousel -->
+  <!-- Banner Carousel - Optimized -->
   <section class="eh-banner-carousel">
     <div class="eh-banner-track">
+      <!-- Slide 1: Pregrado -->
       <div class="eh-banner-slide">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/02/MOBILE_DESKTOP_PREGRADO-1.png">
-          <img src="https://esic.co/wp-content/uploads/2026/02/BANNER_DESKTOP_PREGRADO-1.png" alt="Pregrado ESIC" width="1920" height="801" fetchpriority="high">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-mobile-01.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-01.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-01.png" alt="Pregrado ESIC" width="2560" height="1168" fetchpriority="high">
         </picture>
       </div>
+      <!-- Slide 2: Pasantías -->
       <div class="eh-banner-slide">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/02/MOBILE_PASANTIAS-1.png">
-          <img src="https://esic.co/wp-content/uploads/2026/02/BANNER_PASANTIAS-1.png" alt="Pasantías ESIC" width="1920" height="801" loading="lazy">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-mobile-02.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-02.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-02.png" alt="Pasantías ESIC" width="2560" height="1168" loading="lazy">
         </picture>
       </div>
+      <!-- Slide 3: Máster -->
       <div class="eh-banner-slide">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/02/BANNER_MOBILE_MASTER_2026-1.png">
-          <img src="https://esic.co/wp-content/uploads/2026/02/BANNERHOME_master2026-1.png" alt="Máster ESIC 2026" width="1920" height="801" loading="lazy">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-mobile-03.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-03.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-03.png" alt="Máster ESIC 2026" width="2560" height="1168" loading="lazy">
         </picture>
       </div>
+      <!-- Slide 4: Blog -->
       <div class="eh-banner-slide">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/02/MOBILE_BLOG_ESIC2026-1.png">
-          <img src="https://esic.co/wp-content/uploads/2026/02/DESKTOP_BLOG_ESIC2026-1.png" alt="Blog ESIC" width="1920" height="801" loading="lazy">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-mobile-04.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-04.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-04.png" alt="Blog ESIC" width="2560" height="1168" loading="lazy">
         </picture>
       </div>
+      <!-- Slide 5: Podcast -->
       <div class="eh-banner-slide">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/02/MOBILE_EPISODIO_2026.png">
-          <img src="https://esic.co/wp-content/uploads/2026/02/DESKTOP_EPISODIO_2026.png" alt="Podcast ESIC" width="1920" height="801" loading="lazy">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-mobile-05.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-05.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-05.png" alt="Podcast ESIC" width="2560" height="1168" loading="lazy">
         </picture>
       </div>
+      <!-- Slide 6: Marca -->
       <div class="eh-banner-slide">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/02/MOBILE_MARCAEsic2026_.png">
-          <img src="https://esic.co/wp-content/uploads/2026/02/DESKTOP_MARCAEsic2026_.png" alt="Marca ESIC" width="1920" height="801" loading="lazy">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-mobile-06.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-06.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-06.png" alt="Marca ESIC" width="2560" height="1168" loading="lazy">
         </picture>
       </div>
     </div>
@@ -1682,64 +1704,72 @@
     </div>
   </section>
 
-  <!-- Cifras Section - Bold Numbers -->
+  <!-- Cifras & Reconocimiento — Prestige Statement -->
   <section class="eh-section eh-section-rounded eh-cifras-section">
     <div class="eh-container">
       <div class="eh-cifras-header">
+        <span class="eh-cifras-eyebrow">Trayectoria &amp; Presencia Global</span>
         <h2>CIFRAS Y<br>RECONOCIMIENTO</h2>
       </div>
 
-      <!-- ESIC España -->
-      <div class="eh-stats-country eh-españa">
-        <div class="eh-country-header">
-          <svg class="eh-country-flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
-          <span class="eh-country-name">ESIC España</span>
-        </div>
-        <div class="eh-stats-clean">
-          <div class="eh-stat-block">
-            <div class="eh-stat-number">TOP 1</div>
-            <div class="eh-stat-label">Marketing y Economía Digital</div>
-          </div>
-          <div class="eh-stat-block">
-            <div class="eh-stat-number">62K+</div>
-            <div class="eh-stat-label">Alumni de 80+ nacionalidades</div>
-          </div>
-          <div class="eh-stat-block">
-            <div class="eh-stat-number">60</div>
-            <div class="eh-stat-label">Años formando profesionales</div>
-          </div>
-        </div>
-      </div>
+      <div class="eh-cifras-body">
 
-      <!-- ESIC Medellín -->
-      <div class="eh-stats-country eh-medellin">
-        <div class="eh-country-header">
-          <svg class="eh-country-flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
-          <span class="eh-country-name">ESIC Medellín</span>
+        <!-- ESIC España -->
+        <div class="eh-cifras-column eh-españa">
+          <div class="eh-country-header">
+            <svg class="eh-country-flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
+            <span class="eh-country-name">ESIC España</span>
+          </div>
+          <div class="eh-cifras-stats">
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">TOP 1</div>
+              <div class="eh-cifra-desc">Marketing y Economía Digital</div>
+            </div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">62K+</div>
+              <div class="eh-cifra-desc">Alumni de 80+ nacionalidades</div>
+            </div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">60</div>
+              <div class="eh-cifra-desc">Años formando profesionales</div>
+            </div>
+          </div>
+          <a href="https://www.esic.edu" target="_blank" rel="noopener" class="eh-cifras-cta">
+            Conoce ESIC España
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-        <div class="eh-stats-clean">
-          <div class="eh-stat-block">
-            <div class="eh-stat-number">+3,000</div>
-            <div class="eh-stat-label">A la medida participantes</div>
-          </div>
-          <div class="eh-stat-block">
-            <div class="eh-stat-number">230</div>
-            <div class="eh-stat-label">Máster graduados</div>
-          </div>
-          <div class="eh-stat-block">
-            <div class="eh-stat-number">252</div>
-            <div class="eh-stat-label">Pregrado activos</div>
-          </div>
-        </div>
-      </div>
 
-      <!-- CTA -->
-      <div class="eh-stats-cta">
-        <a href="https://www.esic.edu" target="_blank" rel="noopener" class="eh-stats-cta-btn">
-          Conoce ESIC España
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
+        <!-- Divider -->
+        <div class="eh-cifras-divider" aria-hidden="true"></div>
+
+        <!-- ESIC Medellín -->
+        <div class="eh-cifras-column eh-medellin">
+          <div class="eh-country-header">
+            <svg class="eh-country-flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+            <span class="eh-country-name">ESIC Medellín</span>
+          </div>
+          <div class="eh-cifras-stats">
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">+3,000</div>
+              <div class="eh-cifra-desc">Participantes a la medida</div>
+            </div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">230</div>
+              <div class="eh-cifra-desc">Máster graduados</div>
+            </div>
+            <div class="eh-cifra-item">
+              <div class="eh-cifra-num">252</div>
+              <div class="eh-cifra-desc">Pregrado activos</div>
+            </div>
+          </div>
+          <a href="#contacto" class="eh-cifras-cta">
+            Conoce ESIC Medellín
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div><!-- /.eh-cifras-body -->
 
     </div>
   </section>
