@@ -824,6 +824,61 @@
       background: var(--master-highlight-dark);
     }
 
+    /* Privacy checkbox */
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+    .form-checkbox input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: all 0.2s ease;
+    }
+    .form-checkbox input[type="checkbox"]:checked {
+      background: var(--master-highlight);
+      border-color: var(--master-highlight);
+    }
+    .form-checkbox input[type="checkbox"]:checked::after {
+      content: "";
+      display: block;
+      width: 5px;
+      height: 9px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      margin: 2px auto 0;
+    }
+    .form-checkbox input[type="checkbox"]:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(9,207,144,0.15);
+    }
+    .form-checkbox-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .form-checkbox-text a {
+      color: var(--master-highlight);
+      text-decoration: underline;
+    }
+    .form-privacy-error {
+      font-size: 0.75rem;
+      color: #e53e3e;
+      margin-top: 0.35rem;
+      display: none;
+    }
+    .form-privacy-error.visible { display: block; }
+
     @media (max-width: 900px) {
       .section-overlap {
         margin-top: -30px;
@@ -1353,36 +1408,84 @@
               <p style="color: var(--text-muted);">analistacorporate@esic.co</p>
             </div>
           </div>
-          <form class="contact-form reveal delay-1">
+          <form
+            class="contact-form reveal delay-1"
+            action="https://forms.zohopublic.com/esicmedellin/form/Ingresatusdatos11/formperma/dPq5C9JHP3oAbujERJYMFFjsh95aHD8OrAqiB880QOI/htmlRecords/submit"
+            name="form"
+            method="POST"
+            onSubmit="javascript:document.charset='UTF-8'; return masterPrivacyAlert() && zf_ValidateAndSubmit();"
+            accept-charset="UTF-8"
+            enctype="multipart/form-data"
+            id="masterForm"
+          >
+            <input type="hidden" name="zf_referrer_name" value="">
+            <input type="hidden" name="zf_redirect_url" value="">
+            <input type="hidden" name="zc_gad" value="">
+            <!-- Programa de interés: Máster — oculto, default -->
+            <input type="hidden" name="Dropdown" value="Máster">
+
             <div class="form-row">
               <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                <label>Nombre <em style="color:var(--master-highlight);font-style:normal;">*</em></label>
+                <input type="text" maxlength="255" name="Name_First" fieldType="7" placeholder="Tu nombre">
+                <p id="Name_error" class="zf-errorMessage" style="display:none;font-size:0.75rem;color:#e53e3e;margin-top:0.25rem;">Campo requerido</p>
               </div>
               <div class="form-group">
-                <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+                <label>Apellidos <em style="color:var(--master-highlight);font-style:normal;">*</em></label>
+                <input type="text" maxlength="255" name="Name_Last" fieldType="7" placeholder="Tus apellidos">
               </div>
             </div>
             <div class="form-group">
-              <label for="email">Correo electrónico</label>
-              <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+              <label>Correo electrónico <em style="color:var(--master-highlight);font-style:normal;">*</em></label>
+              <input type="text" name="Email" checktype="c5" maxlength="255" fieldType="9" placeholder="tu@correo.com">
+              <p id="Email_error" class="zf-errorMessage" style="display:none;font-size:0.75rem;color:#e53e3e;margin-top:0.25rem;">Correo inválido</p>
             </div>
             <div class="form-group">
-              <label for="telefono">Teléfono</label>
-              <input type="tel" id="telefono" name="telefono" placeholder="+57 300 000 0000">
+              <label>Móvil o teléfono <em style="color:var(--master-highlight);font-style:normal;">*</em></label>
+              <input type="text" name="PhoneNumber_countrycode" maxlength="20" checktype="c7" fieldType="11" id="international_PhoneNumber_countrycode" placeholder="+57 300 000 0000">
+              <p id="PhoneNumber_error" class="zf-errorMessage" style="display:none;font-size:0.75rem;color:#e53e3e;margin-top:0.25rem;">Número inválido</p>
             </div>
-            <div class="form-group">
-              <label for="programa">Programa de interés</label>
-              <select id="programa" name="programa" required>
-                <option value="">Selecciona un programa</option>
-                <option value="digital-business">Máster en Digital Business</option>
-                <option value="digital-marketing">Máster en Digital Marketing</option>
-                <option value="customer-experience">Máster en Customer Experience Management</option>
-              </select>
+            <div class="form-checkbox">
+              <input type="checkbox" id="masterPrivacyCheck" name="privacy" aria-label="Acepto la política de privacidad" onclick="masterDisablePrivacyErr()">
+              <div>
+                <span class="form-checkbox-text">
+                  He leído y acepto la <a href="https://www.esic.co/politica-privacidad/" target="_blank" rel="noopener">política de privacidad</a> de Prisma Colombia S.A.S.
+                </span>
+                <div id="privacyErrMaster" class="form-privacy-error" aria-live="polite">Por favor, acepta la política de privacidad para continuar.</div>
+              </div>
             </div>
-            <button type="submit" class="form-submit">Enviar solicitud</button>
+            <button type="submit" class="form-submit">Solicitar información</button>
           </form>
+          <script type="text/javascript">
+            var dateAndMonthRegexFormateArray = zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
+            var zf_DateRegex = new RegExp(dateAndMonthRegexFormateArray[0]);
+            var zf_MonthYearRegex = new RegExp(dateAndMonthRegexFormateArray[1]);
+            var zf_MandArray = ["Name_First","Name_Last","Email","PhoneNumber_countrycode"];
+            var zf_FieldArray = ["Name_First","Name_Last","Email","PhoneNumber_countrycode"];
+            var isSalesIQIntegrationEnabled = false;
+            var salesIQFieldsArray = [];
+
+            function masterPrivacyAlert() {
+              var cb = document.getElementById('masterPrivacyCheck');
+              var err = document.getElementById('privacyErrMaster');
+              if (cb && !cb.checked) {
+                err.classList.add('visible');
+                cb.ariaInvalid = 'true';
+                cb.focus();
+                return false;
+              }
+              return true;
+            }
+
+            function masterDisablePrivacyErr() {
+              var cb = document.getElementById('masterPrivacyCheck');
+              var err = document.getElementById('privacyErrMaster');
+              if (cb && cb.checked && err) {
+                err.classList.remove('visible');
+                cb.ariaInvalid = 'false';
+              }
+            }
+          </script>
         </div>
       </div>
     </section>
@@ -1520,7 +1623,7 @@
               <div class="eh-form-group">
                 <label>Tipo de programa <em>*</em></label>
                 <select name="Dropdown" required>
-                  <option value="">Selecciona...</option>
+                  <option value="Máster" selected>Máster</option>
                   <option value="Pregrado">Pregrado</option>
                   <option value="Corporate">Corporate</option>
                   <option value="Diplomado">Diplomado</option>
