@@ -18,6 +18,30 @@ cat /ruta/al/archivo.html | pbcopy
 
 ---
 
+### Commits Frecuentes
+> **IMPORTANTE**: Después de realizar **cualquier cambio** en el proyecto, por mínimo que sea, **SIEMPRE** hacer `git commit` inmediatamente.
+
+```bash
+# Flujo obligatorio post-cambios
+git add -A
+git commit -m "descripción detallada del cambio"
+```
+
+**Esta regla aplica para:**
+- Modificaciones de una línea
+- Cambios de color, texto o imagen
+- Correcciones de bugs
+- Nuevas funcionalidades
+- Cualquier edición, sin importar el tamaño
+
+**Beneficios:**
+- Historial completo y granular del proyecto
+- Posibilidad de revertir cambios específicos
+- Trabajo en equipo más seguro
+- Backup constante del progreso
+
+---
+
 ## Reglas Técnicas Elementor — Lecciones Aprendidas
 
 ### 1. Sin nav ni footer en widgets HTML
