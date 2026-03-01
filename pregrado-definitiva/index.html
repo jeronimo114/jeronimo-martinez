@@ -720,6 +720,61 @@
       background: var(--pregrado-highlight-dark);
     }
 
+    /* Privacy checkbox */
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+    .form-checkbox input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: all 0.2s ease;
+    }
+    .form-checkbox input[type="checkbox"]:checked {
+      background: var(--brand-blue);
+      border-color: var(--brand-blue);
+    }
+    .form-checkbox input[type="checkbox"]:checked::after {
+      content: "";
+      display: block;
+      width: 5px;
+      height: 9px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      margin: 2px auto 0;
+    }
+    .form-checkbox input[type="checkbox"]:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0,71,233,0.12);
+    }
+    .form-checkbox-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .form-checkbox-text a {
+      color: var(--brand-blue);
+      text-decoration: underline;
+    }
+    .form-privacy-error {
+      font-size: 0.75rem;
+      color: var(--pregrado-highlight);
+      margin-top: 0.35rem;
+      display: none;
+    }
+    .form-privacy-error.visible { display: block; }
+
     @media (max-width: 900px) {
       .section-overlap {
         margin-top: -30px;
@@ -1717,7 +1772,7 @@
             action="https://forms.zohopublic.com/esicmedellin/form/Ingresatusdatos11/formperma/dPq5C9JHP3oAbujERJYMFFjsh95aHD8OrAqiB880QOI/htmlRecords/submit"
             name="form"
             method="POST"
-            onSubmit="javascript:document.charset='UTF-8'; return zf_ValidateAndSubmit();"
+            onSubmit="javascript:document.charset='UTF-8'; return pregradoPrivacyAlert() && zf_ValidateAndSubmit();"
             accept-charset="UTF-8"
             enctype="multipart/form-data"
             id="form"
@@ -1749,10 +1804,15 @@
               <input type="text" name="PhoneNumber_countrycode" maxlength="20" checktype="c7" fieldType="11" id="international_PhoneNumber_countrycode" placeholder="+57 300 000 0000">
               <p id="PhoneNumber_error" class="zf-errorMessage" style="display:none;font-size:0.75rem;color:#e53e3e;margin-top:0.25rem;">Número inválido</p>
             </div>
-            <p style="font-size:0.75rem;color:var(--text-muted);line-height:1.6;margin-bottom:1.25rem;">
-              Prisma Colombia S.A.S atenderá tu solicitud. Puedes ejercer tus derechos según nuestra
-              <a href="https://www.esic.co/politica-privacidad/" target="_blank" rel="noopener" style="color:var(--brand-blue);">política de privacidad</a>.
-            </p>
+            <div class="form-checkbox">
+              <input type="checkbox" id="privacyCheck" name="privacy" aria-label="Acepto la política de privacidad" onclick="pregradoDisablePrivacyErr()">
+              <div>
+                <span class="form-checkbox-text">
+                  He leído y acepto la <a href="https://www.esic.co/politica-privacidad/" target="_blank" rel="noopener">política de privacidad</a> de Prisma Colombia S.A.S.
+                </span>
+                <div id="privacyErrPregrado" class="form-privacy-error" aria-live="polite">Por favor, acepta la política de privacidad para continuar.</div>
+              </div>
+            </div>
             <button type="submit" class="form-submit">Solicitar información</button>
           </form>
           <script type="text/javascript">
@@ -1763,6 +1823,27 @@
             var zf_FieldArray = ["Name_First","Name_Last","Email","PhoneNumber_countrycode"];
             var isSalesIQIntegrationEnabled = false;
             var salesIQFieldsArray = [];
+
+            function pregradoPrivacyAlert() {
+              var cb = document.getElementById('privacyCheck');
+              var err = document.getElementById('privacyErrPregrado');
+              if (cb && !cb.checked) {
+                err.classList.add('visible');
+                cb.ariaInvalid = 'true';
+                cb.focus();
+                return false;
+              }
+              return true;
+            }
+
+            function pregradoDisablePrivacyErr() {
+              var cb = document.getElementById('privacyCheck');
+              var err = document.getElementById('privacyErrPregrado');
+              if (cb && cb.checked && err) {
+                err.classList.remove('visible');
+                cb.ariaInvalid = 'false';
+              }
+            }
           </script>
         </div>
       </div>
