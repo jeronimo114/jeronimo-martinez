@@ -1256,6 +1256,7 @@
   background: #00133F;
   padding: 4.5rem 0 5rem;
   position: relative;
+  z-index: 2;
   overflow: hidden;
   border-radius: 50px 50px 0 0;
   margin-top: -50px;
@@ -1714,39 +1715,55 @@
           <form
             class="contact-form reveal delay-1"
             action="https://forms.zohopublic.com/esicmedellin/form/Ingresatusdatos11/formperma/dPq5C9JHP3oAbujERJYMFFjsh95aHD8OrAqiB880QOI/htmlRecords/submit"
-            name="pregrado-contact-form"
+            name="form"
             method="POST"
-            onsubmit="javascript:document.charset='UTF-8';"
+            onSubmit="javascript:document.charset='UTF-8'; return zf_ValidateAndSubmit();"
             accept-charset="UTF-8"
             enctype="multipart/form-data"
+            id="form"
           >
-            <!-- Zoho tracking -->
             <input type="hidden" name="zf_referrer_name" value="">
             <input type="hidden" name="zf_redirect_url" value="">
             <input type="hidden" name="zc_gad" value="">
-            <!-- Programa de interés: Pregrado (oculto) -->
+            <!-- Programa de interés: Pregrado — oculto, default -->
             <input type="hidden" name="Dropdown" value="Pregrado">
 
             <div class="form-row">
               <div class="form-group">
-                <label for="nombre">Nombre <em style="color:var(--pregrado-highlight);font-style:normal;">*</em></label>
-                <input type="text" id="nombre" name="Name_First" maxlength="255" placeholder="Tu nombre" required>
+                <label>Nombre <em style="color:var(--pregrado-highlight);font-style:normal;">*</em></label>
+                <input type="text" maxlength="255" name="Name_First" fieldType="7" placeholder="Tu nombre">
+                <p id="Name_error" class="zf-errorMessage" style="display:none;font-size:0.75rem;color:#e53e3e;margin-top:0.25rem;">Campo requerido</p>
               </div>
               <div class="form-group">
-                <label for="apellido">Apellidos <em style="color:var(--pregrado-highlight);font-style:normal;">*</em></label>
-                <input type="text" id="apellido" name="Name_Last" maxlength="255" placeholder="Tus apellidos" required>
+                <label>Apellidos <em style="color:var(--pregrado-highlight);font-style:normal;">*</em></label>
+                <input type="text" maxlength="255" name="Name_Last" fieldType="7" placeholder="Tus apellidos">
               </div>
             </div>
             <div class="form-group">
-              <label for="email">Correo electrónico <em style="color:var(--pregrado-highlight);font-style:normal;">*</em></label>
-              <input type="email" id="email" name="Email" maxlength="255" placeholder="tu@correo.com" required>
+              <label>Correo electrónico <em style="color:var(--pregrado-highlight);font-style:normal;">*</em></label>
+              <input type="text" name="Email" checktype="c5" maxlength="255" fieldType="9" placeholder="tu@correo.com">
+              <p id="Email_error" class="zf-errorMessage" style="display:none;font-size:0.75rem;color:#e53e3e;margin-top:0.25rem;">Correo inválido</p>
             </div>
             <div class="form-group">
-              <label for="telefono">Móvil o teléfono <em style="color:var(--pregrado-highlight);font-style:normal;">*</em></label>
-              <input type="tel" id="telefono" name="PhoneNumber_countrycode" maxlength="20" placeholder="+57 300 000 0000" required>
+              <label>Móvil o teléfono <em style="color:var(--pregrado-highlight);font-style:normal;">*</em></label>
+              <input type="text" name="PhoneNumber_countrycode" maxlength="20" checktype="c7" fieldType="11" id="international_PhoneNumber_countrycode" placeholder="+57 300 000 0000">
+              <p id="PhoneNumber_error" class="zf-errorMessage" style="display:none;font-size:0.75rem;color:#e53e3e;margin-top:0.25rem;">Número inválido</p>
             </div>
+            <p style="font-size:0.75rem;color:var(--text-muted);line-height:1.6;margin-bottom:1.25rem;">
+              Prisma Colombia S.A.S atenderá tu solicitud. Puedes ejercer tus derechos según nuestra
+              <a href="https://www.esic.co/politica-privacidad/" target="_blank" rel="noopener" style="color:var(--brand-blue);">política de privacidad</a>.
+            </p>
             <button type="submit" class="form-submit">Solicitar información</button>
           </form>
+          <script type="text/javascript">
+            var dateAndMonthRegexFormateArray = zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
+            var zf_DateRegex = new RegExp(dateAndMonthRegexFormateArray[0]);
+            var zf_MonthYearRegex = new RegExp(dateAndMonthRegexFormateArray[1]);
+            var zf_MandArray = ["Name_First","Name_Last","Email","PhoneNumber_countrycode"];
+            var zf_FieldArray = ["Name_First","Name_Last","Email","PhoneNumber_countrycode"];
+            var isSalesIQIntegrationEnabled = false;
+            var salesIQFieldsArray = [];
+          </script>
         </div>
       </div>
     </section>
