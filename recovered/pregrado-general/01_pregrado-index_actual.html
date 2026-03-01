@@ -1,0 +1,435 @@
+<div class="esic-pregrado">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-pregrado {
+  --brand-blue: #0047E9;
+  --brand-blue-dark: #00133F;
+  --brand-teal: #0AE4C3;
+  --brand-orange: #FF9600;
+  --bg: #F8F6F2;
+  --bg-alt: #F2F5FB;
+  --surface: #FFFFFF;
+  --text: #0B132B;
+  --text-muted: #5F6B7A;
+  --display-font: "Sofia Sans Extra Condensed", sans-serif;
+  --body-font: "DM Sans", sans-serif;
+  font-family: var(--body-font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.esic-pregrado *, .esic-pregrado *::before, .esic-pregrado *::after { box-sizing: border-box; }
+.esic-pregrado h1, .esic-pregrado h2, .esic-pregrado h3, .esic-pregrado h4 { font-family: var(--display-font); font-weight: 800; text-transform: uppercase; margin: 0; line-height: 0.95; }
+.esic-pregrado img { max-width: 100%; display: block; height: auto; }
+.esic-pregrado a { color: inherit; text-decoration: none; }
+.esic-pregrado button { font-family: inherit; cursor: pointer; }
+.esic-pregrado p { margin: 0; }
+.esic-pregrado ul { margin: 0; padding: 0; list-style: none; }
+
+.esic-pregrado .ep-container { width: min(1200px, 92%); margin: 0 auto; }
+.esic-pregrado .ep-section { padding: 5rem 0; position: relative; }
+
+/* Buttons */
+.esic-pregrado .ep-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.esic-pregrado .ep-btn-primary {
+  background: var(--brand-orange);
+  color: #FFFFFF;
+  box-shadow: 0 16px 35px rgba(255, 150, 0, 0.3);
+}
+.esic-pregrado .ep-btn-primary:hover { background: #E68700; transform: translateY(-2px); }
+.esic-pregrado .ep-btn-outline {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+}
+.esic-pregrado .ep-btn-outline:hover { border-color: #FFFFFF; background: rgba(255, 255, 255, 0.1); }
+
+/* Hero */
+.esic-pregrado .ep-hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 6rem;
+  position: relative;
+  background: linear-gradient(135deg, rgba(0, 19, 63, 0.85) 0%, rgba(0, 19, 63, 0.6) 100%), 
+              url('https://esic.co/wp-content/uploads/2026/02/pregrado_mkt_global_.webp') center/cover no-repeat;
+}
+.esic-pregrado .ep-hero-content {
+  max-width: 680px;
+  color: #FFFFFF;
+}
+.esic-pregrado .ep-hero-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--brand-orange);
+  margin-bottom: 1rem;
+  display: block;
+}
+.esic-pregrado .ep-hero h1 {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  margin-bottom: 1.5rem;
+}
+.esic-pregrado .ep-hero h1 span {
+  color: var(--brand-orange);
+}
+.esic-pregrado .ep-hero > .ep-container > .ep-hero-content > p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  max-width: 560px;
+  text-transform: none;
+  font-family: var(--body-font);
+  font-weight: 400;
+  line-height: 1.6;
+}
+.esic-pregrado .ep-hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Section Rounded */
+.esic-pregrado .ep-section-rounded {
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
+}
+.esic-pregrado .ep-section-white { background: #FFFFFF; }
+.esic-pregrado .ep-section-light { background: var(--bg); }
+
+/* Programs Section */
+.esic-pregrado .ep-programs-section { padding: 5rem 0; }
+.esic-pregrado .ep-section-header {
+  margin-bottom: 3rem;
+}
+.esic-pregrado .ep-section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--brand-blue-dark);
+  margin-bottom: 1rem;
+}
+.esic-pregrado .ep-section-header > p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  text-transform: none;
+  font-family: var(--body-font);
+  font-weight: 400;
+}
+
+/* Program Cards - EXACTAMENTE como en el home */
+.esic-pregrado .ep-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.esic-pregrado .ep-programa-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: block;
+  aspect-ratio: 16/9;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.esic-pregrado .ep-programa-card:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 20px 40px rgba(0, 19, 63, 0.2); 
+}
+.esic-pregrado .ep-programa-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.9) 25%, rgba(0, 0, 0, 0.7) 35%, rgba(0, 0, 0, 0.4) 55%, transparent 75%);
+  z-index: 1;
+  border-radius: inherit;
+}
+@media (max-width: 768px) {
+  .esic-pregrado .ep-programa-card::before {
+    background: linear-gradient(180deg, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.9) 100%);
+  }
+}
+.esic-pregrado .ep-programa-card-info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 65%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #FFFFFF;
+  z-index: 2;
+}
+@media (max-width: 768px) {
+  .esic-pregrado .ep-programa-card-info {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: 55%;
+    justify-content: flex-end;
+    padding: 1.5rem;
+  }
+}
+.esic-pregrado .ep-programa-card-info h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: var(--brand-orange);
+}
+@media (max-width: 768px) {
+  .esic-pregrado .ep-programa-card-info h3 {
+    font-size: 1.5rem;
+  }
+  .esic-pregrado .ep-programa-card {
+    aspect-ratio: 4/3;
+  }
+}
+.esic-pregrado .ep-programa-card-duration { 
+  font-size: 1.1rem; 
+  opacity: 0.95; 
+  margin-top: 0.4rem;
+  color: #FFFFFF;
+}
+.esic-pregrado .ep-programa-card-flags { 
+  display: inline-flex; 
+  gap: 0.4rem; 
+  align-items: center; 
+  margin-top: 0.3rem; 
+}
+.esic-pregrado .ep-programa-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: transparent;
+  transition: all 0.2s ease;
+  width: fit-content;
+  margin-top: 1.25rem;
+}
+.esic-pregrado .ep-programa-card-btn:hover { 
+  background: rgba(255, 255, 255, 0.2); 
+  border-color: rgba(255, 255, 255, 0.8); 
+}
+.esic-pregrado .ep-programa-card-btn svg { 
+  width: 14px; 
+  height: 14px; 
+}
+
+/* Background images */
+.esic-pregrado .ep-programa-card.ep-marketing {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/pregrado_mkt_global_.webp');
+}
+@media (max-width: 768px) {
+  .esic-pregrado .ep-programa-card.ep-marketing {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_pregrado_mkt_global_.webp');
+  }
+}
+.esic-pregrado .ep-programa-card.ep-blue {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/pregrado_digital_business.webp');
+}
+@media (max-width: 768px) {
+  .esic-pregrado .ep-programa-card.ep-blue {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_pregrado_digital_business.webp');
+  }
+}
+
+/* Info Stats Section */
+.esic-pregrado .ep-info-section { padding: 4rem 0; }
+.esic-pregrado .ep-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: center;
+}
+.esic-pregrado .ep-info-left h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--brand-blue-dark);
+  margin-bottom: 1.5rem;
+}
+.esic-pregrado .ep-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.esic-pregrado .ep-stat-card {
+  border-radius: 24px;
+  padding: 1.5rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 140px;
+  position: relative;
+  overflow: hidden;
+}
+.esic-pregrado .ep-stat-card.orange { background: var(--brand-orange); }
+.esic-pregrado .ep-stat-card.blue { background: var(--brand-blue); }
+.esic-pregrado .ep-stat-card.teal { background: var(--brand-teal); color: var(--brand-blue-dark); }
+.esic-pregrado .ep-stat-card strong {
+  font-family: var(--display-font);
+  font-size: 2rem;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.esic-pregrado .ep-stat-card span {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .esic-pregrado .ep-programs-grid {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .esic-pregrado .ep-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .esic-pregrado .ep-section-rounded {
+    border-radius: 30px 30px 0 0;
+    margin-top: -30px;
+  }
+  .esic-pregrado .ep-hero {
+    min-height: 70vh;
+    padding: 100px 0 5rem;
+  }
+  .esic-pregrado .ep-hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .esic-pregrado .ep-hero-buttons .ep-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .esic-pregrado .ep-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<main>
+  <!-- Hero -->
+  <section class="ep-hero">
+    <div class="ep-container">
+      <div class="ep-hero-content">
+        <span class="ep-hero-eyebrow">Pregrados con doble titulación</span>
+        <h1>Pregrados <span>ESIC Medellín</span></h1>
+        <p>Estudiar negocios y marketing en Colombia con visión global: formación profesional con enfoque digital, doble titulación internacional e inmersión en más de 25 países.</p>
+        <div class="ep-hero-buttons">
+          <a href="#programas" class="ep-btn ep-btn-primary">Explora programas</a>
+          <a href="/pregrado/becas/" class="ep-btn ep-btn-outline">Ver becas disponibles</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section - CARDS EXACTAS DEL HOME -->
+  <section class="ep-section ep-section-rounded ep-section-white ep-programs-section" id="programas">
+    <div class="ep-container">
+      <div class="ep-section-header">
+        <h2>Nuestros pregrados</h2>
+        <p>Dos pregrados en marketing y negocios digitales para construir tu futuro profesional.</p>
+      </div>
+
+      <div class="ep-programs-grid">
+        <!-- Digital Business - Card exacta del home -->
+        <a href="/pregrado/digital-business/" class="ep-programa-card ep-blue">
+          <div class="ep-programa-card-info">
+            <h3>DIGITAL BUSINESS</h3>
+            <span class="ep-programa-card-duration">4 años · Doble titulación</span>
+            <span class="ep-programa-card-flags">
+              <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+              <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
+            </span>
+            <span class="ep-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <!-- Marketing Global - Card exacta del home -->
+        <a href="/pregrado/marketing-global/" class="ep-programa-card ep-marketing">
+          <div class="ep-programa-card-info">
+            <h3>DIRECCIÓN DE MARKETING GLOBAL</h3>
+            <span class="ep-programa-card-duration">4 años · Doble titulación</span>
+            <span class="ep-programa-card-flags">
+              <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+              <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
+            </span>
+            <span class="ep-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Stats Section -->
+  <section class="ep-section ep-section-light ep-info-section">
+    <div class="ep-container">
+      <div class="ep-info-grid">
+        <div class="ep-info-left">
+          <span class="ep-hero-eyebrow">Lo que incluye tu pregrado</span>
+          <h2>Formación<br>integral</h2>
+          <a href="#programas" class="ep-btn ep-btn-primary">Encuentra tu pregrado</a>
+        </div>
+        <div class="ep-stats-grid">
+          <div class="ep-stat-card orange">
+            <strong>4 Años</strong>
+            <span>Duración</span>
+          </div>
+          <div class="ep-stat-card blue">
+            <strong>Medellín</strong>
+            <span>Alto de las Palmas</span>
+          </div>
+          <div class="ep-stat-card teal">
+            <strong>Doble Título</strong>
+            <span>ESIC España + Ceipa</span>
+          </div>
+          <div class="ep-stat-card orange">
+            <strong>+25</strong>
+            <span>Países</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</div>

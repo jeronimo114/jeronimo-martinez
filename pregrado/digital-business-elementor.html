@@ -1,0 +1,815 @@
+<div class="esic-pregrado-db">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-pregrado-db {
+  --brand-blue: #0047E9;
+  --brand-blue-dark: #00133F;
+  --brand-teal: #0AE4C3;
+  --brand-orange: #FF9600;
+  --bg: #F8F6F2;
+  --surface: #FFFFFF;
+  --text: #0B132B;
+  --text-muted: #5F6B7A;
+  --text-light: #97A2B1;
+  --border: rgba(0, 19, 63, 0.12);
+  --display-font: "Sofia Sans Extra Condensed", sans-serif;
+  --body-font: "DM Sans", sans-serif;
+  font-family: var(--body-font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+.esic-pregrado-db *, .esic-pregrado-db *::before, .esic-pregrado-db *::after { box-sizing: border-box; }
+.esic-pregrado-db h1, .esic-pregrado-db h2, .esic-pregrado-db h3, .esic-pregrado-db h4, .esic-pregrado-db h5 { font-family: var(--display-font); font-weight: 600; margin: 0; }
+.esic-pregrado-db img { max-width: 100%; display: block; height: auto; }
+.esic-pregrado-db a { color: inherit; text-decoration: none; }
+.esic-pregrado-db button { font-family: inherit; cursor: pointer; }
+.esic-pregrado-db p { margin: 0; }
+.esic-pregrado-db ul, .esic-pregrado-db ol { margin: 0; padding: 0; list-style: none; }
+
+.esic-pregrado-db .epdb-container { width: min(1200px, 92%); margin: 0 auto; }
+.esic-pregrado-db .epdb-section { padding: 5rem 0; position: relative; }
+
+/* Buttons */
+.esic-pregrado-db .epdb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.esic-pregrado-db .epdb-btn-primary { background: var(--brand-orange); color: #FFFFFF; }
+.esic-pregrado-db .epdb-btn-primary:hover { background: #E88A00; transform: translateY(-2px); }
+.esic-pregrado-db .epdb-btn-outline { background: transparent; border: 2px solid var(--brand-orange); color: var(--brand-orange); }
+.esic-pregrado-db .epdb-btn-outline:hover { background: rgba(255, 150, 0, 0.1); }
+.esic-pregrado-db .epdb-btn svg { width: 16px; height: 16px; }
+
+/* Hero Section */
+.esic-pregrado-db .epdb-hero {
+  height: 85vh;
+  min-height: 500px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 100px 2rem 15rem;
+}
+.esic-pregrado-db .epdb-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg, #FF9600 0%, #FF9600 40%, #00133F 100%);
+}
+.esic-pregrado-db .epdb-hero .epdb-container { height: 100%; display: flex; align-items: flex-end; position: relative; z-index: 2; width: 100%; }
+.esic-pregrado-db .epdb-hero-content {
+  text-align: right;
+  color: #FFFFFF;
+  max-width: 100%;
+  margin-left: auto;
+  padding-left: 40%;
+  padding-right: 5%;
+}
+.esic-pregrado-db .epdb-hero-eyebrow {
+  font-family: var(--display-font);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+.esic-pregrado-db .epdb-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.85;
+  color: #FFFFFF;
+  margin-bottom: 0.8rem;
+}
+.esic-pregrado-db .epdb-hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 500px;
+  margin-left: auto;
+  margin-bottom: 2rem;
+}
+.esic-pregrado-db .epdb-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end; }
+.esic-pregrado-db .epdb-hero .epdb-btn-primary { background: var(--brand-blue-dark); color: #FFFFFF; }
+.esic-pregrado-db .epdb-hero .epdb-btn-primary:hover { background: #001a52; }
+.esic-pregrado-db .epdb-hero .epdb-btn-outline { border-color: #FFFFFF; color: #FFFFFF; }
+.esic-pregrado-db .epdb-hero .epdb-btn-outline:hover { background: rgba(255, 255, 255, 0.1); }
+
+/* Section Overlap */
+.esic-pregrado-db .epdb-section-overlap { position: relative; margin-top: -180px; border-radius: 50px 50px 0 0; z-index: 10; padding-top: 80px; }
+.esic-pregrado-db .epdb-section-white { background: #FFFFFF; }
+.esic-pregrado-db .epdb-section-orange { background: var(--brand-orange); }
+.esic-pregrado-db .epdb-section-cream { background: #F8F6F2; }
+.esic-pregrado-db .epdb-section-dark { background: var(--brand-blue-dark); }
+.esic-pregrado-db .epdb-section-rounded { border-radius: 50px 50px 0 0; margin-top: -50px; position: relative; z-index: 1; }
+
+/* Explora Grid */
+.esic-pregrado-db .epdb-explora-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: start; }
+.esic-pregrado-db .epdb-explora-content h2 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-bottom: 0.8rem;
+  color: var(--brand-orange);
+}
+.esic-pregrado-db .epdb-explora-content p { color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 0.8rem; }
+
+/* Form Card */
+.esic-pregrado-db .epdb-form-card { background: #FFFFFF; border-radius: 24px; padding: 2.5rem; box-shadow: 0 20px 60px rgba(0, 19, 63, 0.12); }
+.esic-pregrado-db .epdb-form-card h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 2rem;
+  color: var(--brand-orange);
+}
+.esic-pregrado-db .epdb-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.esic-pregrado-db .epdb-form-group { margin-bottom: 1rem; }
+.esic-pregrado-db .epdb-form-group label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+.esic-pregrado-db .epdb-form-group input,
+.esic-pregrado-db .epdb-form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--body-font);
+  font-size: 0.95rem;
+  background: #FFFFFF;
+  transition: border-color 0.2s ease;
+}
+.esic-pregrado-db .epdb-form-group input:focus,
+.esic-pregrado-db .epdb-form-group select:focus { outline: none; border-color: var(--brand-orange); }
+.esic-pregrado-db .epdb-form-group input::placeholder { color: var(--text-light); }
+.esic-pregrado-db .epdb-form-submit-row { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+.esic-pregrado-db .epdb-form-submit-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem;
+  background: var(--brand-orange);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--body-font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.esic-pregrado-db .epdb-form-submit-btn:hover { background: #E88A00; }
+.esic-pregrado-db .epdb-form-submit-btn svg { width: 16px; height: 16px; }
+
+/* Becas Banner */
+.esic-pregrado-db .epdb-becas-banner {
+  padding: 2rem 0;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: calc(100% - 4rem);
+  border-radius: 24px;
+}
+.esic-pregrado-db .epdb-becas-banner .epdb-container { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.esic-pregrado-db .epdb-becas-banner h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+}
+.esic-pregrado-db .epdb-becas-banner .epdb-btn { background: #FFFFFF; color: var(--brand-orange); font-size: 0.8rem; padding: 1rem 1.5rem; border: none; }
+.esic-pregrado-db .epdb-becas-banner .epdb-btn:hover { background: #F0F0F0; }
+
+/* Benefits Section */
+.esic-pregrado-db .epdb-benefits-section { padding: 5rem 0; }
+.esic-pregrado-db .epdb-benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+.esic-pregrado-db .epdb-benefit-item { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.esic-pregrado-db .epdb-benefit-icon { width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; }
+.esic-pregrado-db .epdb-benefit-icon svg { width: 70px; height: 70px; color: var(--brand-orange); }
+.esic-pregrado-db .epdb-benefit-text h4 { font-size: 1.8rem; font-weight: 600; text-transform: uppercase; line-height: 1; color: #0047E9; }
+.esic-pregrado-db .epdb-benefit-text p { font-size: 0.9rem; color: var(--text); margin-top: 0.3rem; }
+
+/* Testimonios Section */
+.esic-pregrado-db .epdb-testimonios-section { padding: 5rem 0; color: #FFFFFF; border-radius: 50px 50px 0 0; margin-top: -50px; position: relative; z-index: 5; }
+.esic-pregrado-db .epdb-testimonios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.esic-pregrado-db .epdb-testimonios-content h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 600; text-transform: uppercase; line-height: 0.95; margin-bottom: 0.8rem; }
+.esic-pregrado-db .epdb-testimonios-content p { font-size: 1rem; line-height: 1.7; opacity: 0.9; margin-bottom: 0.8rem; }
+.esic-pregrado-db .epdb-testimonios-video {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  background: linear-gradient(180deg, #FF9600 0%, #FF9600 50%, #00133F 100%);
+}
+.esic-pregrado-db .epdb-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease;
+}
+.esic-pregrado-db .epdb-play-btn:hover { background: rgba(255, 255, 255, 0.4); }
+.esic-pregrado-db .epdb-play-btn svg { width: 24px; height: 24px; color: #FFFFFF; margin-left: 4px; }
+
+/* Pricing Section */
+.esic-pregrado-db .epdb-pricing-section { padding: 5rem 0; background: #FFFFFF; border-radius: 50px 50px 0 0; margin-top: -50px; position: relative; z-index: 6; }
+.esic-pregrado-db .epdb-pricing-header { text-align: center; margin-bottom: 3rem; }
+.esic-pregrado-db .epdb-pricing-header h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 600; text-transform: uppercase; line-height: 0.95; color: var(--brand-blue); margin-bottom: 1rem; }
+.esic-pregrado-db .epdb-pricing-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+.esic-pregrado-db .epdb-pricing-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1000px; margin: 0 auto; align-items: start; }
+.esic-pregrado-db .epdb-pricing-card { background: #FFFFFF; border-radius: 24px; padding: 2.5rem; box-shadow: 0 10px 50px rgba(0, 19, 63, 0.1); border: 2px solid transparent; transition: all 0.3s ease; }
+.esic-pregrado-db .epdb-pricing-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0, 19, 63, 0.15); }
+.esic-pregrado-db .epdb-pricing-card-header { text-align: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+.esic-pregrado-db .epdb-pricing-card-header h3 { font-size: 1.5rem; font-weight: 600; text-transform: uppercase; color: #0047E9; margin-bottom: 0.5rem; }
+.esic-pregrado-db .epdb-pricing-card-header .epdb-price { font-family: var(--display-font); font-size: 3rem; font-weight: 800; color: var(--brand-orange); line-height: 1; }
+.esic-pregrado-db .epdb-pricing-card-header .epdb-price span { font-size: 1rem; font-weight: 500; color: var(--text-muted); }
+.esic-pregrado-db .epdb-pricing-features { list-style: none; margin-bottom: 2rem; }
+.esic-pregrado-db .epdb-pricing-features li { display: flex; align-items: flex-start; gap: 0.8rem; padding: 0.6rem 0; font-size: 0.95rem; color: var(--text); }
+.esic-pregrado-db .epdb-pricing-features li svg { width: 20px; height: 20px; color: var(--brand-orange); flex-shrink: 0; margin-top: 2px; }
+.esic-pregrado-db .epdb-pricing-card .epdb-btn { width: 100%; justify-content: center; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
+.esic-pregrado-db .epdb-pricing-note-card { background: linear-gradient(135deg, #F8F6F2 0%, #FFFFFF 100%); border-radius: 24px; padding: 2.5rem; border: 2px dashed var(--border); }
+.esic-pregrado-db .epdb-pricing-note-icon { width: 56px; height: 56px; background: rgba(255, 135, 1, 0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.8rem; }
+.esic-pregrado-db .epdb-pricing-note-icon svg { width: 28px; height: 28px; color: var(--brand-orange); }
+.esic-pregrado-db .epdb-pricing-note-card h4 { font-size: 1.5rem; font-weight: 600; text-transform: uppercase; color: #0047E9; margin-bottom: 1rem; }
+.esic-pregrado-db .epdb-pricing-note-card > p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.8rem; }
+
+/* Plan de Estudios */
+.esic-pregrado-db .epdb-plan-section { padding: 5rem 0; border-radius: 50px 50px 0 0; margin-top: -50px; position: relative; z-index: 7; }
+.esic-pregrado-db .epdb-plan-layout { display: grid; grid-template-columns: 280px 1fr; gap: 3rem; align-items: start; }
+.esic-pregrado-db .epdb-plan-title-block h2 { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; text-transform: uppercase; line-height: 0.9; color: var(--brand-blue); }
+
+/* Main Tabs */
+.esic-pregrado-db .epdb-plan-main-tabs { display: flex; gap: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.esic-pregrado-db .epdb-plan-main-tab {
+  font-family: var(--body-font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-light);
+  padding-bottom: 1rem;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.esic-pregrado-db .epdb-plan-main-tab:hover { color: var(--text); }
+.esic-pregrado-db .epdb-plan-main-tab.epdb-active { color: var(--text); border-bottom-color: var(--brand-orange); }
+
+/* Year Tabs */
+.esic-pregrado-db .epdb-plan-tabs { display: flex; gap: 1.5rem; margin-bottom: 0.8rem; }
+.esic-pregrado-db .epdb-plan-tab {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-family: var(--body-font);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+.esic-pregrado-db .epdb-plan-tab:hover { border-color: var(--brand-orange); color: var(--brand-orange); }
+.esic-pregrado-db .epdb-plan-tab.epdb-active { background: var(--brand-orange); border-color: var(--brand-orange); color: #FFFFFF; }
+
+/* Content Card */
+.esic-pregrado-db .epdb-plan-content-wrapper { background: #FFFFFF; border-radius: 0 0 20px 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 19, 63, 0.08); }
+.esic-pregrado-db .epdb-plan-content-header { background: var(--brand-orange); height: 12px; }
+.esic-pregrado-db .epdb-plan-content { display: none; padding: 2rem; }
+.esic-pregrado-db .epdb-plan-content.epdb-active { display: block; }
+.esic-pregrado-db .epdb-plan-grid { display: flex; flex-direction: column; gap: 0.8rem; }
+.esic-pregrado-db .epdb-plan-item {
+  display: grid;
+  grid-template-columns: 12px minmax(140px, 200px) 1fr;
+  align-items: start;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.esic-pregrado-db .epdb-plan-item:last-child { border-bottom: none; }
+.esic-pregrado-db .epdb-plan-item .epdb-bullet { width: 12px; height: 12px; background: var(--brand-orange); border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+.esic-pregrado-db .epdb-plan-item strong { font-weight: 600; color: var(--brand-blue-dark); line-height: 1.3; padding-right: 0.5rem; }
+
+.esic-pregrado-db .epdb-plan-section-content { display: none; }
+.esic-pregrado-db .epdb-plan-section-content.epdb-active { display: block; }
+
+.esic-pregrado-db .epdb-plan-actions { display: flex; gap: 1rem; margin-top: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
+.esic-pregrado-db .epdb-plan-actions .epdb-btn-primary { background: var(--brand-orange); }
+.esic-pregrado-db .epdb-plan-actions .epdb-btn-primary:hover { background: #E88A00; }
+
+/* Institutions */
+.esic-pregrado-db .epdb-institutions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 700px; margin-top: 2rem; }
+.esic-pregrado-db .epdb-institution-card { border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 19, 63, 0.08); display: grid; grid-template-rows: 1fr auto; }
+.esic-pregrado-db .epdb-institution-card-header { background: var(--brand-orange); padding: 1.5rem; }
+.esic-pregrado-db .epdb-institution-card-header h4 { font-size: 1.5rem; font-weight: 600; text-transform: uppercase; line-height: 1.1; color: #fff; }
+.esic-pregrado-db .epdb-institution-card-header small { display: block; margin-top: 0.5rem; font-family: var(--body-font); font-size: 0.75rem; font-weight: 400; opacity: 0.85; color: #FFFFFF; }
+.esic-pregrado-db .epdb-institution-card-body { background: #FFFFFF; padding: 1.5rem; display: flex; align-items: center; justify-content: center; min-height: 80px; }
+.esic-pregrado-db .epdb-institution-logo img { max-height: 45px; max-width: 140px; }
+
+/* Programas Cards */
+.esic-pregrado-db .epdb-programas-cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+.esic-pregrado-db .epdb-programa-card-link { text-decoration: none; }
+.esic-pregrado-db .epdb-programa-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  background: linear-gradient(135deg, #0047E9 0%, #00133F 100%);
+}
+.esic-pregrado-db .epdb-programa-card-link:nth-child(2) .epdb-programa-card {
+  background: linear-gradient(135deg, #FF9600 0%, #FF9600 100%);
+}
+.esic-pregrado-db .epdb-programa-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 19, 63, 0.85) 100%);
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+}
+.esic-pregrado-db .epdb-programa-card-overlay h4 {
+  font-family: var(--display-font);
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+/* Animations */
+.esic-pregrado-db .epdb-reveal { animation: epdb-fadeUp 0.8s ease both; }
+.esic-pregrado-db .epdb-delay-1 { animation-delay: 0.15s; }
+@keyframes epdb-fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .esic-pregrado-db .epdb-hero { height: auto; min-height: 70vh; padding: 120px 1.5rem 160px; }
+  .esic-pregrado-db .epdb-hero-content { padding-left: 20%; }
+  .esic-pregrado-db .epdb-explora-grid, .esic-pregrado-db .epdb-testimonios-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .esic-pregrado-db .epdb-benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 3rem; }
+  .esic-pregrado-db .epdb-pricing-layout { grid-template-columns: 1fr; max-width: 500px; }
+  .esic-pregrado-db .epdb-plan-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .esic-pregrado-db .epdb-plan-tabs { flex-wrap: wrap; }
+  .esic-pregrado-db .epdb-plan-tab { flex: 1 1 calc(50% - 0.5rem); }
+}
+
+@media (max-width: 768px) {
+  .esic-pregrado-db .epdb-hero { padding: 110px 1.5rem 160px; min-height: 60vh; }
+  .esic-pregrado-db .epdb-hero-content { padding-left: 0; text-align: center; }
+  .esic-pregrado-db .epdb-hero-subtitle { margin-left: auto; margin-right: auto; text-align: center; font-size: 1rem; }
+  .esic-pregrado-db .epdb-hero-actions { justify-content: center; }
+  .esic-pregrado-db .epdb-section-overlap { margin-top: -100px; border-radius: 30px 30px 0 0; }
+  .esic-pregrado-db .epdb-form-row { grid-template-columns: 1fr; }
+  .esic-pregrado-db .epdb-benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .esic-pregrado-db .epdb-benefit-icon { width: 60px; height: 60px; }
+  .esic-pregrado-db .epdb-benefit-icon svg { width: 50px; height: 50px; }
+  .esic-pregrado-db .epdb-benefit-text h4 { font-size: 1.3rem; }
+  .esic-pregrado-db .epdb-benefit-text p { font-size: 0.8rem; }
+  .esic-pregrado-db .epdb-plan-item { grid-template-columns: 12px 1fr; gap: 0.75rem; }
+  .esic-pregrado-db .epdb-plan-item span:last-child { grid-column: 1 / -1; padding-left: 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+  .esic-pregrado-db .epdb-institutions-grid { grid-template-columns: 1fr; }
+  .esic-pregrado-db .epdb-plan-actions { flex-direction: column; align-items: stretch; }
+  .esic-pregrado-db .epdb-plan-main-tabs { gap: 1.5rem; }
+  .esic-pregrado-db .epdb-plan-main-tab { font-size: 0.8rem; }
+  .esic-pregrado-db .epdb-programas-cards-grid { grid-template-columns: 1fr; }
+  .esic-pregrado-db .epdb-testimonios-section { border-radius: 30px 30px 0 0; }
+  .esic-pregrado-db .epdb-plan-section { border-radius: 30px 30px 0 0; }
+  .esic-pregrado-db .epdb-pricing-section { border-radius: 30px 30px 0 0; }
+}
+
+@media (max-width: 480px) {
+  .esic-pregrado-db .epdb-hero { padding: 100px 1.25rem 140px; }
+  .esic-pregrado-db .epdb-hero-actions { flex-direction: column; }
+  .esic-pregrado-db .epdb-hero-actions .epdb-btn { width: 100%; justify-content: center; }
+  .esic-pregrado-db .epdb-benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .esic-pregrado-db .epdb-benefit-text h4 { font-size: 1.1rem; }
+  .esic-pregrado-db .epdb-plan-tab { flex: 1 1 100%; padding: 0.8rem 1rem; font-size: 0.85rem; }
+  .esic-pregrado-db .epdb-section-overlap { margin-top: -80px; border-radius: 24px 24px 0 0; }
+  .esic-pregrado-db .epdb-becas-banner { border-radius: 16px; max-width: calc(100% - 2rem); }
+}
+</style>
+
+<main>
+  <!-- Hero Section -->
+  <section class="epdb-hero">
+    <div class="epdb-hero-bg"></div>
+    <div class="epdb-container">
+      <div class="epdb-hero-content epdb-reveal">
+        <p class="epdb-hero-eyebrow">PREGRADO · 4 AÑOS</p>
+        <h1 class="epdb-hero-title">DIGITAL BUSINESS</h1>
+        <p class="epdb-hero-subtitle">Formamos líderes orientados a resultados, listos para impulsar los negocios digitales y la innovación aplicada en organizaciones de impacto.</p>
+        <div class="epdb-hero-actions">
+          <a class="epdb-btn epdb-btn-primary" href="#formulario">SOLICITAR INFORMACIÓN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+          <a class="epdb-btn epdb-btn-outline" href="#plan-estudios">VER PLAN DE ESTUDIOS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explora + Form Section -->
+  <section class="epdb-section epdb-section-overlap epdb-section-white" id="formulario">
+    <div class="epdb-container">
+      <div class="epdb-explora-grid">
+        <div class="epdb-explora-content epdb-reveal">
+          <h2>EXPLORA NUESTROS PROGRAMAS</h2>
+          <p>Formamos líderes éticos, innovadores y orientados a resultados, listos para impulsar el marketing, los negocios digitales y la innovación aplicada en organizaciones de impacto regional y global.</p>
+          <a class="epdb-btn epdb-btn-primary" href="#formulario">SOLICITAR INFORMACIÓN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+        </div>
+        <div class="epdb-form-card epdb-reveal epdb-delay-1">
+          <h3>Pregrado en Digital Business</h3>
+          <form action='https://forms.zohopublic.com/esicmedellin/form/PregradoenDigitalBusinessFormularioPrograma110226/formperma/2t8A9M4Lmi5qlKLEmq8DyvIh49myBSAc3dYeUIB5sG4/htmlRecords/submit' name='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data' id='epdb-form'>
+            <input type="hidden" name="zf_referrer_name" value="">
+            <input type="hidden" name="zf_redirect_url" value="">
+            <input type="hidden" name="zc_gad" value="">
+
+            <!-- Nombre -->
+            <div class="epdb-form-row">
+              <div class="epdb-form-group">
+                <label for="epdb-Name_First">Nombre <em style="color: var(--brand-orange);">*</em></label>
+                <input type="text" id="epdb-Name_First" name="Name_First" maxlength="255" fieldType="7" required>
+              </div>
+              <div class="epdb-form-group">
+                <label for="epdb-Name_Last">Apellido</label>
+                <input type="text" id="epdb-Name_Last" name="Name_Last" maxlength="255" fieldType="7">
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="epdb-form-group">
+              <label for="epdb-Email">Correo electrónico <em style="color: var(--brand-orange);">*</em></label>
+              <input type="email" id="epdb-Email" name="Email" maxlength="255" fieldType="9" required>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="epdb-form-group">
+              <label for="epdb-PhoneNumber">Teléfono <em style="color: var(--brand-orange);">*</em></label>
+              <input type="tel" id="epdb-PhoneNumber" name="PhoneNumber_countrycode" maxlength="20" placeholder="+57 300 123 4567" required>
+            </div>
+
+            <!-- Medio de contacto -->
+            <div class="epdb-form-group">
+              <label for="epdb-Dropdown3">Medio de contacto <em style="color: var(--brand-orange);">*</em></label>
+              <select id="epdb-Dropdown3" name="Dropdown3" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Correo">Correo</option>
+                <option value="Llamada">Llamada</option>
+              </select>
+            </div>
+
+            <!-- Términos y condiciones -->
+            <div class="epdb-form-group" style="margin-top: 1rem;">
+              <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer; font-size: 0.9rem; color: var(--text-muted);">
+                <input type="checkbox" name="TermsConditions" required style="width: auto; margin-top: 0.2rem;">
+                <span>Acepto los <a href="https://esic.co/politicas-de-privacidad/" target="_blank" style="color: var(--brand-blue); text-decoration: underline;">términos y condiciones</a> <em style="color: var(--brand-orange);">*</em></span>
+              </label>
+            </div>
+
+            <div class="epdb-form-submit-row">
+              <button type="submit" class="epdb-form-submit-btn">Enviar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Becas Banner -->
+    <div class="epdb-becas-banner epdb-section-orange">
+      <div class="epdb-container">
+        <h3>TRANSFORMA TU FUTURO CON HASTA 40% DE BECA</h3>
+        <a class="epdb-btn" href="https://esic.co/master/becas.html">CONOCE NUESTRAS BECAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="epdb-section epdb-benefits-section epdb-section-white">
+    <div class="epdb-container">
+      <div class="epdb-benefits-grid epdb-reveal">
+        <!-- 4 Años -->
+        <div class="epdb-benefit-item">
+          <div class="epdb-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <path d="M16 2v4M8 2v4M3 10h18"/>
+            </svg>
+          </div>
+          <div class="epdb-benefit-text">
+            <h4>4 Años</h4>
+            <p>5 módulos problémicos de 2 meses al año</p>
+          </div>
+        </div>
+        <!-- Doble Titulación -->
+        <div class="epdb-benefit-item">
+          <div class="epdb-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <div class="epdb-benefit-text">
+            <h4>Doble Titulación</h4>
+            <p>Colombia y España</p>
+          </div>
+        </div>
+        <!-- Medellín -->
+        <div class="epdb-benefit-item">
+          <div class="epdb-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="epdb-benefit-text">
+            <h4>Medellín</h4>
+            <p>Alto de las Palmas</p>
+          </div>
+        </div>
+        <!-- Inmersión Internacional -->
+        <div class="epdb-benefit-item">
+          <div class="epdb-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <div class="epdb-benefit-text">
+            <h4>Inmersión Internacional</h4>
+            <p>Campus de ESIC Madrid</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios Section -->
+  <section class="epdb-section epdb-testimonios-section epdb-section-orange">
+    <div class="epdb-container">
+      <div class="epdb-testimonios-grid">
+        <div class="epdb-testimonios-content epdb-reveal">
+          <h2>TESTIMONIOS</h2>
+          <p>Conoce las historias de éxito de nuestros estudiantes que están liderando la transformación digital en empresas de toda Latinoamérica y el mundo.</p>
+          <p>Formamos profesionales capaces de crear, innovar y liderar en el ecosistema digital, con habilidades técnicas y visión estratégica de negocio.</p>
+        </div>
+        <div class="epdb-testimonios-video epdb-reveal epdb-delay-1">
+          <button class="epdb-play-btn" aria-label="Reproducir video">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="epdb-section epdb-pricing-section">
+    <div class="epdb-container">
+      <div class="epdb-pricing-header epdb-reveal">
+        <h2>INVERSIÓN EN TU FUTURO</h2>
+        <p>Conoce el valor de tu formación profesional en ESIC Medellín.</p>
+      </div>
+      <div class="epdb-pricing-layout epdb-reveal">
+        <!-- Pricing Card -->
+        <div class="epdb-pricing-card">
+          <div class="epdb-pricing-card-header">
+            <h3>Valor Anual</h3>
+            <div class="epdb-price">$29.469.000 <span>COP/año</span></div>
+          </div>
+          <ul class="epdb-pricing-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>4 años de formación</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Doble titulación internacional</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Summer Camp en Madrid + opción de intercambio en 11 campus de ESIC en España</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Acceso a plataformas digitales</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Formación en liderazgo</li>
+          </ul>
+          <a class="epdb-btn epdb-btn-primary" href="#formulario">SOLICITAR INFORMACIÓN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+        </div>
+
+        <!-- Payment Note -->
+        <div class="epdb-pricing-note-card">
+          <div class="epdb-pricing-note-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </div>
+          <h4>Personaliza tu plan de pagos</h4>
+          <p>Nuestro equipo de admisiones está listo para guiarte. En ESIC puedes personalizar tus pagos de manera mensual.</p>
+          <a class="epdb-btn epdb-btn-outline" href="#formulario">AGENDA UNA ASESORÍA PERSONALIZADA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plan de Estudios Section -->
+  <section class="epdb-section epdb-plan-section epdb-section-cream" id="plan-estudios">
+    <div class="epdb-container">
+      <div class="epdb-plan-layout">
+        <!-- Title Block -->
+        <div class="epdb-plan-title-block epdb-reveal">
+          <h2>PLAN DE<br>ESTUDIOS</h2>
+        </div>
+
+        <!-- Main Content -->
+        <div>
+          <div class="epdb-plan-main-tabs epdb-reveal">
+            <button class="epdb-plan-main-tab epdb-active" data-section="estudios">PLAN DE ESTUDIOS</button>
+            <button class="epdb-plan-main-tab" data-section="programas">VER PROGRAMAS</button>
+          </div>
+
+          <!-- Plan de Estudios Content -->
+          <div class="epdb-plan-section-content epdb-active" data-section="estudios">
+            <div class="epdb-plan-tabs epdb-reveal">
+              <button class="epdb-plan-tab epdb-active" data-year="1">Año 1</button>
+              <button class="epdb-plan-tab" data-year="2">Año 2</button>
+              <button class="epdb-plan-tab" data-year="3">Año 3</button>
+              <button class="epdb-plan-tab" data-year="4">Año 4</button>
+            </div>
+
+            <div class="epdb-plan-content-wrapper epdb-reveal">
+              <div class="epdb-plan-content-header"></div>
+
+              <!-- Año 1 -->
+              <div class="epdb-plan-content epdb-active" data-year="1">
+                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 0.8rem; text-transform: uppercase;">Currículo de Fundamentos de Carrera - Año 1</h4>
+                <div class="epdb-plan-grid">
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Aldea Global</strong><span>Pensamiento Empresarial (Business Environment, Imágenes de la organización, Sistemas de información contable y financiera)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Business Intelligence</strong><span>Negocios y Mercados (Introducción al BI, Segmentación de mercados, Decisiones estratégicas, Introducción al marketing digital)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Conciencia Organizacional</strong><span>Factor Humano en las Organizaciones (Clima y cultura organizacional, Relaciones de colaboración, Ser profesional)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Prospectiva</strong><span>Mercado y Tendencias (Economía y entorno socioeconómico, Tendencias y escenarios de futuro, Análisis de mercados globales, Matemáticas y Estadística)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Laboratorio de Ideas</strong><span>Análisis del entorno y creatividad (Autoconocimiento, Proceso creativo y desarrollo de la innovación, Exploremos el entorno y sus desafíos)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Profundización Tecnología</strong><span>Liderazgo consciente, Arte Digital, Transformación Digital, Metodologías Ágiles, Business Intelligence</span></div>
+                </div>
+              </div>
+
+              <!-- Año 2 -->
+              <div class="epdb-plan-content" data-year="2">
+                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 0.8rem; text-transform: uppercase;">Currículo de Fundamentos de Carrera - Año 2</h4>
+                <div class="epdb-plan-grid">
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Aldea Global</strong><span>Business Tools and Techniques (Contexto económico internacional, Negocios internacionales, Marco jurídico y Derecho Digital, La nueva Economía Digital)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Business Intelligence</strong><span>Negocios y Procesos (El producto, El proceso, Supply chain management, Datamining)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Conciencia Organizacional</strong><span>Gestión de relaciones con Stakeholders (Solución de Conflictos, Ética y buenas prácticas, Marco jurídico)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Prospectiva</strong><span>Simulación y modelación empresarial (Estructuración de modelos, Gestión de Riesgos, Simulación y pronósticos, Investigación Digital de mercado)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Laboratorio de Ideas</strong><span>Innovación y Viabilidad de Proyectos (Gestión de la innovación, Modelación de ideas, Plan de marketing, Tecnología de la Economía Digital)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Profundización Tecnología</strong><span>Diseño de Producto Digital, Programación &amp; IA, Tecnología de la Economía Digital, Data Management</span></div>
+                </div>
+                <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,135,1,0.15); border-radius: 12px; font-size: 0.9rem; border-left: 4px solid #FF9600;"><strong>Summer Camp:</strong> 2 semanas de inmersión en Madrid, España (obligatorio)</p>
+              </div>
+
+              <!-- Año 3 -->
+              <div class="epdb-plan-content" data-year="3">
+                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 0.8rem; text-transform: uppercase;">Currículo de Fundamentos de Carrera - Año 3</h4>
+                <div class="epdb-plan-grid">
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Aldea Global</strong><span>Multicultural Project (Towards an intercultural society, Global Issues, Sistemas complejos, STEM y sostenibilidad, Social Media Management)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Business Intelligence</strong><span>Negocios y Finanzas (Sistemas de control gerencial, Administración financiera, Financial, Generación de Valor)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Conciencia Organizacional</strong><span>Gobierno Corporativo (Conflictos de intereses, Desarrollo organizacional, Gestión del cambio, Christian Social Thinking y Business Ethics)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Prospectiva</strong><span>Becoming a Global Manager (Toma de decisiones estratégicas, Enterprise Resource Planning - ERP, CSR)</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Laboratorio de Ideas</strong><span>Creación de Empresas (Admin. de emprendimientos y Design Thinking, Tratamiento Jurídico, Finanzas estratégicas para emprendimientos digitales, Digital Business and entrepreneurship)</span></div>
+                </div>
+                <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,135,1,0.1); border-radius: 12px; font-size: 0.9rem; border-left: 4px solid #FF9600;"><strong>Opción:</strong> Alternativa de cursarlo en alguno de los 11 Campus de ESIC en España</p>
+              </div>
+
+              <!-- Año 4 -->
+              <div class="epdb-plan-content" data-year="4">
+                <h4 style="font-family: var(--display-font); color: var(--brand-blue); margin-bottom: 0.8rem; text-transform: uppercase;">Currículo Específico de Fundamentos de la Carrera - Año 4</h4>
+                <div class="epdb-plan-grid">
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Laboratorio de Ideas</strong><span>Direccionamiento empresarial y de innovación, Escalamiento empresarial, Financing Resources for digital entrepreneurship, Fintech &amp; Blockchain</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Gestión Tecnológica</strong><span>Gestión tecnológica en el ámbito empresarial, Cuarta revolución industrial, Digital Analytics y Dashboarding, Machine Learning</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Gestión Estratégica</strong><span>Pensamiento estratégico, Formulación y selección de estrategia, Prospectiva estratégica, Business Intelligence</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Habilidades Gerenciales</strong><span>Toma de decisiones, Ambidestrismo, Inteligencia emocional, Gestión de relaciones</span></div>
+                  <div class="epdb-plan-item"><span class="epdb-bullet"></span><strong>Proyección Profesional</strong><span>Plan de negocio, Plan de fortalecimiento, Práctica empresarial, Misión Académica Cultural y empresarial, Investigación</span></div>
+                </div>
+                <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,135,1,0.1); border-radius: 12px; font-size: 0.9rem; border-left: 4px solid #FF9600;"><strong>Doble Titulación:</strong> Alternativa de cursarlo en Universidades aliadas a ESIC</p>
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="epdb-plan-actions epdb-reveal">
+              <a class="epdb-btn epdb-btn-primary" href="#">BROCHURE DEL PROGRAMA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="epdb-btn epdb-btn-outline" href="https://esic.co/pregrado/index.html">EXPLORA OTROS PROGRAMAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="epdb-btn epdb-btn-outline" href="#formulario">SOLICITAR INFORMACIÓN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+            </div>
+
+            <!-- Institutions -->
+            <div class="epdb-institutions-grid epdb-reveal">
+              <div class="epdb-institution-card">
+                <div class="epdb-institution-card-header">
+                  <h4>Digital<br>Business</h4>
+                  <small>Título propio español de ESIC University</small>
+                </div>
+                <div class="epdb-institution-card-body">
+                  <div class="epdb-institution-logo"><img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC"></div>
+                </div>
+              </div>
+              <div class="epdb-institution-card">
+                <div class="epdb-institution-card-header">
+                  <h4>Profesional en<br>Administración de Empresas</h4>
+                  <small>&nbsp;</small>
+                </div>
+                <div class="epdb-institution-card-body">
+                  <div class="epdb-institution-logo"><img src="https://esic.co/wp-content/uploads/2024/08/Logo-CEIPA-curvas_logo-CEIPA-gris-01-e1722627736717.png" alt="CEIPA"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ver Programas Content -->
+          <div class="epdb-plan-section-content" data-section="programas">
+            <div class="epdb-programas-cards-grid epdb-reveal">
+              <a href="https://esic.co/pregrado/marketing-global.html" class="epdb-programa-card-link">
+                <div class="epdb-programa-card">
+                  <div class="epdb-programa-card-overlay">
+                    <h4>Dirección de Marketing Global</h4>
+                  </div>
+                </div>
+              </a>
+              <a href="https://esic.co/pregrado/digital-business.html" class="epdb-programa-card-link">
+                <div class="epdb-programa-card">
+                  <div class="epdb-programa-card-overlay">
+                    <h4>Digital Business</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="epdb-plan-actions epdb-reveal">
+              <a class="epdb-btn epdb-btn-primary" href="https://esic.co/pregrado/index.html">VER TODOS LOS PROGRAMAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function() {
+  var wrapper = document.querySelector('.esic-pregrado-db');
+  if (!wrapper) return;
+
+  // Year tabs
+  var planTabs = wrapper.querySelectorAll('.epdb-plan-tab');
+  var planContents = wrapper.querySelectorAll('.epdb-plan-content');
+  planTabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      planTabs.forEach(function(t) { t.classList.remove('epdb-active'); });
+      tab.classList.add('epdb-active');
+      var year = tab.getAttribute('data-year');
+      planContents.forEach(function(content) {
+        content.classList.toggle('epdb-active', content.getAttribute('data-year') === year);
+      });
+    });
+  });
+
+  // Main section tabs
+  var mainTabs = wrapper.querySelectorAll('.epdb-plan-main-tab');
+  var sectionContents = wrapper.querySelectorAll('.epdb-plan-section-content');
+  mainTabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      mainTabs.forEach(function(t) { t.classList.remove('epdb-active'); });
+      tab.classList.add('epdb-active');
+      var section = tab.getAttribute('data-section');
+      sectionContents.forEach(function(content) {
+        content.classList.toggle('epdb-active', content.getAttribute('data-section') === section);
+      });
+    });
+  });
+})();
+</script>
+</div>

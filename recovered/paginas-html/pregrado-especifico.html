@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pregrado en Dirección de Marketing Global | ESIC Medellín</title>
+  <meta name="description" content="Pregrado en Dirección de Marketing Global de ESIC Medellín. 4 años de formación, doble titulación internacional e inmersión en más de 25 países.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../esic-theme.css">
+  <style>
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Pregrado specific styles */
+    :root {
+      --pregrado-orange: #FF8701;
+      --pregrado-orange-dark: #E67600;
+    }
+
+    /* Hero Section - Centered Layout */
+    .hero-pregrado {
+      min-height: 80vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 0;
+      overflow: hidden;
+    }
+
+    .hero-pregrado-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-pregrado-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left center;
+    }
+
+    .hero-pregrado-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+        rgba(0, 19, 63, 0.3) 0%,
+        rgba(0, 19, 63, 0.5) 40%,
+        rgba(0, 19, 63, 0.6) 100%);
+      z-index: 1;
+    }
+
+    .hero-pregrado .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .hero-pregrado-content {
+      text-align: right;
+      color: #FFFFFF;
+      max-width: 100%;
+      margin-left: auto;
+      padding-left: 40%;
+      padding-right: 5%;
+    }
+
+    .hero-pregrado-eyebrow {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 0;
+      color: #FFFFFF;
+    }
+
+    .hero-pregrado-title {
+      font-family: var(--display-font);
+      font-size: clamp(6rem, 15vw, 14rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.85;
+      color: var(--pregrado-orange);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-pregrado-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .hero-pregrado .btn-primary {
+      background: var(--pregrado-orange);
+      color: #FFFFFF;
+      padding: 1.1rem 2.2rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      border-radius: 999px;
+    }
+
+    .hero-pregrado .btn-primary:hover {
+      background: var(--pregrado-orange-dark);
+    }
+
+    .hero-pregrado .btn-outline {
+      border: 2px solid var(--pregrado-orange);
+      color: var(--pregrado-orange);
+      background: transparent;
+      padding: 1.1rem 2.2rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      border-radius: 999px;
+    }
+
+    .hero-pregrado .btn-outline:hover {
+      background: rgba(255, 135, 1, 0.1);
+    }
+
+    .btn-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-arrow svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ESIC Logo decoration - hidden */
+    .hero-esic-logo {
+      display: none;
+    }
+
+    /* Section Overlap Pattern */
+    .section-overlap {
+      position: relative;
+      margin-top: -180px;
+      border-radius: 50px 50px 0 0;
+      z-index: 10;
+      padding-top: 80px;
+    }
+
+    .section-white {
+      background: #FFFFFF;
+    }
+
+    .section-orange {
+      background: var(--pregrado-orange);
+    }
+
+    .section-cream {
+      background: #F8F6F2;
+    }
+
+    .section-dark {
+      background: var(--brand-blue-dark);
+    }
+
+    /* Rounded overlap for sections */
+    .section-overlap-rounded {
+      position: relative;
+      margin-top: -50px;
+      border-radius: 50px 50px 0 0;
+      z-index: 1;
+    }
+
+    /* Geometric Separator */
+    .geometric-separator {
+      position: relative;
+      z-index: 2;
+      margin-top: 3rem;
+      margin-bottom: -2px;
+    }
+
+    .geometric-separator img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Explora Section */
+    .explora-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .explora-content h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 0.8rem;
+      color: var(--brand-blue-dark);
+    }
+
+    .explora-content p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+    }
+
+    .explora-content .btn-primary {
+      background: var(--pregrado-orange);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    .explora-content .btn-primary:hover {
+      background: var(--pregrado-orange-dark);
+    }
+
+    /* Form Card */
+    .form-card {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 60px rgba(0, 19, 63, 0.12);
+    }
+
+    .form-card h3 {
+      font-family: var(--display-font);
+      font-size: 1.8rem;
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 2rem;
+      color: var(--pregrado-orange);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: var(--body-font);
+      font-size: 0.95rem;
+      background: #FFFFFF;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--pregrado-orange);
+    }
+
+    .form-group input::placeholder {
+      color: var(--text-light);
+    }
+
+    .form-submit-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem;
+      background: var(--pregrado-orange);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--body-font);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .form-submit-btn:hover {
+      background: var(--pregrado-orange-dark);
+    }
+
+    .form-submit-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Becas Banner */
+    .becas-banner {
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    .becas-banner .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .becas-banner h3 {
+      font-family: var(--display-font);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin: 0;
+    }
+
+    .becas-banner .btn {
+      background: #FFFFFF;
+      color: var(--pregrado-orange);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      padding: 1rem 1.5rem;
+    }
+
+    .becas-banner .btn:hover {
+      background: #F0F0F0;
+    }
+
+    /* Benefits Section */
+    .benefits-section {
+      padding: 3rem 0;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .benefit-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.75rem;
+    }
+
+    .benefit-icon {
+      width: 90px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .benefit-icon svg {
+      width: 70px;
+      height: 70px;
+      color: var(--pregrado-orange);
+    }
+
+    .benefit-text h4 {
+      font-family: var(--display-font);
+      font-size: 1.8rem;
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--brand-blue-dark);
+    }
+
+    .benefit-text p {
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-top: 0.3rem;
+    }
+
+    .benefit-flags {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+    }
+
+    /* Testimonios Section */
+    .testimonios-section {
+      padding: 5rem 0;
+      color: #FFFFFF;
+    }
+
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .testimonios-content h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 0.8rem;
+    }
+
+    .testimonios-content p {
+      font-size: 1rem;
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+
+    .testimonios-video {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+    }
+
+    .testimonios-video img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonios-video::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+      z-index: 1;
+    }
+
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.25);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.2s ease;
+    }
+
+    .play-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .play-btn svg {
+      width: 24px;
+      height: 24px;
+      color: #FFFFFF;
+      margin-left: 4px;
+    }
+
+    /* Plan de Estudios - New Design */
+    .plan-section {
+      padding: 5rem 0;
+    }
+
+    .plan-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .plan-title-block h2 {
+      font-family: var(--display-font);
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.9;
+      color: var(--brand-blue);
+    }
+
+    .plan-main {
+      width: 100%;
+    }
+
+    /* Main Tabs */
+    .plan-main-tabs {
+      display: flex;
+      gap: 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .plan-main-tab {
+      font-family: var(--body-font);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-light);
+      padding-bottom: 1rem;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -1px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .plan-main-tab:hover {
+      color: var(--text);
+    }
+
+    .plan-main-tab.active {
+      color: var(--text);
+      border-bottom-color: var(--brand-blue);
+    }
+
+    /* Year Tabs */
+    .plan-tabs {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .plan-tab {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-family: var(--body-font);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .plan-tab:hover {
+      border-color: var(--brand-blue);
+      color: var(--brand-blue);
+    }
+
+    .plan-tab.active {
+      background: var(--brand-blue);
+      border-color: var(--brand-blue);
+      color: #FFFFFF;
+    }
+
+    /* Content Card */
+    .plan-content-wrapper {
+      background: #FFFFFF;
+      border-radius: 0 0 20px 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 19, 63, 0.08);
+    }
+
+    .plan-content-header {
+      background: var(--pregrado-orange);
+      height: 12px;
+    }
+
+    .plan-content {
+      display: none;
+      padding: 2rem;
+    }
+
+    .plan-content.active {
+      display: block;
+    }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem 2rem;
+    }
+
+    .plan-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .plan-item .bullet {
+      width: 6px;
+      height: 6px;
+      background: var(--text);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .plan-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .plan-actions .btn {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    .plan-actions .btn-primary {
+      background: var(--brand-blue);
+    }
+
+    .plan-actions .btn-primary:hover {
+      background: var(--brand-blue-dark);
+    }
+
+    /* Institutions - New Design */
+    .institutions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 700px;
+    }
+
+    .institution-card {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 19, 63, 0.08);
+    }
+
+    .institutions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      grid-auto-rows: 1fr;
+    }
+
+    .institution-card {
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+
+    .institution-card-header {
+      background: var(--pregrado-orange);
+      padding: 1.5rem;
+    }
+
+    .institution-card-header h4 {
+      font-family: var(--display-font);
+      font-size: 1.5rem;
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    .institution-card-header small {
+      display: block;
+      margin-top: 0.5rem;
+      font-family: var(--body-font);
+      font-size: 0.75rem;
+      font-weight: 400;
+      text-transform: none;
+      opacity: 0.85;
+      color: #FFFFFF;
+      margin: 0;
+    }
+
+    .institution-card-body {
+      background: #FFFFFF;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80px;
+    }
+
+    .institution-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .institution-logo img {
+      max-height: 45px;
+      max-width: 140px;
+    }
+
+    .institution-logo .flag {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .institution-logo .flag img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .plan-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2rem;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    .plan-note a {
+      color: var(--pregrado-orange);
+      text-decoration: underline;
+    }
+
+    /* Plan Section Content Toggle */
+    .plan-section-content {
+      display: none;
+    }
+
+    .plan-section-content.active {
+      display: block;
+    }
+
+    /* Programas Cards in Plan Section */
+    .programas-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .programa-card-link {
+      text-decoration: none;
+    }
+
+    .programa-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      background: var(--brand-blue-dark);
+    }
+
+    .programa-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .programa-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .programa-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(0, 19, 63, 0.85) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+
+    .programa-card-overlay h4 {
+      font-family: var(--display-font);
+      font-size: 1.4rem;
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: #FFFFFF;
+      line-height: 1.1;
+    }
+
+    /* Nuestros Pregrados Section */
+    .pregrados-section {
+      padding: 5rem 0;
+      color: #FFFFFF;
+    }
+
+    .pregrados-header {
+      margin-bottom: 2rem;
+    }
+
+    .pregrados-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
+    }
+
+    .pregrados-tabs {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      font-family: var(--display-font);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .pregrados-tab {
+      color: rgba(255, 255, 255, 0.5);
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pregrados-tab.active {
+      color: #FFFFFF;
+      border-color: var(--pregrado-orange);
+    }
+
+    .pregrados-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .pregrado-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+
+    .pregrado-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pregrado-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 19, 63, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .pregrado-card-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .pregrado-card h4 {
+      font-family: var(--display-font);
+      font-size: 1.3rem;
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: #FFFFFF;
+    }
+
+    .pregrados-cta {
+      margin-top: 2rem;
+    }
+
+    .pregrados-cta .btn {
+      background: var(--pregrado-orange);
+      color: #FFFFFF;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    .pregrados-cta .btn:hover {
+      background: var(--pregrado-orange-dark);
+    }
+
+    /* Footer CTA */
+    .footer-cta {
+      padding: 5rem 0;
+      background: var(--brand-blue-dark);
+    }
+
+    .footer-cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .footer-cta h2 {
+      font-family: var(--display-font);
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.9;
+      color: #FFFFFF;
+    }
+
+    .footer-cta h2 span {
+      color: var(--pregrado-orange);
+    }
+
+    .footer-info {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-logo {
+      font-family: var(--display-font);
+      font-size: 2rem;
+      font-weight: var(--display-weight);
+      color: #FFFFFF;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-contact-group {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-contact-group h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-contact-group p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      transition: background 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-social svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.6);
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      padding: 5rem 0;
+      background: #FFFFFF;
+      min-height: auto;
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .pricing-header h2 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--brand-blue);
+      margin-bottom: 1rem;
+    }
+
+    .pricing-header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .pricing-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 50px rgba(0, 19, 63, 0.1);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(0, 19, 63, 0.15);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--pregrado-orange);
+      position: relative;
+    }
+
+    .pricing-card.featured::before {
+      content: "Recomendado";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--pregrado-orange);
+      color: #FFFFFF;
+      padding: 0.4rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pricing-card-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-card-header h3 {
+      font-family: var(--display-font);
+      font-size: 1.5rem;
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: var(--brand-blue-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-card-header .price {
+      font-family: var(--display-font);
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--pregrado-orange);
+      line-height: 1;
+    }
+
+    .pricing-card-header .price span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .pricing-card-header .price-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 0.6rem 0;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .pricing-features li svg {
+      width: 20px;
+      height: 20px;
+      color: var(--pregrado-orange);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+      justify-content: center;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    .pricing-card .btn-primary {
+      background: var(--pregrado-orange);
+    }
+
+    .pricing-card .btn-primary:hover {
+      background: var(--pregrado-orange-dark);
+    }
+
+    /* Payment Plans */
+    .payment-plans {
+      margin-top: 4rem;
+      background: #F8F6F2;
+      border-radius: 24px;
+      padding: 2.5rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .payment-plans h3 {
+      font-family: var(--display-font);
+      font-size: 1.8rem;
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: var(--brand-blue-dark);
+      margin-bottom: 0.8rem;
+      text-align: center;
+    }
+
+    .payment-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .payment-option {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .payment-option:hover {
+      border-color: var(--pregrado-orange);
+    }
+
+    .payment-option.active {
+      border-color: var(--pregrado-orange);
+      background: rgba(255, 135, 1, 0.05);
+    }
+
+    .payment-option h4 {
+      font-family: var(--display-font);
+      font-size: 1.2rem;
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: var(--brand-blue-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .payment-option .monthly {
+      font-family: var(--display-font);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--pregrado-orange);
+    }
+
+    .payment-option .monthly span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .payment-option p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .payment-note {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .payment-note a {
+      color: var(--pregrado-orange);
+      text-decoration: underline;
+    }
+
+    /* Pricing Note Card */
+    .pricing-note-card {
+      background: linear-gradient(135deg, #F8F6F2 0%, #FFFFFF 100%);
+      border-radius: 24px;
+      padding: 2.5rem;
+      border: 2px dashed var(--border);
+    }
+
+    .pricing-note-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(255, 135, 1, 0.1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .pricing-note-icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--pregrado-orange);
+    }
+
+    .pricing-note-card h4 {
+      font-family: var(--display-font);
+      font-size: 1.5rem;
+      font-weight: var(--display-weight);
+      text-transform: uppercase;
+      color: var(--brand-blue-dark);
+      margin-bottom: 1rem;
+    }
+
+    .pricing-note-card > p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+
+    .pricing-note-card ul {
+      list-style: none;
+      margin-bottom: 0.8rem;
+    }
+
+    .pricing-note-card ul li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.4rem 0;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .pricing-note-card ul li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: var(--pregrado-orange);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .pricing-note-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-pregrado {
+        min-height: 80vh;
+        padding: 100px 0 160px;
+      }
+
+      .hero-pregrado-content {
+        padding-left: 20%;
+      }
+
+      .hero-pregrado-title {
+        font-size: clamp(5rem, 12vw, 10rem);
+      }
+
+      .explora-grid,
+      .testimonios-grid,
+      .footer-cta-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .pregrados-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-layout,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+
+      .payment-options {
+        grid-template-columns: 1fr;
+      }
+
+      .plan-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .plan-title-block h2 {
+        font-size: 3rem;
+      }
+
+      .plan-tabs {
+        flex-wrap: wrap;
+      }
+
+      .plan-tab {
+        flex: 1 1 calc(50% - 0.5rem);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-pregrado {
+        min-height: 70vh;
+        padding: 100px 0 140px;
+      }
+
+      .hero-pregrado-content {
+        padding-left: 0;
+        text-align: center;
+      }
+
+      .hero-pregrado-bg::before {
+        background: linear-gradient(180deg,
+          rgba(0, 19, 63, 0.6) 0%,
+          rgba(0, 19, 63, 0.7) 100%);
+      }
+
+      .hero-pregrado-eyebrow {
+        font-size: 1.5rem;
+      }
+
+      .hero-pregrado-title {
+        font-size: clamp(4rem, 15vw, 7rem);
+      }
+
+      .section-overlap {
+        margin-top: -100px;
+        border-radius: 30px 30px 0 0;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .plan-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .institutions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .plan-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .plan-main-tabs {
+        gap: 1.5rem;
+      }
+
+      .plan-main-tab {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-pregrado-actions {
+        flex-direction: column;
+      }
+
+      .hero-pregrado-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-pregrado">
+      <div class="hero-pregrado-bg">
+        <img src="https://esic.co/wp-content/uploads/2026/02/hero-pregrado-marketing.png" alt="Estudiante ESIC">
+      </div>
+      <div class="container">
+        <div class="hero-pregrado-content reveal">
+          <p class="hero-pregrado-eyebrow">NO ESTUDIES MARKETING</p>
+          <h1 class="hero-pregrado-title">DIRÍGELO</h1>
+          <div class="hero-pregrado-actions">
+            <a class="btn btn-primary btn-arrow" href="#formulario">
+              SOLICITAR INFORMACIÓN
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </a>
+            <a class="btn btn-outline btn-arrow" href="index.html">
+              ENCUENTRA TU PROGRAMA
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- ESIC Logo decoration -->
+      <div class="hero-esic-logo">
+        <svg viewBox="0 0 737 240" fill="currentColor" opacity="0.3">
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Sofia Sans Extra Condensed" font-weight="800" font-size="240" fill="#FFFFFF">ESIC</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Explora Section -->
+    <section class="section section-overlap section-white" id="formulario">
+      <div class="container">
+        <div class="explora-grid">
+          <div class="explora-content reveal">
+            <h2>EXPLORA NUESTROS PROGRAMAS</h2>
+            <p>Sumérgete en el dinámico mundo del marketing con el Pregrado en Dirección de Marketing Global de ESIC Medellín. Desarrollarás habilidades esenciales para sobresalir en el mercado internacional.</p>
+            <a class="btn btn-primary btn-arrow" href="#formulario">
+              SOLICITAR INFORMACIÓN
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </a>
+          </div>
+          <div class="form-card reveal delay-1">
+            <h3>Pregrado en Dirección de Marketing Global</h3>
+            <form>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nombres">Nombres</label>
+                  <input type="text" id="nombres" name="nombres" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="apellidos">Apellidos</label>
+                  <input type="text" id="apellidos" name="apellidos" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="pref">Pref:</label>
+                  <input type="text" id="pref" name="pref" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Teléfono</label>
+                  <input type="tel" id="telefono" name="telefono" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="comunicacion">¿Cómo prefieres que nos comuniquemos contigo?</label>
+                <select id="comunicacion" name="comunicacion">
+                  <option value="">Selecciona una opción</option>
+                  <option value="email">Correo electrónico</option>
+                  <option value="telefono">Teléfono</option>
+                  <option value="whatsapp">WhatsApp</option>
+                </select>
+              </div>
+              <div class="form-submit-row">
+                <button type="submit" class="form-submit-btn">
+                  Enviar
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Becas Banner -->
+      <div class="becas-banner section-orange">
+        <div class="container">
+          <h3>¡CONOCE NUESTRO PROGRAMA DE BECAS!</h3>
+          <a class="btn btn-arrow" href="../master/becas.html">
+            MÁS INFORMACIÓN
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section section-white">
+      <div class="container">
+        <div class="benefits-grid reveal">
+          <!-- 4 Años -->
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <path d="M16 2v4M8 2v4M3 10h18"/>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4>4 Años</h4>
+              <p>5 módulos problémicos de 2 meses al año</p>
+            </div>
+          </div>
+          <!-- Doble Titulación -->
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Doble Titulación</h4>
+              <p>Colombia y España</p>
+            </div>
+          </div>
+          <!-- Medellín -->
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Medellín</h4>
+              <p>Alto de las Palmas</p>
+            </div>
+          </div>
+          <!-- Inmersión Internacional -->
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Inmersión Internacional</h4>
+              <p>Campus de ESIC Madrid</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section class="section testimonios-section section-orange">
+      <div class="container">
+        <div class="testimonios-grid">
+          <div class="testimonios-content reveal">
+            <h2>TESTIMONIOS</h2>
+            <p>Este programa te ofrece una visión internacional del marketing moderno, combinando teoría y práctica para formar profesionales capaces de innovar y liderar en mercados globales.</p>
+            <p>Aprende sobre estrategias de mercado, comportamiento del consumidor, marketing digital, y gestión de marcas a través de un currículo enfocado en la relevancia global y la innovación.</p>
+          </div>
+          <div class="testimonios-video reveal delay-1">
+            <img src="assets/images/DSC02331_resultado.jpg" alt="Testimonio estudiante">
+            <button class="play-btn" aria-label="Reproducir video">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing-section">
+      <div class="container">
+        <div class="pricing-header reveal">
+          <h2>INVERSIÓN EN TU FUTURO</h2>
+          <p>Conoce el valor de tu formación profesional en ESIC Medellín.</p>
+        </div>
+
+        <div class="pricing-layout reveal">
+          <!-- Pricing Card -->
+          <div class="pricing-card">
+            <div class="pricing-card-header">
+              <h3>Valor Anual</h3>
+              <div class="price">$29.469.000 <span>COP/año</span></div>
+                          </div>
+            <ul class="pricing-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                4 años de formación
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                Doble titulación internacional
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                Oportunidad de 6 meses o un año en ESIC University en Madrid
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                Acceso a plataformas digitales
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                Formación en liderazgo
+              </li>
+            </ul>
+            <a class="btn btn-primary btn-arrow" href="#formulario">
+              SOLICITAR INFORMACIÓN
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </a>
+          </div>
+
+          <!-- Payment Note -->
+          <div class="pricing-note-card">
+            <div class="pricing-note-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+            </div>
+            <h4>Personaliza tu plan de pagos</h4>
+            <p>Nuestro equipo de admisiones está listo para guiarte. En ESIC puedes personalizar tus pagos de manera mensual.</p>
+            <a class="btn btn-outline btn-arrow" href="#formulario">
+              HABLA CON UN ASESOR
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plan de Estudios Section -->
+    <section class="section plan-section section-cream">
+      <div class="container">
+        <div class="plan-layout">
+          <!-- Title Block -->
+          <div class="plan-title-block reveal">
+            <h2>PLAN DE<br>ESTUDIOS</h2>
+          </div>
+
+          <!-- Main Content -->
+          <div class="plan-main">
+            <!-- Main Tabs -->
+            <div class="plan-main-tabs reveal">
+              <button class="plan-main-tab active" data-section="estudios">PLAN DE ESTUDIOS</button>
+              <button class="plan-main-tab" data-section="programas">VER PROGRAMAS</button>
+            </div>
+
+            <!-- Plan de Estudios Content -->
+            <div class="plan-section-content active" data-section="estudios">
+            <!-- Year Tabs -->
+            <div class="plan-tabs reveal">
+              <button class="plan-tab active" data-year="1">Año 1</button>
+              <button class="plan-tab" data-year="2">Año 2</button>
+              <button class="plan-tab" data-year="3">Año 3</button>
+              <button class="plan-tab" data-year="4">Año 4</button>
+            </div>
+
+            <!-- Content Card -->
+            <div class="plan-content-wrapper reveal">
+              <div class="plan-content-header"></div>
+
+              <div class="plan-content active" data-year="1">
+                <div class="plan-grid">
+                  <div class="plan-item"><span class="bullet"></span> Pensamiento Empresarial</div>
+                  <div class="plan-item"><span class="bullet"></span> Mercado y Tendencias</div>
+                  <div class="plan-item"><span class="bullet"></span> Negocios y Mercados</div>
+                  <div class="plan-item"><span class="bullet"></span> Análisis del entorno y creatividad</div>
+                  <div class="plan-item"><span class="bullet"></span> Factor Humano en las Organizaciones</div>
+                  <div class="plan-item"><span class="bullet"></span> Currículos de profundización en Tecnología</div>
+                </div>
+              </div>
+
+              <div class="plan-content" data-year="2">
+                <div class="plan-grid">
+                  <div class="plan-item"><span class="bullet"></span> Marketing Digital</div>
+                  <div class="plan-item"><span class="bullet"></span> Investigación de Mercados</div>
+                  <div class="plan-item"><span class="bullet"></span> Comportamiento del Consumidor</div>
+                  <div class="plan-item"><span class="bullet"></span> Gestión de Marca</div>
+                  <div class="plan-item"><span class="bullet"></span> Comunicación Integrada</div>
+                  <div class="plan-item"><span class="bullet"></span> Análisis de Datos</div>
+                </div>
+              </div>
+
+              <div class="plan-content" data-year="3">
+                <div class="plan-grid">
+                  <div class="plan-item"><span class="bullet"></span> Estrategia de Marketing</div>
+                  <div class="plan-item"><span class="bullet"></span> Marketing Internacional</div>
+                  <div class="plan-item"><span class="bullet"></span> Trade Marketing</div>
+                  <div class="plan-item"><span class="bullet"></span> E-commerce</div>
+                  <div class="plan-item"><span class="bullet"></span> Innovación y Emprendimiento</div>
+                  <div class="plan-item"><span class="bullet"></span> Práctica Empresarial</div>
+                </div>
+              </div>
+
+              <div class="plan-content" data-year="4">
+                <div class="plan-grid">
+                  <div class="plan-item"><span class="bullet"></span> Seminario de Tendencias</div>
+                  <div class="plan-item"><span class="bullet"></span> Proyecto de Grado</div>
+                  <div class="plan-item"><span class="bullet"></span> Electivas de Profundización</div>
+                  <div class="plan-item"><span class="bullet"></span> Inmersión Internacional</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="plan-actions reveal">
+              <a class="btn btn-primary btn-arrow" href="#">
+                BROCHURE DEL PROGRAMA
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+              <a class="btn btn-outline btn-arrow" href="index.html">
+                EXPLORA OTROS PROGRAMAS
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+              <a class="btn btn-outline btn-arrow" href="#formulario">
+                SOLICITAR INFORMACIÓN
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+            </div>
+            </div><!-- End plan-section-content estudios -->
+
+            <!-- Ver Programas Content -->
+            <div class="plan-section-content" data-section="programas">
+              <div class="programas-cards-grid reveal">
+                <a href="especifico.html" class="programa-card-link">
+                  <div class="programa-card">
+                    <img src="assets/images/DSC02274_resultado.jpg" alt="Dirección de Marketing Global">
+                    <div class="programa-card-overlay">
+                      <h4>Dirección de Marketing Global</h4>
+                    </div>
+                  </div>
+                </a>
+                <a href="digital-business.html" class="programa-card-link">
+                  <div class="programa-card">
+                    <img src="assets/images/DSC02307_resultado.jpg" alt="Digital Business">
+                    <div class="programa-card-overlay">
+                      <h4>Digital Business</h4>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="plan-actions reveal">
+                <a class="btn btn-primary btn-arrow" href="index.html">
+                  VER TODOS
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                </a>
+              </div>
+            </div><!-- End plan-section-content programas -->
+
+            <!-- Institutions -->
+            <div class="institutions-grid reveal">
+              <div class="institution-card">
+                <div class="institution-card-header">
+                  <h4>Dirección de<br>Marketing Global</h4>
+                  <small>Título propio español de ESIC University</small>
+                </div>
+                <div class="institution-card-body">
+                  <div class="institution-logo">
+                    <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC">
+                  </div>
+                </div>
+              </div>
+              <div class="institution-card">
+                <div class="institution-card-header">
+                  <h4>Profesional en<br>Administración de Mercadeo</h4>
+                  <small>&nbsp;</small>
+                </div>
+                <div class="institution-card-body">
+                  <div class="institution-logo">
+                    <img src="https://esic.co/wp-content/uploads/2024/08/Logo-CEIPA-curvas_logo-CEIPA-gris-01-e1722627736717.png" alt="CEIPA">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="plan-note reveal">
+              Plan de estudios impartido por CEIPA Business School.<br>
+              Perfecciona tu titulación con la propuesta de ESIC Business School. Para más información, consulte en nuestra sección <a href="#">Programa de ayudas al estudio</a> para comprobar las opciones del ESIC MBA Grant Card.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <script>
+    // Tab functionality for plan de estudios - Year tabs
+    document.querySelectorAll('.plan-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.plan-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        document.querySelectorAll('.plan-content').forEach(content => content.classList.remove('active'));
+        const year = tab.getAttribute('data-year');
+        document.querySelector(`.plan-content[data-year="${year}"]`).classList.add('active');
+      });
+    });
+
+    // Main tabs functionality (PLAN DE ESTUDIOS / VER PROGRAMAS)
+    document.querySelectorAll('.plan-main-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.plan-main-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        document.querySelectorAll('.plan-section-content').forEach(content => content.classList.remove('active'));
+        const section = tab.getAttribute('data-section');
+        document.querySelector(`.plan-section-content[data-section="${section}"]`).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

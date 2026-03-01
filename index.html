@@ -97,7 +97,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 2rem;
+  padding: 0 2rem;
+  height: 100%;
+  min-height: 48px;
   background: #0038FF;
   color: #FFFFFF;
   font-size: 0.8rem;
@@ -255,6 +257,7 @@
 .esic-home .eh-section-rounded { border-radius: 50px 50px 0 0; margin-top: -50px; position: relative; z-index: 2; }
 .esic-home .eh-section-white { background: #FFFFFF; }
 .esic-home .eh-section-cream { background: #F8F6F2; }
+.esic-home .eh-section-gray { background: #F5F5F7; }
 .esic-home .eh-section-dark { background: var(--brand-blue-dark); }
 
 /* Por Qué ESIC Section */
@@ -378,90 +381,171 @@
 .esic-home .eh-programas-content { display: none; }
 .esic-home .eh-programas-content.eh-active { display: block; }
 
-/* Program Cards */
+/* Program Cards - Full Bleed Design */
 .esic-home .eh-programa-card {
   position: relative;
-  border-radius: 24px;
+  border-radius: 12px;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 280px;
+  display: block;
+  aspect-ratio: 16/9;
   text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
-.esic-home .eh-programa-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 19, 63, 0.15); }
-.esic-home .eh-programa-card-info { padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; color: #FFFFFF; }
-.esic-home .eh-programa-card-info h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 1.05;
-  margin-bottom: 0.5rem;
-}
-.esic-home .eh-programa-card-duration { font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem; }
-.esic-home .eh-programa-card-flags { display: inline-flex; gap: 0.4rem; align-items: center; }
-.esic-home .eh-programa-card-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.7rem 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 8px;
-  color: #FFFFFF;
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  background: transparent;
-  transition: all 0.2s ease;
-  width: fit-content;
-}
-.esic-home .eh-programa-card-btn:hover { background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.6); }
-.esic-home .eh-programa-card-btn svg { width: 14px; height: 14px; }
-.esic-home .eh-programa-card-image { position: relative; overflow: hidden; }
-.esic-home .eh-programa-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
-.esic-home .eh-programa-card:hover .eh-programa-card-image img { transform: scale(1.05); }
-.esic-home .eh-programa-card.eh-blue { background: #FF9600; }
-.esic-home .eh-programa-card.eh-marketing {
-  background: url('https://esic.co/wp-content/uploads/2026/02/card-pregrado.jpeg') center/cover no-repeat;
-  grid-template-columns: 1fr;
-  min-height: 500px;
-}
-.esic-home .eh-programa-card.eh-marketing::before {
+.esic-home .eh-programa-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 19, 63, 0.2); }
+.esic-home .eh-programa-card::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 0%, transparent 40%, rgba(0, 19, 63, 0.6) 60%, rgba(0, 19, 63, 0.95) 80%, #00133F 100%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.9) 25%, rgba(0, 0, 0, 0.7) 35%, rgba(0, 0, 0, 0.4) 55%, transparent 75%);
   z-index: 1;
   border-radius: inherit;
-  transition: background 0.3s ease;
 }
-.esic-home .eh-programa-card.eh-marketing:hover::before {
-  background: linear-gradient(180deg, transparent 0%, transparent 35%, rgba(0, 19, 63, 0.7) 55%, rgba(0, 19, 63, 0.98) 80%, #00133F 100%);
+@media (max-width: 768px) {
+  .esic-home .eh-programa-card::before {
+    background: linear-gradient(180deg, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.9) 100%);
+  }
 }
-.esic-home .eh-programa-card.eh-marketing .eh-programa-card-info {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  align-self: flex-end;
-  color: #FFFFFF;
+.esic-home .eh-programa-card-info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 65%;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #FFFFFF;
+  z-index: 2;
 }
-.esic-home .eh-programa-card.eh-marketing .eh-programa-card-info h3 { color: #FFFFFF; }
-.esic-home .eh-programa-card.eh-marketing .eh-programa-card-btn {
-  border-color: rgba(255, 255, 255, 0.4);
+@media (max-width: 768px) {
+  .esic-home .eh-programa-card-info {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: 55%;
+    justify-content: flex-end;
+    padding: 1.5rem;
+  }
+}
+.esic-home .eh-programa-card-info h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 1rem;
   color: #FFFFFF;
 }
-.esic-home .eh-programa-card.eh-marketing .eh-programa-card-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.6);
+.esic-home .eh-programa-card-duration { 
+  font-size: 1.1rem; 
+  opacity: 0.95; 
+  margin-top: 0.4rem;
+  color: #FFFFFF;
 }
-.esic-home .eh-programa-card.eh-marketing .eh-programa-card-image { display: none; }
-.esic-home .eh-programa-card.eh-teal { background: #09CF90; }
-.esic-home .eh-programa-card.eh-teal .eh-programa-card-info { color: var(--brand-blue-dark); }
-.esic-home .eh-programa-card.eh-teal .eh-programa-card-btn { border-color: rgba(0, 19, 63, 0.3); color: var(--brand-blue-dark); }
-.esic-home .eh-programa-card.eh-teal .eh-programa-card-btn:hover { background: rgba(0, 19, 63, 0.1); border-color: rgba(0, 19, 63, 0.5); }
-.esic-home .eh-programa-card.eh-orange { background: #0047E9; }
+.esic-home .eh-programa-card-flags { display: inline-flex; gap: 0.4rem; align-items: center; margin-top: 0.3rem; }
+.esic-home .eh-programa-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: transparent;
+  transition: all 0.2s ease;
+  width: fit-content;
+  margin-top: 1.25rem;
+}
+.esic-home .eh-programa-card-btn:hover { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.8); color: #FFFFFF; }
+.esic-home .eh-programa-card-btn svg { width: 14px; height: 14px; }
+.esic-home .eh-programa-card-image { 
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.esic-home .eh-programa-card-image img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  object-position: center top;
+  transition: transform 0.3s ease; 
+}
+.esic-home .eh-programa-card:hover .eh-programa-card-image img { transform: scale(1.05); }
+
+/* Background images for each card */
+.esic-home .eh-programa-card.eh-marketing {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/pregrado_mkt_global_.webp');
+}
+@media (max-width: 768px) {
+  .esic-home .eh-programa-card { aspect-ratio: 4/3; }
+  .esic-home .eh-programa-card.eh-marketing {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_pregrado_mkt_global_.webp');
+  }
+}
+.esic-home .eh-programa-card.eh-blue {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/pregrado_digital_business.webp');
+}
+@media (max-width: 768px) {
+  .esic-home .eh-programa-card.eh-blue {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_pregrado_digital_business.webp');
+  }
+}
+.esic-home .eh-programa-card.eh-teal.eh-dm {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/master_dm.webp');
+}
+@media (max-width: 768px) {
+  .esic-home .eh-programa-card.eh-teal.eh-dm {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_master_dm.webp');
+  }
+}
+.esic-home .eh-programa-card.eh-teal.eh-mdb {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/master_db.webp');
+}
+@media (max-width: 768px) {
+  .esic-home .eh-programa-card.eh-teal.eh-mdb {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_master_db.webp');
+  }
+}
+.esic-home .eh-programa-card.eh-teal.eh-cx {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/master_cx.webp');
+}
+@media (max-width: 768px) {
+  .esic-home .eh-programa-card.eh-teal.eh-cx {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_master_cx.webp');
+  }
+}
+.esic-home .eh-programa-card.eh-orange {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/ep.webp');
+}
+@media (max-width: 768px) {
+  .esic-home .eh-programa-card.eh-orange {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/ep-m.webp');
+  }
+}
+.esic-home .eh-programa-card.eh-marketing .eh-programa-card-image,
+.esic-home .eh-programa-card.eh-blue .eh-programa-card-image,
+.esic-home .eh-programa-card.eh-teal .eh-programa-card-image,
+.esic-home .eh-programa-card.eh-orange .eh-programa-card-image { display: none; }
+
+/* Program title colors */
+.esic-home .eh-programa-card.eh-marketing .eh-programa-card-info h3,
+.esic-home .eh-programa-card.eh-blue .eh-programa-card-info h3 { color: #FF9600; }
+
+.esic-home .eh-programa-card.eh-teal.eh-dm .eh-programa-card-info h3,
+.esic-home .eh-programa-card.eh-teal.eh-mdb .eh-programa-card-info h3,
+.esic-home .eh-programa-card.eh-teal.eh-cx .eh-programa-card-info h3 { color: #09CF90; }
+
+.esic-home .eh-programa-card.eh-orange .eh-programa-card-info h3 { color: #C09C2E; }
 
 /* La Vida en ESIC */
 .esic-home .eh-vida-section { padding: 5rem 0; }
@@ -474,164 +558,218 @@
   color: var(--brand-blue-dark);
 }
 .esic-home .eh-vida-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 1.5rem; }
-.esic-home .eh-vida-card { position: relative; border-radius: 20px; overflow: hidden; min-height: 250px; }
+.esic-home .eh-vida-card { position: relative; border-radius: 20px; overflow: hidden; min-height: 280px; }
 .esic-home .eh-vida-card img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-.esic-home .eh-vida-card-content {
+.esic-home .eh-vida-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 19, 63, 0.3) 0%, rgba(0, 19, 63, 0.8) 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  z-index: 1;
+}
+.esic-home .eh-vida-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 1.5rem;
   color: #FFFFFF;
+  z-index: 2;
 }
-.esic-home .eh-vida-card h3 { font-size: 1.3rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; }
-.esic-home .eh-vida-card p { font-size: 0.85rem; line-height: 1.5; opacity: 0.9; }
+.esic-home .eh-vida-card h3 { 
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem; 
+  color: #FFFFFF;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+.esic-home .eh-vida-card p { 
+  font-size: 1.1rem; 
+  line-height: 1.5; 
+  opacity: 0.95; 
+  color: #FFFFFF;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
 
-/* Cifras Section */
+/* Cifras Section - Button Cards */
 .esic-home .eh-cifras-section {
   background: #FFFFFF;
-  padding: 5rem 0 6rem;
+  padding: 3rem 0 4rem;
   position: relative;
   overflow: hidden;
-  border-radius: 50px 50px 0 0;
-  margin-top: -50px;
+  border-radius: 40px 40px 0 0;
+  margin-top: -40px;
 }
-.esic-home .eh-cifras-header { margin-bottom: 2rem; }
+
+/* Header */
+.esic-home .eh-cifras-header { 
+  margin-bottom: 2rem; 
+  text-align: center;
+}
 .esic-home .eh-cifras-header h2 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 600;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
   text-transform: uppercase;
-  line-height: 0.95;
+  line-height: 1;
   color: #00133F;
+  letter-spacing: -0.01em;
 }
-.esic-home .eh-variant-selector {
+
+/* Country Sections */
+.esic-home .eh-stats-country {
+  margin-bottom: 2rem;
+}
+.esic-home .eh-stats-country:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+/* Country Header */
+.esic-home .eh-country-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.esic-home .eh-country-flag {
+  width: 24px;
+  height: 16px;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.esic-home .eh-country-name {
+  font-family: var(--display-font);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #8B929D;
+  letter-spacing: 0.1em;
+}
+
+/* Stats Grid - Button Style */
+.esic-home .eh-stats-clean {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* Stat Block - Card with Breaking Number */
+.esic-home .eh-stat-block {
+  background: #F5F7FA;
+  border-radius: 16px;
+  padding: 3.5rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: visible;
+  min-height: 180px;
+}
+.esic-home .eh-stat-block:hover {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+}
+
+/* Accent by Country */
+.esic-home .eh-stats-country.eh-españa .eh-stat-block {
+  border-left: 4px solid #0047E9;
+}
+.esic-home .eh-stats-country.eh-medellin .eh-stat-block {
+  border-left: 4px solid #FF9600;
+}
+
+/* The Number - Big Breaking Out Effect */
+.esic-home .eh-stat-number {
+  font-family: var(--display-font);
+  font-size: clamp(4rem, 9vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.8;
+  color: #00133F;
+  margin-bottom: 0.5rem;
+  position: absolute;
+  top: -20px;
+  left: 1rem;
+  z-index: 2;
+  letter-spacing: -0.03em;
+  text-shadow: 4px 4px 0 rgba(255,255,255,0.8);
+}
+
+.esic-home .eh-stats-country.eh-españa .eh-stat-number {
+  color: #0047E9;
+}
+
+.esic-home .eh-stats-country.eh-medellin .eh-stat-number {
+  color: #FF9600;
+}
+
+/* The Label */
+.esic-home .eh-stat-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #5F6B7A;
+  line-height: 1.3;
+}
+
+/* CTA */
+.esic-home .eh-stats-cta {
   display: flex;
   justify-content: center;
-  gap: 0;
-  margin-bottom: 3rem;
-  background: #F0F0F0;
-  border-radius: 50px;
-  padding: 5px;
-  max-width: 200px;
-  margin-left: auto;
-  margin-right: auto;
 }
-.esic-home .eh-variant-btn {
-  flex: 1;
-  padding: 0.6rem 1rem;
-  border: none;
-  border-radius: 50px;
-  font-family: var(--body-font);
-  font-size: 0.95rem;
+.esic-home .eh-stats-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: #00133F;
+  color: #FFFFFF;
+  font-size: 0.9rem;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: transparent;
-  color: #666;
-}
-.esic-home .eh-variant-btn.eh-active { background: #E53935; color: #fff; box-shadow: 0 2px 8px rgba(229, 57, 53, 0.35); }
-.esic-home .eh-variant-btn:not(.eh-active):hover { background: #E0E0E0; color: #333; }
-.esic-home .eh-cifras-variant { display: none; }
-.esic-home .eh-cifras-variant.eh-active { display: block; }
-
-/* Shared Cifras Components */
-.esic-home .eh-cifras-zone-label { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.5rem; }
-.esic-home .eh-cifras-zone-label span {
-  font-family: var(--display-font);
-  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 50px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
 }
-.esic-home .eh-flag-icon { flex-shrink: 0; border-radius: 2px; }
-.esic-home .eh-prog-icon { width: 40px; height: 40px; flex-shrink: 0; }
-.esic-home .eh-cifras-check { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
-.esic-home .eh-cifras-check li { font-size: 0.85rem; padding-left: 1.5rem; position: relative; line-height: 1.4; }
-.esic-home .eh-cifras-check li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.15em;
-  width: 14px;
-  height: 14px;
-  background: #0038E3;
-  border-radius: 50%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 7l2.5 2.5L10 5' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+.esic-home .eh-stats-cta-btn:hover {
+  background: #0047E9;
+  transform: translateY(-2px);
 }
-.esic-home .eh-cifras-check.eh-on-dark li { color: rgba(255,255,255,0.9); }
-.esic-home .eh-cifras-check.eh-on-dark li::before { background-color: #5EEDC3; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 7l2.5 2.5L10 5' stroke='%2300133F' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
-.esic-home .eh-cifras-cta { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: opacity 0.3s; }
-.esic-home .eh-cifras-cta:hover { opacity: 0.75; }
-.esic-home .eh-cifras-cta svg { width: 16px; height: 16px; }
-.esic-home .eh-cifras-stat { display: flex; flex-direction: column; }
-.esic-home .eh-cifras-stat .eh-num { font-family: var(--display-font); font-size: 2.2rem; font-weight: 400; line-height: 1; margin-bottom: 0.15rem; }
-.esic-home .eh-cifras-stat .eh-desc { font-size: 0.8rem; line-height: 1.3; max-width: 150px; }
 
-/* Variant A - Full Dark */
-.esic-home .eh-va-card { background: #00133F; border-radius: 20px; overflow: hidden; }
-.esic-home .eh-va-top { display: grid; grid-template-columns: 280px 1fr; }
-.esic-home .eh-va-top-img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 220px; }
-.esic-home .eh-va-top-content { padding: 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.25rem; }
-.esic-home .eh-va-top-content .eh-cifras-zone-label span { color: #5EEDC3; }
-.esic-home .eh-va-top-stats { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; }
-.esic-home .eh-va-top-stats .eh-cifras-stat .eh-num { color: #fff; font-size: 1.8rem; }
-.esic-home .eh-va-top-stats .eh-cifras-stat .eh-desc { color: rgba(255,255,255,0.65); font-size: 0.75rem; max-width: 120px; }
-.esic-home .eh-va-top-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-.esic-home .eh-va-top-bottom .eh-cifras-cta { color: #5EEDC3; }
-.esic-home .eh-va-med { padding: 2rem 2.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
-.esic-home .eh-va-med .eh-cifras-zone-label span { color: #5EEDC3; }
-.esic-home .eh-va-med-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-.esic-home .eh-va-med-item { display: flex; align-items: flex-start; gap: 0.75rem; }
-.esic-home .eh-va-med-item .eh-prog-icon { width: 32px; height: 32px; color: #5EEDC3; margin-top: 0.1rem; }
-.esic-home .eh-va-med-info h4 { font-family: var(--display-font); font-size: 0.7rem; text-transform: uppercase; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; font-weight: 700; margin-bottom: 0.2rem; }
-.esic-home .eh-va-med-info .eh-num { font-family: var(--display-font); font-size: 1.8rem; font-weight: 400; color: #fff; line-height: 1; }
-.esic-home .eh-va-med-info .eh-desc { font-size: 0.72rem; color: rgba(255,255,255,0.5); }
-.esic-home .eh-va-med-info p { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin: 0.15rem 0 0; line-height: 1.4; }
+/* Responsive */
+@media (max-width: 768px) {
+  .esic-home .eh-stats-clean {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .esic-home .eh-stat-block {
+    padding: 1rem 1.25rem;
+  }
+}
+@media (max-width: 480px) {
+  .esic-home .eh-stats-clean {
+    grid-template-columns: 1fr;
+  }
+}
 
-/* Variant B - Stacked */
-.esic-home .eh-vb-card { background: #00133F; border-radius: 20px; overflow: hidden; }
-.esic-home .eh-vb-top { display: grid; grid-template-columns: 280px 1fr; }
-.esic-home .eh-vb-top-img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 220px; }
-.esic-home .eh-vb-top-content { padding: 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.25rem; }
-.esic-home .eh-vb-top-content .eh-cifras-zone-label span { color: #5EEDC3; }
-.esic-home .eh-vb-top-stats { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; }
-.esic-home .eh-vb-top-stats .eh-cifras-stat .eh-num { color: #fff; font-size: 1.8rem; }
-.esic-home .eh-vb-top-stats .eh-cifras-stat .eh-desc { color: rgba(255,255,255,0.65); font-size: 0.75rem; max-width: 120px; }
-.esic-home .eh-vb-top-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-.esic-home .eh-vb-top-bottom .eh-cifras-cta { color: #5EEDC3; }
-.esic-home .eh-vb-bottom { background: #FFFFFF; padding: 2rem 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
-.esic-home .eh-vb-bottom .eh-cifras-zone-label span { color: #00133F; }
-.esic-home .eh-vb-med-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-.esic-home .eh-vb-med-item { display: flex; align-items: flex-start; gap: 0.75rem; }
-.esic-home .eh-vb-med-item .eh-prog-icon { width: 32px; height: 32px; margin-top: 0.1rem; }
-.esic-home .eh-vb-med-info h4 { font-family: var(--display-font); font-size: 0.7rem; text-transform: uppercase; color: #0038E3; letter-spacing: 0.05em; font-weight: 700; margin-bottom: 0.2rem; }
-.esic-home .eh-vb-med-info .eh-num { font-family: var(--display-font); font-size: 1.8rem; font-weight: 400; color: #00133F; line-height: 1; }
-.esic-home .eh-vb-med-info .eh-desc { font-size: 0.72rem; color: #888; }
-.esic-home .eh-vb-med-info p { font-size: 0.72rem; color: #999; margin: 0.15rem 0 0; line-height: 1.4; }
-
-/* Variant C - Side by Side */
-.esic-home .eh-vc-card { border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
-.esic-home .eh-vc-left { background: #00133F; padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; }
-.esic-home .eh-vc-left .eh-cifras-zone-label span { color: #5EEDC3; }
-.esic-home .eh-vc-left-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-.esic-home .eh-vc-left-stats .eh-cifras-stat .eh-num { color: #fff; font-size: 1.8rem; }
-.esic-home .eh-vc-left-stats .eh-cifras-stat .eh-desc { color: rgba(255,255,255,0.6); font-size: 0.75rem; }
-.esic-home .eh-vc-left-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-.esic-home .eh-vc-left-bottom .eh-cifras-cta { color: #5EEDC3; }
-.esic-home .eh-vc-right { background: #FFFFFF; border: 1.5px solid #E8E8E8; border-left: none; border-radius: 0 20px 20px 0; padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.25rem; }
-.esic-home .eh-vc-right .eh-cifras-zone-label span { color: #00133F; }
-.esic-home .eh-vc-prog { display: flex; align-items: flex-start; gap: 0.75rem; }
-.esic-home .eh-vc-prog .eh-prog-icon { width: 28px; height: 28px; color: #0038E3; margin-top: 0.15rem; }
-.esic-home .eh-vc-prog-info h4 { font-family: var(--display-font); font-size: 0.7rem; text-transform: uppercase; color: #0038E3; letter-spacing: 0.05em; font-weight: 700; margin-bottom: 0.15rem; }
-.esic-home .eh-vc-prog-info .eh-num { font-family: var(--display-font); font-size: 1.6rem; font-weight: 400; color: #00133F; line-height: 1; }
-.esic-home .eh-vc-prog-info .eh-desc { font-size: 0.72rem; color: #888; }
-.esic-home .eh-vc-prog-info p { font-size: 0.7rem; color: #aaa; margin: 0.1rem 0 0; line-height: 1.3; }
-
-/* Historias Section */
+/* Historias Section - Aligned Layout */
 .esic-home .eh-historias-section { padding: 5rem 0; }
-.esic-home .eh-historias-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+.esic-home .eh-historias-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-end; 
+  margin-bottom: 1.5rem; 
+  flex-wrap: wrap; 
+  gap: 1rem; 
+}
 .esic-home .eh-historias-header h2 {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 800;
@@ -639,49 +777,303 @@
   line-height: 0.95;
   color: var(--brand-blue-dark);
 }
-.esic-home .eh-historias-grid { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 2rem; align-items: center; }
-.esic-home .eh-testimonio-card { background: #FFFFFF; border-radius: 20px; padding: 2rem; box-shadow: 0 10px 40px rgba(0, 19, 63, 0.08); }
-.esic-home .eh-testimonio-card blockquote { font-size: 1rem; line-height: 1.6; color: var(--text); margin-bottom: 1.5rem; font-style: italic; }
+
+/* Grid - All items same height and vertically centered */
+.esic-home .eh-historias-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1.3fr 1fr; 
+  gap: 2rem; 
+  align-items: stretch;
+}
+
+/* Text Cards - Fixed height with centered content */
+.esic-home .eh-testimonio-card { 
+  background: #FFFFFF; 
+  border-radius: 20px; 
+  padding: 1.75rem; 
+  box-shadow: 0 2px 12px rgba(0, 19, 63, 0.08);
+  border: 1px solid rgba(0, 19, 63, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 380px;
+  overflow: hidden;
+}
+
+.esic-home .eh-testimonio-card blockquote { 
+  font-size: 0.9rem; 
+  line-height: 1.55; 
+  color: var(--text); 
+  margin-bottom: 1.5rem; 
+  margin-top: 0;
+  font-style: italic; 
+  width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
 .esic-home .eh-testimonio-card blockquote::before {
   content: """;
   font-family: var(--display-font);
-  font-size: 3rem;
+  font-size: 1.75rem;
   color: var(--brand-blue);
-  line-height: 0;
+  line-height: 1;
   display: block;
   margin-bottom: 0.5rem;
 }
-.esic-home .eh-testimonio-author { display: flex; align-items: center; gap: 1rem; }
-.esic-home .eh-testimonio-author img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
-.esic-home .eh-testimonio-author-info h4 { font-weight: 600; color: var(--text); }
-.esic-home .eh-testimonio-author-info p { font-size: 0.85rem; color: var(--text-muted); }
-.esic-home .eh-historias-featured { border-radius: 20px; overflow: hidden; aspect-ratio: 1/1; position: relative; }
-.esic-home .eh-historias-featured img { width: 100%; height: 100%; object-fit: cover; }
-.esic-home .eh-boilerplate-overlay { position: relative; }
-.esic-home .eh-boilerplate-overlay::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(0, 71, 233, 0.12) 0%, rgba(10, 228, 195, 0.10) 100%);
-  border-radius: inherit;
-  pointer-events: none;
+
+.esic-home .eh-testimonio-author { 
+  display: flex; 
+  align-items: center; 
+  gap: 1rem; 
+  width: 100%;
 }
-.esic-home .eh-boilerplate-tag {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  background: rgba(0, 71, 233, 0.9);
+
+/* Avatar placeholder */
+.esic-home .eh-avatar-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-teal) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
   font-family: var(--display-font);
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 0.5rem 1.2rem;
-  border-radius: 999px;
-  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.esic-home .eh-testimonio-author-info h4 { 
+  font-weight: 600; 
+  color: var(--text); 
+  font-size: 1rem; 
+}
+.esic-home .eh-testimonio-author-info p { 
+  font-size: 0.85rem; 
+  color: var(--text-muted); 
+}
+
+/* Video Container - Same height as cards */
+.esic-home .eh-historias-featured { 
+  border-radius: 20px; 
+  overflow: hidden; 
+  height: 380px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 19, 63, 0.12);
+}
+
+.esic-home .eh-historias-featured .eh-video-container,
+.esic-home .eh-historias-featured video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.esic-home .eh-video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.esic-home .eh-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Custom Video Controls */
+.esic-home .eh-video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.esic-home .eh-historias-featured:hover .eh-video-controls,
+.esic-home .eh-video-container.paused .eh-video-controls {
+  opacity: 1;
+}
+
+.esic-home .eh-video-progress {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.esic-home .eh-video-progress-bar {
+  height: 100%;
+  background: var(--brand-teal);
+  border-radius: 2px;
+  width: 0%;
+  position: relative;
+}
+
+.esic-home .eh-video-progress-bar::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--brand-teal);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.esic-home .eh-video-progress:hover .eh-video-progress-bar::after {
+  opacity: 1;
+}
+
+.esic-home .eh-video-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.esic-home .eh-video-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.esic-home .eh-video-btn:hover {
+  transform: scale(1.1);
+}
+
+.esic-home .eh-video-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.esic-home .eh-video-btn.eh-play-btn svg {
+  width: 32px;
+  height: 32px;
+}
+
+.esic-home .eh-video-volume {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.esic-home .eh-video-volume input[type="range"] {
+  width: 80px;
+  height: 4px;
+  -webkit-appearance: none;
+  background: rgba(255,255,255,0.3);
+  border-radius: 2px;
+  outline: none;
+}
+
+.esic-home .eh-video-volume input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.esic-home .eh-video-time {
+  color: #fff;
+  font-size: 0.8rem;
+  font-family: var(--body-font);
+  margin-left: auto;
+}
+
+/* Play Overlay */
+.esic-home .eh-video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.esic-home .eh-video-play-overlay:hover {
+  background: rgba(0,0,0,0.2);
+}
+
+.esic-home .eh-video-play-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.esic-home .eh-video-play-overlay svg {
+  width: 80px;
+  height: 80px;
+  color: #fff;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .esic-home .eh-historias-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .esic-home .eh-historias-featured {
+    grid-column: 1 / -1;
+    order: 2;
+    height: 480px;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .esic-home .eh-testimonio-card {
+    height: auto;
+    min-height: 280px;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .esic-home .eh-testimonio-card:first-child {
+    order: 1;
+  }
+  .esic-home .eh-testimonio-card:last-child {
+    order: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .esic-home .eh-historias-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .esic-home .eh-testimonio-card {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+  .esic-home .eh-testimonio-card blockquote {
+    font-size: 0.9rem;
+  }
 }
 .esic-home .eh-testimonio-card.eh-boilerplate-overlay blockquote,
 .esic-home .eh-testimonio-card.eh-boilerplate-overlay .eh-testimonio-author-info h4,
@@ -717,27 +1109,30 @@
 }
 .esic-home .eh-fundadores-track {
   display: flex;
-  gap: 5rem;
+  gap: 2rem;
   align-items: center;
   width: max-content;
   animation: eh-marquee-scroll 30s linear infinite;
 }
 .esic-home .eh-fundadores-track:hover { animation-play-state: paused; }
 @keyframes eh-marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-.esic-home .eh-fundador-logo { display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 0.5rem 1.5rem; height: 70px; }
-.esic-home .eh-fundador-logo img { height: 100%; width: auto; object-fit: contain; }
-.esic-home .eh-fundador-logo.eh-logo-bios { height: 60px; }
-.esic-home .eh-fundador-logo.eh-logo-bancolombia { height: 56px; }
-.esic-home .eh-fundador-logo.eh-logo-crystal { height: 52px; }
-.esic-home .eh-fundador-logo.eh-logo-telefonica { height: 120px; }
-.esic-home .eh-fundador-logo.eh-logo-accenture { height: 50px; }
-.esic-home .eh-fundador-logo.eh-logo-postobon { height: 70px; }
+.esic-home .eh-fundador-logo { display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 0.75rem 2rem; width: 240px; height: 120px; }
+.esic-home .eh-fundador-logo img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; transition: transform 0.3s ease; }
+.esic-home .eh-fundador-logo:hover img { transform: scale(1.05); }
 
 /* Rethink Section */
 .esic-home .eh-rethink-section { padding: 5rem 0; background: var(--brand-blue-dark); color: #FFFFFF; }
-.esic-home .eh-rethink-header { margin-bottom: 2rem; }
-.esic-home .eh-rethink-header h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; text-transform: uppercase; line-height: 0.95; }
-.esic-home .eh-rethink-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.esic-home .eh-rethink-header { margin-bottom: 2.5rem; text-align: center; }
+.esic-home .eh-rethink-header h2 { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; text-transform: uppercase; line-height: 0.9; color: #FFFFFF; }
+.esic-home .eh-rethink-header p { font-size: 1.15rem; color: rgba(255,255,255,0.8); margin-top: 1rem; font-weight: 400; }
+.esic-home .eh-rethink-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.esic-home .eh-rethink-grid.eh-single-row { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1024px) {
+  .esic-home .eh-rethink-grid.eh-single-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .esic-home .eh-rethink-grid.eh-single-row { grid-template-columns: 1fr; }
+}
 .esic-home .eh-rethink-card { background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: transform 0.3s ease; }
 .esic-home .eh-rethink-card:hover { transform: translateY(-5px); }
 .esic-home .eh-rethink-card-image { aspect-ratio: 16/10; overflow: hidden; }
@@ -747,7 +1142,7 @@
 .esic-home .eh-rethink-card-tag.eh-tag-blog { color: var(--brand-teal); }
 .esic-home .eh-rethink-card-tag.eh-tag-noticia { color: #FF9600; }
 .esic-home .eh-rethink-card-tag.eh-tag-podcast { color: #A78BFA; }
-.esic-home .eh-rethink-card h3 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; line-height: 1.2; margin-bottom: 1rem; }
+.esic-home .eh-rethink-card h3 { font-size: 1.3rem; font-weight: 700; text-transform: uppercase; line-height: 1.2; margin-bottom: 1rem; color: #FFFFFF; }
 .esic-home .eh-rethink-card .eh-btn { font-size: 0.75rem; padding: 0.5rem 1rem; }
 .esic-home .eh-rethink-filters { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
 .esic-home .eh-rethink-filter {
@@ -767,6 +1162,148 @@
 .esic-home .eh-rethink-filter:hover { border-color: rgba(255,255,255,0.5); color: #FFFFFF; }
 .esic-home .eh-rethink-filter.eh-active { background: var(--brand-teal); border-color: var(--brand-teal); color: var(--brand-blue-dark); }
 .esic-home .eh-rethink-card.eh-hidden { display: none; }
+
+/* Contact Modal */
+.esic-home .eh-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 19, 63, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.esic-home .eh-modal-overlay.eh-active {
+  opacity: 1;
+  visibility: visible;
+}
+.esic-home .eh-modal-container {
+  background: #FFFFFF;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.3s ease;
+  box-shadow: 0 25px 80px rgba(0, 19, 63, 0.3);
+}
+.esic-home .eh-modal-overlay.eh-active .eh-modal-container {
+  transform: translateY(0) scale(1);
+}
+.esic-home .eh-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid rgba(0, 19, 63, 0.1);
+  background: var(--brand-blue-dark);
+  border-radius: 24px 24px 0 0;
+}
+.esic-home .eh-modal-header h3 {
+  font-family: var(--display-font);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+.esic-home .eh-modal-close {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+  line-height: 1;
+}
+.esic-home .eh-modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.esic-home .eh-modal-body {
+  padding: 2rem;
+}
+.esic-home .eh-form-group {
+  margin-bottom: 1.25rem;
+}
+.esic-home .eh-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 480px) {
+  .esic-home .eh-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+.esic-home .eh-form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brand-blue-dark);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.esic-home .eh-form-group label em {
+  color: var(--brand-orange);
+  font-style: normal;
+  margin-left: 2px;
+}
+.esic-home .eh-form-group input,
+.esic-home .eh-form-group select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  font-family: var(--body-font);
+  font-size: 1rem;
+  color: var(--text);
+  background: #FFFFFF;
+  transition: all 0.2s ease;
+  outline: none;
+}
+.esic-home .eh-form-group input:focus,
+.esic-home .eh-form-group select:focus {
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(0, 71, 233, 0.1);
+}
+.esic-home .eh-form-group input::placeholder {
+  color: var(--text-light);
+  opacity: 0.7;
+}
+.esic-home .eh-form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%230B132B' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+.esic-home .eh-btn-full {
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
 
 /* Footer */
 .esic-home .eh-footer { padding: 5rem 0 2rem; background: #FFFFFF; color: var(--brand-blue-dark); border-radius: 50px 50px 0 0; margin-top: -50px; position: relative; z-index: 9; }
@@ -845,12 +1382,9 @@
   .esic-home .eh-porque-grid { grid-template-columns: 1fr; }
   .esic-home .eh-porque-right { padding: 1.5rem; }
   .esic-home .eh-vida-grid, .esic-home .eh-rethink-grid { grid-template-columns: 1fr; }
-  .esic-home .eh-programa-card { grid-template-columns: 1fr; min-height: auto; }
-  .esic-home .eh-programa-card-info { padding: 1.5rem; order: 2; }
-  .esic-home .eh-programa-card.eh-marketing { min-height: 400px; }
-  .esic-home .eh-programa-card.eh-marketing .eh-programa-card-info { width: 100%; }
-  .esic-home .eh-programa-card.eh-marketing::before { background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(0, 19, 63, 0.7) 50%, rgba(0, 19, 63, 0.98) 75%, #00133F 100%); }
-  .esic-home .eh-programa-card-image { order: 1; min-height: 180px; }
+  .esic-home .eh-programa-card { aspect-ratio: 4/3; }
+  .esic-home .eh-programa-card-info { padding: 1.25rem; }
+  .esic-home .eh-programa-card-info h3 { font-size: 1.25rem; }
   .esic-home .eh-programas-tabs { gap: 1.5rem; }
   .esic-home .eh-programas-tab { font-size: 0.75rem; }
   .esic-home .eh-variant-selector { max-width: 160px; }
@@ -893,205 +1427,7 @@
 .elementor .eh-banner-carousel {
   padding-top: var(--eh-nav-offset);
 }
-
-/* Contact Popup Modal */
-.eh-contact-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-.eh-contact-modal.eh-modal-open {
-  opacity: 1;
-  visibility: visible;
-}
-.eh-contact-modal-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 19, 63, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-.eh-contact-modal-content {
-  position: relative;
-  background: #FFFFFF;
-  border-radius: 24px;
-  width: min(520px, 94%);
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 25px 80px rgba(0, 19, 63, 0.3);
-  transform: translateY(20px);
-  transition: transform 0.3s ease;
-}
-.eh-contact-modal.eh-modal-open .eh-contact-modal-content {
-  transform: translateY(0);
-}
-.eh-modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 40px;
-  height: 40px;
-  border: none;
-  background: #F5F5F5;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
-  z-index: 1;
-}
-.eh-modal-close:hover { background: #E5E5E5; }
-.eh-modal-close svg { width: 18px; height: 18px; color: #666; }
-
-.eh-modal-header {
-  padding: 2rem 2rem 1.5rem;
-  text-align: center;
-  border-bottom: 1px solid #F0F0F0;
-}
-.eh-modal-header h2 {
-  font-family: var(--display-font);
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--brand-blue-dark);
-  margin: 0;
-  letter-spacing: 0.02em;
-}
-.eh-modal-header p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-top: 0.5rem;
-}
-
-.eh-modal-body {
-  padding: 1.5rem 2rem 2rem;
-}
-.eh-form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.eh-form-group {
-  margin-bottom: 1rem;
-}
-.eh-form-group.full-width {
-  grid-column: 1 / -1;
-}
-.eh-form-group label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 0.4rem;
-}
-.eh-form-group label em {
-  color: #E53935;
-  font-style: normal;
-  margin-left: 2px;
-}
-.eh-form-group input,
-.eh-form-group select {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  border: 1.5px solid #E0E0E0;
-  border-radius: 10px;
-  font-family: var(--body-font);
-  font-size: 0.95rem;
-  background: #FAFAFA;
-  transition: border-color 0.2s, background 0.2s;
-}
-.eh-form-group input:focus,
-.eh-form-group select:focus {
-  outline: none;
-  border-color: var(--brand-blue);
-  background: #FFFFFF;
-}
-.eh-form-group input::placeholder {
-  color: #AAA;
-}
-.eh-form-group select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 12px;
-  padding-right: 2.5rem;
-}
-.eh-submit-btn {
-  width: 100%;
-  padding: 1rem;
-  background: var(--brand-blue);
-  color: #FFFFFF;
-  border: none;
-  border-radius: 10px;
-  font-family: var(--body-font);
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-  margin-top: 0.5rem;
-}
-.eh-submit-btn:hover { background: var(--brand-blue-dark); }
-
-@media (max-width: 480px) {
-  .eh-form-row { grid-template-columns: 1fr; }
-  .eh-modal-header { padding: 1.5rem 1.5rem 1rem; }
-  .eh-modal-body { padding: 1rem 1.5rem 1.5rem; }
-}
 </style>
-
-<!-- Navigation -->
-<nav class="eh-nav">
-  <a href="/" class="eh-nav-logo"><img src="https://esic.co/wp-content/uploads/2026/02/CEIPA-Y-ESIC-a.png" alt="CEIPA y ESIC"></a>
-  <div class="eh-nav-actions">
-    <a href="https://esic.co/master/v2.html" class="eh-nav-cta">Programas</a>
-    <button class="eh-nav-menu" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<div class="eh-nav-overlay">
-  <ul class="eh-nav-overlay-menu">
-    <li><a href="/" class="eh-nav-overlay-link">Inicio</a></li>
-    <li class="eh-nav-overlay-item">
-      <button class="eh-nav-overlay-toggle">Programas <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
-      <ul class="eh-nav-submenu">
-        <li><a href="https://esic.co/pregrado/index.html">Pregrado</a></li>
-        <li><a href="https://esic.co/master/v2.html">Máster</a></li>
-        <li><a href="https://esic.co/executive-programs/index.html">Executive Programs</a></li>
-      </ul>
-    </li>
-    <li class="eh-nav-overlay-item">
-      <button class="eh-nav-overlay-toggle">Nosotros <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
-      <ul class="eh-nav-submenu">
-        <li><a href="https://esic.co/institucional/quienes-somos.html">Quiénes Somos</a></li>
-        <li><a href="https://esic.co/formularios/contacto.html">Contacto</a></li>
-      </ul>
-    </li>
-    <li class="eh-nav-overlay-item">
-      <button class="eh-nav-overlay-toggle">Level-Up <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
-      <ul class="eh-nav-submenu">
-        <li><a href="https://esic.co/level-up/index.html">Level Up</a></li>
-        <li><a href="https://esic.co/level-up/ia.html">IA</a></li>
-      </ul>
-    </li>
-  </ul>
-  <div class="eh-nav-overlay-social">
-    <a href="https://www.instagram.com/esic.colombia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
-    <a href="https://www.linkedin.com/school/esic-colombia/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-    <a href="https://www.tiktok.com/@esic.colombia" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.57 6.33 6.33 0 0 0 9.37 22a6.33 6.33 0 0 0 6.33-6.33V9.18a8.16 8.16 0 0 0 3.89.98V6.69z"/></svg></a>
-    <a href="https://www.youtube.com/@ESICmedellin" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-  </div>
-</div>
 
 <main>
   <!-- Banner Carousel -->
@@ -1218,13 +1554,13 @@
   </section>
 
   <!-- Explora Programas Section -->
-  <section class="eh-section eh-section-rounded eh-section-cream eh-programas-section" id="programas">
+  <section class="eh-section eh-section-rounded eh-section-gray eh-programas-section" id="programas">
     <div class="eh-container">
       <div class="eh-programas-header">
         <h2>EXPLORA<br>NUESTROS<br>PROGRAMAS</h2>
         <div class="eh-programas-header-info">
           <p>Escuela de Negocios Española con +60 años, líder en Marketing y Economía Digital.</p>
-          <a class="eh-btn eh-btn-primary" href="https://esic.co/programas.html">VER TODOS LOS PROGRAMAS</a>
+          <a class="eh-btn eh-btn-primary" href="https://esic.co/pages/programas.html">VER TODOS LOS PROGRAMAS</a>
         </div>
       </div>
 
@@ -1240,33 +1576,24 @@
         <div class="eh-programas-grid">
           <a href="https://esic.co/pregrado/marketing-global.html" class="eh-programa-card eh-marketing">
             <div class="eh-programa-card-info">
-              <div>
-                <h3>DIRECCIÓN DE MARKETING GLOBAL</h3>
-                <span class="eh-programa-card-duration">4 años · Doble titulación<br>
-                  <span class="eh-programa-card-flags">
-                    <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
-                    <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/><rect x="7" y="7" width="4" height="6" rx="0.5" fill="#AA151B" opacity="0.8"/><rect x="7" y="7" width="4" height="3" rx="0.5" fill="#c8a400"/><circle cx="9" cy="7" r="0.8" fill="#AA151B"/></svg>
-                  </span>
-                </span>
-              </div>
+              <h3>DIRECCIÓN DE MARKETING GLOBAL</h3>
+              <span class="eh-programa-card-duration">4 años · Doble titulación</span>
+              <span class="eh-programa-card-flags">
+                <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+                <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/><rect x="7" y="7" width="4" height="6" rx="0.5" fill="#AA151B" opacity="0.8"/><rect x="7" y="7" width="4" height="3" rx="0.5" fill="#c8a400"/><circle cx="9" cy="7" r="0.8" fill="#AA151B"/></svg>
+              </span>
               <span class="eh-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </div>
           </a>
           <a href="https://esic.co/pregrado/digital-business.html" class="eh-programa-card eh-blue">
             <div class="eh-programa-card-info">
-              <div>
-                <h3>DIGITAL BUSINESS</h3>
-                <span class="eh-programa-card-duration">4 años · Doble titulación<br>
-                  <span class="eh-programa-card-flags">
-                    <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
-                    <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/><rect x="7" y="7" width="4" height="6" rx="0.5" fill="#AA151B" opacity="0.8"/><rect x="7" y="7" width="4" height="3" rx="0.5" fill="#c8a400"/><circle cx="9" cy="7" r="0.8" fill="#AA151B"/></svg>
-                  </span>
-                </span>
-              </div>
+              <h3>DIGITAL BUSINESS</h3>
+              <span class="eh-programa-card-duration">4 años · Doble titulación</span>
+              <span class="eh-programa-card-flags">
+                <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+                <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/><rect x="7" y="7" width="4" height="6" rx="0.5" fill="#AA151B" opacity="0.8"/><rect x="7" y="7" width="4" height="3" rx="0.5" fill="#c8a400"/><circle cx="9" cy="7" r="0.8" fill="#AA151B"/></svg>
+              </span>
               <span class="eh-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-            <div class="eh-programa-card-image">
-              <img src="https://esic.co/assets/images/DSC02307_resultado.webp" alt="Digital Business" width="1600" height="900" loading="lazy">
             </div>
           </a>
         </div>
@@ -1274,40 +1601,25 @@
 
       <div class="eh-programas-content" data-tab="master">
         <div class="eh-programas-grid">
-          <a href="https://esic.co/master/digital-marketing.html" class="eh-programa-card eh-teal">
+          <a href="https://esic.co/master/digital-marketing.html" class="eh-programa-card eh-teal eh-dm">
             <div class="eh-programa-card-info">
-              <div>
-                <h3>MÁSTER EN DIGITAL MARKETING</h3>
-                <span class="eh-programa-card-duration">1 año · Modalidad híbrida</span>
-              </div>
+              <h3>MÁSTER EN DIGITAL MARKETING</h3>
+              <span class="eh-programa-card-duration">1 año · Modalidad híbrida</span>
               <span class="eh-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-            <div class="eh-programa-card-image">
-              <img src="https://esic.co/assets/images/DSC02331_resultado.webp" alt="Digital Marketing" width="1600" height="900" loading="lazy">
             </div>
           </a>
-          <a href="https://esic.co/master/digital-business.html" class="eh-programa-card eh-teal">
+          <a href="https://esic.co/master/digital-business.html" class="eh-programa-card eh-teal eh-mdb">
             <div class="eh-programa-card-info">
-              <div>
-                <h3>MÁSTER EN DIGITAL BUSINESS</h3>
-                <span class="eh-programa-card-duration">1 año · Modalidad híbrida</span>
-              </div>
+              <h3>MÁSTER EN DIGITAL BUSINESS</h3>
+              <span class="eh-programa-card-duration">1 año · Modalidad híbrida</span>
               <span class="eh-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-            <div class="eh-programa-card-image">
-              <img src="https://esic.co/assets/images/DSC02270_resultado.webp" alt="Digital Business" width="1600" height="900" loading="lazy">
             </div>
           </a>
-          <a href="https://esic.co/master/customer-experience.html" class="eh-programa-card eh-teal">
+          <a href="https://esic.co/master/customer-experience.html" class="eh-programa-card eh-teal eh-cx">
             <div class="eh-programa-card-info">
-              <div>
-                <h3>MÁSTER EN CUSTOMER EXPERIENCE MANAGEMENT</h3>
-                <span class="eh-programa-card-duration">12 meses · Modalidad híbrida</span>
-              </div>
+              <h3>MÁSTER EN CUSTOMER EXPERIENCE MANAGEMENT</h3>
+              <span class="eh-programa-card-duration">12 meses · Modalidad híbrida</span>
               <span class="eh-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-            <div class="eh-programa-card-image">
-              <img src="https://esic.co/assets/images/DSC02284_resultado.webp" alt="Customer Experience" width="1600" height="900" loading="lazy">
             </div>
           </a>
         </div>
@@ -1317,14 +1629,9 @@
         <div class="eh-programas-grid">
           <a href="https://esic.co/executive-programs/index.html" class="eh-programa-card eh-orange">
             <div class="eh-programa-card-info">
-              <div>
-                <h3>EXECUTIVE PROGRAM</h3>
-                <span class="eh-programa-card-duration">6 meses · Liderazgo y transformación digital</span>
-              </div>
+              <h3>EXECUTIVE PROGRAM</h3>
+              <span class="eh-programa-card-duration">6 meses · Liderazgo y transformación digital</span>
               <span class="eh-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-            <div class="eh-programa-card-image">
-              <img src="https://esic.co/assets/images/DSC02284_resultado.webp" alt="Executive Program" width="1600" height="900" loading="lazy">
             </div>
           </a>
         </div>
@@ -1337,32 +1644,35 @@
     <div class="eh-container">
       <div class="eh-vida-header">
         <h2>LA VIDA<br>EN ESIC</h2>
-        <a class="eh-btn eh-btn-primary" href="#contacto">CONOCE NUESTRO CAMPUS</a>
       </div>
       <div class="eh-vida-grid">
         <div class="eh-vida-card">
-          <img src="https://esic.co/assets/images/DSC02274_resultado.webp" alt="Aulas" width="1600" height="900" loading="lazy">
+          <img src="https://esic.co/wp-content/uploads/2026/02/aulas.webp" alt="Aulas" width="1600" height="900" loading="lazy">
+          <div class="eh-vida-card-overlay"></div>
           <div class="eh-vida-card-content">
             <h3>Aulas</h3>
             <p>Espacios diseñados para el trabajo práctico.</p>
           </div>
         </div>
         <div class="eh-vida-card">
-          <img src="https://esic.co/assets/images/DSC02307_resultado.webp" alt="Cowork" width="1600" height="900" loading="lazy">
+          <img src="https://esic.co/wp-content/uploads/2026/02/cowork.webp" alt="Cowork" width="1600" height="900" loading="lazy">
+          <div class="eh-vida-card-overlay"></div>
           <div class="eh-vida-card-content">
             <h3>Cowork y Networking</h3>
             <p>Conecta con personas que están construyendo.</p>
           </div>
         </div>
         <div class="eh-vida-card">
-          <img src="https://esic.co/assets/images/DSC02331_resultado.webp" alt="Eventos" width="1600" height="900" loading="lazy">
+          <img src="https://esic.co/wp-content/uploads/2026/02/eventos.webp" alt="Eventos" width="1600" height="900" loading="lazy">
+          <div class="eh-vida-card-overlay"></div>
           <div class="eh-vida-card-content">
             <h3>Eventos y Conferencias</h3>
             <p>Eventos que te mantienen actualizado con lo que está pasando en los negocios, marketing y tecnología.</p>
           </div>
         </div>
         <div class="eh-vida-card">
-          <img src="https://esic.co/assets/images/DSC02270_resultado.webp" alt="Campus" width="1600" height="900" loading="lazy">
+          <img src="https://esic.co/wp-content/uploads/2026/02/campus.webp" alt="Campus" width="1600" height="900" loading="lazy">
+          <div class="eh-vida-card-overlay"></div>
           <div class="eh-vida-card-content">
             <h3>Campus Medellín</h3>
             <p>Vive la experiencia ESIC en el Alto de las Palmas (Medellín).</p>
@@ -1372,231 +1682,127 @@
     </div>
   </section>
 
-  <!-- Cifras Section -->
+  <!-- Cifras Section - Bold Numbers -->
   <section class="eh-section eh-section-rounded eh-cifras-section">
     <div class="eh-container">
       <div class="eh-cifras-header">
         <h2>CIFRAS Y<br>RECONOCIMIENTO</h2>
       </div>
 
-      <div class="eh-variant-selector">
-        <button class="eh-variant-btn eh-active" data-variant="a">A</button>
-        <button class="eh-variant-btn" data-variant="b">B</button>
-        <button class="eh-variant-btn" data-variant="c">C</button>
-      </div>
-
-      <!-- SVG Icons -->
-      <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
-        <symbol id="eh-ico-pregrado" viewBox="0 0 40 40">
-          <path d="M20 6L2 16l18 10 18-10L20 6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M8 20v10c0 0 4 5 12 5s12-5 12-5V20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          <line x1="36" y1="16" x2="36" y2="32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </symbol>
-        <symbol id="eh-ico-master" viewBox="0 0 40 40">
-          <circle cx="14" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M4 32c0-6 4-10 10-10s10 4 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="28" cy="10" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M28 18c4 0 8 3 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </symbol>
-        <symbol id="eh-ico-medida" viewBox="0 0 40 40">
-          <circle cx="20" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="8" cy="28" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="32" cy="28" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="20" cy="32" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
-          <line x1="18" y1="12" x2="10" y2="24" stroke="currentColor" stroke-width="1.5"/>
-          <line x1="22" y1="12" x2="30" y2="24" stroke="currentColor" stroke-width="1.5"/>
-          <line x1="12" y1="28" x2="17" y2="31" stroke="currentColor" stroke-width="1.5"/>
-          <line x1="28" y1="28" x2="23" y2="31" stroke="currentColor" stroke-width="1.5"/>
-        </symbol>
-        <symbol id="eh-ico-ejecutivo" viewBox="0 0 40 40">
-          <rect x="4" y="14" width="32" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M14 14V10a4 4 0 014-4h4a4 4 0 014 4v4" fill="none" stroke="currentColor" stroke-width="2"/>
-          <line x1="4" y1="24" x2="36" y2="24" stroke="currentColor" stroke-width="2"/>
-          <rect x="17" y="22" width="6" height="4" rx="1" fill="currentColor"/>
-        </symbol>
-        <symbol id="eh-flag-col" viewBox="0 0 30 20">
-          <rect width="30" height="10" fill="#FCD116"/>
-          <rect y="10" width="30" height="5" fill="#003893"/>
-          <rect y="15" width="30" height="5" fill="#CE1126"/>
-        </symbol>
-        <symbol id="eh-flag-esp" viewBox="0 0 30 20">
-          <rect width="30" height="20" fill="#AA151B"/>
-          <rect y="5" width="30" height="10" fill="#F1BF00"/>
-          <rect x="7" y="7" width="4" height="6" rx="0.5" fill="#AA151B" opacity="0.8"/>
-          <rect x="7" y="7" width="4" height="3" rx="0.5" fill="#c8a400"/>
-          <circle cx="9" cy="7" r="0.8" fill="#AA151B"/>
-        </symbol>
-      </svg>
-
-      <!-- Variant A -->
-      <div class="eh-cifras-variant eh-active" id="eh-variant-a">
-        <div class="eh-va-card">
-          <div class="eh-va-top">
-            <img class="eh-va-top-img" src="https://esic.co/assets/images/DSC02284_resultado.webp" alt="ESIC Campus" width="1600" height="900" loading="lazy">
-            <div class="eh-va-top-content">
-              <div class="eh-cifras-zone-label">
-                <svg class="eh-flag-icon" width="24" height="16"><use href="#eh-flag-esp"/></svg>
-                <span>ESIC España</span>
-              </div>
-              <div class="eh-va-top-stats">
-                <div class="eh-cifras-stat"><span class="eh-num">TOP 1</span><span class="eh-desc">Marketing y Economía Digital</span></div>
-                <div class="eh-cifras-stat"><span class="eh-num">+60</span><span class="eh-desc">años formando profesionales</span></div>
-                <div class="eh-cifras-stat"><span class="eh-num">13</span><span class="eh-desc">Campus en 4 continentes</span></div>
-                <div class="eh-cifras-stat"><span class="eh-num">62K+</span><span class="eh-desc">alumni de 80+ nacionalidades</span></div>
-              </div>
-              <div class="eh-va-top-bottom">
-                <ul class="eh-cifras-check eh-on-dark"><li>Acuerdos en 40+ países</li><li>Referente europeo en negocios</li></ul>
-                <a href="https://www.esic.edu" target="_blank" rel="noopener" class="eh-cifras-cta">Conoce ESIC España<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-              </div>
-            </div>
+      <!-- ESIC España -->
+      <div class="eh-stats-country eh-españa">
+        <div class="eh-country-header">
+          <svg class="eh-country-flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
+          <span class="eh-country-name">ESIC España</span>
+        </div>
+        <div class="eh-stats-clean">
+          <div class="eh-stat-block">
+            <div class="eh-stat-number">TOP 1</div>
+            <div class="eh-stat-label">Marketing y Economía Digital</div>
           </div>
-          <div class="eh-va-med">
-            <div class="eh-cifras-zone-label">
-              <svg class="eh-flag-icon" width="24" height="16"><use href="#eh-flag-col"/></svg>
-              <span>ESIC Medellín</span>
-            </div>
-            <div class="eh-va-med-grid">
-              <div class="eh-va-med-item">
-                <svg class="eh-prog-icon"><use href="#eh-ico-pregrado"/></svg>
-                <div class="eh-va-med-info"><h4>Pregrado</h4><span class="eh-num">252</span><span class="eh-desc">activos</span><p>Proy. 2026: 452 · Proy. 2029: 1,000</p></div>
-              </div>
-              <div class="eh-va-med-item">
-                <svg class="eh-prog-icon"><use href="#eh-ico-master"/></svg>
-                <div class="eh-va-med-info"><h4>Máster</h4><span class="eh-num">230</span><span class="eh-desc">graduados</span><p>141 activos</p></div>
-              </div>
-              <div class="eh-va-med-item">
-                <svg class="eh-prog-icon"><use href="#eh-ico-medida"/></svg>
-                <div class="eh-va-med-info"><h4>A la Medida</h4><span class="eh-num">+3,000</span><span class="eh-desc">participantes</span></div>
-              </div>
-              <div class="eh-va-med-item">
-                <svg class="eh-prog-icon"><use href="#eh-ico-ejecutivo"/></svg>
-                <div class="eh-va-med-info"><h4>Ejecutivo</h4><span class="eh-num">198</span><span class="eh-desc">estudiantes</span><p>4 cohortes</p></div>
-              </div>
-            </div>
+          <div class="eh-stat-block">
+            <div class="eh-stat-number">62K+</div>
+            <div class="eh-stat-label">Alumni de 80+ nacionalidades</div>
+          </div>
+          <div class="eh-stat-block">
+            <div class="eh-stat-number">60</div>
+            <div class="eh-stat-label">Años formando profesionales</div>
           </div>
         </div>
       </div>
 
-      <!-- Variant B -->
-      <div class="eh-cifras-variant" id="eh-variant-b">
-        <div class="eh-vb-card">
-          <div class="eh-vb-top">
-            <img class="eh-vb-top-img" src="https://esic.co/assets/images/DSC02284_resultado.webp" alt="ESIC Campus" width="1600" height="900" loading="lazy">
-            <div class="eh-vb-top-content">
-              <div class="eh-cifras-zone-label">
-                <svg class="eh-flag-icon" width="24" height="16"><use href="#eh-flag-esp"/></svg>
-                <span>ESIC España</span>
-              </div>
-              <div class="eh-vb-top-stats">
-                <div class="eh-cifras-stat"><span class="eh-num">TOP 1</span><span class="eh-desc">Marketing y Economía Digital</span></div>
-                <div class="eh-cifras-stat"><span class="eh-num">+60</span><span class="eh-desc">años formando profesionales</span></div>
-                <div class="eh-cifras-stat"><span class="eh-num">13</span><span class="eh-desc">Campus en 4 continentes</span></div>
-                <div class="eh-cifras-stat"><span class="eh-num">62K+</span><span class="eh-desc">alumni de 80+ nacionalidades</span></div>
-              </div>
-              <div class="eh-vb-top-bottom">
-                <ul class="eh-cifras-check eh-on-dark"><li>Acuerdos en 40+ países</li><li>Referente europeo en negocios</li></ul>
-                <a href="https://www.esic.edu" target="_blank" rel="noopener" class="eh-cifras-cta">Conoce ESIC España<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-              </div>
-            </div>
+      <!-- ESIC Medellín -->
+      <div class="eh-stats-country eh-medellin">
+        <div class="eh-country-header">
+          <svg class="eh-country-flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+          <span class="eh-country-name">ESIC Medellín</span>
+        </div>
+        <div class="eh-stats-clean">
+          <div class="eh-stat-block">
+            <div class="eh-stat-number">+3,000</div>
+            <div class="eh-stat-label">A la medida participantes</div>
           </div>
-          <div class="eh-vb-bottom">
-            <div class="eh-cifras-zone-label">
-              <svg class="eh-flag-icon" width="24" height="16"><use href="#eh-flag-col"/></svg>
-              <span>ESIC Medellín</span>
-            </div>
-            <div class="eh-vb-med-row">
-              <div class="eh-vb-med-item">
-                <svg class="eh-prog-icon" style="color:#0038E3"><use href="#eh-ico-pregrado"/></svg>
-                <div class="eh-vb-med-info"><h4>Pregrado</h4><span class="eh-num">252</span><span class="eh-desc">activos</span><p>Proy. 2026: 452 · Proy. 2029: 1,000</p></div>
-              </div>
-              <div class="eh-vb-med-item">
-                <svg class="eh-prog-icon" style="color:#0038E3"><use href="#eh-ico-master"/></svg>
-                <div class="eh-vb-med-info"><h4>Máster</h4><span class="eh-num">230</span><span class="eh-desc">graduados</span><p>141 activos</p></div>
-              </div>
-              <div class="eh-vb-med-item">
-                <svg class="eh-prog-icon" style="color:#0038E3"><use href="#eh-ico-medida"/></svg>
-                <div class="eh-vb-med-info"><h4>A la Medida</h4><span class="eh-num">+3,000</span><span class="eh-desc">participantes</span></div>
-              </div>
-              <div class="eh-vb-med-item">
-                <svg class="eh-prog-icon" style="color:#0038E3"><use href="#eh-ico-ejecutivo"/></svg>
-                <div class="eh-vb-med-info"><h4>Ejecutivo</h4><span class="eh-num">198</span><span class="eh-desc">estudiantes</span><p>4 cohortes</p></div>
-              </div>
-            </div>
+          <div class="eh-stat-block">
+            <div class="eh-stat-number">230</div>
+            <div class="eh-stat-label">Máster graduados</div>
+          </div>
+          <div class="eh-stat-block">
+            <div class="eh-stat-number">252</div>
+            <div class="eh-stat-label">Pregrado activos</div>
           </div>
         </div>
       </div>
 
-      <!-- Variant C -->
-      <div class="eh-cifras-variant" id="eh-variant-c">
-        <div class="eh-vc-card">
-          <div class="eh-vc-left">
-            <div class="eh-cifras-zone-label">
-              <svg class="eh-flag-icon" width="24" height="16"><use href="#eh-flag-esp"/></svg>
-              <span>ESIC España</span>
-            </div>
-            <div class="eh-vc-left-stats">
-              <div class="eh-cifras-stat"><span class="eh-num">TOP 1</span><span class="eh-desc">Marketing y Economía Digital</span></div>
-              <div class="eh-cifras-stat"><span class="eh-num">+60</span><span class="eh-desc">años formando profesionales</span></div>
-              <div class="eh-cifras-stat"><span class="eh-num">13</span><span class="eh-desc">Campus en 4 continentes</span></div>
-              <div class="eh-cifras-stat"><span class="eh-num">62K+</span><span class="eh-desc">alumni de 80+ nacionalidades</span></div>
-            </div>
-            <div class="eh-vc-left-bottom">
-              <ul class="eh-cifras-check eh-on-dark"><li>Acuerdos en 40+ países</li><li>Referente europeo en negocios</li></ul>
-              <a href="https://www.esic.edu" target="_blank" rel="noopener" class="eh-cifras-cta">ESIC España<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-          </div>
-          <div class="eh-vc-right">
-            <div class="eh-cifras-zone-label">
-              <svg class="eh-flag-icon" width="24" height="16"><use href="#eh-flag-col"/></svg>
-              <span>ESIC Medellín</span>
-            </div>
-            <div class="eh-vc-prog">
-              <svg class="eh-prog-icon"><use href="#eh-ico-pregrado"/></svg>
-              <div class="eh-vc-prog-info"><h4>Pregrado</h4><span class="eh-num">252</span><span class="eh-desc">activos</span><p>Proy. 2026: 452 · Proy. 2029: 1,000</p></div>
-            </div>
-            <div class="eh-vc-prog">
-              <svg class="eh-prog-icon"><use href="#eh-ico-master"/></svg>
-              <div class="eh-vc-prog-info"><h4>Máster</h4><span class="eh-num">230</span><span class="eh-desc">graduados</span><p>141 activos</p></div>
-            </div>
-            <div class="eh-vc-prog">
-              <svg class="eh-prog-icon"><use href="#eh-ico-medida"/></svg>
-              <div class="eh-vc-prog-info"><h4>A la Medida</h4><span class="eh-num">+3,000</span><span class="eh-desc">participantes</span></div>
-            </div>
-            <div class="eh-vc-prog">
-              <svg class="eh-prog-icon"><use href="#eh-ico-ejecutivo"/></svg>
-              <div class="eh-vc-prog-info"><h4>Ejecutivo</h4><span class="eh-num">198</span><span class="eh-desc">estudiantes</span><p>4 cohortes</p></div>
-            </div>
-          </div>
-        </div>
+      <!-- CTA -->
+      <div class="eh-stats-cta">
+        <a href="https://www.esic.edu" target="_blank" rel="noopener" class="eh-stats-cta-btn">
+          Conoce ESIC España
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
+
     </div>
   </section>
 
   <!-- Historias de Éxito Section -->
-  <section class="eh-section eh-section-rounded eh-section-cream eh-historias-section">
+  <section class="eh-section eh-section-rounded eh-section-white eh-historias-section">
     <div class="eh-container">
       <div class="eh-historias-header">
         <h2>HISTORIAS<br>DE ÉXITO</h2>
       </div>
       <div class="eh-historias-grid">
-        <div class="eh-testimonio-card eh-boilerplate-overlay">
-          <span class="eh-boilerplate-tag">Testimonio 1</span>
-          <blockquote>Texto del testimonio del egresado. Esta sección será completada con testimonios reales.</blockquote>
+        <!-- Testimonio Daniela Tobón -->
+        <div class="eh-testimonio-card">
+          <blockquote>En ESIC abrí los ojos al mundo real: descubrí industrias, encontré mi pasión y conocí personas que hoy son parte de mi camino profesional. Gracias a esta experiencia, encontré una oportunidad laboral que me ha retado y me ha abierto puertas que jamás imaginé.</blockquote>
           <div class="eh-testimonio-author">
-            <img src="https://esic.co/assets/images/DSC02284_resultado.webp" alt="Placeholder" width="1600" height="900" loading="lazy">
-            <div class="eh-testimonio-author-info"><h4>Nombre Apellido</h4><p>Egresado/a Máster</p></div>
+            <div class="eh-avatar-placeholder">DT</div>
+            <div class="eh-testimonio-author-info"><h4>Daniela Tobón</h4><p>Pregrado en Digital Business</p></div>
           </div>
         </div>
-        <div class="eh-historias-featured eh-boilerplate-overlay">
-          <img src="https://esic.co/assets/images/DSC02331_resultado.webp" alt="Estudiante ESIC" width="1600" height="900" loading="lazy">
-          <span class="eh-boilerplate-tag">Foto destacada</span>
+        
+        <!-- Video Testimonial -->
+        <div class="eh-historias-featured">
+          <div class="eh-video-container" id="videoContainer">
+            <video id="testimonialVideo" playsinline>
+              <source src="https://esic.co/wp-content/uploads/2026/02/testimonio-felipe.mp4" type="video/mp4">
+              Tu navegador no soporta el elemento de video.
+            </video>
+            
+            <!-- Play Overlay -->
+            <div class="eh-video-play-overlay" id="playOverlay">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            
+            <!-- Custom Controls -->
+            <div class="eh-video-controls">
+              <div class="eh-video-progress" id="progressBar">
+                <div class="eh-video-progress-bar" id="progressBarFill"></div>
+              </div>
+              <div class="eh-video-buttons">
+                <button class="eh-video-btn eh-play-btn" id="playBtn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="eh-video-volume">
+                  <button class="eh-video-btn" id="muteBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                  </button>
+                  <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+                </div>
+                <span class="eh-video-time" id="timeDisplay">0:00 / 0:00</span>
+                <button class="eh-video-btn" id="fullscreenBtn" style="margin-left: auto;">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="eh-testimonio-card eh-boilerplate-overlay">
-          <span class="eh-boilerplate-tag">Testimonio 2</span>
-          <blockquote>Texto del testimonio del egresado. Esta sección será completada con testimonios reales.</blockquote>
+        
+        <!-- Testimonio Valeria Velásquez -->
+        <div class="eh-testimonio-card">
+          <blockquote>Después de pasar por una universidad tradicional, decidí dar un giro. Encontré una metodología que realmente responde a lo que hoy exige el mercado: materias integradas, desafíos reales y oportunidades de networking. Pero lo mejor aún está por venir: ¡muy pronto viviré el Summer Camp en Madrid y ya estoy contando los días!</blockquote>
           <div class="eh-testimonio-author">
-            <img src="https://esic.co/assets/images/DSC02307_resultado.webp" alt="Placeholder" width="1600" height="900" loading="lazy">
-            <div class="eh-testimonio-author-info"><h4>Nombre Apellido</h4><p>Egresado/a Máster</p></div>
+            <div class="eh-avatar-placeholder">VV</div>
+            <div class="eh-testimonio-author-info"><h4>Valeria Velásquez</h4><p>Pregrado en Marketing Global</p></div>
           </div>
         </div>
       </div>
@@ -1604,25 +1810,25 @@
   </section>
 
   <!-- Fundadores Section -->
-  <section class="eh-section eh-section-rounded eh-section-white eh-fundadores-section">
+  <section class="eh-section eh-section-rounded eh-section-gray eh-fundadores-section">
     <div class="eh-container">
       <div class="eh-fundadores-header">
         <h2>NUESTROS MIEMBROS<br>FUNDADORES</h2>
       </div>
       <div class="eh-fundadores-marquee">
         <div class="eh-fundadores-track">
-          <div class="eh-fundador-logo eh-logo-bios"><img src="https://esic.co/assets/images/logos/grupo-bios.webp" alt="Grupo Bios" width="200" height="86" loading="lazy"></div>
-          <div class="eh-fundador-logo eh-logo-bancolombia"><img src="https://esic.co/assets/images/logos/bancolombia.webp" alt="Bancolombia" width="300" height="91" loading="lazy"></div>
-          <div class="eh-fundador-logo eh-logo-crystal"><img src="https://esic.co/assets/images/logos/crystal.webp" alt="Crystal" width="300" height="70" loading="lazy"></div>
-          <div class="eh-fundador-logo eh-logo-telefonica"><img src="https://esic.co/assets/images/logos/telefonica.webp" alt="Telefonica" width="300" height="168" loading="lazy"></div>
-          <div class="eh-fundador-logo eh-logo-accenture"><img src="https://esic.co/assets/images/logos/accenture.webp" alt="Accenture" width="300" height="38" loading="lazy"></div>
-          <div class="eh-fundador-logo eh-logo-postobon"><img src="https://esic.co/assets/images/logos/postobon.webp" alt="Postobon" width="300" height="79" loading="lazy"></div>
-          <div class="eh-fundador-logo eh-logo-bios"><img src="https://esic.co/assets/images/logos/grupo-bios.webp" alt="Grupo Bios" width="200" height="86" loading="lazy"></div>
-          <div class="eh-fundador-logo eh-logo-bancolombia"><img src="https://esic.co/assets/images/logos/bancolombia.webp" alt="Bancolombia" width="300" height="91" loading="lazy"></div>
-          <div class="eh-fundador-logo eh-logo-crystal"><img src="https://esic.co/assets/images/logos/crystal.webp" alt="Crystal" width="300" height="70" loading="lazy"></div>
-          <div class="eh-fundador-logo eh-logo-telefonica"><img src="https://esic.co/assets/images/logos/telefonica.webp" alt="Telefonica" width="300" height="168" loading="lazy"></div>
-          <div class="eh-fundador-logo eh-logo-accenture"><img src="https://esic.co/assets/images/logos/accenture.webp" alt="Accenture" width="300" height="38" loading="lazy"></div>
-          <div class="eh-fundador-logo eh-logo-postobon"><img src="https://esic.co/assets/images/logos/postobon.webp" alt="Postobon" width="300" height="79" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-6.png" alt="Grupo Bios" height="50" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-5.png" alt="Bancolombia" height="50" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-4.png" alt="Crystal" height="50" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-2.png" alt="Telefonica" height="50" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-1.png" alt="Accenture" height="50" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Postobon" height="50" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-6.png" alt="Grupo Bios" height="50" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-5.png" alt="Bancolombia" height="50" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-4.png" alt="Crystal" height="50" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-2.png" alt="Telefonica" height="50" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-1.png" alt="Accenture" height="50" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Postobon" height="50" loading="lazy"></div>
         </div>
       </div>
     </div>
@@ -1633,173 +1839,116 @@
     <div class="eh-container">
       <div class="eh-rethink-header">
         <h2>RETHINK</h2>
+        <p>Ideas, historias y conversaciones que transforman</p>
       </div>
       <div class="eh-rethink-filters">
         <button class="eh-rethink-filter eh-active" data-filter="todo">Todo</button>
         <button class="eh-rethink-filter" data-filter="blog">Blog</button>
-        <button class="eh-rethink-filter" data-filter="noticia">Noticias</button>
         <button class="eh-rethink-filter" data-filter="podcast">Podcast</button>
       </div>
-      <div class="eh-rethink-grid">
-        <div class="eh-rethink-card" data-category="blog">
-          <div class="eh-rethink-card-image"><img src="https://esic.co/assets/images/DSC02274_resultado.webp" alt="Transformación desde el ser" width="1600" height="900" loading="lazy"></div>
-          <div class="eh-rethink-card-content">
-            <span class="eh-rethink-card-tag eh-tag-blog">Blog</span>
-            <h3>Transformación Desde el Ser: Aprendizajes del Executive Program</h3>
-            <a class="eh-btn eh-btn-outline" href="transformacion-desde-el-ser/" target="_blank" rel="noopener">LEER</a>
-          </div>
-        </div>
-        <div class="eh-rethink-card" data-category="noticia">
-          <div class="eh-rethink-card-image"><img src="https://esic.co/assets/images/DSC02307_resultado.webp" alt="StartCo Medellín 2025" width="1600" height="900" loading="lazy"></div>
-          <div class="eh-rethink-card-content">
-            <span class="eh-rethink-card-tag eh-tag-noticia">Noticia</span>
-            <h3>StartCo Medellín 2025: Redibujando el Mapa de los Negocios en LATAM</h3>
-            <a class="eh-btn eh-btn-outline" href="startco-medellin-2025-redibujando-el-mapa-de-los-negocios-en-america-latina/" target="_blank" rel="noopener">LEER</a>
-          </div>
-        </div>
+      <div class="eh-rethink-grid eh-single-row">
         <div class="eh-rethink-card" data-category="podcast">
-          <div class="eh-rethink-card-image"><img src="https://esic.co/assets/images/DSC02331_resultado.webp" alt="Rethink Podcast Ep. 29" width="1600" height="900" loading="lazy"></div>
+          <div class="eh-rethink-card-image"><img src="https://i.ytimg.com/an_webp/zS-ibHyImvI/mqdefault_6s.webp?du=3000&sqp=CKCjh80G&rs=AOn4CLAYk6IPeHWb7_a5XQ8IyprJ5UyhPA" alt="Rethink Podcast Ep. 29" width="1600" height="900" loading="lazy"></div>
           <div class="eh-rethink-card-content">
             <span class="eh-rethink-card-tag eh-tag-podcast">Podcast · Ep. 29</span>
-            <h3>El Futuro de Nuestra Consciencia con IA — Sebastián Chinkovsky</h3>
-            <a class="eh-btn eh-btn-outline" href="https://open.spotify.com/show/1gMbMV1e39Ts1JLMJlQBdg" target="_blank" rel="noopener">ESCUCHAR</a>
+            <h3>El Futuro de Nuestra Consciencia con IA con Sebastián Chinkovsky</h3>
+            <a class="eh-btn eh-btn-outline" href="https://www.youtube.com/watch?v=zS-ibHyImvI" target="_blank" rel="noopener">ESCUCHAR</a>
           </div>
         </div>
         <div class="eh-rethink-card" data-category="blog">
-          <div class="eh-rethink-card-image"><img src="https://esic.co/assets/images/DSC02284_resultado.webp" alt="Semana By ESIC" width="1600" height="900" loading="lazy"></div>
+          <div class="eh-rethink-card-image"><img src="https://esic.co/wp-content/uploads/2026/02/Captura-de-pantalla-2026-02-16-160128.png" alt="Emprender sin fundar una startup" width="1600" height="900" loading="lazy"></div>
           <div class="eh-rethink-card-content">
             <span class="eh-rethink-card-tag eh-tag-blog">Blog</span>
-            <h3>Del Aula al Mercado Español: Mi Viaje Durante la Semana By ESIC</h3>
-            <a class="eh-btn eh-btn-outline" href="del-aula-al-mercado-espanol-mi-viaje-durante-la-semana-by-esic/" target="_blank" rel="noopener">LEER</a>
-          </div>
-        </div>
-        <div class="eh-rethink-card" data-category="noticia">
-          <div class="eh-rethink-card-image"><img src="https://esic.co/assets/images/DSC02270_resultado.webp" alt="Desafío Junior Empresarial" width="1600" height="900" loading="lazy"></div>
-          <div class="eh-rethink-card-content">
-            <span class="eh-rethink-card-tag eh-tag-noticia">Noticia</span>
-            <h3>Desafío Junior Empresarial 2024: Donde la Cooltura y los Negocios se Fusionaron</h3>
-            <a class="eh-btn eh-btn-outline" href="desafio-junior-empresarial-con-chef-burger/" target="_blank" rel="noopener">LEER</a>
+            <h3>Emprender sin fundar una startup: el nuevo perfil del profesional emprendedor</h3>
+            <a class="eh-btn eh-btn-outline" href="https://esic.co/emprender-sin-fundar-una-startup-el-nuevo-perfil-del-profesional-emprendedor/" target="_blank" rel="noopener">LEER</a>
           </div>
         </div>
         <div class="eh-rethink-card" data-category="podcast">
-          <div class="eh-rethink-card-image"><img src="https://esic.co/assets/images/DSC02220_resultado.webp" alt="Rethink Podcast Ep. 28" width="1600" height="1140" loading="lazy"></div>
+          <div class="eh-rethink-card-image"><img src="https://i.ytimg.com/an_webp/XFziCxsoUr0/mqdefault_6s.webp?du=3000&sqp=CJWPh80G&rs=AOn4CLAYEZVHKHqau6sCoPeq7XJ_dI6xkQ" alt="Rethink Podcast Ep. 28" width="1600" height="1140" loading="lazy"></div>
           <div class="eh-rethink-card-content">
             <span class="eh-rethink-card-tag eh-tag-podcast">Podcast · Ep. 28</span>
-            <h3>El Futuro de la Política con IA — Federico Hoyos</h3>
-            <a class="eh-btn eh-btn-outline" href="https://open.spotify.com/show/1gMbMV1e39Ts1JLMJlQBdg" target="_blank" rel="noopener">ESCUCHAR</a>
+            <h3>El Futuro de la Política con IA con Federico Hoyos</h3>
+            <a class="eh-btn eh-btn-outline" href="https://www.youtube.com/watch?v=XFziCxsoUr0&t=1s" target="_blank" rel="noopener">ESCUCHAR</a>
+          </div>
+        </div>
+        <div class="eh-rethink-card" data-category="blog">
+          <div class="eh-rethink-card-image"><img src="https://esic.co/wp-content/uploads/2026/02/Blog-ESIC-2.png" alt="Excelencia académica" width="1600" height="900" loading="lazy"></div>
+          <div class="eh-rethink-card-content">
+            <span class="eh-rethink-card-tag eh-tag-blog">Blog</span>
+            <h3>Excelencia académica: cuando la educación deja de ser contenido y se convierte en criterio</h3>
+            <a class="eh-btn eh-btn-outline" href="https://esic.co/excelencia-academica-cuando-la-educacion-deja-de-ser-contenido-y-se-convierte-en-criterio/" target="_blank" rel="noopener">LEER</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="eh-footer eh-section-rounded" id="contacto">
-    <div class="eh-container">
-      <div class="eh-footer-grid">
-        <div class="eh-footer-cta">
-          <h2>TRANSFORMA<br>TU FUTURO<br><span>EN ESIC</span></h2>
-          <div class="eh-footer-cta-buttons">
-            <a href="https://esic.co/institucional/quienes-somos.html">INSTITUCIÓN<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            <a href="#eh-cifras">CIFRAS<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            <a href="#" class="eh-contact-trigger">CONTÁCTANOS<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-        <div class="eh-footer-info">
-          <div class="eh-footer-logo"><img src="https://esic.co/wp-content/uploads/2026/02/CEIPA-Y-ESIC-a.png" alt="CEIPA y ESIC"></div>
-          <div class="eh-footer-contact"><p>info@esic.co</p></div>
-          <div class="eh-footer-social">
-            <a href="https://www.linkedin.com/school/esic-medellin/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-            <a href="https://www.instagram.com/esic.colombia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-            <a href="https://www.tiktok.com/@esic.colombia" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-            <a href="https://www.youtube.com/@ESICmedellin" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-          </div>
-          <div class="eh-footer-links">
-            <a href="#">Términos y Condiciones</a>
-            <a href="#">Política de Tratamiento de Datos</a>
-          </div>
-        </div>
-      </div>
-      <div class="eh-footer-bottom"><p>© 2025 ESIC. Todos los derechos reservados.</p></div>
-    </div>
-  </footer>
+</main>
 
-  <!-- Contact Modal -->
-  <div class="eh-contact-modal" id="contactModal">
-    <div class="eh-contact-modal-overlay"></div>
-    <div class="eh-contact-modal-content">
-      <button class="eh-modal-close" aria-label="Cerrar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-      <div class="eh-modal-header">
-        <h2>Contáctanos</h2>
-        <p>Estamos aquí para ayudarte. Cuéntanos sobre ti.</p>
-      </div>
-      <div class="eh-modal-body">
-        <form action="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit" name="form" id="form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
-          <input type="hidden" name="zf_referrer_name" value="">
-          <input type="hidden" name="zf_redirect_url" value="">
-          <input type="hidden" name="zc_gad" value="">
-          
-          <div class="eh-form-row">
-            <div class="eh-form-group">
-              <label>Nombre <em>*</em></label>
-              <input type="text" maxlength="255" name="Name_First" placeholder="Tu nombre" required>
-            </div>
-            <div class="eh-form-group">
-              <label>Apellido</label>
-              <input type="text" maxlength="255" name="Name_Last" placeholder="Tu apellido">
-            </div>
+<!-- Contact Modal -->
+<div class="eh-modal-overlay" id="contactModal">
+  <div class="eh-modal-container">
+    <div class="eh-modal-header">
+      <h3>Solicitar Información</h3>
+      <button class="eh-modal-close" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="eh-modal-body">
+      <form action='https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit' name='form' id='zohoForm' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
+        <input type="hidden" name="zf_referrer_name" value="">
+        <input type="hidden" name="zf_redirect_url" value="">
+        <input type="hidden" name="zc_gad" value="">
+        
+        <div class="eh-form-row">
+          <div class="eh-form-group eh-form-half">
+            <label>Nombre <em>*</em></label>
+            <input type="text" maxlength="255" name="Name_First" fieldType=7 placeholder="Tu nombre" required />
           </div>
-          
-          <div class="eh-form-group full-width">
-            <label>Correo electrónico <em>*</em></label>
-            <input type="email" maxlength="255" name="Email" placeholder="tu@email.com" required>
+          <div class="eh-form-group eh-form-half">
+            <label>Apellido</label>
+            <input type="text" maxlength="255" name="Name_Last" fieldType=7 placeholder="Tu apellido" />
           </div>
-          
-          <div class="eh-form-row">
-            <div class="eh-form-group">
-              <label>Código</label>
-              <input type="text" name="PhoneNumber_countrycode" maxlength="20" placeholder="+57">
-            </div>
-            <div class="eh-form-group">
-              <label>Teléfono <em>*</em></label>
-              <input type="tel" name="PhoneNumber_countrycodeval" maxlength="20" placeholder="300 123 4567" required>
-            </div>
-          </div>
-          
-          <div class="eh-form-row">
-            <div class="eh-form-group">
-              <label>Tipo de programa <em>*</em></label>
-              <select name="Dropdown" required>
-                <option value="">Selecciona...</option>
-                <option value="Pregrado">Pregrado</option>
-                <option value="Corporate">Corporate</option>
-                <option value="Diplomado">Diplomado</option>
-                <option value="Curso">Curso</option>
-                <option value="Executive">Executive</option>
-                <option value="Educación continua">Educación continua</option>
-                <option value="Level Up">Level Up</option>
-                <option value="Open Day">Open Day</option>
-              </select>
-            </div>
-            <div class="eh-form-group">
-              <label>Medio de contacto <em>*</em></label>
-              <select name="Dropdown3" required>
-                <option value="">Selecciona...</option>
-                <option value="WhatsApp">WhatsApp</option>
-                <option value="Correo">Correo</option>
-                <option value="Llamada">Llamada</option>
-              </select>
-            </div>
-          </div>
-          
-          <button type="submit" class="eh-submit-btn">Enviar</button>
-        </form>
-      </div>
+        </div>
+        
+        <div class="eh-form-group">
+          <label>Correo electrónico <em>*</em></label>
+          <input type="email" maxlength="255" name="Email" value="" fieldType=9 placeholder="tu@email.com" required />
+        </div>
+        
+        <div class="eh-form-group">
+          <label>Teléfono <em>*</em></label>
+          <input type="tel" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1" isCountryCodeEnabled=false maxlength="20" value="" fieldType=11 id="international_PhoneNumber_countrycode" placeholder="+57 300 123 4567" required />
+        </div>
+        
+        <div class="eh-form-group">
+          <label>Tipo de programa <em>*</em></label>
+          <select name="Dropdown" required>
+            <option selected disabled value="">Selecciona un programa</option>
+            <option value="Pregrado">Pregrado</option>
+            <option value="Corporate">Corporate</option>
+            <option value="Diplomado">Diplomado</option>
+            <option value="Curso">Curso</option>
+            <option value="Executive">Executive</option>
+            <option value="Educación continua">Educación continua</option>
+            <option value="Level Up">Level Up</option>
+            <option value="Open Day">Open Day</option>
+          </select>
+        </div>
+        
+        <div class="eh-form-group">
+          <label>Medio de contacto preferido <em>*</em></label>
+          <select name="Dropdown3" required>
+            <option selected disabled value="">Selecciona un medio</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Correo">Correo</option>
+            <option value="Llamada">Llamada</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="eh-btn eh-btn-primary eh-btn-full">Enviar solicitud</button>
+      </form>
     </div>
   </div>
-</main>
+</div>
 
 <script>
 (function() {
@@ -1916,19 +2065,107 @@
     resetAuto();
   })();
 
-  // Cifras variant toggle
-  var variantBtns = wrapper.querySelectorAll('.eh-variant-btn');
-  var variantPanels = wrapper.querySelectorAll('.eh-cifras-variant');
-  variantBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var v = btn.getAttribute('data-variant');
-      variantBtns.forEach(function(b) { b.classList.remove('eh-active'); });
-      variantPanels.forEach(function(p) { p.classList.remove('eh-active'); });
-      btn.classList.add('eh-active');
-      var panel = wrapper.querySelector('#eh-variant-' + v);
-      if (panel) panel.classList.add('eh-active');
+  // Video Custom Controls
+  var video = wrapper.querySelector('#testimonialVideo');
+  var videoContainer = wrapper.querySelector('#videoContainer');
+  var playBtn = wrapper.querySelector('#playBtn');
+  var playOverlay = wrapper.querySelector('#playOverlay');
+  var progressBar = wrapper.querySelector('#progressBar');
+  var progressBarFill = wrapper.querySelector('#progressBarFill');
+  var muteBtn = wrapper.querySelector('#muteBtn');
+  var volumeSlider = wrapper.querySelector('#volumeSlider');
+  var fullscreenBtn = wrapper.querySelector('#fullscreenBtn');
+  var timeDisplay = wrapper.querySelector('#timeDisplay');
+  
+  if (video) {
+    // Play/Pause toggle
+    function togglePlay() {
+      if (video.paused) {
+        video.play();
+        videoContainer.classList.remove('paused');
+        playOverlay.classList.add('hidden');
+        playBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+      } else {
+        video.pause();
+        videoContainer.classList.add('paused');
+        playOverlay.classList.remove('hidden');
+        playBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+      }
+    }
+    
+    if (playBtn) playBtn.addEventListener('click', togglePlay);
+    if (playOverlay) playOverlay.addEventListener('click', togglePlay);
+    if (video) video.addEventListener('click', togglePlay);
+    
+    // Update progress bar
+    video.addEventListener('timeupdate', function() {
+      var progress = (video.currentTime / video.duration) * 100;
+      if (progressBarFill) progressBarFill.style.width = progress + '%';
+      
+      // Update time display
+      var current = formatTime(video.currentTime);
+      var duration = formatTime(video.duration || 0);
+      if (timeDisplay) timeDisplay.textContent = current + ' / ' + duration;
     });
-  });
+    
+    // Seek on progress bar click
+    if (progressBar) {
+      progressBar.addEventListener('click', function(e) {
+        var rect = progressBar.getBoundingClientRect();
+        var pos = (e.clientX - rect.left) / rect.width;
+        video.currentTime = pos * video.duration;
+      });
+    }
+    
+    // Mute toggle
+    if (muteBtn) {
+      muteBtn.addEventListener('click', function() {
+        video.muted = !video.muted;
+        if (video.muted) {
+          muteBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>';
+          volumeSlider.value = 0;
+        } else {
+          muteBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
+          volumeSlider.value = 1;
+        }
+      });
+    }
+    
+    // Volume control
+    if (volumeSlider) {
+      volumeSlider.addEventListener('input', function() {
+        video.volume = volumeSlider.value;
+        video.muted = volumeSlider.value == 0;
+      });
+    }
+    
+    // Fullscreen
+    if (fullscreenBtn) {
+      fullscreenBtn.addEventListener('click', function() {
+        if (videoContainer.requestFullscreen) {
+          videoContainer.requestFullscreen();
+        } else if (videoContainer.webkitRequestFullscreen) {
+          videoContainer.webkitRequestFullscreen();
+        } else if (videoContainer.msRequestFullscreen) {
+          videoContainer.msRequestFullscreen();
+        }
+      });
+    }
+    
+    // Format time helper
+    function formatTime(seconds) {
+      var mins = Math.floor(seconds / 60);
+      var secs = Math.floor(seconds % 60);
+      return mins + ':' + (secs < 10 ? '0' : '') + secs;
+    }
+    
+    // Show controls when video ends
+    video.addEventListener('ended', function() {
+      videoContainer.classList.add('paused');
+      playOverlay.classList.remove('hidden');
+      playBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    });
+  }
 
   // Rethink filters
   var rethinkFilters = wrapper.querySelectorAll('.eh-rethink-filter');
@@ -1945,45 +2182,42 @@
   });
 
   // Contact Modal
-  var contactModal = document.getElementById('contactModal');
-  var contactTriggers = wrapper.querySelectorAll('.eh-contact-trigger');
-  var modalClose = contactModal ? contactModal.querySelector('.eh-modal-close') : null;
-  var modalOverlay = contactModal ? contactModal.querySelector('.eh-contact-modal-overlay') : null;
-
-  function openModal() {
-    if (contactModal) {
-      contactModal.classList.add('eh-modal-open');
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function closeModal() {
-    if (contactModal) {
-      contactModal.classList.remove('eh-modal-open');
-      document.body.style.overflow = '';
-    }
-  }
-
-  contactTriggers.forEach(function(trigger) {
-    trigger.addEventListener('click', function(e) {
+  var contactTrigger = wrapper.querySelector('.eh-contact-trigger');
+  var contactModal = wrapper.querySelector('#contactModal');
+  var modalClose = wrapper.querySelector('.eh-modal-close');
+  
+  if (contactTrigger && contactModal) {
+    contactTrigger.addEventListener('click', function(e) {
       e.preventDefault();
-      openModal();
+      contactModal.classList.add('eh-active');
+      document.body.style.overflow = 'hidden';
     });
-  });
-
-  if (modalClose) {
-    modalClose.addEventListener('click', closeModal);
   }
-
-  if (modalOverlay) {
-    modalOverlay.addEventListener('click', closeModal);
+  
+  if (modalClose && contactModal) {
+    modalClose.addEventListener('click', function() {
+      contactModal.classList.remove('eh-active');
+      document.body.style.overflow = '';
+    });
   }
-
+  
+  if (contactModal) {
+    contactModal.addEventListener('click', function(e) {
+      if (e.target === contactModal) {
+        contactModal.classList.remove('eh-active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  
+  // Close modal with Escape key
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && contactModal && contactModal.classList.contains('eh-modal-open')) {
-      closeModal();
+    if (e.key === 'Escape' && contactModal && contactModal.classList.contains('eh-active')) {
+      contactModal.classList.remove('eh-active');
+      document.body.style.overflow = '';
     }
   });
 })();
 </script>
 </div>
+

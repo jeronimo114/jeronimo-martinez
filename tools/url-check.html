@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Check | ESIC Rediseño</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/esic-theme.css">
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #00133F 0%, #0B132B 100%);
+      padding: 4rem 2rem;
+    }
+
+    .url-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .url-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .url-header h1 {
+      font-family: var(--display-font);
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+    }
+
+    .url-header h1 span {
+      color: var(--brand-teal);
+    }
+
+    .url-header p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .url-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+
+    .url-back:hover {
+      color: var(--brand-teal);
+    }
+
+    .url-back svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 2.5rem 0 3rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .stat-pill .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .stat-pill.ready { background: rgba(9, 207, 144, 0.15); color: #0AE4C3; }
+    .stat-pill.ready .dot { background: #0AE4C3; }
+
+    .stat-pill.pending { background: rgba(255, 150, 0, 0.15); color: #FF9600; }
+    .stat-pill.pending .dot { background: #FF9600; }
+
+    .stat-pill.skip { background: rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.5); }
+    .stat-pill.skip .dot { background: rgba(255, 255, 255, 0.3); }
+
+    .stat-pill.total { background: rgba(0, 71, 233, 0.2); color: #6EA8FF; }
+    .stat-pill.total .dot { background: #6EA8FF; }
+
+    /* Section panel */
+    .url-section {
+      margin-bottom: 3rem;
+    }
+
+    .url-panel {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .url-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .url-panel-header h2 {
+      font-family: var(--display-font);
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+
+    .url-panel-header .count {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* URL group */
+    .url-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .url-group-title {
+      font-family: var(--display-font);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--brand-teal);
+      margin-bottom: 0.8rem;
+      padding-left: 0.5rem;
+    }
+
+    .url-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    /* URL row */
+    .url-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.8);
+      transition: background 0.15s;
+      text-decoration: none;
+    }
+
+    .url-row:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .url-row .status {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .url-row .status.ready { background: #0AE4C3; }
+    .url-row .status.pending { background: #FF9600; }
+    .url-row .status.skip { background: rgba(255, 255, 255, 0.2); }
+    .url-row .status.lp { background: #6EA8FF; }
+
+    .url-row .path {
+      flex: 1;
+      font-family: "DM Sans", monospace;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .url-row .badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .url-row .badge.ready {
+      background: rgba(9, 207, 144, 0.2);
+      color: #0AE4C3;
+    }
+
+    .url-row .badge.pending {
+      background: rgba(255, 150, 0, 0.2);
+      color: #FF9600;
+    }
+
+    .url-row .badge.skip {
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .url-row .badge.lp {
+      background: rgba(0, 71, 233, 0.2);
+      color: #6EA8FF;
+    }
+
+    .url-row .badge.new {
+      background: rgba(255, 135, 1, 0.2);
+      color: #FF9600;
+    }
+
+    .url-row .badge.elementor {
+      background: rgba(146, 39, 143, 0.2);
+      color: #D66FD3;
+    }
+
+    .url-row .arrow {
+      color: rgba(255, 255, 255, 0.2);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .url-row .map-target {
+      font-size: 0.75rem;
+      color: rgba(9, 207, 144, 0.7);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 250px;
+    }
+
+    /* Footer */
+    .url-footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .url-footer p {
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 2rem 1rem;
+      }
+
+      .url-panel {
+        padding: 1.2rem;
+      }
+
+      .stats-bar {
+        gap: 0.8rem;
+      }
+
+      .stat-pill {
+        font-size: 0.78rem;
+        padding: 0.5rem 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="url-container">
+    <a href="mapa.html" class="url-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Volver al Mapa del Sitio
+    </a>
+
+    <header class="url-header">
+      <h1>URL <span>CHECK</span></h1>
+      <p>Listado de URLs actuales de esic.co y p&aacute;ginas del redise&ntilde;o.</p>
+    </header>
+
+    <div class="stats-bar">
+      <div class="stat-pill ready"><span class="dot"></span> 15 Listas</div>
+      <div class="stat-pill pending"><span class="dot"></span> 14 Pendientes</div>
+      <div class="stat-pill skip"><span class="dot"></span> 45 No aplica / Sistema</div>
+      <div class="stat-pill total"><span class="dot"></span> 74 URLs en esic.co</div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- SECTION 1: Paginas actuales ESIC.co -->
+    <!-- ============================== -->
+    <div class="url-section">
+      <div class="url-panel">
+        <div class="url-panel-header">
+          <h2>P&aacute;ginas actuales ESIC.co</h2>
+          <span class="count">74 p&aacute;ginas</span>
+        </div>
+
+        <!-- Institucional -->
+        <div class="url-group">
+          <div class="url-group-title">Institucional</div>
+          <div class="url-list">
+            <a href="https://esic.co/" target="_blank" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">/</span>
+              <span class="badge ready">Lista</span>
+            </a>
+            <a href="https://esic.co/institucion/" target="_blank" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">/institucion/</span>
+              <span class="badge ready">Lista</span>
+            </a>
+            <a href="https://esic.co/cifras/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/cifras/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/prensa/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/prensa/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/equipo-esic/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/equipo-esic/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/aliados/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/aliados/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/experiencia-esic/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/experiencia-esic/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/campus-medellin/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/campus-medellin/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/metodologia/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/metodologia/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Programas -->
+        <div class="url-group">
+          <div class="url-group-title">Programas</div>
+          <div class="url-list">
+            <a href="https://esic.co/programas/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/programas/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/pregrados/" target="_blank" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">/pregrados/</span>
+              <span class="badge ready">Lista</span>
+            </a>
+            <a href="https://esic.co/pregrado-en-direccion-de-marketing-global/" target="_blank" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">/pregrado-en-direccion-de-marketing-global/</span>
+              <span class="badge ready">Lista</span>
+            </a>
+            <a href="https://esic.co/pregrado-en-digital-business/" target="_blank" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">/pregrado-en-digital-business/</span>
+              <span class="badge ready">Lista</span>
+            </a>
+            <a href="https://esic.co/master/" target="_blank" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">/master/</span>
+              <span class="badge ready">Lista</span>
+            </a>
+            <a href="https://esic.co/master-en-digital-marketing/" target="_blank" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">/master-en-digital-marketing/</span>
+              <span class="badge ready">Lista</span>
+            </a>
+            <a href="https://esic.co/master-en-digital-business-lp/" target="_blank" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">/master-en-digital-business-lp/</span>
+              <span class="badge ready">Lista</span>
+            </a>
+            <a href="https://esic.co/master-en-customer-experience-innovation-design-thinking/" target="_blank" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">/master-en-customer-experience-.../</span>
+              <span class="badge ready">Lista</span>
+            </a>
+            <a href="https://esic.co/educacion-continua/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/educacion-continua/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/executive-programs/" target="_blank" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">/executive-programs/</span>
+              <span class="badge ready">Lista</span>
+            </a>
+            <a href="https://esic.co/empresas/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/empresas/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/diplomado-en-ia-para-la-estrategia-del-negocio/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/diplomado-en-ia-para-la-estrategia.../</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Level Up -->
+        <div class="url-group">
+          <div class="url-group-title">Level Up</div>
+          <div class="url-list">
+            <a href="https://esic.co/level-up-inteligencia-artificial/" target="_blank" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">/level-up-inteligencia-artificial/</span>
+              <span class="badge ready">Lista</span>
+            </a>
+            <a href="https://esic.co/level-up-automatizaciones-ai/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/level-up-automatizaciones-ai/</span>
+              <span class="badge skip">Evento</span>
+            </a>
+            <a href="https://esic.co/level-up-marketing-digital/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/level-up-marketing-digital/</span>
+              <span class="badge skip">Evento</span>
+            </a>
+            <a href="https://esic.co/level-up-mente-2-0/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/level-up-mente-2-0/</span>
+              <span class="badge skip">Evento</span>
+            </a>
+            <a href="https://esic.co/level-up-creatividad-con-ia/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/level-up-creatividad-con-ia/</span>
+              <span class="badge skip">Evento</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contacto & Admisiones -->
+        <div class="url-group">
+          <div class="url-group-title">Contacto & Admisiones</div>
+          <div class="url-list">
+            <a href="https://esic.co/contactenos/" target="_blank" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">/contactenos/</span>
+              <span class="badge ready">Lista</span>
+            </a>
+            <a href="https://esic.co/admision-y-financiacion/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/admision-y-financiacion/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/calendario/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/calendario/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/zona-de-pagos/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/zona-de-pagos/</span>
+              <span class="badge skip">Externo</span>
+            </a>
+            <a href="https://esic.co/induccion/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/induccion/</span>
+              <span class="badge skip">Interno</span>
+            </a>
+            <a href="https://esic.co/periodos-academicos/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/periodos-academicos/</span>
+              <span class="badge skip">Sistema</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contenido -->
+        <div class="url-group">
+          <div class="url-group-title">Contenido</div>
+          <div class="url-list">
+            <a href="https://esic.co/rethink/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/rethink/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/podcast/" target="_blank" class="url-row">
+              <span class="status pending"></span>
+              <span class="path">/podcast/</span>
+              <span class="badge pending">Pendiente</span>
+            </a>
+            <a href="https://esic.co/ugc/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/ugc/</span>
+              <span class="badge skip">Evento</span>
+            </a>
+            <a href="https://esic.co/creadores-ugc/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/creadores-ugc/</span>
+              <span class="badge skip">Evento</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Eventos -->
+        <div class="url-group">
+          <div class="url-group-title">Eventos</div>
+          <div class="url-list">
+            <a href="https://esic.co/open-day/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/open-day/</span>
+              <span class="badge skip">Evento</span>
+            </a>
+            <a href="https://esic.co/esic-night/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/esic-night/</span>
+              <span class="badge skip">Evento</span>
+            </a>
+            <a href="https://esic.co/semana-by-esic/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/semana-by-esic/</span>
+              <span class="badge skip">Evento</span>
+            </a>
+            <a href="https://esic.co/startup-day-esic-conexion-e-innovacion/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/startup-day-esic.../</span>
+              <span class="badge skip">Evento</span>
+            </a>
+            <a href="https://esic.co/desafio-junior-empresarial-esic-cristalite/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/desafio-junior-...-cristalite/</span>
+              <span class="badge skip">Evento</span>
+            </a>
+            <a href="https://esic.co/desafio-junior-empresarial-esic-americanino/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/desafio-junior-...-americanino/</span>
+              <span class="badge skip">Evento</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Alianzas -->
+        <div class="url-group">
+          <div class="url-group-title">Alianzas</div>
+          <div class="url-list">
+            <a href="https://esic.co/esic-bancolombia/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/esic-bancolombia/</span>
+              <span class="badge skip">Alianza</span>
+            </a>
+            <a href="https://esic.co/alianza-bancolombia/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/alianza-bancolombia/</span>
+              <span class="badge skip">Alianza</span>
+            </a>
+            <a href="https://esic.co/alianza-inteia/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/alianza-inteia/</span>
+              <span class="badge skip">Alianza</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Legal -->
+        <div class="url-group">
+          <div class="url-group-title">Legal</div>
+          <div class="url-list">
+            <a href="https://esic.co/politicas-de-privacidad/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/politicas-de-privacidad/</span>
+              <span class="badge skip">Legal</span>
+            </a>
+            <a href="https://esic.co/tratamiento-de-datos-personales/" target="_blank" class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/tratamiento-de-datos-personales/</span>
+              <span class="badge skip">Legal</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Landing Pages -->
+        <div class="url-group">
+          <div class="url-group-title">Landing Pages (-lp)</div>
+          <div class="url-list">
+            <a href="https://esic.co/pregrados-lp/" target="_blank" class="url-row">
+              <span class="status lp"></span>
+              <span class="path">/pregrados-lp/</span>
+              <span class="badge lp">LP</span>
+            </a>
+            <a href="https://esic.co/master-lp/" target="_blank" class="url-row">
+              <span class="status lp"></span>
+              <span class="path">/master-lp/</span>
+              <span class="badge lp">LP</span>
+            </a>
+            <a href="https://esic.co/pregrado-en-direccion-de-marketing-global-lp/" target="_blank" class="url-row">
+              <span class="status lp"></span>
+              <span class="path">/pregrado-en-...-marketing-global-lp/</span>
+              <span class="badge lp">LP</span>
+            </a>
+            <a href="https://esic.co/pregrado-en-digital-business-lp/" target="_blank" class="url-row">
+              <span class="status lp"></span>
+              <span class="path">/pregrado-en-digital-business-lp/</span>
+              <span class="badge lp">LP</span>
+            </a>
+            <a href="https://esic.co/master-en-digital-marketing-lp/" target="_blank" class="url-row">
+              <span class="status lp"></span>
+              <span class="path">/master-en-digital-marketing-lp/</span>
+              <span class="badge lp">LP</span>
+            </a>
+            <a href="https://esic.co/master-en-digital-business-lp/" target="_blank" class="url-row">
+              <span class="status lp"></span>
+              <span class="path">/master-en-digital-business-lp/</span>
+              <span class="badge lp">LP</span>
+            </a>
+            <a href="https://esic.co/master-en-customer-experience-innovation-amp-design-thinking-lp/" target="_blank" class="url-row">
+              <span class="status lp"></span>
+              <span class="path">/master-en-cx-...-lp/</span>
+              <span class="badge lp">LP</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Confirmaciones -->
+        <div class="url-group">
+          <div class="url-group-title">P&aacute;ginas de confirmaci&oacute;n</div>
+          <div class="url-list">
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/registro-exitoso/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-pregrados/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-programas/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-master/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-educacion-continua/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-empresas/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-pregrado-...-marketing-global/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-pregrado-...-digital-business/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-master-...-digital-marketing/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-master-...-digital-business/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-master-...-cx/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-diplomado-...-ia/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-executive-programs/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-metodologia/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/confirmacion-open-day/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/desafio-junior-...-votaciones/</span>
+              <span class="badge skip">Sistema</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Otros -->
+        <div class="url-group">
+          <div class="url-group-title">Otros / Borradores</div>
+          <div class="url-list">
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/home-2-2/</span>
+              <span class="badge skip">Borrador</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/nuevo-home/</span>
+              <span class="badge skip">Borrador</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/elementor-45985/</span>
+              <span class="badge skip">Borrador</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/pregrado-en-...-medellin-copy/</span>
+              <span class="badge skip">Borrador</span>
+            </div>
+            <div class="url-row">
+              <span class="status skip"></span>
+              <span class="path">/master-en-digital-business/</span>
+              <span class="badge skip">Borrador</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- SECTION 2: Paginas del rediseno -->
+    <!-- ============================== -->
+    <div class="url-section">
+      <div class="url-panel">
+        <div class="url-panel-header">
+          <h2>P&aacute;ginas del redise&ntilde;o</h2>
+          <span class="count">17 p&aacute;ginas</span>
+        </div>
+
+        <!-- Home -->
+        <div class="url-group">
+          <div class="url-group-title">Home</div>
+          <div class="url-list">
+            <a href="index.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">index.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">esic.co/</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Institucional -->
+        <div class="url-group">
+          <div class="url-group-title">Institucional</div>
+          <div class="url-list">
+            <a href="institucional/quienes-somos.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">institucional/quienes-somos.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">/institucion/</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pregrado -->
+        <div class="url-group">
+          <div class="url-group-title">Pregrado</div>
+          <div class="url-list">
+            <a href="pregrado/index.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">pregrado/index.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">/pregrados/</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+            <a href="pregrado/marketing-global.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">pregrado/marketing-global.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">/pregrado-en-...-marketing-global/</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+            <a href="pregrado/digital-business.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">pregrado/digital-business.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">/pregrado-en-digital-business/</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+            <a href="pregrado/especifico.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">pregrado/especifico.html</span>
+              <span class="badge new">Template</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Master -->
+        <div class="url-group">
+          <div class="url-group-title">M&aacute;ster</div>
+          <div class="url-list">
+            <a href="master/v2.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">master/v2.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">/master/</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+            <a href="master/index.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">master/index.html</span>
+              <span class="badge skip">Legacy</span>
+            </a>
+            <a href="master/digital-marketing.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">master/digital-marketing.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">/master-en-digital-marketing/</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+            <a href="master/digital-business.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">master/digital-business.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">/master-en-digital-business-lp/</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+            <a href="master/customer-experience.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">master/customer-experience.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">/master-en-cx.../</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+            <a href="master/becas.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">master/becas.html</span>
+              <span class="badge new">Nuevo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Executive Programs -->
+        <div class="url-group">
+          <div class="url-group-title">Executive Programs</div>
+          <div class="url-list">
+            <a href="executive-programs/index.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">executive-programs/index.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">/executive-programs/</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Level Up -->
+        <div class="url-group">
+          <div class="url-group-title">Level Up</div>
+          <div class="url-list">
+            <a href="level-up/index.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">level-up/index.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">/level-up-.../</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+            <a href="level-up/ia.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">level-up/ia.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">/level-up-inteligencia-artificial/</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Formularios -->
+        <div class="url-group">
+          <div class="url-group-title">Formularios</div>
+          <div class="url-list">
+            <a href="formularios/contacto.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">formularios/contacto.html</span>
+              <span class="arrow">&rarr;</span>
+              <span class="map-target">/contactenos/</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+            <a href="formularios/zoho.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">formularios/zoho.html</span>
+              <span class="badge elementor">Elementor</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Elementor Embeds -->
+        <div class="url-group" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);">
+          <div class="url-group-title" style="color: #D66FD3;">Elementor Embeds (listos para copiar)</div>
+          <div class="url-list">
+            <a href="elementor/index.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/index.html</span>
+              <span class="badge elementor">.esic-home</span>
+            </a>
+            <a href="elementor/pregrado/index.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/pregrado/index.html</span>
+              <span class="badge elementor">.esic-pregrado</span>
+            </a>
+            <a href="elementor/pregrado/marketing-global.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/pregrado/marketing-global.html</span>
+              <span class="badge elementor">.esic-pregrado-marketing-global</span>
+            </a>
+            <a href="elementor/pregrado/digital-business.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/pregrado/digital-business.html</span>
+              <span class="badge elementor">.esic-pregrado-digital-business</span>
+            </a>
+            <a href="elementor/pregrado/especifico.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/pregrado/especifico.html</span>
+              <span class="badge elementor">.esic-pregrado-especifico</span>
+            </a>
+            <a href="elementor/master/index.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/master/index.html</span>
+              <span class="badge elementor">.esic-master</span>
+            </a>
+            <a href="elementor/master/v2.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/master/v2.html</span>
+              <span class="badge elementor">.esic-master-v2</span>
+            </a>
+            <a href="elementor/master/digital-marketing.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/master/digital-marketing.html</span>
+              <span class="badge elementor">.esic-master-digital-marketing</span>
+            </a>
+            <a href="elementor/master/digital-business.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/master/digital-business.html</span>
+              <span class="badge elementor">.esic-master-digital-business</span>
+            </a>
+            <a href="elementor/master/customer-experience.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/master/customer-experience.html</span>
+              <span class="badge elementor">.esic-master-customer-experience</span>
+            </a>
+            <a href="elementor/master/becas.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/master/becas.html</span>
+              <span class="badge elementor">.esic-master-becas</span>
+            </a>
+            <a href="elementor/executive-programs/index.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/executive-programs/index.html</span>
+              <span class="badge elementor">.esic-executive</span>
+            </a>
+            <a href="elementor/level-up/index.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/level-up/index.html</span>
+              <span class="badge elementor">.esic-levelup</span>
+            </a>
+            <a href="elementor/level-up/ia.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/level-up/ia.html</span>
+              <span class="badge elementor">.esic-levelup-ia</span>
+            </a>
+            <a href="elementor/institucional/quienes-somos.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/institucional/quienes-somos.html</span>
+              <span class="badge elementor">.esic-quienes-somos</span>
+            </a>
+            <a href="elementor/formularios/contacto.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/formularios/contacto.html</span>
+              <span class="badge elementor">.esic-contacto</span>
+            </a>
+            <a href="elementor/formularios/zoho.html" class="url-row">
+              <span class="status ready"></span>
+              <span class="path">elementor/formularios/zoho.html</span>
+              <span class="badge elementor">.esic-zoho</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="url-footer">
+      <p>ESIC Medell&iacute;n &mdash; URL Check &mdash; Redise&ntilde;o 2025</p>
+    </footer>
+  </div>
+</body>
+</html>

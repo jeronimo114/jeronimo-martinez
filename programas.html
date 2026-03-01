@@ -1,965 +1,719 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programas | ESIC Business & Marketing School Medellín</title>
-  <meta name="description" content="Explora todos los programas de ESIC Medellín: Pregrado, Máster, Executive Programs y formaciones a la medida.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="esic-theme.css">
-  <style>
-    /* ── Section layout (from index.html) ── */
-    .section-rounded {
-      border-radius: 50px 50px 0 0;
-      margin-top: -50px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .section-white { background: #FFFFFF; }
-    .section-cream { background: #F8F6F2; }
-    .section-dark  { background: var(--brand-blue-dark); }
-    .section-blue  { background: var(--brand-blue); }
-
-    /* ── Hero ── */
-    .hero-programas {
-      min-height: 85vh;
-      display: flex;
-      align-items: flex-end;
-      padding: 120px 0 15rem;
-      position: relative;
-    }
-
-    .hero-programas::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(0, 19, 63, 0.8) 0%, rgba(0, 19, 63, 0.45) 100%);
-      z-index: 1;
-    }
-
-    .hero-programas .container {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-programas .hero-content {
-      max-width: 680px;
-    }
-
-    .hero-programas .hero-title span {
-      color: var(--brand-teal);
-    }
-
-    .hero-programas .btn-primary {
-      background: var(--brand-blue);
-      box-shadow: 0 16px 35px rgba(0, 71, 233, 0.3);
-    }
-
-    .hero-programas .btn-primary:hover {
-      background: #003ACC;
-    }
-
-    /* ── Category cards ── */
-    .category-section {
-      padding: 5rem 0;
-    }
-
-    .category-header {
-      margin-bottom: 3rem;
-    }
-
-    .category-header h2 {
-      font-family: var(--display-font);
-      font-size: clamp(3rem, 6vw, 4.5rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.95;
-      color: var(--brand-blue-dark);
-    }
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .category-card {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 280px;
-      text-decoration: none;
-      color: #FFFFFF;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .category-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 19, 63, 0.15);
-    }
-
-    .category-card.orange { background: #FF9600; }
-    .category-card.teal   { background: #09CF90; color: var(--brand-blue-dark); }
-    .category-card.blue   { background: #0047E9; }
-    .category-card.dark   { background: #00133F; }
-
-    .category-card-info {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .category-card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.2);
-      display: grid;
-      place-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .category-card.teal .category-card-icon {
-      background: rgba(0, 19, 63, 0.12);
-    }
-
-    .category-card-icon svg {
-      width: 26px;
-      height: 26px;
-    }
-
-    .category-card h3 {
-      font-family: var(--display-font);
-      font-size: clamp(1.5rem, 2.5vw, 1.9rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 1.05;
-      margin-bottom: 0.5rem;
-    }
-
-    .category-card-sub {
-      font-size: 1rem;
-      opacity: 0.9;
-      margin-top: 0.3rem;
-    }
-
-    .category-card-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.7rem 1.2rem;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      background: transparent;
-      transition: all 0.2s ease;
-      width: fit-content;
-      color: inherit;
-    }
-
-    .category-card-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.6);
-    }
-
-    .category-card.teal .category-card-btn {
-      border-color: rgba(0, 19, 63, 0.3);
-    }
-
-    .category-card.teal .category-card-btn:hover {
-      background: rgba(0, 19, 63, 0.1);
-      border-color: rgba(0, 19, 63, 0.5);
-    }
-
-    .category-card-btn svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    .category-card-image {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .category-card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .category-card:hover .category-card-image img {
-      transform: scale(1.05);
-    }
-
-    /* ── Level Up section ── */
-    .levelup-section {
-      padding: 5rem 0;
-    }
-
-    .levelup-inner {
-      background: linear-gradient(135deg, #001028 0%, #00133F 40%, #001E47 100%);
-      border-radius: 40px;
-      padding: 4rem 3.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .levelup-inner::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background:
-        radial-gradient(circle at 15% 30%, rgba(0, 71, 233, 0.15), transparent 50%),
-        radial-gradient(circle at 85% 70%, rgba(10, 228, 195, 0.08), transparent 50%);
-      pointer-events: none;
-    }
-
-    .levelup-top {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-      margin-bottom: 3rem;
-    }
-
-    .levelup-header {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Logo */
-    .levelup-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .levelup-logo-text {
-      font-family: var(--display-font);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #FFFFFF;
-      line-height: 1;
-    }
-
-    .levelup-logo-text span {
-      color: var(--brand-teal);
-    }
-
-    .levelup-logo-sub {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-left: 0.5rem;
-    }
-
-    .levelup-header h2 {
-      font-family: var(--display-font);
-      font-size: clamp(2.5rem, 5vw, 3.8rem);
-      font-weight: 700;
-      text-transform: none;
-      line-height: 0.95;
-      color: #FFFFFF;
-      margin-bottom: 1.2rem;
-    }
-
-    .levelup-header p {
-      color: rgba(255, 255, 255, 0.7);
-      max-width: 480px;
-      line-height: 1.6;
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
-    }
-
-    /* Chevrons graphic */
-    .levelup-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .levelup-chevrons {
-      color: var(--brand-teal);
-      opacity: 0.3;
-      width: 180px;
-      height: auto;
-    }
-
-    /* Course cards */
-    .levelup-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .levelup-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      border-radius: 24px;
-      padding: 2rem;
-      backdrop-filter: blur(8px);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 260px;
-    }
-
-    .levelup-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(10, 228, 195, 0.3);
-    }
-
-    .levelup-card h3 {
-      font-family: var(--display-font);
-      color: #FFFFFF;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 700;
-      line-height: 1;
-      margin-bottom: 0.8rem;
-    }
-
-    .levelup-card-tag {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--brand-teal);
-      margin-bottom: 1rem;
-    }
-
-    .levelup-card p {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .levelup-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 1.5rem;
-      gap: 1rem;
-    }
-
-    .levelup-card-date {
-      font-family: var(--display-font);
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--brand-teal);
-      font-weight: 600;
-    }
-
-    .levelup-card-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.6rem 1.2rem;
-      background: var(--brand-teal);
-      color: var(--brand-blue-dark);
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .levelup-card-btn:hover {
-      background: #08D1B3;
-    }
-
-    .levelup-card-btn svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    .btn-teal {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 1rem 2rem;
-      background: var(--brand-teal);
-      color: var(--brand-blue-dark);
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 10px 30px rgba(10, 228, 195, 0.25);
-    }
-
-    .btn-teal:hover {
-      background: #08D1B3;
-      transform: translateY(-2px);
-    }
-
-    .btn-teal svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    /* ── La Vida en ESIC (from index.html) ── */
-    .vida-section {
-      padding: 5rem 0;
-    }
-
-    .vida-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .vida-header h2 {
-      font-family: var(--display-font);
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.95;
-      color: var(--brand-blue-dark);
-    }
-
-    .vida-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .vida-card {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      min-height: 280px;
-    }
-
-    .vida-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      inset: 0;
-    }
-
-    .vida-card-content {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 19, 63, 0.3) 0%, rgba(0, 19, 63, 0.8) 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.5rem;
-      color: #FFFFFF;
-    }
-
-    .vida-card h3 {
-      font-family: var(--display-font);
-      font-size: 1.4rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .vida-card p {
-      font-size: 1rem;
-      line-height: 1.5;
-      opacity: 0.9;
-    }
-
-    /* ── CTA Section ── */
-    .cta-section {
-      padding: 5rem 0;
-      text-align: center;
-    }
-
-    .cta-inner {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    .cta-section h2 {
-      font-family: var(--display-font);
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.95;
-      color: #FFFFFF;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-section p {
-      color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 2rem;
-      font-size: 1.15rem;
-      line-height: 1.6;
-    }
-
-    .btn-white {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 1rem 2rem;
-      background: #FFFFFF;
-      color: var(--brand-blue);
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .btn-white:hover {
-      background: #F0F0F0;
-      transform: translateY(-2px);
-    }
-
-    .btn-white svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 1024px) {
-      .levelup-top {
-        grid-template-columns: 1fr;
-      }
-
-      .levelup-visual {
-        display: none;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .section-rounded {
-        border-radius: 30px 30px 0 0;
-        margin-top: -30px;
-      }
-
-      .hero-programas {
-        min-height: 70vh;
-        padding: 100px 0 8rem;
-      }
-
-      .category-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .category-card {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .category-card-image {
-        min-height: 180px;
-        order: -1;
-      }
-
-      .levelup-inner {
-        padding: 2rem 1.5rem;
-      }
-
-      .levelup-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .levelup-card {
-        min-height: auto;
-      }
-
-      .vida-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .vida-card {
-        min-height: 220px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Global Nav -->
-  <nav class="nav">
-    <a href="index.html" class="nav-logo"><img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC Business &amp; Marketing School"></a>
-    <div class="nav-actions">
-      <a href="programas.html" class="nav-cta">Programas</a>
-      <button class="nav-menu" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
+<div class="esic-programas">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-programas {
+  --brand-blue: #0047E9;
+  --brand-blue-dark: #00133F;
+  --brand-teal: #0AE4C3;
+  --brand-orange: #FF9600;
+  --brand-yellow: #FFD100;
+  --bg: #F8F6F2;
+  --bg-alt: #F2F5FB;
+  --surface: #FFFFFF;
+  --text: #0B132B;
+  --text-muted: #5F6B7A;
+  --text-light: #97A2B1;
+  --border: rgba(0, 19, 63, 0.12);
+  --display-font: "Sofia Sans Extra Condensed", sans-serif;
+  --body-font: "DM Sans", sans-serif;
+  font-family: var(--body-font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+.esic-programas *, .esic-programas *::before, .esic-programas *::after { box-sizing: border-box; }
+.esic-programas h1, .esic-programas h2, .esic-programas h3, .esic-programas h4, .esic-programas h5 { font-family: var(--display-font); font-weight: 600; margin: 0; }
+.esic-programas img { max-width: 100%; display: block; height: auto; }
+.esic-programas a { color: inherit; text-decoration: none; }
+.esic-programas button { font-family: inherit; cursor: pointer; }
+.esic-programas p { margin: 0; }
+.esic-programas ul, .esic-programas ol { margin: 0; padding: 0; list-style: none; }
+
+.esic-programas .ep-container { width: min(1200px, 92%); margin: 0 auto; }
+.esic-programas .ep-section { padding: 5rem 0; position: relative; }
+
+/* Hero */
+.esic-programas .ep-hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 120px 0 8rem;
+  position: relative;
+  background: linear-gradient(135deg, rgba(0, 19, 63, 0.9) 0%, rgba(0, 19, 63, 0.6) 100%), url('https://esic.co/wp-content/uploads/2026/02/campus.webp') center/cover no-repeat;
+}
+.esic-programas .ep-hero-content {
+  max-width: 680px;
+  color: #FFFFFF;
+}
+.esic-programas .ep-hero-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--brand-teal);
+  margin-bottom: 1rem;
+  display: block;
+}
+.esic-programas .ep-hero h1 {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+}
+.esic-programas .ep-hero h1 span {
+  color: var(--brand-teal);
+}
+.esic-programas .ep-hero p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+.esic-programas .ep-hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.esic-programas .ep-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.esic-programas .ep-btn-primary {
+  background: var(--brand-blue);
+  color: #FFFFFF;
+  box-shadow: 0 16px 35px rgba(0, 71, 233, 0.3);
+}
+.esic-programas .ep-btn-primary:hover { background: #0037B4; transform: translateY(-2px); }
+.esic-programas .ep-btn-outline {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+}
+.esic-programas .ep-btn-outline:hover { border-color: #FFFFFF; background: rgba(255, 255, 255, 0.1); }
+.esic-programas .ep-btn-teal {
+  background: var(--brand-teal);
+  color: var(--brand-blue-dark);
+}
+.esic-programas .ep-btn-teal:hover { background: #08D1B3; transform: translateY(-2px); }
+.esic-programas .ep-btn-white {
+  background: #FFFFFF;
+  color: var(--brand-blue);
+}
+.esic-programas .ep-btn-white:hover { background: #F0F0F0; transform: translateY(-2px); }
+
+/* Section Rounded */
+.esic-programas .ep-section-rounded {
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
+}
+.esic-programas .ep-section-white { background: #FFFFFF; }
+.esic-programas .ep-section-cream { background: var(--bg); }
+.esic-programas .ep-section-blue { background: var(--brand-blue); }
+.esic-programas .ep-section-dark { background: var(--brand-blue-dark); }
+
+/* Categorías */
+.esic-programas .ep-categories-section { padding: 5rem 0; }
+.esic-programas .ep-section-header {
+  margin-bottom: 3rem;
+}
+.esic-programas .ep-section-header h2 {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--brand-blue-dark);
+}
+.esic-programas .ep-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.esic-programas .ep-category-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 280px;
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.esic-programas .ep-category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 19, 63, 0.15);
+}
+.esic-programas .ep-category-card.ep-orange { background: var(--brand-orange); }
+.esic-programas .ep-category-card.ep-teal { background: var(--brand-teal); color: var(--brand-blue-dark); }
+.esic-programas .ep-category-card.ep-blue { background: var(--brand-blue); }
+.esic-programas .ep-category-card.ep-dark { background: var(--brand-blue-dark); }
+
+.esic-programas .ep-category-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.esic-programas .ep-category-info h3 {
+  font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+}
+.esic-programas .ep-category-sub {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-top: 0.3rem;
+}
+.esic-programas .ep-category-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: transparent;
+  transition: all 0.2s ease;
+  width: fit-content;
+  color: inherit;
+}
+.esic-programas .ep-category-card.ep-teal .ep-category-btn {
+  border-color: rgba(0, 19, 63, 0.3);
+  color: var(--brand-blue-dark);
+}
+.esic-programas .ep-category-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.esic-programas .ep-category-card.ep-teal .ep-category-btn:hover {
+  background: rgba(0, 19, 63, 0.1);
+  border-color: rgba(0, 19, 63, 0.5);
+}
+.esic-programas .ep-category-image {
+  position: relative;
+  overflow: hidden;
+}
+.esic-programas .ep-category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.esic-programas .ep-category-card:hover .ep-category-image img {
+  transform: scale(1.05);
+}
+
+/* Programas Grid */
+.esic-programas .ep-programs-section { padding: 4rem 0; }
+.esic-programas .ep-programs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.esic-programas .ep-programs-header h3 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--brand-blue-dark);
+}
+.esic-programas .ep-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.esic-programas .ep-program-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  display: block;
+  aspect-ratio: 16/10;
+  text-decoration: none;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.esic-programas .ep-program-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 19, 63, 0.2);
+}
+.esic-programas .ep-program-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 40%, transparent 70%);
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .esic-programas .ep-program-card::before {
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.9) 100%);
+  }
+}
+.esic-programas .ep-program-card-info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 65%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #FFFFFF;
+  z-index: 2;
+}
+@media (max-width: 768px) {
+  .esic-programas .ep-program-card-info {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: 55%;
+    justify-content: flex-end;
+  }
+}
+.esic-programas .ep-program-card-info h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  color: var(--brand-orange);
+}
+.esic-programas .ep-program-card.ep-master .ep-program-card-info h4 {
+  color: var(--brand-teal);
+}
+.esic-programas .ep-program-card.ep-executive .ep-program-card-info h4 {
+  color: var(--brand-blue);
+}
+.esic-programas .ep-program-duration {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 0.8rem;
+}
+.esic-programas .ep-program-flags {
+  display: inline-flex;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+.esic-programas .ep-program-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: transparent;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+.esic-programas .ep-program-btn:hover { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.8); }
+
+/* Background images */
+.esic-programas .ep-program-card.ep-marketing {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/pregrado_mkt_global_.webp');
+}
+@media (max-width: 768px) {
+  .esic-programas .ep-program-card.ep-marketing {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_pregrado_mkt_global_.webp');
+  }
+}
+.esic-programas .ep-program-card.ep-digital {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/pregrado_digital_business.webp');
+}
+@media (max-width: 768px) {
+  .esic-programas .ep-program-card.ep-digital {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_pregrado_digital_business.webp');
+  }
+}
+.esic-programas .ep-program-card.ep-dm {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/master_dm.webp');
+}
+@media (max-width: 768px) {
+  .esic-programas .ep-program-card.ep-dm {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_master_dm.webp');
+  }
+}
+.esic-programas .ep-program-card.ep-mdb {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/master_db.webp');
+}
+@media (max-width: 768px) {
+  .esic-programas .ep-program-card.ep-mdb {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_master_db.webp');
+  }
+}
+.esic-programas .ep-program-card.ep-cx {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/master_cx.webp');
+}
+@media (max-width: 768px) {
+  .esic-programas .ep-program-card.ep-cx {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_master_cx.webp');
+  }
+}
+.esic-programas .ep-program-card.ep-exec {
+  background-image: url('https://esic.co/wp-content/uploads/2026/02/ep.webp');
+}
+@media (max-width: 768px) {
+  .esic-programas .ep-program-card.ep-exec {
+    background-image: url('https://esic.co/wp-content/uploads/2026/02/ep-m.webp');
+  }
+}
+
+/* Executive Highlight */
+.esic-programas .ep-executive-highlight {
+  padding: 4rem 0;
+}
+.esic-programas .ep-executive-card {
+  background: linear-gradient(135deg, var(--brand-blue-dark) 0%, #001E47 100%);
+  border-radius: 32px;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.esic-programas .ep-executive-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 80%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 71, 233, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.esic-programas .ep-executive-content {
+  position: relative;
+  z-index: 1;
+  color: #FFFFFF;
+}
+.esic-programas .ep-executive-content .ep-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--brand-teal);
+  margin-bottom: 1rem;
+  padding: 0.4rem 1rem;
+  background: rgba(10, 228, 195, 0.1);
+  border-radius: 999px;
+}
+.esic-programas .ep-executive-content h3 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-bottom: 1rem;
+}
+.esic-programas .ep-executive-content h3 span {
+  color: var(--brand-blue);
+}
+.esic-programas .ep-executive-content p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  max-width: 480px;
+}
+.esic-programas .ep-executive-image {
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.esic-programas .ep-executive-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CTA Section */
+.esic-programas .ep-cta-section {
+  padding: 5rem 0;
+  text-align: center;
+}
+.esic-programas .ep-cta-content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.esic-programas .ep-cta-content h2 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: #FFFFFF;
+  margin-bottom: 1.5rem;
+}
+.esic-programas .ep-cta-content p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+  font-size: 1.15rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .esic-programas .ep-executive-card {
+    grid-template-columns: 1fr;
+  }
+  .esic-programas .ep-executive-image {
+    order: -1;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .esic-programas .ep-section-rounded {
+    border-radius: 30px 30px 0 0;
+    margin-top: -30px;
+  }
+  .esic-programas .ep-categories-grid,
+  .esic-programas .ep-programs-grid {
+    grid-template-columns: 1fr;
+  }
+  .esic-programas .ep-category-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .esic-programas .ep-category-image {
+    min-height: 180px;
+    order: -1;
+  }
+  .esic-programas .ep-program-card {
+    aspect-ratio: 4/3;
+  }
+  .esic-programas .ep-executive-card {
+    padding: 2rem 1.5rem;
+  }
+}
+</style>
+
+<main>
+  <!-- Hero -->
+  <section class="ep-hero">
+    <div class="ep-container">
+      <div class="ep-hero-content">
+        <span class="ep-hero-eyebrow">ESIC Business & Marketing School</span>
+        <h1>Todos los <span>programas</span></h1>
+        <p>Escuela de Negocios Española con +60 años, líder en Marketing y Economía Digital. Encuentra el programa que transformará tu carrera.</p>
+        <div class="ep-hero-buttons">
+          <a href="#pregrado" class="ep-btn ep-btn-primary">Pregrado</a>
+          <a href="#master" class="ep-btn ep-btn-outline">Máster</a>
+          <a href="#executive" class="ep-btn ep-btn-outline">Executive</a>
+        </div>
+      </div>
     </div>
-  </nav>
-  <div class="nav-overlay">
-    <ul class="nav-overlay-menu">
-      <li><a href="index.html" class="nav-overlay-link">Inicio</a></li>
-      <li class="nav-overlay-item">
-        <button class="nav-overlay-toggle">Programas <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
-        <ul class="nav-submenu">
-          <li><a href="pregrado/index.html">Pregrado</a></li>
-          <li><a href="master/v2.html">Máster</a></li>
-          <li><a href="executive-programs/index.html">Executive Programs</a></li>
-        </ul>
-      </li>
-      <li class="nav-overlay-item">
-        <button class="nav-overlay-toggle">Nosotros <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
-        <ul class="nav-submenu">
-          <li><a href="institucional/quienes-somos.html">Quiénes Somos</a></li>
-          <li><a href="formularios/contacto.html">Contacto</a></li>
-        </ul>
-      </li>
-      <li class="nav-overlay-item">
-        <button class="nav-overlay-toggle">Estudiantes <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
-        <ul class="nav-submenu">
-          <li><a href="#">Estudiantes</a></li>
-        </ul>
-      </li>
-      <li class="nav-overlay-item">
-        <button class="nav-overlay-toggle">Level-Up <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
-        <ul class="nav-submenu">
-          <li><a href="level-up/index.html">Level Up</a></li>
-          <li><a href="level-up/ia.html">IA</a></li>
-        </ul>
-      </li>
-    </ul>
-    <div class="nav-overlay-social">
-      <a href="https://www.instagram.com/esic.colombia/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
-      <a href="https://www.linkedin.com/school/esic-colombia/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-      <a href="https://www.tiktok.com/@esic.colombia" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.57 6.33 6.33 0 0 0 9.37 22a6.33 6.33 0 0 0 6.33-6.33V9.18a8.16 8.16 0 0 0 3.89.98V6.69z"/></svg></a>
+  </section>
+
+  <!-- Categorías -->
+  <section class="ep-section ep-section-rounded ep-section-cream ep-categories-section" id="categorias">
+    <div class="ep-container">
+      <div class="ep-section-header">
+        <h2>EXPLORA POR<br>CATEGORÍA</h2>
+      </div>
+      
+      <div class="ep-categories-grid">
+        <!-- Pregrado -->
+        <a href="#pregrado" class="ep-category-card ep-orange">
+          <div class="ep-category-info">
+            <div>
+              <h3>Pregrado</h3>
+              <p class="ep-category-sub">4 años · Doble titulación España/Colombia</p>
+            </div>
+            <span class="ep-category-btn">
+              VER PROGRAMAS
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+          <div class="ep-category-image">
+            <img src="https://esic.co/wp-content/uploads/2026/02/pregrado_mkt_global_.webp" alt="Pregrado ESIC" loading="lazy">
+          </div>
+        </a>
+
+        <!-- Máster -->
+        <a href="#master" class="ep-category-card ep-teal">
+          <div class="ep-category-info">
+            <div>
+              <h3>Máster</h3>
+              <p class="ep-category-sub">1 año · Modalidad híbrida</p>
+            </div>
+            <span class="ep-category-btn">
+              VER PROGRAMAS
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+          <div class="ep-category-image">
+            <img src="https://esic.co/wp-content/uploads/2026/02/master_dm.webp" alt="Máster ESIC" loading="lazy">
+          </div>
+        </a>
+
+        <!-- Executive Programs -->
+        <a href="/programas/digital-business-transformation/" class="ep-category-card ep-blue">
+          <div class="ep-category-info">
+            <div>
+              <h3>Executive Programs</h3>
+              <p class="ep-category-sub">6 meses · Digital Business Transformation</p>
+            </div>
+            <span class="ep-category-btn">
+              VER PROGRAMA
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+          <div class="ep-category-image">
+            <img src="https://esic.co/wp-content/uploads/2026/02/ep.webp" alt="Executive Programs ESIC" loading="lazy">
+          </div>
+        </a>
+
+        <!-- Level Up -->
+        <a href="/level-up/" class="ep-category-card ep-dark">
+          <div class="ep-category-info">
+            <div>
+              <h3>Level Up</h3>
+              <p class="ep-category-sub">Cursos prácticos · Presenciales</p>
+            </div>
+            <span class="ep-category-btn">
+              EXPLORAR
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+          <div class="ep-category-image">
+            <img src="https://esic.co/wp-content/uploads/2026/02/level-up-ia.webp" alt="Level Up ESIC" loading="lazy">
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- SVG icon definitions -->
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
-    <symbol id="ico-pregrado" viewBox="0 0 40 40">
-      <path d="M20 6L2 16l18 10 18-10L20 6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-      <path d="M8 20v10c0 0 4 5 12 5s12-5 12-5V20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-      <line x1="36" y1="16" x2="36" y2="32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </symbol>
-    <symbol id="ico-master" viewBox="0 0 40 40">
-      <circle cx="14" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
-      <path d="M4 32c0-6 4-10 10-10s10 4 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="28" cy="10" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-      <path d="M28 18c4 0 8 3 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </symbol>
-    <symbol id="ico-ejecutivo" viewBox="0 0 40 40">
-      <rect x="4" y="14" width="32" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
-      <path d="M14 14V10a4 4 0 014-4h4a4 4 0 014 4v4" fill="none" stroke="currentColor" stroke-width="2"/>
-      <line x1="4" y1="24" x2="36" y2="24" stroke="currentColor" stroke-width="2"/>
-      <rect x="17" y="22" width="6" height="4" rx="1" fill="currentColor"/>
-    </symbol>
-    <symbol id="ico-medida" viewBox="0 0 40 40">
-      <circle cx="20" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-      <circle cx="8" cy="28" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-      <circle cx="32" cy="28" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-      <circle cx="20" cy="32" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
-      <line x1="18" y1="12" x2="10" y2="24" stroke="currentColor" stroke-width="1.5"/>
-      <line x1="22" y1="12" x2="30" y2="24" stroke="currentColor" stroke-width="1.5"/>
-      <line x1="12" y1="28" x2="17" y2="31" stroke="currentColor" stroke-width="1.5"/>
-      <line x1="28" y1="28" x2="23" y2="31" stroke="currentColor" stroke-width="1.5"/>
-    </symbol>
-  </svg>
-
-  <main>
-    <!-- 1. Hero -->
-    <section class="hero hero-photo hero-programas" style="--hero-image: url('assets/images/DSC02284_resultado.webp'); --hero-position: center center;">
-      <div class="container">
-        <div class="hero-content">
-          <span class="hero-eyebrow">ESIC Business & Marketing School</span>
-          <h1 class="hero-title">Desarrolla tu carrera con <span>ESIC Medellín</span></h1>
-          <p class="hero-subtitle">Escuela de Negocios Española con +60 años, líder en Marketing y Economía Digital.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#asesoria">AGENDA UNA ASESORÍA</a>
-            <a class="btn btn-outline" href="#programas">EXPLORAR PROGRAMAS</a>
-          </div>
-        </div>
+  <!-- Pregrado Section -->
+  <section class="ep-section ep-section-white ep-programs-section" id="pregrado">
+    <div class="ep-container">
+      <div class="ep-programs-header">
+        <h3>Pregrado</h3>
+        <a href="/pregrado/" class="ep-btn ep-btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.8rem;">VER TODOS</a>
       </div>
-    </section>
+      <div class="ep-programs-grid">
+        <a href="/pregrado/marketing-global/" class="ep-program-card ep-marketing">
+          <div class="ep-program-card-info">
+            <h4>DIRECCIÓN DE MARKETING GLOBAL</h4>
+            <p class="ep-program-duration">4 años · Doble titulación</p>
+            <div class="ep-program-flags">
+              <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+              <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
+            </div>
+            <span class="ep-program-btn">VER PROGRAMA</span>
+          </div>
+        </a>
+        <a href="/pregrado/digital-business/" class="ep-program-card ep-digital">
+          <div class="ep-program-card-info">
+            <h4>DIGITAL BUSINESS</h4>
+            <p class="ep-program-duration">4 años · Doble titulación</p>
+            <div class="ep-program-flags">
+              <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+              <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
+            </div>
+            <span class="ep-program-btn">VER PROGRAMA</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <!-- 2. Explora Nuestros Programas -->
-    <section class="section section-rounded section-cream category-section" id="programas">
-      <div class="container">
-        <div class="category-header">
-          <h2>EXPLORA<br>NUESTROS<br>PROGRAMAS</h2>
-        </div>
+  <!-- Máster Section -->
+  <section class="ep-section ep-section-cream ep-programs-section" id="master">
+    <div class="ep-container">
+      <div class="ep-programs-header">
+        <h3>Máster</h3>
+        <a href="/master/" class="ep-btn ep-btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.8rem;">VER TODOS</a>
+      </div>
+      <div class="ep-programs-grid">
+        <a href="/master/digital-marketing/" class="ep-program-card ep-master ep-dm">
+          <div class="ep-program-card-info">
+            <h4>MÁSTER EN DIGITAL MARKETING</h4>
+            <p class="ep-program-duration">1 año · Modalidad híbrida</p>
+            <span class="ep-program-btn">VER PROGRAMA</span>
+          </div>
+        </a>
+        <a href="/master/digital-business/" class="ep-program-card ep-master ep-mdb">
+          <div class="ep-program-card-info">
+            <h4>MÁSTER EN DIGITAL BUSINESS</h4>
+            <p class="ep-program-duration">1 año · Modalidad híbrida</p>
+            <span class="ep-program-btn">VER PROGRAMA</span>
+          </div>
+        </a>
+        <a href="/master/customer-experience/" class="ep-program-card ep-master ep-cx">
+          <div class="ep-program-card-info">
+            <h4>MÁSTER EN CUSTOMER EXPERIENCE</h4>
+            <p class="ep-program-duration">12 meses · Modalidad híbrida</p>
+            <span class="ep-program-btn">VER PROGRAMA</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-        <div class="category-grid">
-          <!-- Pregrado -->
-          <a href="pregrado/index.html" class="category-card orange">
-            <div class="category-card-info">
-              <div>
-                <h3>Pregrado</h3>
-                <p class="category-card-sub">4 años · Doble titulación</p>
-              </div>
-              <span class="category-card-btn">
-                VER PROGRAMAS
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </div>
-            <div class="category-card-image">
-              <img src="assets/images/DSC02274_resultado.webp" alt="Pregrado ESIC" width="1600" height="900" loading="lazy">
-            </div>
-          </a>
-
-          <!-- Máster -->
-          <a href="master/v2.html" class="category-card teal">
-            <div class="category-card-info">
-              <div>
-                <h3>Máster</h3>
-                <p class="category-card-sub">1 año · Modalidad híbrida</p>
-              </div>
-              <span class="category-card-btn">
-                VER PROGRAMAS
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </div>
-            <div class="category-card-image">
-              <img src="assets/images/DSC02331_resultado.webp" alt="Máster ESIC" width="1600" height="900" loading="lazy">
-            </div>
-          </a>
-
-          <!-- Executive Programs -->
-          <a href="executive-programs/index.html" class="category-card blue">
-            <div class="category-card-info">
-              <div>
-                <h3>Executive Programs</h3>
-                <p class="category-card-sub">6 Meses · Liderazgo y transformación</p>
-              </div>
-              <span class="category-card-btn">
-                VER PROGRAMA
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </div>
-            <div class="category-card-image">
-              <img src="assets/images/DSC02284_resultado.webp" alt="Executive Programs ESIC" width="1600" height="900" loading="lazy">
-            </div>
-          </a>
-
-          <!-- Tailor / A la Medida -->
-          <a href="#asesoria" class="category-card dark">
-            <div class="category-card-info">
-              <div>
-                <h3>Tailor</h3>
-                <p class="category-card-sub">Formaciones a la Medida</p>
-              </div>
-              <span class="category-card-btn">
-                CONTÁCTANOS
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </div>
-            <div class="category-card-image">
-              <img src="assets/images/DSC02307_resultado.webp" alt="Tailor ESIC" width="1600" height="900" loading="lazy">
-            </div>
+  <!-- Executive Highlight -->
+  <section class="ep-section ep-section-white ep-executive-highlight" id="executive">
+    <div class="ep-container">
+      <div class="ep-executive-card">
+        <div class="ep-executive-content">
+          <span class="ep-label">Executive Programs</span>
+          <h3>Digital Business <span>Transformation</span></h3>
+          <p>Transforma tu visión del negocio digital. Un programa ejecutivo diseñado para líderes que buscan reinventar sus organizaciones en la era digital.</p>
+          <a href="/programas/digital-business-transformation/" class="ep-btn ep-btn-teal">
+            CONOCER PROGRAMA
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
-      </div>
-    </section>
-
-    <!-- 3. Level Up Section -->
-    <section class="section section-rounded section-white levelup-section">
-      <div class="container">
-        <div class="levelup-inner">
-
-          <div class="levelup-top">
-            <div class="levelup-header">
-              <!-- Logo -->
-              <div class="levelup-logo">
-                <span class="levelup-logo-text">LEVEL <span>^</span>UP</span>
-                <span class="levelup-logo-sub">By ESIC</span>
-              </div>
-
-              <h2>Desarrolla habilidades que hoy marcan la diferencia</h2>
-              <p>Cursos prácticos, presenciales, para desarrollar habilidades clave en marketing, creatividad y entornos digitales.</p>
-
-              <a href="level-up/index.html" class="btn-teal">
-                EXPLORA LEVEL UP
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-
-            <!-- Decorative chevrons -->
-            <div class="levelup-visual">
-              <svg class="levelup-chevrons" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M100 10L20 100L100 110L180 100L100 10Z" stroke="currentColor" stroke-width="4" fill="currentColor" fill-opacity="0.1"/>
-                <path d="M100 80L20 170L100 180L180 170L100 80Z" stroke="currentColor" stroke-width="4" fill="currentColor" fill-opacity="0.15"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Course cards -->
-          <div class="levelup-grid">
-            <a href="level-up/ia.html" class="levelup-card">
-              <div>
-                <h3>Diseña flujos inteligentes que actúen por ti</h3>
-                <span class="levelup-card-tag">IA Aplicada</span>
-                <p>Automatización, modelos generativos y contenido inteligente para tu negocio.</p>
-              </div>
-              <div class="levelup-card-footer">
-                <span class="levelup-card-date">Inscripciones abiertas</span>
-                <span class="levelup-card-btn">
-                  VER CURSO
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </span>
-              </div>
-            </a>
-            <a href="level-up/index.html" class="levelup-card">
-              <div>
-                <h3>Domina la creatividad en la era AI</h3>
-                <span class="levelup-card-tag">Copy &middot; Imagen</span>
-                <p>Herramientas creativas para generar contenido visual y escrito con inteligencia artificial.</p>
-              </div>
-              <div class="levelup-card-footer">
-                <span class="levelup-card-date">Inscripciones abiertas</span>
-                <span class="levelup-card-btn">
-                  VER CURSO
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </span>
-              </div>
-            </a>
-          </div>
-
+        <div class="ep-executive-image">
+          <img src="https://esic.co/wp-content/uploads/2026/02/ep.webp" alt="Digital Business Transformation" loading="lazy">
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 4. La Vida en ESIC -->
-    <section class="section section-rounded section-cream vida-section">
-      <div class="container">
-        <div class="vida-header">
-          <h2>LA VIDA<br>EN ESIC</h2>
-          <a class="btn btn-primary" href="#asesoria">CONOCE NUESTRO CAMPUS</a>
-        </div>
-
-        <div class="vida-grid">
-          <div class="vida-card">
-            <img src="assets/images/DSC02274_resultado.webp" alt="Aulas" width="1600" height="900" loading="lazy">
-            <div class="vida-card-content">
-              <h3>Aulas</h3>
-              <p>Espacios diseñados para el trabajo práctico.</p>
-            </div>
-          </div>
-          <div class="vida-card">
-            <img src="assets/images/DSC02307_resultado.webp" alt="Cowork" width="1600" height="900" loading="lazy">
-            <div class="vida-card-content">
-              <h3>Cowork y Networking</h3>
-              <p>Conecta con personas que están construyendo.</p>
-            </div>
-          </div>
-          <div class="vida-card">
-            <img src="assets/images/DSC02331_resultado.webp" alt="Eventos" width="1600" height="900" loading="lazy">
-            <div class="vida-card-content">
-              <h3>Eventos y Conferencias</h3>
-              <p>Eventos que te mantienen actualizado con lo que está pasando en los negocios, marketing y tecnología.</p>
-            </div>
-          </div>
-          <div class="vida-card">
-            <img src="assets/images/DSC02270_resultado.webp" alt="Campus" width="1600" height="900" loading="lazy">
-            <div class="vida-card-content">
-              <h3>Campus Medellín</h3>
-              <p>Vive la experiencia ESIC en el Alto de las Palmas (Medellín).</p>
-            </div>
-          </div>
-        </div>
+  <!-- CTA Section -->
+  <section class="ep-section ep-section-blue ep-cta-section">
+    <div class="ep-container">
+      <div class="ep-cta-content">
+        <h2>¿NECESITAS AYUDA PARA ELEGIR?</h2>
+        <p>Conversemos sobre tu futuro. Nuestro equipo te acompaña para encontrar el programa ideal según tus objetivos.</p>
+        <a href="/contacto/" class="ep-btn ep-btn-white">
+          AGENDAR ASESORÍA
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
-    </section>
-
-    <!-- 5. CTA Asesoría -->
-    <section class="section section-rounded section-blue cta-section" id="asesoria">
-      <div class="container">
-        <div class="cta-inner">
-          <h2>AGENDA UNA ASESORÍA PERSONALIZADA</h2>
-          <p>Conversemos sobre tu futuro. Nuestro equipo te acompaña para encontrar el programa ideal.</p>
-          <a href="formularios/contacto.html" class="btn-white">
-            AGENDAR ASESORÍA
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. Footer -->
-    <footer class="footer section-rounded" id="contacto">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-cta">
-            <h2>TRANSFORMA<br>TU FUTURO<br><span>EN ESIC</span></h2>
-            <div class="footer-cta-buttons">
-              <a href="institucional/quienes-somos.html">
-                INSTITUCIÓN
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="programas.html">
-                PROGRAMAS
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="formularios/contacto.html">
-                CONTÁCTANOS
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-          <div class="footer-info">
-            <div class="footer-logo">
-              <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC Business & Marketing School" style="height:50px;width:auto;">
-            </div>
-            <div class="footer-contact">
-              <p>info@esic.co</p>
-            </div>
-            <div class="footer-social">
-              <a href="https://www.linkedin.com/school/esic-medellin/" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </a>
-              <a href="https://www.instagram.com/esaboradenegociosed/" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-              </a>
-              <a href="#" aria-label="Spotify">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              </a>
-              <a href="#" aria-label="TikTok">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-              </a>
-            </div>
-            <div class="footer-links">
-              <a href="#">Términos y Condiciones</a>
-              <a href="#">Política de Tratamiento de Datos</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>&copy; 2025 ESIC. Todos los derechos reservados.</p>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <script src="nav.js"></script>
-</body>
-</html>
+    </div>
+  </section>
+</main>
+</div>

@@ -1,0 +1,1781 @@
+<!-- ESIC Quienes Somos - Elementor HTML Widget -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-quienes-somos {
+  --qs-brand-blue: #0047E9;
+  --qs-brand-blue-dark: #00133F;
+  --qs-brand-teal: #0AE4C3;
+  --qs-brand-orange: #FF9600;
+  --qs-bg: #F8F6F2;
+  --qs-bg-alt: #F2F5FB;
+  --qs-surface: #FFFFFF;
+  --qs-text: #0B132B;
+  --qs-text-muted: #5F6B7A;
+  --qs-text-light: #97A2B1;
+  --qs-border: rgba(0, 19, 63, 0.12);
+  --qs-display-font: "Sofia Sans Extra Condensed", sans-serif;
+  --qs-body-font: "DM Sans", sans-serif;
+  --qs-display-weight: 700;
+  --qs-nav-height: 60px;
+  --qs-nav-top: 16px;
+  font-family: var(--qs-body-font);
+  color: var(--qs-text);
+  line-height: 1.6;
+}
+
+/* Navigation */
+.esic-quienes-somos .qs-nav {
+  position: fixed;
+  top: var(--qs-nav-top);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1240px, 94%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  background: #FFFFFF;
+  border: 1.5px solid #0038FF;
+  border-radius: 999px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 1000;
+}
+
+.esic-quienes-somos .qs-nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+.esic-quienes-somos .qs-nav-logo img { height: 40px; width: auto; mix-blend-mode: multiply; }
+
+.esic-quienes-somos .qs-nav-actions { display: flex; gap: 0.75rem; align-items: center; }
+
+.esic-quienes-somos .qs-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background: #0038FF;
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.esic-quienes-somos .qs-nav-cta:hover { background: #0030DD; }
+
+.esic-quienes-somos .qs-nav-menu {
+  display: flex;
+  background: transparent;
+  border: none;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.esic-quienes-somos .qs-nav-menu span {
+  display: block;
+  width: 26px;
+  height: 2.5px;
+  background: #0038FF;
+  border-radius: 999px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.esic-quienes-somos.qs-nav-open .qs-nav-menu span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+.esic-quienes-somos.qs-nav-open .qs-nav-menu span:nth-child(2) { opacity: 0; }
+.esic-quienes-somos.qs-nav-open .qs-nav-menu span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+/* Nav Overlay */
+.esic-quienes-somos .qs-nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 12, 42, 0.97);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  overflow-y: auto;
+  padding: 100px 2rem 3rem;
+}
+
+.esic-quienes-somos.qs-nav-open .qs-nav-overlay { opacity: 1; visibility: visible; }
+
+.esic-quienes-somos .qs-nav-overlay-menu { list-style: none; text-align: center; width: 100%; max-width: 600px; }
+
+.esic-quienes-somos .qs-nav-overlay-link {
+  display: block;
+  font-family: var(--qs-display-font);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.esic-quienes-somos .qs-nav-overlay-link:hover { color: var(--qs-brand-teal); }
+
+.esic-quienes-somos .qs-nav-overlay-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  font-family: var(--qs-display-font);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.esic-quienes-somos .qs-nav-overlay-toggle:hover { color: var(--qs-brand-teal); }
+
+.esic-quienes-somos .qs-nav-overlay-toggle svg { width: 0.5em; height: 0.5em; transition: transform 0.3s; }
+
+.esic-quienes-somos .qs-nav-overlay-item.qs-open .qs-nav-overlay-toggle svg { transform: rotate(180deg); }
+
+.esic-quienes-somos .qs-nav-submenu { 
+  list-style: none; 
+  max-height: 0; 
+  overflow: hidden; 
+  transition: max-height 0.4s ease; 
+}
+
+.esic-quienes-somos .qs-nav-submenu a {
+  display: block;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.4rem 0;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.esic-quienes-somos .qs-nav-submenu a:hover { color: var(--qs-brand-teal); }
+
+.esic-quienes-somos .qs-nav-overlay-social { 
+  display: flex; 
+  gap: 1.5rem; 
+  margin-top: 3rem; 
+}
+
+.esic-quienes-somos .qs-nav-overlay-social a { 
+  color: rgba(255, 255, 255, 0.5); 
+  transition: color 0.2s; 
+}
+
+.esic-quienes-somos .qs-nav-overlay-social a:hover { color: #FFFFFF; }
+
+.esic-quienes-somos .qs-nav-overlay-social svg { width: 22px; height: 22px; }
+
+@media (max-width: 768px) {
+  .esic-quienes-somos .qs-nav { padding: 0.5rem 0.5rem 0.5rem 1rem; }
+  .esic-quienes-somos .qs-nav-cta { display: none; }
+}
+
+.esic-quienes-somos * {
+  box-sizing: border-box;
+}
+
+.esic-quienes-somos img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.esic-quienes-somos .qs-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Section base */
+.esic-quienes-somos .qs-section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.esic-quienes-somos .qs-section-overlap {
+  position: relative;
+  margin-top: -50px;
+  border-radius: 50px 50px 0 0;
+  background: var(--qs-bg);
+  z-index: 1;
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.esic-quienes-somos .qs-section-white {
+  background: var(--qs-surface);
+}
+
+/* Hero */
+.esic-quienes-somos .qs-hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--qs-brand-blue-dark) 0%, #001E47 100%);
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--qs-nav-height) + var(--qs-nav-top) + 40px) 0 4rem;
+}
+
+.esic-quienes-somos .qs-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  background: url('https://esic.co/assets/images/DSC02307_resultado.webp') center right / cover no-repeat;
+  opacity: 0.3;
+  mask-image: linear-gradient(to right, transparent, black 30%);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
+}
+
+.esic-quienes-somos .qs-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.esic-quienes-somos .qs-hero-eyebrow {
+  font-family: var(--qs-display-font);
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--qs-brand-orange);
+  font-weight: var(--qs-display-weight);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.esic-quienes-somos .qs-hero-title {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: var(--qs-display-weight);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+}
+
+.esic-quienes-somos .qs-hero-title span {
+  color: var(--qs-brand-teal);
+}
+
+.esic-quienes-somos .qs-hero-subtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.esic-quienes-somos .qs-hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.esic-quienes-somos .qs-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.esic-quienes-somos .qs-btn-primary {
+  background: var(--qs-brand-blue);
+  color: #FFFFFF;
+  box-shadow: 0 16px 35px rgba(0, 71, 233, 0.25);
+}
+
+.esic-quienes-somos .qs-btn-primary:hover {
+  background: #0037B4;
+  transform: translateY(-2px);
+}
+
+.esic-quienes-somos .qs-btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+}
+
+.esic-quienes-somos .qs-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Section Header */
+.esic-quienes-somos .qs-section-header {
+  margin-bottom: 3rem;
+}
+
+.esic-quienes-somos .qs-section-title {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: var(--qs-display-weight);
+  text-transform: uppercase;
+  color: var(--qs-brand-blue-dark);
+  line-height: 0.95;
+}
+
+.esic-quienes-somos .qs-section-title span {
+  color: var(--qs-brand-orange);
+}
+
+/* Manifiesto */
+.esic-quienes-somos .qs-manifiesto-section {
+  padding: 7rem 0;
+}
+
+.esic-quienes-somos .qs-manifiesto-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.esic-quienes-somos .qs-manifiesto-tag {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--qs-brand-blue-dark);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.esic-quienes-somos .qs-manifiesto-text {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  color: var(--qs-text);
+  margin-bottom: 1.5rem;
+}
+
+.esic-quienes-somos .qs-manifiesto-signature {
+  font-family: var(--qs-display-font);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--qs-text-muted);
+  font-weight: var(--qs-display-weight);
+  margin-top: 2.5rem;
+}
+
+/* Values Grid */
+.esic-quienes-somos .qs-values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.esic-quienes-somos .qs-value-card {
+  background: var(--qs-surface);
+  border-radius: 24px;
+  padding: 2rem 1.5rem 1.8rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 19, 63, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.esic-quienes-somos .qs-value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 19, 63, 0.1);
+}
+
+.esic-quienes-somos .qs-value-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  border-radius: 24px 24px 0 0;
+}
+
+.esic-quienes-somos .qs-value-card.qs-orange::before { background: var(--qs-brand-orange); }
+.esic-quienes-somos .qs-value-card.qs-blue::before { background: var(--qs-brand-blue); }
+.esic-quienes-somos .qs-value-card.qs-teal::before { background: var(--qs-brand-teal); }
+
+.esic-quienes-somos .qs-value-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.esic-quienes-somos .qs-value-card.qs-orange .qs-value-card-icon {
+  background: rgba(255, 150, 0, 0.10);
+}
+
+.esic-quienes-somos .qs-value-card.qs-blue .qs-value-card-icon {
+  background: rgba(0, 71, 233, 0.10);
+}
+
+.esic-quienes-somos .qs-value-card.qs-teal .qs-value-card-icon {
+  background: rgba(10, 228, 195, 0.10);
+}
+
+.esic-quienes-somos .qs-value-card-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.esic-quienes-somos .qs-value-card h3 {
+  font-family: var(--qs-display-font);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: var(--qs-display-weight);
+  color: var(--qs-text);
+  margin-bottom: 0.6rem;
+}
+
+.esic-quienes-somos .qs-value-card h3::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: var(--qs-text);
+  margin-top: 0.6rem;
+  border-radius: 2px;
+  opacity: 0.2;
+}
+
+.esic-quienes-somos .qs-value-card p {
+  font-size: 0.9rem;
+  color: var(--qs-text-muted);
+  line-height: 1.5;
+}
+
+/* Fundadores */
+.esic-quienes-somos .qs-fundadores-section {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.esic-quienes-somos .qs-fundadores-title {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--qs-display-weight);
+  text-transform: uppercase;
+  color: var(--qs-brand-blue);
+  line-height: 0.95;
+}
+
+.esic-quienes-somos .qs-fundadores-logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem 2rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.esic-quienes-somos .qs-fundador-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  padding: 0.5rem 1rem;
+}
+
+.esic-quienes-somos .qs-fundador-logo img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Logo optical size adjustments - Postobón is baseline (100%) */
+.esic-quienes-somos .qs-fundador-logo.qs-logo-accenture img { transform: scale(0.88); }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-bancolombia img { transform: scale(1.12); }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-crystal img { transform: scale(1.22); }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-bios img { transform: scale(1.27); }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-telefonica img { transform: scale(1.38); }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-postobon img { transform: scale(1); }
+
+/* Cifras Section */
+.esic-quienes-somos .qs-cifras-section {
+  background: #FFFFFF;
+  padding: 5rem 0 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.esic-quienes-somos .qs-cifras-header h2 {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: var(--qs-display-weight);
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: #00133F;
+  margin-bottom: 2rem;
+}
+
+/* Variant Selector */
+.esic-quienes-somos .qs-variant-selector {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 3rem;
+  background: #F0F0F0;
+  border-radius: 50px;
+  padding: 5px;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.esic-quienes-somos .qs-variant-btn {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--qs-body-font);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: #666;
+}
+
+.esic-quienes-somos .qs-variant-btn.qs-active {
+  background: #E53935;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.35);
+}
+
+.esic-quienes-somos .qs-variant-btn:not(.qs-active):hover {
+  background: #E0E0E0;
+  color: #333;
+}
+
+.esic-quienes-somos .qs-cifras-variant { display: none; }
+.esic-quienes-somos .qs-cifras-variant.qs-active { display: block; }
+
+/* Zone label */
+.esic-quienes-somos .qs-zone-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.esic-quienes-somos .qs-zone-label span {
+  font-family: var(--qs-display-font);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
+
+.esic-quienes-somos .qs-flag-icon {
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+/* Stats */
+.esic-quienes-somos .qs-cifras-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.esic-quienes-somos .qs-cifras-stat .qs-num {
+  font-family: var(--qs-display-font);
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 0.15rem;
+}
+
+.esic-quienes-somos .qs-cifras-stat .qs-desc {
+  font-size: 0.8rem;
+  line-height: 1.3;
+  max-width: 150px;
+}
+
+/* Checklist */
+.esic-quienes-somos .qs-cifras-check {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.esic-quienes-somos .qs-cifras-check li {
+  font-size: 0.85rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.4;
+}
+
+.esic-quienes-somos .qs-cifras-check li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 14px;
+  height: 14px;
+  background: #0038E3;
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 7l2.5 2.5L10 5' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.esic-quienes-somos .qs-cifras-check.qs-on-dark li { color: rgba(255,255,255,0.9); }
+.esic-quienes-somos .qs-cifras-check.qs-on-dark li::before { background-color: #5EEDC3; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 7l2.5 2.5L10 5' stroke='%2300133F' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+
+/* CTA Link */
+.esic-quienes-somos .qs-cifras-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.esic-quienes-somos .qs-cifras-cta:hover { opacity: 0.75; }
+.esic-quienes-somos .qs-cifras-cta svg { width: 16px; height: 16px; }
+
+/* Variante C - Side by Side */
+.esic-quienes-somos .qs-vc-card {
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.esic-quienes-somos .qs-vc-left {
+  background: #00133F;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.esic-quienes-somos .qs-vc-left .qs-zone-label span { color: #5EEDC3; }
+
+.esic-quienes-somos .qs-vc-left-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.esic-quienes-somos .qs-vc-left-stats .qs-cifras-stat .qs-num { color: #fff; font-size: 1.8rem; }
+.esic-quienes-somos .qs-vc-left-stats .qs-cifras-stat .qs-desc { color: rgba(255,255,255,0.6); font-size: 0.75rem; }
+
+.esic-quienes-somos .qs-vc-left-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.esic-quienes-somos .qs-vc-left-bottom .qs-cifras-cta { color: #5EEDC3; }
+
+.esic-quienes-somos .qs-vc-right {
+  background: #FFFFFF;
+  border: 1.5px solid #E8E8E8;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.esic-quienes-somos .qs-vc-right .qs-zone-label span { color: #00133F; }
+
+.esic-quienes-somos .qs-vc-prog {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.esic-quienes-somos .qs-vc-prog .qs-prog-icon { 
+  width: 28px; 
+  height: 28px; 
+  color: #0038E3; 
+  margin-top: 0.15rem; 
+  flex-shrink: 0;
+}
+
+.esic-quienes-somos .qs-vc-prog-info h4 {
+  font-family: var(--qs-display-font);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #0038E3;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.esic-quienes-somos .qs-vc-prog-info .qs-num {
+  font-family: var(--qs-display-font);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #00133F;
+  line-height: 1;
+}
+
+.esic-quienes-somos .qs-vc-prog-info .qs-desc {
+  font-size: 0.72rem;
+  color: #888;
+}
+
+.esic-quienes-somos .qs-vc-prog-info p {
+  font-size: 0.7rem;
+  color: #aaa;
+  margin: 0.1rem 0 0;
+  line-height: 1.3;
+}
+
+/* Scroll Break */
+.esic-quienes-somos .qs-scroll-break {
+  background: linear-gradient(135deg, #001E47 0%, #00133F 100%);
+  padding: 5rem 0;
+  position: relative;
+  margin-top: -50px;
+  border-radius: 50px 50px 0 0;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.esic-quienes-somos .qs-scroll-break::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(0, 71, 233, 0.15), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(10, 228, 195, 0.08), transparent 40%);
+  pointer-events: none;
+}
+
+.esic-quienes-somos .qs-scroll-break-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.esic-quienes-somos .qs-scroll-break h2 {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--qs-display-weight);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  line-height: 0.95;
+  margin-bottom: 1rem;
+  max-width: 700px;
+}
+
+.esic-quienes-somos .qs-scroll-break h2 span {
+  color: var(--qs-brand-teal);
+}
+
+.esic-quienes-somos .qs-scroll-break p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.15rem;
+  max-width: 550px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* CTA Cierre */
+.esic-quienes-somos .qs-cta-cierre {
+  position: relative;
+  margin-top: -50px;
+  border-radius: 50px 50px 0 0;
+  background: var(--qs-surface);
+  z-index: 3;
+  padding: 5rem 0 6rem;
+}
+
+.esic-quienes-somos .qs-cta-cierre-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.esic-quienes-somos .qs-cta-cierre-tag {
+  font-family: var(--qs-display-font);
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--qs-brand-blue);
+  font-weight: var(--qs-display-weight);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.esic-quienes-somos .qs-cta-cierre h2 {
+  font-family: var(--qs-display-font);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--qs-display-weight);
+  text-transform: uppercase;
+  color: var(--qs-text);
+  line-height: 0.95;
+  margin-bottom: 1rem;
+}
+
+.esic-quienes-somos .qs-cta-cierre h2 span {
+  color: var(--qs-brand-orange);
+}
+
+.esic-quienes-somos .qs-cta-cierre p {
+  font-size: 1.1rem;
+  color: var(--qs-text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Footer */
+.esic-quienes-somos .qs-footer {
+  padding: 5rem 0 2rem;
+  background: #FFFFFF;
+  color: var(--qs-brand-blue-dark);
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 9;
+}
+
+.esic-quienes-somos .qs-footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+.esic-quienes-somos .qs-footer-cta h2 {
+  font-family: var(--qs-display-font);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.9;
+  color: var(--qs-brand-blue-dark);
+}
+
+.esic-quienes-somos .qs-footer-cta h2 span {
+  color: var(--qs-brand-blue);
+}
+
+.esic-quienes-somos .qs-footer-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.esic-quienes-somos .qs-footer-cta-buttons a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  color: var(--qs-brand-blue-dark);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.esic-quienes-somos .qs-footer-cta-buttons a:hover {
+  border-color: var(--qs-brand-blue);
+  color: var(--qs-brand-blue);
+}
+
+.esic-quienes-somos .qs-footer-cta-buttons a svg {
+  width: 16px;
+  height: 16px;
+}
+
+.esic-quienes-somos .qs-footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.esic-quienes-somos .qs-footer-logo img {
+  height: 50px;
+  width: auto;
+}
+
+.esic-quienes-somos .qs-footer-contact p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--qs-text-muted);
+}
+
+.esic-quienes-somos .qs-footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.esic-quienes-somos .qs-footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--qs-brand-blue-dark);
+  transition: color 0.2s ease;
+}
+
+.esic-quienes-somos .qs-footer-social a:hover {
+  color: var(--qs-brand-blue);
+}
+
+.esic-quienes-somos .qs-footer-social svg {
+  width: 22px;
+  height: 22px;
+}
+
+.esic-quienes-somos .qs-footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.esic-quienes-somos .qs-footer-links a {
+  color: var(--qs-brand-blue-dark);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.esic-quienes-somos .qs-footer-links a:hover {
+  color: var(--qs-brand-blue);
+}
+
+.esic-quienes-somos .qs-footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #E0E0E0;
+  font-size: 0.85rem;
+  color: var(--qs-text-muted);
+}
+
+/* Contact Modal */
+.esic-quienes-somos .qs-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 19, 63, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.esic-quienes-somos .qs-modal-overlay.qs-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.esic-quienes-somos .qs-modal-container {
+  background: #FFFFFF;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.3s ease;
+  box-shadow: 0 25px 80px rgba(0, 19, 63, 0.3);
+}
+
+.esic-quienes-somos .qs-modal-overlay.qs-active .qs-modal-container {
+  transform: translateY(0) scale(1);
+}
+
+.esic-quienes-somos .qs-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid rgba(0, 19, 63, 0.1);
+  background: var(--qs-brand-blue-dark);
+  border-radius: 24px 24px 0 0;
+}
+
+.esic-quienes-somos .qs-modal-header h3 {
+  font-family: var(--qs-display-font);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.esic-quienes-somos .qs-modal-close {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+  line-height: 1;
+}
+
+.esic-quienes-somos .qs-modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.esic-quienes-somos .qs-modal-body {
+  padding: 2rem;
+}
+
+.esic-quienes-somos .qs-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.esic-quienes-somos .qs-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.esic-quienes-somos .qs-form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--qs-brand-blue-dark);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.esic-quienes-somos .qs-form-group label em {
+  color: var(--qs-brand-orange);
+  font-style: normal;
+  margin-left: 2px;
+}
+
+.esic-quienes-somos .qs-form-group input,
+.esic-quienes-somos .qs-form-group select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1.5px solid var(--qs-border);
+  border-radius: 12px;
+  font-family: var(--qs-body-font);
+  font-size: 1rem;
+  color: var(--qs-text);
+  background: #FFFFFF;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.esic-quienes-somos .qs-form-group input:focus,
+.esic-quienes-somos .qs-form-group select:focus {
+  border-color: var(--qs-brand-blue);
+  box-shadow: 0 0 0 3px rgba(0, 71, 233, 0.1);
+}
+
+.esic-quienes-somos .qs-form-group input::placeholder {
+  color: var(--qs-text-light);
+  opacity: 0.7;
+}
+
+.esic-quienes-somos .qs-form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%230B132B' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.esic-quienes-somos .qs-btn-full {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .esic-quienes-somos .qs-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .esic-quienes-somos .qs-fundadores-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .esic-quienes-somos .qs-fundadores-logos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .esic-quienes-somos .qs-vc-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .esic-quienes-somos .qs-vc-right {
+    border-left: 1.5px solid #E8E8E8;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .esic-quienes-somos .qs-vc-left-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .esic-quienes-somos .qs-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .esic-quienes-somos .qs-section-overlap {
+    margin-top: -30px;
+    border-radius: 30px 30px 0 0;
+    padding-top: 60px;
+  }
+  
+  .esic-quienes-somos .qs-hero::before {
+    width: 100%;
+    opacity: 0.15;
+  }
+  
+  .esic-quienes-somos .qs-hero-actions {
+    flex-direction: column;
+  }
+  
+  .esic-quienes-somos .qs-hero-actions .qs-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .esic-quienes-somos .qs-values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .esic-quienes-somos .qs-vc-left-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .esic-quienes-somos .qs-variant-selector {
+    max-width: 160px;
+  }
+  
+  .esic-quienes-somos .qs-variant-btn {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.82rem;
+  }
+  
+  .esic-quienes-somos .qs-vc-left,
+  .esic-quienes-somos .qs-vc-right {
+    padding: 1.5rem;
+  }
+  
+  .esic-quienes-somos .qs-scroll-break,
+  .esic-quienes-somos .qs-cta-cierre {
+    margin-top: -30px;
+    border-radius: 30px 30px 0 0;
+  }
+  
+  .esic-quienes-somos .qs-footer {
+    border-radius: 30px 30px 0 0;
+    margin-top: -30px;
+  }
+  
+  .esic-quienes-somos .qs-footer-cta-buttons {
+    flex-direction: column;
+  }
+  
+  .esic-quienes-somos .qs-footer-cta-buttons a {
+    justify-content: space-between;
+  }
+  
+  .esic-quienes-somos .qs-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .esic-quienes-somos .qs-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .esic-quienes-somos .qs-section {
+    padding: 3.5rem 0;
+  }
+  
+  .esic-quienes-somos .qs-hero {
+    padding: calc(var(--qs-nav-height) + var(--qs-nav-top) + 30px) 0 3rem;
+    min-height: auto;
+  }
+  
+  .esic-quienes-somos .qs-fundadores-logos {
+    gap: 1rem;
+  }
+  
+  .esic-quienes-somos .qs-fundador-logo {
+    height: 50px;
+  }
+  
+  .esic-quienes-somos .qs-modal-header {
+    padding: 1.5rem;
+  }
+  
+  .esic-quienes-somos .qs-modal-body {
+    padding: 1.5rem;
+  }
+}
+</style>
+
+<div class="esic-quienes-somos">
+  <!-- Navigation -->
+  <nav class="qs-nav">
+    <a href="https://esic.co/index.html" class="qs-nav-logo"><img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC Business & Marketing School"></a>
+    <div class="qs-nav-actions">
+      <a href="https://esic.co/master/v2.html" class="qs-nav-cta">Programas</a>
+      <button class="qs-nav-menu" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  
+  <div class="qs-nav-overlay">
+    <ul class="qs-nav-overlay-menu">
+      <li><a href="https://esic.co/index.html" class="qs-nav-overlay-link">Inicio</a></li>
+      <li class="qs-nav-overlay-item">
+        <button class="qs-nav-overlay-toggle">Programas <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
+        <ul class="qs-nav-submenu">
+          <li><a href="https://esic.co/pregrado/index.html">Pregrado</a></li>
+          <li><a href="https://esic.co/master/v2.html">Máster</a></li>
+          <li><a href="https://esic.co/executive-programs/index.html">Executive Programs</a></li>
+        </ul>
+      </li>
+      <li class="qs-nav-overlay-item">
+        <button class="qs-nav-overlay-toggle">Nosotros <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
+        <ul class="qs-nav-submenu">
+          <li><a href="https://esic.co/institucional/quienes-somos.html">Quiénes Somos</a></li>
+          <li><a href="https://esic.co/formularios/contacto.html">Contacto</a></li>
+        </ul>
+      </li>
+      <li class="qs-nav-overlay-item">
+        <button class="qs-nav-overlay-toggle">Level-Up <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
+        <ul class="qs-nav-submenu">
+          <li><a href="https://esic.co/level-up/index.html">Level Up</a></li>
+          <li><a href="https://esic.co/level-up/ia.html">IA</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="qs-nav-overlay-social">
+      <a href="https://www.instagram.com/esic.colombia/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+      <a href="https://www.linkedin.com/school/esic-colombia/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="https://www.tiktok.com/@esic.colombia" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.57 6.33 6.33 0 0 0 9.37 22a6.33 6.33 0 0 0 6.33-6.33V9.18a8.16 8.16 0 0 0 3.89.98V6.69z"/></svg></a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="qs-hero">
+    <div class="qs-container">
+      <div class="qs-hero-content">
+        <span class="qs-hero-eyebrow">ESIC Medellín</span>
+        <h1 class="qs-hero-title">Somos una Business School que transforma <span>líderes</span></h1>
+        <p class="qs-hero-subtitle">Con más de 60 años de trayectoria en España, ESIC llega a Colombia con campus en Medellín para desarrollar líderes éticos, innovadores y orientados a resultados.</p>
+        <div class="qs-hero-actions">
+          <a class="qs-btn qs-btn-primary" href="https://esic.co/pregrado/index.html">Conoce nuestros programas</a>
+          <a class="qs-btn qs-btn-outline" href="#manifiesto">Nuestro manifiesto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manifiesto -->
+  <section class="qs-section qs-section-overlap qs-manifiesto-section" id="manifiesto">
+    <div class="qs-container">
+      <div class="qs-manifiesto-wrapper">
+        <h2 class="qs-manifiesto-tag">Nuestro Manifiesto</h2>
+        <p class="qs-manifiesto-text">ESIC Medellín no es solo una escuela. Es un movimiento de mentes valientes. Creemos en el marketing con propósito, la economía que transforma, y la tecnología que mejora vidas.</p>
+        <p class="qs-manifiesto-text">Aquí se piensa distinto. Se actúa con ética. Se impacta con sentido.</p>
+        <p class="qs-manifiesto-text">No formamos egresados. Formamos transformadores.</p>
+        <p class="qs-manifiesto-text">Si vienes a encajar, este no es tu lugar. Si vienes a cambiar el juego, bienvenido a casa.</p>
+        <p class="qs-manifiesto-signature">ESIC Medellín — diseñando futuros.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="qs-section qs-section-overlap qs-section-white">
+    <div class="qs-container">
+      <div class="qs-section-header">
+        <h2 class="qs-section-title">Lo que nos <span>mueve</span></h2>
+      </div>
+      <div class="qs-values-grid">
+        <article class="qs-value-card qs-orange">
+          <div class="qs-value-card-icon">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="13" cy="13" r="11" stroke="#FF9600" stroke-width="1.5" fill="rgba(255,150,0,0.08)"/>
+              <ellipse cx="13" cy="13" rx="4.5" ry="11" stroke="#FF9600" stroke-width="1.2"/>
+              <line x1="2" y1="13" x2="24" y2="13" stroke="#FF9600" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <h3>Internacionalización</h3>
+          <p>Tu transformación es nuestra manera de cambiar el mundo.</p>
+        </article>
+        <article class="qs-value-card qs-blue">
+          <div class="qs-value-card-icon">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 4a7 7 0 0 1 4.6 12.3V19H8.4v-2.7A7 7 0 0 1 13 4z" stroke="#0047E9" stroke-width="1.5" fill="rgba(0,71,233,0.08)"/>
+              <line x1="9.5" y1="21.5" x2="16.5" y2="21.5" stroke="#0047E9" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Innovación</h3>
+          <p>Aprendizaje continuo para anticipar y liderar los cambios del mercado.</p>
+        </article>
+        <article class="qs-value-card qs-teal">
+          <div class="qs-value-card-icon">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 3L3 8v2l10 5 10-5V8L13 3z" stroke="#0AE4C3" stroke-width="1.5" stroke-linejoin="round" fill="rgba(10,228,195,0.08)"/>
+              <path d="M5 11.5v5l8 4 8-4v-5" stroke="#0AE4C3" stroke-width="1.3" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Ética</h3>
+          <p>Formamos líderes responsables, con impacto social y empresarial.</p>
+        </article>
+        <article class="qs-value-card qs-orange">
+          <div class="qs-value-card-icon">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="14" width="4.5" height="9" rx="1.2" stroke="#FF9600" stroke-width="1.5" fill="rgba(255,150,0,0.08)"/>
+              <rect x="10.75" y="8" width="4.5" height="15" rx="1.2" stroke="#FF9600" stroke-width="1.5" fill="rgba(255,150,0,0.08)"/>
+              <rect x="17.5" y="11" width="4.5" height="12" rx="1.2" stroke="#FF9600" stroke-width="1.5" fill="rgba(255,150,0,0.08)"/>
+            </svg>
+          </div>
+          <h3>Resultados</h3>
+          <p>Metodologías que convierten el conocimiento en acciones medibles.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Socios Fundadores -->
+  <section class="qs-section qs-section-overlap qs-section-white">
+    <div class="qs-container qs-fundadores-section">
+      <div>
+        <h2 class="qs-fundadores-title">Nuestros<br>Miembros<br>Fundadores</h2>
+      </div>
+      <div class="qs-fundadores-logos">
+        <div class="qs-fundador-logo qs-logo-bios"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Grupo Bios"></div>
+        <div class="qs-fundador-logo qs-logo-bancolombia"><img src="https://esic.co/wp-content/uploads/2024/08/g6@4x.png" alt="Bancolombia"></div>
+        <div class="qs-fundador-logo qs-logo-crystal"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-1@4x.png" alt="Crystal"></div>
+        <div class="qs-fundador-logo qs-logo-telefonica"><img src="https://esic.co/wp-content/uploads/2024/08/Telefonica-logo.png" alt="Telefonica"></div>
+        <div class="qs-fundador-logo qs-logo-accenture"><img src="https://esic.co/wp-content/uploads/2024/08/layer1@4x.png" alt="Accenture"></div>
+        <div class="qs-fundador-logo qs-logo-postobon"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-3@4x.png" alt="Postobon"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cifras y Reconocimiento -->
+  <section class="qs-section qs-section-overlap qs-cifras-section">
+    <div class="qs-container">
+      <div class="qs-cifras-header">
+        <h2>CIFRAS Y<br>RECONOCIMIENTO</h2>
+      </div>
+      
+      <div class="qs-variant-selector">
+        <button class="qs-variant-btn qs-active" data-variant="a">España</button>
+        <button class="qs-variant-btn" data-variant="b">Medellín</button>
+      </div>
+      
+      <!-- Variante A: ESIC España -->
+      <div class="qs-cifras-variant qs-active" id="qs-variant-a">
+        <div class="qs-vc-card">
+          <div class="qs-vc-left">
+            <div class="qs-zone-label">
+              <svg class="qs-flag-icon" width="24" height="16" viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
+              <span>ESIC España</span>
+            </div>
+            <div class="qs-vc-left-stats">
+              <div class="qs-cifras-stat"><span class="qs-num">TOP 1</span><span class="qs-desc">Marketing y Economía Digital</span></div>
+              <div class="qs-cifras-stat"><span class="qs-num">+60</span><span class="qs-desc">años formando profesionales</span></div>
+              <div class="qs-cifras-stat"><span class="qs-num">13</span><span class="qs-desc">Campus en 4 continentes</span></div>
+              <div class="qs-cifras-stat"><span class="qs-num">62K+</span><span class="qs-desc">alumni de 80+ nacionalidades</span></div>
+            </div>
+            <div class="qs-vc-left-bottom">
+              <ul class="qs-cifras-check qs-on-dark">
+                <li>Acuerdos en 40+ países</li>
+                <li>Referente europeo en negocios</li>
+              </ul>
+              <a href="https://www.esic.edu" target="_blank" class="qs-cifras-cta">ESIC España <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+          <div class="qs-vc-right">
+            <div class="qs-zone-label">
+              <svg class="qs-flag-icon" width="24" height="16" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+              <span>ESIC Medellín</span>
+            </div>
+            <div class="qs-vc-prog">
+              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><path d="M20 6L2 16l18 10 18-10L20 6z" stroke-linejoin="round"/><path d="M8 20v10c0 0 4 5 12 5s12-5 12-5V20" stroke-linejoin="round"/></svg>
+              <div class="qs-vc-prog-info">
+                <h4>Pregrado</h4>
+                <span class="qs-num">252</span>
+                <span class="qs-desc">activos</span>
+                <p>Proy. 2026: 452 · Proy. 2029: 1,000</p>
+              </div>
+            </div>
+            <div class="qs-vc-prog">
+              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><circle cx="14" cy="12" r="5"/><path d="M4 32c0-6 4-10 10-10s10 4 10 10" stroke-linecap="round"/></svg>
+              <div class="qs-vc-prog-info">
+                <h4>Master</h4>
+                <span class="qs-num">230</span>
+                <span class="qs-desc">graduados</span>
+                <p>141 activos</p>
+              </div>
+            </div>
+            <div class="qs-vc-prog">
+              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><circle cx="20" cy="8" r="4"/><circle cx="8" cy="28" r="4"/><circle cx="32" cy="28" r="4"/><line x1="18" y1="12" x2="10" y2="24"/><line x1="22" y1="12" x2="30" y2="24"/></svg>
+              <div class="qs-vc-prog-info">
+                <h4>A la Medida</h4>
+                <span class="qs-num">+3,000</span>
+                <span class="qs-desc">participantes</span>
+              </div>
+            </div>
+            <div class="qs-vc-prog">
+              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><rect x="4" y="14" width="32" height="20" rx="3"/><path d="M14 14V10a4 4 0 014-4h4a4 4 0 014 4v4"/><line x1="4" y1="24" x2="36" y2="24"/></svg>
+              <div class="qs-vc-prog-info">
+                <h4>Ejecutivo</h4>
+                <span class="qs-num">198</span>
+                <span class="qs-desc">estudiantes</span>
+                <p>4 cohortes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Variante B: ESIC Medellín -->
+      <div class="qs-cifras-variant" id="qs-variant-b">
+        <div class="qs-vc-card">
+          <div class="qs-vc-left" style="background: linear-gradient(135deg, #0047E9 0%, #00133F 100%);">
+            <div class="qs-zone-label">
+              <svg class="qs-flag-icon" width="24" height="16" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+              <span style="color: #fff;">ESIC Medellín</span>
+            </div>
+            <div class="qs-vc-left-stats">
+              <div class="qs-cifras-stat"><span class="qs-num" style="color: #0AE4C3;">252</span><span class="qs-desc">estudiantes pregrado</span></div>
+              <div class="qs-cifras-stat"><span class="qs-num" style="color: #0AE4C3;">230</span><span class="qs-desc">graduados master</span></div>
+              <div class="qs-cifras-stat"><span class="qs-num" style="color: #0AE4C3;">+3,000</span><span class="qs-desc">ejecutivos formados</span></div>
+              <div class="qs-cifras-stat"><span class="qs-num" style="color: #0AE4C3;">4</span><span class="qs-desc">cohortes ejecutivas</span></div>
+            </div>
+            <div class="qs-vc-left-bottom">
+              <ul class="qs-cifras-check qs-on-dark">
+                <li>Proyección 2026: 452 estudiantes</li>
+                <li>Proyección 2029: 1,000 estudiantes</li>
+              </ul>
+              <a href="#contacto" class="qs-cifras-cta" style="color: #0AE4C3;">Conoce más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+          <div class="qs-vc-right">
+            <div class="qs-zone-label">
+              <svg class="qs-flag-icon" width="24" height="16" viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>
+              <span>ESIC España - Grupo Planeta</span>
+            </div>
+            <div class="qs-vc-prog">
+              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><circle cx="20" cy="20" r="16"/><path d="M20 4v32M4 20h32"/></svg>
+              <div class="qs-vc-prog-info">
+                <h4>Ranking</h4>
+                <span class="qs-num">TOP 1</span>
+                <span class="qs-desc">Marketing y Digital</span>
+                <p>En España y referente europeo</p>
+              </div>
+            </div>
+            <div class="qs-vc-prog">
+              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><circle cx="20" cy="20" r="8"/><circle cx="20" cy="20" r="14"/></svg>
+              <div class="qs-vc-prog-info">
+                <h4>Trayectoria</h4>
+                <span class="qs-num">+60</span>
+                <span class="qs-desc">años de historia</span>
+                <p>Formando líderes desde 1965</p>
+              </div>
+            </div>
+            <div class="qs-vc-prog">
+              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><path d="M8 32V20l12-8 12 8v12"/><path d="M4 20h32"/></svg>
+              <div class="qs-vc-prog-info">
+                <h4>Presencia Global</h4>
+                <span class="qs-num">13</span>
+                <span class="qs-desc">campus internacionales</span>
+                <p>En 4 continentes</p>
+              </div>
+            </div>
+            <div class="qs-vc-prog">
+              <svg class="qs-prog-icon" viewBox="0 0 40 40" fill="none" stroke="#0038E3" stroke-width="2"><circle cx="20" cy="14" r="6"/><path d="M8 36c0-8 5.4-14 12-14s12 6 12 14"/></svg>
+              <div class="qs-vc-prog-info">
+                <h4>Comunidad</h4>
+                <span class="qs-num">62K+</span>
+                <span class="qs-desc">alumni global</span>
+                <p>De más de 80 nacionalidades</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll Break -->
+  <section class="qs-scroll-break">
+    <div class="qs-container qs-scroll-break-content">
+      <h2>Transformamos el <span>talento</span> en impacto real</h2>
+      <p>Más de seis décadas formando líderes que entienden el mercado, innovan con propósito y construyen el futuro de los negocios.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="qs-footer" id="contacto">
+    <div class="qs-container">
+      <div class="qs-footer-grid">
+        <div class="qs-footer-cta">
+          <h2>TRANSFORMA<br>TU FUTURO<br><span>EN ESIC</span></h2>
+          <div class="qs-footer-cta-buttons">
+            <a href="https://esic.co/institucional/quienes-somos.html">
+              INSTITUCIÓN
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="qs-contact-trigger">
+              CONTÁCTANOS
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qs-footer-info">
+          <div class="qs-footer-logo">
+            <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC Business & Marketing School">
+          </div>
+          <div class="qs-footer-contact">
+            <p>info@esic.co</p>
+          </div>
+          <div class="qs-footer-social">
+            <a href="https://www.linkedin.com/school/esic-medellin/" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/esic.colombia/" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@esic.colombia" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+          </div>
+          <div class="qs-footer-links">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Tratamiento de Datos</a>
+          </div>
+        </div>
+      </div>
+      <div class="qs-footer-bottom">
+        <p>© 2025 ESIC. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Contact Modal -->
+  <div class="qs-modal-overlay" id="qsContactModal">
+    <div class="qs-modal-container">
+      <div class="qs-modal-header">
+        <h3>Solicitar Información</h3>
+        <button class="qs-modal-close" aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="qs-modal-body">
+        <form action="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+          <input type="hidden" name="zf_referrer_name" value="">
+          <input type="hidden" name="zf_redirect_url" value="">
+          <input type="hidden" name="zc_gad" value="">
+          
+          <div class="qs-form-row">
+            <div class="qs-form-group">
+              <label>Nombre <em>*</em></label>
+              <input type="text" maxlength="255" name="Name_First" placeholder="Tu nombre" required />
+            </div>
+            <div class="qs-form-group">
+              <label>Apellido</label>
+              <input type="text" maxlength="255" name="Name_Last" placeholder="Tu apellido" />
+            </div>
+          </div>
+          
+          <div class="qs-form-group">
+            <label>Correo electrónico <em>*</em></label>
+            <input type="email" maxlength="255" name="Email" placeholder="tu@email.com" required />
+          </div>
+          
+          <div class="qs-form-group">
+            <label>Teléfono <em>*</em></label>
+            <input type="tel" name="PhoneNumber_countrycode" maxlength="20" placeholder="+57 300 123 4567" required />
+          </div>
+          
+          <div class="qs-form-row">
+            <div class="qs-form-group">
+              <label>Tipo de programa <em>*</em></label>
+              <select name="Dropdown" required>
+                <option value="" disabled selected>Selecciona...</option>
+                <option value="Pregrado">Pregrado</option>
+                <option value="Corporate">Corporate</option>
+                <option value="Diplomado">Diplomado</option>
+                <option value="Curso">Curso</option>
+                <option value="Executive">Executive</option>
+                <option value="Educación continua">Educación continua</option>
+                <option value="Level Up">Level Up</option>
+                <option value="Open Day">Open Day</option>
+              </select>
+            </div>
+            <div class="qs-form-group">
+              <label>Medio de contacto <em>*</em></label>
+              <select name="Dropdown3" required>
+                <option value="" disabled selected>Selecciona...</option>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Correo">Correo</option>
+                <option value="Llamada">Llamada</option>
+              </select>
+            </div>
+          </div>
+          
+          <button type="submit" class="qs-btn qs-btn-primary qs-btn-full">Enviar solicitud</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var wrapper = document.querySelector('.esic-quienes-somos');
+  if (!wrapper) return;
+  
+  // Navigation toggle
+  var menuBtn = wrapper.querySelector('.qs-nav-menu');
+  var overlayItems = wrapper.querySelectorAll('.qs-nav-overlay-item');
+  
+  if (menuBtn) {
+    menuBtn.addEventListener('click', function() {
+      wrapper.classList.toggle('qs-nav-open');
+    });
+  }
+  
+  overlayItems.forEach(function(item) {
+    var toggle = item.querySelector('.qs-nav-overlay-toggle');
+    var submenu = item.querySelector('.qs-nav-submenu');
+    if (toggle && submenu) {
+      toggle.addEventListener('click', function() {
+        item.classList.toggle('qs-open');
+        submenu.style.maxHeight = item.classList.contains('qs-open') ? submenu.scrollHeight + 'px' : '0';
+      });
+    }
+  });
+  
+  // Variant selector
+  var variantBtns = wrapper.querySelectorAll('.qs-variant-btn');
+  var variantPanels = wrapper.querySelectorAll('.qs-cifras-variant');
+  
+  variantBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var variant = btn.getAttribute('data-variant');
+      variantBtns.forEach(function(b) { b.classList.remove('qs-active'); });
+      variantPanels.forEach(function(p) { p.classList.remove('qs-active'); });
+      btn.classList.add('qs-active');
+      document.getElementById('qs-variant-' + variant).classList.add('qs-active');
+    });
+  });
+  
+  // Contact Modal
+  var contactTrigger = wrapper.querySelector('.qs-contact-trigger');
+  var contactModal = wrapper.querySelector('#qsContactModal');
+  var modalClose = wrapper.querySelector('.qs-modal-close');
+  
+  if (contactTrigger && contactModal) {
+    contactTrigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      contactModal.classList.add('qs-active');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+  
+  if (modalClose && contactModal) {
+    modalClose.addEventListener('click', function() {
+      contactModal.classList.remove('qs-active');
+      document.body.style.overflow = '';
+    });
+  }
+  
+  if (contactModal) {
+    contactModal.addEventListener('click', function(e) {
+      if (e.target === contactModal) {
+        contactModal.classList.remove('qs-active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && contactModal && contactModal.classList.contains('qs-active')) {
+      contactModal.classList.remove('qs-active');
+      document.body.style.overflow = '';
+    }
+  });
+})();
+</script>

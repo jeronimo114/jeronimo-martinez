@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requerimientos de Diseño | ESIC Medellín</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/esic-theme.css">
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #00133F 0%, #0047E9 100%);
+      padding: 4rem 2rem;
+    }
+
+    .design-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .design-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .design-header h1 {
+      font-family: var(--display-font);
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+    }
+
+    .design-header p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.1rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: #FFFFFF;
+    }
+
+    .asset-section {
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-family: var(--display-font);
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--brand-teal);
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid rgba(9, 207, 144, 0.3);
+    }
+
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .asset-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .asset-preview {
+      aspect-ratio: 16/9;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .asset-preview.portrait {
+      aspect-ratio: 4/5;
+    }
+
+    .asset-preview.square {
+      aspect-ratio: 1/1;
+    }
+
+
+    .asset-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .asset-dimensions {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem;
+      background: rgba(0, 0, 0, 0.7);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .asset-info {
+      padding: 1.5rem;
+    }
+
+    .asset-info h3 {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+
+    .design-footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .design-footer p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    .banner-variants {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .banner-variants .asset-card:last-child .asset-preview {
+      aspect-ratio: 4/5;
+    }
+
+    .asset-grid.compact {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+
+    .compact .asset-info {
+      padding: 0.75rem;
+    }
+
+    .compact .asset-info h3 {
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+
+    .compact .asset-dimensions {
+      font-size: 0.6rem;
+      padding: 0.2rem 0.4rem;
+    }
+
+    .variant-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand-teal);
+      padding: 0.3rem 0.6rem;
+      background: rgba(9, 207, 144, 0.15);
+      border-radius: 4px;
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="design-container">
+    <a href="../mapa.html" class="back-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Volver al mapa
+    </a>
+
+    <header class="design-header">
+      <h1>REQUERIMIENTOS DE DISEÑO</h1>
+      <p>Assets visuales pendientes para el área de diseño</p>
+    </header>
+
+    <!-- BANNERS HERO -->
+    <section class="asset-section">
+      <h2 class="section-title">Banners Hero</h2>
+
+      <div class="banner-variants">
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="https://placehold.co/2560x1068/FF8701/FFFFFF?text=Pregrado" alt="Pregrado Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
+          </div>
+          <div class="asset-info">
+            <h3>Pregrado General</h3>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/FF8701/FFFFFF?text=Pregrado+Mobile" alt="Pregrado Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-variants">
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="https://placehold.co/2560x1068/0047E9/FFFFFF?text=Marketing+Global" alt="Marketing Global Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
+          </div>
+          <div class="asset-info">
+            <h3>Marketing Global</h3>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/0047E9/FFFFFF?text=Mkt+Global+Mobile" alt="Marketing Global Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-variants">
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="https://placehold.co/2560x1068/FF8701/FFFFFF?text=Digital+Business" alt="Digital Business Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
+          </div>
+          <div class="asset-info">
+            <h3>Digital Business</h3>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/FF8701/FFFFFF?text=Dig+Business+Mobile" alt="Digital Business Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-variants">
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="https://placehold.co/2560x1068/09CF90/FFFFFF?text=Master" alt="Máster Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
+          </div>
+          <div class="asset-info">
+            <h3>Máster General</h3>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/09CF90/FFFFFF?text=Master+Mobile" alt="Máster Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-variants">
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="https://placehold.co/2560x1068/0047E9/FFFFFF?text=Digital+Marketing" alt="Digital Marketing Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
+          </div>
+          <div class="asset-info">
+            <h3>Digital Marketing</h3>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/0047E9/FFFFFF?text=Dig+Mkt+Mobile" alt="Digital Marketing Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-variants">
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="https://placehold.co/2560x1068/09CF90/FFFFFF?text=Customer+Experience" alt="Customer Experience Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
+          </div>
+          <div class="asset-info">
+            <h3>Customer Experience</h3>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/09CF90/FFFFFF?text=CX+Mobile" alt="Customer Experience Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-variants">
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="https://placehold.co/2560x1068/0047E9/FFFFFF?text=Level+Up" alt="Level Up Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
+          </div>
+          <div class="asset-info">
+            <h3>Level Up</h3>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/0047E9/FFFFFF?text=Level+Up+Mobile" alt="Level Up Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-variants">
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="https://placehold.co/2560x1068/00133F/FFFFFF?text=Quienes+Somos" alt="Quiénes Somos Desktop">
+            <span class="variant-label">Desktop</span>
+            <span class="asset-dimensions">2560 × 1068</span>
+          </div>
+          <div class="asset-info">
+            <h3>Quiénes Somos</h3>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 4/5;">
+            <img src="https://placehold.co/2048x2560/00133F/FFFFFF?text=Quienes+Somos+Mobile" alt="Quiénes Somos Mobile">
+            <span class="variant-label">Mobile</span>
+            <span class="asset-dimensions">2048 × 2560</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDS PROGRAMA -->
+    <section class="asset-section">
+      <h2 class="section-title">Fotos Cards Programa</h2>
+      <p style="color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; font-size: 0.95rem;">Imagen de fondo para cada card con overlay de color. La imagen debe tener zona segura superior sin contenido importante.</p>
+
+      <h3 style="color: rgba(255,255,255,0.5); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;">Desktop: 1200 × 580 px</h3>
+      <div class="asset-grid" style="grid-template-columns: repeat(5, 1fr); margin-bottom: 3rem;">
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 1200/580;">
+            <img src="https://placehold.co/1200x580/FF8701/FFFFFF?text=Mkt+Global" alt="Marketing Global">
+            <span class="variant-label">Pregrado</span>
+            <span class="asset-dimensions">1200 × 580</span>
+          </div>
+          <div class="asset-info">
+            <h3>Dirección de Marketing Global</h3>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 1200/580;">
+            <img src="https://placehold.co/1200x580/FF8701/FFFFFF?text=Digital+Business" alt="Digital Business Pregrado">
+            <span class="variant-label">Pregrado</span>
+            <span class="asset-dimensions">1200 × 580</span>
+          </div>
+          <div class="asset-info">
+            <h3>Digital Business</h3>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 1200/580;">
+            <img src="https://placehold.co/1200x580/09CF90/00133F?text=Digital+Marketing" alt="Digital Marketing">
+            <span class="variant-label">Máster</span>
+            <span class="asset-dimensions">1200 × 580</span>
+          </div>
+          <div class="asset-info">
+            <h3>Digital Marketing</h3>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 1200/580;">
+            <img src="https://placehold.co/1200x580/09CF90/00133F?text=Customer+Exp" alt="Customer Experience">
+            <span class="variant-label">Máster</span>
+            <span class="asset-dimensions">1200 × 580</span>
+          </div>
+          <div class="asset-info">
+            <h3>Customer Experience</h3>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 1200/580;">
+            <img src="https://placehold.co/1200x580/09CF90/00133F?text=Dig+Business" alt="Digital Business Máster">
+            <span class="variant-label">Máster</span>
+            <span class="asset-dimensions">1200 × 580</span>
+          </div>
+          <div class="asset-info">
+            <h3>Digital Business</h3>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="color: rgba(255,255,255,0.5); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;">Mobile: 680 × 820 px</h3>
+      <div class="asset-grid" style="grid-template-columns: repeat(5, 1fr);">
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 680/820;">
+            <img src="https://placehold.co/680x820/FF8701/FFFFFF?text=Mkt+Global" alt="Marketing Global Mobile">
+            <span class="variant-label">Pregrado</span>
+            <span class="asset-dimensions">680 × 820</span>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 680/820;">
+            <img src="https://placehold.co/680x820/FF8701/FFFFFF?text=Digital+Bus" alt="Digital Business Mobile">
+            <span class="variant-label">Pregrado</span>
+            <span class="asset-dimensions">680 × 820</span>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 680/820;">
+            <img src="https://placehold.co/680x820/09CF90/00133F?text=Dig+Marketing" alt="Digital Marketing Mobile">
+            <span class="variant-label">Máster</span>
+            <span class="asset-dimensions">680 × 820</span>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 680/820;">
+            <img src="https://placehold.co/680x820/09CF90/00133F?text=Customer+Exp" alt="Customer Experience Mobile">
+            <span class="variant-label">Máster</span>
+            <span class="asset-dimensions">680 × 820</span>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 680/820;">
+            <img src="https://placehold.co/680x820/09CF90/00133F?text=Dig+Business" alt="Digital Business Mobile">
+            <span class="variant-label">Máster</span>
+            <span class="asset-dimensions">680 × 820</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDS VIDA CAMPUS -->
+    <section class="asset-section">
+      <h2 class="section-title">Cards Vida Campus (1200 × 600)</h2>
+      <div class="asset-grid">
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 1200/600;">
+            <img src="https://placehold.co/1200x600/0047E9/FFFFFF?text=Aulas" alt="Aulas">
+            <span class="asset-dimensions">1200 × 600</span>
+          </div>
+          <div class="asset-info">
+            <h3>Aulas</h3>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 1200/600;">
+            <img src="https://placehold.co/1200x600/09CF90/FFFFFF?text=Cowork" alt="Cowork">
+            <span class="asset-dimensions">1200 × 600</span>
+          </div>
+          <div class="asset-info">
+            <h3>Cowork</h3>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 1200/600;">
+            <img src="https://placehold.co/1200x600/FF8701/FFFFFF?text=Eventos" alt="Eventos">
+            <span class="asset-dimensions">1200 × 600</span>
+          </div>
+          <div class="asset-info">
+            <h3>Eventos</h3>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="aspect-ratio: 1200/600;">
+            <img src="https://placehold.co/1200x600/00133F/FFFFFF?text=Campus" alt="Campus">
+            <span class="asset-dimensions">1200 × 600</span>
+          </div>
+          <div class="asset-info">
+            <h3>Campus</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="design-footer">
+      <p>ESIC Medellín - Requerimientos de Diseño 2025</p>
+    </footer>
+  </div>
+</body>
+</html>

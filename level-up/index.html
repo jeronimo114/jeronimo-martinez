@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../esic-theme.css">
+  <link rel="stylesheet" href="../assets/css/esic-theme.css">
   <style>
     /* ── Agenda 2026 section ── */
     .agenda-section {
@@ -258,6 +258,23 @@
       background-position: right 1rem center;
       background-size: 12px;
       padding-right: 2.5rem;
+    }
+    /* Country Code Select with Flags */
+    .eh-country-select {
+      position: relative;
+    }
+    .eh-country-select select {
+      padding-left: 2.8rem;
+      font-size: 0.9rem;
+    }
+    .eh-country-flag {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      pointer-events: none;
+      z-index: 1;
     }
     .eh-submit-btn {
       width: 100%;
@@ -552,12 +569,46 @@
           </div>
           <div class="eh-form-row">
             <div class="eh-form-group">
-              <label>Código</label>
-              <input type="text" name="PhoneNumber_countrycode" maxlength="20" placeholder="+57">
+              <label>País <em>*</em></label>
+              <div class="eh-country-select">
+                <span class="eh-country-flag" id="countryFlag">🇨🇴</span>
+                <select name="PhoneNumber_countrycode" id="countryCodeSelect" required>
+                  <option value="+57" data-flag="🇨🇴" selected>Colombia (+57)</option>
+                  <option value="+34" data-flag="🇪🇸">España (+34)</option>
+                  <option value="+1" data-flag="🇺🇸">Estados Unidos (+1)</option>
+                  <option value="+52" data-flag="🇲🇽">México (+52)</option>
+                  <option value="+54" data-flag="🇦🇷">Argentina (+54)</option>
+                  <option value="+56" data-flag="🇨🇱">Chile (+56)</option>
+                  <option value="+51" data-flag="🇵🇪">Perú (+51)</option>
+                  <option value="+58" data-flag="🇻🇪">Venezuela (+58)</option>
+                  <option value="+593" data-flag="🇪🇨">Ecuador (+593)</option>
+                  <option value="+591" data-flag="🇧🇴">Bolivia (+591)</option>
+                  <option value="+595" data-flag="🇵🇾">Paraguay (+595)</option>
+                  <option value="+598" data-flag="🇺🇾">Uruguay (+598)</option>
+                  <option value="+507" data-flag="🇵🇦">Panamá (+507)</option>
+                  <option value="+506" data-flag="🇨🇷">Costa Rica (+506)</option>
+                  <option value="+503" data-flag="🇸🇻">El Salvador (+503)</option>
+                  <option value="+502" data-flag="🇬🇹">Guatemala (+502)</option>
+                  <option value="+504" data-flag="🇭🇳">Honduras (+504)</option>
+                  <option value="+505" data-flag="🇳🇮">Nicaragua (+505)</option>
+                  <option value="+44" data-flag="🇬🇧">Reino Unido (+44)</option>
+                  <option value="+33" data-flag="🇫🇷">Francia (+33)</option>
+                  <option value="+49" data-flag="🇩🇪">Alemania (+49)</option>
+                  <option value="+39" data-flag="🇮🇹">Italia (+39)</option>
+                  <option value="+55" data-flag="🇧🇷">Brasil (+55)</option>
+                  <option value="+91" data-flag="🇮🇳">India (+91)</option>
+                  <option value="+86" data-flag="🇨🇳">China (+86)</option>
+                  <option value="+81" data-flag="🇯🇵">Japón (+81)</option>
+                  <option value="+82" data-flag="🇰🇷">Corea del Sur (+82)</option>
+                  <option value="+61" data-flag="🇦🇺">Australia (+61)</option>
+                  <option value="+7" data-flag="🇷🇺">Rusia (+7)</option>
+                  <option value="+27" data-flag="🇿🇦">Sudáfrica (+27)</option>
+                </select>
+              </div>
             </div>
             <div class="eh-form-group">
               <label>Teléfono <em>*</em></label>
-              <input type="tel" name="PhoneNumber_countrycodeval" maxlength="20" placeholder="300 123 4567" required>
+              <input type="tel" name="PhoneNumber_countrycodeval" id="phoneNumberInput" maxlength="15" placeholder="3001234567" pattern="[0-9]*" inputmode="numeric" required>
             </div>
           </div>
           <div class="eh-form-row">
@@ -637,8 +688,69 @@
         closeModal();
       }
     });
+
+  // Country code select with flag update
+  var countryCodeSelect = document.getElementById('countryCodeSelect');
+  var countryFlag = document.getElementById('countryFlag');
+  var phoneNumberInput = document.getElementById('phoneNumberInput');
+  var contactForm = document.getElementById('form');
+
+  if (countryCodeSelect && countryFlag) {
+    countryCodeSelect.addEventListener('change', function() {
+      var selectedOption = countryCodeSelect.options[countryCodeSelect.selectedIndex];
+      var flag = selectedOption.getAttribute('data-flag');
+      countryFlag.textContent = flag;
+    });
+  }
+
+  // Phone number input validation - only allow digits
+  if (phoneNumberInput) {
+    // Prevent invalid characters on input
+    phoneNumberInput.addEventListener('input', function() {
+      // Remove any non-digit characters immediately
+      this.value = this.value.replace(/\D/g, '');
+    });
+    
+    // Prevent +, -, (, ) keys from being entered
+    phoneNumberInput.addEventListener('keypress', function(e) {
+      var char = String.fromCharCode(e.which);
+      // Allow only digits (0-9)
+      if (!/\d/.test(char)) {
+        e.preventDefault();
+      }
+    });
+    
+    // Clean up on paste
+    phoneNumberInput.addEventListener('paste', function(e) {
+      e.preventDefault();
+      var pasted = (e.clipboardData || window.clipboardData).getData('text');
+      var digitsOnly = pasted.replace(/\D/g, '');
+      this.value = digitsOnly.substring(0, 15);
+    });
+  }
+
+  // Phone number validation on submit
+  if (contactForm && phoneNumberInput) {
+    contactForm.addEventListener('submit', function(e) {
+      var phoneValue = phoneNumberInput.value.trim();
+      
+      // Remove any non-digit characters (extra safety)
+      var digitsOnly = phoneValue.replace(/\D/g, '');
+      phoneNumberInput.value = digitsOnly;
+      
+      // Validate phone has at least 7 digits
+      if (digitsOnly.length < 7) {
+        e.preventDefault();
+        alert('Por favor, ingresa un número de teléfono válido (mínimo 7 dígitos). Solo números, sin + ni espacios.');
+        phoneNumberInput.focus();
+        return false;
+      }
+      
+      return true;
+    });
+  }
   })();
   </script>
-<script src="../nav.js"></script>
+<script src="../assets/js/nav.js"></script>
 </body>
 </html>
