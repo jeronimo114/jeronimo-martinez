@@ -273,7 +273,7 @@
       background: var(--pregrado-highlight-dark);
     }
 
-    /* Program selector grid */
+    /* Program selector grid - Homepage style cards */
     .programas-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -282,70 +282,115 @@
 
     .programa-card {
       position: relative;
-      border-radius: 24px;
+      border-radius: 12px;
       overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 280px;
+      display: block;
+      aspect-ratio: 16/9;
       text-decoration: none;
-      background: #FF9600;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
     }
 
     .programa-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 19, 63, 0.15);
+      box-shadow: 0 20px 40px rgba(0, 19, 63, 0.2);
+    }
+
+    .programa-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.9) 25%, rgba(0, 0, 0, 0.7) 35%, rgba(0, 0, 0, 0.4) 55%, transparent 75%);
+      z-index: 1;
+      border-radius: inherit;
+    }
+
+    @media (max-width: 768px) {
+      .programa-card::before {
+        background: linear-gradient(180deg, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.9) 100%);
+      }
     }
 
     .programa-card-info {
-      padding: 1.5rem;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 65%;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
+      align-items: flex-start;
       color: #FFFFFF;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .programa-card-info {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        min-height: 55%;
+        justify-content: flex-end;
+        padding: 1.5rem;
+      }
     }
 
     .programa-card-info h3 {
       font-family: var(--display-font);
-      font-size: 1.4rem;
-      font-weight: 700;
+      font-size: 2rem;
+      font-weight: 800;
       text-transform: uppercase;
-      line-height: 1.05;
-      margin-bottom: 0.5rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: #FF9600;
+    }
+
+    .programa-card.programa-blue .programa-card-info h3 {
+      color: #FF9600;
     }
 
     .programa-card-duration {
-      font-size: 0.9rem;
-      opacity: 0.9;
-      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      opacity: 0.95;
+      margin-top: 0.4rem;
+      color: #FFFFFF;
     }
 
     .programa-card-flags {
       display: inline-flex;
       gap: 0.4rem;
       align-items: center;
+      margin-top: 0.3rem;
     }
 
     .programa-card-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.7rem 1.2rem;
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.5);
       border-radius: 8px;
       color: #FFFFFF;
-      font-size: 0.8rem;
-      font-weight: 500;
+      font-size: 0.95rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
       background: transparent;
       transition: all 0.2s ease;
       width: fit-content;
+      margin-top: 1.25rem;
     }
 
     .programa-card-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.8);
+      color: #FFFFFF;
     }
 
     .programa-card-btn svg {
@@ -354,36 +399,36 @@
     }
 
     .programa-card-image {
-      position: relative;
-      overflow: hidden;
+      display: none;
     }
 
-    .programa-card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .programa-card:hover .programa-card-image img {
-      transform: scale(1.05);
+    /* Background images for each card */
+    .programa-card.programa-marketing {
+      background-image: url('https://esic.co/wp-content/uploads/2026/02/pregrado_mkt_global_.webp');
     }
 
     @media (max-width: 768px) {
+      .programa-card.programa-marketing {
+        background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_pregrado_mkt_global_.webp');
+      }
+    }
+
+    .programa-card.programa-blue {
+      background-image: url('https://esic.co/wp-content/uploads/2026/02/pregrado_digital_business.webp');
+    }
+
+    @media (max-width: 768px) {
+      .programa-card.programa-blue {
+        background-image: url('https://esic.co/wp-content/uploads/2026/02/mobile_pregrado_digital_business.webp');
+      }
       .programas-grid {
         grid-template-columns: 1fr;
       }
       .programa-card {
-        grid-template-columns: 1fr;
-        min-height: auto;
+        aspect-ratio: 4/3;
       }
-      .programa-card-info {
-        padding: 1.5rem;
-        order: 2;
-      }
-      .programa-card-image {
-        order: 1;
-        min-height: 180px;
+      .programa-card-info h3 {
+        font-size: 1.5rem;
       }
     }
 
@@ -1233,44 +1278,36 @@
           </div>
         </div>
         <div class="programas-grid">
-          <a href="marketing-global.html" class="programa-card reveal">
+          <a href="marketing-global.html" class="programa-card programa-marketing reveal">
             <div class="programa-card-info">
               <div>
                 <h3>DIRECCIÓN DE MARKETING GLOBAL</h3>
-                <span class="programa-card-duration">4 años · Doble titulación<br>
-                  <span class="programa-card-flags">
-                    <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
-                    <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/><rect x="7" y="7" width="4" height="6" rx="0.5" fill="#AA151B" opacity="0.8"/><rect x="7" y="7" width="4" height="3" rx="0.5" fill="#c8a400"/><circle cx="9" cy="7" r="0.8" fill="#AA151B"/></svg>
-                  </span>
+                <span class="programa-card-duration">4 años · Doble titulación</span>
+                <span class="programa-card-flags">
+                  <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+                  <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/><rect x="7" y="7" width="4" height="6" rx="0.5" fill="#AA151B" opacity="0.8"/><rect x="7" y="7" width="4" height="3" rx="0.5" fill="#c8a400"/><circle cx="9" cy="7" r="0.8" fill="#AA151B"/></svg>
+                </span>
+                <span class="programa-card-btn">
+                  VER PROGRAMA
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </span>
               </div>
-              <span class="programa-card-btn">
-                VER PROGRAMA
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </div>
-            <div class="programa-card-image">
-              <img src="../assets/images/DSC02274_resultado.webp" alt="Marketing Global" width="1600" height="900" loading="lazy">
             </div>
           </a>
-          <a href="digital-business.html" class="programa-card reveal delay-1">
+          <a href="digital-business.html" class="programa-card programa-blue reveal delay-1">
             <div class="programa-card-info">
               <div>
                 <h3>DIGITAL BUSINESS</h3>
-                <span class="programa-card-duration">4 años · Doble titulación<br>
-                  <span class="programa-card-flags">
-                    <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
-                    <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/><rect x="7" y="7" width="4" height="6" rx="0.5" fill="#AA151B" opacity="0.8"/><rect x="7" y="7" width="4" height="3" rx="0.5" fill="#c8a400"/><circle cx="9" cy="7" r="0.8" fill="#AA151B"/></svg>
-                  </span>
+                <span class="programa-card-duration">4 años · Doble titulación</span>
+                <span class="programa-card-flags">
+                  <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="6.67" fill="#FCD116"/><rect y="6.67" width="30" height="6.67" fill="#003893"/><rect y="13.33" width="30" height="6.67" fill="#CE1126"/></svg>
+                  <svg viewBox="0 0 30 20" width="24" height="16" style="border-radius:2px;"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/><rect x="7" y="7" width="4" height="6" rx="0.5" fill="#AA151B" opacity="0.8"/><rect x="7" y="7" width="4" height="3" rx="0.5" fill="#c8a400"/><circle cx="9" cy="7" r="0.8" fill="#AA151B"/></svg>
+                </span>
+                <span class="programa-card-btn">
+                  VER PROGRAMA
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </span>
               </div>
-              <span class="programa-card-btn">
-                VER PROGRAMA
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </div>
-            <div class="programa-card-image">
-              <img src="../assets/images/DSC02307_resultado.webp" alt="Digital Business" width="1600" height="900" loading="lazy">
             </div>
           </a>
         </div>
