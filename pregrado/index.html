@@ -345,6 +345,118 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Formulario de Contacto ── */
+.esic-pregrado .ep-form-section {
+  background: var(--brand-blue-dark);
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 3;
+  padding: 5rem 0 5.5rem;
+}
+.esic-pregrado .ep-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+}
+.esic-pregrado .ep-form-intro .ep-hero-eyebrow {
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1rem;
+}
+.esic-pregrado .ep-form-intro h2 {
+  color: #FFFFFF;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 0.92;
+  margin-bottom: 1.25rem;
+}
+.esic-pregrado .ep-form-intro p {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.esic-pregrado .ep-form-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px;
+  padding: 2.25rem 2rem;
+}
+.esic-pregrado .ep-field { margin-bottom: 1.25rem; }
+.esic-pregrado .ep-field-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.esic-pregrado .ep-field-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem; }
+.esic-pregrado .ep-field-split .ep-field-group { margin-bottom: 0; }
+.esic-pregrado .ep-field-group label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.45);
+}
+.esic-pregrado .ep-field-group label em {
+  color: var(--brand-orange);
+  font-style: normal;
+}
+.esic-pregrado .ep-field-group input {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-family: var(--body-font);
+  font-size: 0.875rem;
+  color: #FFFFFF;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  width: 100%;
+}
+.esic-pregrado .ep-field-group input::placeholder { color: rgba(255,255,255,0.25); }
+.esic-pregrado .ep-field-group input:focus {
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.09);
+}
+.esic-pregrado .ep-form-privacy {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.esic-pregrado .ep-form-privacy a { color: rgba(255,255,255,0.5); text-decoration: underline; }
+.esic-pregrado .ep-form-privacy a:hover { color: #FFFFFF; }
+.esic-pregrado .ep-btn-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: var(--brand-blue);
+  color: #FFFFFF;
+  font-family: var(--body-font);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  width: 100%;
+  justify-content: center;
+}
+.esic-pregrado .ep-btn-submit:hover { background: #0030DD; transform: translateY(-1px); }
+.esic-pregrado .ep-btn-submit svg { width: 16px; height: 16px; }
+@media (max-width: 768px) {
+  .esic-pregrado .ep-form-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .esic-pregrado .ep-field-split {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 
 <main>
@@ -431,5 +543,79 @@
       </div>
     </div>
   </section>
+
+  <!-- Formulario de Contacto -->
+  <section class="ep-section ep-section-dark ep-form-section" id="contacto">
+    <div class="ep-container">
+      <div class="ep-form-grid">
+        <div class="ep-form-intro">
+          <span class="ep-hero-eyebrow">Habla con un asesor</span>
+          <h2>Solicita<br>información</h2>
+          <p>Cuéntanos en qué programa estás interesado y un asesor te guiará en el proceso de inscripción.</p>
+        </div>
+        <div class="ep-form-card">
+          <form
+            action="https://forms.zohopublic.com/esicmedellin/form/Ingresatusdatos11/formperma/dPq5C9JHP3oAbujERJYMFFjsh95aHD8OrAqiB880QOI/htmlRecords/submit"
+            name="ep-contact-form"
+            method="POST"
+            onsubmit="javascript:document.charset='UTF-8'; return ep_validateForm();"
+            accept-charset="UTF-8"
+            enctype="multipart/form-data"
+            id="ep-contact-form"
+          >
+            <!-- Zoho tracking fields -->
+            <input type="hidden" name="zf_referrer_name" value="">
+            <input type="hidden" name="zf_redirect_url" value="">
+            <input type="hidden" name="zc_gad" value="">
+            <!-- Programa de interés pre-set a Pregrado (oculto) -->
+            <input type="hidden" name="Dropdown" value="Pregrado">
+
+            <div class="ep-field ep-field-split">
+              <div class="ep-field-group">
+                <label for="ep-name-first">Nombre <em>*</em></label>
+                <input type="text" id="ep-name-first" name="Name_First" maxlength="255" placeholder="Tu nombre" required>
+              </div>
+              <div class="ep-field-group">
+                <label for="ep-name-last">Apellidos <em>*</em></label>
+                <input type="text" id="ep-name-last" name="Name_Last" maxlength="255" placeholder="Tus apellidos" required>
+              </div>
+            </div>
+
+            <div class="ep-field-group">
+              <label for="ep-email">Correo electrónico <em>*</em></label>
+              <input type="email" id="ep-email" name="Email" maxlength="255" placeholder="tu@correo.com" required>
+            </div>
+
+            <div class="ep-field-group">
+              <label for="ep-phone">Móvil o teléfono <em>*</em></label>
+              <input type="tel" id="ep-phone" name="PhoneNumber_countrycode" maxlength="20" placeholder="+57 300 000 0000" required>
+            </div>
+
+            <p class="ep-form-privacy">
+              Prisma Colombia S.A.S atenderá tu solicitud de información. Puedes ejercer tus derechos de acceso, rectificación y supresión según nuestra
+              <a href="https://www.esic.co/politica-privacidad/" target="_blank" rel="noopener">política de privacidad</a>.
+            </p>
+
+            <button type="submit" class="ep-btn ep-btn-submit">
+              Solicitar información
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  function ep_validateForm() {
+    var form = document.getElementById('ep-contact-form');
+    var required = ['Name_First', 'Name_Last', 'Email', 'PhoneNumber_countrycode'];
+    for (var i = 0; i < required.length; i++) {
+      var el = form.elements[required[i]];
+      if (!el || !el.value.trim()) { el && el.focus(); return false; }
+    }
+    return true;
+  }
+  </script>
 </main>
 </div>
