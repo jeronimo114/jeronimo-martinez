@@ -217,23 +217,19 @@
 
 /* Contact Modal */
 .esic-footer-global .ef-modal-overlay {
+  display: none !important;
   position: fixed !important;
   inset: 0 !important;
   background: rgba(0, 19, 63, 0.85) !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
   z-index: 99999 !important;
-  display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   padding: 2rem !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  transition: opacity 0.3s ease, visibility 0.3s ease !important;
 }
 .esic-footer-global .ef-modal-overlay.ef-active {
-  opacity: 1 !important;
-  visibility: visible !important;
+  display: flex !important;
 }
 .esic-footer-global .ef-modal-container {
   background: #FFFFFF !important;
@@ -242,12 +238,7 @@
   max-width: 520px !important;
   max-height: 90vh !important;
   overflow-y: auto !important;
-  transform: translateY(20px) scale(0.95) !important;
-  transition: transform 0.3s ease !important;
   box-shadow: 0 25px 80px rgba(0, 19, 63, 0.3) !important;
-}
-.esic-footer-global .ef-modal-overlay.ef-active .ef-modal-container {
-  transform: translateY(0) scale(1) !important;
 }
 .esic-footer-global .ef-modal-header {
   display: flex !important;
