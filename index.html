@@ -253,6 +253,22 @@
 }
 .esic-home .eh-banner-ind.eh-active { background: #FFFFFF; width: 28px; border-radius: 4px; }
 
+/* Banner CTAs */
+.esic-home .eh-banner-slide-cta { position: absolute; z-index: 2; bottom: 70px; }
+.esic-home .eh-banner-slide-cta.eh-cta-left { left: 4%; }
+.esic-home .eh-banner-slide-cta.eh-cta-center { left: 50%; transform: translateX(-50%); }
+.esic-home .eh-banner-cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 1.9rem; border-radius: 999px; font-weight: 700; font-size: 1rem; text-decoration: none; white-space: nowrap; transition: transform 0.2s, filter 0.2s; font-family: var(--body-font); letter-spacing: 0.01em; box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+.esic-home .eh-banner-cta-btn.eh-cta-blue { background: var(--brand-blue); color: #fff; }
+.esic-home .eh-banner-cta-btn.eh-cta-blue:hover { filter: brightness(1.15); transform: translateY(-2px); }
+.esic-home .eh-banner-cta-btn.eh-cta-orange { background: var(--brand-orange); color: #fff; }
+.esic-home .eh-banner-cta-btn.eh-cta-orange:hover { filter: brightness(1.1); transform: translateY(-2px); }
+.esic-home .eh-banner-cta-btn.eh-cta-dark { background: var(--brand-blue-dark); color: #fff; }
+.esic-home .eh-banner-cta-btn.eh-cta-dark:hover { filter: brightness(1.2); transform: translateY(-2px); }
+@media (max-width: 768px) {
+  .esic-home .eh-banner-slide-cta { bottom: 50px; }
+  .esic-home .eh-banner-cta-btn { font-size: 0.82rem; padding: 0.65rem 1.2rem; }
+}
+
 /* Section Overlap Utilities */
 .esic-home .eh-section-overlap { position: relative; margin-top: -50px; border-radius: 50px 50px 0 0; z-index: 1; padding-top: 60px; }
 .esic-home .eh-section-rounded { border-radius: 50px 50px 0 0; margin-top: -50px; position: relative; z-index: 2; }
@@ -670,7 +686,7 @@
 
 .esic-home .eh-country-name {
   font-family: var(--body-font);
-  font-size: 0.7rem;
+  font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -1159,7 +1175,7 @@
 .esic-home .eh-fundadores-track:hover { animation-play-state: paused; }
 @keyframes eh-marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 .esic-home .eh-fundador-logo { display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 0.75rem 2rem; width: 240px; height: 120px; }
-.esic-home .eh-fundador-logo img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; transition: transform 0.3s ease; }
+.esic-home .eh-fundador-logo img { width: auto; height: 46px; max-width: 180px; object-fit: contain; transition: transform 0.3s ease; }
 .esic-home .eh-fundador-logo:hover img { transform: scale(1.05); }
 
 /* Rethink Section */
@@ -1501,6 +1517,9 @@
           <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-01.webp" type="image/webp">
           <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-01.png" alt="Pregrado ESIC" width="2560" height="1168" fetchpriority="high">
         </picture>
+        <div class="eh-banner-slide-cta eh-cta-left">
+          <a href="https://esic.co/pregrados/" class="eh-banner-cta-btn eh-cta-blue">CONOCE NUESTROS PREGRADOS</a>
+        </div>
       </div>
       <!-- Slide 2: Pasantías -->
       <div class="eh-banner-slide">
@@ -1509,6 +1528,9 @@
           <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-02.webp" type="image/webp">
           <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-02.png" alt="Pasantías ESIC" width="2560" height="1168" loading="lazy">
         </picture>
+        <div class="eh-banner-slide-cta eh-cta-left">
+          <a href="https://forms.zohopublic.com/esicmedellin/form/InscripcionesPasantas/formperma/_OGwsRPwnka1ZLXJBqSMVtl-yE_Mk7E8V14gtDRfkag" target="_blank" rel="noopener" class="eh-banner-cta-btn eh-cta-orange">SEPARA TU CUPO</a>
+        </div>
       </div>
       <!-- Slide 3: Máster -->
       <div class="eh-banner-slide">
@@ -1517,6 +1539,9 @@
           <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-03.webp" type="image/webp">
           <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-03.png" alt="Máster ESIC 2026" width="2560" height="1168" loading="lazy">
         </picture>
+        <div class="eh-banner-slide-cta eh-cta-center">
+          <a href="https://esic.co/master/" class="eh-banner-cta-btn eh-cta-dark">EXPLORA TU PRÓXIMO PASO</a>
+        </div>
       </div>
       <!-- Slide 4: Blog -->
       <div class="eh-banner-slide">
@@ -1525,6 +1550,9 @@
           <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-04.webp" type="image/webp">
           <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-04.png" alt="Blog ESIC" width="2560" height="1168" loading="lazy">
         </picture>
+        <div class="eh-banner-slide-cta eh-cta-center">
+          <a href="https://esic.co/cuatro-tendencias-de-marketing-y-negocios-que-definiran-el-2026/" target="_blank" rel="noopener" class="eh-banner-cta-btn eh-cta-blue">DESCUBRE LAS TENDENCIAS</a>
+        </div>
       </div>
       <!-- Slide 5: Podcast -->
       <div class="eh-banner-slide">
@@ -1803,7 +1831,7 @@
           <div class="eh-cifras-stats">
             <div class="eh-cifra-item">
               <div class="eh-cifra-num">+3,000</div>
-              <div class="eh-cifra-desc">Participantes a la medida</div>
+              <div class="eh-cifra-desc">Participantes de programas a la medida</div>
             </div>
             <div class="eh-cifra-item">
               <div class="eh-cifra-num">230</div>
@@ -1811,7 +1839,7 @@
             </div>
             <div class="eh-cifra-item">
               <div class="eh-cifra-num">252</div>
-              <div class="eh-cifra-desc">Pregrado activos</div>
+              <div class="eh-cifra-desc">Estudiantes de pregrado activos</div>
             </div>
           </div>
           <a href="#" class="eh-cifras-cta eh-contact-trigger">
@@ -1845,7 +1873,7 @@
         <div class="eh-historias-featured">
           <div class="eh-video-container" id="videoContainer">
             <video id="testimonialVideo" playsinline>
-              <source src="https://esic.co/wp-content/uploads/2026/02/testimonio-felipe.mp4" type="video/mp4">
+              <source src="https://esic.co/wp-content/uploads/2026/03/Testimonio-master.mp4" type="video/mp4">
               Tu navegador no soporta el elemento de video.
             </video>
             
