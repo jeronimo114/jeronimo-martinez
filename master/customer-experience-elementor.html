@@ -71,66 +71,16 @@
 
 /* ─── Hero Section ─── */
 .esic-master-cx .emcx-hero {
-  height: 85vh;
-  min-height: 500px;
   position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 100px 2rem 15rem;
-}
-.esic-master-cx .emcx-hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(135deg, #09CF90 0%, #07A872 40%, #00133F 100%);
-}
-.esic-master-cx .emcx-hero .emcx-container {
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  position: relative;
-  z-index: 2;
   width: 100%;
+  line-height: 0;
 }
-.esic-master-cx .emcx-hero-content {
-  text-align: right;
-  color: #FFFFFF;
-  max-width: 100%;
-  margin-left: auto;
-  padding-left: 40%;
-  padding-right: 5%;
+.esic-master-cx .emcx-hero picture,
+.esic-master-cx .emcx-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
-.esic-master-cx .emcx-hero-eyebrow {
-  font-family: var(--display-font);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-.esic-master-cx .emcx-hero-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  line-height: 0.85;
-  color: #FFFFFF;
-  margin-bottom: 0.8rem;
-}
-.esic-master-cx .emcx-hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 500px;
-  margin-left: auto;
-  margin-bottom: 2rem;
-}
-.esic-master-cx .emcx-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end; }
-.esic-master-cx .emcx-hero .emcx-btn-primary { background: var(--brand-blue-dark); color: #FFFFFF; }
-.esic-master-cx .emcx-hero .emcx-btn-primary:hover { background: #001a52; transform: none; }
-.esic-master-cx .emcx-hero .emcx-btn-outline { border-color: #FFFFFF; color: #FFFFFF; }
-.esic-master-cx .emcx-hero .emcx-btn-outline:hover { background: rgba(255, 255, 255, 0.1); }
 
 /* ─── Section Overlap / Background Variants ─── */
 .esic-master-cx .emcx-section-overlap {
@@ -659,9 +609,6 @@
 
 /* ─── Responsive ─── */
 @media (max-width: 1024px) {
-  .esic-master-cx .emcx-hero { height: auto; min-height: 70vh; padding: 120px 1.5rem 160px; }
-  .esic-master-cx .emcx-hero-content { padding-left: 20%; }
-  .esic-master-cx .emcx-hero-title { font-size: clamp(2.5rem, 7vw, 5rem); }
   .esic-master-cx .emcx-explora-grid,
   .esic-master-cx .emcx-testimonios-grid { grid-template-columns: 1fr; gap: 2rem; }
   .esic-master-cx .emcx-pricing-layout { grid-template-columns: 1fr; max-width: 500px; }
@@ -672,14 +619,6 @@
 }
 
 @media (max-width: 768px) {
-  .esic-master-cx .emcx-hero { padding: 110px 1.5rem 160px; min-height: 60vh; }
-  .esic-master-cx .emcx-hero-content { padding-left: 0; text-align: center; }
-  .esic-master-cx .emcx-hero-subtitle { margin-left: auto; margin-right: auto; text-align: center; font-size: 1rem; }
-  .esic-master-cx .emcx-hero-eyebrow { font-size: 1.2rem; }
-  .esic-master-cx .emcx-hero-title { font-size: clamp(2rem, 9vw, 3rem); }
-  .esic-master-cx .emcx-hero .emcx-btn-primary,
-  .esic-master-cx .emcx-hero .emcx-btn-outline { padding: 0.85rem 1.5rem; font-size: 0.75rem; }
-  .esic-master-cx .emcx-hero-actions { justify-content: center; }
   .esic-master-cx .emcx-section-overlap { margin-top: -100px; border-radius: 30px 30px 0 0; }
   .esic-master-cx .emcx-container { width: min(1200px, 88%); }
   .esic-master-cx .emcx-section { padding: 2.5rem 0; }
@@ -702,11 +641,6 @@
 }
 
 @media (max-width: 480px) {
-  .esic-master-cx .emcx-hero { padding: 100px 1.25rem 140px; }
-  .esic-master-cx .emcx-hero-title { font-size: 2rem; }
-  .esic-master-cx .emcx-hero-eyebrow { font-size: 1rem; }
-  .esic-master-cx .emcx-hero-actions { flex-direction: column; }
-  .esic-master-cx .emcx-hero-actions .emcx-btn { width: 100%; justify-content: center; }
   .esic-master-cx .emcx-plan-tab { flex: 1 1 100%; padding: 0.8rem 1rem; font-size: 0.85rem; }
   .esic-master-cx .emcx-section-overlap { margin-top: -80px; border-radius: 24px 24px 0 0; }
 }
@@ -718,24 +652,10 @@
        HERO SECTION
   ═══════════════════════════════════════════ -->
   <section class="emcx-hero">
-    <div class="emcx-hero-bg"></div>
-    <div class="emcx-container">
-      <div class="emcx-hero-content emcx-reveal">
-        <p class="emcx-hero-eyebrow">GLOBAL MANAGEMENT PROGRAM + MÁSTER CON TÍTULO PRIVADO ESIC</p>
-        <h1 class="emcx-hero-title">CUSTOMER EXPERIENCE MANAGEMENT</h1>
-        <p class="emcx-hero-subtitle">Prepárate para liderar la experiencia del cliente como estrategia de negocio. En ESIC formarás parte de una comunidad global que lleva más de 60 años transformando talento con impacto.</p>
-        <div class="emcx-hero-actions">
-          <a class="emcx-btn emcx-btn-primary" href="#emcx-formulario">
-            SOLICITAR INFORMACIÓN
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-          </a>
-          <a class="emcx-btn emcx-btn-outline" href="#emcx-plan-estudios">
-            VER PLAN DE ESTUDIOS
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
+    <picture>
+      <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-master-cx-mobile-scaled.webp">
+      <img src="https://esic.co/wp-content/uploads/2026/03/banner-master-cx-scaled.webp" alt="Máster Customer Experience Management ESIC">
+    </picture>
   </section>
 
   <!-- ═══════════════════════════════════════════
