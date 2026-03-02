@@ -352,8 +352,16 @@
   .esic-master-db .emdb-plan-layout { grid-template-columns: 1fr; gap: 2rem; }
 }
 @media (max-width: 768px) {
+  .esic-master-db .emdb-container { width: min(1200px, 88%); }
+  .esic-master-db .emdb-section { padding: 2.5rem 0; }
+  .esic-master-db .emdb-section-overlap { padding-top: 2.5rem; padding-bottom: 3rem; }
+  .esic-master-db .emdb-benefits-section { padding: 2.5rem 0; }
+  .esic-master-db .emdb-benefits-grid { gap: 1.5rem 1rem; }
+  .esic-master-db .emdb-benefit-item { min-width: 0; width: calc(50% - 0.5rem); }
+  .esic-master-db .emdb-benefit-icon { width: 44px; height: 44px; }
+  .esic-master-db .emdb-benefit-icon svg { width: 32px; height: 32px; }
+  .esic-master-db .emdb-benefit-text h4 { font-size: 1rem; }
   .esic-master-db .emdb-form-row { grid-template-columns: 1fr; }
-  .esic-master-db .emdb-benefits-grid { gap: 1.5rem; }
 }
 @media (max-width: 480px) {
   .esic-master-db .emdb-plan-tab { flex: 1 1 100%; }
