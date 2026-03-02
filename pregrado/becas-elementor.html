@@ -30,10 +30,10 @@
 
 /* Layout */
 .esic-pregrado-becas .epbecas-container { width: min(1100px, 90%); margin: 0 auto; }
-.esic-pregrado-becas .epbecas-section    { padding: 5rem 0; position: relative; border-radius: 50px 50px 0 0; }
+.esic-pregrado-becas .epbecas-section    { padding: 5rem 0; position: relative; border-radius: 50px 50px 0 0; margin-top: -50px; }
 .esic-pregrado-becas .epbecas-bg-cream   { background: var(--bg); }
 .esic-pregrado-becas .epbecas-bg-white   { background: #FFFFFF; }
-.esic-pregrado-becas .epbecas-overlap    { margin-top: -50px; z-index: 1; }
+.esic-pregrado-becas .epbecas-overlap    { /* primer overlap desde el hero */ }
 
 /* Buttons */
 .esic-pregrado-becas .epbecas-btn {
@@ -68,7 +68,7 @@
 .esic-pregrado-becas .epbecas-hero-photo {
   position: absolute; inset: 0;
   /* TODO: reemplazar con la URL real de la foto en WordPress */
-  background: url('https://esic.co/wp-content/uploads/2024/08/DSC02270_resultado.webp') center right / cover;
+  background: url('https://esic.co/wp-content/uploads/2025/12/vida-universitaria-estudiantes-esic-campus-medellin.png') center center / cover;
   opacity: 0.28;
 }
 .esic-pregrado-becas .epbecas-hero-content {
@@ -252,9 +252,7 @@
 }
 @media (max-width: 768px) {
   .esic-pregrado-becas .epbecas-container { width: min(1100px, 88%); }
-  .esic-pregrado-becas .epbecas-section   { border-radius: 30px 30px 0 0; }
-  .esic-pregrado-becas .epbecas-overlap   { margin-top: -30px; }
-  .esic-pregrado-becas .epbecas-section   { padding: 3rem 0; }
+  .esic-pregrado-becas .epbecas-section   { border-radius: 30px 30px 0 0; margin-top: -30px; padding: 3rem 0; }
 }
 @media (max-width: 600px) {
   .esic-pregrado-becas .epbecas-beca-grid  { grid-template-columns: 1fr; }
@@ -399,7 +397,7 @@
 </section>
 
 <!-- ══ REQUISITOS ══ -->
-<section class="epbecas-section epbecas-bg-white" style="padding-top:0;">
+<section class="epbecas-section epbecas-bg-white">
   <div class="epbecas-container">
     <div class="epbecas-req-grid">
       <div class="epbecas-req-box">
