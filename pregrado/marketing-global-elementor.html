@@ -297,32 +297,25 @@
 .esic-pregrado-mkt .epm-testimonios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 .esic-pregrado-mkt .epm-testimonios-content h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 600; text-transform: uppercase; line-height: 0.95; margin-bottom: 0.8rem; }
 .esic-pregrado-mkt .epm-testimonios-content p { font-size: 1rem; line-height: 1.7; opacity: 0.9; }
-.esic-pregrado-mkt .epm-testimonios-video {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  background: linear-gradient(180deg, #00133F 0%, #0047E9 50%, #00133F 100%);
-}
-.esic-pregrado-mkt .epm-play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.25);
-  border: none;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 2;
-  transition: background 0.2s ease;
-}
-.esic-pregrado-mkt .epm-play-btn:hover { background: rgba(255, 255, 255, 0.4); }
-.esic-pregrado-mkt .epm-play-btn svg { width: 24px; height: 24px; color: #FFFFFF; margin-left: 4px; }
+.esic-pregrado-mkt .epm-testimonios-video { position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 16/9; background: #000; cursor: pointer; }
+.esic-pregrado-mkt .epm-testimonios-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.esic-pregrado-mkt .epm-vc-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.22); transition: opacity 0.3s; z-index: 2; }
+.esic-pregrado-mkt .epm-testimonios-video.epm-vc-playing .epm-vc-overlay { opacity: 0; pointer-events: none; }
+.esic-pregrado-mkt .epm-vc-center { width: 72px; height: 72px; border-radius: 50%; border: none; background: rgba(255,255,255,0.92); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s, background 0.2s; backdrop-filter: blur(6px); }
+.esic-pregrado-mkt .epm-vc-center:hover { transform: scale(1.08); background: #fff; }
+.esic-pregrado-mkt .epm-vc-center svg { width: 26px; height: 26px; color: var(--brand-orange); margin-left: 4px; }
+.esic-pregrado-mkt .epm-vc-bar { position: absolute; bottom: 0; left: 0; right: 0; z-index: 3; background: linear-gradient(transparent, rgba(0,0,0,0.72)); padding: 2rem 1rem 0.8rem; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+.esic-pregrado-mkt .epm-testimonios-video:hover .epm-vc-bar,
+.esic-pregrado-mkt .epm-testimonios-video.epm-vc-show .epm-vc-bar { opacity: 1; pointer-events: auto; }
+.esic-pregrado-mkt .epm-vc-progress { width: 100%; height: 4px; background: rgba(255,255,255,0.28); border-radius: 2px; cursor: pointer; margin-bottom: 0.55rem; position: relative; }
+.esic-pregrado-mkt .epm-vc-progress:hover { height: 6px; }
+.esic-pregrado-mkt .epm-vc-fill { height: 100%; background: var(--brand-orange); border-radius: 2px; width: 0%; pointer-events: none; }
+.esic-pregrado-mkt .epm-vc-row { display: flex; align-items: center; gap: 0.5rem; }
+.esic-pregrado-mkt .epm-vc-right { margin-left: auto; display: flex; gap: 0.25rem; }
+.esic-pregrado-mkt .epm-vc-btn { width: 30px; height: 30px; border: none; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; transition: transform 0.15s, opacity 0.15s; opacity: 0.85; padding: 0; }
+.esic-pregrado-mkt .epm-vc-btn:hover { transform: scale(1.15); opacity: 1; }
+.esic-pregrado-mkt .epm-vc-btn svg { width: 17px; height: 17px; }
+.esic-pregrado-mkt .epm-vc-time { font-size: 0.75rem; color: rgba(255,255,255,0.82); font-family: var(--body-font); letter-spacing: 0.03em; white-space: nowrap; }
 
 /* Plan de Estudios */
 .esic-pregrado-mkt .epm-plan-section { padding: 5rem 0; border-radius: 50px 50px 0 0; margin-top: -50px; position: relative; z-index: 7; }
@@ -481,6 +474,8 @@
   .esic-pregrado-mkt .epm-institutions-grid { grid-template-columns: 1fr; }
   .esic-pregrado-mkt .epm-footer-grid { grid-template-columns: 1fr; gap: 3rem; }
   .esic-pregrado-mkt .epm-footer-cta-buttons { flex-direction: column; }
+  .esic-pregrado-mkt .epm-vc-bar { opacity: 1; pointer-events: auto; }
+  .esic-pregrado-mkt .epm-testimonios-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
@@ -582,7 +577,7 @@
     <div class="epm-becas-banner epm-section-orange">
       <div class="epm-container">
         <h3>TRANSFORMA TU FUTURO CON HASTA 40% DE BECA</h3>
-        <a class="epm-btn" href="https://esic.co/master/becas.html">CONOCE NUESTRAS BECAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a class="epm-btn" href="https://esic.co/becas-pregrado">CONOCE NUESTRAS BECAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
   </section>
@@ -616,12 +611,38 @@
     <div class="epm-container">
       <div class="epm-testimonios-grid">
         <div class="epm-testimonios-content epm-reveal">
-          <h2>TESTIMONIOS</h2>
+          <h2 style="color: white; font-weight: 800;">TESTIMONIOS</h2>
           <p>Descubre cómo nuestros estudiantes están transformando el marketing global. Conoce sus historias de éxito y cómo ESIC les ha ayudado a alcanzar sus metas profesionales.</p>
           <p>Formamos profesionales capaces de innovar y liderar en mercados internacionales, con una visión estratégica y orientada a resultados.</p>
         </div>
-        <div class="epm-testimonios-video epm-reveal epm-delay-1">
-          <button class="epm-play-btn" aria-label="Reproducir video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+        <div class="epm-testimonios-video epm-reveal epm-delay-1" id="epm-video-wrap">
+          <video id="epm-vid" src="https://esic.co/wp-content/uploads/2026/02/testimonio-felipe.mp4" preload="metadata" playsinline></video>
+          <div class="epm-vc-overlay" id="epm-vc-overlay">
+            <button class="epm-vc-center" id="epm-vc-playbig" aria-label="Reproducir">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </button>
+          </div>
+          <div class="epm-vc-bar" id="epm-vc-bar">
+            <div class="epm-vc-progress" id="epm-vc-progress" role="slider" aria-label="Progreso">
+              <div class="epm-vc-fill" id="epm-vc-fill"></div>
+            </div>
+            <div class="epm-vc-row">
+              <button class="epm-vc-btn" id="epm-vc-play" aria-label="Reproducir / Pausar">
+                <svg id="epm-vc-icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <svg id="epm-vc-icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+              </button>
+              <span class="epm-vc-time" id="epm-vc-time">0:00 / 0:00</span>
+              <div class="epm-vc-right">
+                <button class="epm-vc-btn" id="epm-vc-mute" aria-label="Silenciar">
+                  <svg id="epm-vc-icon-vol" viewBox="0 0 24 24" fill="currentColor"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  <svg id="epm-vc-icon-muted" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"/></svg>
+                </button>
+                <button class="epm-vc-btn" id="epm-vc-fs" aria-label="Pantalla completa">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -735,8 +756,8 @@
             </div>
 
             <div class="epm-plan-actions epm-reveal">
-              <a class="epm-btn epm-btn-primary" href="#">BROCHURE DEL PROGRAMA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-              <a class="epm-btn epm-btn-outline" href="https://esic.co/pregrado/index.html">EXPLORA OTROS PROGRAMAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="epm-btn epm-btn-primary" href="https://esic.co/wp-content/uploads/2024/09/BROCHURE-PREGRADO-MARKETING-GLOBAL-y-Administracion-de-Mercadeo.pdf">BROCHURE DEL PROGRAMA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="epm-btn epm-btn-outline" href="https://esic.co/pregrado/">EXPLORA OTROS PROGRAMAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
               <a class="epm-btn epm-btn-outline" href="#formulario">SOLICITAR INFORMACIÓN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
             </div>
 
@@ -766,7 +787,7 @@
           <!-- Ver Programas Content -->
           <div class="epm-plan-section-content" data-section="programas">
             <div class="epm-plan-actions epm-reveal">
-              <a class="epm-btn epm-btn-primary" href="https://esic.co/pregrado/index.html">VER TODOS LOS PROGRAMAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="epm-btn epm-btn-primary" href="https://esic.co/pregrado/">VER TODOS LOS PROGRAMAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
           </div>
         </div>
@@ -825,6 +846,74 @@
         content.classList.toggle('epm-active', content.getAttribute('data-section') === section);
       });
     });
+  });
+})();
+
+// Video player
+(function() {
+  var wrap = document.getElementById('epm-video-wrap');
+  if (!wrap) return;
+  var vid = document.getElementById('epm-vid');
+  var overlay = document.getElementById('epm-vc-overlay');
+  var progress = document.getElementById('epm-vc-progress');
+  var fill = document.getElementById('epm-vc-fill');
+  var playBig = document.getElementById('epm-vc-playbig');
+  var playBtn = document.getElementById('epm-vc-play');
+  var iconPlay = document.getElementById('epm-vc-icon-play');
+  var iconPause = document.getElementById('epm-vc-icon-pause');
+  var muteBtn = document.getElementById('epm-vc-mute');
+  var iconVol = document.getElementById('epm-vc-icon-vol');
+  var iconMuted = document.getElementById('epm-vc-icon-muted');
+  var fsBtn = document.getElementById('epm-vc-fs');
+  var timeEl = document.getElementById('epm-vc-time');
+  var hideTimer;
+
+  function fmt(s) {
+    s = Math.floor(s || 0);
+    var m = Math.floor(s / 60), ss = s % 60;
+    return m + ':' + (ss < 10 ? '0' : '') + ss;
+  }
+  function updateTime() {
+    timeEl.textContent = fmt(vid.currentTime) + ' / ' + fmt(vid.duration);
+    fill.style.width = vid.duration ? (vid.currentTime / vid.duration * 100) + '%' : '0%';
+  }
+  function setPlaying(playing) {
+    wrap.classList.toggle('epm-vc-playing', playing);
+    iconPlay.style.display = playing ? 'none' : '';
+    iconPause.style.display = playing ? '' : 'none';
+  }
+  function showControls() {
+    wrap.classList.add('epm-vc-show');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function() { wrap.classList.remove('epm-vc-show'); }, 3000);
+  }
+  function togglePlay() {
+    if (vid.paused) { vid.play(); } else { vid.pause(); }
+  }
+  playBig.addEventListener('click', togglePlay);
+  playBtn.addEventListener('click', togglePlay);
+  vid.addEventListener('play', function() { setPlaying(true); showControls(); });
+  vid.addEventListener('pause', function() { setPlaying(false); wrap.classList.add('epm-vc-show'); clearTimeout(hideTimer); });
+  vid.addEventListener('ended', function() { setPlaying(false); wrap.classList.add('epm-vc-show'); clearTimeout(hideTimer); });
+  vid.addEventListener('timeupdate', updateTime);
+  vid.addEventListener('loadedmetadata', updateTime);
+  wrap.addEventListener('mousemove', showControls);
+  wrap.addEventListener('click', function(e) {
+    if (e.target === wrap || e.target === vid || e.target === overlay) togglePlay();
+  });
+  progress.addEventListener('click', function(e) {
+    var rect = progress.getBoundingClientRect();
+    var ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    if (vid.duration) vid.currentTime = ratio * vid.duration;
+  });
+  muteBtn.addEventListener('click', function() {
+    vid.muted = !vid.muted;
+    iconVol.style.display = vid.muted ? 'none' : '';
+    iconMuted.style.display = vid.muted ? '' : 'none';
+  });
+  fsBtn.addEventListener('click', function() {
+    if (document.fullscreenElement) { document.exitFullscreen(); }
+    else { wrap.requestFullscreen && wrap.requestFullscreen(); }
   });
 })();
 </script>

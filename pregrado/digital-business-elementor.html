@@ -181,31 +181,63 @@
 .esic-pregrado-db .epdb-testimonios-content h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 600; text-transform: uppercase; line-height: 0.95; margin-bottom: 0.8rem; }
 .esic-pregrado-db .epdb-testimonios-content p { font-size: 1rem; line-height: 1.7; opacity: 0.9; margin-bottom: 0.8rem; }
 .esic-pregrado-db .epdb-testimonios-video {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  background: linear-gradient(180deg, #FF9600 0%, #FF9600 50%, #00133F 100%);
+  position: relative; border-radius: 24px; overflow: hidden;
+  aspect-ratio: 16/9; background: #000; cursor: pointer;
 }
-.esic-pregrado-db .epdb-play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.25);
-  border: none;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 2;
-  transition: background 0.2s ease;
+.esic-pregrado-db .epdb-testimonios-video video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
 }
-.esic-pregrado-db .epdb-play-btn:hover { background: rgba(255, 255, 255, 0.4); }
-.esic-pregrado-db .epdb-play-btn svg { width: 24px; height: 24px; color: #FFFFFF; margin-left: 4px; }
+/* Center overlay */
+.esic-pregrado-db .epdb-vc-overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.22); transition: opacity 0.3s; z-index: 2;
+}
+.esic-pregrado-db .epdb-testimonios-video.epdb-vc-playing .epdb-vc-overlay {
+  opacity: 0; pointer-events: none;
+}
+.esic-pregrado-db .epdb-vc-center {
+  width: 72px; height: 72px; border-radius: 50%; border: none;
+  background: rgba(255,255,255,0.92); display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: transform 0.2s, background 0.2s; backdrop-filter: blur(6px);
+}
+.esic-pregrado-db .epdb-vc-center:hover { transform: scale(1.08); background: #fff; }
+.esic-pregrado-db .epdb-vc-center svg { width: 26px; height: 26px; color: var(--brand-orange); margin-left: 4px; }
+/* Controls bar */
+.esic-pregrado-db .epdb-vc-bar {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  padding: 2rem 1rem 0.8rem;
+  opacity: 0; transition: opacity 0.3s; pointer-events: none;
+}
+.esic-pregrado-db .epdb-testimonios-video:hover .epdb-vc-bar,
+.esic-pregrado-db .epdb-testimonios-video.epdb-vc-show .epdb-vc-bar { opacity: 1; pointer-events: auto; }
+/* Progress */
+.esic-pregrado-db .epdb-vc-progress {
+  width: 100%; height: 4px; background: rgba(255,255,255,0.28); border-radius: 2px;
+  cursor: pointer; margin-bottom: 0.55rem; position: relative;
+}
+.esic-pregrado-db .epdb-vc-progress:hover { height: 6px; }
+.esic-pregrado-db .epdb-vc-fill {
+  height: 100%; background: var(--brand-orange); border-radius: 2px; width: 0%; pointer-events: none;
+}
+/* Bottom row */
+.esic-pregrado-db .epdb-vc-row { display: flex; align-items: center; gap: 0.5rem; }
+.esic-pregrado-db .epdb-vc-right { margin-left: auto; display: flex; gap: 0.25rem; }
+.esic-pregrado-db .epdb-vc-btn {
+  width: 30px; height: 30px; border: none; background: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; transition: transform 0.15s, opacity 0.15s; opacity: 0.85; padding: 0;
+}
+.esic-pregrado-db .epdb-vc-btn:hover { transform: scale(1.15); opacity: 1; }
+.esic-pregrado-db .epdb-vc-btn svg { width: 17px; height: 17px; }
+.esic-pregrado-db .epdb-vc-time {
+  font-size: 0.75rem; color: rgba(255,255,255,0.82);
+  font-family: var(--body-font); letter-spacing: 0.03em; white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .esic-pregrado-db .epdb-vc-bar { opacity: 1; pointer-events: auto; }
+  .esic-pregrado-db .epdb-testimonios-grid { grid-template-columns: 1fr; }
+}
 
 /* Pricing Section */
 .esic-pregrado-db .epdb-pricing-section { padding: 5rem 0; background: #FFFFFF; border-radius: 50px 50px 0 0; margin-top: -50px; position: relative; z-index: 6; }
@@ -481,7 +513,7 @@
     <div class="epdb-becas-banner epdb-section-orange">
       <div class="epdb-container">
         <h3>TRANSFORMA TU FUTURO CON HASTA 40% DE BECA</h3>
-        <a class="epdb-btn" href="https://esic.co/master/becas.html">CONOCE NUESTRAS BECAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a class="epdb-btn" href="https://esic.co/master/becas-pregrado">CONOCE NUESTRAS BECAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
   </section>
@@ -555,10 +587,34 @@
           <p>Conoce las historias de éxito de nuestros estudiantes que están liderando la transformación digital en empresas de toda Latinoamérica y el mundo.</p>
           <p>Formamos profesionales capaces de crear, innovar y liderar en el ecosistema digital, con habilidades técnicas y visión estratégica de negocio.</p>
         </div>
-        <div class="epdb-testimonios-video epdb-reveal epdb-delay-1">
-          <button class="epdb-play-btn" aria-label="Reproducir video">
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </button>
+        <div class="epdb-testimonios-video epdb-reveal epdb-delay-1" id="epdb-video-wrap">
+          <video id="epdb-vid" src="https://esic.co/wp-content/uploads/2026/02/testimonio-felipe.mp4" preload="metadata" playsinline></video>
+          <div class="epdb-vc-overlay" id="epdb-vc-overlay">
+            <button class="epdb-vc-center" id="epdb-vc-playbig" aria-label="Reproducir">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </button>
+          </div>
+          <div class="epdb-vc-bar" id="epdb-vc-bar">
+            <div class="epdb-vc-progress" id="epdb-vc-progress" role="slider" aria-label="Progreso">
+              <div class="epdb-vc-fill" id="epdb-vc-fill"></div>
+            </div>
+            <div class="epdb-vc-row">
+              <button class="epdb-vc-btn" id="epdb-vc-play" aria-label="Reproducir / Pausar">
+                <svg id="epdb-vc-icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <svg id="epdb-vc-icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+              </button>
+              <span class="epdb-vc-time" id="epdb-vc-time">0:00 / 0:00</span>
+              <div class="epdb-vc-right">
+                <button class="epdb-vc-btn" id="epdb-vc-mute" aria-label="Silenciar">
+                  <svg id="epdb-vc-icon-vol" viewBox="0 0 24 24" fill="currentColor"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  <svg id="epdb-vc-icon-muted" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"/></svg>
+                </button>
+                <button class="epdb-vc-btn" id="epdb-vc-fs" aria-label="Pantalla completa">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -687,8 +743,8 @@
 
             <!-- Actions -->
             <div class="epdb-plan-actions epdb-reveal">
-              <a class="epdb-btn epdb-btn-primary" href="#">BROCHURE DEL PROGRAMA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-              <a class="epdb-btn epdb-btn-outline" href="https://esic.co/pregrado/index.html">EXPLORA OTROS PROGRAMAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="epdb-btn epdb-btn-primary" href="https://esic.co/wp-content/uploads/2024/09/BROCHURE-PREGRADO-DIGITAL-BUSINESS.pdf">BROCHURE DEL PROGRAMA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="epdb-btn epdb-btn-outline" href="https://esic.co/pregrado/">EXPLORA OTROS PROGRAMAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
               <a class="epdb-btn epdb-btn-outline" href="#formulario">SOLICITAR INFORMACIÓN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
             </div>
 
@@ -718,14 +774,14 @@
           <!-- Ver Programas Content -->
           <div class="epdb-plan-section-content" data-section="programas">
             <div class="epdb-programas-cards-grid epdb-reveal">
-              <a href="https://esic.co/pregrado/marketing-global.html" class="epdb-programa-card-link">
+              <a href="https://esic.co/pregrado-marketing-global" class="epdb-programa-card-link">
                 <div class="epdb-programa-card">
                   <div class="epdb-programa-card-overlay">
                     <h4>Dirección de Marketing Global</h4>
                   </div>
                 </div>
               </a>
-              <a href="https://esic.co/pregrado/digital-business.html" class="epdb-programa-card-link">
+              <a href="https://esic.co/pregrado-digital-business" class="epdb-programa-card-link">
                 <div class="epdb-programa-card">
                   <div class="epdb-programa-card-overlay">
                     <h4>Digital Business</h4>
@@ -734,7 +790,7 @@
               </a>
             </div>
             <div class="epdb-plan-actions epdb-reveal">
-              <a class="epdb-btn epdb-btn-primary" href="https://esic.co/pregrado/index.html">VER TODOS LOS PROGRAMAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="epdb-btn epdb-btn-primary" href="https://esic.co/pregrado/">VER TODOS LOS PROGRAMAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
           </div>
         </div>
@@ -775,6 +831,75 @@
         content.classList.toggle('epdb-active', content.getAttribute('data-section') === section);
       });
     });
+  });
+})();
+
+// Video player
+(function() {
+  var wrap = document.getElementById('epdb-video-wrap');
+  if (!wrap) return;
+  var vid = document.getElementById('epdb-vid');
+  var overlay = document.getElementById('epdb-vc-overlay');
+  var bar = document.getElementById('epdb-vc-bar');
+  var progress = document.getElementById('epdb-vc-progress');
+  var fill = document.getElementById('epdb-vc-fill');
+  var playBig = document.getElementById('epdb-vc-playbig');
+  var playBtn = document.getElementById('epdb-vc-play');
+  var iconPlay = document.getElementById('epdb-vc-icon-play');
+  var iconPause = document.getElementById('epdb-vc-icon-pause');
+  var muteBtn = document.getElementById('epdb-vc-mute');
+  var iconVol = document.getElementById('epdb-vc-icon-vol');
+  var iconMuted = document.getElementById('epdb-vc-icon-muted');
+  var fsBtn = document.getElementById('epdb-vc-fs');
+  var timeEl = document.getElementById('epdb-vc-time');
+  var hideTimer;
+
+  function fmt(s) {
+    s = Math.floor(s || 0);
+    var m = Math.floor(s / 60), ss = s % 60;
+    return m + ':' + (ss < 10 ? '0' : '') + ss;
+  }
+  function updateTime() {
+    timeEl.textContent = fmt(vid.currentTime) + ' / ' + fmt(vid.duration);
+    fill.style.width = vid.duration ? (vid.currentTime / vid.duration * 100) + '%' : '0%';
+  }
+  function setPlaying(playing) {
+    wrap.classList.toggle('epdb-vc-playing', playing);
+    iconPlay.style.display = playing ? 'none' : '';
+    iconPause.style.display = playing ? '' : 'none';
+  }
+  function showControls() {
+    wrap.classList.add('epdb-vc-show');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function() { wrap.classList.remove('epdb-vc-show'); }, 3000);
+  }
+  function togglePlay() {
+    if (vid.paused) { vid.play(); } else { vid.pause(); }
+  }
+  playBig.addEventListener('click', togglePlay);
+  playBtn.addEventListener('click', togglePlay);
+  vid.addEventListener('play', function() { setPlaying(true); showControls(); });
+  vid.addEventListener('pause', function() { setPlaying(false); wrap.classList.add('epdb-vc-show'); clearTimeout(hideTimer); });
+  vid.addEventListener('ended', function() { setPlaying(false); wrap.classList.add('epdb-vc-show'); clearTimeout(hideTimer); });
+  vid.addEventListener('timeupdate', updateTime);
+  vid.addEventListener('loadedmetadata', updateTime);
+  wrap.addEventListener('mousemove', showControls);
+  wrap.addEventListener('click', function(e) {
+    if (e.target === wrap || e.target === vid || e.target === overlay) togglePlay();
+  });
+  progress.addEventListener('click', function(e) {
+    var rect = progress.getBoundingClientRect();
+    var ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    if (vid.duration) vid.currentTime = ratio * vid.duration;
+  });
+  muteBtn.addEventListener('click', function() {
+    vid.muted = !vid.muted;
+    iconVol.style.display = vid.muted ? 'none' : '';
+    iconMuted.style.display = vid.muted ? '' : 'none';
+  });
+  fsBtn.addEventListener('click', function() {
+    if (document.fullscreenElement) { document.exitFullscreen(); }
+    else { wrap.requestFullscreen && wrap.requestFullscreen(); }
   });
 })();
 </script>
