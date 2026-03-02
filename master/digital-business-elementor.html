@@ -60,63 +60,14 @@
 .esic-master-db .emdb-btn-teal-outline { background: transparent; border: 2px solid var(--master-teal); color: var(--master-teal); }
 .esic-master-db .emdb-btn-teal-outline:hover { background: rgba(9,207,144,0.08); }
 
-/* Hero */
-.esic-master-db .emdb-hero {
-  height: 85vh;
-  min-height: 500px;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 80px 2rem 15rem;
-}
-.esic-master-db .emdb-hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(135deg, #09CF90 0%, #07A872 40%, #00133F 100%);
-}
-.esic-master-db .emdb-hero .emdb-container { height: 100%; display: flex; align-items: flex-end; position: relative; z-index: 2; width: 100%; }
-.esic-master-db .emdb-hero-content {
-  text-align: right;
-  color: #FFFFFF;
-  max-width: 100%;
-  margin-left: auto;
-  padding-left: 40%;
-  padding-right: 5%;
-}
-.esic-master-db .emdb-hero-eyebrow {
-  font-family: var(--display-font);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-  color: rgba(255,255,255,0.9);
-}
-.esic-master-db .emdb-hero-title {
-  font-family: var(--display-font);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  line-height: 0.85;
-  color: #FFFFFF;
-  margin-bottom: 0.8rem;
-}
-.esic-master-db .emdb-hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.9);
-  max-width: 500px;
-  margin-left: auto;
-  margin-bottom: 2rem;
-}
-.esic-master-db .emdb-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end; }
+/* Hero Banner */
+.esic-master-db .emdb-hero { display: block; line-height: 0; }
+.esic-master-db .emdb-hero img { display: block; width: 100%; height: auto; }
 
 /* Section overlap */
 .esic-master-db .emdb-section-overlap {
   position: relative;
-  margin-top: -180px;
+  margin-top: 0;
   border-radius: 50px 50px 0 0;
   z-index: 10;
   padding-top: 80px;
@@ -395,51 +346,28 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .esic-master-db .emdb-hero { height: auto; min-height: 70vh; padding: 120px 1.5rem 160px; }
-  .esic-master-db .emdb-hero-content { padding-left: 20%; }
   .esic-master-db .emdb-explora-grid,
   .esic-master-db .emdb-testimonios-grid { grid-template-columns: 1fr; gap: 2rem; }
   .esic-master-db .emdb-pricing-layout { grid-template-columns: 1fr; max-width: 500px; }
   .esic-master-db .emdb-plan-layout { grid-template-columns: 1fr; gap: 2rem; }
 }
 @media (max-width: 768px) {
-  .esic-master-db .emdb-hero { padding: 110px 1.5rem 160px; min-height: 60vh; }
-  .esic-master-db .emdb-hero-content { padding-left: 0; text-align: center; }
-  .esic-master-db .emdb-hero-subtitle { margin-left: auto; margin-right: auto; text-align: center; font-size: 1rem; }
-  .esic-master-db .emdb-hero-actions { justify-content: center; }
-  .esic-master-db .emdb-section-overlap { margin-top: -100px; border-radius: 30px 30px 0 0; }
   .esic-master-db .emdb-form-row { grid-template-columns: 1fr; }
   .esic-master-db .emdb-benefits-grid { gap: 1.5rem; }
 }
 @media (max-width: 480px) {
-  .esic-master-db .emdb-hero { padding: 100px 1.25rem 140px; }
-  .esic-master-db .emdb-hero-actions { flex-direction: column; }
   .esic-master-db .emdb-plan-tab { flex: 1 1 100%; }
   .esic-master-db .emdb-plan-actions { flex-direction: column; }
 }
 </style>
 
 <main>
-  <!-- Hero -->
+  <!-- Hero Banner -->
   <section class="emdb-hero">
-    <div class="emdb-hero-bg"></div>
-    <div class="emdb-container">
-      <div class="emdb-hero-content">
-        <p class="emdb-hero-eyebrow">GLOBAL MANAGEMENT PROGRAM + MÁSTER CON TÍTULO PRIVADO ESIC</p>
-        <h1 class="emdb-hero-title">DIGITAL BUSINESS</h1>
-        <p class="emdb-hero-subtitle">Prepárate para liderar la transformación digital del mañana. En ESIC formarás parte de una comunidad global que lleva más de 60 años transformando talento con impacto.</p>
-        <div class="emdb-hero-actions">
-          <a class="emdb-btn emdb-btn-primary" href="#emdb-formulario">
-            SOLICITAR INFORMACIÓN
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-          </a>
-          <a class="emdb-btn emdb-btn-outline" href="#emdb-plan-estudios">
-            VER PLAN DE ESTUDIOS
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
+    <picture>
+      <source media="(max-width: 767px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-global-management-master-digital-business-mobile-scaled.webp">
+      <img src="https://esic.co/wp-content/uploads/2026/03/banner-global-management-master-digital-business-desktop-scaled.webp" alt="Master Digital Business - ESIC">
+    </picture>
   </section>
 
   <!-- Explora + Form -->

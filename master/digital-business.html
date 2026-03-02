@@ -19,106 +19,9 @@
       --master-teal-dark: #07B57E;
     }
 
-    /* Hero Section */
-    .hero-master {
-      height: 85vh;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 80px 2rem 15rem;
-    }
-
-    .hero-master-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(135deg, #09CF90 0%, #07A872 40%, #00133F 100%);
-    }
-
-    .hero-master .container {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .hero-master-content {
-      text-align: right;
-      color: #FFFFFF;
-      max-width: 100%;
-      margin-left: auto;
-      padding-left: 40%;
-      padding-right: 5%;
-    }
-
-    .hero-master-eyebrow {
-      font-family: var(--display-font);
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .hero-master-title {
-      font-family: var(--display-font);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.85;
-      color: #FFFFFF;
-      margin-bottom: 0.8rem;
-    }
-
-    .hero-master-subtitle {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.9);
-      max-width: 500px;
-      margin-left: auto;
-      margin-bottom: 2rem;
-    }
-
-    .hero-master-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .hero-master .btn-primary {
-      background: #00133F;
-      color: #FFFFFF;
-      padding: 1.1rem 2.2rem;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 600;
-      border-radius: 999px;
-    }
-
-    .hero-master .btn-primary:hover {
-      background: #001a52;
-    }
-
-    .hero-master .btn-outline {
-      border: 2px solid #FFFFFF;
-      color: #FFFFFF;
-      background: transparent;
-      padding: 1.1rem 2.2rem;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 600;
-      border-radius: 999px;
-    }
-
-    .hero-master .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
+    /* Hero Banner */
+    .hero-master { display: block; line-height: 0; }
+    .hero-master img { display: block; width: 100%; height: auto; }
 
     .btn-arrow {
       display: inline-flex;
@@ -134,7 +37,7 @@
     /* Section Overlap Pattern */
     .section-overlap {
       position: relative;
-      margin-top: -180px;
+      margin-top: 0;
       border-radius: 50px 50px 0 0;
       z-index: 10;
       padding-top: 80px;
@@ -824,20 +727,6 @@
 
     /* Responsive */
     @media (max-width: 1024px) {
-      .hero-master {
-        height: auto;
-        min-height: 70vh;
-        padding: 120px 1.5rem 160px;
-      }
-
-      .hero-master-content {
-        padding-left: 20%;
-      }
-
-      .hero-master-title {
-        font-size: clamp(2.5rem, 7vw, 5rem);
-      }
-
       .explora-grid,
       .testimonios-grid {
         grid-template-columns: 1fr;
@@ -865,46 +754,6 @@
     }
 
     @media (max-width: 768px) {
-      .hero-master {
-        padding: 110px 1.5rem 160px;
-        min-height: 60vh;
-      }
-
-      .hero-master-content {
-        padding-left: 0;
-        text-align: center;
-      }
-
-      .hero-master-subtitle {
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-        font-size: 1rem;
-      }
-
-      .hero-master-eyebrow {
-        font-size: 1.2rem;
-      }
-
-      .hero-master-title {
-        font-size: clamp(2rem, 9vw, 3rem);
-      }
-
-      .hero-master .btn-primary,
-      .hero-master .btn-outline {
-        padding: 0.85rem 1.5rem;
-        font-size: 0.75rem;
-      }
-
-      .hero-master-actions {
-        justify-content: center;
-      }
-
-      .section-overlap {
-        margin-top: -100px;
-        border-radius: 30px 30px 0 0;
-      }
-
       .form-row {
         grid-template-columns: 1fr;
       }
@@ -971,26 +820,6 @@
     }
 
     @media (max-width: 480px) {
-      .hero-master {
-        padding: 100px 1.25rem 140px;
-      }
-
-      .hero-master-title {
-        font-size: 2rem;
-      }
-
-      .hero-master-eyebrow {
-        font-size: 1rem;
-      }
-
-      .hero-master-actions {
-        flex-direction: column;
-      }
-
-      .hero-master-actions .btn {
-        width: 100%;
-        justify-content: center;
-      }
 
       .benefits-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1238,25 +1067,12 @@
 
   <main>
     <!-- Hero Section -->
+    <!-- Hero Banner -->
     <section class="hero-master">
-      <div class="hero-master-bg"></div>
-      <div class="container">
-        <div class="hero-master-content reveal">
-          <p class="hero-master-eyebrow">GLOBAL MANAGEMENT PROGRAM + MÁSTER CON TÍTULO PRIVADO ESIC</p>
-          <h1 class="hero-master-title">DIGITAL BUSINESS</h1>
-          <p class="hero-master-subtitle">Prepárate para liderar la transformación digital del mañana. En ESIC formarás parte de una comunidad global que lleva más de 60 años transformando talento con impacto.</p>
-          <div class="hero-master-actions">
-            <a class="btn btn-primary btn-arrow" href="#formulario">
-              SOLICITAR INFORMACIÓN
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-            </a>
-            <a class="btn btn-outline btn-arrow" href="#plan-estudios">
-              VER PLAN DE ESTUDIOS
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
+      <picture>
+        <source media="(max-width: 767px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-global-management-master-digital-business-mobile-scaled.webp">
+        <img src="https://esic.co/wp-content/uploads/2026/03/banner-global-management-master-digital-business-desktop-scaled.webp" alt="Master Digital Business - ESIC">
+      </picture>
     </section>
 
     <!-- Explora Section -->
