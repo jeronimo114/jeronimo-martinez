@@ -61,62 +61,13 @@
 .esic-master-dm .emdm-btn-teal-outline:hover { background: rgba(9,207,144,0.08); }
 
 /* Hero */
-.esic-master-dm .emdm-hero {
-  height: 85vh;
-  min-height: 500px;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 80px 2rem 15rem;
-}
-.esic-master-dm .emdm-hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(135deg, #09CF90 0%, #07A872 40%, #00133F 100%);
-}
-.esic-master-dm .emdm-hero .emdm-container { height: 100%; display: flex; align-items: flex-end; position: relative; z-index: 2; width: 100%; }
-.esic-master-dm .emdm-hero-content {
-  text-align: right;
-  color: #FFFFFF;
-  max-width: 100%;
-  margin-left: auto;
-  padding-left: 40%;
-  padding-right: 5%;
-}
-.esic-master-dm .emdm-hero-eyebrow {
-  font-family: var(--display-font);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-  color: rgba(255,255,255,0.9);
-}
-.esic-master-dm .emdm-hero-title {
-  font-family: var(--display-font);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  line-height: 0.85;
-  color: #FFFFFF;
-  margin-bottom: 0.8rem;
-}
-.esic-master-dm .emdm-hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.9);
-  max-width: 500px;
-  margin-left: auto;
-  margin-bottom: 2rem;
-}
-.esic-master-dm .emdm-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end; }
+.esic-master-dm .emdm-hero { display: block; line-height: 0; }
+.esic-master-dm .emdm-hero img { display: block; width: 100%; height: auto; }
 
 /* Section overlap */
 .esic-master-dm .emdm-section-overlap {
   position: relative;
-  margin-top: -180px;
+  margin-top: -50px;
   border-radius: 50px 50px 0 0;
   z-index: 10;
   padding-top: 80px;
@@ -391,25 +342,17 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .esic-master-dm .emdm-hero { height: auto; min-height: 70vh; padding: 120px 1.5rem 160px; }
-  .esic-master-dm .emdm-hero-content { padding-left: 20%; }
   .esic-master-dm .emdm-explora-grid,
   .esic-master-dm .emdm-testimonios-grid { grid-template-columns: 1fr; gap: 2rem; }
   .esic-master-dm .emdm-pricing-layout { grid-template-columns: 1fr; max-width: 500px; }
   .esic-master-dm .emdm-plan-layout { grid-template-columns: 1fr; gap: 2rem; }
 }
 @media (max-width: 768px) {
-  .esic-master-dm .emdm-hero { padding: 110px 1.5rem 160px; min-height: 60vh; }
-  .esic-master-dm .emdm-hero-content { padding-left: 0; text-align: center; }
-  .esic-master-dm .emdm-hero-subtitle { margin-left: auto; margin-right: auto; text-align: center; font-size: 1rem; }
-  .esic-master-dm .emdm-hero-actions { justify-content: center; }
   .esic-master-dm .emdm-section-overlap { margin-top: -100px; border-radius: 30px 30px 0 0; }
   .esic-master-dm .emdm-form-row { grid-template-columns: 1fr; }
   .esic-master-dm .emdm-benefits-grid { gap: 1.5rem; }
 }
 @media (max-width: 480px) {
-  .esic-master-dm .emdm-hero { padding: 100px 1.25rem 140px; }
-  .esic-master-dm .emdm-hero-actions { flex-direction: column; }
   .esic-master-dm .emdm-plan-tab { flex: 1 1 100%; }
   .esic-master-dm .emdm-plan-actions { flex-direction: column; }
 }
@@ -418,24 +361,10 @@
 <main>
   <!-- Hero -->
   <section class="emdm-hero">
-    <div class="emdm-hero-bg"></div>
-    <div class="emdm-container">
-      <div class="emdm-hero-content">
-        <p class="emdm-hero-eyebrow">GLOBAL MANAGEMENT PROGRAM + MÁSTER CON TÍTULO PRIVADO ESIC</p>
-        <h1 class="emdm-hero-title">DIGITAL MARKETING</h1>
-        <p class="emdm-hero-subtitle">Programa integral que cubre formación estratégica y financiera, áreas de desarrollo personal orientadas a la gestión del cambio y todas las disciplinas del marketing digital.</p>
-        <div class="emdm-hero-actions">
-          <a class="emdm-btn emdm-btn-primary" href="#emdm-formulario">
-            SOLICITAR INFORMACIÓN
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-          </a>
-          <a class="emdm-btn emdm-btn-outline" href="#emdm-plan-estudios">
-            VER PLAN DE ESTUDIOS
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
+    <picture>
+      <source media="(max-width: 767px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-mobile-05-1-scaled.webp">
+      <img src="https://esic.co/wp-content/uploads/2026/03/banner-desktop-15.webp" alt="Máster Digital Marketing ESIC">
+    </picture>
   </section>
 
   <!-- Explora + Form -->
