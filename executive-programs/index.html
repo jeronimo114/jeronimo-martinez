@@ -1,1467 +1,1160 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Executive Program: Digital Business Transformation | ESIC Medellín</title>
-  <meta name="description" content="Executive Program Digital Business Transformation. Programa cocreado por ESIC, Prestigio y Accenture. Impulsa la transformación digital de tu organización.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/esic-theme.css">
-  <style>
-    html { scroll-behavior: smooth; }
+<!-- Executive Program: Digital Business Transformation - Elementor HTML Widget -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
 
-    /* ── Hero ── */
-    .hero-exec {
-      position: relative;
-      min-height: 85vh;
-      display: flex;
-      align-items: flex-end;
-      padding: 120px 0 6rem;
-    }
-    .hero-exec-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .hero-exec-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .hero-exec-bg::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.55);
-      z-index: 1;
-    }
-    .hero-exec .container { position: relative; z-index: 2; }
-    .hero-exec-content { max-width: 800px; color: #FFFFFF; }
-    .hero-exec-eyebrow {
-      font-family: var(--display-font);
-      font-size: 1.1rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.8);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .hero-exec-title {
-      font-family: var(--display-font);
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.88;
-      margin-bottom: 0.5rem;
-    }
-    .hero-exec-year {
-      font-family: var(--display-font);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      color: var(--brand-teal);
-      margin-bottom: 2rem;
-    }
-    .hero-exec-partners {
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-    .hero-exec-partners span {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .hero-exec-partners .partner-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 55px;
-    }
-    .hero-exec-partners .partner-logo img {
-      object-fit: contain;
-      height: 55px;
-      filter: brightness(0) invert(1);
-    }
-    .hero-exec-partners .partner-logo.p-accenture img {
-      transform: translateY(-4px);
-    }
+.exec-program-widget {
+  --brand-blue: #0047E9;
+  --brand-blue-dark: #00133F;
+  --brand-teal: #0AE4C3;
+  --brand-orange: #FF9600;
+  --brand-gold: #C09C2E;
+  --brand-gold-dark: #8B7420;
+  --display-font: "Sofia Sans Extra Condensed", sans-serif;
+  --body-font: "DM Sans", sans-serif;
+  --text-muted: #5F6B7A;
+  --text-light: #97A2B1;
+  font-family: var(--body-font);
+  color: #0B132B;
+}
 
-    /* ── Stats Bar ── */
-    .stats-bar {
-      background: #FFFFFF;
-      border-radius: 24px;
-      padding: 2.5rem 3rem;
-      margin-top: -50px;
-      margin-bottom: 0;
-      position: relative;
-      z-index: 10;
-      box-shadow: 0 20px 60px rgba(0,19,63,0.12);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-    }
-    .stat-item { text-align: center; }
-    .stat-number {
-      font-family: var(--display-font);
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--brand-blue);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-top: 0.4rem;
-    }
+.exec-program-widget * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    /* ── Section overlap pattern ── */
-    .s-overlap {
-      position: relative;
-      margin-top: -50px;
-      border-radius: 50px 50px 0 0;
-    }
+.exec-program-widget .container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
 
-    /* ── Propósito + Metodología (merged) ── */
-    .proposito {
-      margin-top: -100px;
-      padding: 10rem 0 7rem;
-      background: #F5F3EF;
-      z-index: 2;
-    }
-    /* ── Stacking: each section sits on top of the previous ── */
-    .info-section.s-overlap { z-index: 3; }
-    .estructura.s-overlap { z-index: 4; }
-    .cocreadores.s-overlap { z-index: 5; }
-    .metodologia-section.s-overlap { z-index: 6; }
-    .quote-cta.s-overlap { z-index: 7; }
-    .proposito-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .proposito h2 {
-      font-family: var(--display-font);
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.95;
-      color: var(--brand-blue-dark);
-      margin-bottom: 1.5rem;
-    }
-    .proposito p {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      margin-bottom: 0;
-    }
-    .pilares {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      margin-bottom: 1.5rem;
-    }
-    .pilar {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 0.8rem 1.2rem;
-      background: #FFFFFF;
-      border-radius: 12px;
-    }
-    .pilar-icon {
-      width: 36px;
-      height: 36px;
-      min-width: 36px;
-      border-radius: 10px;
-      background: var(--brand-blue);
-      display: grid;
-      place-items: center;
-      color: #FFFFFF;
-    }
-    .pilar-icon svg { width: 18px; height: 18px; }
-    .pilar span {
-      font-family: var(--display-font);
-      font-size: 1.05rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--brand-blue-dark);
-    }
-    .metodo-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    .metodo-tag {
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      border-radius: 50px;
-      padding: 0.45rem 1rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+/* ── Hero ── */
+.exec-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 120px 0 6rem;
+}
 
-    /* ── Info General ── */
-    .info-section {
-      padding: 6rem 0 7rem;
-      background: #0047E9;
-    }
-    .info-section h2 {
-      font-family: var(--display-font);
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.95;
-      color: #FFFFFF;
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .info-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-    }
-    .info-col {
-      text-align: center;
-    }
-    .info-col-icon {
-      color: #FFFFFF;
-      margin-bottom: 1rem;
-    }
-    .info-col-icon svg { width: 32px; height: 32px; stroke: #FFFFFF; }
-    .info-col h3 {
-      font-family: var(--display-font);
-      font-size: 1.05rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      margin-bottom: 0.5rem;
-    }
-    .info-col p {
-      font-size: 0.88rem;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.85);
-    }
-    .info-col .precio {
-      font-family: var(--display-font);
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--brand-teal);
-      line-height: 1;
-    }
-    .info-col .nota {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.65);
-      font-style: italic;
-      margin-top: 0.4rem;
-    }
+.exec-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
 
-    /* ── Estructura ── */
-    .estructura {
-      padding: 6rem 0 7rem;
-      background: #F5F3EF;
-    }
-    .estructura h2 {
-      font-family: var(--display-font);
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.95;
-      color: var(--brand-blue-dark);
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .modulos-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .modulo-col {
-      background: #FFFFFF;
-      border-radius: 16px;
-      padding: 1.5rem;
-    }
-    .modulo-badge {
-      display: inline-block;
-      font-family: var(--display-font);
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #FFFFFF;
-      padding: 0.3rem 0.9rem;
-      border-radius: 50px;
-      margin-bottom: 0.8rem;
-    }
-    .modulo-badge.lid,
-    .modulo-badge.tech,
-    .modulo-badge.innov { background: #0047E9; }
-    .modulo-col h3 {
-      font-family: var(--display-font);
-      font-size: 1.15rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--brand-blue-dark);
-      margin-bottom: 0.6rem;
-    }
-    .modulo-col ul {
-      list-style: none;
-      padding: 0;
-    }
-    .modulo-col li {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      padding: 0.35rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      display: flex;
-      justify-content: space-between;
-      gap: 0.5rem;
-    }
-    .modulo-col li:last-child { border-bottom: none; }
-    .modulo-col li .fecha {
-      color: var(--text-light);
-      white-space: nowrap;
-      font-size: 0.75rem;
-    }
-    .modulo-col li .badge-p {
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      padding: 0.1rem 0.4rem;
-      border-radius: 50px;
-      background: rgba(0,71,233,0.1);
-      color: #0047E9;
-      white-space: nowrap;
-    }
-    .madrid-highlight {
-      background: #0047E9;
-      border-radius: 12px;
-      padding: 1.2rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .madrid-highlight span {
-      font-family: var(--display-font);
-      font-size: 1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #FFFFFF;
-    }
-    .madrid-highlight .fecha-m {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
-      font-weight: 400;
-      font-family: var(--body-font);
-      text-transform: none;
-    }
+.exec-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    /* ── Cocreadores ── */
-    .cocreadores {
-      padding: 5rem 0 6rem;
-      background: #FFFFFF;
-      text-align: center;
-    }
-    .cocreadores h2 {
-      font-family: var(--display-font);
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
-      margin-bottom: 2.5rem;
-    }
-    .logos-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8rem;
-      flex-wrap: wrap;
-    }
-    .logo-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .logo-item img {
-      object-fit: contain;
-      transition: all 0.3s;
-    }
-    .logo-item img:hover {
-      transform: scale(1.05);
-    }
-    /* Tamaño individual para alineación visual - optical balance */
-    .logo-item.logo-esic img { height: 63px; }
-    .logo-item.logo-prestigio img { height: 54px; }
-    .logo-item.logo-accenture img { height: 45px; }
-    .logo-item .logo-text {
-      font-family: var(--display-font);
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-    .logo-item span.logo-sub {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--text-light);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+.exec-hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
 
-    /* ── Metodología Infographic Section ── */
-    .metodologia-section {
-      padding: 0;
-      background: var(--brand-blue-dark);
-      position: relative;
-      z-index: 6;
-    }
-    .metodologia-section.s-overlap { z-index: 6; }
-    
-    /* Gold banner header */
-    .metodologia-header {
-      background: linear-gradient(90deg, #8B7420 0%, #C09C2E 50%, #8B7420 100%);
-      padding: 1rem 2rem;
-      text-align: center;
-    }
-    .metodologia-header h2 {
-      font-family: var(--display-font);
-      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      color: var(--brand-blue-dark);
-      letter-spacing: 0.15em;
-      margin: 0;
-    }
-    
-    /* Three circles section */
-    .metodologia-circles {
-      padding: 4rem 2rem 3rem;
-      position: relative;
-    }
-    .metodologia-circles-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0;
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-    }
-    
-    /* Curved gold line */
-    .metodologia-curve {
-      position: absolute;
-      top: 50%;
-      left: 10%;
-      right: 10%;
-      height: 60px;
-      transform: translateY(-50%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .metodologia-curve svg {
-      width: 100%;
-      height: 100%;
-    }
-    .metodologia-curve path {
-      fill: none;
-      stroke: #C09C2E;
-      stroke-width: 3;
-    }
-    
-    /* Individual circle */
-    .metodologia-circle-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      position: relative;
-      z-index: 1;
-      flex: 1;
-    }
-    .metodologia-circle {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #C09C2E 0%, #9A7A24 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 32px rgba(192, 156, 46, 0.3), inset 0 2px 4px rgba(255,255,255,0.2);
-      position: relative;
-    }
-    .metodologia-circle span {
-      font-family: var(--display-font);
-      font-size: clamp(0.85rem, 1.5vw, 1rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      text-align: center;
-      line-height: 1.2;
-      padding: 0 0.5rem;
-    }
-    
-    /* Plus sign connector */
-    .metodologia-plus {
-      font-family: var(--display-font);
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      margin: 0 0.5rem;
-      position: relative;
-      z-index: 1;
-    }
-    
-    /* DMLA section */
-    .metodologia-dmla {
-      text-align: center;
-      padding: 0 2rem 3rem;
-    }
-    .metodologia-dmla h3 {
-      font-family: var(--display-font);
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 800;
-      color: #FFFFFF;
-      margin: 0;
-      letter-spacing: 0.1em;
-    }
-    .metodologia-dmla p {
-      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-      color: rgba(255,255,255,0.8);
-      margin: 0.5rem 0 0;
-    }
-    
-    /* Four categories row */
-    .metodologia-categories {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0;
-      padding: 2.5rem 2rem;
-      border-top: 1px solid rgba(192, 156, 46, 0.2);
-      border-bottom: 1px solid rgba(192, 156, 46, 0.2);
-    }
-    .metodologia-categories .cat-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 2rem;
-      position: relative;
-    }
-    .metodologia-categories .cat-item:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      height: 70%;
-      width: 1px;
-      background: rgba(192, 156, 46, 0.5);
-    }
-    .metodologia-categories .cat-item span {
-      font-family: var(--display-font);
-      font-size: clamp(0.75rem, 1.5vw, 0.95rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #C09C2E;
-      letter-spacing: 0.08em;
-      text-align: center;
-      white-space: nowrap;
-    }
-    
-    /* Bronze experience bar */
-    .intl-experience-bar {
-      background: linear-gradient(135deg, #8B7420 0%, #C09C2E 30%, #9A7A24 70%, #8B7420 100%);
-      padding: 3rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .intl-experience-bar::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-      animation: shimmer 3s infinite;
-    }
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-    .spain-flag-stripe {
-      display: flex;
-      flex-direction: column;
-      width: 200px;
-      margin: 0 auto 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-    .spain-flag-stripe .stripe-red { height: 4px; background: #AA151B; }
-    .spain-flag-stripe .stripe-yellow { height: 8px; background: #F1BF00; }
-    .intl-experience-bar h3 {
-      font-family: var(--display-font);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      letter-spacing: 0.15em;
-      margin: 0;
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-    .intl-experience-bar .intl-subtitle {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.85);
-      margin-top: 0.8rem;
-      position: relative;
-      z-index: 1;
-    }
-    
-    @media (max-width: 1024px) {
-      .metodologia-circle { width: 110px; height: 110px; }
-      .metodologia-plus { font-size: 2rem; }
-    }
-    @media (max-width: 768px) {
-      .metodologia-circles { padding: 3rem 1.5rem 2rem; }
-      .metodologia-circles-container {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-      .metodologia-curve { display: none; }
-      .metodologia-plus {
-        font-size: 1.5rem;
-        transform: rotate(90deg);
-      }
-      .metodologia-circle { width: 100px; height: 100px; }
-      .metodologia-categories { 
-        flex-wrap: wrap; 
-        gap: 1rem; 
-        padding: 2rem 1rem;
-      }
-      .metodologia-categories .cat-item { 
-        padding: 0.6rem 1rem; 
-        width: 45%;
-      }
-      .metodologia-categories .cat-item:not(:last-child)::after { display: none; }
-      .spain-flag-stripe { width: 140px; }
-      .spain-flag-stripe .stripe-red { height: 3px; }
-      .spain-flag-stripe .stripe-yellow { height: 6px; }
-      .intl-experience-bar { padding: 2.5rem 1.5rem; }
-    }
-    @media (max-width: 480px) {
-      .metodologia-categories .cat-item { width: 100%; }
-    }
+.exec-hero .container {
+  position: relative;
+  z-index: 2;
+}
 
-    /* ── Quote + Contacto ── */
-    .quote-cta {
-      padding: 6rem 0;
-      background: var(--brand-blue-dark);
-      color: #FFFFFF;
-      text-align: center;
-    }
-    .quote-cta blockquote {
-      font-family: var(--display-font);
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.95;
-      max-width: 650px;
-      margin: 0 auto 2.5rem;
-    }
-    .quote-cta blockquote em {
-      font-style: normal;
-      color: var(--brand-teal);
-    }
-    .quote-cta-divider {
-      width: 50px;
-      height: 2px;
-      background: rgba(255,255,255,0.3);
-      margin: 0 auto 2rem;
-    }
-    .quote-cta h3 {
-      font-family: var(--display-font);
-      font-size: 1.3rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 0.2rem;
-    }
-    .quote-cta .cargo {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 0.5rem;
-    }
-    .quote-cta .telefono {
-      font-family: var(--display-font);
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--brand-teal);
-      text-decoration: none;
-    }
+.exec-hero-content {
+  max-width: 800px;
+  color: #FFFFFF;
+}
 
-    /* ── Responsive ── */
-    @media (max-width: 1024px) {
-      .stats-bar { grid-template-columns: repeat(2, 1fr); }
-      .proposito-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .info-row { grid-template-columns: repeat(2, 1fr); }
-      .modulos-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 768px) {
-      .hero-exec { min-height: 70vh; padding: 0 0 4rem; }
-      .stats-bar { grid-template-columns: 1fr 1fr; padding: 1.5rem; gap: 1.2rem; }
-      .info-row { grid-template-columns: 1fr 1fr; }
-      .logos-row { gap: 3rem; flex-direction: column; }
-      .logo-item.logo-esic img { height: 49px; }
-      .logo-item.logo-prestigio img { height: 42px; }
-      .logo-item.logo-accenture img { height: 35px; }
-    }
-    @media (max-width: 480px) {
-      .stats-bar { grid-template-columns: 1fr; }
-      .info-row { grid-template-columns: 1fr; }
-      .hero-exec-partners { flex-direction: column; align-items: flex-start; }
-    }
+.exec-hero-eyebrow {
+  font-family: var(--display-font);
+  font-size: 1.1rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: block;
+}
 
-    /* Contact Popup Modal */
-    .eh-contact-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .eh-contact-modal.eh-modal-open {
-      opacity: 1;
-      visibility: visible;
-    }
-    .eh-contact-modal-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 19, 63, 0.85);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .eh-contact-modal-content {
-      position: relative;
-      background: #FFFFFF;
-      border-radius: 24px;
-      width: min(520px, 94%);
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 25px 80px rgba(0, 19, 63, 0.3);
-      transform: translateY(20px);
-      transition: transform 0.3s ease;
-    }
-    .eh-contact-modal.eh-modal-open .eh-contact-modal-content {
-      transform: translateY(0);
-    }
-    .eh-modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      width: 40px;
-      height: 40px;
-      border: none;
-      background: #F5F5F5;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-      z-index: 1;
-    }
-    .eh-modal-close:hover { background: #E5E5E5; }
-    .eh-modal-close svg { width: 18px; height: 18px; color: #666; }
-    .eh-modal-header {
-      padding: 2rem 2rem 1.5rem;
-      text-align: center;
-      border-bottom: 1px solid #F0F0F0;
-    }
-    .eh-modal-header h2 {
-      font-family: var(--display-font);
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      color: var(--brand-blue-dark);
-      margin: 0;
-      letter-spacing: 0.02em;
-    }
-    .eh-modal-header p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-    }
-    .eh-modal-body {
-      padding: 1.5rem 2rem 2rem;
-    }
-    .eh-form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .eh-form-group {
-      margin-bottom: 1rem;
-    }
-    .eh-form-group.full-width {
-      grid-column: 1 / -1;
-    }
-    .eh-form-group label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.4rem;
-    }
-    .eh-form-group label em {
-      color: #E53935;
-      font-style: normal;
-      margin-left: 2px;
-    }
-    .eh-form-group input,
-    .eh-form-group select {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      border: 1.5px solid #E0E0E0;
-      border-radius: 10px;
-      font-family: var(--body-font);
-      font-size: 0.95rem;
-      background: #FAFAFA;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .eh-form-group input:focus,
-    .eh-form-group select:focus {
-      outline: none;
-      border-color: var(--brand-blue);
-      background: #FFFFFF;
-    }
-    .eh-form-group input::placeholder {
-      color: #AAA;
-    }
-    .eh-form-group select {
-      cursor: pointer;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 1rem center;
-      background-size: 12px;
-      padding-right: 2.5rem;
-    }
-    /* Country Code Select with Flags */
-    .eh-country-select {
-      position: relative;
-    }
-    .eh-country-select select {
-      padding-left: 2.8rem;
-      font-size: 0.9rem;
-    }
-    .eh-country-flag {
-      position: absolute;
-      left: 0.85rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.2rem;
-      pointer-events: none;
-      z-index: 1;
-    }
-    .eh-submit-btn {
-      width: 100%;
-      padding: 1rem;
-      background: var(--brand-blue);
-      color: #FFFFFF;
-      border: none;
-      border-radius: 10px;
-      font-family: var(--body-font);
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 0.5rem;
-    }
-    .eh-submit-btn:hover { background: var(--brand-blue-dark); }
-    @media (max-width: 480px) {
-      .eh-form-row { grid-template-columns: 1fr; }
-      .eh-modal-header { padding: 1.5rem 1.5rem 1rem; }
-      .eh-modal-body { padding: 1rem 1.5rem 1.5rem; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Global Nav -->
-  <nav class="nav">
-    <a href="../index.html" class="nav-logo"><img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC Business &amp; Marketing School"></a>
-    <div class="nav-actions">
-      <a href="../master/v2.html" class="nav-cta">Programas</a>
-      <button class="nav-menu" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
+.exec-hero-title {
+  font-family: var(--display-font);
+  color: #0047E9 !important;
+  font-size: clamp(3rem, 7vw, 5.5rem) !important;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.88;
+  margin-bottom: 0.5rem;
+}
+
+.exec-hero-year {
+  font-family: var(--display-font);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--brand-teal);
+  margin-bottom: 2rem;
+}
+
+.exec-hero-partners {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.exec-hero-partners span {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.exec-hero-partners .partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+}
+
+.exec-hero-partners .partner-logo img {
+  object-fit: contain;
+  height: 55px;
+  filter: brightness(0) invert(1);
+}
+
+.exec-hero-partners .partner-logo.p-accenture img {
+  transform: translateY(-4px);
+}
+
+/* ── Stats Bar ── */
+.exec-stats-bar {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 2.5rem 3rem;
+  margin-top: -50px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 20px 60px rgba(0,19,63,0.12);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.exec-stat-item {
+  text-align: center;
+}
+
+.exec-stat-number {
+  font-family: var(--display-font);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--brand-blue);
+  line-height: 1;
+}
+
+.exec-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.4rem;
+}
+
+/* ── Section overlap pattern ── */
+.exec-s-overlap {
+  position: relative;
+  margin-top: -50px;
+  border-radius: 50px 50px 0 0;
+}
+
+/* ── Propósito ── */
+.exec-proposito {
+  margin-top: -100px;
+  padding: 10rem 0 7rem;
+  background: #F5F3EF;
+  z-index: 2;
+}
+
+.exec-proposito-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.exec-proposito h2 {
+  font-family: var(--display-font);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--brand-blue-dark);
+  margin-bottom: 1.5rem;
+}
+
+.exec-proposito p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+.exec-pilares {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.exec-pilar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.2rem;
+  background: #FFFFFF;
+  border-radius: 12px;
+}
+
+.exec-pilar-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 10px;
+  background: var(--brand-blue);
+  display: grid;
+  place-items: center;
+  color: #FFFFFF;
+}
+
+.exec-pilar-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.exec-pilar span {
+  font-family: var(--display-font);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-blue-dark);
+}
+
+/* ── Info General ── */
+.exec-info-section {
+  padding: 6rem 0 7rem;
+  background: #0047E9;
+  z-index: 3;
+}
+
+.exec-info-section h2 {
+  font-family: var(--display-font);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.exec-info-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.exec-info-col {
+  text-align: center;
+}
+
+.exec-info-col-icon {
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.exec-info-col-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke: #FFFFFF;
+}
+
+.exec-info-col h3 {
+  font-family: var(--display-font);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
+.exec-info-col p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+}
+
+.exec-info-col .exec-precio {
+  font-family: var(--display-font);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--brand-teal);
+  line-height: 1;
+}
+
+.exec-info-col .exec-nota {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  font-style: italic;
+  margin-top: 0.4rem;
+}
+
+/* ── Estructura ── */
+.exec-estructura {
+  padding: 6rem 0 7rem;
+  background: #F5F3EF;
+  z-index: 4;
+}
+
+.exec-estructura h2 {
+  font-family: var(--display-font);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--brand-blue-dark);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.exec-modulos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.exec-modulo-col {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.exec-modulo-badge {
+  display: inline-block;
+  font-family: var(--display-font);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  margin-bottom: 0.8rem;
+  background: #0047E9;
+}
+
+.exec-modulo-col h3 {
+  font-family: var(--display-font);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-blue-dark);
+  margin-bottom: 0.6rem;
+}
+
+.exec-modulo-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.exec-modulo-col li {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.exec-modulo-col li:last-child {
+  border-bottom: none;
+}
+
+.exec-modulo-col li .exec-fecha {
+  color: var(--text-light);
+  white-space: nowrap;
+  font-size: 0.75rem;
+}
+
+.exec-modulo-col li .exec-badge-p {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.1rem 0.4rem;
+  border-radius: 50px;
+  background: rgba(0,71,233,0.1);
+  color: #0047E9;
+  white-space: nowrap;
+}
+
+.exec-madrid-highlight {
+  background: #0047E9;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.exec-madrid-highlight span {
+  font-family: var(--display-font);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.exec-madrid-highlight .exec-fecha-m {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 400;
+  font-family: var(--body-font);
+  text-transform: none;
+}
+
+/* ── Cocreadores ── */
+.exec-cocreadores {
+  padding: 5rem 0 6rem;
+  background: #FFFFFF;
+  text-align: center;
+  z-index: 5;
+}
+
+.exec-cocreadores h2 {
+  font-family: var(--display-font);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 2.5rem;
+}
+
+.exec-logos-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  flex-wrap: wrap;
+}
+
+.exec-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exec-logo-item img {
+  object-fit: contain;
+  transition: all 0.3s;
+}
+
+.exec-logo-item img:hover {
+  transform: scale(1.05);
+}
+
+.exec-logo-item.logo-esic img {
+  height: 63px;
+}
+
+.exec-logo-item.logo-prestigio img {
+  height: 54px;
+}
+
+.exec-logo-item.logo-accenture img {
+  height: 45px;
+}
+
+/* ── Metodología ── */
+.exec-metodologia {
+  padding: 0;
+  background: var(--brand-blue-dark);
+  position: relative;
+  z-index: 6;
+}
+
+.exec-metodologia-header {
+  background: linear-gradient(90deg, #8B7420 0%, #C09C2E 50%, #8B7420 100%);
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.exec-metodologia-header h2 {
+  font-family: var(--display-font);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--brand-blue-dark);
+  letter-spacing: 0.15em;
+  margin: 0;
+}
+
+.exec-metodologia-circles {
+  padding: 4rem 2rem 3rem;
+  position: relative;
+}
+
+.exec-metodologia-circles-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.exec-metodologia-curve {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 60px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.exec-metodologia-curve svg {
+  width: 100%;
+  height: 100%;
+}
+
+.exec-metodologia-curve path {
+  fill: none;
+  stroke: #C09C2E;
+  stroke-width: 3;
+}
+
+.exec-metodologia-circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.exec-metodologia-circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C09C2E 0%, #9A7A24 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(192, 156, 46, 0.3), inset 0 2px 4px rgba(255,255,255,0.2);
+  position: relative;
+}
+
+.exec-metodologia-circle span {
+  font-family: var(--display-font);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 1.2;
+  padding: 0 0.5rem;
+}
+
+.exec-metodologia-plus {
+  font-family: var(--display-font);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.exec-metodologia-dmla {
+  text-align: center;
+  padding: 0 2rem 3rem;
+}
+
+.exec-metodologia-dmla h3 {
+  font-family: var(--display-font);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+
+.exec-metodologia-dmla p {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: rgba(255,255,255,0.8);
+  margin: 0.5rem 0 0;
+}
+
+.exec-metodologia-categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 2.5rem 2rem;
+  border-top: 1px solid rgba(192, 156, 46, 0.2);
+  border-bottom: 1px solid rgba(192, 156, 46, 0.2);
+}
+
+.exec-metodologia-categories .exec-cat-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.exec-metodologia-categories .exec-cat-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 1px;
+  background: rgba(192, 156, 46, 0.5);
+}
+
+.exec-metodologia-categories .exec-cat-item span {
+  font-family: var(--display-font);
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #C09C2E;
+  letter-spacing: 0.08em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.exec-intl-experience-bar {
+  background: linear-gradient(135deg, #8B7420 0%, #C09C2E 30%, #9A7A24 70%, #8B7420 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.exec-intl-experience-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: execShimmer 3s infinite;
+}
+
+@keyframes execShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.exec-spain-flag-stripe {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.exec-spain-flag-stripe .exec-stripe-red {
+  height: 4px;
+  background: #AA151B;
+}
+
+.exec-spain-flag-stripe .exec-stripe-yellow {
+  height: 8px;
+  background: #F1BF00;
+}
+
+.exec-intl-experience-bar h3 {
+  font-family: var(--display-font);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  letter-spacing: 0.15em;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.exec-intl-experience-bar .exec-intl-subtitle {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
+  margin-top: 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Quote CTA ── */
+.exec-quote-cta {
+  padding: 6rem 0;
+  background: var(--brand-blue-dark);
+  color: #FFFFFF;
+  text-align: center;
+  z-index: 7;
+}
+
+.exec-quote-cta blockquote {
+  font-family: var(--display-font);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+}
+
+.exec-quote-cta blockquote em {
+  font-style: normal;
+  color: var(--brand-teal);
+}
+
+.exec-quote-cta-divider {
+  width: 50px;
+  height: 2px;
+  background: rgba(255,255,255,0.3);
+  margin: 0 auto 2rem;
+}
+
+.exec-quote-cta h3 {
+  font-family: var(--display-font);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.exec-quote-cta .exec-cargo {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 0.5rem;
+}
+
+.exec-quote-cta .exec-telefono {
+  font-family: var(--display-font);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--brand-teal);
+  text-decoration: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .exec-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .exec-proposito-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .exec-info-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .exec-modulos-grid {
+    grid-template-columns: 1fr;
+  }
+  .exec-metodologia-circle {
+    width: 110px;
+    height: 110px;
+  }
+  .exec-metodologia-plus {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .exec-hero {
+    min-height: 70vh;
+    padding: 0 0 4rem;
+  }
+  .exec-stats-bar {
+    grid-template-columns: 1fr 1fr;
+    padding: 1.5rem;
+    gap: 1.2rem;
+  }
+  .exec-info-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .exec-logos-row {
+    gap: 3rem;
+    flex-direction: column;
+  }
+  .exec-logo-item.logo-esic img {
+    height: 49px;
+  }
+  .exec-logo-item.logo-prestigio img {
+    height: 42px;
+  }
+  .exec-logo-item.logo-accenture img {
+    height: 35px;
+  }
+  .exec-metodologia-circles {
+    padding: 3rem 1.5rem 2rem;
+  }
+  .exec-metodologia-circles-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .exec-metodologia-curve {
+    display: none;
+  }
+  .exec-metodologia-plus {
+    font-size: 1.5rem;
+    transform: rotate(90deg);
+  }
+  .exec-metodologia-circle {
+    width: 100px;
+    height: 100px;
+  }
+  .exec-metodologia-categories {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+  .exec-metodologia-categories .exec-cat-item {
+    padding: 0.6rem 1rem;
+    width: 45%;
+  }
+  .exec-metodologia-categories .exec-cat-item:not(:last-child)::after {
+    display: none;
+  }
+  .exec-spain-flag-stripe {
+    width: 140px;
+  }
+  .exec-spain-flag-stripe .exec-stripe-red {
+    height: 3px;
+  }
+  .exec-spain-flag-stripe .exec-stripe-yellow {
+    height: 6px;
+  }
+  .exec-intl-experience-bar {
+    padding: 2.5rem 1.5rem;
+  }
+  .exec-hero-partners {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .exec-stats-bar {
+    grid-template-columns: 1fr;
+  }
+  .exec-info-row {
+    grid-template-columns: 1fr;
+  }
+  .exec-metodologia-categories .exec-cat-item {
+    width: 100%;
+  }
+}
+</style>
+
+<div class="exec-program-widget">
+  <!-- Hero -->
+  <section class="exec-hero">
+    <div class="exec-hero-bg">
+      <img src="https://esic.co/wp-content/uploads/2025/12/trabajo-en-equipo-estudiantes-esic-proyecto-digital.png" alt="Executive Program ESIC">
     </div>
-  </nav>
-  <div class="nav-overlay">
-    <ul class="nav-overlay-menu">
-      <li><a href="../index.html" class="nav-overlay-link">Inicio</a></li>
-      <li class="nav-overlay-item">
-        <button class="nav-overlay-toggle">Programas <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
-        <ul class="nav-submenu">
-          <li><a href="../pregrado/index.html">Pregrado</a></li>
-          <li><a href="../master/v2.html">Máster</a></li>
-          <li><a href="../executive-programs/index.html">Executive Programs</a></li>
-        </ul>
-      </li>
-      <li class="nav-overlay-item">
-        <button class="nav-overlay-toggle">Nosotros <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
-        <ul class="nav-submenu">
-          <li><a href="../institucional/quienes-somos.html">Quiénes Somos</a></li>
-          <li><a href="../formularios/contacto.html">Contacto</a></li>
-        </ul>
-      </li>
-      <li class="nav-overlay-item">
-        <button class="nav-overlay-toggle">Estudiantes <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
-        <ul class="nav-submenu"><li><a href="#">Estudiantes</a></li></ul>
-      </li>
-      <li class="nav-overlay-item">
-        <button class="nav-overlay-toggle">Level-Up <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg></button>
-        <ul class="nav-submenu">
-          <li><a href="../level-up/index.html">Level Up</a></li>
-          <li><a href="../level-up/ia.html">IA</a></li>
-        </ul>
-      </li>
-    </ul>
-    <div class="nav-overlay-social">
-      <a href="https://www.instagram.com/esic.colombia/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
-      <a href="https://www.linkedin.com/school/esic-colombia/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-      <a href="https://www.tiktok.com/@esic.colombia" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.57 6.33 6.33 0 0 0 9.37 22a6.33 6.33 0 0 0 6.33-6.33V9.18a8.16 8.16 0 0 0 3.89.98V6.69z"/></svg></a>
+    <div class="container">
+      <div class="exec-hero-content">
+        <span class="exec-hero-eyebrow">Executive Program:</span>
+        <h1 class="exec-hero-title">DIGITAL BUSINESS<br>TRANSFORMATION</h1>
+        <div class="exec-hero-year">2026</div>
+        <div class="exec-hero-partners">
+          <span>Programa cocreado por:</span>
+          <div class="partner-logo p-esic">
+            <img src="https://esic.co/wp-content/uploads/2026/02/logo-esic.png" alt="ESIC">
+          </div>
+          <div class="partner-logo p-prestigio">
+            <img src="https://esic.co/wp-content/uploads/2026/02/logo-prestigio.png" alt="Prestigio">
+          </div>
+          <div class="partner-logo p-accenture">
+            <img src="https://esic.co/wp-content/uploads/2026/02/logo-accenture.png" alt="Accenture">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="container" style="position:relative;z-index:12;">
+    <div class="exec-stats-bar">
+      <div class="exec-stat-item">
+        <div class="exec-stat-number">4</div>
+        <div class="exec-stat-label">Meses de duración</div>
+      </div>
+      <div class="exec-stat-item">
+        <div class="exec-stat-number">MADRID</div>
+        <div class="exec-stat-label">Inmersión internacional</div>
+      </div>
+      <div class="exec-stat-item">
+        <div class="exec-stat-number">$6.900</div>
+        <div class="exec-stat-label">USD Inversión</div>
+      </div>
+      <div class="exec-stat-item">
+        <div class="exec-stat-number">2h</div>
+        <div class="exec-stat-label">Dedicación semanal</div>
+      </div>
     </div>
   </div>
 
-  <main>
-    <!-- ═══ Hero ═══ -->
-    <section class="hero-exec">
-      <div class="hero-exec-bg">
-        <img src="../assets/images/DSC02284_resultado.webp" alt="Executive Program ESIC">
-      </div>
-      <div class="container">
-        <div class="hero-exec-content">
-          <span class="hero-exec-eyebrow">Executive Program:</span>
-          <h1 class="hero-exec-title">DIGITAL BUSINESS<br>TRANSFORMATION</h1>
-          <div class="hero-exec-partners">
-            <span>Programa cocreado por:</span>
-            <div class="partner-logo p-esic"><img src="https://esic.co/wp-content/uploads/2026/02/logo-esic.png" alt="ESIC"></div>
-            <div class="partner-logo p-prestigio"><img src="https://esic.co/wp-content/uploads/2026/02/logo-prestigio.png" alt="Prestigio"></div>
-            <div class="partner-logo p-accenture"><img src="https://esic.co/wp-content/uploads/2026/02/logo-accenture.png" alt="Accenture"></div>
-          </div>
+  <!-- Propósito -->
+  <section class="exec-proposito exec-s-overlap">
+    <div class="container">
+      <div class="exec-proposito-grid">
+        <div>
+          <h2>PROPÓSITO DEL PROGRAMA</h2>
+          <p>Impulsar a los altos ejecutivos a liderar la transformación digital de manera estratégica y sistémica, acelerando el desarrollo de un pensamiento digital que genere impacto en la cultura, la innovación y la competitividad de sus organizaciones.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- ═══ Stats Bar ═══ -->
-    <div class="container" style="position:relative;z-index:12;">
-      <div class="stats-bar">
-        <div class="stat-item">
-          <div class="stat-number">4</div>
-          <div class="stat-label">Meses de duración</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">MADRID</div>
-          <div class="stat-label">Inmersión internacional</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">$6.900</div>
-          <div class="stat-label">USD Inversión</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">2h</div>
-          <div class="stat-label">Dedicación semanal</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══ Propósito + Metodología ═══ -->
-    <section class="proposito s-overlap">
-      <div class="container">
-        <div class="proposito-grid">
-          <div>
-            <h2>PROPÓSITO DEL PROGRAMA</h2>
-            <p>Impulsar a los altos ejecutivos a liderar la transformación digital de manera estratégica y sistémica, acelerando el desarrollo de un pensamiento digital que genere impacto en la cultura, la innovación y la competitividad de sus organizaciones.</p>
-          </div>
-          <div>
-            <div class="pilares">
-              <div class="pilar">
-                <div class="pilar-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <span>Liderazgo</span>
+        <div>
+          <div class="exec-pilares">
+            <div class="exec-pilar">
+              <div class="exec-pilar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
               </div>
-              <div class="pilar">
-                <div class="pilar-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                </div>
-                <span>Tecnologías Emergentes</span>
-              </div>
-              <div class="pilar">
-                <div class="pilar-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                </div>
-                <span>Innovación</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ Información General ═══ -->
-    <section class="info-section s-overlap">
-      <div class="container">
-        <h2>INFORMACIÓN GENERAL</h2>
-        <div class="info-row">
-          <div class="info-col">
-            <div class="info-col-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </div>
-            <h3>Fechas</h3>
-            <p>Inicio: martes 2 de junio 2026<br>Fin: viernes 2 de octubre 2026</p>
-          </div>
-          <div class="info-col">
-            <div class="info-col-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </div>
-            <h3>Inmersión Internacional</h3>
-            <p>Madrid – 4 días<br>Sep 29 a Oct 2, 2026</p>
-          </div>
-          <div class="info-col">
-            <div class="info-col-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <h3>Duración</h3>
-            <p>4 meses · 2h/semana<br>Jueves 7:00–9:00am<br>2 sesiones presenciales</p>
-          </div>
-          <div class="info-col">
-            <div class="info-col-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
-            <h3>Inversión</h3>
-            <div class="precio">$6.900 USD</div>
-            <p class="nota">*No incluye tiquetes ni hospedaje en Madrid</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ Estructura del Programa ═══ -->
-    <section class="estructura s-overlap">
-      <div class="container">
-        <h2>ESTRUCTURA DEL PROGRAMA</h2>
-        <div class="modulos-grid">
-          <!-- Liderazgo -->
-          <div class="modulo-col">
-            <span class="modulo-badge lid">Junio</span>
-            <h3>Liderazgo</h3>
-            <ul>
-              <li>KICKOFF <span class="badge-p">Presencial</span> <span class="fecha">Jun 2</span></li>
-              <li>Los cambios sociales I <span class="fecha">Jun 4</span></li>
-              <li>Los cambios sociales II <span class="fecha">Jun 11</span></li>
-              <li>Cultura Digital <span class="fecha">Jun 18</span></li>
-              <li>Liderazgo <span class="badge-p">Presencial</span> <span class="fecha">Jun 25</span></li>
-            </ul>
-          </div>
-          <!-- Tecnologías Emergentes -->
-          <div class="modulo-col">
-            <span class="modulo-badge tech">Julio – Agosto</span>
-            <h3>Tecnologías Emergentes</h3>
-            <ul>
-              <li>Peer mentoring <span class="fecha">Jul 16</span></li>
-              <li>Caso con protagonista <span class="fecha">Jul 23</span></li>
-              <li>IoT <span class="fecha">Jul 30</span></li>
-              <li>Ciberseguridad <span class="fecha">Ago 6</span></li>
-              <li>Blockchain <span class="fecha">Ago 13</span></li>
-              <li>Workshop IA <span class="badge-p">Presencial</span> <span class="fecha">Ago 20</span></li>
-            </ul>
-          </div>
-          <!-- Innovación -->
-          <div class="modulo-col">
-            <span class="modulo-badge innov">Septiembre – Octubre</span>
-            <h3>Innovación</h3>
-            <ul>
-              <li>Caso con protagonista <span class="fecha">Sep 3</span></li>
-              <li>Innovación I <span class="fecha">Sep 10</span></li>
-              <li>Innovación II <span class="fecha">Sep 17</span></li>
-              <li>Caso con protagonista <span class="fecha">Sep 24</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="madrid-highlight">
-          <span>Experiencia Internacional Madrid — 4 días</span>
-          <span class="fecha-m">Martes 29 de septiembre a viernes 2 de octubre 2026</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ Cocreadores ═══ -->
-    <section class="cocreadores s-overlap">
-      <div class="container">
-        <h2>Programa cocreado por</h2>
-        <div class="logos-row">
-          <div class="logo-item logo-esic">
-            <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC">
-          </div>
-          <div class="logo-item logo-prestigio">
-            <img src="https://prestigio.com.co/wp-content/uploads/2024/04/logo-prestigio.webp" alt="Prestigio">
-          </div>
-          <div class="logo-item logo-accenture">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/3840px-Accenture.svg.png" alt="Accenture">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ Metodología Infographic ═══ -->
-    <section class="metodologia-section s-overlap">
-      <!-- Gold header banner -->
-      <div class="metodologia-header">
-        <h2>METODOLOGÍA:</h2>
-      </div>
-      
-      <!-- Three circles with curved line -->
-      <div class="metodologia-circles">
-        <div class="metodologia-circles-container">
-          <!-- Curved gold line SVG -->
-          <div class="metodologia-curve">
-            <svg viewBox="0 0 800 60" preserveAspectRatio="none">
-              <path d="M0,30 Q200,0 400,30 T800,30" />
-            </svg>
-          </div>
-          
-          <!-- Circle 1: Liderazgo -->
-          <div class="metodologia-circle-item">
-            <div class="metodologia-circle">
               <span>Liderazgo</span>
             </div>
-          </div>
-          
-          <!-- Plus sign -->
-          <span class="metodologia-plus">+</span>
-          
-          <!-- Circle 2: Tecnologías Emergentes -->
-          <div class="metodologia-circle-item">
-            <div class="metodologia-circle">
-              <span>Tecnologías<br>Emergentes</span>
+            <div class="exec-pilar">
+              <div class="exec-pilar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <span>Tecnologías Emergentes</span>
             </div>
-          </div>
-          
-          <!-- Plus sign -->
-          <span class="metodologia-plus">+</span>
-          
-          <!-- Circle 3: Innovación -->
-          <div class="metodologia-circle-item">
-            <div class="metodologia-circle">
+            <div class="exec-pilar">
+              <div class="exec-pilar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                  <polyline points="2 17 12 22 22 17"/>
+                  <polyline points="2 12 12 17 22 12"/>
+                </svg>
+              </div>
               <span>Innovación</span>
             </div>
           </div>
         </div>
       </div>
-      
-      <!-- DMLA text -->
-      <div class="metodologia-dmla">
-        <h3>DMLA</h3>
-        <p>(Digital Maturity &amp; Leadership Assessment)</p>
-      </div>
-      
-      <!-- Four categories row -->
-      <div class="metodologia-categories">
-        <div class="cat-item"><span>MASTERCLASSES</span></div>
-        <div class="cat-item"><span>CASOS CON PROTAGONISTA</span></div>
-        <div class="cat-item"><span>MENTORÍAS INDIVIDUALES</span></div>
-        <div class="cat-item"><span>EXPERIENCIAS PRESENCIALES</span></div>
-      </div>
-      
-      <!-- Gold experience bar -->
-      <div class="intl-experience-bar">
-        <div class="spain-flag-stripe">
-          <div class="stripe-red"></div>
-          <div class="stripe-yellow"></div>
-          <div class="stripe-red"></div>
-        </div>
-        <h3>EXPERIENCIA INTERNACIONAL</h3>
-        <p class="intl-subtitle">Inmersión de 4 días en Madrid, España</p>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══ Quote + Contacto ═══ -->
-    <section class="quote-cta s-overlap" id="contacto">
-      <div class="container">
-        <blockquote>"ES MOMENTO DE TRANSFORMAR,<br><em>no de adaptarse.</em><br>Tú marcas la diferencia"</blockquote>
-        <div class="quote-cta-divider"></div>
-        <h3>JUAN MANUEL JIMÉNEZ</h3>
-        <p class="cargo">Director Comercial ESIC Medellín</p>
-        <a class="telefono" href="tel:+573042364804">+57 304 2364804</a>
-      </div>
-    </section>
-
-    <!-- ═══ Footer ═══ -->
-    <footer class="footer section-rounded">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-cta">
-            <h2>TRANSFORMA<br>TU FUTURO<br><span>EN ESIC</span></h2>
-            <div class="footer-cta-buttons">
-              <a href="https://esic.co/institucional/quienes-somos.html">INSTITUCIÓN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-              <a href="#" class="eh-contact-trigger">CONTÁCTANOS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
+  <!-- Información General -->
+  <section class="exec-info-section exec-s-overlap">
+    <div class="container">
+      <h2>INFORMACIÓN GENERAL</h2>
+      <div class="exec-info-row">
+        <div class="exec-info-col">
+          <div class="exec-info-col-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
           </div>
-          <div class="footer-info">
-            <div class="footer-logo"><img src="https://esic.co/wp-content/uploads/2026/02/CEIPA-Y-ESIC-a.png" alt="CEIPA y ESIC" style="height:50px;width:auto;"></div>
-            <div class="footer-contact"><p>info@esic.co</p></div>
-            <div class="footer-social">
-              <a href="https://www.linkedin.com/school/esic-medellin/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-              <a href="https://www.instagram.com/esic.colombia/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-              <a href="https://www.tiktok.com/@esic.colombia" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-              <a href="https://www.youtube.com/@ESICmedellin" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-            </div>
-            <div class="footer-links">
-              <a href="#">Términos y Condiciones</a>
-              <a href="#">Política de Tratamiento de Datos</a>
-            </div>
+          <h3>Fechas</h3>
+          <p>Inicio: martes 2 de junio 2026<br>Fin: viernes 2 de octubre 2026</p>
+        </div>
+        <div class="exec-info-col">
+          <div class="exec-info-col-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
           </div>
+          <h3>Inmersión Internacional</h3>
+          <p>Madrid – 4 días<br>Sep 29 a Oct 2, 2026</p>
         </div>
-        <div class="footer-bottom"><p>&copy; 2025 ESIC. Todos los derechos reservados.</p></div>
-      </div>
-    </footer>
-
-    <!-- Contact Modal -->
-    <div class="eh-contact-modal" id="contactModal">
-      <div class="eh-contact-modal-overlay"></div>
-      <div class="eh-contact-modal-content">
-        <button class="eh-modal-close" aria-label="Cerrar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-        <div class="eh-modal-header">
-          <h2>Contáctanos</h2>
-          <p>Estamos aquí para ayudarte. Cuéntanos sobre ti.</p>
+        <div class="exec-info-col">
+          <div class="exec-info-col-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Duración</h3>
+          <p>4 meses · 2h/semana<br>Jueves 7:00–9:00am<br>2 sesiones presenciales</p>
         </div>
-        <div class="eh-modal-body">
-          <form action="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit" name="form" id="form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
-            <input type="hidden" name="zf_referrer_name" value="">
-            <input type="hidden" name="zf_redirect_url" value="">
-            <input type="hidden" name="zc_gad" value="">
-            
-            <div class="eh-form-row">
-              <div class="eh-form-group">
-                <label>Nombre <em>*</em></label>
-                <input type="text" maxlength="255" name="Name_First" placeholder="Tu nombre" required>
-              </div>
-              <div class="eh-form-group">
-                <label>Apellido</label>
-                <input type="text" maxlength="255" name="Name_Last" placeholder="Tu apellido">
-              </div>
-            </div>
-            
-            <div class="eh-form-group full-width">
-              <label>Correo electrónico <em>*</em></label>
-              <input type="email" maxlength="255" name="Email" placeholder="tu@email.com" required>
-            </div>
-            
-            <div class="eh-form-row">
-              <div class="eh-form-group">
-                <label>País <em>*</em></label>
-                <div class="eh-country-select">
-                  <span class="eh-country-flag" id="countryFlag">🇨🇴</span>
-                  <select name="PhoneNumber_countrycode" id="countryCodeSelect" required>
-                    <option value="+57" data-flag="🇨🇴" selected>Colombia (+57)</option>
-                    <option value="+34" data-flag="🇪🇸">España (+34)</option>
-                    <option value="+1" data-flag="🇺🇸">Estados Unidos (+1)</option>
-                    <option value="+52" data-flag="🇲🇽">México (+52)</option>
-                    <option value="+54" data-flag="🇦🇷">Argentina (+54)</option>
-                    <option value="+56" data-flag="🇨🇱">Chile (+56)</option>
-                    <option value="+51" data-flag="🇵🇪">Perú (+51)</option>
-                    <option value="+58" data-flag="🇻🇪">Venezuela (+58)</option>
-                    <option value="+593" data-flag="🇪🇨">Ecuador (+593)</option>
-                    <option value="+591" data-flag="🇧🇴">Bolivia (+591)</option>
-                    <option value="+595" data-flag="🇵🇾">Paraguay (+595)</option>
-                    <option value="+598" data-flag="🇺🇾">Uruguay (+598)</option>
-                    <option value="+507" data-flag="🇵🇦">Panamá (+507)</option>
-                    <option value="+506" data-flag="🇨🇷">Costa Rica (+506)</option>
-                    <option value="+503" data-flag="🇸🇻">El Salvador (+503)</option>
-                    <option value="+502" data-flag="🇬🇹">Guatemala (+502)</option>
-                    <option value="+504" data-flag="🇭🇳">Honduras (+504)</option>
-                    <option value="+505" data-flag="🇳🇮">Nicaragua (+505)</option>
-                    <option value="+44" data-flag="🇬🇧">Reino Unido (+44)</option>
-                    <option value="+33" data-flag="🇫🇷">Francia (+33)</option>
-                    <option value="+49" data-flag="🇩🇪">Alemania (+49)</option>
-                    <option value="+39" data-flag="🇮🇹">Italia (+39)</option>
-                    <option value="+55" data-flag="🇧🇷">Brasil (+55)</option>
-                    <option value="+91" data-flag="🇮🇳">India (+91)</option>
-                    <option value="+86" data-flag="🇨🇳">China (+86)</option>
-                    <option value="+81" data-flag="🇯🇵">Japón (+81)</option>
-                    <option value="+82" data-flag="🇰🇷">Corea del Sur (+82)</option>
-                    <option value="+61" data-flag="🇦🇺">Australia (+61)</option>
-                    <option value="+7" data-flag="🇷🇺">Rusia (+7)</option>
-                    <option value="+27" data-flag="🇿🇦">Sudáfrica (+27)</option>
-                  </select>
-                </div>
-              </div>
-              <div class="eh-form-group">
-                <label>Teléfono <em>*</em></label>
-                <input type="tel" name="PhoneNumber_countrycodeval" id="phoneNumberInput" maxlength="15" placeholder="3001234567" pattern="[0-9]*" inputmode="numeric" required>
-              </div>
-            </div>
-            
-            <div class="eh-form-row">
-              <div class="eh-form-group">
-                <label>Tipo de programa <em>*</em></label>
-                <select name="Dropdown" required>
-                  <option value="">Selecciona...</option>
-                  <option value="Pregrado">Pregrado</option>
-                  <option value="Corporate">Corporate</option>
-                  <option value="Diplomado">Diplomado</option>
-                  <option value="Curso">Curso</option>
-                  <option value="Executive">Executive</option>
-                  <option value="Educación continua">Educación continua</option>
-                  <option value="Level Up">Level Up</option>
-                  <option value="Open Day">Open Day</option>
-                </select>
-              </div>
-              <div class="eh-form-group">
-                <label>Medio de contacto <em>*</em></label>
-                <select name="Dropdown3" required>
-                  <option value="">Selecciona...</option>
-                  <option value="WhatsApp">WhatsApp</option>
-                  <option value="Correo">Correo</option>
-                  <option value="Llamada">Llamada</option>
-                </select>
-              </div>
-            </div>
-            
-            <button type="submit" class="eh-submit-btn">Enviar</button>
-          </form>
+        <div class="exec-info-col">
+          <div class="exec-info-col-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3>Inversión</h3>
+          <div class="exec-precio">$6.900 USD</div>
+          <p class="exec-nota">*No incluye tiquetes ni hospedaje en Madrid</p>
         </div>
       </div>
     </div>
-  </main>
+  </section>
 
-  <a href="https://wa.me/573042364804" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
+  <!-- Estructura del Programa -->
+  <section class="exec-estructura exec-s-overlap">
+    <div class="container">
+      <h2>ESTRUCTURA DEL PROGRAMA</h2>
+      <div class="exec-modulos-grid">
+        <!-- Liderazgo -->
+        <div class="exec-modulo-col">
+          <span class="exec-modulo-badge">Junio</span>
+          <h3>Liderazgo</h3>
+          <ul>
+            <li>KICKOFF <span class="exec-badge-p">Presencial</span> <span class="exec-fecha">Jun 2</span></li>
+            <li>Los cambios sociales I <span class="exec-fecha">Jun 4</span></li>
+            <li>Los cambios sociales II <span class="exec-fecha">Jun 11</span></li>
+            <li>Cultura Digital <span class="exec-fecha">Jun 18</span></li>
+            <li>Liderazgo <span class="exec-badge-p">Presencial</span> <span class="exec-fecha">Jun 25</span></li>
+          </ul>
+        </div>
+        <!-- Tecnologías Emergentes -->
+        <div class="exec-modulo-col">
+          <span class="exec-modulo-badge">Julio – Agosto</span>
+          <h3>Tecnologías Emergentes</h3>
+          <ul>
+            <li>Peer mentoring <span class="exec-fecha">Jul 16</span></li>
+            <li>Caso con protagonista <span class="exec-fecha">Jul 23</span></li>
+            <li>IoT <span class="exec-fecha">Jul 30</span></li>
+            <li>Ciberseguridad <span class="exec-fecha">Ago 6</span></li>
+            <li>Blockchain <span class="exec-fecha">Ago 13</span></li>
+            <li>Workshop IA <span class="exec-badge-p">Presencial</span> <span class="exec-fecha">Ago 20</span></li>
+          </ul>
+        </div>
+        <!-- Innovación -->
+        <div class="exec-modulo-col">
+          <span class="exec-modulo-badge">Septiembre – Octubre</span>
+          <h3>Innovación</h3>
+          <ul>
+            <li>Caso con protagonista <span class="exec-fecha">Sep 3</span></li>
+            <li>Innovación I <span class="exec-fecha">Sep 10</span></li>
+            <li>Innovación II <span class="exec-fecha">Sep 17</span></li>
+            <li>Caso con protagonista <span class="exec-fecha">Sep 24</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="exec-madrid-highlight">
+        <span>Experiencia Internacional Madrid — 4 días</span>
+        <span class="exec-fecha-m">Martes 29 de septiembre a viernes 2 de octubre 2026</span>
+      </div>
+    </div>
+  </section>
 
-  <script src="../assets/js/nav.js"></script>
-  <script>
-  (function() {
-    var contactModal = document.getElementById('contactModal');
-    var contactTriggers = document.querySelectorAll('.eh-contact-trigger');
-    var modalClose = contactModal ? contactModal.querySelector('.eh-modal-close') : null;
-    var modalOverlay = contactModal ? contactModal.querySelector('.eh-contact-modal-overlay') : null;
+  <!-- Cocreadores -->
+  <section class="exec-cocreadores exec-s-overlap">
+    <div class="container">
+      <h2>Programa cocreado por</h2>
+      <div class="exec-logos-row">
+        <div class="exec-logo-item logo-esic">
+          <img src="https://esic.co/wp-content/uploads/2024/08/cropped-logo-esic-web-1.png" alt="ESIC">
+        </div>
+        <div class="exec-logo-item logo-prestigio">
+          <img src="https://prestigio.com.co/wp-content/uploads/2024/04/logo-prestigio.webp" alt="Prestigio">
+        </div>
+        <div class="exec-logo-item logo-accenture">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/3840px-Accenture.svg.png" alt="Accenture">
+        </div>
+      </div>
+    </div>
+  </section>
 
-    function openModal() {
-      if (contactModal) {
-        contactModal.classList.add('eh-modal-open');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closeModal() {
-      if (contactModal) {
-        contactModal.classList.remove('eh-modal-open');
-        document.body.style.overflow = '';
-      }
-    }
-
-    contactTriggers.forEach(function(trigger) {
-      trigger.addEventListener('click', function(e) {
-        e.preventDefault();
-        openModal();
-      });
-    });
-
-    if (modalClose) {
-      modalClose.addEventListener('click', closeModal);
-    }
-
-    if (modalOverlay) {
-      modalOverlay.addEventListener('click', closeModal);
-    }
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && contactModal && contactModal.classList.contains('eh-modal-open')) {
-        closeModal();
-      }
-    });
-
-  // Country code select with flag update
-  var countryCodeSelect = document.getElementById('countryCodeSelect');
-  var countryFlag = document.getElementById('countryFlag');
-  var phoneNumberInput = document.getElementById('phoneNumberInput');
-  var contactForm = document.getElementById('form');
-
-  if (countryCodeSelect && countryFlag) {
-    countryCodeSelect.addEventListener('change', function() {
-      var selectedOption = countryCodeSelect.options[countryCodeSelect.selectedIndex];
-      var flag = selectedOption.getAttribute('data-flag');
-      countryFlag.textContent = flag;
-    });
-  }
-
-  // Phone number input validation - only allow digits
-  if (phoneNumberInput) {
-    // Prevent invalid characters on input
-    phoneNumberInput.addEventListener('input', function() {
-      // Remove any non-digit characters immediately
-      this.value = this.value.replace(/\D/g, '');
-    });
+  <!-- Metodología -->
+  <section class="exec-metodologia exec-s-overlap">
+    <div class="exec-metodologia-header">
+      <h2>METODOLOGÍA:</h2>
+    </div>
     
-    // Prevent +, -, (, ) keys from being entered
-    phoneNumberInput.addEventListener('keypress', function(e) {
-      var char = String.fromCharCode(e.which);
-      // Allow only digits (0-9)
-      if (!/\d/.test(char)) {
-        e.preventDefault();
-      }
-    });
+    <div class="exec-metodologia-circles">
+      <div class="exec-metodologia-circles-container">
+        <div class="exec-metodologia-curve">
+          <svg viewBox="0 0 800 60" preserveAspectRatio="none">
+            <path d="M0,30 Q200,0 400,30 T800,30" />
+          </svg>
+        </div>
+        
+        <div class="exec-metodologia-circle-item">
+          <div class="exec-metodologia-circle">
+            <span>Liderazgo</span>
+          </div>
+        </div>
+        
+        <span class="exec-metodologia-plus">+</span>
+        
+        <div class="exec-metodologia-circle-item">
+          <div class="exec-metodologia-circle">
+            <span>Tecnologías<br>Emergentes</span>
+          </div>
+        </div>
+        
+        <span class="exec-metodologia-plus">+</span>
+        
+        <div class="exec-metodologia-circle-item">
+          <div class="exec-metodologia-circle">
+            <span>Innovación</span>
+          </div>
+        </div>
+      </div>
+    </div>
     
-    // Clean up on paste
-    phoneNumberInput.addEventListener('paste', function(e) {
-      e.preventDefault();
-      var pasted = (e.clipboardData || window.clipboardData).getData('text');
-      var digitsOnly = pasted.replace(/\D/g, '');
-      this.value = digitsOnly.substring(0, 15);
-    });
-  }
+    <div class="exec-metodologia-dmla">
+      <h3>DMLA</h3>
+      <p>(Digital Maturity & Leadership Assessment)</p>
+    </div>
+    
+    <div class="exec-metodologia-categories">
+      <div class="exec-cat-item"><span>MASTERCLASSES</span></div>
+      <div class="exec-cat-item"><span>CASOS CON PROTAGONISTA</span></div>
+      <div class="exec-cat-item"><span>MENTORÍAS INDIVIDUALES</span></div>
+      <div class="exec-cat-item"><span>EXPERIENCIAS PRESENCIALES</span></div>
+    </div>
+    
+    <div class="exec-intl-experience-bar">
+      <div class="exec-spain-flag-stripe">
+        <div class="exec-stripe-red"></div>
+        <div class="exec-stripe-yellow"></div>
+        <div class="exec-stripe-red"></div>
+      </div>
+      <h3>EXPERIENCIA INTERNACIONAL</h3>
+      <p class="exec-intl-subtitle">Inmersión de 4 días en Madrid, España</p>
+    </div>
+  </section>
 
-  // Phone number validation on submit
-  if (contactForm && phoneNumberInput) {
-    contactForm.addEventListener('submit', function(e) {
-      var phoneValue = phoneNumberInput.value.trim();
-      
-      // Remove any non-digit characters (extra safety)
-      var digitsOnly = phoneValue.replace(/\D/g, '');
-      phoneNumberInput.value = digitsOnly;
-      
-      // Validate phone has at least 7 digits
-      if (digitsOnly.length < 7) {
-        e.preventDefault();
-        alert('Por favor, ingresa un número de teléfono válido (mínimo 7 dígitos). Solo números, sin + ni espacios.');
-        phoneNumberInput.focus();
-        return false;
-      }
-      
-      return true;
-    });
-  }
-  })();
-  </script>
-</body>
-</html>
+  <!-- Quote CTA -->
+  <section class="exec-quote-cta exec-s-overlap" id="contacto">
+    <div class="container">
+      <blockquote>"ES MOMENTO DE TRANSFORMAR,<br><em>no de adaptarse.</em><br>Tú marcas la diferencia"</blockquote>
+      <div class="exec-quote-cta-divider"></div>
+      <h3>JUAN MANUEL JIMÉNEZ</h3>
+      <p class="exec-cargo">Director Comercial ESIC Medellín</p>
+      <a class="exec-telefono" href="tel:+573042364804">+57 304 2364804</a>
+    </div>
+  </section>
+</div>
+

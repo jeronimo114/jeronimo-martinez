@@ -257,13 +257,35 @@
 .esic-home .eh-banner-slide-cta { position: absolute; z-index: 2; bottom: 70px; }
 .esic-home .eh-banner-slide-cta.eh-cta-left { left: 4%; }
 .esic-home .eh-banner-slide-cta.eh-cta-center { left: 50%; transform: translateX(-50%); }
-.esic-home .eh-banner-cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 1.9rem; border-radius: 999px; font-weight: 700; font-size: 1rem; text-decoration: none; white-space: nowrap; transition: transform 0.2s, filter 0.2s; font-family: var(--body-font); letter-spacing: 0.01em; box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
-.esic-home .eh-banner-cta-btn.eh-cta-blue { background: var(--brand-blue); color: #fff; }
-.esic-home .eh-banner-cta-btn.eh-cta-blue:hover { filter: brightness(1.15); transform: translateY(-2px); }
-.esic-home .eh-banner-cta-btn.eh-cta-orange { background: var(--brand-orange); color: #fff; }
-.esic-home .eh-banner-cta-btn.eh-cta-orange:hover { filter: brightness(1.1); transform: translateY(-2px); }
-.esic-home .eh-banner-cta-btn.eh-cta-dark { background: var(--brand-blue-dark); color: #fff; }
-.esic-home .eh-banner-cta-btn.eh-cta-dark:hover { filter: brightness(1.2); transform: translateY(-2px); }
+.esic-home .eh-banner-cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 1.9rem; border-radius: 999px; font-weight: 700; font-size: 1rem; text-decoration: none; white-space: nowrap; font-family: var(--body-font); letter-spacing: 0.01em; box-shadow: 0 8px 24px rgba(0,0,0,0.22); transition: none; }
+.esic-home .eh-banner-cta-btn { transition: none !important; }
+
+.esic-home .eh-banner-cta-btn.eh-cta-blue,
+.esic-home .eh-banner-cta-btn.eh-cta-blue:hover,
+.esic-home .eh-banner-cta-btn.eh-cta-blue:focus,
+.esic-home .eh-banner-cta-btn.eh-cta-blue:active,
+.elementor-widget-container .eh-banner-cta-btn.eh-cta-blue,
+.elementor-widget-container .eh-banner-cta-btn.eh-cta-blue:hover,
+.elementor-widget-container .eh-banner-cta-btn.eh-cta-blue:focus,
+.elementor-widget-container .eh-banner-cta-btn.eh-cta-blue:active { background: #0047E9 !important; background-color: #0047E9 !important; color: #ffffff !important; opacity: 1 !important; filter: none !important; transform: none !important; text-decoration: none !important; border: none !important; box-shadow: 0 8px 24px rgba(0,0,0,0.22) !important; }
+
+.esic-home .eh-banner-cta-btn.eh-cta-orange,
+.esic-home .eh-banner-cta-btn.eh-cta-orange:hover,
+.esic-home .eh-banner-cta-btn.eh-cta-orange:focus,
+.esic-home .eh-banner-cta-btn.eh-cta-orange:active,
+.elementor-widget-container .eh-banner-cta-btn.eh-cta-orange,
+.elementor-widget-container .eh-banner-cta-btn.eh-cta-orange:hover,
+.elementor-widget-container .eh-banner-cta-btn.eh-cta-orange:focus,
+.elementor-widget-container .eh-banner-cta-btn.eh-cta-orange:active { background: #FF9600 !important; background-color: #FF9600 !important; color: #ffffff !important; opacity: 1 !important; filter: none !important; transform: none !important; text-decoration: none !important; border: none !important; box-shadow: 0 8px 24px rgba(0,0,0,0.22) !important; }
+
+.esic-home .eh-banner-cta-btn.eh-cta-dark,
+.esic-home .eh-banner-cta-btn.eh-cta-dark:hover,
+.esic-home .eh-banner-cta-btn.eh-cta-dark:focus,
+.esic-home .eh-banner-cta-btn.eh-cta-dark:active,
+.elementor-widget-container .eh-banner-cta-btn.eh-cta-dark,
+.elementor-widget-container .eh-banner-cta-btn.eh-cta-dark:hover,
+.elementor-widget-container .eh-banner-cta-btn.eh-cta-dark:focus,
+.elementor-widget-container .eh-banner-cta-btn.eh-cta-dark:active { background: #00133F !important; background-color: #00133F !important; color: #ffffff !important; opacity: 1 !important; filter: none !important; transform: none !important; text-decoration: none !important; border: none !important; box-shadow: 0 8px 24px rgba(0,0,0,0.22) !important; }
 @media (max-width: 768px) {
   .esic-home .eh-banner-slide-cta { bottom: 50px; }
   .esic-home .eh-banner-cta-btn { font-size: 0.82rem; padding: 0.65rem 1.2rem; }
@@ -686,7 +708,7 @@
 
 .esic-home .eh-country-name {
   font-family: var(--body-font);
-  font-size: 0.88rem;
+  font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -1510,6 +1532,14 @@
   <!-- Banner Carousel - Optimized -->
   <section class="eh-banner-carousel">
     <div class="eh-banner-track">
+      <!-- Slide 0: Infinite -->
+      <div class="eh-banner-slide">
+        <picture>
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/infinite-version-mobile.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/03/infinite-version-desktop.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/03/infinite-version-desktop.webp" alt="ESIC Infinite" width="2560" height="1168" fetchpriority="high">
+        </picture>
+      </div>
       <!-- Slide 1: Pregrado -->
       <div class="eh-banner-slide">
         <picture>
@@ -1518,7 +1548,7 @@
           <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-01.png" alt="Pregrado ESIC" width="2560" height="1168" fetchpriority="high">
         </picture>
         <div class="eh-banner-slide-cta eh-cta-left">
-          <a href="https://esic.co/pregrados/" class="eh-banner-cta-btn eh-cta-blue">CONOCE NUESTROS PREGRADOS</a>
+          <button onclick="window.location.href='https://esic.co/pregrados/'" class="eh-banner-cta-btn eh-cta-blue">CONOCE NUESTROS PREGRADOS</button>
         </div>
       </div>
       <!-- Slide 2: Pasantías -->
@@ -1529,7 +1559,7 @@
           <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-02.png" alt="Pasantías ESIC" width="2560" height="1168" loading="lazy">
         </picture>
         <div class="eh-banner-slide-cta eh-cta-left">
-          <a href="https://forms.zohopublic.com/esicmedellin/form/InscripcionesPasantas/formperma/_OGwsRPwnka1ZLXJBqSMVtl-yE_Mk7E8V14gtDRfkag" target="_blank" rel="noopener" class="eh-banner-cta-btn eh-cta-orange">SEPARA TU CUPO</a>
+          <button onclick="window.open('https://forms.zohopublic.com/esicmedellin/form/InscripcionesPasantas/formperma/_OGwsRPwnka1ZLXJBqSMVtl-yE_Mk7E8V14gtDRfkag','_blank')" class="eh-banner-cta-btn eh-cta-orange">SEPARA TU CUPO</button>
         </div>
       </div>
       <!-- Slide 3: Máster -->
@@ -1540,7 +1570,7 @@
           <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-03.png" alt="Máster ESIC 2026" width="2560" height="1168" loading="lazy">
         </picture>
         <div class="eh-banner-slide-cta eh-cta-center">
-          <a href="https://esic.co/master/" class="eh-banner-cta-btn eh-cta-dark">EXPLORA TU PRÓXIMO PASO</a>
+          <button onclick="window.location.href='https://esic.co/master/'" class="eh-banner-cta-btn eh-cta-dark">EXPLORA TU PRÓXIMO PASO</button>
         </div>
       </div>
       <!-- Slide 4: Blog -->
@@ -1551,7 +1581,7 @@
           <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-04.png" alt="Blog ESIC" width="2560" height="1168" loading="lazy">
         </picture>
         <div class="eh-banner-slide-cta eh-cta-center">
-          <a href="https://esic.co/cuatro-tendencias-de-marketing-y-negocios-que-definiran-el-2026/" target="_blank" rel="noopener" class="eh-banner-cta-btn eh-cta-blue">DESCUBRE LAS TENDENCIAS</a>
+          <button onclick="window.open('https://esic.co/cuatro-tendencias-de-marketing-y-negocios-que-definiran-el-2026/','_blank')" class="eh-banner-cta-btn eh-cta-blue">DESCUBRE LAS TENDENCIAS</button>
         </div>
       </div>
       <!-- Slide 5: Podcast -->
@@ -1562,7 +1592,7 @@
           <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-05.png" alt="Podcast ESIC" width="2560" height="1168" loading="lazy">
         </picture>
         <div class="eh-banner-slide-cta" style="left:80%;transform:translateX(-50%);">
-          <a href="https://www.youtube.com/watch?v=zS-ibHyImvI" target="_blank" rel="noopener" class="eh-banner-cta-btn eh-cta-blue">ESCUCHA AHORA</a>
+          <button onclick="window.open('https://www.youtube.com/watch?v=zS-ibHyImvI','_blank')" class="eh-banner-cta-btn eh-cta-blue">ESCUCHA AHORA</button>
         </div>
       </div>
       <!-- Slide 6: Marca -->
@@ -1581,6 +1611,7 @@
       <button class="eh-banner-ind" data-slide="3"></button>
       <button class="eh-banner-ind" data-slide="4"></button>
       <button class="eh-banner-ind" data-slide="5"></button>
+      <button class="eh-banner-ind" data-slide="6"></button>
     </div>
   </section>
 
@@ -2338,6 +2369,37 @@
       document.body.style.overflow = '';
     }
   });
+})();
+
+// Lock banner CTA styles against Elementor overrides
+(function() {
+  function lockBannerCtas() {
+    document.querySelectorAll('.eh-banner-cta-btn').forEach(function(el) {
+      var bg = el.classList.contains('eh-cta-blue') ? '#0047E9'
+             : el.classList.contains('eh-cta-orange') ? '#FF9600'
+             : '#00133F';
+      function lock() {
+        el.style.setProperty('background', bg, 'important');
+        el.style.setProperty('background-color', bg, 'important');
+        el.style.setProperty('color', '#ffffff', 'important');
+        el.style.setProperty('transform', 'none', 'important');
+        el.style.setProperty('filter', 'none', 'important');
+        el.style.setProperty('opacity', '1', 'important');
+        el.style.setProperty('text-decoration', 'none', 'important');
+        el.style.setProperty('box-shadow', '0 8px 24px rgba(0,0,0,0.22)', 'important');
+      }
+      lock();
+      el.addEventListener('mouseenter', lock);
+      el.addEventListener('mouseleave', lock);
+      el.addEventListener('focus', lock);
+      el.addEventListener('blur', lock);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', lockBannerCtas);
+  } else {
+    lockBannerCtas();
+  }
 })();
 </script>
 </div>
