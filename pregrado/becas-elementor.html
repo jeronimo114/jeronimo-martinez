@@ -1,0 +1,549 @@
+<div class="esic-pregrado-becas">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-pregrado-becas {
+  --brand-blue:      #0047E9;
+  --brand-blue-dark: #00133F;
+  --brand-orange:    #FF9600;
+  --bg:              #F5F3EF;
+  --surface:         #FFFFFF;
+  --text:            #0B132B;
+  --text-muted:      #5F6B7A;
+  --border:          rgba(0,19,63,0.12);
+  --display-font:    "Sofia Sans Extra Condensed", sans-serif;
+  --body-font:       "DM Sans", sans-serif;
+  font-family: var(--body-font);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+.esic-pregrado-becas *, .esic-pregrado-becas *::before, .esic-pregrado-becas *::after { box-sizing: border-box; }
+.esic-pregrado-becas h1, .esic-pregrado-becas h2, .esic-pregrado-becas h3, .esic-pregrado-becas h4 { font-family: var(--display-font); font-weight: 800; margin: 0; }
+.esic-pregrado-becas p  { margin: 0; }
+.esic-pregrado-becas ul, .esic-pregrado-becas ol { margin: 0; padding: 0; list-style: none; }
+.esic-pregrado-becas a  { color: inherit; text-decoration: none; }
+.esic-pregrado-becas img { max-width: 100%; display: block; }
+.esic-pregrado-becas button { font-family: inherit; cursor: pointer; }
+
+/* Layout */
+.esic-pregrado-becas .epbecas-container { width: min(1100px, 90%); margin: 0 auto; }
+.esic-pregrado-becas .epbecas-section    { padding: 5rem 0; position: relative; }
+.esic-pregrado-becas .epbecas-bg-cream   { background: var(--bg); }
+.esic-pregrado-becas .epbecas-bg-white   { background: #FFFFFF; }
+.esic-pregrado-becas .epbecas-overlap    { margin-top: -50px; border-radius: 50px 50px 0 0; z-index: 1; }
+
+/* Buttons */
+.esic-pregrado-becas .epbecas-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 0.5rem; padding: 0.9rem 1.9rem; border-radius: 999px;
+  font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; text-decoration: none; border: none;
+  cursor: pointer; transition: all 0.2s; line-height: 1;
+}
+.esic-pregrado-becas .epbecas-btn-blue   { background: var(--brand-blue); color: #fff; }
+.esic-pregrado-becas .epbecas-btn-blue:hover { background: #0038CC; transform: translateY(-2px); }
+.esic-pregrado-becas .epbecas-btn-white  { background: #fff; color: var(--brand-orange); }
+.esic-pregrado-becas .epbecas-btn-white:hover { background: #FFF8F0; }
+.esic-pregrado-becas .epbecas-btn-ghost  { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.45); }
+.esic-pregrado-becas .epbecas-btn-ghost:hover { border-color: #fff; }
+
+/* Section title */
+.esic-pregrado-becas .epbecas-s-title {
+  font-family: var(--display-font);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800; text-transform: uppercase;
+  line-height: 0.95; text-align: center;
+  color: var(--brand-blue-dark); margin-bottom: 3rem;
+}
+
+/* ── HERO ── */
+.esic-pregrado-becas .epbecas-hero {
+  min-height: 88vh; display: flex; align-items: flex-end;
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #00133F 0%, #0047E9 65%);
+}
+.esic-pregrado-becas .epbecas-hero-photo {
+  position: absolute; inset: 0;
+  /* TODO: reemplazar con la URL real de la foto en WordPress */
+  background: url('https://esic.co/wp-content/uploads/2024/08/DSC02270_resultado.webp') center right / cover;
+  opacity: 0.28;
+}
+.esic-pregrado-becas .epbecas-hero-content {
+  position: relative; z-index: 2; width: 100%;
+  padding: 7rem 0 5rem;
+}
+.esic-pregrado-becas .epbecas-hero h1 {
+  font-family: var(--display-font);
+  font-size: clamp(3.5rem, 10vw, 7.5rem);
+  font-weight: 800; text-transform: uppercase;
+  line-height: 0.88; color: #fff; margin-bottom: 1.4rem;
+}
+.esic-pregrado-becas .epbecas-hero h1 span { color: var(--brand-orange); }
+.esic-pregrado-becas .epbecas-hero-sub {
+  font-size: 1.05rem; line-height: 1.65;
+  color: rgba(255,255,255,0.85);
+  max-width: 500px; margin-bottom: 2.5rem;
+}
+
+/* ── Beca Cards ── */
+.esic-pregrado-becas .epbecas-beca-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+}
+.esic-pregrado-becas .epbecas-beca-card {
+  background: #fff; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+.esic-pregrado-becas .epbecas-beca-top  { height: 6px; background: var(--brand-orange); }
+.esic-pregrado-becas .epbecas-beca-body { padding: 1.5rem; }
+.esic-pregrado-becas .epbecas-beca-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: rgba(0,71,233,0.08);
+  display: grid; place-items: center;
+  margin-bottom: 1rem; color: var(--brand-blue);
+}
+.esic-pregrado-becas .epbecas-beca-icon svg { width: 24px; height: 24px; }
+.esic-pregrado-becas .epbecas-beca-card h3 {
+  font-family: var(--display-font); font-size: 1.15rem; font-weight: 800;
+  text-transform: uppercase; line-height: 1.1;
+  color: var(--brand-blue-dark); margin-bottom: 0.3rem;
+}
+.esic-pregrado-becas .epbecas-beca-pct {
+  font-size: 0.82rem; font-weight: 700; color: var(--brand-orange); margin-bottom: 0.8rem;
+}
+.esic-pregrado-becas .epbecas-beca-card p { font-size: 0.88rem; line-height: 1.5; color: var(--text-muted); }
+
+/* ── Requisitos split ── */
+.esic-pregrado-becas .epbecas-req-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-radius: 24px; overflow: hidden;
+  max-width: 960px; margin: 0 auto;
+}
+.esic-pregrado-becas .epbecas-req-box  { background: var(--brand-orange); color: #fff; padding: 2.5rem; }
+.esic-pregrado-becas .epbecas-req-box h2 {
+  font-family: var(--display-font);
+  font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800;
+  text-transform: uppercase; line-height: 0.95; margin-bottom: 1.5rem;
+}
+.esic-pregrado-becas .epbecas-req-box ol { counter-reset: req; }
+.esic-pregrado-becas .epbecas-req-box li {
+  counter-increment: req; display: flex; gap: 0.6rem;
+  margin-bottom: 0.8rem; font-size: 0.88rem; line-height: 1.5;
+  color: rgba(255,255,255,0.88);
+}
+.esic-pregrado-becas .epbecas-req-box li::before {
+  content: counter(req) "."; font-weight: 700; color: #fff; min-width: 1.2rem;
+}
+.esic-pregrado-becas .epbecas-req-img { min-height: 380px; }
+.esic-pregrado-becas .epbecas-req-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── FAQ ── */
+.esic-pregrado-becas .epbecas-faq-list { max-width: 720px; margin: 0 auto; }
+.esic-pregrado-becas .epbecas-faq-item { border-bottom: 1px solid var(--border); }
+.esic-pregrado-becas .epbecas-faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  width: 100%; background: none; border: none; padding: 1.4rem 0;
+  font-family: inherit; font-size: 1.05rem; font-weight: 600;
+  color: var(--text); cursor: pointer; text-align: left; gap: 1rem;
+}
+.esic-pregrado-becas .epbecas-faq-toggle {
+  width: 32px; height: 32px; min-width: 32px; border-radius: 50%;
+  border: 2px solid var(--border); display: grid; place-items: center;
+  font-size: 1.2rem; color: var(--text-muted); transition: all 0.3s;
+}
+.esic-pregrado-becas .epbecas-faq-item.epbecas-active .epbecas-faq-toggle {
+  background: var(--brand-blue); border-color: var(--brand-blue); color: #fff;
+}
+.esic-pregrado-becas .epbecas-faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.esic-pregrado-becas .epbecas-faq-a p { padding-bottom: 1.4rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
+.esic-pregrado-becas .epbecas-faq-item.epbecas-active .epbecas-faq-a { max-height: 300px; }
+
+/* ── Cronograma / Timeline ── */
+.esic-pregrado-becas .epbecas-tl {
+  max-width: 560px; margin: 0 auto; padding-left: 130px; position: relative;
+}
+.esic-pregrado-becas .epbecas-tl::before {
+  content: ""; position: absolute; left: 60px; top: 20px; bottom: 20px;
+  width: 2px; background: var(--border);
+}
+.esic-pregrado-becas .epbecas-tl-item    { position: relative; padding-bottom: 2.5rem; }
+.esic-pregrado-becas .epbecas-tl-item:last-child { padding-bottom: 0; }
+.esic-pregrado-becas .epbecas-tl-badge {
+  position: absolute; left: -130px; top: 0;
+  width: 100px; height: 38px; border-radius: 999px;
+  border: 2px solid var(--brand-blue); display: grid; place-items: center;
+  font-size: 0.82rem; font-weight: 700; color: var(--brand-blue); background: #fff; z-index: 1;
+}
+.esic-pregrado-becas .epbecas-tl-item h4 {
+  font-family: var(--body-font); font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; color: var(--text);
+}
+.esic-pregrado-becas .epbecas-tl-item p  { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+/* ── CTA final ── */
+.esic-pregrado-becas .epbecas-cta-box {
+  background: var(--brand-orange); border-radius: 24px;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 2rem; flex-wrap: wrap; max-width: 960px; margin: 0 auto;
+}
+.esic-pregrado-becas .epbecas-cta-box h2 {
+  font-family: var(--display-font); font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800; line-height: 0.95; color: #fff;
+}
+.esic-pregrado-becas .epbecas-cta-sub { font-size: 0.95rem; color: rgba(255,255,255,0.72); margin-top: 0.5rem; }
+.esic-pregrado-becas .epbecas-cta-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.8rem; }
+
+/* ── Modal ── */
+.esic-pregrado-becas .epbecas-modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,19,63,0.65); align-items: center; justify-content: center; padding: 1rem;
+}
+.esic-pregrado-becas .epbecas-modal-overlay.epbecas-open { display: flex; }
+.esic-pregrado-becas .epbecas-modal-box {
+  background: #fff; border-radius: 20px; width: 100%; max-width: 520px;
+  max-height: 90vh; overflow-y: auto; padding: 2.5rem 2.5rem 2rem; position: relative;
+}
+.esic-pregrado-becas .epbecas-modal-close {
+  position: absolute; top: 1rem; right: 1rem; width: 36px; height: 36px;
+  border-radius: 50%; border: none; background: rgba(0,0,0,0.07);
+  font-size: 1.5rem; line-height: 1; cursor: pointer;
+  display: grid; place-items: center; color: var(--text); transition: background 0.2s;
+}
+.esic-pregrado-becas .epbecas-modal-close:hover { background: rgba(0,0,0,0.14); }
+.esic-pregrado-becas .epbecas-modal-title {
+  font-family: var(--display-font); font-size: 2rem; font-weight: 800;
+  text-transform: uppercase; color: var(--brand-blue-dark); margin-bottom: 0.2rem;
+}
+.esic-pregrado-becas .epbecas-modal-sub { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.8rem; }
+
+/* Form */
+.esic-pregrado-becas .epbecas-form-group { margin-bottom: 1rem; }
+.esic-pregrado-becas .epbecas-form-group label {
+  display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text);
+}
+.esic-pregrado-becas .epbecas-form-group input[type="text"],
+.esic-pregrado-becas .epbecas-form-group input[type="email"],
+.esic-pregrado-becas .epbecas-form-group input[type="tel"],
+.esic-pregrado-becas .epbecas-form-group select {
+  width: 100%; padding: 0.75rem 1rem; border-radius: 10px;
+  border: 1.5px solid var(--border); background: #FAFAFA;
+  font-family: inherit; font-size: 0.95rem; color: var(--text); outline: none; transition: border-color 0.2s;
+}
+.esic-pregrado-becas .epbecas-form-group input:focus,
+.esic-pregrado-becas .epbecas-form-group select:focus { border-color: var(--brand-blue); }
+.esic-pregrado-becas .epbecas-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.esic-pregrado-becas .epbecas-form-submit {
+  width: 100%; padding: 0.95rem; border-radius: 999px; border: none;
+  background: var(--brand-blue); color: #fff; font-family: inherit;
+  font-size: 0.88rem; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; cursor: pointer; transition: background 0.2s; margin-top: 0.5rem;
+}
+.esic-pregrado-becas .epbecas-form-submit:hover { background: #0038CC; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .esic-pregrado-becas .epbecas-beca-grid { grid-template-columns: repeat(2, 1fr); }
+  .esic-pregrado-becas .epbecas-req-grid  { grid-template-columns: 1fr; }
+  .esic-pregrado-becas .epbecas-req-img   { min-height: 260px; }
+  .esic-pregrado-becas .epbecas-cta-box   { flex-direction: column; text-align: center; }
+  .esic-pregrado-becas .epbecas-cta-right { align-items: center; }
+}
+@media (max-width: 768px) {
+  .esic-pregrado-becas .epbecas-container { width: min(1100px, 88%); }
+  .esic-pregrado-becas .epbecas-overlap   { margin-top: -30px; border-radius: 30px 30px 0 0; }
+  .esic-pregrado-becas .epbecas-section   { padding: 3rem 0; }
+}
+@media (max-width: 600px) {
+  .esic-pregrado-becas .epbecas-beca-grid  { grid-template-columns: 1fr; }
+  .esic-pregrado-becas .epbecas-hero h1    { font-size: clamp(3rem, 14vw, 5rem); }
+  .esic-pregrado-becas .epbecas-tl         { padding-left: 110px; }
+  .esic-pregrado-becas .epbecas-tl-badge   { left: -110px; width: 90px; }
+  .esic-pregrado-becas .epbecas-form-row   { grid-template-columns: 1fr; }
+  .esic-pregrado-becas .epbecas-modal-box  { padding: 2rem 1.5rem 1.5rem; }
+}
+</style>
+
+<!-- ══ MODAL POPUP ══ -->
+<div class="epbecas-modal-overlay" id="epbecas-modal" role="dialog" aria-modal="true" aria-label="Solicitar información">
+  <div class="epbecas-modal-box">
+    <button class="epbecas-modal-close" id="epbecas-modal-close" aria-label="Cerrar">×</button>
+    <h2 class="epbecas-modal-title">Solicita información</h2>
+    <p class="epbecas-modal-sub">Un asesor de pregrado te contactará a la brevedad.</p>
+
+    <!--
+      TODO: Reemplaza la URL del action con la URL real del formulario Zoho de pregrado.
+      Ejemplo: https://forms.zohopublic.com/esicmedellin/form/[NombreFormulario]/formperma/[KEY]/htmlRecords/submit
+    -->
+    <form
+      action="https://forms.zohopublic.com/esicmedellin/form/FORMULARIO_PREGRADO_BECAS/formperma/REEMPLAZAR_KEY/htmlRecords/submit"
+      name="epbecas_form"
+      id="epbecas-form"
+      method="POST"
+      accept-charset="UTF-8"
+      enctype="multipart/form-data"
+    >
+      <input type="hidden" name="zf_referrer_name" value="">
+      <input type="hidden" name="zf_redirect_url" value="">
+      <input type="hidden" name="zc_gad" value="">
+
+      <div class="epbecas-form-row">
+        <div class="epbecas-form-group">
+          <label for="epbecas-nombre">Nombre <em style="color:var(--brand-orange)">*</em></label>
+          <input type="text" id="epbecas-nombre" name="Name_First" maxlength="255" required>
+        </div>
+        <div class="epbecas-form-group">
+          <label for="epbecas-apellido">Apellido</label>
+          <input type="text" id="epbecas-apellido" name="Name_Last" maxlength="255">
+        </div>
+      </div>
+
+      <div class="epbecas-form-group">
+        <label for="epbecas-email">Correo electrónico <em style="color:var(--brand-orange)">*</em></label>
+        <input type="email" id="epbecas-email" name="Email" maxlength="255" required>
+      </div>
+
+      <div class="epbecas-form-group">
+        <label for="epbecas-tel">Teléfono <em style="color:var(--brand-orange)">*</em></label>
+        <input type="tel" id="epbecas-tel" name="PhoneNumber_countrycode" placeholder="+57 300 123 4567" required>
+      </div>
+
+      <div class="epbecas-form-group">
+        <label for="epbecas-contacto">Medio de contacto <em style="color:var(--brand-orange)">*</em></label>
+        <select id="epbecas-contacto" name="Dropdown3" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="WhatsApp">WhatsApp</option>
+          <option value="Correo">Correo</option>
+          <option value="Llamada">Llamada</option>
+        </select>
+      </div>
+
+      <div class="epbecas-form-group" style="margin-top:1rem;">
+        <label style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.88rem;color:var(--text-muted);">
+          <input type="checkbox" name="TermsConditions" required style="width:auto;margin-top:0.2rem;">
+          <span>Acepto los <a href="https://esic.co/politicas-de-privacidad/" target="_blank" style="color:var(--brand-blue);text-decoration:underline;">términos y condiciones</a> <em style="color:var(--brand-orange)">*</em></span>
+        </label>
+      </div>
+
+      <button type="submit" class="epbecas-form-submit">ENVIAR SOLICITUD →</button>
+    </form>
+  </div>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="epbecas-hero">
+  <div class="epbecas-hero-photo"></div>
+  <div class="epbecas-container">
+    <div class="epbecas-hero-content">
+      <h1>Becas y Ayudas<br><span>Económicas</span><br>Pregrado</h1>
+      <p class="epbecas-hero-sub">ESIC Medellín apoya a estudiantes de nuevo ingreso mediante un plan de becas y ayudas económicas al estudio, fomentando la excelencia y la igualdad de oportunidades.</p>
+      <button class="epbecas-btn epbecas-btn-blue epbecas-open-modal">SOLICITA INFORMACIÓN</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TIPOS DE BECA ══ -->
+<section class="epbecas-section epbecas-bg-cream epbecas-overlap">
+  <div class="epbecas-container">
+    <h2 class="epbecas-s-title">Encuentra la beca<br>que se ajusta a ti</h2>
+    <div class="epbecas-beca-grid">
+
+      <div class="epbecas-beca-card">
+        <div class="epbecas-beca-top"></div>
+        <div class="epbecas-beca-body">
+          <div class="epbecas-beca-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.3 7.2 16.9l.9-5.4-3.9-3.8 5.4-.8z"/></svg>
+          </div>
+          <h3>Excelencia Académica</h3>
+          <div class="epbecas-beca-pct">Beca del 15%</div>
+          <p>Para bachilleres con promedios sobresalientes o alto puntaje en pruebas Saber 11.</p>
+        </div>
+      </div>
+
+      <div class="epbecas-beca-card">
+        <div class="epbecas-beca-top"></div>
+        <div class="epbecas-beca-body">
+          <div class="epbecas-beca-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="5" ry="10"/><path d="M2 12h20"/></svg>
+          </div>
+          <h3>Movilidad Nacional</h3>
+          <div class="epbecas-beca-pct">Beca del 8%</div>
+          <p>Facilita el acceso al campus Medellín a estudiantes cuya residencia familiar está fuera de Antioquia.</p>
+        </div>
+      </div>
+
+      <div class="epbecas-beca-card">
+        <div class="epbecas-beca-top"></div>
+        <div class="epbecas-beca-body">
+          <div class="epbecas-beca-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Hermanos Matriculados y Egresados</h3>
+          <div class="epbecas-beca-pct">Beca del 5%</div>
+          <p>Para hermanos que cursan pregrado simultáneamente en ESIC Medellín o sean egresados.</p>
+        </div>
+      </div>
+
+      <div class="epbecas-beca-card">
+        <div class="epbecas-beca-top"></div>
+        <div class="epbecas-beca-body">
+          <div class="epbecas-beca-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>Familiar Antiguo Alumno</h3>
+          <div class="epbecas-beca-pct">Beca del 5%</div>
+          <p>Para hijos o hermanos de antiguos alumnos que hayan finalizado estudios en ESIC.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ REQUISITOS ══ -->
+<section class="epbecas-section epbecas-bg-white" style="padding-top:0;">
+  <div class="epbecas-container">
+    <div class="epbecas-req-grid">
+      <div class="epbecas-req-box">
+        <h2>Requisitos Generales</h2>
+        <ol>
+          <li>Ser admitido en un programa de pregrado de ESIC Medellín.</li>
+          <li>No ser beneficiario de otras becas o descuentos institucionales (no acumulables).</li>
+          <li>Realizar la solicitud dentro de los plazos establecidos en el calendario académico.</li>
+          <li>Aportar la documentación veraz y completa requerida para cada modalidad.</li>
+          <li>Formalizar la matrícula en los plazos indicados tras la concesión de la beca.</li>
+        </ol>
+      </div>
+      <div class="epbecas-req-img">
+        <!-- TODO: reemplazar src con URL real de la imagen en WordPress -->
+        <img src="https://esic.co/wp-content/uploads/2024/08/DSC02270_resultado.webp" alt="Estudiantes ESIC Medellín">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="epbecas-section epbecas-bg-cream">
+  <div class="epbecas-container">
+    <h2 class="epbecas-s-title">Preguntas Frecuentes</h2>
+    <div class="epbecas-faq-list">
+
+      <div class="epbecas-faq-item epbecas-active">
+        <button class="epbecas-faq-q">
+          ¿Puedo solicitar más de una beca?
+          <span class="epbecas-faq-toggle">−</span>
+        </button>
+        <div class="epbecas-faq-a">
+          <p>No. Las becas y ayudas económicas de ESIC no son acumulables entre sí. Debes elegir la modalidad que te ofrezca mayor beneficio o que mejor se ajuste a tu perfil.</p>
+        </div>
+      </div>
+
+      <div class="epbecas-faq-item">
+        <button class="epbecas-faq-q">
+          ¿Las becas son renovables?
+          <span class="epbecas-faq-toggle">+</span>
+        </button>
+        <div class="epbecas-faq-a">
+          <p>Sí. Para la renovación en cursos sucesivos, será indispensable tener un promedio mínimo en el expediente académico y haber aprobado todas las asignaturas matriculadas. Cada beca debe solicitarse expresamente dentro de los plazos de renovación de matrícula.</p>
+        </div>
+      </div>
+
+      <div class="epbecas-faq-item">
+        <button class="epbecas-faq-q">
+          ¿Qué promedio debo mantener?
+          <span class="epbecas-faq-toggle">+</span>
+        </button>
+        <div class="epbecas-faq-a">
+          <p>Depende de la modalidad. Para la Beca de Excelencia Académica se requiere un promedio mínimo de 4.5. Para las demás becas, el promedio mínimo es de 4.0 en el expediente académico de la titulación cursada.</p>
+        </div>
+      </div>
+
+      <div class="epbecas-faq-item">
+        <button class="epbecas-faq-q">
+          ¿Cómo me notifican la resolución?
+          <span class="epbecas-faq-toggle">+</span>
+        </button>
+        <div class="epbecas-faq-a">
+          <p>La resolución de la beca será comunicada por el consejo académico de ESIC Medellín de manera individual en las fechas establecidas en las descripciones de cada una de las becas.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CRONOGRAMA ══ -->
+<section class="epbecas-section epbecas-bg-white">
+  <div class="epbecas-container">
+    <h2 class="epbecas-s-title">Cronograma</h2>
+    <div class="epbecas-tl">
+      <div class="epbecas-tl-item">
+        <div class="epbecas-tl-badge">Mes 1</div>
+        <h4>Apertura de Convocatoria</h4>
+        <p>Inicio del periodo de recepción de solicitudes para el próximo semestre.</p>
+      </div>
+      <div class="epbecas-tl-item">
+        <div class="epbecas-tl-badge">Mes 3</div>
+        <h4>Cierre de Solicitudes</h4>
+        <p>Fecha límite para enviar formularios y documentación soporte.</p>
+      </div>
+      <div class="epbecas-tl-item">
+        <div class="epbecas-tl-badge">Mes 6</div>
+        <h4>Resultados</h4>
+        <p>Comunicación oficial de la resolución de becas a los candidatos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA FINAL ══ -->
+<section class="epbecas-section epbecas-bg-cream" style="padding-bottom:80px;">
+  <div class="epbecas-container">
+    <div class="epbecas-cta-box">
+      <div>
+        <h2>¿Listo para aplicar<br>a una Beca?</h2>
+        <p class="epbecas-cta-sub">Da el primer paso hacia tu futuro en ESIC Medellín.</p>
+      </div>
+      <div class="epbecas-cta-right">
+        <button class="epbecas-btn epbecas-btn-white epbecas-open-modal">SOLICITA INFORMACIÓN →</button>
+        <a href="/programas" class="epbecas-btn epbecas-btn-ghost" style="font-size:0.78rem;padding:0.75rem 1.5rem;">EXPLORAR PROGRAMAS →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var modal   = document.getElementById('epbecas-modal');
+  var btnClose = document.getElementById('epbecas-modal-close');
+
+  function openModal()  { modal.classList.add('epbecas-open'); document.body.style.overflow = 'hidden'; }
+  function closeModal() { modal.classList.remove('epbecas-open'); document.body.style.overflow = ''; }
+
+  document.querySelectorAll('.epbecas-open-modal').forEach(function(btn) {
+    btn.addEventListener('click', openModal);
+  });
+  btnClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+  // FAQ accordion
+  document.querySelectorAll('.epbecas-faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.epbecas-faq-item');
+      var wasActive = item.classList.contains('epbecas-active');
+      document.querySelectorAll('.epbecas-faq-item').forEach(function(i) {
+        i.classList.remove('epbecas-active');
+        i.querySelector('.epbecas-faq-toggle').textContent = '+';
+      });
+      if (!wasActive) {
+        item.classList.add('epbecas-active');
+        item.querySelector('.epbecas-faq-toggle').textContent = '−';
+      }
+    });
+  });
+})();
+</script>
+
+</div>
