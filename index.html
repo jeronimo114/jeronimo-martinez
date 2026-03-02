@@ -62,15 +62,15 @@
   color: #FFFFFF;
   box-shadow: 0 16px 35px rgba(0, 71, 233, 0.25);
 }
-.esic-home .eh-btn-primary:hover { background: #0037B4; transform: translateY(-2px); }
+.esic-home .eh-btn-primary:hover { background: #0037B4 !important; color: #fff !important; transform: translateY(-2px) !important; }
 .esic-home .eh-btn-outline {
   background: var(--surface);
   border-color: var(--border);
   color: var(--text);
 }
-.esic-home .eh-btn-outline:hover { border-color: var(--brand-blue); color: var(--brand-blue); }
+.esic-home .eh-btn-outline:hover { border-color: var(--brand-blue) !important; color: var(--brand-blue) !important; background: var(--surface) !important; }
 .esic-home .eh-btn-teal { background: var(--brand-teal); color: var(--brand-blue-dark); }
-.esic-home .eh-btn-teal:hover { background: #05D2B4; transform: translateY(-2px); }
+.esic-home .eh-btn-teal:hover { background: #05D2B4 !important; color: var(--brand-blue-dark) !important; transform: translateY(-2px) !important; }
 
 /* Navigation */
 .esic-home .eh-nav {
@@ -1561,6 +1561,9 @@
           <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-05.webp" type="image/webp">
           <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-05.png" alt="Podcast ESIC" width="2560" height="1168" loading="lazy">
         </picture>
+        <div class="eh-banner-slide-cta" style="left:80%;transform:translateX(-50%);">
+          <a href="https://www.youtube.com/watch?v=zS-ibHyImvI" target="_blank" rel="noopener" class="eh-banner-cta-btn eh-cta-blue">ESCUCHA AHORA</a>
+        </div>
       </div>
       <!-- Slide 6: Marca -->
       <div class="eh-banner-slide">
@@ -1702,24 +1705,24 @@
 
       <div class="eh-programas-content" data-tab="master">
         <div class="eh-programas-grid">
-          <a href="/master-digital-marketing" class="eh-programa-card eh-teal eh-dm">
-            <div class="eh-programa-card-info">
-              <h3>MÁSTER EN DIGITAL MARKETING</h3>
-              <span class="eh-programa-card-duration">1 año · Modalidad híbrida</span>
-              <span class="eh-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-          </a>
           <a href="/master-digital-business" class="eh-programa-card eh-teal eh-mdb">
             <div class="eh-programa-card-info">
               <h3>MÁSTER EN DIGITAL BUSINESS</h3>
-              <span class="eh-programa-card-duration">1 año · Modalidad híbrida</span>
+              <span class="eh-programa-card-duration">11 meses · Modalidad híbrida</span>
               <span class="eh-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </div>
           </a>
           <a href="/master-customer-experience" class="eh-programa-card eh-teal eh-cx">
             <div class="eh-programa-card-info">
               <h3>MÁSTER EN CUSTOMER EXPERIENCE MANAGEMENT</h3>
-              <span class="eh-programa-card-duration">12 meses · Modalidad híbrida</span>
+              <span class="eh-programa-card-duration">11 meses · Modalidad híbrida</span>
+              <span class="eh-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+          <a href="/master-digital-marketing" class="eh-programa-card eh-teal eh-dm">
+            <div class="eh-programa-card-info">
+              <h3>MÁSTER EN DIGITAL MARKETING</h3>
+              <span class="eh-programa-card-duration">11 meses · Modalidad híbrida</span>
               <span class="eh-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </div>
           </a>
@@ -1731,7 +1734,7 @@
           <a href="/digital-business-transformation" class="eh-programa-card eh-orange">
             <div class="eh-programa-card-info">
               <h3>EXECUTIVE PROGRAM</h3>
-              <span class="eh-programa-card-duration">6 meses · Liderazgo y transformación digital</span>
+              <span class="eh-programa-card-duration">4 meses · Liderazgo y transformación digital</span>
               <span class="eh-programa-card-btn">VER PROGRAMA<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </div>
           </a>
@@ -1752,7 +1755,7 @@
           <div class="eh-vida-card-overlay"></div>
           <div class="eh-vida-card-content">
             <h3>Aulas</h3>
-            <p>Espacios diseñados para el trabajo práctico.</p>
+            <p>Espacios diseñados para el trabajo práctico</p>
           </div>
         </div>
         <div class="eh-vida-card">
@@ -1760,7 +1763,7 @@
           <div class="eh-vida-card-overlay"></div>
           <div class="eh-vida-card-content">
             <h3>Cowork y Networking</h3>
-            <p>Conecta con personas que están construyendo.</p>
+            <p>Conecta con personas que están construyendo</p>
           </div>
         </div>
         <div class="eh-vida-card">
@@ -1768,7 +1771,7 @@
           <div class="eh-vida-card-overlay"></div>
           <div class="eh-vida-card-content">
             <h3>Eventos y Conferencias</h3>
-            <p>Eventos que te mantienen actualizado con lo que está pasando en los negocios, marketing y tecnología.</p>
+            <p>Eventos que te mantienen actualizado con lo que está pasando en los negocios, marketing y tecnología</p>
           </div>
         </div>
         <div class="eh-vida-card">
@@ -1776,7 +1779,7 @@
           <div class="eh-vida-card-overlay"></div>
           <div class="eh-vida-card-content">
             <h3>Campus Medellín</h3>
-            <p>Vive la experiencia ESIC en el Alto de las Palmas (Medellín).</p>
+            <p>Vive la experiencia ESIC en el Alto de las Palmas (Medellín)</p>
           </div>
         </div>
       </div>
