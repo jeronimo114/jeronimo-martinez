@@ -185,8 +185,12 @@
   aspect-ratio: 16/9; background: #000; cursor: pointer;
 }
 .esic-pregrado-db .epdb-testimonios-video video {
-  width: 100%; height: 100%; object-fit: cover; display: block;
+  width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block;
 }
+.esic-pregrado-db .epdb-testimonios-video:fullscreen { background: #000; }
+.esic-pregrado-db .epdb-testimonios-video:fullscreen video { object-fit: contain; object-position: center center; }
+.esic-pregrado-db .epdb-testimonios-video:-webkit-full-screen { background: #000; }
+.esic-pregrado-db .epdb-testimonios-video:-webkit-full-screen video { object-fit: contain; object-position: center center; }
 /* Center overlay */
 .esic-pregrado-db .epdb-vc-overlay {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
