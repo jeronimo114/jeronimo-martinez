@@ -288,7 +288,8 @@
 .elementor-widget-container .eh-banner-cta-btn.eh-cta-dark:active { background: #00133F !important; background-color: #00133F !important; color: #ffffff !important; opacity: 1 !important; filter: none !important; transform: none !important; text-decoration: none !important; border: none !important; box-shadow: 0 8px 24px rgba(0,0,0,0.22) !important; }
 @media (max-width: 768px) {
   .esic-home .eh-banner-slide-cta { bottom: 50px; }
-  .esic-home .eh-banner-cta-btn { font-size: 0.82rem; padding: 0.65rem 1.2rem; }
+  .esic-home .eh-banner-slide-cta.eh-cta-left { left: 50%; transform: translateX(-50%); }
+  .esic-home .eh-banner-cta-btn { font-size: 0.85rem; padding: 0.7rem 1.4rem; }
 }
 
 /* Section Overlap Utilities */
@@ -361,6 +362,7 @@
   line-height: 1.1;
   color: var(--brand-blue-dark);
   margin-bottom: 0.8rem;
+  word-break: break-word;
 }
 .esic-home .eh-porque-card-divider { width: 40px; height: 2px; background: var(--brand-blue); margin-bottom: 1rem; }
 .esic-home .eh-porque-card p { font-size: 0.9rem; line-height: 1.5; color: var(--text-muted); }
@@ -427,11 +429,11 @@
   border-radius: 12px;
   overflow: hidden;
   display: block;
-  aspect-ratio: 16/9;
+  aspect-ratio: 3/2;
   text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 .esic-home .eh-programa-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 19, 63, 0.2); }
@@ -800,12 +802,12 @@
     display: none;
   }
   .esic-home .eh-cifra-num {
-    font-size: clamp(3.25rem, 12vw, 4.5rem);
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
   }
 }
 @media (max-width: 480px) {
   .esic-home .eh-cifra-num {
-    font-size: 3.25rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -1559,7 +1561,7 @@
           <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-02.png" alt="Pasantías ESIC" width="2560" height="1168" loading="lazy">
         </picture>
         <div class="eh-banner-slide-cta eh-cta-left">
-          <button onclick="window.open('https://forms.zohopublic.com/esicmedellin/form/InscripcionesPasantas/formperma/_OGwsRPwnka1ZLXJBqSMVtl-yE_Mk7E8V14gtDRfkag','_blank')" class="eh-banner-cta-btn eh-cta-orange">SEPARA TU CUPO</button>
+          <button onclick="window.open('https://forms.zohopublic.com/esicmedellin/form/InscripcionesPasantas/formperma/_OGwsRPwnka1ZLXJBqSMVtl-yE_Mk7E8V14gtDRfkag','_blank')" class="eh-banner-cta-btn eh-cta-orange">SEPARA TU CUPO PARA PASANTÍAS</button>
         </div>
       </div>
       <!-- Slide 3: Máster -->
