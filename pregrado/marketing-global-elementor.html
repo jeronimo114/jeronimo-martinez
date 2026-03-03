@@ -265,7 +265,7 @@
 
 /* Becas Banner */
 .esic-pregrado-mkt .epm-becas-banner {
-  padding: 2rem 0;
+  padding: 2rem 2.5rem;
   margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
@@ -375,14 +375,16 @@
 .esic-pregrado-mkt .epm-plan-grid { display: flex; flex-direction: column; gap: 0.8rem; }
 .esic-pregrado-mkt .epm-plan-item {
   display: grid;
-  grid-template-columns: 12px minmax(140px, 200px) 1fr;
+  grid-template-columns: 12px minmax(0, 200px) 1fr;
   align-items: start;
   gap: 1rem;
   padding: 0.8rem 0;
   font-size: 0.95rem;
   color: var(--text);
   border-bottom: 1px solid rgba(0,0,0,0.05);
+  min-width: 0;
 }
+.esic-pregrado-mkt .epm-plan-item > * { min-width: 0; overflow-wrap: break-word; word-break: break-word; }
 .esic-pregrado-mkt .epm-plan-item:last-child { border-bottom: none; }
 .esic-pregrado-mkt .epm-plan-item .epm-bullet { width: 12px; height: 12px; background: var(--brand-orange); border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
 .esic-pregrado-mkt .epm-plan-item strong { font-weight: 600; color: var(--brand-blue-dark); line-height: 1.3; padding-right: 0.5rem; }
@@ -464,33 +466,75 @@
 
 @media (max-width: 768px) {
   .esic-pregrado-mkt .epm-nav-cta { display: none; }
+  .esic-pregrado-mkt .epm-section { padding: 3.5rem 0; }
   .esic-pregrado-mkt .epm-hero { padding: 110px 1.5rem 160px; min-height: 60vh; }
   .esic-pregrado-mkt .epm-hero-content { padding-left: 0; text-align: center; }
   .esic-pregrado-mkt .epm-hero-subtitle { margin-left: auto; margin-right: auto; text-align: center; font-size: 1rem; }
   .esic-pregrado-mkt .epm-hero-actions { justify-content: center; }
-  .esic-pregrado-mkt .epm-section-overlap { margin-top: -100px; border-radius: 30px 30px 0 0; }
+  .esic-pregrado-mkt .epm-section-overlap { margin-top: -30px; border-radius: 30px 30px 0 0; }
   .esic-pregrado-mkt .epm-form-row { grid-template-columns: 1fr; }
+  .esic-pregrado-mkt .epm-explora-form-card { padding: 2rem; }
   .esic-pregrado-mkt .epm-benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   .esic-pregrado-mkt .epm-benefit-icon { width: 60px; height: 60px; }
   .esic-pregrado-mkt .epm-benefit-icon svg { width: 50px; height: 50px; }
   .esic-pregrado-mkt .epm-benefit-text h4 { font-size: 1.3rem; }
-  .esic-pregrado-mkt .epm-plan-item { grid-template-columns: 12px 1fr; gap: 0.75rem; }
+  .esic-pregrado-mkt .epm-pricing-card { padding: 2rem; }
+  .esic-pregrado-mkt .epm-pricing-note-card { padding: 2rem; }
+  /* Plan de estudios: overflow fix */
+  .esic-pregrado-mkt .epm-plan-section { overflow: hidden; }
+  .esic-pregrado-mkt .epm-plan-content { padding: 1.5rem; overflow: hidden; }
+  .esic-pregrado-mkt .epm-plan-main-tabs { flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+  .esic-pregrado-mkt .epm-plan-item {
+    grid-template-columns: 16px 1fr;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+  .esic-pregrado-mkt .epm-plan-item > * { min-width: 0; }
+  .esic-pregrado-mkt .epm-plan-item > span:not(.epm-bullet) {
+    grid-column: 2;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .esic-pregrado-mkt .epm-plan-item strong {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 0.9rem;
+  }
   .esic-pregrado-mkt .epm-institutions-grid { grid-template-columns: 1fr; }
+  .esic-pregrado-mkt .epm-testimonios-section { border-radius: 30px 30px 0 0; margin-top: -30px; padding: 4rem 0; }
+  .esic-pregrado-mkt .epm-testimonios-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .esic-pregrado-mkt .epm-testimonios-content h2 { font-size: 2rem; margin-bottom: 1rem; }
+  .esic-pregrado-mkt .epm-testimonios-content p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+  .esic-pregrado-mkt .epm-testimonios-video { width: 100%; max-width: 100%; aspect-ratio: 16/9; border-radius: 16px; }
+  .esic-pregrado-mkt .epm-vc-bar { opacity: 1; pointer-events: auto; }
   .esic-pregrado-mkt .epm-footer-grid { grid-template-columns: 1fr; gap: 3rem; }
   .esic-pregrado-mkt .epm-footer-cta-buttons { flex-direction: column; }
-  .esic-pregrado-mkt .epm-vc-bar { opacity: 1; pointer-events: auto; }
-  .esic-pregrado-mkt .epm-testimonios-grid { grid-template-columns: 1fr; }
+  /* Pricing & general overflow */
+  .esic-pregrado-mkt .epm-pricing-layout { max-width: 100%; }
+  .esic-pregrado-mkt .epm-container { width: min(100%, 92vw); }
 }
 
 @media (max-width: 480px) {
+  .esic-pregrado-mkt .epm-section { padding: 2.5rem 0; }
   .esic-pregrado-mkt .epm-hero { padding: 100px 1.25rem 140px; }
   .esic-pregrado-mkt .epm-hero-actions { flex-direction: column; }
   .esic-pregrado-mkt .epm-hero-actions .epm-btn { width: 100%; justify-content: center; }
   .esic-pregrado-mkt .epm-benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
   .esic-pregrado-mkt .epm-benefit-text h4 { font-size: 1.1rem; }
+  .esic-pregrado-mkt .epm-testimonios-section { border-radius: 24px 24px 0 0; margin-top: -24px; padding: 3rem 0; }
+  .esic-pregrado-mkt .epm-testimonios-grid { gap: 2rem; }
+  .esic-pregrado-mkt .epm-testimonios-content h2 { font-size: 1.7rem; }
   .esic-pregrado-mkt .epm-plan-tab { flex: 1 1 100%; padding: 0.8rem 1rem; font-size: 0.85rem; }
-  .esic-pregrado-mkt .epm-section-overlap { margin-top: -80px; border-radius: 24px 24px 0 0; }
-  .esic-pregrado-mkt .epm-becas-banner { border-radius: 16px; max-width: calc(100% - 2rem); }
+  .esic-pregrado-mkt .epm-section-overlap { margin-top: -30px; border-radius: 24px 24px 0 0; }
+  .esic-pregrado-mkt .epm-becas-banner { border-radius: 16px; max-width: calc(100% - 2rem); padding: 1.5rem 1.5rem; }
+  .esic-pregrado-mkt .epm-institutions-grid { gap: 1rem; }
+  .esic-pregrado-mkt .epm-plan-layout { gap: 1.5rem; }
+  .esic-pregrado-mkt .epm-plan-content { padding: 1.25rem; }
+  .esic-pregrado-mkt .epm-pricing-card-header .epm-price { font-size: 1.9rem; }
+  .esic-pregrado-mkt .epm-pricing-card { padding: 1.75rem; }
+  .esic-pregrado-mkt .epm-pricing-note-card { padding: 1.75rem; }
 }
 </style>
 
@@ -760,7 +804,7 @@
             </div>
 
             <div class="epm-plan-actions epm-reveal">
-              <a class="epm-btn epm-btn-primary" href="https://esic.co/wp-content/uploads/2024/09/BROCHURE-PREGRADO-MARKETING-GLOBAL-y-Administracion-de-Mercadeo.pdf">BROCHURE DEL PROGRAMA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="epm-btn epm-btn-primary" href="https://esic.co/wp-content/uploads/2026/03/brochure-WEB-Marketing.pdf">BROCHURE DEL PROGRAMA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
               <a class="epm-btn epm-btn-outline" href="https://esic.co/pregrado/">EXPLORA OTROS PROGRAMAS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
               <a class="epm-btn epm-btn-outline" href="#formulario">SOLICITAR INFORMACIÓN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
             </div>
