@@ -191,8 +191,88 @@
 .esic-level-up .elup-terms-label input { width: auto; margin-top: 0.2rem; }
 .esic-level-up .elup-terms-label a { color: var(--lup-blue); text-decoration: underline; }
 
+/* ── Hero Logo ── */
+.esic-level-up .elup-hero-logo {
+  display: block; width: auto; height: 64px;
+  margin: 0 auto 2rem; object-fit: contain;
+}
+
+/* ── Featured Upcoming Event ── */
+.esic-level-up .elup-featured-grid {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: stretch;
+}
+.esic-level-up .elup-event-detail {
+  background: linear-gradient(135deg, #001233 0%, #001A50 55%, #00113A 100%);
+  border: 1px solid rgba(10,228,195,0.22);
+  border-radius: 28px; padding: 2.5rem;
+  display: flex; flex-direction: column; gap: 1.5rem;
+  position: relative; overflow: hidden;
+}
+.esic-level-up .elup-event-detail::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 80% 15%, rgba(10,228,195,0.1) 0%, transparent 55%);
+}
+.esic-level-up .elup-event-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: rgba(10,228,195,0.1); border: 1px solid rgba(10,228,195,0.3);
+  border-radius: 999px; padding: 0.3rem 0.85rem;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--lup-teal); width: fit-content;
+}
+.esic-level-up .elup-event-detail-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem); text-transform: uppercase;
+  line-height: 1; color: var(--lup-white); margin-top: 0.6rem;
+}
+.esic-level-up .elup-event-detail-sub {
+  font-size: 1rem; color: var(--lup-muted); margin-top: 0.4rem;
+}
+.esic-level-up .elup-event-speaker {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.05); border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.esic-level-up .elup-event-speaker span { font-size: 0.85rem; color: var(--lup-muted); }
+.esic-level-up .elup-event-speaker strong { font-size: 1rem; color: var(--lup-white); font-weight: 600; }
+.esic-level-up .elup-event-meta { display: flex; flex-direction: column; gap: 0.65rem; }
+.esic-level-up .elup-event-meta-item {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.9rem; color: rgba(255,255,255,0.72);
+}
+.esic-level-up .elup-event-meta-item svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--lup-teal); }
+.esic-level-up .elup-event-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: auto; padding-top: 0.5rem; }
+
+/* Stats Card */
+.esic-level-up .elup-stats-card {
+  background: rgba(255,255,255,0.04); border: 1px solid var(--lup-border);
+  border-radius: 28px; padding: 2.5rem;
+  display: flex; flex-direction: column; gap: 1.75rem;
+}
+.esic-level-up .elup-stats-card-logo img { height: 36px; width: auto; object-fit: contain; }
+.esic-level-up .elup-stats-tag {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--lup-teal); margin-bottom: 0.5rem;
+}
+.esic-level-up .elup-stats-desc { font-size: 0.95rem; color: var(--lup-muted); line-height: 1.6; }
+.esic-level-up .elup-stats-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;
+  background: rgba(255,255,255,0.04); border-radius: 16px; padding: 1.25rem 1rem;
+}
+.esic-level-up .elup-stat { text-align: center; }
+.esic-level-up .elup-stat-num {
+  font-family: var(--display-font); font-size: 2.5rem; font-weight: 800;
+  color: var(--lup-teal); line-height: 1; margin-bottom: 0.3rem;
+}
+.esic-level-up .elup-stat-label {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--lup-muted);
+}
+
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
+  .esic-level-up .elup-featured-grid { grid-template-columns: 1fr; }
+}
   .esic-level-up .elup-event-grid  { grid-template-columns: 1fr; }
   .esic-level-up .elup-cta-panel   { flex-direction: column; text-align: center; }
   .esic-level-up .elup-agenda-wrap { padding: 2.5rem 1.5rem; }
@@ -302,12 +382,82 @@
 <section class="elup-hero">
   <div class="elup-container">
     <div class="elup-hero-content">
-      <span class="elup-hero-eyebrow">Level Up by ESIC</span>
+      <img src="https://esic.co/wp-content/uploads/2026/03/logo-level-up-scaled.png" alt="Level Up by ESIC" class="elup-hero-logo">
       <h1>Aprende, aplica<br>y <span>lidera</span></h1>
       <p class="elup-hero-sub">Cursos cortos de formación intensiva para actualizar habilidades y acelerar tu carrera.</p>
       <div class="elup-hero-actions">
         <button class="elup-btn elup-btn-teal elup-open-modal">Inscríbete</button>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRÓXIMO LEVEL UP ══ -->
+<section class="elup-section" style="padding-top: 0;">
+  <div class="elup-container">
+    <div class="elup-featured-grid">
+
+      <!-- Detalle del evento -->
+      <div class="elup-event-detail">
+        <div>
+          <div class="elup-event-badge">Próximo Level Up</div>
+          <h2 class="elup-event-detail-title">Estrategia de<br>Marketing Digital<br>en 8 Horas</h2>
+          <p class="elup-event-detail-sub">Del pensamiento estratégico a la ejecución real</p>
+        </div>
+        <div class="elup-event-speaker">
+          <span>con:</span>
+          <strong>Alicia Mejia</strong>
+        </div>
+        <div class="elup-event-meta">
+          <div class="elup-event-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span>8 horas</span>
+          </div>
+          <div class="elup-event-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span>11 y 18 de Abril · De 8 a.m. a 12 p.m.</span>
+          </div>
+          <div class="elup-event-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Presencial · Campus ESIC</span>
+          </div>
+          <div class="elup-event-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>$600.000 COP</span>
+          </div>
+        </div>
+        <div class="elup-event-actions">
+          <a href="https://esic.co/wp-content/uploads/2026/03/Brochure-2026-Level-Up-Marketing.pdf" target="_blank" class="elup-btn elup-btn-ghost">VER BROCHURE</a>
+          <button class="elup-btn elup-btn-teal elup-open-modal">INSCRIBIRME</button>
+        </div>
+      </div>
+
+      <!-- Tarjeta de stats -->
+      <div class="elup-stats-card">
+        <div class="elup-stats-card-logo">
+          <img src="https://esic.co/wp-content/uploads/2026/03/logo-level-up-scaled.png" alt="Level Up by ESIC">
+        </div>
+        <div>
+          <div class="elup-stats-tag">Próximo Level Up</div>
+          <p class="elup-stats-desc">Marketing AI, growth y estrategia digital con expertos internacionales.</p>
+          <img src="https://esic.co/wp-content/uploads/2026/03/imagen-level-up-marketing.png" alt="Level Up Marketing" style="width:100%; border-radius: 12px; margin-top: 1rem;">
+        </div>
+        <div class="elup-stats-row">
+          <div class="elup-stat">
+            <div class="elup-stat-num">2</div>
+            <div class="elup-stat-label">Sesiones</div>
+          </div>
+          <div class="elup-stat">
+            <div class="elup-stat-num">8</div>
+            <div class="elup-stat-label">Horas</div>
+          </div>
+          <div class="elup-stat">
+            <div class="elup-stat-num">+50</div>
+            <div class="elup-stat-label">Profesionales</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -324,24 +474,25 @@
       <div class="elup-event-grid">
 
         <article class="elup-event-card">
-          <div class="elup-event-prox">Próximamente · Presencial</div>
-          <h3>Growth &amp; Performance</h3>
-          <p>Embudo, analítica y campañas con enfoque en resultados. Fecha por confirmar.</p>
+          <div class="elup-event-prox">Próximamente</div>
+          <h3>Nivel 1 – Iniciador</h3>
+          <p>Comprende la lógica de la automatización y la IA aplicada al negocio. Aprende cómo funcionan los workflows e identifica oportunidades reales en tu entorno profesional.</p>
         </article>
 
         <article class="elup-event-card">
-          <div class="elup-event-prox">Próximamente · Presencial</div>
-          <h3>IA aplicada al marketing</h3>
-          <p>Automatización, modelos generativos y contenido inteligente. Fecha por confirmar.</p>
+          <div class="elup-event-prox">Próximamente</div>
+          <h3>Nivel 2 – Integrador</h3>
+          <p>Diseña y construye automatizaciones completas conectando herramientas, datos y APIs. Integra sistemas y aplica IA para optimizar procesos reales de negocio.</p>
         </article>
 
         <article class="elup-event-card">
-          <div class="elup-event-prox">Próximamente · Presencial</div>
-          <h3>CX &amp; Experience Design</h3>
-          <p>Diseño de experiencias con herramientas de innovación. Fecha por confirmar.</p>
+          <div class="elup-event-prox">Próximamente</div>
+          <h3>Nivel 3 – Optimizador</h3>
+          <p>Implementa un caso real end-to-end con visión estratégica. Diseña arquitectura, gestiona errores y construye soluciones escalables.</p>
         </article>
 
       </div>
+
     </div>
   </div>
 </section>
