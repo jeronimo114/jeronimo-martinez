@@ -8,8 +8,10 @@
   --lup-blue:    #0047E9;
   --lup-teal:    #0AE4C3;
   --lup-white:   #FFFFFF;
-  --lup-muted:   rgba(255,255,255,0.65);
-  --lup-border:  rgba(255,255,255,0.10);
+  --lup-text:    rgba(255,255,255,0.92);
+  --lup-muted:   rgba(255,255,255,0.80);
+  --lup-meta:    rgba(255,255,255,0.85);
+  --lup-border:  rgba(255,255,255,0.12);
   --display-font: "Sofia Sans Extra Condensed", sans-serif;
   --body-font:    "DM Sans", sans-serif;
   font-family: var(--body-font);
@@ -41,106 +43,121 @@
 .lupmk-btn-dark  { background: var(--lup-navy); color: var(--lup-white); }
 .lupmk-btn-dark:hover,
 .lupmk-btn-dark:focus { background: #001A5C !important; color: var(--lup-white) !important; transform: translateY(-2px); }
-.lupmk-btn-ghost { background: transparent; color: var(--lup-white); border: 2px solid rgba(255,255,255,0.35); }
+.lupmk-btn-ghost { background: transparent; color: var(--lup-white); border: 2px solid rgba(255,255,255,0.5); }
 .lupmk-btn-ghost:hover,
 .lupmk-btn-ghost:focus { border-color: var(--lup-white) !important; color: var(--lup-white) !important; }
 
-/* ═══ HERO ═══ */
-.lupmk-hero {
-  position: relative; min-height: 100vh; display: flex; align-items: center;
-  overflow: hidden; padding: 4rem 0;
+/* ═══ HERO BANNER ═══ */
+.lupmk-hero-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px 50px 0 0;
+  z-index: 1;
 }
-.lupmk-hero-bg {
-  position: absolute; inset: 0; z-index: 0;
+.lupmk-hero-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
-.lupmk-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
-.lupmk-hero-overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(135deg, rgba(0,16,31,0.92) 0%, rgba(0,19,63,0.85) 50%, rgba(0,16,31,0.88) 100%);
+
+/* ═══ INTRO SECTION (overlap) ═══ */
+.lupmk-intro {
+  position: relative;
+  margin-top: -50px;
+  border-radius: 50px 50px 0 0;
+  z-index: 2;
+  background: linear-gradient(135deg, #001233 0%, #00133F 50%, #001833 100%);
+  padding: 5rem 0;
 }
-.lupmk-hero-content {
-  position: relative; z-index: 2;
-  display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center;
+.lupmk-intro-content {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
 }
-.lupmk-hero-left { padding-right: 2rem; }
-.lupmk-hero-logo { height: 50px; width: auto; margin-bottom: 1.5rem; }
-.lupmk-hero-eyebrow {
+.lupmk-intro-left { padding-right: 2rem; }
+.lupmk-intro-logo { height: 50px; width: auto; margin-bottom: 1.5rem; }
+.lupmk-intro-eyebrow {
   display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em;
   text-transform: uppercase; color: var(--lup-teal); margin-bottom: 1rem;
 }
-.lupmk-hero h1 {
+.lupmk-intro h1 {
   font-size: clamp(2.8rem, 5.5vw, 4.2rem); text-transform: uppercase;
   line-height: 1; color: var(--lup-white); margin-bottom: 1rem;
 }
-.lupmk-hero h1 span { color: var(--lup-teal); }
-.lupmk-hero-sub {
-  font-size: 1.1rem; color: var(--lup-muted); max-width: 480px; margin-bottom: 1.5rem; line-height: 1.7;
+.lupmk-intro h1 span { color: var(--lup-teal); }
+.lupmk-intro-sub {
+  font-size: 1.1rem; color: var(--lup-muted); max-width: 520px; margin-bottom: 1.5rem; line-height: 1.7;
 }
-.lupmk-hero-meta {
-  display: flex; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 2rem;
+.lupmk-intro-meta {
+  display: flex; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 1.5rem;
 }
-.lupmk-hero-meta-item {
+.lupmk-intro-meta-item {
   display: flex; align-items: center; gap: 0.5rem;
-  font-size: 0.9rem; color: rgba(255,255,255,0.8);
+  font-size: 0.95rem; color: var(--lup-meta);
 }
-.lupmk-hero-meta-item svg { width: 18px; height: 18px; color: var(--lup-teal); flex-shrink: 0; }
-.lupmk-hero-expert {
+.lupmk-intro-meta-item svg { width: 18px; height: 18px; color: var(--lup-teal); flex-shrink: 0; }
+.lupmk-intro-expert {
   display: flex; align-items: center; gap: 0.75rem;
-  padding: 0.75rem 1rem; background: rgba(255,255,255,0.06);
-  border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.85rem 1.25rem; background: rgba(255,255,255,0.08);
+  border-radius: 12px; border: 1px solid rgba(255,255,255,0.12);
   margin-bottom: 2rem; width: fit-content;
 }
-.lupmk-hero-expert span { font-size: 0.85rem; color: var(--lup-muted); }
-.lupmk-hero-expert strong { font-size: 1rem; color: var(--lup-white); font-weight: 600; }
-.lupmk-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-.lupmk-hero-right {
+.lupmk-intro-expert span { font-size: 0.9rem; color: var(--lup-muted); }
+.lupmk-intro-expert strong { font-size: 1.05rem; color: var(--lup-white); font-weight: 600; }
+.lupmk-intro-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* Form wrap */
+.lupmk-intro-right {
   display: flex; justify-content: center;
 }
-.lupmk-hero-form-wrap {
-  background: rgba(255,255,255,0.04); border: 1px solid var(--lup-border);
-  border-radius: 24px; padding: 2rem; width: 100%; max-width: 380px;
+.lupmk-form-wrap {
+  background: rgba(255,255,255,0.06); border: 1px solid var(--lup-border);
+  border-radius: 24px; padding: 2rem; width: 100%; max-width: 400px;
   backdrop-filter: blur(10px);
 }
 .lupmk-form-title {
   font-family: var(--display-font); font-size: 1.6rem; font-weight: 800;
   text-transform: uppercase; color: var(--lup-white); margin-bottom: 0.25rem;
 }
-.lupmk-form-sub { font-size: 0.88rem; color: var(--lup-muted); margin-bottom: 1.5rem; }
+.lupmk-form-sub { font-size: 0.92rem; color: var(--lup-muted); margin-bottom: 1.5rem; }
 
 /* ═══ FORM ═══ */
 .lupmk-form-group { margin-bottom: 0.85rem; }
 .lupmk-form-group label {
-  display: block; font-size: 0.8rem; font-weight: 600;
-  color: rgba(255,255,255,0.85); margin-bottom: 0.3rem;
+  display: block; font-size: 0.85rem; font-weight: 600;
+  color: var(--lup-meta); margin-bottom: 0.35rem;
 }
 .lupmk-form-group input[type="text"],
 .lupmk-form-group input[type="email"],
 .lupmk-form-group input[type="tel"] {
-  width: 100%; padding: 0.75rem 1rem; border-radius: 10px;
-  border: 1.5px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05);
-  font-family: var(--body-font); font-size: 0.9rem; color: var(--lup-white);
+  width: 100%; padding: 0.85rem 1rem; border-radius: 10px;
+  border: 1.5px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06);
+  font-family: var(--body-font); font-size: 0.95rem; color: var(--lup-white);
   outline: none; transition: all 0.2s;
 }
-.lupmk-form-group input::placeholder { color: rgba(255,255,255,0.4); }
-.lupmk-form-group input:focus { border-color: var(--lup-teal); background: rgba(255,255,255,0.08); }
+.lupmk-form-group input::placeholder { color: rgba(255,255,255,0.5); }
+.lupmk-form-group input:focus { border-color: var(--lup-teal); background: rgba(255,255,255,0.1); }
 .lupmk-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 .lupmk-form-submit {
   width: 100%; padding: 1rem; border-radius: 999px; border: none;
   background: var(--lup-teal); color: var(--lup-navy); font-family: var(--body-font);
-  font-size: 0.88rem; font-weight: 700; letter-spacing: 0.05em;
+  font-size: 0.9rem; font-weight: 700; letter-spacing: 0.05em;
   text-transform: uppercase; cursor: pointer; transition: all 0.25s; margin-top: 0.5rem;
 }
 .lupmk-form-submit:hover { background: #00C9A7; transform: translateY(-2px); }
 .lupmk-terms-label {
   display: flex; align-items: flex-start; gap: 0.5rem;
-  cursor: pointer; font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 0.75rem;
+  cursor: pointer; font-size: 0.82rem; color: var(--lup-muted); margin-top: 0.75rem;
 }
 .lupmk-terms-label input { width: auto; margin-top: 0.15rem; }
 .lupmk-terms-label a { color: var(--lup-teal); text-decoration: underline; }
 
 /* ═══ LOGROS SECTION ═══ */
 .lupmk-logros {
-  background: linear-gradient(180deg, var(--lup-dark) 0%, #001233 100%);
+  background: var(--lup-dark);
+  position: relative;
+  z-index: 1;
 }
 .lupmk-section-header { text-align: center; margin-bottom: 3rem; }
 .lupmk-section-tag {
@@ -159,25 +176,25 @@
   display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
 }
 .lupmk-logros-left h3 {
-  font-size: 1.3rem; color: var(--lup-white); margin-bottom: 1.25rem;
+  font-size: 1.35rem; color: var(--lup-white); margin-bottom: 1.25rem;
 }
 .lupmk-logros-list {
   list-style: none; padding: 0; margin: 0;
 }
 .lupmk-logros-list li {
   display: flex; align-items: flex-start; gap: 0.75rem;
-  font-size: 0.95rem; color: var(--lup-muted); margin-bottom: 0.85rem; line-height: 1.5;
+  font-size: 1rem; color: var(--lup-muted); margin-bottom: 0.9rem; line-height: 1.55;
 }
 .lupmk-logros-list li::before {
   content: ""; width: 8px; height: 8px; background: var(--lup-teal);
-  border-radius: 50%; flex-shrink: 0; margin-top: 0.5rem;
+  border-radius: 50%; flex-shrink: 0; margin-top: 0.55rem;
 }
 .lupmk-logros-right {
-  background: rgba(255,255,255,0.03); border: 1px solid var(--lup-border);
+  background: rgba(255,255,255,0.04); border: 1px solid var(--lup-border);
   border-radius: 20px; padding: 2rem;
 }
 .lupmk-logros-right h4 {
-  font-size: 1.1rem; color: var(--lup-teal); margin-bottom: 1rem;
+  font-size: 1.15rem; color: var(--lup-teal); margin-bottom: 1rem;
   text-transform: uppercase;
 }
 .lupmk-check-list {
@@ -185,7 +202,7 @@
 }
 .lupmk-check-list li {
   display: flex; align-items: flex-start; gap: 0.6rem;
-  font-size: 0.92rem; color: var(--lup-muted); margin-bottom: 0.7rem; line-height: 1.5;
+  font-size: 0.98rem; color: var(--lup-muted); margin-bottom: 0.75rem; line-height: 1.5;
 }
 .lupmk-check-list li svg { width: 18px; height: 18px; color: var(--lup-teal); flex-shrink: 0; margin-top: 0.1rem; }
 
@@ -197,22 +214,22 @@
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
 }
 .lupmk-modulo-card {
-  background: rgba(255,255,255,0.04); border: 1px solid var(--lup-border);
+  background: rgba(255,255,255,0.05); border: 1px solid var(--lup-border);
   border-radius: 16px; padding: 1.5rem; transition: all 0.3s;
 }
-.lupmk-modulo-card:hover { border-color: rgba(10,228,195,0.3); transform: translateY(-3px); }
+.lupmk-modulo-card:hover { border-color: rgba(10,228,195,0.35); transform: translateY(-3px); }
 .lupmk-modulo-num {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 32px; height: 32px; background: var(--lup-teal); color: var(--lup-navy);
-  border-radius: 8px; font-family: var(--display-font); font-size: 1rem;
-  font-weight: 800; margin-bottom: 0.75rem;
+  width: 34px; height: 34px; background: var(--lup-teal); color: var(--lup-navy);
+  border-radius: 8px; font-family: var(--display-font); font-size: 1.05rem;
+  font-weight: 800; margin-bottom: 0.85rem;
 }
 .lupmk-modulo-card h4 {
-  font-size: 1.05rem; color: var(--lup-white); margin-bottom: 0.5rem;
+  font-size: 1.1rem; color: var(--lup-white); margin-bottom: 0.5rem;
   text-transform: uppercase; line-height: 1.2;
 }
 .lupmk-modulo-card p {
-  font-size: 0.88rem; color: var(--lup-muted); line-height: 1.55;
+  font-size: 0.92rem; color: var(--lup-muted); line-height: 1.6;
 }
 
 /* ═══ DIFERENTE SECTION ═══ */
@@ -228,14 +245,14 @@
 }
 .lupmk-diferente-left h2 span { color: var(--lup-teal); }
 .lupmk-diferente-intro {
-  font-size: 1rem; color: var(--lup-muted); line-height: 1.7; margin-bottom: 1.5rem;
+  font-size: 1.05rem; color: var(--lup-muted); line-height: 1.75; margin-bottom: 1.5rem;
 }
 .lupmk-diferente-checks {
   list-style: none; padding: 0; margin: 0;
 }
 .lupmk-diferente-checks li {
   display: flex; align-items: center; gap: 0.6rem;
-  font-size: 0.92rem; color: var(--lup-white); margin-bottom: 0.6rem;
+  font-size: 0.98rem; color: var(--lup-text); margin-bottom: 0.65rem;
 }
 .lupmk-diferente-checks li svg { width: 18px; height: 18px; color: var(--lup-teal); }
 .lupmk-diferente-right img {
@@ -251,34 +268,38 @@
 }
 .lupmk-paraquien-card {
   display: flex; align-items: flex-start; gap: 1rem;
-  background: rgba(255,255,255,0.03); border: 1px solid var(--lup-border);
+  background: rgba(255,255,255,0.04); border: 1px solid var(--lup-border);
   border-radius: 16px; padding: 1.5rem; transition: all 0.3s;
 }
-.lupmk-paraquien-card:hover { border-color: rgba(10,228,195,0.25); }
+.lupmk-paraquien-card:hover { border-color: rgba(10,228,195,0.3); }
 .lupmk-paraquien-icon {
-  width: 44px; height: 44px; background: rgba(10,228,195,0.1);
+  width: 46px; height: 46px; background: rgba(10,228,195,0.12);
   border-radius: 12px; display: grid; place-items: center; flex-shrink: 0;
 }
 .lupmk-paraquien-icon svg { width: 22px; height: 22px; color: var(--lup-teal); }
 .lupmk-paraquien-card p {
-  font-size: 0.95rem; color: var(--lup-muted); line-height: 1.5;
+  font-size: 1rem; color: var(--lup-muted); line-height: 1.55;
 }
 
 /* ═══ EXPERTA SECTION ═══ */
 .lupmk-experta {
   background: linear-gradient(135deg, #001833 0%, #00133F 100%);
-  border-radius: 40px; margin: 0 1rem;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
+  padding-top: 5rem;
 }
 .lupmk-experta-content {
   display: grid; grid-template-columns: 280px 1fr; gap: 3rem; align-items: center;
 }
 .lupmk-experta-img {
   width: 100%; aspect-ratio: 1; border-radius: 20px;
-  object-fit: cover; background: rgba(255,255,255,0.05);
+  object-fit: cover; background: rgba(255,255,255,0.06);
 }
 .lupmk-experta-info { padding: 1rem 0; }
 .lupmk-experta-tag {
-  display: inline-block; font-size: 0.72rem; font-weight: 700;
+  display: inline-block; font-size: 0.75rem; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--lup-teal); margin-bottom: 0.5rem;
 }
@@ -287,15 +308,17 @@
   color: var(--lup-white); margin-bottom: 0.25rem;
 }
 .lupmk-experta-role {
-  font-size: 1rem; color: var(--lup-teal); margin-bottom: 1rem; font-weight: 600;
+  font-size: 1.05rem; color: var(--lup-teal); margin-bottom: 1rem; font-weight: 600;
 }
 .lupmk-experta-bio {
-  font-size: 0.95rem; color: var(--lup-muted); line-height: 1.7;
+  font-size: 1rem; color: var(--lup-muted); line-height: 1.75;
 }
 
 /* ═══ CTA FINAL ═══ */
 .lupmk-cta-final {
   background: var(--lup-dark); padding: 5rem 0;
+  position: relative;
+  z-index: 1;
 }
 .lupmk-cta-box {
   background: linear-gradient(135deg, #0AE4C3, #00BFFF);
@@ -316,13 +339,13 @@
 
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 900px) {
-  .lupmk-hero-content { grid-template-columns: 1fr; text-align: center; }
-  .lupmk-hero-left { padding-right: 0; order: 2; }
-  .lupmk-hero-right { order: 1; }
-  .lupmk-hero-sub { margin-left: auto; margin-right: auto; }
-  .lupmk-hero-meta { justify-content: center; }
-  .lupmk-hero-expert { margin-left: auto; margin-right: auto; }
-  .lupmk-hero-actions { justify-content: center; }
+  .lupmk-intro-content { grid-template-columns: 1fr; text-align: center; }
+  .lupmk-intro-left { padding-right: 0; order: 2; }
+  .lupmk-intro-right { order: 1; }
+  .lupmk-intro-sub { margin-left: auto; margin-right: auto; }
+  .lupmk-intro-meta { justify-content: center; }
+  .lupmk-intro-expert { margin-left: auto; margin-right: auto; }
+  .lupmk-intro-actions { justify-content: center; }
   .lupmk-logros-grid { grid-template-columns: 1fr; gap: 2rem; }
   .lupmk-diferente-content { grid-template-columns: 1fr; }
   .lupmk-diferente-right { order: -1; }
@@ -331,69 +354,71 @@
 }
 @media (max-width: 600px) {
   .lupmk-section { padding: 3.5rem 0; }
-  .lupmk-hero { min-height: auto; padding: 3rem 0; }
-  .lupmk-hero-form-wrap { padding: 1.5rem; }
+  .lupmk-intro { padding: 3.5rem 0; }
+  .lupmk-form-wrap { padding: 1.5rem; }
   .lupmk-form-row { grid-template-columns: 1fr; }
   .lupmk-modulos-grid { grid-template-columns: 1fr; }
   .lupmk-paraquien-grid { grid-template-columns: 1fr; }
-  .lupmk-experta { border-radius: 24px; margin: 0 0.5rem; }
-  .lupmk-hero-meta { flex-direction: column; gap: 0.75rem; align-items: center; }
+  .lupmk-experta { border-radius: 40px 40px 0 0; }
+  .lupmk-intro-meta { flex-direction: column; gap: 0.85rem; align-items: center; }
+  .lupmk-hero-banner { border-radius: 30px 30px 0 0; }
 }
 </style>
 
-<!-- ═══ HERO ═══ -->
-<section class="lupmk-hero">
-  <div class="lupmk-hero-bg">
-    <picture>
-      <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/level-up-marketing-banner-mobile.webp" type="image/webp">
-      <source media="(min-width: 769px)" srcset="https://esic.co/wp-content/uploads/2026/03/level-up-marketing-banner-desktop.webp" type="image/webp">
-      <img src="https://esic.co/wp-content/uploads/2026/03/level-up-marketing-banner-desktop.webp" alt="Estrategia de Marketing Digital" loading="eager">
-    </picture>
-  </div>
-  <div class="lupmk-hero-overlay"></div>
+<!-- ═══ HERO BANNER ═══ -->
+<section class="lupmk-hero-banner">
+  <picture>
+    <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/level-up-marketing-banner-mobile.webp" type="image/webp">
+    <source media="(min-width: 769px)" srcset="https://esic.co/wp-content/uploads/2026/03/level-up-marketing-banner-desktop.webp" type="image/webp">
+    <img src="https://esic.co/wp-content/uploads/2026/03/level-up-marketing-banner-desktop.webp" alt="Estrategia de Marketing Digital en 8 Horas - Level Up ESIC" loading="eager">
+  </picture>
+</section>
+
+<!-- ═══ INTRO + FORMULARIO ═══ -->
+<section class="lupmk-intro" id="formulario">
   <div class="lupmk-container">
-    <div class="lupmk-hero-content">
-      <div class="lupmk-hero-left">
-        <img src="https://esic.co/wp-content/uploads/2026/03/logo-level-up-scaled.png" alt="Level Up by ESIC" class="lupmk-hero-logo">
-        <span class="lupmk-hero-eyebrow">Level Up by ESIC</span>
+    <div class="lupmk-intro-content">
+      <div class="lupmk-intro-left">
+        <img src="https://esic.co/wp-content/uploads/2026/03/logo-level-up-scaled.png" alt="Level Up by ESIC" class="lupmk-intro-logo">
+        <span class="lupmk-intro-eyebrow">Level Up by ESIC</span>
         <h1>Estrategia de<br><span>Marketing Digital</span><br>en 8 Horas</h1>
-        <p class="lupmk-hero-sub">Del pensamiento estratégico a la ejecución real. En solo 8 horas vas a salir con un mapa claro de decisiones digitales para tu marca: qué hacer, qué no hacer y por dónde empezar.</p>
+        <p class="lupmk-intro-sub">Del pensamiento estratégico a la ejecución real. En solo 8 horas vas a salir con un mapa claro de decisiones digitales para tu marca: qué hacer, qué no hacer y por dónde empezar.</p>
         
-        <div class="lupmk-hero-meta">
-          <div class="lupmk-hero-meta-item">
+        <div class="lupmk-intro-meta">
+          <div class="lupmk-intro-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
             <span>11 y 18 de abril</span>
           </div>
-          <div class="lupmk-hero-meta-item">
+          <div class="lupmk-intro-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             <span>8:00 a.m. – 12:00 p.m.</span>
           </div>
-          <div class="lupmk-hero-meta-item">
+          <div class="lupmk-intro-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <span>Presencial · Campus ESIC</span>
           </div>
-          <div class="lupmk-hero-meta-item">
+          <div class="lupmk-intro-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             <span>$600.000 COP</span>
           </div>
         </div>
 
-        <div class="lupmk-hero-expert">
+        <div class="lupmk-intro-expert">
           <span>con</span>
           <strong>Alicia Mejía</strong>
         </div>
 
-        <div class="lupmk-hero-actions">
-          <a href="#formulario" class="lupmk-btn lupmk-btn-teal">Inscríbete ahora</a>
+        <div class="lupmk-intro-actions">
+          <button type="submit" form="lupmk-main-form" class="lupmk-btn lupmk-btn-teal">Inscríbete ahora</button>
         </div>
       </div>
 
-      <div class="lupmk-hero-right">
-        <div class="lupmk-hero-form-wrap" id="formulario">
+      <div class="lupmk-intro-right">
+        <div class="lupmk-form-wrap">
           <h3 class="lupmk-form-title">Déjanos tus datos</h3>
           <p class="lupmk-form-sub">Recibe toda la información del curso y asegura tu cupo.</p>
           
-          <form action="https://forms.zohopublic.com/esicmedellin/form/SeparayatulugarFormularioLevelUP110226/formperma/6suw077ABDvaL9ciYTgezsHxpmtBh6y2URfr6ZDbCGU/htmlRecords/submit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+          <form action="https://forms.zohopublic.com/esicmedellin/form/SeparayatulugarFormularioLevelUP110226/formperma/6suw077ABDvaL9ciYTgezsHxpmtBh6y2URfr6ZDbCGU/htmlRecords/submit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" id="lupmk-main-form">
             <input type="hidden" name="zf_referrer_name" value="">
             <input type="hidden" name="zf_redirect_url" value="https://esic.co/gracias/">
             <input type="hidden" name="zc_gad" value="">
