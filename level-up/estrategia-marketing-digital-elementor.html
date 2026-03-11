@@ -65,15 +65,15 @@
   display: block;
 }
 
-/* ═══ INTRO SECTION (overlap - light) ═══ */
+/* ═══ INTRO SECTION (overlap - dark) ═══ */
 .lupmk-intro {
   position: relative;
   margin-top: -50px;
   border-radius: 50px 50px 0 0;
   z-index: 2;
-  background: var(--bg-white);
+  background: linear-gradient(135deg, #001233 0%, #00133F 50%, #001833 100%);
   padding: 5rem 0;
-  box-shadow: 0 -20px 60px rgba(0,0,0,0.08);
+  box-shadow: 0 -20px 60px rgba(0,0,0,0.3);
 }
 .lupmk-intro-content {
   display: grid;
@@ -89,77 +89,78 @@
 }
 .lupmk-intro h1 {
   font-size: clamp(2.8rem, 5.5vw, 4.2rem); text-transform: uppercase;
-  line-height: 1; color: var(--text-dark); margin-bottom: 1rem;
+  line-height: 1; color: #FFFFFF; margin-bottom: 1rem;
 }
 .lupmk-intro h1 span { color: var(--lup-teal); }
 .lupmk-intro-sub {
-  font-size: 1.1rem; color: var(--text-muted); max-width: 520px; margin-bottom: 1.5rem; line-height: 1.7;
+  font-size: 1.1rem; color: rgba(255,255,255,0.80); max-width: 520px; margin-bottom: 1.5rem; line-height: 1.7;
 }
 .lupmk-intro-meta {
   display: flex; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 1.5rem;
 }
 .lupmk-intro-meta-item {
   display: flex; align-items: center; gap: 0.5rem;
-  font-size: 0.95rem; color: var(--text-dark);
-  background: var(--bg-cream);
+  font-size: 0.95rem; color: #FFFFFF;
+  background: rgba(255,255,255,0.08);
   padding: 0.5rem 1rem;
   border-radius: 8px;
 }
 .lupmk-intro-meta-item svg { width: 18px; height: 18px; color: var(--lup-teal); flex-shrink: 0; }
 .lupmk-intro-expert {
   display: flex; align-items: center; gap: 0.75rem;
-  padding: 0.85rem 1.25rem; background: var(--bg-cream);
-  border-radius: 12px; border: 1px solid var(--border);
+  padding: 0.85rem 1.25rem; background: rgba(255,255,255,0.08);
+  border-radius: 12px; border: 1px solid rgba(255,255,255,0.12);
   margin-bottom: 2rem; width: fit-content;
 }
-.lupmk-intro-expert span { font-size: 0.9rem; color: var(--text-muted); }
-.lupmk-intro-expert strong { font-size: 1.05rem; color: var(--text-dark); font-weight: 600; }
+.lupmk-intro-expert span { font-size: 0.9rem; color: rgba(255,255,255,0.70); }
+.lupmk-intro-expert strong { font-size: 1.05rem; color: #FFFFFF; font-weight: 600; }
 .lupmk-intro-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-/* Form wrap */
+/* Form wrap - dark */
 .lupmk-intro-right {
   display: flex; justify-content: center;
 }
 .lupmk-form-wrap {
-  background: var(--bg-cream); border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
   border-radius: 24px; padding: 2rem; width: 100%; max-width: 400px;
+  backdrop-filter: blur(10px);
 }
 .lupmk-form-title {
   font-family: var(--display-font); font-size: 1.6rem; font-weight: 800;
-  text-transform: uppercase; color: var(--text-dark); margin-bottom: 0.25rem;
+  text-transform: uppercase; color: #FFFFFF; margin-bottom: 0.25rem;
 }
-.lupmk-form-sub { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+.lupmk-form-sub { font-size: 0.92rem; color: rgba(255,255,255,0.70); margin-bottom: 1.5rem; }
 
-/* ═══ FORM ═══ */
+/* ═══ FORM - dark ═══ */
 .lupmk-form-group { margin-bottom: 0.85rem; }
 .lupmk-form-group label {
   display: block; font-size: 0.85rem; font-weight: 600;
-  color: var(--text-dark); margin-bottom: 0.35rem;
+  color: rgba(255,255,255,0.85); margin-bottom: 0.35rem;
 }
 .lupmk-form-group input[type="text"],
 .lupmk-form-group input[type="email"],
 .lupmk-form-group input[type="tel"] {
   width: 100%; padding: 0.85rem 1rem; border-radius: 10px;
-  border: 1.5px solid var(--border); background: var(--bg-white);
-  font-family: var(--body-font); font-size: 0.95rem; color: var(--text-dark);
+  border: 1.5px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06);
+  font-family: var(--body-font); font-size: 0.95rem; color: #FFFFFF;
   outline: none; transition: all 0.2s;
 }
-.lupmk-form-group input::placeholder { color: var(--text-muted); }
-.lupmk-form-group input:focus { border-color: var(--lup-blue); box-shadow: 0 0 0 3px rgba(0,71,233,0.1); }
+.lupmk-form-group input::placeholder { color: rgba(255,255,255,0.45); }
+.lupmk-form-group input:focus { border-color: var(--lup-teal); background: rgba(255,255,255,0.1); }
 .lupmk-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 .lupmk-form-submit {
   width: 100%; padding: 1rem; border-radius: 999px; border: none;
-  background: var(--lup-blue); color: #FFFFFF; font-family: var(--body-font);
+  background: var(--lup-teal); color: var(--lup-dark); font-family: var(--body-font);
   font-size: 0.9rem; font-weight: 700; letter-spacing: 0.05em;
   text-transform: uppercase; cursor: pointer; transition: all 0.25s; margin-top: 0.5rem;
 }
-.lupmk-form-submit:hover { background: #0037B4; transform: translateY(-2px); }
+.lupmk-form-submit:hover { background: #00C9A7; transform: translateY(-2px); }
 .lupmk-terms-label {
   display: flex; align-items: flex-start; gap: 0.5rem;
-  cursor: pointer; font-size: 0.82rem; color: var(--text-muted); margin-top: 0.75rem;
+  cursor: pointer; font-size: 0.82rem; color: rgba(255,255,255,0.65); margin-top: 0.75rem;
 }
 .lupmk-terms-label input { width: auto; margin-top: 0.15rem; }
-.lupmk-terms-label a { color: var(--lup-blue); text-decoration: underline; }
+.lupmk-terms-label a { color: var(--lup-teal); text-decoration: underline; }
 
 /* ═══ LOGROS SECTION ═══ */
 .lupmk-logros {
@@ -440,7 +441,7 @@
         </div>
 
         <div class="lupmk-intro-actions">
-          <button type="submit" form="lupmk-main-form" class="lupmk-btn lupmk-btn-blue">Inscríbete ahora</button>
+          <button type="submit" form="lupmk-main-form" class="lupmk-btn lupmk-btn-teal">Inscríbete ahora</button>
         </div>
       </div>
 
