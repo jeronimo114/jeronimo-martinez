@@ -784,8 +784,22 @@
 
 @media (max-width: 768px) {
   .exec-hero {
-    min-height: 70vh;
-    padding: 0 0 4rem;
+    min-height: 65vh;
+    padding: 80px 0 2.5rem;
+    align-items: flex-end;
+  }
+  .exec-hero-eyebrow {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+  }
+  .exec-hero-title {
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+    line-height: 0.9;
+    margin-bottom: 0.3rem;
+  }
+  .exec-hero-year {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    margin-bottom: 1.2rem;
   }
   .exec-stats-bar {
     grid-template-columns: 1fr 1fr;
@@ -851,8 +865,21 @@
     padding: 2.5rem 1.5rem;
   }
   .exec-hero-partners {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+  .exec-hero-partners span {
+    font-size: 0.7rem;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .exec-hero-partners .partner-logo {
+    height: 32px;
+  }
+  .exec-hero-partners .partner-logo img {
+    height: 32px;
   }
 }
 
@@ -874,6 +901,10 @@
     margin-top: 0;
     padding: 3rem 0 3rem;
   }
+  .exec-s-overlap {
+    margin-top: 0 !important;
+    border-radius: 0;
+  }
   .exec-stat-number {
     font-size: 1.5rem;
     word-break: break-all;
@@ -886,11 +917,44 @@
   .exec-info-col .exec-precio { font-size: 1.4rem; }
   .exec-modulo-col li { flex-wrap: wrap; }
   .exec-metodologia { overflow: hidden; }
-  .exec-s-overlap { border-radius: 30px 30px 0 0; }
   .exec-proposito-grid { text-align: center; }
+  .exec-metodologia-categories .exec-cat-item {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0.5rem 1.2rem;
+    border-bottom: 1px solid rgba(192, 156, 46, 0.15);
+  }
+  .exec-metodologia-categories .exec-cat-item:last-child {
+    border-bottom: none;
+  }
+  .exec-metodologia-categories .exec-cat-item span {
+    white-space: normal;
+    text-align: left;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .exec-hero {
+    min-height: 55vh;
+    padding: 70px 0 2rem;
+  }
+  .exec-hero-title {
+    font-size: clamp(1.8rem, 10vw, 2.5rem) !important;
+  }
+  .exec-hero-year {
+    font-size: clamp(1.2rem, 5.5vw, 1.6rem);
+    margin-bottom: 1rem;
+  }
+  .exec-hero-partners .partner-logo {
+    height: 26px;
+  }
+  .exec-hero-partners .partner-logo img {
+    height: 26px;
+  }
+  .exec-hero-partners {
+    gap: 0.8rem;
+  }
   .exec-stat-number { font-size: 1.2rem; }
   .exec-stats-bar { margin-top: -20px; padding: 1.2rem 1rem; }
   .exec-proposito { padding: 2rem 0 2.5rem; }

@@ -1,0 +1,125 @@
+<div class="esic-gracias">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-gracias {
+  --brand-blue: #0047E9;
+  --brand-blue-dark: #00133F;
+  --brand-teal: #0AE4C3;
+  --bg: #F8F6F2;
+  --text: #0B132B;
+  --text-muted: #5F6B7A;
+  --display-font: "Sofia Sans Extra Condensed", sans-serif;
+  --body-font: "DM Sans", sans-serif;
+  font-family: var(--body-font);
+  color: var(--text);
+  background: var(--bg);
+  width: 100%;
+  box-sizing: border-box;
+}
+.esic-gracias *, .esic-gracias *::before, .esic-gracias *::after { box-sizing: border-box; }
+.esic-gracias p { margin: 0; }
+.esic-gracias a { color: inherit; text-decoration: none; }
+
+.eg-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 6rem 1.5rem 5rem;
+  text-align: center;
+  gap: 2rem;
+}
+
+.eg-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+}
+
+.eg-label::before,
+.eg-label::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1.5px;
+  background: var(--brand-blue);
+  opacity: 0.4;
+}
+
+.eg-title {
+  font-family: var(--display-font);
+  font-size: clamp(5rem, 10vw, 9rem) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.9;
+  color: var(--brand-blue-dark);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.eg-title span {
+  color: var(--brand-blue);
+}
+
+.eg-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--brand-teal);
+}
+
+.eg-body {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 460px;
+}
+
+.eg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  font-family: var(--body-font);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--brand-blue);
+  color: #ffffff !important;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.eg-btn:hover { background: #0037B4; transform: translateY(-2px); color: #ffffff !important; }
+.eg-btn svg { width: 14px; height: 14px; flex-shrink: 0; stroke: #ffffff; }
+</style>
+
+<div class="eg-wrap">
+  <div class="eg-label">Formulario enviado</div>
+
+  <h1 class="eg-title">Hemos recibido<br><span>tu solicitud</span></h1>
+
+  <div class="eg-divider"></div>
+
+  <p class="eg-body">
+    Uno de nuestros asesores se pondrá en contacto contigo muy pronto por el medio que indicaste.
+  </p>
+
+  <a href="https://esic.co" class="eg-btn">
+    Volver al inicio
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </a>
+</div>
+
+</div>

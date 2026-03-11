@@ -390,43 +390,45 @@
         </div>
         <div class="emdm-form-card">
           <h3>Máster en Digital Marketing</h3>
-          <form>
+          <form action='https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit' name='form' id='emdm-main-form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
+            <input type="hidden" name="zf_referrer_name" value="">
+            <input type="hidden" name="zf_redirect_url" value="https://esic.co/gracias/">
+            <input type="hidden" name="zc_gad" value="">
+            <input type="hidden" name="Dropdown" value="Corporate">
             <div class="emdm-form-row">
               <div class="emdm-form-group">
-                <label>Nombres</label>
-                <input type="text" name="nombres" placeholder="">
+                <label>Nombre <em style="color:#e53e3e">*</em></label>
+                <input type="text" maxlength="255" name="Name_First" fieldType=7 placeholder="Tu nombre">
               </div>
               <div class="emdm-form-group">
-                <label>Apellidos</label>
-                <input type="text" name="apellidos" placeholder="">
+                <label>Apellido</label>
+                <input type="text" maxlength="255" name="Name_Last" fieldType=7 placeholder="Tu apellido">
               </div>
             </div>
             <div class="emdm-form-group">
-              <label>Correo electrónico</label>
-              <input type="email" name="email" placeholder="">
-            </div>
-            <div class="emdm-form-row">
-              <div class="emdm-form-group">
-                <label>Pref:</label>
-                <input type="text" name="pref" placeholder="">
-              </div>
-              <div class="emdm-form-group">
-                <label>Teléfono</label>
-                <input type="tel" name="telefono" placeholder="">
-              </div>
+              <label>Correo electrónico <em style="color:#e53e3e">*</em></label>
+              <input type="text" maxlength="255" name="Email" value="" fieldType=9 placeholder="correo@ejemplo.com">
             </div>
             <div class="emdm-form-group">
-              <label>¿Cómo prefieres que nos comuniquemos contigo?</label>
-              <select name="comunicacion">
-                <option value="">Selecciona una opción</option>
-                <option value="email">Correo electrónico</option>
-                <option value="telefono">Teléfono</option>
-                <option value="whatsapp">WhatsApp</option>
+              <label>Teléfono <em style="color:#e53e3e">*</em></label>
+              <input type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1" isCountryCodeEnabled=false maxlength="20" value="" fieldType=11 id="international_PhoneNumber_countrycode" placeholder="300 123 4567">
+            </div>
+            <div class="emdm-form-group">
+              <label>Medio de contacto <em style="color:#e53e3e">*</em></label>
+              <select name="Dropdown3">
+                <option selected="true" value="-Select-">-Seleccionar-</option>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Correo">Correo</option>
+                <option value="Llamada">Llamada</option>
               </select>
+            </div>
+            <div class="emdm-form-group" style="display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:0.25rem">
+              <input class="checkBoxType" name="TermsConditions" type="checkbox" id="emdm-terms" style="width:auto;min-width:16px;height:16px;margin-top:0.2rem;flex-shrink:0;accent-color:var(--master-teal)">
+              <label for="emdm-terms" style="font-size:0.85rem;color:var(--text-muted);cursor:pointer;line-height:1.4">Acepto solicitud de <a href="https://esic.co/politicas-de-privacidad/" target="_blank" style="color:var(--master-teal);text-decoration:underline;">autorización de datos personales y términos y condiciones</a>.</label>
             </div>
             <div class="emdm-form-submit-row">
               <button type="submit" class="emdm-form-submit-btn">
-                Enviar
+                ENVIAR
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
             </div>

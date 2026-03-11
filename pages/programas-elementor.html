@@ -75,7 +75,8 @@
 }
 
 .esic-prog-page .esic-prog-page__btn--primary,
-.esic-prog-page a.esic-prog-page__btn--primary {
+.esic-prog-page a.esic-prog-page__btn--primary,
+button.esic-prog-page__btn--primary {
   background: var(--esic-blue) !important;
   color: #FFFFFF !important;
   box-shadow: 0 16px 35px rgba(0, 71, 233, 0.25) !important;
@@ -83,7 +84,10 @@
 }
 
 .esic-prog-page .esic-prog-page__btn--primary:hover,
-.esic-prog-page a.esic-prog-page__btn--primary:hover {
+.esic-prog-page a.esic-prog-page__btn--primary:hover,
+button.esic-prog-page__btn--primary:hover,
+button.esic-prog-page__btn--primary:focus,
+button.esic-prog-page__btn--primary:active {
   background: #0037B4 !important;
   color: #FFFFFF !important;
   transform: translateY(-2px) !important;
@@ -605,16 +609,32 @@
 }
 
 .esic-prog-page__levelup-visual {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
+  position: relative !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  min-height: 300px !important;
 }
 
-.esic-prog-page__levelup-chevrons {
-  color: var(--esic-teal) !important;
-  opacity: 0.3 !important;
-  width: 180px !important;
-  height: auto !important;
+.esic-prog-page__levelup-image {
+  position: absolute !important;
+  inset: 0 !important;
+  overflow: hidden !important;
+  border-radius: 20px !important;
+}
+
+.esic-prog-page__levelup-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+.esic-prog-page__levelup-image-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(0, 0, 0, 0.55) !important;
+  border-radius: 20px !important;
 }
 
 .esic-prog-page__levelup-grid {
@@ -769,8 +789,10 @@
 
   .esic-prog-page__hero {
     min-height: 70vh !important;
-    padding: 80px 0 8rem !important;
+    padding: 170px 0 8rem !important;
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.72) 50%, rgba(0,0,0,0.4) 100%), url('https://esic.co/wp-content/uploads/2026/02/campus.webp') !important;
   }
+  .esic-prog-page__hero-eyebrow { display: none !important; }
 
   .esic-prog-page__hero-title {
     font-size: clamp(2.5rem, 10vw, 4rem) !important;
@@ -1122,10 +1144,10 @@
           </div>
         </a>
 
-        <!-- Tailor -->
-        <a href="#" class="esic-prog-page__category-card esic-prog-page__category-card--tailor" onclick="document.getElementById('progModal').classList.add('esic-prog-page__modal-active'); return false;">
+        <!-- Empresarial -->
+        <a href="#" class="esic-prog-page__category-card esic-prog-page__category-card--tailor" onclick="document.getElementById('progModal').classList.add('esic-prog-page__modal-active'); document.getElementById('zohoDropdown').value='Corporate'; return false;">
           <div class="esic-prog-page__category-card-info">
-            <h3>TAILOR</h3>
+            <h3>EMPRESARIAL</h3>
             <p class="esic-prog-page__category-card-sub">Formaciones a la medida para empresas</p>
             <span class="esic-prog-page__category-card-btn">
               CONTÁCTANOS
@@ -1160,10 +1182,10 @@
 
           <!-- Decorative chevrons -->
           <div class="esic-prog-page__levelup-visual">
-            <svg class="esic-prog-page__levelup-chevrons" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M100 10L20 100L100 110L180 100L100 10Z" stroke="currentColor" stroke-width="4" fill="currentColor" fill-opacity="0.1"/>
-              <path d="M100 80L20 170L100 180L180 170L100 80Z" stroke="currentColor" stroke-width="4" fill="currentColor" fill-opacity="0.15"/>
-            </svg>
+            <div class="esic-prog-page__levelup-image">
+              <img src="https://esic.co/wp-content/uploads/2026/03/level-up.png" alt="Level Up by ESIC">
+              <div class="esic-prog-page__levelup-image-overlay"></div>
+            </div>
           </div>
         </div>
 
@@ -1245,7 +1267,7 @@
     <div class="esic-prog-page__modal-body">
       <form action='https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit' name='form' id='zohoForm' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
         <input type="hidden" name="zf_referrer_name" value="">
-        <input type="hidden" name="zf_redirect_url" value="">
+        <input type="hidden" name="zf_redirect_url" value="https://esic.co/gracias/">
         <input type="hidden" name="zc_gad" value="">
         
         <div class="esic-prog-page__form-row">
@@ -1266,19 +1288,18 @@
         
         <div class="esic-prog-page__form-group">
           <label>Teléfono <em>*</em></label>
-          <input type="tel" name="PhoneNumber_countrycode" maxlength="20" placeholder="+57 300 123 4567" required />
+          <input type="tel" name="PhoneNumber_countrycode" maxlength="20" placeholder="300 123 4567" required />
         </div>
         
         <div class="esic-prog-page__form-group">
           <label>Tipo de programa <em>*</em></label>
-          <select name="Dropdown" required>
-            <option selected disabled value="">Selecciona un programa</option>
+          <select name="Dropdown" id="zohoDropdown" required>
+            <option disabled value="">Selecciona un programa</option>
+            <option value="Corporate">Tailor Made / Empresarial</option>
             <option value="Pregrado">Pregrado</option>
-            <option value="Corporate">Corporate</option>
             <option value="Diplomado">Diplomado</option>
             <option value="Curso">Curso</option>
             <option value="Executive">Executive</option>
-            <option value="Educación continua">Educación continua</option>
             <option value="Level Up">Level Up</option>
             <option value="Open Day">Open Day</option>
           </select>
@@ -1294,7 +1315,14 @@
           </select>
         </div>
         
-        <button type="submit" class="esic-prog-page__btn esic-prog-page__btn--primary" style="width:100%;">Enviar solicitud</button>
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:16px;">
+          <input type="checkbox" name="TermsConditions" id="termsModal" required style="margin-top:2px;flex-shrink:0;width:16px;height:16px;cursor:pointer;">
+          <span style="font-size:13px;color:#333;line-height:1.4;">
+            He leído y acepto la <a href="https://esic.co/politicas-de-privacidad/" target="_blank" style="color:#003087;text-decoration:underline;">Política de Privacidad y Tratamiento de Datos</a>
+          </span>
+        </div>
+
+        <button type="submit" class="esic-prog-page__btn esic-prog-page__btn--primary" style="width:100%;background:#0047E9 !important;color:#fff !important;border:none !important;" onmouseover="this.style.background='#0037B4'" onmouseout="this.style.background='#0047E9'">Enviar solicitud</button>
       </form>
     </div>
   </div>

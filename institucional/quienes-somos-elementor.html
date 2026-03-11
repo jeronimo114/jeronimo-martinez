@@ -306,21 +306,28 @@
 }
 
 .esic-quienes-somos .qs-fundador-logo img {
-  max-height: 100%;
   max-width: 100%;
   width: auto;
-  height: auto;
+  height: 42px;
   object-fit: contain;
-  transition: transform 0.3s ease;
 }
 
-/* Logo optical size adjustments - Postobón is baseline (100%) */
-.esic-quienes-somos .qs-fundador-logo.qs-logo-accenture img { transform: scale(0.88); }
-.esic-quienes-somos .qs-fundador-logo.qs-logo-bancolombia img { transform: scale(1.12); }
-.esic-quienes-somos .qs-fundador-logo.qs-logo-crystal img { transform: scale(1.22); }
-.esic-quienes-somos .qs-fundador-logo.qs-logo-bios img { transform: scale(1.27); }
-.esic-quienes-somos .qs-fundador-logo.qs-logo-telefonica img { transform: scale(1.38); }
-.esic-quienes-somos .qs-fundador-logo.qs-logo-postobon img { transform: scale(1); }
+/* Logo optical size adjustments por altura real */
+/* Mobile logo heights */
+.esic-quienes-somos .qs-fundador-logo.qs-logo-postobon img    { height: 32px; }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-bancolombia img { height: 44px; }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-telefonica img  { height: 56px; }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-crystal img     { height: 36px; }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-bios img        { height: 42px; }
+.esic-quienes-somos .qs-fundador-logo.qs-logo-accenture img   { height: 34px; }
+
+/* Desktop logo heights — todos iguales */
+@media (min-width: 769px) {
+  .esic-quienes-somos .qs-fundador-logo img { height: 44px; }
+  .esic-quienes-somos .qs-fundador-logo.qs-logo-postobon img  { height: 32px; }
+  .esic-quienes-somos .qs-fundador-logo.qs-logo-telefonica img { height: 56px; }
+  .esic-quienes-somos .qs-fundador-logo.qs-logo-bios img       { height: 56px; }
+}
 
 /* Cifras Section */
 .esic-quienes-somos .qs-cifras-section {
@@ -1212,7 +1219,7 @@
               <line x1="2" y1="13" x2="24" y2="13" stroke="#FF9600" stroke-width="1.2"/>
             </svg>
           </div>
-          <h3>Internacionalización</h3>
+          <h3>Interna&shy;cionalización</h3>
           <p>Tu transformación es nuestra manera de cambiar el mundo.</p>
         </article>
         <article class="qs-value-card qs-blue">
@@ -1313,15 +1320,15 @@
           <div class="eh-cifras-stats">
             <div class="eh-cifra-item">
               <div class="eh-cifra-num">+3,000</div>
-              <div class="eh-cifra-desc">Participantes a la medida</div>
+              <div class="eh-cifra-desc">Participantes de programas a la medida</div>
             </div>
             <div class="eh-cifra-item">
               <div class="eh-cifra-num">230</div>
               <div class="eh-cifra-desc">Máster graduados</div>
             </div>
             <div class="eh-cifra-item">
-              <div class="eh-cifra-num">252</div>
-              <div class="eh-cifra-desc">Pregrado activos</div>
+              <div class="eh-cifra-num">350</div>
+              <div class="eh-cifra-desc">Estudiantes de pregrado activos</div>
             </div>
           </div>
           <a href="#contacto" class="eh-cifras-cta">
@@ -1355,7 +1362,7 @@
       <div class="qs-modal-body">
         <form id="zohoForm" action="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
           <input type="hidden" name="zf_referrer_name" value="">
-          <input type="hidden" name="zf_redirect_url" value="">
+          <input type="hidden" name="zf_redirect_url" value="https://esic.co/gracias/">
           <input type="hidden" name="zc_gad" value="">
           
           <div class="qs-form-row">
@@ -1376,7 +1383,7 @@
           
           <div class="qs-form-group">
             <label>Teléfono <em>*</em></label>
-            <input type="tel" name="PhoneNumber_countrycode" maxlength="20" placeholder="+57 300 123 4567" required />
+            <input type="tel" name="PhoneNumber_countrycode" maxlength="20" placeholder="300 123 4567" required />
           </div>
           
           <div class="qs-form-row">
