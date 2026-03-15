@@ -45,6 +45,17 @@
 .esic-level-up .elup-btn-ghost { background: transparent; color: var(--lup-white); border: 2px solid rgba(255,255,255,0.35); }
 .esic-level-up .elup-btn-ghost:hover { border-color: var(--lup-white); }
 
+/* ── Hero Banner ── */
+.esic-level-up .elup-hero-banner {
+  position: relative; overflow: hidden;
+  padding-top: 80px; padding-bottom: 90px;
+  background: #000; line-height: 0; font-size: 0;
+}
+.esic-level-up .elup-hero-banner a { display: block; cursor: pointer; }
+.esic-level-up .elup-hero-banner img {
+  width: 100%; height: auto; display: block; vertical-align: bottom;
+}
+
 /* ── HERO ── */
 .esic-level-up .elup-hero {
   min-height: 86vh; display: flex; align-items: center;
@@ -190,6 +201,13 @@
 }
 .esic-level-up .elup-terms-label input { width: auto; margin-top: 0.2rem; }
 .esic-level-up .elup-terms-label a { color: var(--lup-blue); text-decoration: underline; }
+.esic-level-up .elup-form-group select {
+  width: 100%; padding: 0.78rem 1rem; border-radius: 10px;
+  border: 1.5px solid #E0E0E0; background: #FAFAFA;
+  font-family: var(--body-font); font-size: 0.95rem; color: #1a1a2e;
+  outline: none; transition: border-color 0.2s; appearance: none;
+}
+.esic-level-up .elup-form-group select:focus { border-color: var(--lup-blue); background: #fff; }
 
 /* ── Hero Logo ── */
 .esic-level-up .elup-hero-logo {
@@ -290,12 +308,13 @@
 @media (max-width: 900px) {
   .esic-level-up .elup-featured-grid { grid-template-columns: 1fr; }
   .esic-level-up .elup-event-combined { grid-template-columns: 1fr; }
-}
   .esic-level-up .elup-event-grid  { grid-template-columns: 1fr; }
   .esic-level-up .elup-cta-panel   { flex-direction: column; text-align: center; }
   .esic-level-up .elup-agenda-wrap { padding: 2.5rem 1.5rem; }
 }
 @media (max-width: 600px) {
+  .esic-level-up .elup-hero-banner { padding-top: 65px; padding-bottom: 70px; }
+  .esic-level-up .elup-hero        { margin-top: -60px; border-radius: 30px 30px 0 0; padding: 3.5rem 0 4rem; }
   .esic-level-up .elup-hero h1     { font-size: clamp(3rem, 14vw, 5rem); }
   .esic-level-up .elup-form-row    { grid-template-columns: 1fr; }
   .esic-level-up .elup-modal-body  { padding: 1rem 1.5rem 1.5rem; }
@@ -360,16 +379,20 @@
           <input type="tel" id="elup-tel" name="PhoneNumber_countrycode" maxlength="20" placeholder="300 123 4567" required>
         </div>
 
-        <!-- Dirección / Municipio -->
-        <div class="elup-form-row">
-          <div class="elup-form-group">
-            <label for="elup-dir">Dirección de Residencia</label>
-            <input type="text" id="elup-dir" name="SingleLine2" maxlength="255" placeholder="Tu dirección">
-          </div>
-          <div class="elup-form-group">
-            <label for="elup-mun">Municipio de Residencia</label>
-            <input type="text" id="elup-mun" name="SingleLine3" maxlength="255" placeholder="Tu municipio">
-          </div>
+        <!-- Dirección -->
+        <div class="elup-form-group">
+          <label for="elup-dir">Dirección de Residencia</label>
+          <input type="text" id="elup-dir" name="SingleLine2" maxlength="255" placeholder="Tu dirección">
+        </div>
+
+        <!-- Medio de contacto -->
+        <div class="elup-form-group">
+          <label for="elup-medio">Medio de contacto</label>
+          <select id="elup-medio" name="Dropdown3">
+            <option value="WhatsApp" selected>WhatsApp</option>
+            <option value="Correo">Correo</option>
+            <option value="Llamada">Llamada</option>
+          </select>
         </div>
 
         <!-- Términos -->
@@ -380,6 +403,7 @@
           </label>
         </div>
 
+        <input type="hidden" name="SingleLine4" value="Marketing Digital">
         <button type="submit" class="elup-form-submit">SEPARAR MI LUGAR →</button>
       </form>
     </div>
@@ -435,15 +459,21 @@
           </div>
         </div>
         <div class="elup-event-actions">
-          <a href="https://esic.co/wp-content/uploads/2026/03/Brochure-2026-Level-Up-Marketing.pdf" target="_blank" class="elup-btn elup-btn-ghost">VER BROCHURE</a>
-          <button class="elup-btn elup-btn-teal elup-open-modal">INSCRIBIRME</button>
+          <a href="https://esic.co/level-up-estrategia-marketing-digital/" class="elup-btn elup-btn-teal">VER CURSO COMPLETO</a>
+          <a href="https://esic.co/wp-content/uploads/2026/03/Brochure-2026-Level-Up-Marketing.pdf" target="_blank" class="elup-btn elup-btn-ghost">BROCHURE</a>
         </div>
       </div>
 
       <!-- Columna derecha: imagen + stats -->
       <div class="elup-combined-right">
         <p class="elup-stats-desc">Marketing AI, growth y estrategia digital con expertos internacionales.</p>
-        <img src="https://esic.co/wp-content/uploads/2026/03/imagen-level-up-marketing.png" alt="Level Up Marketing" class="elup-combined-img">
+        <a href="https://esic.co/level-up-estrategia-marketing-digital/" style="display:block;">
+          <picture>
+            <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/level-up-marketing-landing-mobile-scaled.webp" type="image/webp">
+            <source media="(min-width: 769px)" srcset="https://esic.co/wp-content/uploads/2026/03/level-up-marketing-landing-desktop-scaled.webp" type="image/webp">
+            <img src="https://esic.co/wp-content/uploads/2026/03/level-up-marketing-landing-desktop-scaled.webp" alt="Estrategia de Marketing Digital en 8 Horas" class="elup-combined-img">
+          </picture>
+        </a>
         <div class="elup-stats-row">
           <div class="elup-stat">
             <div class="elup-stat-num">2</div>

@@ -298,50 +298,146 @@
   position: relative;
   z-index: 8;
 }
-.esic-master-db .emdb-plan-layout { display: grid; grid-template-columns: 280px 1fr; gap: 3rem; align-items: start; }
-.esic-master-db .emdb-plan-title-block h2 {
+.esic-master-db .emdb-plan-header { text-align: center; margin-bottom: 3rem; }
+.esic-master-db .emdb-plan-header h2 {
   font-family: var(--display-font);
-  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--brand-blue);
+  margin-bottom: 0.8rem;
+}
+.esic-master-db .emdb-plan-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+
+/* Module Accordion */
+.esic-master-db .emdb-modules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.esic-master-db .emdb-module-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+.esic-master-db .emdb-module-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 19, 63, 0.08);
+}
+.esic-master-db .emdb-module-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.75rem 2rem;
+  cursor: pointer;
+}
+.esic-master-db .emdb-module-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--master-teal);
+  color: #FFFFFF;
+  border-radius: 12px;
+  font-family: var(--display-font);
+  font-size: 1.3rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.esic-master-db .emdb-module-info {
+  flex: 1;
+  min-width: 0;
+}
+.esic-master-db .emdb-module-info h3 {
+  font-size: 1.25rem;
   font-weight: 800;
   text-transform: uppercase;
-  line-height: 0.9;
-  color: var(--brand-blue);
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
 }
-.esic-master-db .emdb-plan-tabs { display: flex; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
-.esic-master-db .emdb-plan-tab {
-  padding: 1rem 1.5rem;
-  background: #FFFFFF;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  font-family: var(--body-font);
-  font-size: 0.95rem;
-  font-weight: 500;
+.esic-master-db .emdb-module-info p {
+  font-size: 0.92rem;
   color: var(--text-muted);
+  line-height: 1.6;
+}
+.esic-master-db .emdb-module-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: transparent;
   cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+  margin-top: 0.25rem;
 }
-.esic-master-db .emdb-plan-tab:hover { border-color: var(--master-teal); color: var(--master-teal); }
-.esic-master-db .emdb-plan-tab.active { background: var(--master-teal); border-color: var(--master-teal); color: #FFFFFF; }
-.esic-master-db .emdb-plan-content-wrapper {
-  background: #FFFFFF;
-  border-radius: 0 0 20px 20px;
+.esic-master-db .emdb-module-toggle svg {
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+.esic-master-db .emdb-module-card.emdb-open .emdb-module-toggle {
+  background: var(--master-teal);
+  border-color: var(--master-teal);
+}
+.esic-master-db .emdb-module-card.emdb-open .emdb-module-toggle svg {
+  color: #FFFFFF;
+  transform: rotate(180deg);
+}
+
+/* Dropdown topics */
+.esic-master-db .emdb-module-dropdown {
+  max-height: 0;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,19,63,0.08);
+  transition: max-height 0.4s ease;
 }
-.esic-master-db .emdb-plan-content-header { background: var(--master-teal); height: 12px; }
-.esic-master-db .emdb-plan-content { display: none; padding: 2rem; }
-.esic-master-db .emdb-plan-content.active { display: block; }
-.esic-master-db .emdb-plan-content h4 {
-  font-family: var(--display-font);
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--master-teal);
-  margin-bottom: 1rem;
+.esic-master-db .emdb-module-card.emdb-open .emdb-module-dropdown {
+  max-height: 600px;
 }
-.esic-master-db .emdb-plan-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
-.esic-master-db .emdb-plan-actions { display: flex; gap: 1rem; margin-top: 2rem; margin-bottom: 3rem; }
+.esic-master-db .emdb-module-topics {
+  padding: 0 2rem 1.75rem 2rem;
+  margin-left: 73px;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+.esic-master-db .emdb-topic-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+.esic-master-db .emdb-topic-item:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 19, 63, 0.06);
+}
+.esic-master-db .emdb-topic-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--master-teal);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Plan Actions */
+.esic-master-db .emdb-plan-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -362,9 +458,29 @@
   .esic-master-db .emdb-benefit-text h4 { font-size: 1rem; }
   .esic-master-db .emdb-form-row { grid-template-columns: 1fr; }
 }
-@media (max-width: 480px) {
-  .esic-master-db .emdb-plan-tab { flex: 1 1 100%; }
-  .esic-master-db .emdb-plan-actions { flex-direction: column; }
+@media (max-width: 600px) {
+  .esic-master-db .emdb-module-top {
+    padding: 1.25rem 1.25rem;
+    gap: 1rem;
+  }
+  .esic-master-db .emdb-module-num {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+  }
+  .esic-master-db .emdb-module-info h3 {
+    font-size: 1.05rem;
+  }
+  .esic-master-db .emdb-module-toggle {
+    width: 34px;
+    height: 34px;
+  }
+  .esic-master-db .emdb-module-topics {
+    margin-left: 0;
+    padding: 1rem 1.25rem 1.25rem;
+  }
+  .esic-master-db .emdb-plan-actions { flex-direction: column; align-items: center; }
 }
 </style>
 
@@ -557,96 +673,156 @@
   <!-- Plan de Estudios -->
   <section class="emdb-plan-section emdb-section-cream emdb-section-rounded" id="emdb-plan-estudios">
     <div class="emdb-container">
-      <div class="emdb-plan-layout">
-        <div class="emdb-plan-title-block">
-          <h2>PLAN DE<br>ESTUDIOS</h2>
-        </div>
-        <div>
-          <div class="emdb-plan-tabs">
-            <button class="emdb-plan-tab active" data-module="1">Módulo 1</button>
-            <button class="emdb-plan-tab" data-module="2">Módulo 2</button>
-            <button class="emdb-plan-tab" data-module="3">Módulo 3</button>
-            <button class="emdb-plan-tab" data-module="4">Módulo 4</button>
-            <button class="emdb-plan-tab" data-module="5">Módulo 5</button>
-          </div>
-          <div class="emdb-plan-content-wrapper">
-            <div class="emdb-plan-content-header"></div>
-            <div class="emdb-plan-content active" data-module="1">
-              <h4>Gestión y Ecosistema Digital</h4>
-              <ul style="margin: 0; padding: 0; list-style: none;">
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>El Ecosistema Digital</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>El Cliente Digital</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Modelos de Negocio Digital I</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Modelos de Negocio Digital II</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Gestión de operaciones en entornos digitales</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Gestión del talento en la economía digital</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Gestión financiera en la economía digital</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Aspectos jurídicos en entornos digitales</li>
-              </ul>
-            </div>
-            <div class="emdb-plan-content" data-module="2">
-              <h4>Tecnologías Emergentes</h4>
-              <ul style="margin: 0; padding: 0; list-style: none;">
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>IA 1: Alfabetización, contexto y modelos</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>IA 2: Herramientas, prompting avanzado e intelligent workflows</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>IA 3: Agentes y automatización estratégica</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>IoT, automatización y sistemas conectados</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Cloud &amp; Data: arquitecturas modernas</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Experiencias inmersivas y nuevas interfaces</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Blockchain, Web3 y Ciberseguridad</li>
-              </ul>
-            </div>
-            <div class="emdb-plan-content" data-module="3">
-              <h4>Emprendimiento e Innovación</h4>
-              <ul style="margin: 0; padding: 0; list-style: none;">
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Mindset de intraemprendedores</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Fundamentos de innovación</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Generación de valor a través de la innovación</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Estrategia, propuesta de valor y Business Model Canvas</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Metodologías ágiles y prototipado</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Transformación a través de modelos de segmentación de negocio</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Crecimiento &amp; financiación</li>
-              </ul>
-            </div>
-            <div class="emdb-plan-content" data-module="4">
-              <h4>Estrategias de Marketing Digital</h4>
-              <ul style="margin: 0; padding: 0; list-style: none;">
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Diseño de un plan de marketing digital</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>SEO &amp; SEM</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Inbound marketing y branded content</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Planificación de medios y publicidad programática</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Generación &amp; cualificación de leads</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Email y marketing de afiliación</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Web y apps móviles</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Redes sociales y Marketing Analytics</li>
-              </ul>
-            </div>
-            <div class="emdb-plan-content" data-module="5">
-              <h4>Ecommerce y Omnicanalidad</h4>
-              <ul style="margin: 0; padding: 0; list-style: none;">
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Plan estratégico de ecommerce</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Merchandising digital y experiencia de compra</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Conversión y embudos de venta</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Presupuesto y objetivos financieros</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Costos, ingresos y rentabilidad</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Integración presupuestal: ecommerce &amp; negocio</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Omnicanalidad e internacionalización</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Digitalización de tiendas físicas</li>
-              </ul>
-            </div>
-          </div>
-          <div class="emdb-plan-actions">
-            <a class="emdb-btn emdb-btn-teal" href="https://esic.co/wp-content/uploads/2026/03/Brochure-Master-DB-2016-M.pdf" target="_blank">
-              BROCHURE DEL PROGRAMA
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a class="emdb-btn emdb-btn-teal-outline" href="/master">
-              EXPLORAR OTROS MÁSTERS
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
+
+      <div class="emdb-plan-header">
+        <h2>PLAN DE ESTUDIOS</h2>
+        <p>5 m&oacute;dulos dise&ntilde;ados para transformar tu visi&oacute;n estrat&eacute;gica en negocios digitales.</p>
       </div>
+
+      <div class="emdb-modules-list">
+
+        <!-- M&oacute;dulo 1 -->
+        <div class="emdb-module-card">
+          <div class="emdb-module-top">
+            <span class="emdb-module-num">01</span>
+            <div class="emdb-module-info">
+              <h3>Gesti&oacute;n y Ecosistema Digital</h3>
+              <p>Entiende c&oacute;mo funcionan los negocios en la era digital y aprende a gestionar estrat&eacute;gicamente su transformaci&oacute;n.</p>
+            </div>
+            <button class="emdb-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emdb-module-dropdown">
+            <div class="emdb-module-topics">
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>El Ecosistema Digital</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>El Cliente Digital</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Modelos de Negocio Digital I</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Modelos de Negocio Digital II</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Gesti&oacute;n de operaciones en entornos digitales</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Gesti&oacute;n del talento en la econom&iacute;a digital</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Gesti&oacute;n financiera en la econom&iacute;a digital</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Aspectos jur&iacute;dicos en entornos digitales</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M&oacute;dulo 2 -->
+        <div class="emdb-module-card">
+          <div class="emdb-module-top">
+            <span class="emdb-module-num">02</span>
+            <div class="emdb-module-info">
+              <h3>Tecnolog&iacute;as Emergentes</h3>
+              <p>Aplica tecnolog&iacute;as emergentes para impulsar la innovaci&oacute;n y generar valor real en las organizaciones.</p>
+            </div>
+            <button class="emdb-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emdb-module-dropdown">
+            <div class="emdb-module-topics">
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Contexto global de tecnolog&iacute;as emergentes</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>IA 1: Alfabetizaci&oacute;n, contexto y modelos</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>IA 2: Herramientas, prompting avanzado e intelligent workflows</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>IA 3: Agentes y automatizaci&oacute;n estrat&eacute;gica</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>IoT, automatizaci&oacute;n y sistemas conectados</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Cloud &amp; Data: arquitecturas modernas</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Experiencias inmersivas y nuevas interfaces</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Blockchain, Web3 y Ciberseguridad</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M&oacute;dulo 3 -->
+        <div class="emdb-module-card">
+          <div class="emdb-module-top">
+            <span class="emdb-module-num">03</span>
+            <div class="emdb-module-info">
+              <h3>Emprendimiento e Innovaci&oacute;n</h3>
+              <p>Desarrolla una mentalidad emprendedora e innovadora para crear o transformar negocios, dentro o fuera de una organizaci&oacute;n.</p>
+            </div>
+            <button class="emdb-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emdb-module-dropdown">
+            <div class="emdb-module-topics">
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Mindset de intraemprendedores</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Fundamentos de innovaci&oacute;n</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Generaci&oacute;n de valor a trav&eacute;s de la innovaci&oacute;n</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Estrategia, propuesta de valor y Business Model Canvas</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Metodolog&iacute;as &aacute;giles y prototipado</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Transformaci&oacute;n a trav&eacute;s de modelos de segmentaci&oacute;n de negocio</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Crecimiento &amp; financiaci&oacute;n</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M&oacute;dulo 4 -->
+        <div class="emdb-module-card">
+          <div class="emdb-module-top">
+            <span class="emdb-module-num">04</span>
+            <div class="emdb-module-info">
+              <h3>Estrategias de Marketing Digital</h3>
+              <p>Dise&ntilde;a y lidera estrategias digitales que conectan marcas, plataformas, datos y resultados.</p>
+            </div>
+            <button class="emdb-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emdb-module-dropdown">
+            <div class="emdb-module-topics">
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Dise&ntilde;o de un plan de marketing digital</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>SEO &amp; SEM</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Inbound marketing y branded content</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Planificaci&oacute;n de medios y publicidad program&aacute;tica</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Generaci&oacute;n &amp; cualificaci&oacute;n de leads</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Email y marketing de afiliaci&oacute;n</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Web y apps m&oacute;viles</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Redes sociales y Marketing Analytics</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M&oacute;dulo 5 -->
+        <div class="emdb-module-card">
+          <div class="emdb-module-top">
+            <span class="emdb-module-num">05</span>
+            <div class="emdb-module-info">
+              <h3>Ecommerce y Omnicanalidad</h3>
+              <p>Integra canales y experiencias para optimizar la rentabilidad y el crecimiento del negocio digital.</p>
+            </div>
+            <button class="emdb-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emdb-module-dropdown">
+            <div class="emdb-module-topics">
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Plan estrat&eacute;gico de ecommerce</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Merchandising digital y experiencia de compra</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Conversi&oacute;n y embudos de venta</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Presupuesto y objetivos financieros</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Costos, ingresos y rentabilidad</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Integraci&oacute;n presupuestal: ecommerce &amp; negocio</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Omnicanalidad e internacionalizaci&oacute;n</div>
+              <div class="emdb-topic-item"><span class="emdb-topic-dot"></span>Ecommerce y digitalizaci&oacute;n de tiendas f&iacute;sicas</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.emdb-modules-list -->
+
+      <div class="emdb-plan-actions">
+        <a class="emdb-btn emdb-btn-teal" href="https://esic.co/wp-content/uploads/2026/03/Brochure-Master-DB-2016-M.pdf" target="_blank">
+          BROCHURE DEL PROGRAMA
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="emdb-btn emdb-btn-teal-outline" href="/master">
+          EXPLORAR OTROS M&Aacute;STERS
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
     </div>
   </section>
 </main>
@@ -656,17 +832,15 @@
   var wrapper = document.querySelector('.esic-master-db');
   if (!wrapper) return;
 
-  // Tab switching
-  var tabs = wrapper.querySelectorAll('.emdb-plan-tab');
-  var contents = wrapper.querySelectorAll('.emdb-plan-content');
-  tabs.forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      tabs.forEach(function(t) { t.classList.remove('active'); });
-      tab.classList.add('active');
-      var mod = tab.getAttribute('data-module');
-      contents.forEach(function(c) {
-        c.classList.toggle('active', c.getAttribute('data-module') === mod);
-      });
+  // Module Accordion (Plan de Estudios)
+  var moduleCards = wrapper.querySelectorAll('.emdb-module-card');
+  moduleCards.forEach(function(card) {
+    card.querySelector('.emdb-module-top').addEventListener('click', function() {
+      var isOpen = card.classList.contains('emdb-open');
+      moduleCards.forEach(function(c) { c.classList.remove('emdb-open'); });
+      if (!isOpen) {
+        card.classList.add('emdb-open');
+      }
     });
   });
 })();

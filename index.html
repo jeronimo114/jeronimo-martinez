@@ -200,28 +200,35 @@
 
 /* Banner Carousel */
 .esic-home .eh-banner-carousel {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: var(--brand-blue-dark);
+  position: relative !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  background: #000000 !important;
   margin-top: -80px !important;
-  z-index: 1;
+  z-index: 1 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  padding-bottom: 50px !important;
 }
 .esic-home .eh-banner-track {
-  display: flex;
-  width: max-content;
-  transition: transform 0.5s ease;
-  cursor: grab;
-  user-select: none;
+  display: flex !important;
+  width: max-content !important;
+  transition: transform 0.5s ease !important;
+  cursor: grab !important;
+  user-select: none !important;
+  line-height: 0 !important;
 }
-.esic-home .eh-banner-track.eh-dragging { cursor: grabbing; transition: none; }
+.esic-home .eh-banner-track.eh-dragging { cursor: grabbing !important; transition: none !important; }
 .esic-home .eh-banner-slide {
-  width: 100vw;
-  flex: 0 0 100vw;
-  position: relative;
-  padding: 0 0 50px;
-  overflow: hidden;
+  width: 100vw !important;
+  flex: 0 0 100vw !important;
+  position: relative !important;
+  padding: 0 0 18px !important;
+  overflow: hidden !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
 }
+.esic-home .eh-banner-slide:first-child { padding-top: 80px; }
 .esic-home .eh-banner-slide::before {
   content: '';
   position: absolute;
@@ -233,25 +240,33 @@
 .esic-home .eh-banner-slide picture { display: block; width: 100%; position: relative; z-index: 1; }
 .esic-home .eh-banner-slide img { width: 100%; height: auto; border-radius: 12px; pointer-events: none; -webkit-user-drag: none; }
 .esic-home .eh-banner-indicators {
-  position: absolute;
-  bottom: 65px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  z-index: 3;
+  position: absolute !important;
+  bottom: 12px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  gap: 8px !important;
+  z-index: 99 !important;
+  line-height: normal !important;
+  font-size: initial !important;
+  background: rgba(0, 0, 0, 0.35) !important;
+  padding: 8px 14px !important;
+  border-radius: 999px !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
 }
 .esic-home .eh-banner-ind {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  transition: all 0.3s !important;
+  display: block !important;
 }
-.esic-home .eh-banner-ind.eh-active { background: #FFFFFF; width: 28px; border-radius: 4px; }
+.esic-home .eh-banner-ind.eh-active { background: #FFFFFF !important; width: 30px !important; border-radius: 5px !important; }
 
 /* Banner CTAs */
 .esic-home .eh-banner-slide-cta { position: absolute; z-index: 2; bottom: 70px; }
@@ -1453,10 +1468,10 @@
 @media (max-width: 768px) {
   .esic-home .eh-nav { padding: 0.5rem 0.5rem 0.5rem 1rem; }
   .esic-home .eh-nav-cta { display: none; }
-  .esic-home .eh-banner-slide { padding: 0 0 30px; }
+  .esic-home .eh-banner-slide { padding: 0 0 18px !important; }
   .esic-home .eh-banner-slide img { border-radius: 0; }
   .esic-home .eh-banner-slide::before { filter: blur(20px) brightness(0.7); }
-  .esic-home .eh-banner-indicators { bottom: 40px; }
+  .esic-home .eh-banner-indicators { bottom: 10px !important; }
   .esic-home .eh-section-overlap { margin-top: -30px; border-radius: 30px 30px 0 0; }
   .esic-home .eh-section-rounded { border-radius: 30px 30px 0 0; margin-top: -30px; }
   .esic-home .eh-porque-grid { grid-template-columns: 1fr; }
@@ -1532,15 +1547,17 @@
   <!-- Banner Carousel - Optimized -->
   <section class="eh-banner-carousel">
     <div class="eh-banner-track">
-      <!-- Slide 0: Infinite -->
+      <!-- Slide 0: Level Up Marketing -->
       <div class="eh-banner-slide">
-        <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/infinite-version-mobile.webp" type="image/webp">
-          <source srcset="https://esic.co/wp-content/uploads/2026/03/infinite-version-desktop.webp" type="image/webp">
-          <img src="https://esic.co/wp-content/uploads/2026/03/infinite-version-desktop.webp" alt="ESIC Infinite" width="2560" height="1168" fetchpriority="high">
-        </picture>
+        <a href="https://esic.co/level-up-estrategia-marketing-digital/" style="display:block;">
+          <picture>
+            <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/BANNER-MOBILE-2-scaled.webp" type="image/webp">
+            <source srcset="https://esic.co/wp-content/uploads/2026/03/new-level-up-BANNER-DESKTOP.webp" type="image/webp">
+            <img src="https://esic.co/wp-content/uploads/2026/03/new-level-up-BANNER-DESKTOP.webp" alt="Level Up &ndash; Estrategia de Marketing Digital" width="2560" height="1168" fetchpriority="high">
+          </picture>
+        </a>
       </div>
-      <!-- Slide 1: Pregrado -->
+      <!-- Slide 2: Pregrado -->
       <div class="eh-banner-slide">
         <picture>
           <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-mobile-07-scaled.webp" type="image/webp">
@@ -1551,7 +1568,7 @@
           <button onclick="window.location.href='/pregrado'" class="eh-banner-cta-btn eh-cta-blue">CONOCE NUESTROS PREGRADOS</button>
         </div>
       </div>
-      <!-- Slide 2: Pasantías -->
+      <!-- Slide 3: Pasantías -->
       <div class="eh-banner-slide">
         <picture>
           <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-mobile-06-scaled.webp" type="image/webp">
@@ -2382,4 +2399,5 @@
 })();
 </script>
 </div>
+
 

@@ -294,8 +294,11 @@
   position: relative;
   z-index: 8;
 }
-.esic-master-dm .emdm-plan-layout { display: grid; grid-template-columns: 280px 1fr; gap: 3rem; align-items: start; }
-.esic-master-dm .emdm-plan-title-block h2 {
+.esic-master-dm .emdm-plan-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.esic-master-dm .emdm-plan-header h2 {
   font-family: var(--display-font);
   font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: 800;
@@ -303,48 +306,156 @@
   line-height: 0.9;
   color: var(--brand-blue);
 }
-.esic-master-dm .emdm-plan-tabs { display: flex; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
-.esic-master-dm .emdm-plan-tab {
-  padding: 1rem 1.5rem;
-  background: #FFFFFF;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  font-family: var(--body-font);
-  font-size: 0.95rem;
-  font-weight: 500;
+.esic-master-dm .emdm-plan-header p {
+  font-size: 1.05rem;
   color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
+  max-width: 600px;
+  margin: 1rem auto 0;
+  line-height: 1.6;
 }
-.esic-master-dm .emdm-plan-tab:hover { border-color: var(--master-teal); color: var(--master-teal); }
-.esic-master-dm .emdm-plan-tab.active { background: var(--master-teal); border-color: var(--master-teal); color: #FFFFFF; }
-.esic-master-dm .emdm-plan-content-wrapper {
+.esic-master-dm .emdm-modules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.esic-master-dm .emdm-module-card {
   background: #FFFFFF;
-  border-radius: 0 0 20px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,19,63,0.08);
+  transition: box-shadow 0.3s ease;
 }
-.esic-master-dm .emdm-plan-content-header { background: var(--master-teal); height: 12px; }
-.esic-master-dm .emdm-plan-content { display: none; padding: 2rem; }
-.esic-master-dm .emdm-plan-content.active { display: block; }
-.esic-master-dm .emdm-plan-content h4 {
+.esic-master-dm .emdm-module-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 19, 63, 0.08);
+}
+.esic-master-dm .emdm-module-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.75rem 2rem;
+  cursor: pointer;
+}
+.esic-master-dm .emdm-module-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--master-teal);
+  color: #FFFFFF;
+  border-radius: 12px;
   font-family: var(--display-font);
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--master-teal);
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  flex-shrink: 0;
 }
-.esic-master-dm .emdm-plan-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
-.esic-master-dm .emdm-plan-actions { display: flex; gap: 1rem; margin-top: 2rem; margin-bottom: 3rem; }
+.esic-master-dm .emdm-module-info { flex: 1; min-width: 0; }
+.esic-master-dm .emdm-module-info h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
+}
+.esic-master-dm .emdm-module-info p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.esic-master-dm .emdm-module-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+  margin-top: 0.25rem;
+}
+.esic-master-dm .emdm-module-toggle svg {
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+.esic-master-dm .emdm-module-card.emdm-open .emdm-module-toggle {
+  background: var(--master-teal);
+  border-color: var(--master-teal);
+}
+.esic-master-dm .emdm-module-card.emdm-open .emdm-module-toggle svg {
+  color: #FFFFFF;
+  transform: rotate(180deg);
+}
+.esic-master-dm .emdm-module-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.esic-master-dm .emdm-module-card.emdm-open .emdm-module-dropdown {
+  max-height: 600px;
+}
+.esic-master-dm .emdm-module-topics {
+  padding: 0 2rem 1.75rem 2rem;
+  margin-left: 73px;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+.esic-master-dm .emdm-topic-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+.esic-master-dm .emdm-topic-item:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 19, 63, 0.06);
+}
+.esic-master-dm .emdm-topic-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--master-teal);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+/* TFM special card */
+.esic-master-dm .emdm-module-card-tfm {
+  background: linear-gradient(135deg, var(--brand-blue-dark) 0%, #001a5c 100%);
+  border-color: transparent;
+}
+.esic-master-dm .emdm-module-card-tfm .emdm-module-num {
+  background: rgba(255,255,255,0.15);
+}
+.esic-master-dm .emdm-module-card-tfm .emdm-module-info h3 { color: #FFFFFF; }
+.esic-master-dm .emdm-module-card-tfm .emdm-module-info p { color: rgba(255,255,255,0.75); }
+.esic-master-dm .emdm-plan-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 600px) {
+  .esic-master-dm .emdm-module-top { padding: 1.25rem; gap: 1rem; }
+  .esic-master-dm .emdm-module-num { width: 40px; height: 40px; font-size: 1.1rem; border-radius: 10px; }
+  .esic-master-dm .emdm-module-info h3 { font-size: 1.05rem; }
+  .esic-master-dm .emdm-module-toggle { width: 34px; height: 34px; }
+  .esic-master-dm .emdm-module-topics { margin-left: 0; padding: 1rem 1.25rem 1.25rem; }
+}
 
 /* Responsive */
 @media (max-width: 1024px) {
   .esic-master-dm .emdm-explora-grid,
   .esic-master-dm .emdm-testimonios-grid { grid-template-columns: 1fr; gap: 2rem; }
   .esic-master-dm .emdm-pricing-layout { grid-template-columns: 1fr; max-width: 500px; }
-  .esic-master-dm .emdm-plan-layout { grid-template-columns: 1fr; gap: 2rem; }
 }
 @media (max-width: 768px) {
   .esic-master-dm .emdm-section-overlap { margin-top: -100px; border-radius: 30px 30px 0 0; }
@@ -352,8 +463,7 @@
   .esic-master-dm .emdm-benefits-grid { gap: 1.5rem; }
 }
 @media (max-width: 480px) {
-  .esic-master-dm .emdm-plan-tab { flex: 1 1 100%; }
-  .esic-master-dm .emdm-plan-actions { flex-direction: column; }
+  .esic-master-dm .emdm-plan-actions { flex-direction: column; align-items: stretch; }
 }
 </style>
 
@@ -547,53 +657,138 @@
   <!-- Plan de Estudios -->
   <section class="emdm-plan-section emdm-section-cream emdm-section-rounded" id="emdm-plan-estudios">
     <div class="emdm-container">
-      <div class="emdm-plan-layout">
-        <div class="emdm-plan-title-block">
-          <h2>PLAN DE<br>ESTUDIOS</h2>
-        </div>
-        <div>
-          <div class="emdm-plan-tabs">
-            <button class="emdm-plan-tab active" data-module="1">Módulo 1</button>
-            <button class="emdm-plan-tab" data-module="2">Módulo 2</button>
-            <button class="emdm-plan-tab" data-module="3">Módulo 3</button>
-            <button class="emdm-plan-tab" data-module="4">Módulo 4</button>
-            <button class="emdm-plan-tab" data-module="5">Módulo 5</button>
-          </div>
-          <div class="emdm-plan-content-wrapper">
-            <div class="emdm-plan-content-header"></div>
-            <div class="emdm-plan-content active" data-module="1">
-              <h4>Estrategia en Marketing Digital</h4>
-              <p>Análisis de los principales factores que facilitan la comprensión del escenario en el que la empresa compite: la persona como sujeto que consume, la persona como objetivo del consumo, el comportamiento de compra de las organizaciones. Mercado y Competencia, Segmentación, Targeting y Posicionamiento Omnicanalidad, Brand Management.</p>
-            </div>
-            <div class="emdm-plan-content" data-module="2">
-              <h4>Web & Mobile Marketing: SEO & ASO</h4>
-              <p>La asignatura de SEO permite al estudiante entender la importancia estratégica del canal, su papel dentro de la estrategia global de marketing digital, el funcionamiento de los motores de búsqueda, los criterios principales de los algoritmos y la construcción de activos digitales optimizados tanto para las intenciones del mercado como para los principales buscadores.</p>
-            </div>
-            <div class="emdm-plan-content" data-module="3">
-              <h4>SEM y Medios Digitales</h4>
-              <p>El principal buscador a nivel mundial, Google, ofrece una herramienta muy potente que une distintos formatos y plataformas a través de la cual se puede hacer publicidad en distintas etapas del customer journey; Youtube, la GDN, Shopping, Google Play, Google Maps, los resultados de Google y sus socios entre otros, permiten alcanzar distintos objetivos de tráfico, branding y visibilidad, conversiones, entre otros.</p>
-            </div>
-            <div class="emdm-plan-content" data-module="4">
-              <h4>Social Media</h4>
-              <p>Los alumnos aprenderán a diseñar y planificar una estrategia de social media que incluya la determinación de objetivos, la selección de redes sociales, la inclusión de los diferentes activos que intervienen en la publicación de contenidos y la diferenciación entre contenidos orgánicos y de pago.</p>
-            </div>
-            <div class="emdm-plan-content" data-module="5">
-              <h4>Marketing Automation, AI & Big Data</h4>
-              <p>Descubre cómo el nuevo entorno tecnológico basado en los datos y en la inteligencia artificial permite mejorar la eficiencia de las acciones de marketing y cómo ha cambiado desde la compra y venta de medios, hasta el desarrollo de las acciones de marketing a través de la automatización de tareas y las predicciones basadas en los datos.</p>
-            </div>
-          </div>
-          <div class="emdm-plan-actions">
-            <a class="emdm-btn emdm-btn-teal" href="https://esic.co/wp-content/uploads/2026/01/Brochure-Digital-Marketing_compressed-1.pdf" target="_blank">
-              BROCHURE DEL PROGRAMA
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a class="emdm-btn emdm-btn-teal-outline" href="/master">
-              EXPLORAR OTROS MÁSTERS
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
+
+      <div class="emdm-plan-header">
+        <h2>PLAN DE ESTUDIOS</h2>
       </div>
+
+      <div class="emdm-modules-list">
+
+        <!-- M&oacute;dulo 1 -->
+        <div class="emdm-module-card">
+          <div class="emdm-module-top">
+            <span class="emdm-module-num">01</span>
+            <div class="emdm-module-info">
+              <h3>Estrategia en Marketing Digital</h3>
+            </div>
+            <button class="emdm-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emdm-module-dropdown">
+            <div class="emdm-module-topics">
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Dise&ntilde;o y creaci&oacute;n de un plan de marketing digital (I)</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Dise&ntilde;o y creaci&oacute;n de un plan de marketing digital (II &mdash; an&aacute;lisis del entorno)</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Dise&ntilde;o y creaci&oacute;n de un plan de marketing digital (III &mdash; cliente como centro y segmentaci&oacute;n del p&uacute;blico objetivo)</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Digital customer journey: los nuevos procesos de decisi&oacute;n de compra y customer centric</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Planificaci&oacute;n y gesti&oacute;n digital de la relaci&oacute;n con los clientes</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Fundamentos del an&aacute;lisis y la segmentaci&oacute;n de clientes y t&eacute;cnicas fundamentales</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>M&eacute;tricas del marketing digital</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Rentabilidad econ&oacute;mica de un plan de marketing digital</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M&oacute;dulo 2 -->
+        <div class="emdm-module-card">
+          <div class="emdm-module-top">
+            <span class="emdm-module-num">02</span>
+            <div class="emdm-module-info">
+              <h3>Web &amp; Mobile Marketing: SEO &amp; ASO</h3>
+            </div>
+            <button class="emdm-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emdm-module-dropdown">
+            <div class="emdm-module-topics">
+            </div>
+          </div>
+        </div>
+
+        <!-- M&oacute;dulo 3 -->
+        <div class="emdm-module-card">
+          <div class="emdm-module-top">
+            <span class="emdm-module-num">03</span>
+            <div class="emdm-module-info">
+              <h3>SEM y Medios Digitales</h3>
+            </div>
+            <button class="emdm-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emdm-module-dropdown">
+            <div class="emdm-module-topics">
+            </div>
+          </div>
+        </div>
+
+        <!-- M&oacute;dulo 4 -->
+        <div class="emdm-module-card">
+          <div class="emdm-module-top">
+            <span class="emdm-module-num">04</span>
+            <div class="emdm-module-info">
+              <h3>Social Media</h3>
+            </div>
+            <button class="emdm-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emdm-module-dropdown">
+            <div class="emdm-module-topics">
+            </div>
+          </div>
+        </div>
+
+        <!-- M&oacute;dulo 5 -->
+        <div class="emdm-module-card">
+          <div class="emdm-module-top">
+            <span class="emdm-module-num">05</span>
+            <div class="emdm-module-info">
+              <h3>Data Governance</h3>
+            </div>
+            <button class="emdm-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emdm-module-dropdown">
+            <div class="emdm-module-topics">
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Marketing automation: el nuevo ecosistema de medios y las implicaciones en datos</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Inbound marketing: automatizaci&oacute;n de ventas digitales en mercado B2B</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Big data aplicado al marketing</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>AI, Machine Learning y Business Intelligence</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Soluciones tecnol&oacute;gicas: Data Lakes, DevOps, e-commerce, mobile, IoT, ML</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Rob&oacute;tica: RPA</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Omnicanalidad y digitalizaci&oacute;n de puntos de venta</div>
+              <div class="emdm-topic-item"><span class="emdm-topic-dot"></span>Del modelo On Premise al Cloud Computing</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trabajo Fin de M&aacute;ster -->
+        <div class="emdm-module-card emdm-module-card-tfm">
+          <div class="emdm-module-top" style="cursor: default;">
+            <span class="emdm-module-num">TFM</span>
+            <div class="emdm-module-info">
+              <h3>Trabajo Fin de M&aacute;ster</h3>
+              <p>El trabajo es un proyecto empresarial real que supone un desaf&iacute;o en el que el estudiante, de manera transversal, debe demostrar que ha cumplido los objetivos de aprendizaje y desarrollado todas las competencias adquiridas durante el programa.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.emdm-modules-list -->
+
+      <div class="emdm-plan-actions">
+        <a class="emdm-btn emdm-btn-teal" href="https://esic.co/wp-content/uploads/2026/01/Brochure-Digital-Marketing_compressed-1.pdf" target="_blank">
+          BROCHURE DEL PROGRAMA
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="emdm-btn emdm-btn-teal-outline" href="/master">
+          EXPLORAR OTROS M&Aacute;STERS
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
     </div>
   </section>
 </main>
@@ -603,17 +798,17 @@
   var wrapper = document.querySelector('.esic-master-dm');
   if (!wrapper) return;
 
-  // Tab switching
-  var tabs = wrapper.querySelectorAll('.emdm-plan-tab');
-  var contents = wrapper.querySelectorAll('.emdm-plan-content');
-  tabs.forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      tabs.forEach(function(t) { t.classList.remove('active'); });
-      tab.classList.add('active');
-      var mod = tab.getAttribute('data-module');
-      contents.forEach(function(c) {
-        c.classList.toggle('active', c.getAttribute('data-module') === mod);
-      });
+  // Module Accordion
+  var moduleCards = wrapper.querySelectorAll('.emdm-module-card:not(.emdm-module-card-tfm)');
+  moduleCards.forEach(function(card) {
+    var toggle = card.querySelector('.emdm-module-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', function() {
+      card.classList.toggle('emdm-open');
+    });
+    card.querySelector('.emdm-module-top').addEventListener('click', function(e) {
+      if (e.target.closest('.emdm-module-toggle')) return;
+      card.classList.toggle('emdm-open');
     });
   });
 })();

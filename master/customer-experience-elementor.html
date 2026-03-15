@@ -401,66 +401,180 @@
   position: relative;
   z-index: 8;
 }
-.esic-master-cx .emcx-plan-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 3rem;
-  align-items: start;
+.esic-master-cx .emcx-plan-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
 }
-.esic-master-cx .emcx-plan-title-block h2 {
+.esic-master-cx .emcx-plan-header h2 {
   font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: 800;
   text-transform: uppercase;
   line-height: 0.9;
   color: var(--brand-blue);
 }
-.esic-master-cx .emcx-plan-main { width: 100%; }
-
-/* Module Tabs */
-.esic-master-cx .emcx-plan-tabs {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 0.8rem;
-  flex-wrap: wrap;
-}
-.esic-master-cx .emcx-plan-tab {
-  padding: 1rem 1.5rem;
-  background: #FFFFFF;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  font-family: var(--body-font);
-  font-size: 0.95rem;
-  font-weight: 500;
+.esic-master-cx .emcx-plan-header p {
+  font-size: 1.05rem;
   color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
+  max-width: 600px;
+  margin: 1rem auto 0;
+  line-height: 1.6;
 }
-.esic-master-cx .emcx-plan-tab:hover { border-color: var(--master-teal); color: var(--master-teal); }
-.esic-master-cx .emcx-plan-tab.emcx-active {
+
+/* Module Accordion */
+.esic-master-cx .emcx-modules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.esic-master-cx .emcx-module-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+.esic-master-cx .emcx-module-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 19, 63, 0.08);
+}
+.esic-master-cx .emcx-module-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.75rem 2rem;
+  cursor: pointer;
+}
+.esic-master-cx .emcx-module-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--master-teal);
+  color: #FFFFFF;
+  border-radius: 12px;
+  font-family: var(--display-font);
+  font-size: 1.3rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.esic-master-cx .emcx-module-info {
+  flex: 1;
+  min-width: 0;
+}
+.esic-master-cx .emcx-module-info h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
+}
+.esic-master-cx .emcx-module-info p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.esic-master-cx .emcx-module-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+  margin-top: 0.25rem;
+}
+.esic-master-cx .emcx-module-toggle svg {
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+.esic-master-cx .emcx-module-card.emcx-open .emcx-module-toggle {
   background: var(--master-teal);
   border-color: var(--master-teal);
+}
+.esic-master-cx .emcx-module-card.emcx-open .emcx-module-toggle svg {
   color: #FFFFFF;
+  transform: rotate(180deg);
 }
 
-/* Content Card */
-.esic-master-cx .emcx-plan-content-wrapper {
-  background: #FFFFFF;
-  border-radius: 0 0 20px 20px;
+/* Dropdown topics */
+.esic-master-cx .emcx-module-dropdown {
+  max-height: 0;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 19, 63, 0.08);
+  transition: max-height 0.4s ease;
 }
-.esic-master-cx .emcx-plan-content-header { background: var(--master-teal); height: 12px; }
-.esic-master-cx .emcx-plan-content { display: none; padding: 2rem; }
-.esic-master-cx .emcx-plan-content.emcx-active { display: block; }
+.esic-master-cx .emcx-module-card.emcx-open .emcx-module-dropdown {
+  max-height: 600px;
+}
+.esic-master-cx .emcx-module-topics {
+  padding: 0 2rem 1.75rem 2rem;
+  margin-left: 73px;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+.esic-master-cx .emcx-topic-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+.esic-master-cx .emcx-topic-item:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 19, 63, 0.06);
+}
+.esic-master-cx .emcx-topic-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--master-teal);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.esic-master-cx .emcx-topic-item:last-child {
+  color: var(--master-teal);
+  font-weight: 600;
+}
 
 /* Plan Actions */
 .esic-master-cx .emcx-plan-actions {
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin-top: 2.5rem;
+  justify-content: center;
   flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .esic-master-cx .emcx-module-top {
+    padding: 1.25rem 1.25rem;
+    gap: 1rem;
+  }
+  .esic-master-cx .emcx-module-num {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+  }
+  .esic-master-cx .emcx-module-info h3 {
+    font-size: 1.05rem;
+  }
+  .esic-master-cx .emcx-module-toggle {
+    width: 34px;
+    height: 34px;
+  }
+  .esic-master-cx .emcx-module-topics {
+    margin-left: 0;
+    padding: 1rem 1.25rem 1.25rem;
+  }
 }
 
 /* ─── Contact Modal ─── */
@@ -602,10 +716,6 @@
   .esic-master-cx .emcx-explora-grid,
   .esic-master-cx .emcx-testimonios-grid { grid-template-columns: 1fr; gap: 2rem; }
   .esic-master-cx .emcx-pricing-layout { grid-template-columns: 1fr; max-width: 500px; }
-  .esic-master-cx .emcx-plan-layout { grid-template-columns: 1fr; gap: 2rem; }
-  .esic-master-cx .emcx-plan-title-block h2 { font-size: 3rem; }
-  .esic-master-cx .emcx-plan-tabs { flex-wrap: wrap; }
-  .esic-master-cx .emcx-plan-tab { flex: 1 1 calc(50% - 0.5rem); }
 }
 
 @media (max-width: 768px) {
@@ -631,10 +741,7 @@
 }
 
 @media (max-width: 480px) {
-  .esic-master-cx .emcx-plan-tab { flex: 1 1 100%; padding: 0.8rem 1rem; font-size: 0.85rem; }
   .esic-master-cx .emcx-section-overlap { margin-top: -80px; border-radius: 24px 24px 0 0; }
-  .esic-master-cx .emcx-plan-layout { gap: 1.5rem; }
-  .esic-master-cx .emcx-plan-content { padding: 1rem; }
   .esic-master-cx .emcx-benefit-item { width: 100%; }
   .esic-master-cx .emcx-benefits-grid { gap: 1rem; }
 }
@@ -888,115 +995,157 @@
   ═══════════════════════════════════════════ -->
   <section class="emcx-section emcx-plan-section emcx-section-cream" id="emcx-plan-estudios">
     <div class="emcx-container">
-      <div class="emcx-plan-layout">
 
-        <!-- Title Block -->
-        <div class="emcx-plan-title-block emcx-reveal">
-          <h2>PLAN DE<br>ESTUDIOS</h2>
+      <div class="emcx-plan-header emcx-reveal">
+        <h2>PLAN DE ESTUDIOS</h2>
+        <p>5 m&oacute;dulos dise&ntilde;ados para transformar tu visi&oacute;n estrat&eacute;gica en experiencia del cliente.</p>
+      </div>
+
+      <div class="emcx-modules-list">
+
+        <!-- M&oacute;dulo 1 -->
+        <div class="emcx-module-card emcx-reveal">
+          <div class="emcx-module-top">
+            <span class="emcx-module-num">01</span>
+            <div class="emcx-module-info">
+              <h3>Estrategia Empresarial y Habilidades Directivas para CXM</h3>
+              <p>Fortalece tu visi&oacute;n estrat&eacute;gica y tus habilidades directivas para liderar la gesti&oacute;n de la experiencia del cliente con impacto en el negocio.</p>
+            </div>
+            <button class="emcx-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emcx-module-dropdown">
+            <div class="emcx-module-topics">
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Contexto actual: transformaci&oacute;n digital y nuevos modelos de negocio</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Estrategia empresarial orientada al cliente</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>&Eacute;tica empresarial y sostenibilidad en la gesti&oacute;n de clientes</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Finanzas aplicadas a la experiencia y el servicio</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Comunicaci&oacute;n directiva y liderazgo estrat&eacute;gico</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Pensamiento cr&iacute;tico y toma de decisiones directivas</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>El servicio como ventaja competitiva</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Sesi&oacute;n integradora: formulaci&oacute;n estrat&eacute;gica de CX &amp; Service</div>
+            </div>
+          </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="emcx-plan-main">
-
-          <!-- Module Tabs -->
-          <div class="emcx-plan-tabs emcx-reveal">
-            <button class="emcx-plan-tab emcx-active" data-module="1">Módulo 1</button>
-            <button class="emcx-plan-tab" data-module="2">Módulo 2</button>
-            <button class="emcx-plan-tab" data-module="3">Módulo 3</button>
-            <button class="emcx-plan-tab" data-module="4">Módulo 4</button>
-            <button class="emcx-plan-tab" data-module="5">Módulo 5</button>
+        <!-- M&oacute;dulo 2 -->
+        <div class="emcx-module-card emcx-reveal">
+          <div class="emcx-module-top">
+            <span class="emcx-module-num">02</span>
+            <div class="emcx-module-info">
+              <h3>Modelo Customer Centric y Fundamentos CXM</h3>
+              <p>Comprende los fundamentos del CXM y aprende a construir un modelo customer centric que transforme la cultura y la toma de decisiones en la organizaci&oacute;n.</p>
+            </div>
+            <button class="emcx-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
           </div>
-
-          <!-- Content Card -->
-          <div class="emcx-plan-content-wrapper emcx-reveal">
-            <div class="emcx-plan-content-header"></div>
-
-            <div class="emcx-plan-content emcx-active" data-module="1">
-              <h4 style="font-family: var(--display-font); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--master-teal); margin-bottom: 1rem;">Estrategia Empresarial y Habilidades Directivas</h4>
-              <ul style="margin: 0; padding: 0; list-style: none;">
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Ética empresarial y sostenibilidad en la gestión de clientes</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Transformación Digital y Nuevos Modelos de Negocio</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Estrategia empresarial orientada al cliente</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Finanzas para la dirección</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Comunicación directiva y liderazgo</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Pensamiento crítico y toma de decisiones</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>El servicio como ventaja competitiva</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Sesión integradora: formulación estratégica de CX &amp; Service</li>
-              </ul>
+          <div class="emcx-module-dropdown">
+            <div class="emcx-module-topics">
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Introducci&oacute;n al Customer Experience Management</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Investigaci&oacute;n de mercados aplicada a CX</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Conocimiento del consumidor y gesti&oacute;n de datos</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Toma de decisiones basadas en datos del cliente</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>El consumidor omnicanal</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Generaci&oacute;n e interpretaci&oacute;n de insights del cliente</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Customer centricity como pilar del CXM</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Sesi&oacute;n integradora: diagn&oacute;stico estrat&eacute;gico de CX</div>
             </div>
-
-            <div class="emcx-plan-content" data-module="2">
-              <h4 style="font-family: var(--display-font); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--master-teal); margin-bottom: 1rem;">Modelo Customer Centric y Fundamentos CXM</h4>
-              <ul style="margin: 0; padding: 0; list-style: none;">
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Introducción al Customer Experience Management</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Conocimiento del consumidor y gestión de datos</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Investigación de mercados aplicada a CX</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Toma de decisiones basadas en datos del cliente</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Generación e interpretación de insights del cliente</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>El Customer centricity como pilar del CXM</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>El consumidor omnicanal</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Sesión integradora: diagnóstico estratégico de CX</li>
-              </ul>
-            </div>
-
-            <div class="emcx-plan-content" data-module="3">
-              <h4 style="font-family: var(--display-font); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--master-teal); margin-bottom: 1rem;">Diseño y Gestión de Experiencias Omnicanales</h4>
-              <ul style="margin: 0; padding: 0; list-style: none;">
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Fundamentos del Diseño de Experiencias</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Experiencias Digitales y Omnicanales</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Metodologías Ágiles aplicadas al diseño de experiencias</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Customer Journey Mapping</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Agile CX Canvas y herramientas de diseño de experiencias</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Lean Thinking para la optimización de la experiencia</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Experiencia del cliente interno y employee experience</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Sesión integradora: diseño de una experiencia omnicanal</li>
-              </ul>
-            </div>
-
-            <div class="emcx-plan-content" data-module="4">
-              <h4 style="font-family: var(--display-font); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--master-teal); margin-bottom: 1rem;">Marketing Experiencial</h4>
-              <ul style="margin: 0; padding: 0; list-style: none;">
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Fundamentos del marketing experiencial</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Marketing experiencial y estrategias de marketing sensorial</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Activación del Customer Experience</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Diseño del customer journey y del funnel de conversión</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Métricas y KPIs en marketing experiencial</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Servicio y operación como parte de la experiencia de marca</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Omni-experience management</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Sesión integradora: plan de marketing experiencial</li>
-              </ul>
-            </div>
-
-            <div class="emcx-plan-content" data-module="5">
-              <h4 style="font-family: var(--display-font); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--master-teal); margin-bottom: 1rem;">Tecnología, IA y Gobernanza de Datos</h4>
-              <ul style="margin: 0; padding: 0; list-style: none;">
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Ecosistema Tecnológico para el CXM</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Gobernanza de datos del cliente</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Analítica avanzada aplicada a la experiencia del cliente</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Toma de decisiones basadas en datos</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Integración de datos para una experiencia del cliente unificada</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>IA aplicada al customer experience</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>IA generativa y herramientas para la mejora del CX</li>
-                <li style="color: var(--text-muted); font-size: 0.9rem; padding: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--master-teal); flex-shrink: 0;">●</span>Sesión integradora: gobierno, automatización e IA para CXM</li>
-              </ul>
-            </div>
-
-          </div><!-- /.emcx-plan-content-wrapper -->
-
-          <!-- Actions -->
-          <div class="emcx-plan-actions emcx-reveal">
-            <a class="emcx-btn emcx-btn-primary" href="https://esic.co/wp-content/uploads/2026/03/Brochure-CX-2026-M.pdf" target="_blank">
-              BROCHURE DEL PROGRAMA
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a class="emcx-btn emcx-btn-outline" href="/master">
-              EXPLORAR OTROS MÁSTERS
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
           </div>
+        </div>
 
-        </div><!-- /.emcx-plan-main -->
-      </div><!-- /.emcx-plan-layout -->
+        <!-- M&oacute;dulo 3 -->
+        <div class="emcx-module-card emcx-reveal">
+          <div class="emcx-module-top">
+            <span class="emcx-module-num">03</span>
+            <div class="emcx-module-info">
+              <h3>Dise&ntilde;o y Gesti&oacute;n de Experiencias Omnicanales</h3>
+              <p>Dise&ntilde;a y gestiona experiencias end-to-end coherentes, integrando canales, procesos y personas para mejorar resultados y fidelizaci&oacute;n.</p>
+            </div>
+            <button class="emcx-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emcx-module-dropdown">
+            <div class="emcx-module-topics">
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Fundamentos del Dise&ntilde;o de Experiencias</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Dise&ntilde;o de Experiencias Digitales y Omnicanales</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Metodolog&iacute;as &Aacute;giles aplicadas al dise&ntilde;o de experiencias</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Customer Journey Mapping</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Agile CX Canvas y herramientas de dise&ntilde;o de experiencias</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Lean Thinking para la optimizaci&oacute;n de la experiencia</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Experiencia del cliente interno y employee experience</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Sesi&oacute;n integradora: dise&ntilde;o de una experiencia omnicanal</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M&oacute;dulo 4 -->
+        <div class="emcx-module-card emcx-reveal">
+          <div class="emcx-module-top">
+            <span class="emcx-module-num">04</span>
+            <div class="emcx-module-info">
+              <h3>Marketing Experiencial</h3>
+              <p>Conecta marca, emociones y experiencia para dise&ntilde;ar estrategias de marketing experiencial que fortalezcan la relaci&oacute;n con el cliente y la diferenciaci&oacute;n.</p>
+            </div>
+            <button class="emcx-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emcx-module-dropdown">
+            <div class="emcx-module-topics">
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Fundamentos del marketing experiencial</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Marketing experiencial y Customer Experience management</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Dise&ntilde;o de estrategias de marketing sensorial</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Activaci&oacute;n del customer journey y del funnel de conversi&oacute;n</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>M&eacute;tricas y KPIs en marketing experiencial</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Omni-experience</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Servicio y operaci&oacute;n como parte de la experiencia de marca</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Sesi&oacute;n integradora: plan de marketing experiencial</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M&oacute;dulo 5 -->
+        <div class="emcx-module-card emcx-reveal">
+          <div class="emcx-module-top">
+            <span class="emcx-module-num">05</span>
+            <div class="emcx-module-info">
+              <h3>Tecnolog&iacute;a, Inteligencia Artificial y Gobernanza de Datos</h3>
+              <p>Aplica tecnolog&iacute;a, IA y datos para personalizar experiencias, optimizar decisiones y gestionar la experiencia del cliente de forma medible y escalable.</p>
+            </div>
+            <button class="emcx-module-toggle" aria-label="Ver temas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="emcx-module-dropdown">
+            <div class="emcx-module-topics">
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Ecosistema Tecnol&oacute;gico para el CXM</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Gobernanza de datos del cliente</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Anal&iacute;tica avanzada aplicada a la experiencia del cliente</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Toma de decisiones basadas en datos</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Integraci&oacute;n de datos para una experiencia del cliente unificada</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>IA aplicada al customer experience</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>IA generativa y herramientas para la mejora del CX</div>
+              <div class="emcx-topic-item"><span class="emcx-topic-dot"></span>Sesi&oacute;n integradora: gobierno, automatizaci&oacute;n e IA para CXM</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.emcx-modules-list -->
+
+      <div class="emcx-plan-actions emcx-reveal">
+        <a class="emcx-btn emcx-btn-primary" href="https://esic.co/wp-content/uploads/2026/03/Brochure-CX-2026-M.pdf" target="_blank">
+          BROCHURE DEL PROGRAMA
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="emcx-btn emcx-btn-outline" href="/master">
+          EXPLORAR OTROS M&Aacute;STERS
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
     </div><!-- /.emcx-container -->
   </section>
 
@@ -1101,18 +1250,17 @@
   var wrapper = document.querySelector('.esic-master-cx');
   if (!wrapper) return;
 
-  // ── Module Tabs (Plan de Estudios) ──────────────────────────────────────
-  var planTabs = wrapper.querySelectorAll('.emcx-plan-tab');
-  var planContents = wrapper.querySelectorAll('.emcx-plan-content');
-
-  planTabs.forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      planTabs.forEach(function(t) { t.classList.remove('emcx-active'); });
-      tab.classList.add('emcx-active');
-      var mod = tab.getAttribute('data-module');
-      planContents.forEach(function(content) {
-        content.classList.toggle('emcx-active', content.getAttribute('data-module') === mod);
-      });
+  // ── Module Accordion (Plan de Estudios) ─────────────────────────────────
+  var moduleCards = wrapper.querySelectorAll('.emcx-module-card');
+  moduleCards.forEach(function(card) {
+    var toggle = card.querySelector('.emcx-module-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', function() {
+      card.classList.toggle('emcx-open');
+    });
+    card.querySelector('.emcx-module-top').addEventListener('click', function(e) {
+      if (e.target.closest('.emcx-module-toggle')) return;
+      card.classList.toggle('emcx-open');
     });
   });
 
