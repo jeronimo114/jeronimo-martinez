@@ -244,82 +244,101 @@
     line-height: 1.6;
   }
 
-  /* ---- Timeline Slide ---- */
-  .timeline {
-    display: flex;
-    flex-direction: column;
+  /* ---- Timeline Slide (Horizontal Gantt) ---- */
+  .gantt-wrapper {
+    margin-top: 1.5rem;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .gantt {
+    display: grid;
+    grid-template-columns: 140px 1fr;
     gap: 0;
-    margin-top: 2rem;
-    position: relative;
+    min-width: 800px;
   }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 120px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: rgba(255,255,255,0.1);
+  .gantt-header {
+    display: contents;
   }
-  .tl-item {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 0.7rem 0;
-    position: relative;
+  .gantt-header .corner { grid-column: 1; }
+  .gantt-weeks {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
   }
-  .tl-dates {
-    width: 120px;
-    text-align: right;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.45);
-    flex-shrink: 0;
+  .gantt-week {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    padding: 0 0.2rem;
   }
-  .tl-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--brand-teal);
-    flex-shrink: 0;
-    z-index: 1;
-    border: 3px solid var(--brand-blue-dark);
+  .gantt-row {
+    display: contents;
   }
-  .tl-dot.orange { background: var(--brand-orange); }
-  .tl-dot.blue { background: var(--brand-blue); }
-  .tl-label {
-    font-size: 0.95rem;
+  .gantt-row-label {
+    font-size: 0.85rem;
     font-weight: 600;
-  }
-  .tl-bar {
-    height: 6px;
-    border-radius: 3px;
-    background: var(--brand-teal);
-    opacity: 0.4;
-  }
-  .tl-bar.orange { background: var(--brand-orange); }
-  .tl-bar.blue { background: var(--brand-blue); }
-  .tl-launch {
-    margin-top: 1rem;
-    padding: 1rem 1.5rem;
-    background: rgba(10,228,195,0.1);
-    border: 1px solid rgba(10,228,195,0.25);
-    border-radius: 16px;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    width: fit-content;
-    margin-left: 140px;
+    padding: 0.6rem 0.5rem 0.6rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
   }
-  .tl-launch .launch-date {
+  .gantt-row-bar-container {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    padding: 0.6rem 0;
+    position: relative;
+  }
+  .gantt-bar {
+    height: 32px;
+    border-radius: 8px;
+    background: var(--brand-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--brand-blue-dark);
+    position: relative;
+    overflow: hidden;
+  }
+  .gantt-bar.blue { background: var(--brand-blue); color: #fff; }
+  .gantt-bar.orange { background: var(--brand-orange); color: var(--brand-blue-dark); }
+  .gantt-launch-row {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background: rgba(10,228,195,0.08);
+    border: 1px solid rgba(10,228,195,0.2);
+    border-radius: 16px;
+  }
+  .gantt-launch-row .launch-label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .gantt-launch-row .launch-date {
     font-family: var(--display-font);
     font-weight: 800;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--brand-teal);
     text-transform: uppercase;
   }
-  .tl-launch .launch-label {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.5);
+
+  .progress-badge {
+    padding: 0.3rem 0.8rem;
+    background: rgba(10,228,195,0.15);
+    border: 1px solid rgba(10,228,195,0.3);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--brand-teal);
   }
 
   /* ---- Closing Slide ---- */
@@ -431,18 +450,26 @@
       <span class="page-number">01</span>
       <h2>Tour 360</h2>
     </div>
-    <div class="page-dates">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      30 Marzo - 5 Abril
+    <div style="display:flex; align-items:center; gap:1rem; margin-bottom:0.5rem;">
+      <div class="page-dates">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        30 Marzo - 5 Abril
+      </div>
+      <div class="progress-badge">60% avanzado</div>
     </div>
-    <p class="page-desc">Recorrido virtual e interactivo del campus de ESIC Medellin. Experiencia inmersiva que muestra instalaciones, aulas, zonas comunes y espacios de trabajo colaborativo.</p>
+    <p class="page-desc">Recorrido virtual e interactivo del campus de ESIC Medellin. Infraestructura desarrollada a la medida. Experiencia inmersiva que muestra instalaciones, aulas, zonas comunes y espacios de trabajo colaborativo.</p>
+    <div style="margin:1rem 0; display:flex; align-items:center; gap:1rem;">
+      <div style="flex:1; max-width:300px; height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;">
+        <div style="width:60%; height:100%; background:var(--brand-teal); border-radius:4px;"></div>
+      </div>
+      <span style="font-size:0.85rem; color:var(--brand-teal); font-weight:600;">60%</span>
+    </div>
     <div class="page-features">
       <span class="feature-tag">Experiencia inmersiva</span>
       <span class="feature-tag">Fotos / video 360</span>
       <span class="feature-tag">Navegacion interactiva</span>
-      <span class="feature-tag">Alta complejidad visual</span>
+      <span class="feature-tag">Infraestructura a la medida</span>
     </div>
-    <p style="margin-top:1.5rem; font-size:0.85rem; color:rgba(255,255,255,0.35);">Pagina mas larga en desarrollo por su componente interactivo/visual.</p>
   </div>
 
   <!-- SLIDE 4: Alianzas -->
@@ -546,71 +573,74 @@
     </div>
   </div>
 
-  <!-- SLIDE 9: Timeline -->
-  <div class="slide" data-slide="8">
-    <h2 style="font-size:clamp(2rem,4vw,3rem);">Cronograma Completo</h2>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-dates">Mar 30 - Abr 5</div>
-        <div class="tl-dot"></div>
-        <div>
-          <div class="tl-label">Tour 360</div>
-          <div class="tl-bar" style="width:120px; margin-top:4px;"></div>
+  <!-- SLIDE 9: Timeline (Horizontal Gantt) -->
+  <div class="slide" data-slide="8" style="padding:3rem 4rem;">
+    <h2 style="font-size:clamp(2rem,4vw,3rem); margin-bottom:0.5rem;">Cronograma Completo</h2>
+    <p style="color:rgba(255,255,255,0.4); font-size:0.9rem; margin-bottom:0.5rem;">9 semanas de desarrollo + lanzamiento</p>
+    <div class="gantt-wrapper">
+      <div class="gantt">
+        <!-- Header row -->
+        <div class="gantt-row-label" style="border:none; font-size:0.7rem; color:rgba(255,255,255,0.3);">PAGINA</div>
+        <div class="gantt-weeks" style="border-bottom:1px solid rgba(255,255,255,0.1);">
+          <div class="gantt-week">S1<br><span style="font-size:0.6rem;">Mar 30</span></div>
+          <div class="gantt-week">S2<br><span style="font-size:0.6rem;">Abr 6</span></div>
+          <div class="gantt-week">S3<br><span style="font-size:0.6rem;">Abr 13</span></div>
+          <div class="gantt-week">S4<br><span style="font-size:0.6rem;">Abr 20</span></div>
+          <div class="gantt-week">S5<br><span style="font-size:0.6rem;">Abr 27</span></div>
+          <div class="gantt-week">S6<br><span style="font-size:0.6rem;">May 4</span></div>
+          <div class="gantt-week">S7<br><span style="font-size:0.6rem;">May 11</span></div>
+          <div class="gantt-week">S8<br><span style="font-size:0.6rem;">May 18</span></div>
+          <div class="gantt-week">S9<br><span style="font-size:0.6rem;">May 25</span></div>
+        </div>
+
+        <!-- Tour 360 -->
+        <div class="gantt-row-label">Tour 360</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar" style="grid-column:1/2;">1 sem</div>
+        </div>
+
+        <!-- Alianzas -->
+        <div class="gantt-row-label">Alianzas</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar" style="grid-column:2/3;">1 sem</div>
+        </div>
+
+        <!-- Cronograma -->
+        <div class="gantt-row-label">Cronograma</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar" style="grid-column:3/4;">1 sem</div>
+        </div>
+
+        <!-- Equipo -->
+        <div class="gantt-row-label">Equipo</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar" style="grid-column:4/5;">1 sem</div>
+        </div>
+
+        <!-- Blog -->
+        <div class="gantt-row-label">Blog</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar" style="grid-column:5/6;">1 sem</div>
+        </div>
+
+        <!-- Revision -->
+        <div class="gantt-row-label" style="color:rgba(255,255,255,0.6);">Revision</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar blue" style="grid-column:6/7;">1 sem</div>
+        </div>
+
+        <!-- Ajustes + Lanzamiento -->
+        <div class="gantt-row-label" style="color:var(--brand-orange);">Ajustes + Lanzamiento</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar orange" style="grid-column:7/10;">15 dias</div>
         </div>
       </div>
-      <div class="tl-item">
-        <div class="tl-dates">Abr 6 - 12</div>
-        <div class="tl-dot"></div>
+
+      <div class="gantt-launch-row">
         <div>
-          <div class="tl-label">Alianzas</div>
-          <div class="tl-bar" style="width:100px; margin-top:4px;"></div>
+          <div class="launch-label">Lanzamiento estimado</div>
+          <div class="launch-date">25 de Mayo 2026</div>
         </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dates">Abr 13 - 19</div>
-        <div class="tl-dot"></div>
-        <div>
-          <div class="tl-label">Cronograma</div>
-          <div class="tl-bar" style="width:100px; margin-top:4px;"></div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dates">Abr 20 - 26</div>
-        <div class="tl-dot"></div>
-        <div>
-          <div class="tl-label">Equipo</div>
-          <div class="tl-bar" style="width:100px; margin-top:4px;"></div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dates">Abr 27 - May 3</div>
-        <div class="tl-dot"></div>
-        <div>
-          <div class="tl-label">Blog</div>
-          <div class="tl-bar" style="width:100px; margin-top:4px;"></div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dates">May 4 - 10</div>
-        <div class="tl-dot blue"></div>
-        <div>
-          <div class="tl-label" style="color:rgba(255,255,255,0.7);">Revision Completa</div>
-          <div class="tl-bar blue" style="width:100px; margin-top:4px;"></div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dates">May 11 - 25</div>
-        <div class="tl-dot orange"></div>
-        <div>
-          <div class="tl-label" style="color:var(--brand-orange);">Ajustes + Lanzamiento</div>
-          <div class="tl-bar orange" style="width:180px; margin-top:4px;"></div>
-        </div>
-      </div>
-    </div>
-    <div class="tl-launch">
-      <div>
-        <div class="launch-label">Lanzamiento estimado</div>
-        <div class="launch-date">25 de Mayo 2026</div>
       </div>
     </div>
   </div>
@@ -625,14 +655,6 @@
         </div>
         <div>
           <strong>Definir objetivos</strong> de Business Brief y ESIC Editions
-        </div>
-      </div>
-      <div class="closing-step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <div>
-          <strong>Recopilar contenido</strong> — fotos, textos y assets para Tour 360
         </div>
       </div>
       <div class="closing-step">
