@@ -577,7 +577,7 @@
     
     <!-- Formulario Zoho -->
     <div class="esic-popup-body">
-      <form action='https://forms.zohopublic.com/esicmedellin/form/Ingresatusdatos11/formperma/dPq5C9JHP3oAbujERJYMFFjsh95aHD8OrAqiB880QOI/htmlRecords/submit'
+      <form action="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit"
             name='esicZohoForm'
             method='POST'
             accept-charset='UTF-8'
@@ -592,34 +592,61 @@
         <div class="esic-form-row">
           <div class="esic-form-group">
             <label for="footer_Name_First">Nombre <span style="color:#dc2626">*</span></label>
-            <input type="text" id="footer_Name_First" name="Name_First" maxlength="255" fieldType="7" placeholder="Tu nombre" required>
+            <input type="text" id="footer_Name_First" name="Name_First" maxlength="255" placeholder="Tu nombre" required>
           </div>
           <div class="esic-form-group">
-            <label for="footer_Name_Last">Apellidos <span style="color:#dc2626">*</span></label>
-            <input type="text" id="footer_Name_Last" name="Name_Last" maxlength="255" fieldType="7" placeholder="Tu apellido" required>
+            <label for="footer_Name_Last">Apellido</label>
+            <input type="text" id="footer_Name_Last" name="Name_Last" maxlength="255" placeholder="Tu apellido">
           </div>
         </div>
 
         <!-- Email -->
         <div class="esic-form-group">
           <label for="footer_Email">Correo electrónico <span style="color:#dc2626">*</span></label>
-          <input type="email" id="footer_Email" name="Email" maxlength="255" fieldType="9" placeholder="correo@ejemplo.com" required>
+          <input type="email" id="footer_Email" name="Email" maxlength="255" placeholder="tu@email.com" required>
         </div>
 
         <!-- Teléfono -->
         <div class="esic-form-group">
-          <label for="footer_PhoneNumber">Móvil o teléfono de contacto <span style="color:#dc2626">*</span></label>
-          <input type="tel" id="footer_PhoneNumber" name="PhoneNumber_countrycode" maxlength="20" phoneFormat="1" isCountryCodeEnabled="false" fieldType="11" placeholder="300 123 4567" required>
+          <label for="footer_PhoneNumber">Teléfono <span style="color:#dc2626">*</span></label>
+          <input type="tel" id="footer_PhoneNumber" name="PhoneNumber_countrycode" maxlength="20" placeholder="300 123 4567" required>
+        </div>
+
+        <!-- Tipo de programa y Medio de contacto -->
+        <div class="esic-form-row">
+          <div class="esic-form-group">
+            <label for="footer_Dropdown">Tipo de programa <span style="color:#dc2626">*</span></label>
+            <select id="footer_Dropdown" name="Dropdown" required>
+              <option value="" disabled selected>Selecciona...</option>
+              <option value="Pregrado">Pregrado</option>
+              <option value="Corporate">Corporate</option>
+              <option value="Diplomado">Diplomado</option>
+              <option value="Curso">Curso</option>
+              <option value="Executive">Executive</option>
+              <option value="Educación continua">Educación continua</option>
+              <option value="Level Up">Level Up</option>
+              <option value="Open Day">Open Day</option>
+            </select>
+          </div>
+          <div class="esic-form-group">
+            <label for="footer_Dropdown3">Medio de contacto <span style="color:#dc2626">*</span></label>
+            <select id="footer_Dropdown3" name="Dropdown3" required>
+              <option value="" disabled selected>Selecciona...</option>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Correo">Correo</option>
+              <option value="Llamada">Llamada</option>
+            </select>
+          </div>
         </div>
 
         <!-- Términos y condiciones -->
         <div class="esic-form-checkbox">
           <input type="checkbox" name="TermsConditions" id="footer-terms" required>
-          <label for="footer-terms">Acepto solicitud de <a href="https://esic.co/politicas-de-privacidad/" target="_blank" rel="noopener noreferrer">autorización de datos personales y términos y condiciones</a>.</label>
+          <label for="footer-terms">Acepto solicitud de <a href="https://esic.co/politicas-de-privacidad/" target="_blank" rel="noopener noreferrer">autorización de datos personales y términos y condiciones</a> <span style="color:#dc2626">*</span></label>
         </div>
 
         <!-- Botón Submit -->
-        <button type="submit" class="esic-form-submit">Enviar</button>
+        <button type="submit" class="esic-form-submit">Enviar solicitud</button>
       </form>
     </div>
   </div>
