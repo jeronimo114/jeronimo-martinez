@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuevas Paginas — Roadmap ESIC</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand-blue: #0047E9;
+    --brand-blue-dark: #00133F;
+    --brand-teal: #0AE4C3;
+    --brand-orange: #FF9600;
+    --bg: #F8F6F2;
+    --display-font: "Sofia Sans Extra Condensed", sans-serif;
+    --body-font: "DM Sans", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--body-font);
+    background: var(--brand-blue-dark);
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .deck {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 8rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--display-font);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 0.95;
+  }
+
+  .slide-counter {
+    position: fixed;
+    bottom: 2rem;
+    right: 3rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.35);
+    font-family: var(--body-font);
+    z-index: 100;
+  }
+
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--brand-teal);
+    transition: width 0.4s ease;
+    z-index: 100;
+  }
+
+  /* ---- Title Slide ---- */
+  .slide-title {
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .slide-title h1 {
+    font-size: clamp(3rem, 7vw, 6rem);
+    letter-spacing: -1px;
+  }
+  .slide-title .accent {
+    color: var(--brand-teal);
+  }
+  .slide-title .subtitle {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 500px;
+  }
+  .logo-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .logo-bar .logo-text {
+    font-family: var(--display-font);
+    font-weight: 800;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .logo-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--brand-teal);
+  }
+
+  /* ---- Overview Slide ---- */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+  .overview-confirmed, .overview-discussion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .overview-label {
+    font-family: var(--display-font);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--brand-teal);
+    margin-bottom: 0.5rem;
+  }
+  .overview-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    border-left: 3px solid var(--brand-teal);
+    font-size: 0.95rem;
+  }
+  .overview-item.discussion {
+    border-left-color: var(--brand-orange);
+    opacity: 0.7;
+  }
+  .overview-item .num {
+    font-family: var(--display-font);
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: var(--brand-teal);
+    min-width: 2rem;
+  }
+  .overview-item.discussion .num {
+    color: var(--brand-orange);
+  }
+
+  /* ---- Page slides ---- */
+  .page-slide {
+    gap: 2rem;
+  }
+  .page-slide .page-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+  .page-slide .page-number {
+    font-family: var(--display-font);
+    font-weight: 800;
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--brand-teal);
+    opacity: 0.3;
+  }
+  .page-slide h2 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+  }
+  .page-slide .page-dates {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(10,228,195,0.12);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    color: var(--brand-teal);
+    font-weight: 600;
+    width: fit-content;
+  }
+  .page-slide .page-desc {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 700px;
+    line-height: 1.7;
+  }
+  .page-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+  .feature-tag {
+    padding: 0.4rem 1rem;
+    background: rgba(255,255,255,0.07);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* ---- Discussion Slide ---- */
+  .discussion-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .discussion-card {
+    padding: 2.5rem;
+    background: rgba(255,150,0,0.06);
+    border: 1px solid rgba(255,150,0,0.2);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .discussion-card h3 {
+    font-size: 2rem;
+    color: var(--brand-orange);
+  }
+  .discussion-card .question {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+  }
+  .discussion-card p {
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
+  /* ---- Timeline Slide ---- */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 2rem;
+    position: relative;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 120px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255,255,255,0.1);
+  }
+  .tl-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.7rem 0;
+    position: relative;
+  }
+  .tl-dates {
+    width: 120px;
+    text-align: right;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    flex-shrink: 0;
+  }
+  .tl-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--brand-teal);
+    flex-shrink: 0;
+    z-index: 1;
+    border: 3px solid var(--brand-blue-dark);
+  }
+  .tl-dot.orange { background: var(--brand-orange); }
+  .tl-dot.blue { background: var(--brand-blue); }
+  .tl-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .tl-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--brand-teal);
+    opacity: 0.4;
+  }
+  .tl-bar.orange { background: var(--brand-orange); }
+  .tl-bar.blue { background: var(--brand-blue); }
+  .tl-launch {
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(10,228,195,0.1);
+    border: 1px solid rgba(10,228,195,0.25);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
+    margin-left: 140px;
+  }
+  .tl-launch .launch-date {
+    font-family: var(--display-font);
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--brand-teal);
+    text-transform: uppercase;
+  }
+  .tl-launch .launch-label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ---- Closing Slide ---- */
+  .closing-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    max-width: 600px;
+  }
+  .closing-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .closing-step .step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(10,228,195,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .closing-step .step-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--brand-teal);
+  }
+
+  /* Nav arrows */
+  .nav-arrows {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.75rem;
+    z-index: 100;
+  }
+  .nav-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1.1rem;
+  }
+  .nav-btn:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.3);
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+<div class="slide-counter" id="counter"></div>
+
+<div class="deck">
+
+  <!-- SLIDE 1: Title -->
+  <div class="slide slide-title active" data-slide="0">
+    <div class="logo-bar">
+      <div class="logo-dot"></div>
+      <span class="logo-text">ESIC Medellin</span>
+    </div>
+    <h1>Nuevas Paginas<br><span class="accent">Roadmap de Rediseno</span></h1>
+    <p class="subtitle">Presentacion de concepto y cronograma para las proximas paginas del sitio web</p>
+    <p style="margin-top:1.5rem; font-size:0.9rem; color:rgba(255,255,255,0.35);">Marzo 2026</p>
+  </div>
+
+  <!-- SLIDE 2: Overview -->
+  <div class="slide" data-slide="1">
+    <h2 style="font-size:clamp(2rem,4vw,3.5rem);">Vision General</h2>
+    <p style="color:rgba(255,255,255,0.55); margin-top:0.5rem;">5 paginas confirmadas + 2 en discusion. Inicio estimado: 30 de marzo.</p>
+    <div class="overview-grid">
+      <div class="overview-confirmed">
+        <div class="overview-label">Confirmadas</div>
+        <div class="overview-item"><span class="num">01</span> Tour 360</div>
+        <div class="overview-item"><span class="num">02</span> Alianzas</div>
+        <div class="overview-item"><span class="num">03</span> Cronograma</div>
+        <div class="overview-item"><span class="num">04</span> Equipo</div>
+        <div class="overview-item"><span class="num">05</span> Blog</div>
+      </div>
+      <div class="overview-discussion">
+        <div class="overview-label" style="color:var(--brand-orange);">En Discusion</div>
+        <div class="overview-item discussion"><span class="num">?</span> Business Brief</div>
+        <div class="overview-item discussion"><span class="num">?</span> ESIC Editions</div>
+        <p style="margin-top:1rem; font-size:0.85rem; color:rgba(255,255,255,0.35); line-height:1.5;">Estas paginas necesitan definicion de objetivos antes de iniciar desarrollo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: Tour 360 -->
+  <div class="slide page-slide" data-slide="2">
+    <div class="page-header">
+      <span class="page-number">01</span>
+      <h2>Tour 360</h2>
+    </div>
+    <div class="page-dates">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      30 Marzo - 5 Abril
+    </div>
+    <p class="page-desc">Recorrido virtual e interactivo del campus de ESIC Medellin. Experiencia inmersiva que muestra instalaciones, aulas, zonas comunes y espacios de trabajo colaborativo.</p>
+    <div class="page-features">
+      <span class="feature-tag">Experiencia inmersiva</span>
+      <span class="feature-tag">Fotos / video 360</span>
+      <span class="feature-tag">Navegacion interactiva</span>
+      <span class="feature-tag">Alta complejidad visual</span>
+    </div>
+    <p style="margin-top:1.5rem; font-size:0.85rem; color:rgba(255,255,255,0.35);">Pagina mas larga en desarrollo por su componente interactivo/visual.</p>
+  </div>
+
+  <!-- SLIDE 4: Alianzas -->
+  <div class="slide page-slide" data-slide="3">
+    <div class="page-header">
+      <span class="page-number">02</span>
+      <h2>Alianzas</h2>
+    </div>
+    <div class="page-dates">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      6 - 12 Abril
+    </div>
+    <p class="page-desc">Alianzas estrategicas e institucionales. Presenta la relacion con CEIPA (Universidad aliada), ESIC Madrid, socios corporativos, acuerdos de intercambio internacional y acreditaciones.</p>
+    <div class="page-features">
+      <span class="feature-tag">CEIPA - Universidad aliada</span>
+      <span class="feature-tag">ESIC Madrid</span>
+      <span class="feature-tag">Partners corporativos</span>
+      <span class="feature-tag">Intercambios</span>
+      <span class="feature-tag">Acreditaciones</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: Cronograma -->
+  <div class="slide page-slide" data-slide="4">
+    <div class="page-header">
+      <span class="page-number">03</span>
+      <h2>Cronograma</h2>
+    </div>
+    <div class="page-dates">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      13 - 19 Abril
+    </div>
+    <p class="page-desc">Calendario academico con fechas clave: periodos de admision, matriculas, inicio de clases, eventos Level Up, cronogramas de graduacion y fechas importantes del semestre.</p>
+    <div class="page-features">
+      <span class="feature-tag">Calendario interactivo</span>
+      <span class="feature-tag">Admisiones</span>
+      <span class="feature-tag">Inicio de clases</span>
+      <span class="feature-tag">Level Up</span>
+      <span class="feature-tag">Graduaciones</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: Equipo -->
+  <div class="slide page-slide" data-slide="5">
+    <div class="page-header">
+      <span class="page-number">04</span>
+      <h2>Equipo</h2>
+    </div>
+    <div class="page-dates">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      20 - 26 Abril
+    </div>
+    <p class="page-desc">Perfiles del equipo docente y directivo. Incluye fotos profesionales, credenciales academicas, areas de especializacion y trayectoria de profesores, directores y personal clave.</p>
+    <div class="page-features">
+      <span class="feature-tag">Perfiles con foto</span>
+      <span class="feature-tag">Credenciales</span>
+      <span class="feature-tag">Areas de expertise</span>
+      <span class="feature-tag">Grid de equipo</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: Blog -->
+  <div class="slide page-slide" data-slide="6">
+    <div class="page-header">
+      <span class="page-number">05</span>
+      <h2>Blog</h2>
+    </div>
+    <div class="page-dates">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      27 Abril - 3 Mayo
+    </div>
+    <p class="page-desc">Hub de contenido para articulos, analisis y liderazgo de pensamiento. Extiende la seccion RETHINK del homepage a una pagina dedicada con categorias, busqueda y archivo.</p>
+    <div class="page-features">
+      <span class="feature-tag">Articulos</span>
+      <span class="feature-tag">Thought leadership</span>
+      <span class="feature-tag">Extension de RETHINK</span>
+      <span class="feature-tag">Categorias</span>
+      <span class="feature-tag">Busqueda</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 8: Discussion -->
+  <div class="slide" data-slide="7">
+    <h2 style="font-size:clamp(2rem,4vw,3.5rem); color:var(--brand-orange);">En Discusion</h2>
+    <p style="color:rgba(255,255,255,0.55); margin-top:0.5rem;">Estas paginas requieren definicion de objetivos antes de planificar su desarrollo.</p>
+    <div class="discussion-cards">
+      <div class="discussion-card">
+        <h3>Business Brief</h3>
+        <p>Concepto por definir. Posible espacio para resumenes ejecutivos, casos de negocio o informes de industria dirigidos a decision-makers corporativos.</p>
+        <p class="question">&iquest;Cual es el objetivo de esta pagina?</p>
+      </div>
+      <div class="discussion-card">
+        <h3>ESIC Editions</h3>
+        <p>Concepto por definir. Posible plataforma editorial para publicaciones propias, investigaciones, whitepapers o contenido exclusivo de ESIC.</p>
+        <p class="question">&iquest;Cual es el objetivo de esta pagina?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 9: Timeline -->
+  <div class="slide" data-slide="8">
+    <h2 style="font-size:clamp(2rem,4vw,3rem);">Cronograma Completo</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dates">Mar 30 - Abr 5</div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-label">Tour 360</div>
+          <div class="tl-bar" style="width:120px; margin-top:4px;"></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Abr 6 - 12</div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-label">Alianzas</div>
+          <div class="tl-bar" style="width:100px; margin-top:4px;"></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Abr 13 - 19</div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-label">Cronograma</div>
+          <div class="tl-bar" style="width:100px; margin-top:4px;"></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Abr 20 - 26</div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-label">Equipo</div>
+          <div class="tl-bar" style="width:100px; margin-top:4px;"></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Abr 27 - May 3</div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-label">Blog</div>
+          <div class="tl-bar" style="width:100px; margin-top:4px;"></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">May 4 - 10</div>
+        <div class="tl-dot blue"></div>
+        <div>
+          <div class="tl-label" style="color:rgba(255,255,255,0.7);">Revision Completa</div>
+          <div class="tl-bar blue" style="width:100px; margin-top:4px;"></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">May 11 - 25</div>
+        <div class="tl-dot orange"></div>
+        <div>
+          <div class="tl-label" style="color:var(--brand-orange);">Ajustes + Lanzamiento</div>
+          <div class="tl-bar orange" style="width:180px; margin-top:4px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-launch">
+      <div>
+        <div class="launch-label">Lanzamiento estimado</div>
+        <div class="launch-date">25 de Mayo 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 10: Next Steps -->
+  <div class="slide" data-slide="9">
+    <h2 style="font-size:clamp(2rem,4vw,3.5rem);">Proximos Pasos</h2>
+    <div class="closing-steps">
+      <div class="closing-step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <div>
+          <strong>Definir objetivos</strong> de Business Brief y ESIC Editions
+        </div>
+      </div>
+      <div class="closing-step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div>
+          <strong>Recopilar contenido</strong> — fotos, textos y assets para Tour 360
+        </div>
+      </div>
+      <div class="closing-step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <strong>Inicio de desarrollo:</strong> 30 de marzo 2026
+        </div>
+      </div>
+      <div class="closing-step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <strong>Meta de lanzamiento:</strong> 25 de mayo 2026
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:3rem; color:rgba(255,255,255,0.35); font-size:0.9rem;">ESIC Business & Marketing School Medellin &mdash; 2026</p>
+  </div>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav-arrows">
+  <button class="nav-btn" onclick="navigate(-1)" aria-label="Anterior">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="nav-btn" onclick="navigate(1)" aria-label="Siguiente">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+</div>
+
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+
+  function show(index) {
+    if (index < 0 || index >= total) return;
+    slides[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    document.getElementById('counter').textContent = (current + 1) + ' / ' + total;
+    document.getElementById('progress').style.width = ((current + 1) / total * 100) + '%';
+  }
+
+  window.navigate = function(dir) {
+    show(current + dir);
+  };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      e.preventDefault();
+      navigate(1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      navigate(-1);
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      show(0);
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      show(total - 1);
+    }
+  });
+
+  // Initialize
+  show(0);
+})();
+</script>
+
+</body>
+</html>
