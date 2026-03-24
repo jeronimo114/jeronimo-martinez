@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuevas Páginas — Roadmap ESIC</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand-blue: #0047E9;
+    --brand-blue-dark: #00133F;
+    --brand-teal: #0AE4C3;
+    --brand-orange: #FF9600;
+    --bg: #F8F6F2;
+    --display-font: "Sofia Sans Extra Condensed", sans-serif;
+    --body-font: "DM Sans", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--body-font);
+    background: var(--bg);
+    color: var(--brand-blue-dark);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--display-font);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 0.85;
+  }
+
+  /* ---- Slide System ---- */
+  .deck { width: 100vw; height: 100vh; position: relative; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 4rem 6rem;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.45s ease;
+  }
+
+  .slide.active { opacity: 1; pointer-events: auto; }
+
+  .progress-bar {
+    position: fixed; top: 0; left: 0;
+    height: 5px; background: var(--brand-blue);
+    transition: width 0.4s ease; z-index: 100;
+  }
+
+  .slide-counter {
+    position: fixed; bottom: 2rem; right: 3rem;
+    font-size: 0.8rem; font-weight: 600;
+    color: rgba(0,19,63,0.25); z-index: 100;
+  }
+
+  /* ---- Accent ---- */
+  .accent { color: var(--brand-blue); }
+
+  /* ---- Title Slide ---- */
+  .slide-title {
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-bottom: 6rem;
+    gap: 1rem;
+  }
+
+  .slide-title h1 {
+    font-size: clamp(5rem, 12vw, 11rem);
+    letter-spacing: -3px;
+    line-height: 0.82;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: rgba(0,19,63,0.45);
+    max-width: 400px;
+    line-height: 1.5;
+  }
+
+  .logo-tag {
+    position: absolute; top: 3rem; left: 6rem;
+    font-family: var(--display-font);
+    font-weight: 800; font-size: 1rem;
+    text-transform: uppercase; letter-spacing: 3px;
+    color: rgba(0,19,63,0.3);
+  }
+
+  .title-accent-block {
+    position: absolute; top: 0; right: 0;
+    width: 35vw; height: 100vh;
+    background: var(--brand-blue); z-index: -1;
+  }
+
+  .title-accent-block::after {
+    content: "→";
+    position: absolute; bottom: 4rem; right: 4rem;
+    font-family: var(--display-font); font-weight: 800;
+    font-size: 20rem; color: rgba(255,255,255,0.07);
+    line-height: 0.8;
+  }
+
+  /* ---- Section Divider ---- */
+  .slide-section { align-items: flex-start; gap: 1rem; }
+
+  .slide-section h2 {
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.82; letter-spacing: -2px;
+  }
+
+  .section-badge {
+    padding: 0.4rem 1rem; border-radius: 999px;
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 3px;
+  }
+
+  .section-bg-num {
+    position: absolute; right: -2rem; bottom: -4rem;
+    font-family: var(--display-font); font-weight: 800;
+    font-size: 28rem; line-height: 0.8; pointer-events: none;
+    color: rgba(0,19,63,0.04);
+  }
+
+  /* ---- Page Slide ---- */
+  .page-slide { gap: 1.5rem; }
+
+  .page-slide h2 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing: -1px;
+  }
+
+  .page-desc {
+    font-size: 1rem;
+    color: rgba(0,19,63,0.5);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  .page-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+
+  .page-number {
+    font-family: var(--display-font);
+    font-weight: 800;
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--brand-blue);
+    opacity: 0.15;
+  }
+
+  .page-dates {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(0,71,233,0.06);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    color: var(--brand-blue);
+    font-weight: 600;
+    width: fit-content;
+  }
+
+  .progress-badge {
+    padding: 0.3rem 0.8rem;
+    background: rgba(10,228,195,0.12);
+    border: 1px solid rgba(10,228,195,0.25);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #09a87a;
+  }
+
+  .page-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .feature-tag {
+    padding: 0.4rem 1rem;
+    background: #fff;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: rgba(0,19,63,0.5);
+    border: 1px solid rgba(0,19,63,0.08);
+    box-shadow: 0 1px 3px rgba(0,19,63,0.04);
+  }
+
+  /* ---- Split Layout ---- */
+  .slide-split { flex-direction: row; padding: 0; gap: 0; }
+
+  .split-left {
+    flex: 1;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 4rem 4rem 4rem 6rem; gap: 1.5rem;
+  }
+
+  .split-right {
+    width: 38%;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+
+  .split-right .big-letter {
+    font-family: var(--display-font); font-weight: 800;
+    font-size: 22rem; line-height: 0.75; opacity: 0.08;
+  }
+
+  .split-right-blue { background: var(--brand-blue); }
+  .split-right-blue .big-letter { color: #fff; opacity: 0.12; }
+
+  .split-right-teal { background: var(--brand-teal); }
+  .split-right-teal .big-letter { color: var(--brand-blue-dark); opacity: 0.12; }
+
+  .split-right-dark { background: var(--brand-blue-dark); }
+  .split-right-dark .big-letter { color: #fff; opacity: 0.06; }
+
+  /* ---- Dark Slide Variant ---- */
+  .slide-dark { background: var(--brand-blue-dark); color: #fff; }
+  .slide-dark h2 { color: #fff; }
+  .slide-dark .page-desc { color: rgba(255,255,255,0.5); }
+  .slide-dark .page-number { color: var(--brand-teal); opacity: 0.3; }
+  .slide-dark .page-dates { background: rgba(10,228,195,0.12); color: var(--brand-teal); }
+  .slide-dark .feature-tag {
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.6);
+    border-color: rgba(255,255,255,0.1);
+    box-shadow: none;
+  }
+
+  /* ---- Blue Slide Variant ---- */
+  .slide-blue { background: var(--brand-blue); color: #fff; }
+  .slide-blue h2 { color: #fff; }
+
+  /* ---- Overview Grid ---- */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .overview-label {
+    font-family: var(--display-font);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--brand-blue);
+    margin-bottom: 0.5rem;
+  }
+
+  .overview-confirmed, .overview-discussion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .overview-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: #fff;
+    border-radius: 14px;
+    border-left: 3px solid var(--brand-blue);
+    font-size: 0.95rem;
+    box-shadow: 0 1px 3px rgba(0,19,63,0.06);
+  }
+
+  .overview-item .num {
+    font-family: var(--display-font);
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: var(--brand-blue);
+    min-width: 2rem;
+  }
+
+  .overview-item.discussion {
+    border-left-color: var(--brand-orange);
+    opacity: 0.7;
+  }
+
+  .overview-item.discussion .num {
+    color: var(--brand-orange);
+  }
+
+  /* ---- Discussion Cards ---- */
+  .discussion-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .discussion-card {
+    padding: 2.5rem;
+    background: #fff;
+    border: 1px solid rgba(255,150,0,0.2);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 1px 3px rgba(0,19,63,0.06);
+  }
+
+  .discussion-card h3 {
+    font-size: 2rem;
+    color: var(--brand-orange);
+  }
+
+  .discussion-card .question {
+    font-size: 1.1rem;
+    color: rgba(0,19,63,0.4);
+    font-style: italic;
+  }
+
+  .discussion-card p {
+    color: rgba(0,19,63,0.55);
+    line-height: 1.6;
+  }
+
+  /* ---- Gantt Timeline ---- */
+  .gantt-wrapper {
+    margin-top: 1.5rem;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .gantt {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0;
+    min-width: 800px;
+  }
+
+  .gantt-weeks {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    border-bottom: 1px solid rgba(0,19,63,0.08);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .gantt-week {
+    font-size: 0.7rem;
+    color: rgba(0,19,63,0.35);
+    text-align: center;
+    padding: 0 0.2rem;
+  }
+
+  .gantt-row-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 0.5rem 0.6rem 0;
+    border-bottom: 1px solid rgba(0,19,63,0.04);
+  }
+
+  .gantt-row-bar-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    align-items: center;
+    border-bottom: 1px solid rgba(0,19,63,0.04);
+    padding: 0.6rem 0;
+    position: relative;
+  }
+
+  .gantt-bar {
+    height: 32px;
+    border-radius: 8px;
+    background: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gantt-bar.teal { background: var(--brand-teal); color: var(--brand-blue-dark); }
+  .gantt-bar.orange { background: var(--brand-orange); color: var(--brand-blue-dark); }
+
+  .gantt-launch-row {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background: rgba(0,71,233,0.04);
+    border: 1px solid rgba(0,71,233,0.12);
+    border-radius: 16px;
+  }
+
+  .gantt-launch-row .launch-label {
+    font-size: 0.85rem;
+    color: rgba(0,19,63,0.45);
+  }
+
+  .gantt-launch-row .launch-date {
+    font-family: var(--display-font);
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--brand-blue);
+    text-transform: uppercase;
+  }
+
+  /* ---- Closing Steps ---- */
+  .closing-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    max-width: 600px;
+  }
+
+  .closing-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid rgba(0,19,63,0.06);
+    box-shadow: 0 1px 3px rgba(0,19,63,0.06);
+  }
+
+  .closing-step .step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(0,71,233,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .closing-step .step-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--brand-blue);
+  }
+
+  /* ---- Closing Slide ---- */
+  .slide-closing { align-items: flex-start; gap: 1.5rem; }
+
+  .slide-closing h2 {
+    font-size: clamp(5rem, 12vw, 11rem);
+    letter-spacing: -3px; line-height: 0.82;
+  }
+
+  .closing-sub {
+    font-size: 1.05rem;
+    color: rgba(0,19,63,0.4);
+    max-width: 450px; line-height: 1.6;
+  }
+
+  .closing-accent-block {
+    position: absolute; bottom: 0; right: 0;
+    width: 40vw; height: 35vh;
+    background: var(--brand-teal);
+    z-index: -1; border-radius: 40px 0 0 0;
+  }
+
+  /* ---- Navigation ---- */
+  .nav-arrows {
+    position: fixed; bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 0.5rem; z-index: 100;
+  }
+
+  .nav-btn {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid rgba(0,19,63,0.12);
+    background: #fff; color: var(--brand-blue-dark);
+    cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,19,63,0.08);
+  }
+
+  .nav-btn:hover {
+    background: var(--brand-blue);
+    color: #fff;
+    border-color: var(--brand-blue);
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<div class="slide-counter" id="slideCounter"></div>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1: Title -->
+  <div class="slide slide-title active">
+    <div class="logo-tag">ESIC Medellín</div>
+    <h1>Nuevas<br>Páginas<br><span class="accent">Roadmap</span></h1>
+    <p class="subtitle">Presentación de concepto y cronograma para las próximas páginas del sitio web</p>
+    <p style="font-size:0.85rem; color:rgba(0,19,63,0.3); margin-top:0.5rem;">Marzo 2026</p>
+    <div class="title-accent-block"></div>
+  </div>
+
+  <!-- SLIDE 2: Section Divider — Visión General -->
+  <div class="slide slide-section">
+    <div class="section-badge" style="background:rgba(0,71,233,0.08); color:var(--brand-blue);">Panorama</div>
+    <h2>Visión<br>General</h2>
+    <p style="color:rgba(0,19,63,0.45); max-width:500px; line-height:1.6; font-size:1rem;">7 entregables confirmados. Inicio: 30 de marzo. Revisión: 4 de mayo. Lanzamiento: 25 de mayo.</p>
+    <div class="section-bg-num">7</div>
+  </div>
+
+  <!-- SLIDE 3: Overview Grid -->
+  <div class="slide page-slide">
+    <h2>Entregables Planificados</h2>
+    <div class="overview-grid">
+      <div class="overview-confirmed">
+        <div class="overview-label">Confirmados</div>
+        <div class="overview-item"><span class="num">01</span> Tour 360</div>
+        <div class="overview-item"><span class="num">02</span> Alianzas</div>
+        <div class="overview-item"><span class="num">03</span> Calendario de Admisiones</div>
+        <div class="overview-item"><span class="num">04</span> Equipo</div>
+        <div class="overview-item"><span class="num">05</span> Blog</div>
+        <div class="overview-item"><span class="num">06</span> ADN Emprendedor</div>
+        <div class="overview-item"><span class="num">07</span> Metodología de Retos</div>
+      </div>
+      <div class="overview-discussion">
+        <div class="overview-label" style="color:rgba(0,19,63,0.3);">Fase 3</div>
+        <div class="overview-item discussion"><span class="num" style="color:rgba(0,19,63,0.3);">→</span> ESIC Editions</div>
+        <p style="margin-top:1rem; font-size:0.85rem; color:rgba(0,19,63,0.35); line-height:1.5;">E-commerce de merch ESIC. Requiere definición de modelo de negocio. Estimado: mayo-junio 2026.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: Tour 360 (Split Layout) -->
+  <div class="slide slide-split">
+    <div class="split-left">
+      <div class="page-header">
+        <span class="page-number">01</span>
+        <h2>Tour 360</h2>
+      </div>
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <div class="page-dates">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          30 Marzo - 5 Abril
+        </div>
+        <div class="progress-badge">60% avanzado</div>
+      </div>
+      <p class="page-desc">Recorrido virtual e interactivo del campus de ESIC Medellín. Infraestructura desarrollada a la medida. Experiencia inmersiva que muestra instalaciones, aulas, zonas comunes y espacios de trabajo colaborativo.</p>
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <div style="flex:1; max-width:300px; height:8px; background:rgba(0,19,63,0.06); border-radius:4px; overflow:hidden;">
+          <div style="width:60%; height:100%; background:var(--brand-blue); border-radius:4px;"></div>
+        </div>
+        <span style="font-size:0.85rem; color:var(--brand-blue); font-weight:600;">60%</span>
+      </div>
+      <div class="page-features">
+        <span class="feature-tag">Experiencia inmersiva</span>
+        <span class="feature-tag">Fotos / video 360</span>
+        <span class="feature-tag">Navegación interactiva</span>
+        <span class="feature-tag">Infraestructura a la medida</span>
+      </div>
+    </div>
+    <div class="split-right split-right-blue">
+      <span class="big-letter">360</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: Alianzas (Split Layout) -->
+  <div class="slide slide-split">
+    <div class="split-left">
+      <div class="page-header">
+        <span class="page-number">02</span>
+        <h2>Alianzas</h2>
+      </div>
+      <div class="page-dates">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        6 - 12 Abril
+      </div>
+      <p class="page-desc">Alianzas estratégicas e institucionales. Partners actuales con condiciones y beneficios para la comunidad. Incluye formulario para que estudiantes y externos propongan nuevas alianzas.</p>
+      <div class="page-features">
+        <span class="feature-tag">CEIPA - Universidad aliada</span>
+        <span class="feature-tag">ESIC Madrid</span>
+        <span class="feature-tag">Action Black</span>
+        <span class="feature-tag">Arena</span>
+        <span class="feature-tag">Comercios aliados</span>
+        <span class="feature-tag">Restaurantes</span>
+        <span class="feature-tag">Formulario "Colabora con nosotros"</span>
+      </div>
+    </div>
+    <div class="split-right split-right-teal">
+      <span class="big-letter">A</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: Calendario de Admisiones -->
+  <div class="slide page-slide">
+    <div class="page-header">
+      <span class="page-number">03</span>
+      <h2>Calendario de<br>Admisiones</h2>
+    </div>
+    <div class="page-dates">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      13 - 19 Abril
+    </div>
+    <p class="page-desc">Sección integrada en las páginas generales de pregrado y máster (y en el detalle de cada programa). Calendario de admisiones orientado a prospectos: fases de admisión, cierre de inscripciones, inicio de clases y fechas clave del corte.</p>
+    <div class="page-features">
+      <span class="feature-tag">Sección en pregrado + máster</span>
+      <span class="feature-tag">Admisiones</span>
+      <span class="feature-tag">Inicio de clases</span>
+      <span class="feature-tag">Diseño replicable por programa</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: Equipo (Split Layout) -->
+  <div class="slide slide-split">
+    <div class="split-left">
+      <div class="page-header">
+        <span class="page-number">04</span>
+        <h2>Equipo</h2>
+      </div>
+      <div class="page-dates">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        20 - 26 Abril
+      </div>
+      <p class="page-desc">Perfiles del equipo docente y directivo. Incluye fotos profesionales, credenciales académicas, áreas de especialización y trayectoria de profesores, directores y personal clave.</p>
+      <div class="page-features">
+        <span class="feature-tag">Perfiles con foto</span>
+        <span class="feature-tag">Credenciales</span>
+        <span class="feature-tag">Áreas de expertise</span>
+        <span class="feature-tag">Grid de equipo</span>
+      </div>
+    </div>
+    <div class="split-right split-right-dark">
+      <span class="big-letter">E</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 8: Blog -->
+  <div class="slide page-slide">
+    <div class="page-header">
+      <span class="page-number">05</span>
+      <h2>Blog</h2>
+    </div>
+    <div class="page-dates">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      27 Abril - 3 Mayo
+    </div>
+    <p class="page-desc">Rediseño de la interfaz del blog con sistema de categorías y filtros. Los artículos se pueden filtrar por tema (tecnología, futuro, educación, etc.) para mejorar la navegabilidad. Corrección de UX actual: fechas de publicación y visibilidad de todos los artículos.</p>
+    <div class="page-features">
+      <span class="feature-tag">Categorías por tema</span>
+      <span class="feature-tag">Filtros de contenido</span>
+      <span class="feature-tag">Fechas corregidas</span>
+      <span class="feature-tag">Todos los artículos visibles</span>
+      <span class="feature-tag">Extensión de RETHINK</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 9: ADN Emprendedor (Split Layout) -->
+  <div class="slide slide-split">
+    <div class="split-left">
+      <div class="page-header">
+        <span class="page-number">06</span>
+        <h2>ADN<br>Emprendedor</h2>
+      </div>
+      <div class="page-dates">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        13 - 19 Abril
+      </div>
+      <p class="page-desc">Muro de emprendimientos de la comunidad ESIC. Networking virtual donde cada estudiante postula su emprendimiento con logo, redes sociales, WhatsApp y descripción. Filtros por categoría del emprendimiento (ropa, belleza, tecnología, servicios, etc.).</p>
+      <div class="page-features">
+        <span class="feature-tag">Muro de emprendimientos</span>
+        <span class="feature-tag">Filtros por categoría</span>
+        <span class="feature-tag">Perfil con logo y redes</span>
+        <span class="feature-tag">Pregrado + Máster</span>
+        <span class="feature-tag">Networking virtual</span>
+      </div>
+    </div>
+    <div class="split-right split-right-blue">
+      <span class="big-letter">ADN</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 10: Metodología de Retos -->
+  <div class="slide slide-split">
+    <div class="split-left">
+      <div class="page-header">
+        <span class="page-number">07</span>
+        <h2>Metodología<br>de Retos</h2>
+      </div>
+      <div class="page-dates">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        20 - 26 Abril
+      </div>
+      <p class="page-desc">Evidenciar la metodología de retos con empresas reales. Cada reto documenta: la empresa, el problema planteado, el grupo destacado y su solución. Filtrable por pregrado/máster y por marca. Tangibiliza lo que tanto se dice con resultados concretos.</p>
+      <div class="page-features">
+        <span class="feature-tag">Retos con empresas reales</span>
+        <span class="feature-tag">Empresa + problema + solución</span>
+        <span class="feature-tag">Grupo destacado</span>
+        <span class="feature-tag">Pregrado + Máster</span>
+        <span class="feature-tag">Logo de empresa</span>
+      </div>
+    </div>
+    <div class="split-right split-right-teal">
+      <span class="big-letter">R</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 11: Fase 3 (Dark variant) -->
+  <div class="slide slide-dark page-slide" style="gap:1.5rem;">
+    <div class="section-badge" style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.5);">Fase 3 — Mayo / Junio 2026</div>
+    <h2 style="font-size:clamp(3rem,7vw,5rem); color:#fff;">ESIC<br><span style="color:var(--brand-teal);">Editions</span></h2>
+    <p class="page-desc" style="max-width:500px;">Tienda online de merch ESIC. Requiere definición de modelo de negocio, inventario, costos y logística antes de iniciar desarrollo. No es prioritario para esta fase.</p>
+    <div class="page-features" style="margin-top:0.5rem;">
+      <span class="feature-tag">E-commerce</span>
+      <span class="feature-tag">Merch ESIC</span>
+      <span class="feature-tag">Modelo de negocio pendiente</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 10: Timeline (Horizontal Gantt) -->
+  <div class="slide" style="padding:3rem 4rem;">
+    <h2 style="font-size:clamp(2.5rem, 6vw, 4rem); letter-spacing:-1px; margin-bottom:0.5rem;">Cronograma Completo</h2>
+    <p style="color:rgba(0,19,63,0.4); font-size:0.9rem; margin-bottom:0.5rem;">8 semanas de desarrollo + lanzamiento</p>
+
+    <div class="gantt-wrapper">
+      <div class="gantt">
+        <!-- Header row -->
+        <div class="gantt-row-label" style="border:none; font-size:0.7rem; color:rgba(0,19,63,0.3);">PÁGINA</div>
+        <div class="gantt-weeks" style="border-bottom:1px solid rgba(0,19,63,0.1);">
+          <div class="gantt-week">S1<br><span style="font-size:0.6rem;">Mar 30</span></div>
+          <div class="gantt-week">S2<br><span style="font-size:0.6rem;">Abr 6</span></div>
+          <div class="gantt-week">S3<br><span style="font-size:0.6rem;">Abr 13</span></div>
+          <div class="gantt-week">S4<br><span style="font-size:0.6rem;">Abr 20</span></div>
+          <div class="gantt-week">S5<br><span style="font-size:0.6rem;">Abr 27</span></div>
+          <div class="gantt-week">S6<br><span style="font-size:0.6rem;">May 4</span></div>
+          <div class="gantt-week">S7<br><span style="font-size:0.6rem;">May 11</span></div>
+          <div class="gantt-week">S8<br><span style="font-size:0.6rem;">May 18</span></div>
+        </div>
+
+        <!-- Tour 360 -->
+        <div class="gantt-row-label">Tour 360</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar" style="grid-column:1/2;">1 sem</div>
+        </div>
+
+        <!-- Alianzas -->
+        <div class="gantt-row-label">Alianzas</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar" style="grid-column:2/3;">1 sem</div>
+        </div>
+
+        <!-- Calendario Admisiones -->
+        <div class="gantt-row-label">Cal. Admisiones</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar" style="grid-column:3/4;">1 sem</div>
+        </div>
+
+        <!-- ADN Emprendedor -->
+        <div class="gantt-row-label">ADN Emprendedor</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar" style="grid-column:3/4;">1 sem</div>
+        </div>
+
+        <!-- Equipo -->
+        <div class="gantt-row-label">Equipo</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar" style="grid-column:4/5;">1 sem</div>
+        </div>
+
+        <!-- Metodología de Retos -->
+        <div class="gantt-row-label">Met. de Retos</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar" style="grid-column:4/5;">1 sem</div>
+        </div>
+
+        <!-- Blog -->
+        <div class="gantt-row-label">Blog</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar" style="grid-column:5/6;">1 sem</div>
+        </div>
+
+        <!-- Revision -->
+        <div class="gantt-row-label" style="color:rgba(0,19,63,0.5);">Revisión</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar teal" style="grid-column:6/7;">1 sem</div>
+        </div>
+
+        <!-- Ajustes + Lanzamiento -->
+        <div class="gantt-row-label" style="color:var(--brand-orange);">Ajustes + Lanzamiento</div>
+        <div class="gantt-row-bar-container">
+          <div class="gantt-bar orange" style="grid-column:7/9;">2 sem</div>
+        </div>
+      </div>
+
+      <div class="gantt-launch-row">
+        <div>
+          <div class="launch-label">Lanzamiento estimado</div>
+          <div class="launch-date">25 de Mayo 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 11: Closing -->
+  <div class="slide slide-closing">
+    <h2>Próximos<br><span class="accent">Pasos</span></h2>
+    <div class="closing-steps">
+      <div class="closing-step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div>
+          <strong>Dani pasa info de alianzas</strong> y levantamiento de retos con profesores
+        </div>
+      </div>
+      <div class="closing-step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <strong>Inicio de desarrollo:</strong> 30 de marzo 2026
+        </div>
+      </div>
+      <div class="closing-step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div>
+          <strong>Revisión en esic.co:</strong> semana del 4 de mayo
+        </div>
+      </div>
+      <div class="closing-step">
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <strong>Lanzamiento:</strong> 25 de mayo 2026
+        </div>
+      </div>
+    </div>
+    <p class="closing-sub" style="margin-top:2rem;">ESIC Business &amp; Marketing School Medellín &mdash; 2026</p>
+    <div class="closing-accent-block"></div>
+  </div>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav-arrows">
+  <button class="nav-btn" onclick="navigate(-1)" aria-label="Anterior">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 9H3m4-4L3 9l4 4"/>
+    </svg>
+  </button>
+  <button class="nav-btn" onclick="navigate(1)" aria-label="Siguiente">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9h12M11 5l4 4-4 4"/>
+    </svg>
+  </button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const counter = document.getElementById('slideCounter');
+const bar = document.getElementById('progressBar');
+let current = 0;
+
+function show(idx) {
+  if (idx < 0 || idx >= slides.length) return;
+  slides[current].classList.remove('active');
+  current = idx;
+  slides[current].classList.add('active');
+  counter.textContent = `${current + 1} / ${slides.length}`;
+  bar.style.width = `${((current + 1) / slides.length) * 100}%`;
+}
+
+function navigate(dir) { show(current + dir); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); navigate(1); }
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); navigate(-1); }
+  if (e.key === 'Home') { e.preventDefault(); show(0); }
+  if (e.key === 'End') { e.preventDefault(); show(slides.length - 1); }
+});
+
+show(0);
+</script>
+
+</body>
+</html>

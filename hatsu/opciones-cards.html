@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opciones de Cards – ESIC × Hatsu</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "DM Sans", sans-serif; background: #111; }
+
+.df { --display: "Sofia Sans Extra Condensed", sans-serif; }
+.section-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+  padding: 3rem 3rem 1.25rem;
+}
+.section-label.dark-label { color: rgba(0,0,0,0.35); }
+
+/* ─ SEPARATORS ─ */
+.sep { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 0; }
+.sep-cream { border-color: rgba(0,0,0,0.08); }
+
+/* ══════════════════════════════════════
+   SET A — STATS (aparecen en sección cream / agenda)
+   Datos: 5h · 50% · 2 · 1
+══════════════════════════════════════ */
+
+/* OPCIÓN A1 — Fila horizontal, separada por líneas, sin fondo */
+.cream-bg { background: #F8F6F2; padding: 2.5rem 3rem; }
+.dark-bg   { background: #0A0A0A; padding: 2.5rem 3rem; }
+
+.stats-a1 {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border: 1.5px solid rgba(0,71,233,0.18); border-radius: 16px;
+  overflow: hidden;
+}
+.stats-a1 .s-item {
+  padding: 1.5rem 1.75rem;
+  border-right: 1.5px solid rgba(0,71,233,0.12);
+}
+.stats-a1 .s-item:last-child { border-right: none; }
+.stats-a1 .s-num {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: 3.5rem; font-weight: 800; line-height: 1;
+  color: #0047E9;
+}
+.stats-a1 .s-lbl {
+  font-size: 0.78rem; color: rgba(10,10,10,0.5); margin-top: 0.3rem; font-weight: 500;
+}
+
+/* OPCIÓN A2 — Sin caja, tipografía masiva con línea divisora */
+.stats-a2 {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  border-top: 2px solid rgba(0,71,233,0.15);
+  padding-top: 1.75rem;
+}
+.stats-a2 .s-item { padding: 0 2rem 0 0; }
+.stats-a2 .s-num {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: 5rem; font-weight: 800; line-height: 0.9;
+  color: #0047E9; display: block;
+}
+.stats-a2 .s-lbl {
+  font-size: 0.75rem; color: rgba(10,10,10,0.45);
+  font-weight: 600; letter-spacing: 0.05em; margin-top: 0.5rem; display: block;
+}
+
+/* OPCIÓN A3 — Accent bar de color arriba, compacto horizontal */
+.stats-a3 {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem;
+}
+.stats-a3 .s-item {
+  padding: 1rem 1.25rem 1rem;
+  border-top: 3px solid #0047E9;
+  background: rgba(0,71,233,0.05);
+  border-radius: 0 0 10px 10px;
+}
+.stats-a3 .s-num {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: 2.8rem; font-weight: 800; line-height: 1;
+  color: #0047E9;
+}
+.stats-a3 .s-lbl {
+  font-size: 0.75rem; color: rgba(10,10,10,0.5); margin-top: 0.2rem; font-weight: 500;
+}
+
+/* ══════════════════════════════════════
+   SET B — INFO (aparecen en sección CTA / hero dark)
+   Datos: Fecha · Horario · Lugar · Premio
+══════════════════════════════════════ */
+
+/* OPCIÓN B1 — Lista rows, label + valor en fila, borde inferior */
+.info-b1 { display: flex; flex-direction: column; gap: 0; }
+.info-b1 .i-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.info-b1 .i-row:last-child { border-bottom: none; }
+.info-b1 .i-lbl {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+}
+.info-b1 .i-val {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: 1.6rem; font-weight: 800; text-transform: uppercase;
+  color: #fff; line-height: 1;
+}
+.info-b1 .i-val.pink { color: #FF4D9A; }
+.info-b1 .i-val.sky  { color: #4BB8E8; }
+
+/* OPCIÓN B2 — Fila horizontal, separadores verticales, sin fondo */
+.info-b2 {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 14px;
+  overflow: hidden;
+}
+.info-b2 .i-item {
+  padding: 1.25rem 1.5rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.info-b2 .i-item:last-child { border-right: none; }
+.info-b2 .i-lbl {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 0.4rem;
+}
+.info-b2 .i-val {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: 1.7rem; font-weight: 800; text-transform: uppercase;
+  color: #fff; line-height: 1;
+}
+.info-b2 .i-val.pink { color: #FF4D9A; }
+.info-b2 .i-val.sky  { color: #4BB8E8; }
+
+/* OPCIÓN B3 — Texto puro, stacked 2 columnas, label teal pequeño */
+.info-b3 {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem;
+}
+.info-b3 .i-block {}
+.info-b3 .i-lbl {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: #0AE4C3; margin-bottom: 0.2rem; display: block;
+}
+.info-b3 .i-val {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: 2.2rem; font-weight: 800; text-transform: uppercase;
+  color: #fff; line-height: 0.95; display: block;
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+     STATS — SET A (fondo crema)
+════════════════════════════════ -->
+
+<div class="section-label dark-label">STATS — OPCI&Oacute;N A1 &mdash; Una fila, borde compartido</div>
+<div class="cream-bg">
+  <div class="stats-a1">
+    <div class="s-item">
+      <div class="s-num">5h</div>
+      <div class="s-lbl">De challenge intensivo</div>
+    </div>
+    <div class="s-item">
+      <div class="s-num">50%</div>
+      <div class="s-lbl">De beca en juego</div>
+    </div>
+    <div class="s-item">
+      <div class="s-num">2</div>
+      <div class="s-lbl">Pregrados disponibles</div>
+    </div>
+    <div class="s-item">
+      <div class="s-num">1</div>
+      <div class="s-lbl">Equipo ganador</div>
+    </div>
+  </div>
+</div>
+
+<hr class="sep sep-cream">
+
+<div class="section-label dark-label">STATS — OPCI&Oacute;N A2 &mdash; Sin caja, solo l&iacute;nea superior y tipograf&iacute;a masiva</div>
+<div class="cream-bg">
+  <div class="stats-a2">
+    <div class="s-item">
+      <span class="s-num">5h</span>
+      <span class="s-lbl">De challenge intensivo</span>
+    </div>
+    <div class="s-item">
+      <span class="s-num">50%</span>
+      <span class="s-lbl">De beca en juego</span>
+    </div>
+    <div class="s-item">
+      <span class="s-num">2</span>
+      <span class="s-lbl">Pregrados disponibles</span>
+    </div>
+    <div class="s-item">
+      <span class="s-num">1</span>
+      <span class="s-lbl">Equipo ganador</span>
+    </div>
+  </div>
+</div>
+
+<hr class="sep sep-cream">
+
+<div class="section-label dark-label">STATS — OPCI&Oacute;N A3 &mdash; Accent bar arriba, compacto</div>
+<div class="cream-bg">
+  <div class="stats-a3">
+    <div class="s-item">
+      <div class="s-num">5h</div>
+      <div class="s-lbl">De challenge intensivo</div>
+    </div>
+    <div class="s-item">
+      <div class="s-num">50%</div>
+      <div class="s-lbl">De beca en juego</div>
+    </div>
+    <div class="s-item">
+      <div class="s-num">2</div>
+      <div class="s-lbl">Pregrados disponibles</div>
+    </div>
+    <div class="s-item">
+      <div class="s-num">1</div>
+      <div class="s-lbl">Equipo ganador</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     INFO — SET B (fondo oscuro)
+════════════════════════════════ -->
+
+<hr class="sep">
+
+<div class="section-label">INFO — OPCI&Oacute;N B1 &mdash; Lista de filas, label izq. / valor der.</div>
+<div class="dark-bg" style="max-width:420px; margin-left:3rem;">
+  <div class="info-b1">
+    <div class="i-row">
+      <span class="i-lbl">Fecha</span>
+      <span class="i-val pink">18 Oct.</span>
+    </div>
+    <div class="i-row">
+      <span class="i-lbl">Horario</span>
+      <span class="i-val sky">9am &ndash; 2pm</span>
+    </div>
+    <div class="i-row">
+      <span class="i-lbl">Lugar</span>
+      <span class="i-val">ESIC Medell&iacute;n</span>
+    </div>
+    <div class="i-row">
+      <span class="i-lbl">Premio</span>
+      <span class="i-val">Beca 50%</span>
+    </div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<div class="section-label">INFO — OPCI&Oacute;N B2 &mdash; Fila horizontal, separadores verticales</div>
+<div class="dark-bg">
+  <div class="info-b2">
+    <div class="i-item">
+      <div class="i-lbl">Fecha</div>
+      <div class="i-val pink">18 Oct.</div>
+    </div>
+    <div class="i-item">
+      <div class="i-lbl">Horario</div>
+      <div class="i-val sky">9am &ndash; 2pm</div>
+    </div>
+    <div class="i-item">
+      <div class="i-lbl">Lugar</div>
+      <div class="i-val">ESIC Medell&iacute;n</div>
+    </div>
+    <div class="i-item">
+      <div class="i-lbl">Premio</div>
+      <div class="i-val">Beca 50%</div>
+    </div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<div class="section-label">INFO — OPCI&Oacute;N B3 &mdash; Texto libre, label teal, 2 columnas</div>
+<div class="dark-bg" style="max-width:480px; margin-left:3rem;">
+  <div class="info-b3">
+    <div class="i-block">
+      <span class="i-lbl">Fecha</span>
+      <span class="i-val" style="color:#FF4D9A;">18 Octubre</span>
+    </div>
+    <div class="i-block">
+      <span class="i-lbl">Horario</span>
+      <span class="i-val">9am &ndash; 2pm</span>
+    </div>
+    <div class="i-block">
+      <span class="i-lbl">Lugar</span>
+      <span class="i-val">ESIC Medell&iacute;n</span>
+    </div>
+    <div class="i-block">
+      <span class="i-lbl">Premio</span>
+      <span class="i-val">Beca 50%</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
