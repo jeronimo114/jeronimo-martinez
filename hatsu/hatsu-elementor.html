@@ -80,7 +80,7 @@
   display: flex; align-items: center;
 }
 
-/* Text col — mitad izquierda, sobre la imagen */
+/* Text col — mitad izquierda, sobre el video */
 .esic-hatsu .hero-text-col {
   display: flex; flex-direction: column; justify-content: center;
   width: 52%;
@@ -88,7 +88,6 @@
   position: relative; z-index: 3;
   flex-shrink: 0;
 }
-
 
 .esic-hatsu .hero-h1 {
   font-size: clamp(4.5rem, 9vw, 10.5rem);
@@ -112,7 +111,7 @@
   line-height: 1.75;
 }
 
-/* Info grid — B3: texto libre, label teal, sin cajas */
+/* Info grid */
 .esic-hatsu .hero-info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -160,6 +159,94 @@
     radial-gradient(ellipse at 8% 20%, rgba(255,77,154,0.30) 0%, transparent 42%),
     radial-gradient(ellipse at 75% 85%, rgba(10,228,195,0.18) 0%, transparent 40%),
     linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 30%);
+}
+
+/* ── Video player card — sugary Hatsu style ── */
+.esic-hatsu .hero-video-card {
+  position: relative; z-index: 3;
+  width: 44%; max-width: 620px;
+  margin-right: 5%;
+  margin-left: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--hatsu-black);
+  box-shadow:
+    0 8px 40px rgba(0,0,0,0.4),
+    0 0 0 1.5px rgba(255,255,255,0.08),
+    0 0 60px rgba(255,77,154,0.12),
+    0 0 60px rgba(75,184,232,0.08);
+}
+.esic-hatsu .hero-video-card video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  cursor: pointer;
+}
+/* Sutil borde gradiente */
+.esic-hatsu .hero-video-card::before {
+  content: "";
+  position: absolute; inset: -1.5px;
+  border-radius: 21.5px; z-index: -1;
+  background: linear-gradient(135deg, var(--hatsu-pink), var(--hatsu-sky), var(--hatsu-teal));
+  opacity: 0.35;
+}
+
+/* Controls bar dentro del video card */
+.esic-hatsu .hero-video-controls {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  background: rgba(10,10,10,0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.esic-hatsu .hero-vc-btn {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--hatsu-pink), var(--hatsu-purple));
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.22s;
+  padding: 0;
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(255,77,154,0.35);
+}
+.esic-hatsu .hero-vc-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 4px 18px rgba(255,77,154,0.5);
+}
+.esic-hatsu .hero-vc-btn svg { width: 13px; height: 13px; }
+.esic-hatsu .hero-vc-btn.vc-mute,
+.esic-hatsu .hero-vc-btn.vc-full {
+  background: linear-gradient(135deg, var(--hatsu-sky), var(--hatsu-teal));
+  box-shadow: 0 2px 10px rgba(75,184,232,0.35);
+}
+.esic-hatsu .hero-vc-btn.vc-mute:hover,
+.esic-hatsu .hero-vc-btn.vc-full:hover {
+  box-shadow: 0 4px 18px rgba(75,184,232,0.5);
+}
+.esic-hatsu .hero-video-progress {
+  flex: 1; height: 4px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.esic-hatsu .hero-video-progress-bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--hatsu-pink), var(--hatsu-yellow), var(--hatsu-sky));
+  border-radius: 4px;
+  transition: width 0.15s linear;
+}
+.esic-hatsu .hero-video-time {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.5);
+  font-variant-numeric: tabular-nums;
+  min-width: 30px;
+  text-align: center;
+  font-weight: 600;
 }
 
 /* ─────────────────────────────────
@@ -561,8 +648,8 @@
 
 /* FORMULARIO */
 .esic-hatsu .cta-form-wrap {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.09);
+  background: rgba(180,30,90,0.35);
+  border: 1px solid rgba(255,50,130,0.25);
   border-radius: 24px;
   padding: 2.5rem;
 }
@@ -629,6 +716,12 @@
 /* ─────────────────────────────────
    RESPONSIVE
 ───────────────────────────────── */
+@media (min-width: 1400px) {
+  .esic-hatsu .hero-video-card { width: 48%; max-width: 720px; }
+  .esic-hatsu .hero-vc-btn { width: 36px; height: 36px; }
+  .esic-hatsu .hero-vc-btn svg { width: 15px; height: 15px; }
+}
+
 @media (max-width: 1024px) {
   .esic-hatsu .porque-grid { grid-template-columns: 1fr 1fr 1fr; }
   .esic-hatsu .porque-photos { display: none; }
@@ -650,9 +743,11 @@
 }
 
 @media (max-width: 600px) {
-  /* Hero — imagen de fondo, texto centrado */
-  .esic-hatsu .hatsu-hero { min-height: 100svh; }
-  .esic-hatsu .hero-inner { min-height: 100svh; align-items: center; }
+  /* Hero mobile */
+  .esic-hatsu .hatsu-hero { min-height: auto; }
+  .esic-hatsu .hero-inner {
+    min-height: auto; flex-direction: column; padding-bottom: 5rem;
+  }
   .esic-hatsu .hero-photo-col img { object-position: center 20%; }
   .esic-hatsu .hero-photo-col::before {
     background:
@@ -667,7 +762,7 @@
       radial-gradient(ellipse at 85% 90%, rgba(10,228,195,0.18) 0%, transparent 40%);
   }
   .esic-hatsu .hero-text-col {
-    width: 100%; padding: 6rem 5% 4rem;
+    width: 100%; padding: 6rem 5% 2rem;
     position: relative; z-index: 3;
     text-align: left;
   }
@@ -678,6 +773,14 @@
   .esic-hatsu .hero-info-box .hib-value { font-size: 1.35rem; }
   .esic-hatsu .hero-actions { flex-direction: column; gap: 0.65rem; }
   .esic-hatsu .hero-actions .h-btn { width: 100%; justify-content: center; font-size: 0.88rem; }
+  .esic-hatsu .hero-video-card {
+    width: 90%; max-width: none; margin: 0 auto;
+    border-radius: 14px;
+  }
+  .esic-hatsu .hero-video-card::before { border-radius: 15.5px; }
+  .esic-hatsu .hero-vc-btn { width: 28px; height: 28px; }
+  .esic-hatsu .hero-vc-btn svg { width: 11px; height: 11px; }
+  .esic-hatsu .hero-video-controls { padding: 0.4rem 0.6rem; }
 
   /* Resto de secciones */
   .esic-hatsu .hatsu-beca,
@@ -735,7 +838,7 @@
       </div>
 
       <div class="hero-actions">
-        <a href="#inscripcion" class="h-btn h-btn-pink">Inscribe tu equipo &rarr;</a>
+        <a href="#inscripcion" class="h-btn h-btn-pink">Inscr&iacute;bete &rarr;</a>
         <a href="#el-reto" class="h-btn h-btn-ghost">Ver el reto</a>
       </div>
     </div>
@@ -744,8 +847,83 @@
       <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-hero-grupo-scaled.webp" alt="Estudiantes Desaf&iacute;o ESIC &times; Hatsu" loading="eager">
     </div>
 
+    <div class="hero-video-card">
+      <video id="hatsuHeroVideo" src="https://esic.co/wp-content/uploads/2026/03/DJE-HATSU-VIDEO-CAMPANA.mp4" autoplay muted loop playsinline preload="auto"></video>
+      <div class="hero-video-controls">
+        <button class="hero-vc-btn" id="hatsuPlayBtn" aria-label="Pausar video">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="6" y1="4" x2="6" y2="20"></line><line x1="18" y1="4" x2="18" y2="20"></line>
+          </svg>
+        </button>
+        <div class="hero-video-progress" id="hatsuProgressBar">
+          <div class="hero-video-progress-bar" id="hatsuProgressFill"></div>
+        </div>
+        <span class="hero-video-time" id="hatsuTimeDisplay">0:00</span>
+        <button class="hero-vc-btn vc-mute" id="hatsuMuteBtn" aria-label="Activar sonido">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+        <button class="hero-vc-btn vc-full" id="hatsuFullBtn" aria-label="Pantalla completa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<script>
+(function(){
+  var v = document.getElementById('hatsuHeroVideo');
+  var playBtn = document.getElementById('hatsuPlayBtn');
+  var muteBtn = document.getElementById('hatsuMuteBtn');
+  var progBar = document.getElementById('hatsuProgressBar');
+  var progFill = document.getElementById('hatsuProgressFill');
+  var timeDisp = document.getElementById('hatsuTimeDisplay');
+
+  var pauseIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="4" x2="6" y2="20"></line><line x1="18" y1="4" x2="18" y2="20"></line></svg>';
+  var playIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
+  var mutedIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
+  var unmutedIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+
+  function fmt(s){ var m=Math.floor(s/60); var sec=Math.floor(s%60); return m+':'+(sec<10?'0':'')+sec; }
+
+  playBtn.addEventListener('click', function(){
+    if(v.paused){ v.play(); playBtn.innerHTML=pauseIcon; }
+    else { v.pause(); playBtn.innerHTML=playIcon; }
+  });
+
+  muteBtn.addEventListener('click', function(){
+    v.muted=!v.muted;
+    muteBtn.innerHTML = v.muted ? mutedIcon : unmutedIcon;
+  });
+
+  v.addEventListener('timeupdate', function(){
+    if(v.duration){
+      progFill.style.width = (v.currentTime/v.duration*100)+'%';
+      timeDisp.textContent = fmt(v.currentTime);
+    }
+  });
+
+  progBar.addEventListener('click', function(e){
+    var rect = progBar.getBoundingClientRect();
+    var pct = (e.clientX - rect.left) / rect.width;
+    v.currentTime = pct * v.duration;
+  });
+
+  var fullBtn = document.getElementById('hatsuFullBtn');
+  fullBtn.addEventListener('click', function(){
+    if(v.requestFullscreen) v.requestFullscreen();
+    else if(v.webkitRequestFullscreen) v.webkitRequestFullscreen();
+    else if(v.webkitEnterFullScreen) v.webkitEnterFullScreen();
+  });
+})();
+</script>
 
 <!-- ══════════════════════════════
      SECTION 2 — BECA
@@ -975,7 +1153,7 @@
         <h2 class="cta-headline">Tu idea<br>podr&iacute;a<br>abrirte<br>la <em>puerta.</em></h2>
 
         <p class="cta-sub">
-          Forma tu equipo, acepta el reto y compite por una beca que puede cambiar
+          Acepta el reto y compite por una beca que puede cambiar
           el rumbo de tu carrera. Las inscripciones son gratuitas.
         </p>
 
@@ -1005,7 +1183,7 @@
 
       <!-- FORMULARIO -->
       <div class="cta-form-wrap">
-        <div class="cta-form-title">Inscribe tu equipo</div>
+        <div class="cta-form-title">Inscr&iacute;bete</div>
         <div class="cta-form-sub">Completa el formulario y nos pondremos en contacto con m&aacute;s detalles.</div>
 
         <form class="h-form"
@@ -1105,7 +1283,7 @@
           </div>
 
 
-          <button type="submit" class="h-submit">Inscribir mi equipo &rarr;</button>
+          <button type="submit" class="h-submit">Inscribirme &rarr;</button>
 
         </form>
       </div>
