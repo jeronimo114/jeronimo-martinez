@@ -1256,12 +1256,14 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
 .esic-home .eh-rethink-header h2 { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; text-transform: uppercase; line-height: 0.9; color: #FFFFFF; }
 .esic-home .eh-rethink-header p { font-size: 1.15rem; color: rgba(255,255,255,0.8); margin-top: 1rem; font-weight: 400; }
 .esic-home .eh-rethink-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-.esic-home .eh-rethink-grid.eh-single-row { grid-template-columns: repeat(4, 1fr); }
+.esic-home .eh-rethink-grid.eh-single-row { display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 0.5rem; }
+.esic-home .eh-rethink-grid.eh-single-row::-webkit-scrollbar { display: none; }
+.esic-home .eh-rethink-grid.eh-single-row > .eh-rethink-card { min-width: 300px; flex: 0 0 calc(25% - 1rem); scroll-snap-align: start; }
 @media (max-width: 1024px) {
-  .esic-home .eh-rethink-grid.eh-single-row { grid-template-columns: repeat(2, 1fr); }
+  .esic-home .eh-rethink-grid.eh-single-row > .eh-rethink-card { flex: 0 0 calc(45% - 0.75rem); }
 }
 @media (max-width: 600px) {
-  .esic-home .eh-rethink-grid.eh-single-row { grid-template-columns: 1fr; }
+  .esic-home .eh-rethink-grid.eh-single-row > .eh-rethink-card { flex: 0 0 85%; }
 }
 .esic-home .eh-rethink-card { background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: transform 0.3s ease; }
 .esic-home .eh-rethink-card:hover { transform: translateY(-5px); }
