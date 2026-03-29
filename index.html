@@ -656,9 +656,16 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
 .esic-home .eh-vida-card img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
 .esic-home .eh-vida-card-overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
   z-index: 1;
+  pointer-events: none;
 }
 .esic-home .eh-vida-card-content {
   position: absolute;
