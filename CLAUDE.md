@@ -59,8 +59,18 @@ Program-specific: Pregrado = orange, Master = teal/green, Executive = blue.
 ## Forms & Zoho Integration
 
 - Privacy/terms URL: **always** `https://esic.co/politicas-de-privacidad/` with `target="_blank"` — never `href="#"` or the old `/politica-privacidad/` URL
-- Zoho "Tipo de programa" field mapping: Masters use `Corporate` (not "Máster"), Pregrado uses `Pregrado`
 - Do NOT use `onsubmit="zf_ValidateAndSubmit()"` — use HTML5 `required` attributes instead
+
+### Formulario general del footer (`footer-global.html`)
+
+El popup del footer usa `SolicitarInformacinFormulariogeneral110226`. Campos y opciones vigentes:
+
+- `Dropdown` (Tipo de programa): `Pregrado`, `Máster`, `Programa Ejecutivo`, `Formaciones empresariales`, `Level Up`, `Open Day`
+- `Dropdown2` (Programa de interés Máster): `Máster Digital Marketing`, `Máster Digital Business`, `Máster Customer Experience Management`
+- `Dropdown4` (Programa de interés Pregrado): `Dirección de Marketing Global`, `Digital Business`
+- `Dropdown3` (Medio de contacto): `WhatsApp`, `Correo`, `Llamada`
+
+> Nota: Este formulario usa `Máster` como valor en Dropdown (no `Corporate`). El mapeo `Corporate` aplica solo a formularios específicos de páginas de master donde se indicó explícitamente.
 
 ## Deployment
 
