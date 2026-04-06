@@ -1192,7 +1192,7 @@ button.esic-prog-page__btn--primary:active {
         </a>
 
         <!-- Empresarial -->
-        <a href="#" class="esic-prog-page__category-card esic-prog-page__category-card--tailor" onclick="document.getElementById('progModal').classList.add('esic-prog-page__modal-active'); document.getElementById('zohoDropdown').value='Corporate'; return false;">
+        <a href="#" class="esic-prog-page__category-card esic-prog-page__category-card--tailor" onclick="document.getElementById('corpModal').classList.add('esic-prog-page__modal-active'); return false;">
           <div class="esic-prog-page__category-card-info">
             <h3>EMPRESARIAL</h3>
             <p class="esic-prog-page__category-card-sub">Formaciones a la medida para empresas</p>
@@ -1340,18 +1340,37 @@ button.esic-prog-page__btn--primary:active {
         
         <div class="esic-prog-page__form-group">
           <label>Tipo de programa <em>*</em></label>
-          <select name="Dropdown" id="zohoDropdown" required>
+          <select name="Dropdown" id="zohoDropdown" required onchange="esicProgToggleProgram(this.value)">
             <option disabled value="">Selecciona un programa</option>
-            <option value="Corporate">Tailor Made / Empresarial</option>
             <option value="Pregrado">Pregrado</option>
-            <option value="Diplomado">Diplomado</option>
-            <option value="Curso">Curso</option>
-            <option value="Executive">Executive</option>
+            <option value="Máster">Máster</option>
+            <option value="Programa Ejecutivo">Programa Ejecutivo</option>
+            <option value="Empresariales">Empresariales</option>
             <option value="Level Up">Level Up</option>
-            <option value="Open Day">Open Day</option>
           </select>
         </div>
-        
+
+        <!-- Programa de interés Máster (condicional) -->
+        <div class="esic-prog-page__form-group" id="prog_Dropdown2_group" style="display:none">
+          <label>Programa de interés Máster <em>*</em></label>
+          <select name="Dropdown2" id="prog_Dropdown2">
+            <option disabled value="">Selecciona un Máster</option>
+            <option value="Máster Digital Marketing">Máster en Digital Marketing</option>
+            <option value="Máster Digital Business">Máster en Digital Business</option>
+            <option value="Máster Customer Experience Management">Máster en Customer Experience Management</option>
+          </select>
+        </div>
+
+        <!-- Programa de interés Pregrado (condicional) -->
+        <div class="esic-prog-page__form-group" id="prog_Dropdown4_group" style="display:none">
+          <label>Programa de interés Pregrado <em>*</em></label>
+          <select name="Dropdown4" id="prog_Dropdown4">
+            <option disabled value="">Selecciona un programa</option>
+            <option value="Dirección de Marketing Global">Dirección de Marketing Global</option>
+            <option value="Digital Business">Digital Business</option>
+          </select>
+        </div>
+
         <div class="esic-prog-page__form-group">
           <label>Medio de contacto preferido <em>*</em></label>
           <select name="Dropdown3" required>
@@ -1375,14 +1394,129 @@ button.esic-prog-page__btn--primary:active {
   </div>
 </div>
 
+<!-- Modal Empresarial / Corporate -->
+<div class="esic-prog-page__modal-overlay" id="corpModal" onclick="if(event.target === this) this.classList.remove('esic-prog-page__modal-active');">
+  <div class="esic-prog-page__modal-container">
+    <div class="esic-prog-page__modal-header">
+      <h3>Interés Empresarial</h3>
+      <button class="esic-prog-page__modal-close" onclick="document.getElementById('corpModal').classList.remove('esic-prog-page__modal-active');" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="esic-prog-page__modal-body">
+      <form action='https://forms.zohopublic.com/esicmedellin/form/CorporateFormularioIntersEmpresarial160326/formperma/cJV9fbVAMjCs8ZKIRHUKAFpk-MU1haWdEYBb7mob9GQ/htmlRecords/submit' name='form' id='corpForm' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
+        <input type="hidden" name="zf_referrer_name" value="">
+        <input type="hidden" name="zf_redirect_url" value="https://esic.co/gracias/">
+        <input type="hidden" name="zc_gad" value="">
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_term" value="">
+        <input type="hidden" name="utm_content" value="">
+
+        <div class="esic-prog-page__form-row">
+          <div class="esic-prog-page__form-group">
+            <label>Nombre <em>*</em></label>
+            <input type="text" maxlength="255" name="Name_First" placeholder="Tu nombre" required />
+          </div>
+          <div class="esic-prog-page__form-group">
+            <label>Apellido <em>*</em></label>
+            <input type="text" maxlength="255" name="Name_Last" placeholder="Tu apellido" required />
+          </div>
+        </div>
+
+        <div class="esic-prog-page__form-group">
+          <label>Correo electrónico <em>*</em></label>
+          <input type="email" maxlength="255" name="Email" placeholder="tu@email.com" required />
+        </div>
+
+        <div class="esic-prog-page__form-group">
+          <label>Teléfono <em>*</em></label>
+          <input type="tel" name="PhoneNumber_countrycode" maxlength="20" placeholder="300 123 4567" required />
+        </div>
+
+        <div class="esic-prog-page__form-row">
+          <div class="esic-prog-page__form-group">
+            <label>Nombre de empresa</label>
+            <input type="text" maxlength="255" name="SingleLine8" placeholder="Tu empresa" />
+          </div>
+          <div class="esic-prog-page__form-group">
+            <label>Ciudad</label>
+            <input type="text" maxlength="255" name="SingleLine9" placeholder="Tu ciudad" />
+          </div>
+        </div>
+
+        <div class="esic-prog-page__form-group">
+          <label>Medio de contacto preferido <em>*</em></label>
+          <select name="Dropdown3" required>
+            <option selected disabled value="">Selecciona un medio</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Correo">Correo</option>
+            <option value="Llamada">Llamada</option>
+          </select>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:16px;">
+          <input type="checkbox" name="TermsConditions" id="termsCorpModal" required style="margin-top:2px;flex-shrink:0;width:16px;height:16px;cursor:pointer;">
+          <span style="font-size:13px;color:#333;line-height:1.4;">
+            He leído y acepto la <a href="https://esic.co/politicas-de-privacidad/" target="_blank" style="color:#003087;text-decoration:underline;">Política de Privacidad y Tratamiento de Datos</a>
+          </span>
+        </div>
+
+        <button type="submit" id="corpSubmitBtn">Enviar solicitud</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  #corpSubmitBtn {
+    width: 100% !important;
+    background: #0047E9 !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 1rem 2rem !important;
+    border-radius: 999px !important;
+    font-family: "DM Sans", sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    cursor: pointer !important;
+    transition: background 0.25s ease !important;
+  }
+  #corpSubmitBtn:hover {
+    background: #0037B4 !important;
+    color: #fff !important;
+  }
+</style>
+
 <script>
 (function() {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       document.getElementById('progModal').classList.remove('esic-prog-page__modal-active');
+      document.getElementById('corpModal').classList.remove('esic-prog-page__modal-active');
     }
   });
 })();
+
+function esicProgToggleProgram(val) {
+  var masterGroup   = document.getElementById('prog_Dropdown2_group');
+  var masterSel     = document.getElementById('prog_Dropdown2');
+  var pregradoGroup = document.getElementById('prog_Dropdown4_group');
+  var pregradoSel   = document.getElementById('prog_Dropdown4');
+
+  var showMaster   = (val === 'Máster');
+  var showPregrado = (val === 'Pregrado');
+
+  masterGroup.style.display   = showMaster   ? '' : 'none';
+  pregradoGroup.style.display = showPregrado ? '' : 'none';
+
+  masterSel.required   = showMaster;
+  pregradoSel.required = showPregrado;
+
+  if (!showMaster)   masterSel.value   = '';
+  if (!showPregrado) pregradoSel.value = '';
+}
 </script>
 
 </div>

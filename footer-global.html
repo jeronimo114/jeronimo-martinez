@@ -615,32 +615,31 @@
         <!-- Tipo de programa -->
         <div class="esic-form-group">
           <label for="footer_Dropdown">Tipo de programa <span style="color:#dc2626">*</span></label>
-          <select id="footer_Dropdown" name="Dropdown" required>
+          <select id="footer_Dropdown" name="Dropdown" required onchange="esicFooterToggleProgram(this.value)">
             <option value="-Select-" disabled selected>-Select-</option>
             <option value="Pregrado">Pregrado</option>
             <option value="Máster">Máster</option>
             <option value="Programa Ejecutivo">Programa Ejecutivo</option>
-            <option value="Formaciones empresariales">Formaciones empresariales</option>
+            <option value="Empresariales">Empresariales</option>
             <option value="Level Up">Level Up</option>
-            <option value="Open Day">Open Day</option>
           </select>
         </div>
 
-        <!-- Programa de interés Máster -->
-        <div class="esic-form-group">
+        <!-- Programa de interés Máster (condicional) -->
+        <div class="esic-form-group" id="footer_Dropdown2_group" style="display:none">
           <label for="footer_Dropdown2">Programa de interés Máster <span style="color:#dc2626">*</span></label>
-          <select id="footer_Dropdown2" name="Dropdown2" required>
+          <select id="footer_Dropdown2" name="Dropdown2">
             <option value="-Select-" disabled selected>-Select-</option>
-            <option value="Máster Digital Marketing">Máster Digital Marketing</option>
-            <option value="Máster Digital Business">Máster Digital Business</option>
-            <option value="Máster Customer Experience Management">Máster Customer Experience Management</option>
+            <option value="Máster Digital Marketing">Máster en Digital Marketing</option>
+            <option value="Máster Digital Business">Máster en Digital Business</option>
+            <option value="Máster Customer Experience Management">Máster en Customer Experience Management</option>
           </select>
         </div>
 
-        <!-- Programa de interés Pregrado -->
-        <div class="esic-form-group">
+        <!-- Programa de interés Pregrado (condicional) -->
+        <div class="esic-form-group" id="footer_Dropdown4_group" style="display:none">
           <label for="footer_Dropdown4">Programa de interés Pregrado <span style="color:#dc2626">*</span></label>
-          <select id="footer_Dropdown4" name="Dropdown4" required>
+          <select id="footer_Dropdown4" name="Dropdown4">
             <option value="-Select-" disabled selected>-Select-</option>
             <option value="Dirección de Marketing Global">Dirección de Marketing Global</option>
             <option value="Digital Business">Digital Business</option>
@@ -674,11 +673,29 @@
 <script>
 // === POPUP FUNCIONALIDAD ===
 (function() {
-  // Cerrar popup con tecla ESC
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       document.getElementById('esic-popup-contacto').classList.remove('active');
     }
   });
 })();
+
+function esicFooterToggleProgram(val) {
+  var masterGroup  = document.getElementById('footer_Dropdown2_group');
+  var masterSel    = document.getElementById('footer_Dropdown2');
+  var pregradoGroup = document.getElementById('footer_Dropdown4_group');
+  var pregradoSel  = document.getElementById('footer_Dropdown4');
+
+  var showMaster   = (val === 'Máster');
+  var showPregrado = (val === 'Pregrado');
+
+  masterGroup.style.display   = showMaster   ? '' : 'none';
+  pregradoGroup.style.display = showPregrado ? '' : 'none';
+
+  masterSel.required   = showMaster;
+  pregradoSel.required = showPregrado;
+
+  if (!showMaster)   masterSel.value   = '-Select-';
+  if (!showPregrado) pregradoSel.value = '-Select-';
+}
 </script>
