@@ -1316,9 +1316,10 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
   -webkit-backdrop-filter: blur(8px);
   z-index: 2000;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 2rem;
+  overflow-y: auto;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -1332,8 +1333,7 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
   border-radius: 24px;
   width: 100%;
   max-width: 520px;
-  max-height: 90vh;
-  overflow-y: auto;
+  margin: auto;
   transform: translateY(20px) scale(0.95);
   transition: transform 0.3s ease;
   box-shadow: 0 25px 80px rgba(0, 19, 63, 0.3);
@@ -2106,47 +2106,66 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
       <button class="eh-modal-close" aria-label="Cerrar">&times;</button>
     </div>
     <div class="eh-modal-body">
-      <form action='https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit' name='form' id='zohoForm' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
+      <script type="text/javascript" src="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/js"></script>
+      <form action='https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit' name='form' id='zohoForm' method='POST' accept-charset='UTF-8' enctype='multipart/form-data' onsubmit="zf_ValidateAndSubmit(this, event); return false;">
         <input type="hidden" name="zf_referrer_name" value="">
         <input type="hidden" name="zf_redirect_url" value="https://esic.co/gracias/">
         <input type="hidden" name="zc_gad" value="">
-        
+
         <div class="eh-form-row">
           <div class="eh-form-group eh-form-half">
             <label>Nombre <em>*</em></label>
-            <input type="text" maxlength="255" name="Name_First" fieldType=7 placeholder="Tu nombre" required />
+            <input type="text" maxlength="255" name="Name_First" placeholder="Tu nombre" required />
           </div>
           <div class="eh-form-group eh-form-half">
             <label>Apellido</label>
-            <input type="text" maxlength="255" name="Name_Last" fieldType=7 placeholder="Tu apellido" />
+            <input type="text" maxlength="255" name="Name_Last" placeholder="Tu apellido" />
           </div>
         </div>
-        
+
         <div class="eh-form-group">
           <label>Correo electrónico <em>*</em></label>
-          <input type="email" maxlength="255" name="Email" value="" fieldType=9 placeholder="tu@email.com" required />
+          <input type="email" maxlength="255" name="Email" placeholder="tu@email.com" required />
         </div>
-        
+
         <div class="eh-form-group">
           <label>Teléfono <em>*</em></label>
-          <input type="tel" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1" isCountryCodeEnabled=false maxlength="20" value="" fieldType=11 id="international_PhoneNumber_countrycode" placeholder="300 123 4567" required />
+          <input type="tel" name="PhoneNumber_countrycode" maxlength="20" placeholder="300 123 4567" required />
         </div>
-        
+
         <div class="eh-form-group">
           <label>Tipo de programa <em>*</em></label>
-          <select name="Dropdown" required>
+          <select name="Dropdown" id="homeDropdown" required onchange="esicHomeToggleProgram(this.value)">
             <option selected disabled value="">Selecciona un programa</option>
             <option value="Pregrado">Pregrado</option>
-            <option value="Corporate">Corporate</option>
-            <option value="Diplomado">Diplomado</option>
-            <option value="Curso">Curso</option>
-            <option value="Executive">Executive</option>
-            <option value="Educación continua">Educación continua</option>
+            <option value="Máster">Máster</option>
+            <option value="Programa Ejecutivo">Programa Ejecutivo</option>
+            <option value="Empresariales">Empresariales</option>
             <option value="Level Up">Level Up</option>
-            <option value="Open Day">Open Day</option>
           </select>
         </div>
-        
+
+        <!-- Programa de interés Máster (condicional) -->
+        <div class="eh-form-group" id="home_Dropdown2_group" style="display:none">
+          <label>Programa de interés Máster <em>*</em></label>
+          <select name="Dropdown2" id="home_Dropdown2">
+            <option selected disabled value="">Selecciona un Máster</option>
+            <option value="Máster Digital Marketing">Máster en Digital Marketing</option>
+            <option value="Máster Digital Business">Máster en Digital Business</option>
+            <option value="Máster Customer Experience Management">Máster en Customer Experience Management</option>
+          </select>
+        </div>
+
+        <!-- Programa de interés Pregrado (condicional) -->
+        <div class="eh-form-group" id="home_Dropdown4_group" style="display:none">
+          <label>Programa de interés Pregrado <em>*</em></label>
+          <select name="Dropdown4" id="home_Dropdown4">
+            <option selected disabled value="">Selecciona un programa</option>
+            <option value="Dirección de Marketing Global">Dirección de Marketing Global</option>
+            <option value="Digital Business">Digital Business</option>
+          </select>
+        </div>
+
         <div class="eh-form-group">
           <label>Medio de contacto preferido <em>*</em></label>
           <select name="Dropdown3" required>
@@ -2156,7 +2175,7 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
             <option value="Llamada">Llamada</option>
           </select>
         </div>
-        
+
         <button type="submit" class="eh-btn eh-btn-primary eh-btn-full">Enviar solicitud</button>
       </form>
     </div>
@@ -2459,6 +2478,25 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
     }
   });
 })();
+
+function esicHomeToggleProgram(val) {
+  var masterGroup   = document.getElementById('home_Dropdown2_group');
+  var masterSel     = document.getElementById('home_Dropdown2');
+  var pregradoGroup = document.getElementById('home_Dropdown4_group');
+  var pregradoSel   = document.getElementById('home_Dropdown4');
+
+  var showMaster   = (val === 'Máster');
+  var showPregrado = (val === 'Pregrado');
+
+  masterGroup.style.display   = showMaster   ? '' : 'none';
+  pregradoGroup.style.display = showPregrado ? '' : 'none';
+
+  masterSel.required   = showMaster;
+  pregradoSel.required = showPregrado;
+
+  if (!showMaster)   masterSel.value   = '';
+  if (!showPregrado) pregradoSel.value = '';
+}
 
 // Lock banner CTA styles against Elementor overrides
 (function() {
