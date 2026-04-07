@@ -1815,8 +1815,7 @@
           <p>Estamos aquí para ayudarte. Cuéntanos sobre ti.</p>
         </div>
         <div class="eh-modal-body">
-          <script type="text/javascript" src="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/js"></script>
-          <form action="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit" name="form" id="form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="zf_ValidateAndSubmit(this, event); return false;">
+          <form action="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit" name="form" id="form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
             <input type="hidden" name="zf_referrer_name" value="">
             <input type="hidden" name="zf_redirect_url" value="https://esic.co/gracias/">
             <input type="hidden" name="zc_gad" value="">
@@ -1844,42 +1843,30 @@
                 <input type="tel" name="PhoneNumber_countrycodeval" maxlength="20" placeholder="300 123 4567" required>
               </div>
             </div>
-            <div class="eh-form-group full-width">
-              <label>Tipo de programa <em>*</em></label>
-              <select name="Dropdown" id="pdbDropdown" required onchange="pdbToggleProgram(this.value)">
-                <option value="" disabled selected>Selecciona...</option>
-                <option value="Pregrado">Pregrado</option>
-                <option value="Máster">Máster</option>
-                <option value="Programa Ejecutivo">Programa Ejecutivo</option>
-                <option value="Empresariales">Empresariales</option>
-                <option value="Level Up">Level Up</option>
-              </select>
-            </div>
-            <div class="eh-form-group full-width" id="pdb_Dropdown2_group" style="display:none">
-              <label>Programa de interés Máster <em>*</em></label>
-              <select name="Dropdown2" id="pdb_Dropdown2">
-                <option disabled selected value="">Selecciona un Máster</option>
-                <option value="Máster Digital Marketing">Máster en Digital Marketing</option>
-                <option value="Máster Digital Business">Máster en Digital Business</option>
-                <option value="Máster Customer Experience Management">Máster en Customer Experience Management</option>
-              </select>
-            </div>
-            <div class="eh-form-group full-width" id="pdb_Dropdown4_group" style="display:none">
-              <label>Programa de interés Pregrado <em>*</em></label>
-              <select name="Dropdown4" id="pdb_Dropdown4">
-                <option disabled selected value="">Selecciona un programa</option>
-                <option value="Dirección de Marketing Global">Dirección de Marketing Global</option>
-                <option value="Digital Business">Digital Business</option>
-              </select>
-            </div>
-            <div class="eh-form-group full-width">
-              <label>Medio de contacto <em>*</em></label>
-              <select name="Dropdown3" required>
-                <option value="" disabled selected>Selecciona...</option>
-                <option value="WhatsApp">WhatsApp</option>
-                <option value="Correo">Correo</option>
-                <option value="Llamada">Llamada</option>
-              </select>
+            <div class="eh-form-row">
+              <div class="eh-form-group">
+                <label>Tipo de programa <em>*</em></label>
+                <select name="Dropdown" required>
+                  <option value="">Selecciona...</option>
+                  <option value="Pregrado">Pregrado</option>
+                  <option value="Corporate">Corporate</option>
+                  <option value="Diplomado">Diplomado</option>
+                  <option value="Curso">Curso</option>
+                  <option value="Executive">Executive</option>
+                  <option value="Educación continua">Educación continua</option>
+                  <option value="Level Up">Level Up</option>
+                  <option value="Open Day">Open Day</option>
+                </select>
+              </div>
+              <div class="eh-form-group">
+                <label>Medio de contacto <em>*</em></label>
+                <select name="Dropdown3" required>
+                  <option value="">Selecciona...</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                  <option value="Correo">Correo</option>
+                  <option value="Llamada">Llamada</option>
+                </select>
+              </div>
             </div>
             <button type="submit" class="eh-submit-btn">Enviar</button>
           </form>
@@ -1957,16 +1944,6 @@
       }
     });
   })();
-
-  function pdbToggleProgram(val) {
-    var mg = document.getElementById('pdb_Dropdown2_group');
-    var ms = document.getElementById('pdb_Dropdown2');
-    var pg = document.getElementById('pdb_Dropdown4_group');
-    var ps = document.getElementById('pdb_Dropdown4');
-    var sm = (val === 'Máster'), sp = (val === 'Pregrado');
-    mg.style.display = sm ? '' : 'none'; ms.required = sm; if (!sm) ms.value = '';
-    pg.style.display = sp ? '' : 'none'; ps.required = sp; if (!sp) ps.value = '';
-  }
   </script>
 <script src="../nav.js"></script>
 </body>
