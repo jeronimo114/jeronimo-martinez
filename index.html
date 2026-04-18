@@ -1266,7 +1266,7 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
 .esic-home .eh-fundadores-track:hover { animation-play-state: paused; }
 @keyframes eh-marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 .esic-home .eh-fundador-logo { display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 0.75rem 2rem; width: 240px; height: 120px; }
-.esic-home .eh-fundador-logo img { width: auto; height: 46px; max-width: 180px; object-fit: contain; transition: transform 0.3s ease; }
+.esic-home .eh-fundador-logo img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.3s ease; }
 .esic-home .eh-fundador-logo:hover img { transform: scale(1.05); }
 
 /* Rethink Section */
@@ -1625,70 +1625,59 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
   <!-- Banner Carousel - Optimized -->
   <section class="eh-banner-carousel">
     <div class="eh-banner-track">
-      <!-- Slide 0: Desafío HATSU -->
-      <div class="eh-banner-slide" data-href="https://esic.co/desafio-junior-empresarial-hatsu/">
+      <!-- Slide 1: Pregrados -->
+      <div class="eh-banner-slide" data-href="https://esic.co/pregrado/">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/hatsu-banner-mobile-2-scaled.webp" type="image/webp">
-          <source srcset="https://esic.co/wp-content/uploads/2026/03/hatsu-banner-desktop-4.webp" type="image/webp">
-          <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-banner-desktop-4.webp" alt="Desaf&iacute;o Junior Empresarial HATSU" width="2560" height="1168" fetchpriority="high">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/2.-BANNER-PREGRADOS_mobile-scaled.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/04/2.-BANNER-PREGRADOS.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/04/2.-BANNER-PREGRADOS.webp" alt="Empieza tu carrera en el mundo real - Pregrados ESIC" width="2560" height="1168" fetchpriority="high">
         </picture>
-        <div class="eh-banner-slide-cta eh-cta-right">
-          <button onclick="window.location.href='https://esic.co/desafio-junior-empresarial-hatsu/'" class="eh-banner-cta-btn eh-cta-pink" style="background:rgb(255,67,148) !important;background-color:rgb(255,67,148) !important;color:#fff !important;">VER EL RETO</button>
+        <div class="eh-banner-slide-cta eh-cta-center">
+          <button onclick="window.location.href='https://esic.co/pregrado/'" class="eh-banner-cta-btn eh-cta-orange">Inscripciones abiertas</button>
         </div>
       </div>
-      <!-- Slide 1: Level Up Marketing -->
-      <div class="eh-banner-slide" data-href="https://esic.co/level-up-estrategia-marketing-digital/">
+      <!-- Slide 2: Másters -->
+      <div class="eh-banner-slide" data-href="https://esic.co/master/">
         <picture>
-            <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/1-scaled.webp" type="image/webp">
-            <source srcset="https://esic.co/wp-content/uploads/2026/03/new-level-up-BANNER-DESKTOP.webp" type="image/webp">
-            <img src="https://esic.co/wp-content/uploads/2026/03/new-level-up-BANNER-DESKTOP.webp" alt="Level Up &ndash; Estrategia de Marketing Digital" width="2560" height="1168" fetchpriority="high">
-          </picture>
-        <div class="eh-banner-slide-cta eh-cta-center eh-mobile-only">
-          <button onclick="window.location.href='https://esic.co/level-up-estrategia-marketing-digital/'" class="eh-banner-cta-btn eh-cta-teal">RESERVA TU CUPO</button>
-        </div>
-      </div>
-      <!-- Slide 2: Pregrado -->
-      <div class="eh-banner-slide" data-href="/pregrado">
-        <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/2-scaled.webp" type="image/webp">
-          <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-01.webp" type="image/webp">
-          <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-01.png" alt="Pregrado ESIC" width="2560" height="1168" fetchpriority="high">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/4.-BANNER-MASTER-_mobile-scaled.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/04/4.-BANNER-MASTER.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/04/4.-BANNER-MASTER.webp" alt="Donde las empresas forman a sus líderes - Másters ESIC" width="2560" height="1168" loading="lazy">
         </picture>
         <div class="eh-banner-slide-cta eh-cta-left">
-          <button onclick="window.location.href='/pregrado'" class="eh-banner-cta-btn eh-cta-blue">CONOCE NUESTROS PREGRADOS</button>
+          <button onclick="window.location.href='https://esic.co/master/'" class="eh-banner-cta-btn eh-cta-teal">Conoce los másters</button>
         </div>
       </div>
       <!-- Slide 3: Pasantías -->
       <div class="eh-banner-slide" data-href="https://forms.zohopublic.com/esicmedellin/form/InscripcionesPasantas/formperma/_OGwsRPwnka1ZLXJBqSMVtl-yE_Mk7E8V14gtDRfkag" data-target="_blank">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/3-scaled.webp" type="image/webp">
-          <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-02.webp" type="image/webp">
-          <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-02.png" alt="Pasantías ESIC" width="2560" height="1168" loading="lazy">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/3.-BANNER-PASANTIAS-COLEGIOS_mobile-scaled.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/04/3.-BANNER-PASANTIAS-COLEGIOS.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/04/3.-BANNER-PASANTIAS-COLEGIOS.webp" alt="Vive una semana como estudiante de ESIC - Pasantías" width="2560" height="1168" loading="lazy">
+        </picture>
+        <div class="eh-banner-slide-cta eh-cta-right">
+          <button onclick="window.open('https://forms.zohopublic.com/esicmedellin/form/InscripcionesPasantas/formperma/_OGwsRPwnka1ZLXJBqSMVtl-yE_Mk7E8V14gtDRfkag','_blank')" class="eh-banner-cta-btn eh-cta-orange">Inscríbete</button>
+        </div>
+      </div>
+      <!-- Slide 4: Marca ESIC -->
+      <div class="eh-banner-slide" data-href="https://esic.co/quienes-somos/">
+        <picture>
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/1.-BANNER-DE-MARCA-ESIC_mobile-scaled.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/04/1-BANNER-DE-MARCA-ESIC.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/04/1-BANNER-DE-MARCA-ESIC.webp" alt="Aquí se forman los líderes digitales - ESIC" width="2560" height="1168" loading="lazy">
         </picture>
         <div class="eh-banner-slide-cta eh-cta-left">
-          <button onclick="window.open('https://forms.zohopublic.com/esicmedellin/form/InscripcionesPasantas/formperma/_OGwsRPwnka1ZLXJBqSMVtl-yE_Mk7E8V14gtDRfkag','_blank')" class="eh-banner-cta-btn eh-cta-orange">SEPARA TU CUPO DE PASANTÍA</button>
+          <button onclick="window.location.href='https://esic.co/quienes-somos/'" class="eh-banner-cta-btn eh-cta-orange">Conoce ESIC</button>
         </div>
       </div>
-      <!-- Slide 4: Máster -->
-      <div class="eh-banner-slide" data-href="https://esic.co/master/">
+      <!-- Slide 5: Blog -->
+      <div class="eh-banner-slide" data-href="https://esic.co/ser-o-no-ser-el-papel-de-la-pagina-web-en-2026/" data-target="_blank">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/4-scaled.webp" type="image/webp">
-          <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-03.webp" type="image/webp">
-          <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-03.png" alt="Máster ESIC 2026" width="2560" height="1168" loading="lazy">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/5-BANNER-BLOG_mobile-scaled.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/04/5.-BANNER-BLOG.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/04/5.-BANNER-BLOG.webp" alt="¿Tu página web está lista para 2026? - Blog ESIC" width="2560" height="1168" loading="lazy">
         </picture>
-        <div class="eh-banner-slide-cta eh-cta-center">
-          <button onclick="window.location.href='https://esic.co/master/'" class="eh-banner-cta-btn eh-cta-dark">CONOCE NUESTROS MÁSTERS</button>
-        </div>
-      </div>
-      <!-- Slide 5: Blog Tendencias -->
-      <div class="eh-banner-slide" data-href="https://esic.co/cuatro-tendencias-de-marketing-y-negocios-que-definiran-el-2026/" data-target="_blank">
-        <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/03/5-scaled.webp" type="image/webp">
-          <source srcset="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-04.webp" type="image/webp">
-          <img src="https://esic.co/wp-content/uploads/2026/03/banner-home-desktop-04.png" alt="Tendencias 2026 ESIC" width="2560" height="1168" loading="lazy">
-        </picture>
-        <div class="eh-banner-slide-cta eh-cta-center">
-          <button onclick="window.open('https://esic.co/cuatro-tendencias-de-marketing-y-negocios-que-definiran-el-2026/','_blank')" class="eh-banner-cta-btn eh-cta-blue">DESCUBRE LAS TENDENCIAS</button>
+        <div class="eh-banner-slide-cta eh-cta-left">
+          <button onclick="window.open('https://esic.co/ser-o-no-ser-el-papel-de-la-pagina-web-en-2026/','_blank')" class="eh-banner-cta-btn eh-cta-blue">Leer artículo</button>
         </div>
       </div>
     </div>
@@ -1698,7 +1687,6 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
       <button class="eh-banner-ind" data-slide="2"></button>
       <button class="eh-banner-ind" data-slide="3"></button>
       <button class="eh-banner-ind" data-slide="4"></button>
-      <button class="eh-banner-ind" data-slide="5"></button>
     </div>
   </section>
 
@@ -2047,18 +2035,18 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
       </div>
       <div class="eh-fundadores-marquee">
         <div class="eh-fundadores-track">
-          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-6.png" alt="Grupo Bios" height="50" loading="lazy"></div>
-          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-5.png" alt="Bancolombia" height="50" loading="lazy"></div>
-          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-4.png" alt="Crystal" height="50" loading="lazy"></div>
-          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-2.png" alt="Telefonica" height="50" loading="lazy"></div>
-          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-1.png" alt="Accenture" height="50" loading="lazy"></div>
-          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Postobon" height="50" loading="lazy"></div>
-          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-6.png" alt="Grupo Bios" height="50" loading="lazy"></div>
-          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-5.png" alt="Bancolombia" height="50" loading="lazy"></div>
-          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-4.png" alt="Crystal" height="50" loading="lazy"></div>
-          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-2.png" alt="Telefonica" height="50" loading="lazy"></div>
-          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/01/bancolombia-logo-1.png" alt="Accenture" height="50" loading="lazy"></div>
-          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Postobon" height="50" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-21-scaled.webp" alt="Grupo Bios" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-22-scaled.webp" alt="Bancolombia" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-23-scaled.webp" alt="Crystal" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-24-scaled.webp" alt="Telefonica" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-25-scaled.webp" alt="Accenture" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-26-scaled.webp" alt="Postobon" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-21-scaled.webp" alt="Grupo Bios" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-22-scaled.webp" alt="Bancolombia" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-23-scaled.webp" alt="Crystal" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-24-scaled.webp" alt="Telefonica" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-25-scaled.webp" alt="Accenture" loading="lazy"></div>
+          <div class="eh-fundador-logo"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-26-scaled.webp" alt="Postobon" loading="lazy"></div>
         </div>
       </div>
     </div>
@@ -2077,6 +2065,14 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
         <button class="eh-rethink-filter" data-filter="podcast">Podcast</button>
       </div>
       <div class="eh-rethink-grid eh-single-row">
+        <div class="eh-rethink-card" data-category="blog">
+          <div class="eh-rethink-card-image"><img src="https://esic.co/wp-content/uploads/2026/04/Screenshot-2026-04-13-190239.png" alt="Formar criterio directivo" width="1600" height="900" loading="lazy"></div>
+          <div class="eh-rethink-card-content">
+            <span class="eh-rethink-card-tag eh-tag-blog">Blog</span>
+            <h3>Formar criterio directivo</h3>
+            <a class="eh-btn eh-btn-outline" href="https://esic.co/formar-criterio-directivo/" target="_blank" rel="noopener">LEER</a>
+          </div>
+        </div>
         <div class="eh-rethink-card" data-category="blog">
           <div class="eh-rethink-card-image"><img src="https://esic.co/wp-content/uploads/2026/03/Screenshot-2026-03-15-182726.png" alt="El papel de la página web en 2026" width="1600" height="900" loading="lazy"></div>
           <div class="eh-rethink-card-content">
@@ -2202,7 +2198,26 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
         </div>
 
         <button type="submit" class="eh-btn eh-btn-primary eh-btn-full">Enviar solicitud</button>
+        <!-- UTM hidden fields (autollenados vía JS desde la URL) -->
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="utm_adset_name">
+        <input type="hidden" name="utm_ad_name">
       </form>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var params = new URLSearchParams(window.location.search);
+  var utms = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_adset_name","utm_ad_name"];
+  utms.forEach(function(param){
+    var value = params.get(param);
+    if (!value) return;
+    document.querySelectorAll('[name="' + param + '"]').forEach(function(input){ input.value = value; });
+  });
+});
+</script>
     </div>
   </div>
 </div>

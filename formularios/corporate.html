@@ -1,0 +1,363 @@
+<!--
+  Formulario Zoho Public - Corporate / Inter&eacute;s Empresarial
+  Estilo ESIC - Para pegar en Elementor
+-->
+
+<style>
+  /* Form Container */
+  .esic-form {
+    background: var(--surface, #FFFFFF);
+    border-radius: 32px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 50px rgba(0, 19, 63, 0.12);
+    position: relative;
+    overflow: hidden;
+    max-width: 560px;
+  }
+
+  .esic-form::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 160px;
+    height: 160px;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #0047E9, #0AE4C3);
+    opacity: 0.08;
+    transform: rotate(12deg);
+  }
+
+  .esic-form-title {
+    font-family: "Sofia Sans Extra Condensed", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: var(--text, #0B132B);
+  }
+
+  /* Form Groups */
+  .esic-form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .esic-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .esic-form-label {
+    display: block;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text, #0B132B);
+  }
+
+  .esic-form-label .required {
+    color: #FF9600;
+    margin-left: 0.25rem;
+  }
+
+  /* Inputs */
+  .esic-form-input,
+  .esic-form-select {
+    width: 100%;
+    padding: 0.95rem 1.1rem;
+    border: 1px solid rgba(0, 19, 63, 0.12);
+    border-radius: 14px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+    background: var(--bg, #F8F6F2);
+    color: var(--text, #0B132B);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+  }
+
+  .esic-form-input:focus,
+  .esic-form-select:focus {
+    outline: none;
+    border-color: #0047E9;
+    box-shadow: 0 0 0 3px rgba(0, 71, 233, 0.12);
+  }
+
+  .esic-form-input::placeholder {
+    color: #97A2B1;
+  }
+
+  /* Select with custom arrow */
+  .esic-select-wrapper {
+    position: relative;
+  }
+
+  .esic-select-wrapper::after {
+    content: "";
+    position: absolute;
+    right: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #5F6B7A;
+    pointer-events: none;
+  }
+
+  .esic-form-select {
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+
+  /* Checkbox / Privacy */
+  .esic-form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .esic-form-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 19, 63, 0.12);
+    border-radius: 6px;
+    background: var(--bg, #F8F6F2);
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: all 0.2s ease;
+  }
+
+  .esic-form-checkbox input[type="checkbox"]:checked {
+    background: #0047E9;
+    border-color: #0047E9;
+  }
+
+  .esic-form-checkbox input[type="checkbox"]:checked::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin: 2px auto 0;
+  }
+
+  .esic-form-checkbox input[type="checkbox"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 71, 233, 0.12);
+  }
+
+  .esic-form-checkbox-text {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.875rem;
+    color: #5F6B7A;
+    line-height: 1.5;
+  }
+
+  .esic-form-checkbox-text a {
+    color: #0047E9;
+    text-decoration: underline;
+  }
+
+  .esic-privacy-error {
+    font-size: 0.8rem;
+    color: #FF9600;
+    margin-top: 0.5rem;
+    display: none;
+  }
+
+  .esic-privacy-error.visible {
+    display: block;
+  }
+
+  /* Buttons */
+  .esic-form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .esic-form-submit {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: #0047E9;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 999px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 16px 35px rgba(0, 71, 233, 0.25);
+  }
+
+  .esic-form-submit:hover {
+    background: #0037B4 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+  }
+
+  .esic-form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .esic-form-reset {
+    padding: 1rem 1.5rem;
+    background: transparent;
+    color: #5F6B7A;
+    border: 1px solid rgba(0, 19, 63, 0.12);
+    border-radius: 999px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .esic-form-reset:hover {
+    border-color: #5F6B7A;
+    color: #0B132B;
+  }
+
+  /* Hidden fields */
+  .esic-hidden {
+    display: none !important;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .esic-form {
+      padding: 1.75rem;
+      border-radius: 24px;
+    }
+
+    .esic-form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .esic-form-actions {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<div class="esic-form">
+  <form id="corporateForm" action="https://forms.zohopublic.com/esicmedellin/form/CorporateFormularioIntersEmpresarial160326/formperma/cJV9fbVAMjCs8ZKIRHUKAFpk-MU1haWdEYBb7mob9GQ/htmlRecords/submit" name="form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+
+    <!-- Hidden Zoho fields -->
+    <input type="hidden" name="zf_referrer_name" value="">
+    <input type="hidden" name="zf_redirect_url" value="https://esic.co/gracias/">
+    <input type="hidden" name="zc_gad" value="">
+    <input type="hidden" name="utm_source" value="">
+    <input type="hidden" name="utm_medium" value="">
+    <input type="hidden" name="utm_campaign" value="">
+    <input type="hidden" name="utm_term" value="">
+    <input type="hidden" name="utm_content" value="">
+    <input type="hidden" name="utm_adset_name" value="">
+    <input type="hidden" name="utm_ad_name" value="">
+
+    <h2 class="esic-form-title">Interés Empresarial</h2>
+
+    <div class="esic-form-row">
+      <div class="esic-form-group">
+        <label class="esic-form-label" for="corp_Name_First">Nombre <span class="required">*</span></label>
+        <input type="text" class="esic-form-input" id="corp_Name_First" name="Name_First" maxlength="255" placeholder="Tu nombre" required>
+      </div>
+      <div class="esic-form-group">
+        <label class="esic-form-label" for="corp_Name_Last">Apellido <span class="required">*</span></label>
+        <input type="text" class="esic-form-input" id="corp_Name_Last" name="Name_Last" maxlength="255" placeholder="Tu apellido" required>
+      </div>
+    </div>
+
+    <div class="esic-form-group">
+      <label class="esic-form-label" for="corp_Email">Correo electr&oacute;nico <span class="required">*</span></label>
+      <input type="email" class="esic-form-input" id="corp_Email" name="Email" maxlength="255" placeholder="tu@email.com" required>
+    </div>
+
+    <div class="esic-form-group">
+      <label class="esic-form-label" for="corp_Phone">Tel&eacute;fono <span class="required">*</span></label>
+      <input type="tel" class="esic-form-input" id="corp_Phone" name="PhoneNumber_countrycode" maxlength="20" placeholder="300 000 0000" required>
+    </div>
+
+    <div class="esic-form-row">
+      <div class="esic-form-group">
+        <label class="esic-form-label" for="corp_Empresa">Nombre de empresa</label>
+        <input type="text" class="esic-form-input" id="corp_Empresa" name="SingleLine8" maxlength="255" placeholder="Tu empresa">
+      </div>
+      <div class="esic-form-group">
+        <label class="esic-form-label" for="corp_Ciudad">Ciudad</label>
+        <input type="text" class="esic-form-input" id="corp_Ciudad" name="SingleLine9" maxlength="255" placeholder="Tu ciudad">
+      </div>
+    </div>
+
+    <div class="esic-form-group">
+      <label class="esic-form-label" for="corp_Dropdown3">Medio de contacto <span class="required">*</span></label>
+      <div class="esic-select-wrapper">
+        <select class="esic-form-select" id="corp_Dropdown3" name="Dropdown3" required>
+          <option value="" disabled selected>Selecciona</option>
+          <option value="WhatsApp">WhatsApp</option>
+          <option value="Correo">Correo</option>
+          <option value="Llamada">Llamada</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="esic-form-checkbox">
+      <input type="checkbox" id="corpPrivacy" name="TermsConditions" required>
+      <div>
+        <span class="esic-form-checkbox-text">Acepto la <a href="https://esic.co/politicas-de-privacidad/" target="_blank">Pol&iacute;tica de privacidad</a> y los <a href="https://esic.co/politicas-de-privacidad/" target="_blank">T&eacute;rminos de servicio</a>.</span>
+        <div id="corpPrivacyErr" class="esic-privacy-error">Por favor, acepta los t&eacute;rminos.</div>
+      </div>
+    </div>
+
+    <div class="esic-form-actions">
+      <button type="submit" class="esic-form-submit">Enviar solicitud</button>
+      <button type="reset" class="esic-form-reset">Limpiar</button>
+    </div>
+  </form>
+</div>
+
+<script>
+(function(){
+  var form = document.getElementById('corporateForm');
+  var privacyCb = document.getElementById('corpPrivacy');
+  var privacyErr = document.getElementById('corpPrivacyErr');
+
+  privacyCb.addEventListener('change', function(){
+    if(privacyCb.checked) privacyErr.classList.remove('visible');
+  });
+
+  form.addEventListener('submit', function(e){
+    if(!privacyCb.checked){
+      e.preventDefault();
+      privacyErr.classList.add('visible');
+      privacyCb.focus();
+      return;
+    }
+    form.querySelector('.esic-form-submit').disabled = true;
+  });
+
+  // Capturar UTMs de la URL
+  var params = new URLSearchParams(window.location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_adset_name','utm_ad_name'].forEach(function(p){
+    var val = params.get(p);
+    if(val){
+      var field = form.querySelector('input[name="'+p+'"]');
+      if(field) field.value = val;
+    }
+  });
+})();
+</script>

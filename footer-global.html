@@ -665,9 +665,47 @@
           <label for="footer-terms">Acepto solicitud de <a href="https://esic.co/politicas-de-privacidad/" target="_blank" rel="noopener noreferrer">autorización de datos personales y términos y condiciones</a> <span style="color:#dc2626">*</span></label>
         </div>
 
+        <!-- UTM hidden fields (autollenados vía JS desde la URL) -->
+        <input type="hidden" name="utm_source" id="utm_source">
+        <input type="hidden" name="utm_medium" id="utm_medium">
+        <input type="hidden" name="utm_campaign" id="utm_campaign">
+        <input type="hidden" name="utm_term" id="utm_term">
+        <input type="hidden" name="utm_content" id="utm_content">
+        <input type="hidden" name="utm_adset_name" id="utm_adset_name">
+        <input type="hidden" name="utm_ad_name" id="utm_ad_name">
+
         <!-- Botón Submit -->
         <button type="submit" class="esic-form-submit">Enviar solicitud</button>
       </form>
+
+      <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const params = new URLSearchParams(window.location.search);
+
+        const utms = [
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content",
+          "utm_adset_name",
+          "utm_ad_name"
+        ];
+
+        utms.forEach(function(param) {
+          const value = params.get(param);
+          if (!value) return;
+
+          const input =
+            document.querySelector('[name="' + param + '"]') ||
+            document.getElementById(param);
+
+          if (input) {
+            input.value = value;
+          }
+        });
+      });
+      </script>
     </div>
   </div>
 </div>

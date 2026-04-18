@@ -861,3 +861,14 @@
 </script>
 
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var params = new URLSearchParams(window.location.search);
+  var utms = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_adset_name","utm_ad_name"];
+  utms.forEach(function(param){
+    var value = params.get(param);
+    if (!value) return;
+    document.querySelectorAll('[name="' + param + '"]').forEach(function(input){ input.value = value; });
+  });
+});
+</script>

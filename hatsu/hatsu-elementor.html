@@ -42,9 +42,9 @@
   text-decoration: none; line-height: 1; font-family: var(--body-font);
 }
 .esic-hatsu .h-btn-pink  { background: var(--hatsu-pink); color: #fff; }
-.esic-hatsu .h-btn-pink:hover  { background: #ff2d87; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,77,154,0.45); }
+.esic-hatsu .h-btn-pink:hover  { background: #ff2d87 !important; color: #fff !important; transform: translateY(-2px) !important; box-shadow: 0 8px 30px rgba(255,77,154,0.45) !important; }
 .esic-hatsu .h-btn-ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.35); }
-.esic-hatsu .h-btn-ghost:hover { border-color: #fff; }
+.esic-hatsu .h-btn-ghost:hover { border-color: #fff !important; color: #fff !important; }
 
 /* Eyebrow */
 .esic-hatsu .h-eyebrow {
@@ -346,14 +346,14 @@
 }
 
 /* ─────────────────────────────────
-   SECTION 3 — QUE ES EL DESAFIO
+   SECTION 4 — QUE ES EL DESAFIO
 ───────────────────────────────── */
 .esic-hatsu .hatsu-que-es {
   background: var(--hatsu-black);
   border-radius: 50px 50px 0 0;
   margin-top: -50px;
   padding: 7rem 0 6rem;
-  position: relative; z-index: 6; overflow: hidden;
+  position: relative; z-index: 7; overflow: hidden;
 }
 
 .esic-hatsu .hatsu-que-es::before {
@@ -409,7 +409,7 @@
 .esic-hatsu .quees-hatsu-desc strong { color: var(--hatsu-sky); }
 
 /* ─────────────────────────────────
-   SECTION 4 — AGENDA
+   SECTION 5 — AGENDA
 ───────────────────────────────── */
 .esic-hatsu .hatsu-agenda {
   background: var(--hatsu-cream);
@@ -417,7 +417,7 @@
   border-radius: 50px 50px 0 0;
   margin-top: -50px;
   padding: 7rem 0 6rem;
-  position: relative; z-index: 7;
+  position: relative; z-index: 8;
 }
 
 .esic-hatsu .agenda-inner {
@@ -514,14 +514,14 @@
 }
 
 /* ─────────────────────────────────
-   SECTION 5 — POR QUE PARTICIPAR
+   SECTION 6 — POR QUE PARTICIPAR
 ───────────────────────────────── */
 .esic-hatsu .hatsu-porque {
   background: var(--hatsu-black);
   border-radius: 50px 50px 0 0;
   margin-top: -50px;
   padding: 7rem 0 6rem;
-  position: relative; z-index: 8; overflow: hidden;
+  position: relative; z-index: 9; overflow: hidden;
 }
 
 .esic-hatsu .hatsu-porque::before {
@@ -582,14 +582,14 @@
 }
 
 /* ─────────────────────────────────
-   SECTION 6 — CTA / FORMULARIO
+   SECTION 3 — CTA / FORMULARIO
 ───────────────────────────────── */
 .esic-hatsu .hatsu-cta {
   background: var(--hatsu-black);
   border-radius: 50px 50px 0 0;
   margin-top: -50px;
   padding: 7rem 0 6rem;
-  position: relative; z-index: 9; overflow: hidden;
+  position: relative; z-index: 6; overflow: hidden;
 }
 
 .esic-hatsu .hatsu-cta::before {
@@ -829,8 +829,8 @@
       </div>
 
       <div class="hero-actions">
-        <a href="#inscripcion" class="h-btn h-btn-pink">Inscr&iacute;bete &rarr;</a>
-        <a href="#el-reto" class="h-btn h-btn-ghost">Ver el reto</a>
+        <a href="#inscripcion" onclick="event.preventDefault();document.getElementById('inscripcion').scrollIntoView({behavior:'smooth',block:'start'});" class="h-btn h-btn-pink">Inscr&iacute;bete &rarr;</a>
+        <a href="#el-reto" onclick="event.preventDefault();document.getElementById('el-reto').scrollIntoView({behavior:'smooth',block:'start'});" class="h-btn h-btn-ghost">Ver el reto</a>
       </div>
     </div>
 
@@ -961,179 +961,7 @@
 </section>
 
 <!-- ══════════════════════════════
-     SECTION 3 — QUE ES EL DESAFIO
-══════════════════════════════ -->
-<section class="hatsu-que-es" id="el-reto">
-  <div class="h-container">
-    <div class="quees-inner">
-
-      <div class="quees-photo">
-        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-reto-chico-teal-scaled.webp" alt="Participante del reto Hatsu">
-      </div>
-
-      <div class="quees-text">
-        <span class="h-eyebrow h-eyebrow-teal">El Reto</span>
-        <h2 class="quees-headline">Un <em>challenge</em><br>real de marca.</h2>
-
-        <p class="quees-body">
-          El Desaf&iacute;o Junior Empresarial es una competencia donde equipos de estudiantes
-          de colegio se enfrentan a un reto de marketing y estrategia de marca real &mdash;
-          el mismo tipo de reto que resuelven los profesionales en la industria.
-        </p>
-        <p class="quees-body">
-          En un d&iacute;a intenso de trabajo en equipo, los participantes reciben el brief,
-          desarrollan su propuesta y la presentan ante un jurado de expertos en marketing
-          y negocios. El mejor equipo se lleva la beca.
-        </p>
-
-        <div class="quees-hatsu-desc">
-          <p>
-            <strong>&iquest;Qu&eacute; es Hatsu?</strong> Una marca colombiana de bebidas
-            y alimentos premium, nacida en 2010 en Medell&iacute;n, que se inspira en el inicio
-            de un mundo nuevo, un prop&oacute;sito que transforma todo, a trav&eacute;s de la magia
-            del color y una comunidad que se identifica con ser diferente.
-            El reto estar&aacute; basado en su universo de marca.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════
-     SECTION 4 — AGENDA
-══════════════════════════════ -->
-<section class="hatsu-agenda">
-  <div class="h-container">
-    <div class="agenda-inner">
-
-      <div class="agenda-left">
-        <span class="h-eyebrow h-eyebrow-blue">Programa del d&iacute;a</span>
-        <h2 class="agenda-headline">S&aacute;bado<br>18 de<br>Abril</h2>
-        <div class="agenda-meta">ESIC Medell&iacute;n (Alto de Palmas) &nbsp;&middot;&nbsp; 9:00am &ndash; 2:00pm</div>
-
-        <div class="agenda-timeline">
-          <div class="agenda-item">
-            <div class="agenda-time">9:00</div>
-            <div class="agenda-dot-col"><div class="agenda-dot"></div><div class="agenda-line"></div></div>
-            <div class="agenda-desc"><strong>Bienvenida y registro</strong><br>Recepci&oacute;n de equipos participantes</div>
-          </div>
-          <div class="agenda-item">
-            <div class="agenda-time">9:30</div>
-            <div class="agenda-dot-col"><div class="agenda-dot"></div><div class="agenda-line"></div></div>
-            <div class="agenda-desc"><strong>Presentaci&oacute;n del reto</strong><br>Brief oficial del desaf&iacute;o Hatsu</div>
-          </div>
-          <div class="agenda-item">
-            <div class="agenda-time">10:00</div>
-            <div class="agenda-dot-col"><div class="agenda-dot"></div><div class="agenda-line"></div></div>
-            <div class="agenda-desc"><strong>Desarrollo del challenge</strong><br>Trabajo en equipo con mentor&iacute;a</div>
-          </div>
-          <div class="agenda-item">
-            <div class="agenda-time">12:30</div>
-            <div class="agenda-dot-col"><div class="agenda-dot"></div><div class="agenda-line"></div></div>
-            <div class="agenda-desc"><strong>Presentaci&oacute;n de ideas</strong><br>Pitch ante el jurado de expertos</div>
-          </div>
-          <div class="agenda-item">
-            <div class="agenda-time">2:00</div>
-            <div class="agenda-dot-col"><div class="agenda-dot"></div></div>
-            <div class="agenda-desc"><strong>Cierre</strong><br>Resultados y despedida</div>
-          </div>
-        </div>
-
-        <div class="agenda-premiacion">
-          <div class="pre-label">Ceremonia de premiaci&oacute;n</div>
-          <div class="pre-title">Jueves<br>23 Abr.</div>
-          <div class="pre-date">Anuncio del equipo ganador de la beca</div>
-        </div>
-      </div>
-
-      <div class="agenda-right">
-        <div class="agenda-photo-wrap">
-          <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-agenda-editorial-scaled.webp" alt="Participantes del desaf&iacute;o">
-        </div>
-        <div class="agenda-highlight">
-          <div class="agenda-stat">
-            <div class="stat-n">5h</div>
-            <div class="stat-l">De challenge intensivo</div>
-          </div>
-          <div class="agenda-stat">
-            <div class="stat-n">50%</div>
-            <div class="stat-l">De beca en juego</div>
-          </div>
-          <div class="agenda-stat">
-            <div class="stat-n">2</div>
-            <div class="stat-l">Pregrados disponibles</div>
-          </div>
-          <div class="agenda-stat">
-            <div class="stat-n">1</div>
-            <div class="stat-l">Equipo ganador</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════
-     SECTION 5 — POR QUE PARTICIPAR
-══════════════════════════════ -->
-<section class="hatsu-porque">
-  <div class="h-container">
-
-    <div style="text-align:center; margin-bottom:3rem;">
-      <span class="h-eyebrow h-eyebrow-pink">5 razones para unirte</span>
-      <h2 style="font-family:var(--display-font);font-size:clamp(3.5rem,8vw,8rem);font-weight:800;text-transform:uppercase;color:#fff;line-height:0.92;">
-        &iquest;Por qu&eacute;<br>participar?
-      </h2>
-    </div>
-
-    <div class="porque-grid">
-      <div class="porque-item">
-        <div class="porque-num">01</div>
-        <h3 class="porque-title">Tu primer desaf&iacute;o real</h3>
-        <p class="porque-desc">Vive la experiencia de resolver un reto de marketing como lo hacen los profesionales en la industria.</p>
-      </div>
-      <div class="porque-item">
-        <div class="porque-num">02</div>
-        <h3 class="porque-title">Presenta frente a expertos</h3>
-        <p class="porque-desc">Desarrolla habilidades de pitch y comunicaci&oacute;n presentando tu idea ante un jurado de profesionales.</p>
-      </div>
-      <div class="porque-item">
-        <div class="porque-num">03</div>
-        <h3 class="porque-title">Conoce ESIC</h3>
-        <p class="porque-desc">Una escuela de negocios con m&aacute;s de 50 a&ntilde;os de historia y doble titulaci&oacute;n internacional.</p>
-      </div>
-      <div class="porque-item">
-        <div class="porque-num">04</div>
-        <h3 class="porque-title">Compite con los mejores</h3>
-        <p class="porque-desc">Conect&aacute;te y m&iacute;dete con los estudiantes m&aacute;s talentosos de Medell&iacute;n en un ambiente de alto nivel.</p>
-      </div>
-      <div class="porque-item">
-        <div class="porque-num">05</div>
-        <h3 class="porque-title">Gana una beca del 50%</h3>
-        <p class="porque-desc">El equipo ganador obtiene una beca del 50% en Digital Business o Marketing Global en ESIC.</p>
-      </div>
-    </div>
-
-    <div class="porque-photos">
-      <div class="porque-photo-item">
-        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-porque-chico-amarillo-scaled.webp" alt="Participante Hatsu">
-      </div>
-      <div class="porque-photo-item">
-        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-porque-editorial-2-scaled.webp" alt="Participante Hatsu">
-      </div>
-      <div class="porque-photo-item">
-        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-porque-editorial-3-scaled.webp" alt="Participante Hatsu">
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════
-     SECTION 6 — CTA / FORMULARIO
+     SECTION 3 — CTA / FORMULARIO
 ══════════════════════════════ -->
 <section class="hatsu-cta" id="inscripcion">
   <div class="h-container">
@@ -1276,10 +1104,201 @@
 
           <button type="submit" class="h-submit">Inscribirme &rarr;</button>
 
+        <!-- UTM hidden fields (autollenados vía JS desde la URL) -->
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="utm_adset_name">
+        <input type="hidden" name="utm_ad_name">
         </form>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var params = new URLSearchParams(window.location.search);
+  var utms = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_adset_name","utm_ad_name"];
+  utms.forEach(function(param){
+    var value = params.get(param);
+    if (!value) return;
+    document.querySelectorAll('[name="' + param + '"]').forEach(function(input){ input.value = value; });
+  });
+});
+</script>
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 4 — QUE ES EL DESAFIO
+══════════════════════════════ -->
+<section class="hatsu-que-es" id="el-reto">
+  <div class="h-container">
+    <div class="quees-inner">
+
+      <div class="quees-photo">
+        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-reto-chico-teal-scaled.webp" alt="Participante del reto Hatsu">
+      </div>
+
+      <div class="quees-text">
+        <span class="h-eyebrow h-eyebrow-teal">El Reto</span>
+        <h2 class="quees-headline">Un <em>challenge</em><br>real de marca.</h2>
+
+        <p class="quees-body">
+          El Desaf&iacute;o Junior Empresarial es una competencia donde equipos de estudiantes
+          de colegio se enfrentan a un reto de marketing y estrategia de marca real &mdash;
+          el mismo tipo de reto que resuelven los profesionales en la industria.
+        </p>
+        <p class="quees-body">
+          En un d&iacute;a intenso de trabajo en equipo, los participantes reciben el brief,
+          desarrollan su propuesta y la presentan ante un jurado de expertos en marketing
+          y negocios. El mejor equipo se lleva la beca.
+        </p>
+
+        <div class="quees-hatsu-desc">
+          <p>
+            <strong>&iquest;Qu&eacute; es Hatsu?</strong> Una marca colombiana de bebidas
+            y alimentos premium, nacida en 2010 en Medell&iacute;n, que se inspira en el inicio
+            de un mundo nuevo, un prop&oacute;sito que transforma todo, a trav&eacute;s de la magia
+            del color y una comunidad que se identifica con ser diferente.
+            El reto estar&aacute; basado en su universo de marca.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 5 — AGENDA
+══════════════════════════════ -->
+<section class="hatsu-agenda">
+  <div class="h-container">
+    <div class="agenda-inner">
+
+      <div class="agenda-left">
+        <span class="h-eyebrow h-eyebrow-blue">Programa del d&iacute;a</span>
+        <h2 class="agenda-headline">S&aacute;bado<br>18 de<br>Abril</h2>
+        <div class="agenda-meta">ESIC Medell&iacute;n (Alto de Palmas) &nbsp;&middot;&nbsp; 9:00am &ndash; 2:00pm</div>
+
+        <div class="agenda-timeline">
+          <div class="agenda-item">
+            <div class="agenda-time">9:00</div>
+            <div class="agenda-dot-col"><div class="agenda-dot"></div><div class="agenda-line"></div></div>
+            <div class="agenda-desc"><strong>Bienvenida y registro</strong><br>Recepci&oacute;n de equipos participantes</div>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-time">9:30</div>
+            <div class="agenda-dot-col"><div class="agenda-dot"></div><div class="agenda-line"></div></div>
+            <div class="agenda-desc"><strong>Presentaci&oacute;n del reto</strong><br>Brief oficial del desaf&iacute;o Hatsu</div>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-time">10:00</div>
+            <div class="agenda-dot-col"><div class="agenda-dot"></div><div class="agenda-line"></div></div>
+            <div class="agenda-desc"><strong>Desarrollo del challenge</strong><br>Trabajo en equipo con mentor&iacute;a</div>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-time">12:30</div>
+            <div class="agenda-dot-col"><div class="agenda-dot"></div><div class="agenda-line"></div></div>
+            <div class="agenda-desc"><strong>Presentaci&oacute;n de ideas</strong><br>Pitch ante el jurado de expertos</div>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-time">2:00</div>
+            <div class="agenda-dot-col"><div class="agenda-dot"></div></div>
+            <div class="agenda-desc"><strong>Cierre</strong><br>Resultados y despedida</div>
+          </div>
+        </div>
+
+        <div class="agenda-premiacion">
+          <div class="pre-label">Ceremonia de premiaci&oacute;n</div>
+          <div class="pre-title">Jueves<br>23 Abr.</div>
+          <div class="pre-date">Anuncio del equipo ganador de la beca</div>
+        </div>
+      </div>
+
+      <div class="agenda-right">
+        <div class="agenda-photo-wrap">
+          <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-agenda-editorial-scaled.webp" alt="Participantes del desaf&iacute;o">
+        </div>
+        <div class="agenda-highlight">
+          <div class="agenda-stat">
+            <div class="stat-n">5h</div>
+            <div class="stat-l">De challenge intensivo</div>
+          </div>
+          <div class="agenda-stat">
+            <div class="stat-n">50%</div>
+            <div class="stat-l">De beca en juego</div>
+          </div>
+          <div class="agenda-stat">
+            <div class="stat-n">2</div>
+            <div class="stat-l">Pregrados disponibles</div>
+          </div>
+          <div class="agenda-stat">
+            <div class="stat-n">1</div>
+            <div class="stat-l">Equipo ganador</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 6 — POR QUE PARTICIPAR
+══════════════════════════════ -->
+<section class="hatsu-porque">
+  <div class="h-container">
+
+    <div style="text-align:center; margin-bottom:3rem;">
+      <span class="h-eyebrow h-eyebrow-pink">5 razones para unirte</span>
+      <h2 style="font-family:var(--display-font);font-size:clamp(3.5rem,8vw,8rem);font-weight:800;text-transform:uppercase;color:#fff;line-height:0.92;">
+        &iquest;Por qu&eacute;<br>participar?
+      </h2>
+    </div>
+
+    <div class="porque-grid">
+      <div class="porque-item">
+        <div class="porque-num">01</div>
+        <h3 class="porque-title">Tu primer desaf&iacute;o real</h3>
+        <p class="porque-desc">Vive la experiencia de resolver un reto de marketing como lo hacen los profesionales en la industria.</p>
+      </div>
+      <div class="porque-item">
+        <div class="porque-num">02</div>
+        <h3 class="porque-title">Presenta frente a expertos</h3>
+        <p class="porque-desc">Desarrolla habilidades de pitch y comunicaci&oacute;n presentando tu idea ante un jurado de profesionales.</p>
+      </div>
+      <div class="porque-item">
+        <div class="porque-num">03</div>
+        <h3 class="porque-title">Conoce ESIC</h3>
+        <p class="porque-desc">Una escuela de negocios con m&aacute;s de 50 a&ntilde;os de historia y doble titulaci&oacute;n internacional.</p>
+      </div>
+      <div class="porque-item">
+        <div class="porque-num">04</div>
+        <h3 class="porque-title">Compite con los mejores</h3>
+        <p class="porque-desc">Conect&aacute;te y m&iacute;dete con los estudiantes m&aacute;s talentosos de Medell&iacute;n en un ambiente de alto nivel.</p>
+      </div>
+      <div class="porque-item">
+        <div class="porque-num">05</div>
+        <h3 class="porque-title">Gana una beca del 50%</h3>
+        <p class="porque-desc">El equipo ganador obtiene una beca del 50% en Digital Business o Marketing Global en ESIC.</p>
+      </div>
+    </div>
+
+    <div class="porque-photos">
+      <div class="porque-photo-item">
+        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-porque-chico-amarillo-scaled.webp" alt="Participante Hatsu">
+      </div>
+      <div class="porque-photo-item">
+        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-porque-editorial-2-scaled.webp" alt="Participante Hatsu">
+      </div>
+      <div class="porque-photo-item">
+        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-porque-editorial-3-scaled.webp" alt="Participante Hatsu">
+      </div>
+    </div>
+
   </div>
 </section>
 

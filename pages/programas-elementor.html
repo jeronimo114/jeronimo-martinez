@@ -439,7 +439,13 @@ button.esic-prog-page__btn--primary:active {
 }
 
 .esic-prog-page__category-card--tailor {
-  background-image: url('https://esic.co/wp-content/uploads/2026/02/cowork.webp') !important;
+  background-image: url('https://esic.co/wp-content/uploads/2026/04/Empresarial.webp') !important;
+}
+
+@media (max-width: 768px) {
+  .esic-prog-page__category-card--tailor {
+    background-image: url('https://esic.co/wp-content/uploads/2026/04/Empresarial-M.webp') !important;
+  }
 }
 
 /* ── La Vida en ESIC (from homepage) ── */
@@ -1390,6 +1396,14 @@ button.esic-prog-page__btn--primary:active {
         </div>
 
         <button type="submit" class="esic-prog-page__btn esic-prog-page__btn--primary" style="width:100%;background:#0047E9 !important;color:#fff !important;border:none !important;" onmouseover="this.style.background='#0037B4'" onmouseout="this.style.background='#0047E9'">Enviar solicitud</button>
+        <!-- UTM hidden fields (autollenados vía JS desde la URL) -->
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="utm_adset_name">
+        <input type="hidden" name="utm_ad_name">
       </form>
     </div>
   </div>
@@ -1467,6 +1481,17 @@ button.esic-prog-page__btn--primary:active {
     </div>
   </div>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var params = new URLSearchParams(window.location.search);
+  var utms = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_adset_name","utm_ad_name"];
+  utms.forEach(function(param){
+    var value = params.get(param);
+    if (!value) return;
+    document.querySelectorAll('[name="' + param + '"]').forEach(function(input){ input.value = value; });
+  });
+});
+</script>
 
 <style>
   #corpSubmitBtn {

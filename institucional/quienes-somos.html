@@ -278,15 +278,14 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      height: 60px;
+      height: 100px;
       padding: 0.5rem 1rem;
     }
 
     .fundadores-logos .fundador-logo img {
-      max-height: 100%;
       max-width: 100%;
-      width: auto;
-      height: auto;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
     }
 
@@ -1410,12 +1409,12 @@
           <h2 class="fundadores-title">Nuestros<br>Miembros<br>Fundadores</h2>
         </div>
         <div class="fundadores-logos reveal delay-1">
-          <div class="fundador-logo logo-bios"><img src="https://esic.co/wp-content/uploads/2025/08/Grupo20Bios2203.png" alt="Grupo Bios"></div>
-          <div class="fundador-logo logo-bancolombia"><img src="https://esic.co/wp-content/uploads/2024/08/g6@4x.png" alt="Bancolombia"></div>
-          <div class="fundador-logo logo-crystal"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-1@4x.png" alt="Crystal"></div>
-          <div class="fundador-logo logo-telefonica"><img src="https://esic.co/wp-content/uploads/2024/08/Telefonica-logo.png" alt="Telefonica"></div>
-          <div class="fundador-logo logo-accenture"><img src="https://esic.co/wp-content/uploads/2024/08/layer1@4x.png" alt="Accenture"></div>
-          <div class="fundador-logo logo-postobon"><img src="https://esic.co/wp-content/uploads/2024/08/Recurso-3@4x.png" alt="Postobon"></div>
+          <div class="fundador-logo logo-bios"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-21-scaled.webp" alt="Grupo Bios"></div>
+          <div class="fundador-logo logo-bancolombia"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-22-scaled.webp" alt="Bancolombia"></div>
+          <div class="fundador-logo logo-crystal"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-23-scaled.webp" alt="Crystal"></div>
+          <div class="fundador-logo logo-telefonica"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-24-scaled.webp" alt="Telefonica"></div>
+          <div class="fundador-logo logo-accenture"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-25-scaled.webp" alt="Accenture"></div>
+          <div class="fundador-logo logo-postobon"><img src="https://esic.co/wp-content/uploads/2026/04/Fundadores-26-scaled.webp" alt="Postobon"></div>
         </div>
       </div>
     </section>
@@ -1686,6 +1685,14 @@
             </select>
           </div>
           <button type="submit" class="eh-submit-btn">Enviar</button>
+        <!-- UTM hidden fields (autollenados vía JS desde la URL) -->
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="utm_adset_name">
+        <input type="hidden" name="utm_ad_name">
         </form>
       </div>
     </div>
@@ -1811,5 +1818,16 @@
   }
   </script>
 <script src="../assets/js/nav.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var params = new URLSearchParams(window.location.search);
+  var utms = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_adset_name","utm_ad_name"];
+  utms.forEach(function(param){
+    var value = params.get(param);
+    if (!value) return;
+    document.querySelectorAll('[name="' + param + '"]').forEach(function(input){ input.value = value; });
+  });
+});
+</script>
 </body>
 </html>
