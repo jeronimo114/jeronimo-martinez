@@ -28,23 +28,9 @@
 }
 .esic-hatsu p  { margin: 0; }
 .esic-hatsu a  { color: inherit; text-decoration: none; }
-.esic-hatsu button { font-family: inherit; cursor: pointer; }
 .esic-hatsu img { max-width: 100%; display: block; }
 
 .esic-hatsu .h-container { width: min(1140px, 92%); margin: 0 auto; }
-
-/* Buttons */
-.esic-hatsu .h-btn {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 1rem 2.4rem; border-radius: 999px; font-size: 0.9rem;
-  font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  border: none; cursor: pointer; transition: all 0.22s;
-  text-decoration: none; line-height: 1; font-family: var(--body-font);
-}
-.esic-hatsu .h-btn-pink  { background: var(--hatsu-pink); color: #fff; }
-.esic-hatsu .h-btn-pink:hover  { background: #ff2d87 !important; color: #fff !important; transform: translateY(-2px) !important; box-shadow: 0 8px 30px rgba(255,77,154,0.45) !important; }
-.esic-hatsu .h-btn-ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.35); }
-.esic-hatsu .h-btn-ghost:hover { border-color: #fff !important; color: #fff !important; }
 
 /* Eyebrow */
 .esic-hatsu .h-eyebrow {
@@ -53,13 +39,12 @@
 }
 .esic-hatsu .h-eyebrow-teal { color: var(--hatsu-teal); }
 .esic-hatsu .h-eyebrow-pink { color: var(--hatsu-pink); }
-.esic-hatsu .h-eyebrow-blue { color: var(--esic-blue); }
 
 /* ─────────────────────────────────
    SECTION 1 — HERO
 ───────────────────────────────── */
 .esic-hatsu .hatsu-hero {
-  min-height: 100vh;
+  min-height: 90vh;
   background: var(--hatsu-black);
   display: flex; align-items: stretch;
   position: relative; overflow: hidden;
@@ -76,11 +61,10 @@
 .esic-hatsu .hero-inner {
   width: 100%;
   position: relative;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex; align-items: center;
 }
 
-/* Text col — mitad izquierda, sobre el video */
 .esic-hatsu .hero-text-col {
   display: flex; flex-direction: column; justify-content: center;
   width: 52%;
@@ -106,33 +90,10 @@
 .esic-hatsu .hero-sub {
   font-size: clamp(1rem, 1.6vw, 1.1rem);
   color: rgba(255,255,255,0.62);
-  max-width: 420px;
-  margin-bottom: 2.25rem;
+  max-width: 460px;
   line-height: 1.75;
 }
 
-/* Info grid */
-.esic-hatsu .hero-info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem 2rem;
-  margin-bottom: 2.5rem;
-}
-.esic-hatsu .hero-info-box .hib-label {
-  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--hatsu-teal);
-  margin-bottom: 0.15rem; display: block;
-}
-.esic-hatsu .hero-info-box .hib-value {
-  font-family: var(--display-font); font-size: 2rem; font-weight: 800;
-  color: var(--hatsu-white); line-height: 0.95; text-transform: uppercase; display: block;
-}
-.esic-hatsu .hero-info-box:nth-child(1) .hib-value { color: var(--hatsu-pink); }
-.esic-hatsu .hero-info-box:nth-child(2) .hib-value { color: var(--hatsu-sky); }
-
-.esic-hatsu .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-/* Photo col — cubre TODO el hero como fondo */
 .esic-hatsu .hero-photo-col {
   position: absolute;
   inset: 0;
@@ -144,7 +105,6 @@
   object-fit: cover; object-position: center top;
   display: block;
 }
-/* overlay multicolor — texto legible izq, imagen viva der */
 .esic-hatsu .hero-photo-col::before {
   content: "";
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
@@ -161,7 +121,7 @@
     linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 30%);
 }
 
-/* ── Video player card — sugary Hatsu style ── */
+/* Video card */
 .esic-hatsu .hero-video-card {
   position: relative; z-index: 3;
   width: 44%; max-width: 620px;
@@ -183,7 +143,6 @@
   object-fit: cover;
   cursor: pointer;
 }
-/* Sutil borde gradiente */
 .esic-hatsu .hero-video-card::before {
   content: "";
   position: absolute; inset: -1.5px;
@@ -192,7 +151,6 @@
   opacity: 0.35;
 }
 
-/* Controls bar dentro del video card */
 .esic-hatsu .hero-video-controls {
   display: flex; align-items: center; gap: 0.5rem;
   padding: 0.55rem 0.75rem;
@@ -250,491 +208,201 @@
 }
 
 /* ─────────────────────────────────
-   SECTION 2 — BECA
+   SECTION 2 — SHOWCASE DE VIDEOS
 ───────────────────────────────── */
-.esic-hatsu .hatsu-beca {
-  background: var(--hatsu-cream);
-  color: var(--hatsu-black);
+.esic-hatsu .hatsu-showcase {
+  background: var(--hatsu-black);
   border-radius: 50px 50px 0 0;
   margin-top: -50px;
-  padding: 7rem 0 7rem;
+  padding: 7rem 0 6rem;
   position: relative; z-index: 5; overflow: hidden;
 }
 
-.esic-hatsu .beca-inner {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.esic-hatsu .beca-headline {
-  font-size: clamp(5rem, 12vw, 11rem);
-  text-transform: uppercase;
-  color: var(--esic-blue);
-  line-height: 0.88;
-  margin-bottom: 1.25rem;
-}
-
-.esic-hatsu .beca-sub {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 500;
-  color: rgba(10,10,10,0.72);
-  margin-bottom: 0.75rem;
-  line-height: 1.6;
-  max-width: 440px;
-}
-
-.esic-hatsu .beca-nota {
-  font-size: 0.78rem;
-  color: rgba(10,10,10,0.5);
-  font-weight: 500;
-  margin-bottom: 2.5rem;
-  line-height: 1.5;
-}
-
-.esic-hatsu .beca-cards {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2.5rem;
-}
-.esic-hatsu .beca-card {
-  padding: 1.4rem;
-  border: 2px solid var(--esic-blue);
-  border-radius: 16px;
-  background: rgba(0,71,233,0.04);
-}
-.esic-hatsu .beca-card-tag {
-  display: inline-block;
-  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--esic-blue);
-  background: rgba(0,71,233,0.1); padding: 0.2rem 0.6rem;
-  border-radius: 4px; margin-bottom: 0.65rem;
-}
-.esic-hatsu .beca-card-title {
-  font-family: var(--display-font);
-  font-size: 1.55rem; font-weight: 800;
-  text-transform: uppercase; color: var(--esic-blue);
-  margin-bottom: 0.35rem;
-}
-.esic-hatsu .beca-card-desc {
-  font-size: 0.82rem; color: rgba(10,10,10,0.6); line-height: 1.5;
-}
-
-.esic-hatsu .esic-logo-lockup {
-  display: flex; align-items: center; gap: 0.75rem;
-}
-.esic-hatsu .esic-logo-text {
-  font-family: var(--display-font);
-  font-size: 2.2rem; font-weight: 800;
-  color: var(--esic-blue); letter-spacing: 0.05em;
-}
-.esic-hatsu .esic-logo-sep { width: 2px; height: 2.2rem; background: rgba(0,71,233,0.25); }
-.esic-hatsu .esic-logo-sub {
-  font-size: 0.72rem; font-weight: 600; color: rgba(10,10,10,0.5);
-  letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.35;
-}
-
-.esic-hatsu .beca-photo { position: relative; }
-.esic-hatsu .beca-photo img {
-  width: 100%; border-radius: 20px;
-  object-fit: cover; object-position: top;
-  max-height: 580px;
-}
-.esic-hatsu .beca-photo::after {
-  content: "";
-  position: absolute; bottom: -18px; left: -18px; right: 18px; top: 18px;
-  border: 2px solid var(--esic-blue); border-radius: 20px; z-index: -1;
-}
-
-/* ─────────────────────────────────
-   SECTION 4 — QUE ES EL DESAFIO
-───────────────────────────────── */
-.esic-hatsu .hatsu-que-es {
-  background: var(--hatsu-black);
-  border-radius: 50px 50px 0 0;
-  margin-top: -50px;
-  padding: 7rem 0 6rem;
-  position: relative; z-index: 7; overflow: hidden;
-}
-
-.esic-hatsu .hatsu-que-es::before {
-  content: "";
-  position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse at 82% 50%, rgba(10,228,195,0.09) 0%, transparent 52%);
-}
-
-.esic-hatsu .quees-inner {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.esic-hatsu .quees-photo { position: relative; }
-.esic-hatsu .quees-photo img {
-  width: 100%; border-radius: 20px;
-  object-fit: cover; object-position: top;
-  max-height: 620px;
-}
-.esic-hatsu .quees-photo::before {
-  content: "";
-  position: absolute; width: 60%; height: 60%; border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(10,228,195,0.18) 0%, transparent 70%);
-  bottom: -5%; left: -5%; filter: blur(40px); z-index: -1;
-}
-
-
-.esic-hatsu .quees-headline {
-  font-size: clamp(3rem, 6vw, 6rem);
-  text-transform: uppercase;
-  color: var(--hatsu-white);
-  margin-bottom: 1.5rem;
-}
-.esic-hatsu .quees-headline em { font-style: normal; color: var(--hatsu-teal); }
-
-.esic-hatsu .quees-body {
-  font-size: 1rem; color: rgba(255,255,255,0.65);
-  line-height: 1.8; margin-bottom: 1.25rem;
-}
-
-.esic-hatsu .quees-hatsu-desc {
-  padding: 1.4rem 1.5rem;
-  border-left: 3px solid var(--hatsu-sky);
-  background: rgba(75,184,232,0.07);
-  border-radius: 0 12px 12px 0;
-  margin-top: 1.5rem;
-}
-.esic-hatsu .quees-hatsu-desc p {
-  font-size: 0.91rem; color: rgba(255,255,255,0.68); line-height: 1.75;
-}
-.esic-hatsu .quees-hatsu-desc strong { color: var(--hatsu-sky); }
-
-/* ─────────────────────────────────
-   SECTION 5 — AGENDA
-───────────────────────────────── */
-.esic-hatsu .hatsu-agenda {
-  background: var(--hatsu-cream);
-  color: var(--hatsu-black);
-  border-radius: 50px 50px 0 0;
-  margin-top: -50px;
-  padding: 7rem 0 6rem;
-  position: relative; z-index: 8;
-}
-
-.esic-hatsu .agenda-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.esic-hatsu .agenda-headline {
-  font-size: clamp(3rem, 6vw, 6.5rem);
-  text-transform: uppercase;
-  color: var(--hatsu-black);
-  margin-bottom: 0.5rem;
-}
-.esic-hatsu .agenda-meta {
-  font-size: 0.9rem; font-weight: 600;
-  color: var(--esic-blue); margin-bottom: 2.75rem;
-}
-
-.esic-hatsu .agenda-timeline { display: flex; flex-direction: column; }
-.esic-hatsu .agenda-item {
-  display: grid;
-  grid-template-columns: 78px 22px 1fr;
-  gap: 0 1rem;
-  align-items: start;
-  padding-bottom: 1.75rem;
-}
-.esic-hatsu .agenda-item:last-child { padding-bottom: 0; }
-
-.esic-hatsu .agenda-time {
-  font-family: var(--display-font);
-  font-size: 1.45rem; font-weight: 800;
-  color: var(--esic-blue); text-align: right;
-  padding-top: 0.1rem;
-}
-.esic-hatsu .agenda-dot-col {
-  display: flex; flex-direction: column; align-items: center;
-}
-.esic-hatsu .agenda-dot {
-  width: 12px; height: 12px; border-radius: 50%;
-  background: var(--esic-blue);
-  border: 2px solid var(--hatsu-cream);
-  outline: 2px solid var(--esic-blue);
-  flex-shrink: 0; margin-top: 0.35rem;
-}
-.esic-hatsu .agenda-line {
-  width: 2px; flex: 1; background: rgba(0,71,233,0.18);
-  min-height: 24px;
-}
-.esic-hatsu .agenda-item:last-child .agenda-line { display: none; }
-
-.esic-hatsu .agenda-desc {
-  font-size: 0.93rem; color: rgba(10,10,10,0.72);
-  font-weight: 500; line-height: 1.5; padding-top: 0.12rem;
-}
-.esic-hatsu .agenda-desc strong { color: var(--hatsu-black); font-weight: 700; }
-
-.esic-hatsu .agenda-premiacion {
-  background: var(--esic-blue); color: #fff;
-  border-radius: 18px; padding: 1.75rem 2rem;
-  margin-top: 2rem;
-}
-.esic-hatsu .agenda-premiacion .pre-label {
-  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em;
-  text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 0.4rem;
-}
-.esic-hatsu .agenda-premiacion .pre-title {
-  font-family: var(--display-font); font-size: 2.4rem; font-weight: 800;
-  text-transform: uppercase; margin-bottom: 0.2rem;
-}
-.esic-hatsu .agenda-premiacion .pre-date {
-  font-size: 0.9rem; color: rgba(255,255,255,0.75);
-}
-
-.esic-hatsu .agenda-right { display: flex; flex-direction: column; gap: 1.25rem; }
-.esic-hatsu .agenda-photo-wrap { border-radius: 18px; overflow: hidden; }
-.esic-hatsu .agenda-photo-wrap img {
-  width: 100%; object-fit: cover; object-position: top; max-height: 400px;
-}
-.esic-hatsu .agenda-highlight {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-  border-top: 2px solid rgba(0,71,233,0.18);
-  padding-top: 1.5rem;
-}
-.esic-hatsu .agenda-stat { padding: 0 1.5rem 0 0; }
-.esic-hatsu .agenda-stat .stat-n {
-  font-family: var(--display-font); font-size: 4rem; font-weight: 800;
-  color: var(--esic-blue); line-height: 0.92; display: block;
-}
-.esic-hatsu .agenda-stat .stat-l {
-  font-size: 0.72rem; color: rgba(10,10,10,0.45); font-weight: 600;
-  letter-spacing: 0.04em; margin-top: 0.4rem; display: block;
-}
-
-/* ─────────────────────────────────
-   SECTION 6 — POR QUE PARTICIPAR
-───────────────────────────────── */
-.esic-hatsu .hatsu-porque {
-  background: var(--hatsu-black);
-  border-radius: 50px 50px 0 0;
-  margin-top: -50px;
-  padding: 7rem 0 6rem;
-  position: relative; z-index: 9; overflow: hidden;
-}
-
-.esic-hatsu .hatsu-porque::before {
+.esic-hatsu .hatsu-showcase::before {
   content: "";
   position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse at 5% 65%, rgba(255,77,154,0.11) 0%, transparent 48%),
-    radial-gradient(ellipse at 95% 30%, rgba(255,224,64,0.08) 0%, transparent 42%);
+    radial-gradient(ellipse at 10% 20%, rgba(255,77,154,0.10) 0%, transparent 45%),
+    radial-gradient(ellipse at 90% 80%, rgba(75,184,232,0.08) 0%, transparent 45%);
 }
 
-/* Full-width header with large number accents */
-.esic-hatsu .porque-grid {
+.esic-hatsu .showcase-head {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  position: relative; z-index: 1;
+}
+.esic-hatsu .showcase-title {
+  font-size: clamp(3rem, 7vw, 7rem);
+  text-transform: uppercase;
+  color: var(--hatsu-white);
+  margin-bottom: 1rem;
+}
+.esic-hatsu .showcase-title em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--hatsu-pink) 0%, var(--hatsu-sky) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.esic-hatsu .showcase-sub {
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  color: rgba(255,255,255,0.6);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.esic-hatsu .showcase-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.25rem;
-  margin-bottom: 4rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  position: relative; z-index: 1;
 }
-.esic-hatsu .porque-item {
-  padding: 1.75rem 1.25rem 1.5rem;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 18px;
+
+.esic-hatsu .showcase-item {
+  border-radius: 16px;
+  overflow: hidden;
   background: rgba(255,255,255,0.03);
-  display: flex; flex-direction: column; gap: 0.75rem;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.22s, border-color 0.22s;
 }
-.esic-hatsu .porque-item:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.15);
+.esic-hatsu .showcase-item:hover {
   transform: translateY(-4px);
-}
-.esic-hatsu .porque-num {
-  font-family: var(--display-font); font-size: 3.5rem; font-weight: 800;
-  line-height: 1; margin-bottom: 0.25rem;
-}
-.esic-hatsu .porque-item:nth-child(1) .porque-num { color: var(--hatsu-pink); }
-.esic-hatsu .porque-item:nth-child(2) .porque-num { color: var(--hatsu-teal); }
-.esic-hatsu .porque-item:nth-child(3) .porque-num { color: var(--hatsu-yellow); }
-.esic-hatsu .porque-item:nth-child(4) .porque-num { color: var(--hatsu-sky); }
-.esic-hatsu .porque-item:nth-child(5) .porque-num { color: var(--hatsu-purple); }
-
-.esic-hatsu .porque-title {
-  font-family: var(--display-font); font-size: 1.55rem; font-weight: 800;
-  text-transform: uppercase; color: var(--hatsu-white); line-height: 1; margin: 0;
-}
-.esic-hatsu .porque-desc {
-  font-size: 0.82rem; color: rgba(255,255,255,0.52); line-height: 1.55;
+  border-color: rgba(255,255,255,0.18);
 }
 
-/* Bottom photo strip */
-.esic-hatsu .porque-photos {
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;
-}
-.esic-hatsu .porque-photo-item {
-  border-radius: 16px; overflow: hidden; aspect-ratio: 3/4;
-}
-.esic-hatsu .porque-photo-item img {
-  width: 100%; height: 100%; object-fit: cover; object-position: top;
+/* Instagram embed overrides — para que respeten el grid */
+.esic-hatsu .showcase-item .instagram-media {
+  margin: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  border-radius: 16px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 /* ─────────────────────────────────
-   SECTION 3 — CTA / FORMULARIO
+   SECTION 3 — CIERRE / PREMIACION
 ───────────────────────────────── */
-.esic-hatsu .hatsu-cta {
-  background: var(--hatsu-black);
+.esic-hatsu .hatsu-cierre {
+  background: var(--hatsu-cream);
+  color: var(--hatsu-black);
   border-radius: 50px 50px 0 0;
   margin-top: -50px;
   padding: 7rem 0 6rem;
   position: relative; z-index: 6; overflow: hidden;
 }
 
-.esic-hatsu .hatsu-cta::before {
+.esic-hatsu .cierre-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.esic-hatsu .cierre-hashtag {
+  font-family: var(--display-font);
+  font-size: clamp(2.5rem, 7vw, 6.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  background: linear-gradient(135deg, var(--esic-blue) 0%, var(--hatsu-pink) 60%, var(--hatsu-sky) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  white-space: nowrap;
+}
+
+.esic-hatsu .cierre-tag-label {
+  display: inline-block;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--esic-blue);
+  margin-bottom: 1rem;
+}
+
+.esic-hatsu .cierre-copy {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: rgba(10,10,10,0.7);
+  line-height: 1.7;
+  max-width: 460px;
+}
+
+.esic-hatsu .cierre-premiacion {
+  background: var(--hatsu-black);
+  color: var(--hatsu-white);
+  border-radius: 24px;
+  padding: 2.5rem 2.25rem;
+  position: relative;
+  overflow: hidden;
+}
+.esic-hatsu .cierre-premiacion::before {
   content: "";
   position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(255,77,154,0.16) 0%, transparent 50%),
-    radial-gradient(ellipse at 10% 100%, rgba(75,184,232,0.10) 0%, transparent 44%);
+    radial-gradient(ellipse at 10% 10%, rgba(255,77,154,0.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 95% 95%, rgba(75,184,232,0.16) 0%, transparent 50%);
 }
+.esic-hatsu .cierre-premiacion > * { position: relative; z-index: 1; }
 
-.esic-hatsu .cta-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
+.esic-hatsu .cierre-pre-label {
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--hatsu-teal);
+  margin-bottom: 1rem;
 }
-
-.esic-hatsu .cta-headline {
-  font-size: clamp(3rem, 7vw, 7rem);
+.esic-hatsu .cierre-pre-title {
+  font-family: var(--display-font);
+  font-size: clamp(3rem, 5.5vw, 4.75rem);
+  font-weight: 800;
   text-transform: uppercase;
   color: var(--hatsu-white);
+  line-height: 0.9;
   margin-bottom: 1.25rem;
 }
-.esic-hatsu .cta-headline em {
+.esic-hatsu .cierre-pre-title em {
   font-style: normal;
   background: linear-gradient(135deg, var(--hatsu-pink) 0%, var(--hatsu-yellow) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
-.esic-hatsu .cta-sub {
-  font-size: 1rem; color: rgba(255,255,255,0.58); line-height: 1.75;
-  margin-bottom: 2rem; max-width: 420px;
+.esic-hatsu .cierre-pre-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+  margin-top: 1.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.12);
 }
-
-/* Info grid — B3: texto libre, label teal, sin cajas */
-.esic-hatsu .cta-info-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 2rem; margin-bottom: 2.5rem;
+.esic-hatsu .cierre-pre-meta .cpm-label {
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.25rem; display: block;
 }
-.esic-hatsu .cta-info-box .cib-label {
-  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--hatsu-teal);
-  margin-bottom: 0.15rem; display: block;
+.esic-hatsu .cierre-pre-meta .cpm-value {
+  font-family: var(--display-font);
+  font-size: 1.55rem; font-weight: 800;
+  color: var(--hatsu-white);
+  text-transform: uppercase;
+  line-height: 1;
+  display: block;
 }
-.esic-hatsu .cta-info-box .cib-value {
-  font-family: var(--display-font); font-size: 2rem; font-weight: 800;
-  color: var(--hatsu-white); line-height: 0.95; text-transform: uppercase; display: block;
-}
-
-.esic-hatsu .cta-photo-accent {
-  border-radius: 18px; overflow: hidden; position: relative;
-}
-.esic-hatsu .cta-photo-accent img {
-  width: 100%; object-fit: cover; object-position: top; max-height: 280px;
-}
-
-/* FORMULARIO */
-.esic-hatsu .cta-form-wrap {
-  background: rgba(180,30,90,0.35);
-  border: 1px solid rgba(255,50,130,0.25);
-  border-radius: 24px;
-  padding: 2.5rem;
-}
-.esic-hatsu .cta-form-title {
-  font-family: var(--display-font); font-size: 2rem; font-weight: 800;
-  text-transform: uppercase; color: var(--hatsu-white); margin-bottom: 0.5rem;
-}
-.esic-hatsu .cta-form-sub {
-  font-size: 0.83rem; color: rgba(255,255,255,0.45); margin-bottom: 1.75rem; line-height: 1.5;
-}
-
-.esic-hatsu .h-form { display: flex; flex-direction: column; gap: 0.9rem; }
-.esic-hatsu .h-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-
-.esic-hatsu .h-field { display: flex; flex-direction: column; gap: 0.3rem; }
-.esic-hatsu .h-label {
-  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: rgba(255,255,255,0.4);
-}
-.esic-hatsu .h-input, .esic-hatsu .h-select {
-  width: 100%; padding: 0.8rem 1rem;
-  background: rgba(255,255,255,0.06);
-  border: 1.5px solid rgba(255,255,255,0.11);
-  border-radius: 10px;
-  color: #fff; font-family: var(--body-font); font-size: 0.92rem;
-  outline: none; transition: border-color 0.2s;
-  -webkit-appearance: none; appearance: none;
-}
-.esic-hatsu .h-input::placeholder { color: rgba(255,255,255,0.28); }
-.esic-hatsu .h-input:focus,
-.esic-hatsu .h-select:focus { border-color: var(--hatsu-pink); }
-.esic-hatsu .h-select { cursor: pointer; }
-.esic-hatsu .h-select option { background: #1a1a1a; color: #fff; }
-
-.esic-hatsu .h-form-terms {
-  font-size: 0.76rem; color: rgba(255,255,255,0.38); line-height: 1.5;
-  display: flex; align-items: flex-start; gap: 0.6rem;
-}
-.esic-hatsu .h-form-terms input[type="checkbox"] {
-  margin-top: 2px; flex-shrink: 0; accent-color: var(--hatsu-pink);
-}
-.esic-hatsu .h-form-terms a { color: var(--hatsu-pink); text-decoration: underline; }
-
-.esic-hatsu .h-submit {
-  width: 100%; padding: 1.1rem;
-  background: var(--hatsu-pink); color: #fff;
-  border: none; border-radius: 12px;
-  font-family: var(--body-font); font-size: 0.95rem; font-weight: 700;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  cursor: pointer; transition: background 0.2s, transform 0.15s;
-}
-.esic-hatsu .h-submit:hover { background: #ff2d87; transform: translateY(-2px); }
-
 
 /* ─────────────────────────────────
    RESPONSIVE
 ───────────────────────────────── */
-@media (min-width: 1400px) {
-  .esic-hatsu .hero-video-card { width: 48%; max-width: 720px; }
-  .esic-hatsu .hero-vc-btn { width: 36px; height: 36px; }
-  .esic-hatsu .hero-vc-btn svg { width: 15px; height: 15px; }
-}
-
 @media (max-width: 1024px) {
-  .esic-hatsu .porque-grid { grid-template-columns: 1fr 1fr 1fr; }
-  .esic-hatsu .porque-photos { display: none; }
+  .esic-hatsu .showcase-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 900px) {
-  /* Secciones generales */
-  .esic-hatsu .beca-inner { grid-template-columns: 1fr; }
-  .esic-hatsu .beca-photo { display: none; }
-  .esic-hatsu .beca-headline { font-size: clamp(5rem, 18vw, 9rem); }
-  .esic-hatsu .quees-inner { grid-template-columns: 1fr; }
-  .esic-hatsu .quees-photo { max-height: 60vw; overflow: hidden; border-radius: 16px; }
-  .esic-hatsu .quees-photo img { max-height: 60vw; }
-  .esic-hatsu .agenda-inner { grid-template-columns: 1fr; }
-  .esic-hatsu .agenda-right { order: -1; }
-  .esic-hatsu .porque-grid { grid-template-columns: 1fr 1fr; }
-  .esic-hatsu .cta-inner { grid-template-columns: 1fr; }
-  .esic-hatsu .cta-photo-accent { display: none; }
+  .esic-hatsu .cierre-inner { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 
 @media (max-width: 600px) {
-  /* Hero mobile */
   .esic-hatsu .hatsu-hero { min-height: auto; }
   .esic-hatsu .hero-inner {
     min-height: auto; flex-direction: column; padding-bottom: 5rem;
@@ -742,7 +410,6 @@
   .esic-hatsu .hero-photo-col img { object-position: center 20%; }
   .esic-hatsu .hero-photo-col::before {
     background:
-      rgba(10,10,10,0.55),
       linear-gradient(to top,
         #0A0A0A 0%,
         rgba(10,10,10,0.88) 30%,
@@ -758,12 +425,7 @@
     text-align: left;
   }
   .esic-hatsu .hero-h1 { font-size: clamp(3.5rem, 14vw, 6rem); margin-bottom: 1rem; }
-  .esic-hatsu .hero-sub { font-size: 0.92rem; margin-bottom: 1.5rem; max-width: 100%; }
-  .esic-hatsu .hero-info-grid { gap: 0.75rem 1.25rem; margin-bottom: 1.75rem; }
-  .esic-hatsu .hero-info-box .hib-label { font-size: 0.58rem; }
-  .esic-hatsu .hero-info-box .hib-value { font-size: 1.35rem; }
-  .esic-hatsu .hero-actions { flex-direction: column; gap: 0.65rem; }
-  .esic-hatsu .hero-actions .h-btn { width: 100%; justify-content: center; font-size: 0.88rem; }
+  .esic-hatsu .hero-sub { font-size: 0.92rem; max-width: 100%; }
   .esic-hatsu .hero-video-card {
     width: 90%; max-width: none; margin: 0 auto;
     border-radius: 14px;
@@ -773,22 +435,12 @@
   .esic-hatsu .hero-vc-btn svg { width: 11px; height: 11px; }
   .esic-hatsu .hero-video-controls { padding: 0.4rem 0.6rem; }
 
-  /* Resto de secciones */
-  .esic-hatsu .hatsu-beca,
-  .esic-hatsu .hatsu-que-es,
-  .esic-hatsu .hatsu-agenda,
-  .esic-hatsu .hatsu-porque,
-  .esic-hatsu .hatsu-cta { padding-top: 4.5rem; padding-bottom: 4rem; }
-  .esic-hatsu .beca-cards { grid-template-columns: 1fr; }
-  .esic-hatsu .h-form-row { grid-template-columns: 1fr; }
-  .esic-hatsu .agenda-item { grid-template-columns: 62px 20px 1fr; }
-  .esic-hatsu .agenda-time { font-size: 1.25rem; }
-  .esic-hatsu .agenda-highlight { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
-  .esic-hatsu .agenda-stat .stat-n { font-size: 2.5rem; }
-  .esic-hatsu .cta-form-wrap { padding: 1.75rem 1.25rem; }
-  .esic-hatsu .cta-info-grid { gap: 0.75rem 1.25rem; }
-  .esic-hatsu .cta-info-box .cib-value { font-size: 1.4rem; }
-  .esic-hatsu .porque-grid { grid-template-columns: 1fr; gap: 0.6rem; }
+  .esic-hatsu .hatsu-showcase { padding-top: 4.5rem; padding-bottom: 4rem; }
+  .esic-hatsu .showcase-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .esic-hatsu .showcase-head { margin-bottom: 2.25rem; }
+  .esic-hatsu .hatsu-cierre { padding: 4.5rem 0 4rem; }
+  .esic-hatsu .cierre-premiacion { padding: 1.75rem 1.5rem; }
+  .esic-hatsu .cierre-pre-meta { grid-template-columns: 1fr; gap: 1rem; }
 }
 </style>
 
@@ -805,33 +457,9 @@
       </h1>
 
       <p class="hero-sub">
-        Un desaf&iacute;o real de marca para estudiantes de colegio.
-        Compite, innova y gana una beca del 50% para estudiar en ESIC.
+        El Desaf&iacute;o Junior Empresarial reuni&oacute; a estudiantes de colegio
+        para crear su propia versi&oacute;n del universo Hatsu. Estos son sus videos.
       </p>
-
-      <div class="hero-info-grid">
-        <div class="hero-info-box">
-          <div class="hib-label">Fecha</div>
-          <div class="hib-value">18 Abr.</div>
-        </div>
-        <div class="hero-info-box">
-          <div class="hib-label">Horario</div>
-          <div class="hib-value">9am &ndash; 2pm</div>
-        </div>
-        <div class="hero-info-box">
-          <div class="hib-label">Lugar</div>
-          <div class="hib-value">ESIC Medell&iacute;n (Alto de Palmas)</div>
-        </div>
-        <div class="hero-info-box">
-          <div class="hib-label">Premio</div>
-          <div class="hib-value">Beca 50%</div>
-        </div>
-      </div>
-
-      <div class="hero-actions">
-        <a href="#inscripcion" onclick="event.preventDefault();document.getElementById('inscripcion').scrollIntoView({behavior:'smooth',block:'start'});" class="h-btn h-btn-pink">Inscr&iacute;bete &rarr;</a>
-        <a href="#el-reto" onclick="event.preventDefault();document.getElementById('el-reto').scrollIntoView({behavior:'smooth',block:'start'});" class="h-btn h-btn-ghost">Ver el reto</a>
-      </div>
     </div>
 
     <div class="hero-photo-col">
@@ -917,327 +545,149 @@
 </script>
 
 <!-- ══════════════════════════════
-     SECTION 2 — BECA
+     SECTION 2 — SHOWCASE DE VIDEOS
 ══════════════════════════════ -->
-<section class="hatsu-beca">
+<section class="hatsu-showcase">
   <div class="h-container">
-    <div class="beca-inner">
 
-      <div class="beca-text">
-        <span class="h-eyebrow h-eyebrow-blue">El equipo ganador obtiene</span>
-        <h2 class="beca-headline">50%<br>DE BECA</h2>
-        <p class="beca-sub">
-          Para estudiar en ESIC Business &amp; Marketing School con
-          doble titulaci&oacute;n internacional. Elige el pregrado que transforme tu carrera.
-        </p>
-        <p class="beca-nota">Beca del 50% v&aacute;lida solo para el primer a&ntilde;o de la carrera. V&aacute;lida para todo un grupo de 3 a 5 estudiantes.</p>
+    <div class="showcase-head">
+      <span class="h-eyebrow h-eyebrow-pink">Galer&iacute;a de participantes</span>
+      <h2 class="showcase-title">Sus <em>ideas</em><br>en video.</h2>
+      <p class="showcase-sub">
+        Cada equipo llev&oacute; el universo Hatsu a su propio terreno.
+        Estas son las piezas que crearon.
+      </p>
+    </div>
 
-        <div class="beca-cards">
-          <div class="beca-card">
-            <div class="beca-card-tag">Pregrado</div>
-            <div class="beca-card-title">Digital Business</div>
-            <div class="beca-card-desc">Direcci&oacute;n de negocios en entornos digitales con perspectiva global.</div>
-          </div>
-          <div class="beca-card">
-            <div class="beca-card-tag">Pregrado</div>
-            <div class="beca-card-title">Marketing Global</div>
-            <div class="beca-card-desc">Estrategia de marca e innovaci&oacute;n para mercados internacionales.</div>
-          </div>
-        </div>
+    <div class="showcase-grid">
 
-        <div class="esic-logo-lockup">
-          <div class="esic-logo-text">ESIC</div>
-          <div class="esic-logo-sep"></div>
-          <div class="esic-logo-sub">Business &amp;<br>Marketing School</div>
-        </div>
+      <div class="showcase-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXUxdkcie4s/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%;">
+          <a href="https://www.instagram.com/reel/DXUxdkcie4s/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">Ver en Instagram</a>
+        </blockquote>
       </div>
 
-      <div class="beca-photo">
-        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-beca-chica-morado-scaled.webp" alt="Participante Desaf&iacute;o ESIC &times; Hatsu">
+      <div class="showcase-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXU4KiLkqrC/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%;">
+          <a href="https://www.instagram.com/reel/DXU4KiLkqrC/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">Ver en Instagram</a>
+        </blockquote>
+      </div>
+
+      <div class="showcase-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXVDUNWD1Ta/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%;">
+          <a href="https://www.instagram.com/reel/DXVDUNWD1Ta/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">Ver en Instagram</a>
+        </blockquote>
+      </div>
+
+      <div class="showcase-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXU-DrgDyqQ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%;">
+          <a href="https://www.instagram.com/reel/DXU-DrgDyqQ/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">Ver en Instagram</a>
+        </blockquote>
+      </div>
+
+      <div class="showcase-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXU9Plfifnk/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%;">
+          <a href="https://www.instagram.com/reel/DXU9Plfifnk/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">Ver en Instagram</a>
+        </blockquote>
+      </div>
+
+      <div class="showcase-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXU-feICjtx/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%;">
+          <a href="https://www.instagram.com/reel/DXU-feICjtx/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">Ver en Instagram</a>
+        </blockquote>
+      </div>
+
+      <div class="showcase-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXU5gOQk53j/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%;">
+          <a href="https://www.instagram.com/reel/DXU5gOQk53j/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">Ver en Instagram</a>
+        </blockquote>
+      </div>
+
+      <div class="showcase-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXU86bPueHQ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%;">
+          <a href="https://www.instagram.com/reel/DXU86bPueHQ/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">Ver en Instagram</a>
+        </blockquote>
+      </div>
+
+      <div class="showcase-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXVFMpQjgjR/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%;">
+          <a href="https://www.instagram.com/reel/DXVFMpQjgjR/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">Ver en Instagram</a>
+        </blockquote>
+      </div>
+
+      <div class="showcase-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXU-NELCOvo/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%;">
+          <a href="https://www.instagram.com/reel/DXU-NELCOvo/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">Ver en Instagram</a>
+        </blockquote>
+      </div>
+
+      <div class="showcase-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXUjJzlgEkC/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%;">
+          <a href="https://www.instagram.com/reel/DXUjJzlgEkC/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">Ver en Instagram</a>
+        </blockquote>
+      </div>
+
+      <div class="showcase-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXUrzh1kxwv/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%;">
+          <a href="https://www.instagram.com/reel/DXUrzh1kxwv/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">Ver en Instagram</a>
+        </blockquote>
       </div>
 
     </div>
+
   </div>
 </section>
 
-<!-- ══════════════════════════════
-     SECTION 3 — CTA / FORMULARIO
-══════════════════════════════ -->
-<section class="hatsu-cta" id="inscripcion">
-  <div class="h-container">
-    <div class="cta-inner">
-
-      <div class="cta-text">
-        <span class="h-eyebrow h-eyebrow-pink">Es tu momento</span>
-        <h2 class="cta-headline">Tu idea<br>podr&iacute;a<br>abrirte<br>la <em>puerta.</em></h2>
-
-        <p class="cta-sub">
-          Acepta el reto y compite por una beca que puede cambiar
-          el rumbo de tu carrera. Las inscripciones son gratuitas.
-        </p>
-
-        <div class="cta-info-grid">
-          <div class="cta-info-box">
-            <div class="cib-label">Fecha</div>
-            <div class="cib-value">S&aacute;bado 18 de abril de 2026</div>
-          </div>
-          <div class="cta-info-box">
-            <div class="cib-label">Horario</div>
-            <div class="cib-value">9:00am &ndash; 2:00pm</div>
-          </div>
-          <div class="cta-info-box">
-            <div class="cib-label">Lugar</div>
-            <div class="cib-value">ESIC Medell&iacute;n (Alto de Palmas)</div>
-          </div>
-          <div class="cta-info-box">
-            <div class="cib-label">Equipos</div>
-            <div class="cib-value">3 a 5 estudiantes</div>
-          </div>
-        </div>
-
-        <div class="cta-photo-accent">
-          <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-cta-editorial-scaled.webp" alt="Participantes Hatsu">
-        </div>
-      </div>
-
-      <!-- FORMULARIO -->
-      <div class="cta-form-wrap">
-        <div class="cta-form-title">Inscr&iacute;bete</div>
-        <div class="cta-form-sub">Completa el formulario y nos pondremos en contacto con m&aacute;s detalles.</div>
-
-        <form class="h-form"
-              action="https://forms.zohopublic.com/esicmedellin/form/RegstrateenelDesafoJuniorEmpresarialHATSU/formperma/On4lp6rcnyuxUx_5EmTm_kQcV8ZvrSY5G6JrqAuMRZc/htmlRecords/submit"
-              method="POST"
-              accept-charset="UTF-8"
-              enctype="multipart/form-data">
-
-          <input type="hidden" name="zf_referrer_name" value="">
-          <input type="hidden" name="zf_redirect_url" value="">
-          <input type="hidden" name="zc_gad" value="">
-
-          <div class="h-form-row">
-            <div class="h-field">
-              <label class="h-label" for="ht-nombre">Nombre</label>
-              <input class="h-input" type="text" id="ht-nombre" name="Name_First"
-                     fieldType=7 placeholder="Tu nombre" required maxlength="255">
-            </div>
-            <div class="h-field">
-              <label class="h-label" for="ht-apellido">Apellidos</label>
-              <input class="h-input" type="text" id="ht-apellido" name="Name_Last"
-                     fieldType=7 placeholder="Tus apellidos" required maxlength="255">
-            </div>
-          </div>
-
-          <div class="h-field">
-            <label class="h-label" for="ht-email">Correo electr&oacute;nico</label>
-            <input class="h-input" type="text" id="ht-email" name="Email"
-                   fieldType=9 placeholder="tu@correo.com" required maxlength="255">
-          </div>
-
-          <div class="h-form-row">
-            <div class="h-field">
-              <label class="h-label" for="ht-telefono-code">C&oacute;digo pa&iacute;s</label>
-              <input class="h-input" type="text" id="ht-telefono-code" name="PhoneNumber_countrycodeval"
-                     compname="PhoneNumber_countrycodeval" phoneFormat="1"
-                     maxlength="10" value="+57">
-            </div>
-            <div class="h-field">
-              <label class="h-label" for="ht-telefono">Tel&eacute;fono / WhatsApp</label>
-              <input class="h-input" type="text" id="ht-telefono" name="PhoneNumber_countrycode"
-                     compname="PhoneNumber" phoneFormat="1" isCountryCodeEnabled=true
-                     fieldType=11 placeholder="300 000 0000" required maxlength="20">
-            </div>
-          </div>
-
-          <div class="h-field">
-            <label class="h-label" for="ht-colegio">Instituci&oacute;n educativa</label>
-            <input class="h-input" type="text" id="ht-colegio" name="SingleLine4"
-                   fieldType=1 placeholder="Nombre de tu colegio" required maxlength="255">
-          </div>
-
-          <div class="h-form-row">
-            <div class="h-field">
-              <label class="h-label" for="ht-grado">Grado</label>
-              <select class="h-select" id="ht-grado" name="Dropdown" required>
-                <option value="-Select-" disabled selected>Selecciona</option>
-                <option value="Decimo">D&eacute;cimo</option>
-                <option value="Once">Once</option>
-                <option value="Doce">Doce</option>
-                <option value="Reci&eacute;n graduado">Reci&eacute;n graduado</option>
-              </select>
-            </div>
-            <div class="h-field">
-              <label class="h-label" for="ht-programa">Programa de inter&eacute;s</label>
-              <select class="h-select" id="ht-programa" name="Dropdown1" required>
-                <option value="-Select-" disabled selected>Selecciona</option>
-                <option value="Digital Buisiness">Digital Business</option>
-                <option value="Direcci&oacute;n de Marketing Global">Direcci&oacute;n de Marketing Global</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="h-field">
-            <label class="h-label" for="ht-periodo">Periodo de inter&eacute;s</label>
-            <select class="h-select" id="ht-periodo" name="Dropdown2" required>
-              <option value="-Select-" disabled selected>Selecciona</option>
-              <option value="2026-2">2026-2</option>
-              <option value="2027-1">2027-1</option>
-              <option value="2027-2">2027-2</option>
-            </select>
-          </div>
-
-          <div class="h-form-terms">
-            <input type="checkbox" id="ht-terms" name="DecisionBox2" required>
-            <label for="ht-terms">
-              Acepto el tratamiento de datos personales por parte de
-              <a href="https://esic.co/politicas-de-privacidad/" target="_blank">ESIC Business &amp; Marketing School Campus Medell&iacute;n</a> &ndash; Prisma Colombia.
-            </label>
-          </div>
-
-          <div class="h-form-terms">
-            <input type="checkbox" id="ht-info" name="DecisionBox">
-            <label for="ht-info">
-              Deseo mantenerme informado a trav&eacute;s de email y tel&eacute;fono sobre novedades formativas.
-            </label>
-          </div>
-
-
-          <button type="submit" class="h-submit">Inscribirme &rarr;</button>
-
-        <!-- UTM hidden fields (autollenados vía JS desde la URL) -->
-        <input type="hidden" name="utm_source">
-        <input type="hidden" name="utm_medium">
-        <input type="hidden" name="utm_campaign">
-        <input type="hidden" name="utm_term">
-        <input type="hidden" name="utm_content">
-        <input type="hidden" name="utm_adset_name">
-        <input type="hidden" name="utm_ad_name">
-        </form>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  var params = new URLSearchParams(window.location.search);
-  var utms = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_adset_name","utm_ad_name"];
-  utms.forEach(function(param){
-    var value = params.get(param);
-    if (!value) return;
-    document.querySelectorAll('[name="' + param + '"]').forEach(function(input){ input.value = value; });
-  });
-});
+(function(){
+  // Carga el script oficial de embeds de Instagram
+  function loadIgEmbed(){
+    if (window.instgrm && window.instgrm.Embeds) {
+      window.instgrm.Embeds.process();
+      return;
+    }
+    if (document.getElementById('instagram-embed-js')) return;
+    var s = document.createElement('script');
+    s.id = 'instagram-embed-js';
+    s.async = true;
+    s.src = 'https://www.instagram.com/embed.js';
+    document.body.appendChild(s);
+  }
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    loadIgEmbed();
+  } else {
+    document.addEventListener('DOMContentLoaded', loadIgEmbed);
+  }
+})();
 </script>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ══════════════════════════════
-     SECTION 4 — QUE ES EL DESAFIO
+     SECTION 3 — CIERRE / PREMIACION
 ══════════════════════════════ -->
-<section class="hatsu-que-es" id="el-reto">
+<section class="hatsu-cierre">
   <div class="h-container">
-    <div class="quees-inner">
+    <div class="cierre-inner">
 
-      <div class="quees-photo">
-        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-reto-chico-teal-scaled.webp" alt="Participante del reto Hatsu">
-      </div>
-
-      <div class="quees-text">
-        <span class="h-eyebrow h-eyebrow-teal">El Reto</span>
-        <h2 class="quees-headline">Un <em>challenge</em><br>real de marca.</h2>
-
-        <p class="quees-body">
-          El Desaf&iacute;o Junior Empresarial es una competencia donde equipos de estudiantes
-          de colegio se enfrentan a un reto de marketing y estrategia de marca real &mdash;
-          el mismo tipo de reto que resuelven los profesionales en la industria.
+      <div class="cierre-left">
+        <span class="cierre-tag-label">Etiqueta oficial</span>
+        <div class="cierre-hashtag">#Djeesicyhatsu</div>
+        <p class="cierre-copy">
+          Usa el hashtag para que encontremos tu video y lo sumemos a esta galer&iacute;a.
+          Comparte, etiqueta y celebra a tu equipo.
         </p>
-        <p class="quees-body">
-          En un d&iacute;a intenso de trabajo en equipo, los participantes reciben el brief,
-          desarrollan su propuesta y la presentan ante un jurado de expertos en marketing
-          y negocios. El mejor equipo se lleva la beca.
-        </p>
-
-        <div class="quees-hatsu-desc">
-          <p>
-            <strong>&iquest;Qu&eacute; es Hatsu?</strong> Una marca colombiana de bebidas
-            y alimentos premium, nacida en 2010 en Medell&iacute;n, que se inspira en el inicio
-            de un mundo nuevo, un prop&oacute;sito que transforma todo, a trav&eacute;s de la magia
-            del color y una comunidad que se identifica con ser diferente.
-            El reto estar&aacute; basado en su universo de marca.
-          </p>
-        </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════
-     SECTION 5 — AGENDA
-══════════════════════════════ -->
-<section class="hatsu-agenda">
-  <div class="h-container">
-    <div class="agenda-inner">
-
-      <div class="agenda-left">
-        <span class="h-eyebrow h-eyebrow-blue">Programa del d&iacute;a</span>
-        <h2 class="agenda-headline">S&aacute;bado<br>18 de<br>Abril</h2>
-        <div class="agenda-meta">ESIC Medell&iacute;n (Alto de Palmas) &nbsp;&middot;&nbsp; 9:00am &ndash; 2:00pm</div>
-
-        <div class="agenda-timeline">
-          <div class="agenda-item">
-            <div class="agenda-time">9:00</div>
-            <div class="agenda-dot-col"><div class="agenda-dot"></div><div class="agenda-line"></div></div>
-            <div class="agenda-desc"><strong>Bienvenida y registro</strong><br>Recepci&oacute;n de equipos participantes</div>
+      <div class="cierre-premiacion">
+        <div class="cierre-pre-label">Ceremonia de premiaci&oacute;n</div>
+        <h3 class="cierre-pre-title">Jueves<br>23 <em>de abril</em></h3>
+        <div class="cierre-pre-meta">
+          <div>
+            <span class="cpm-label">Hora</span>
+            <span class="cpm-value">4:30 pm</span>
           </div>
-          <div class="agenda-item">
-            <div class="agenda-time">9:30</div>
-            <div class="agenda-dot-col"><div class="agenda-dot"></div><div class="agenda-line"></div></div>
-            <div class="agenda-desc"><strong>Presentaci&oacute;n del reto</strong><br>Brief oficial del desaf&iacute;o Hatsu</div>
-          </div>
-          <div class="agenda-item">
-            <div class="agenda-time">10:00</div>
-            <div class="agenda-dot-col"><div class="agenda-dot"></div><div class="agenda-line"></div></div>
-            <div class="agenda-desc"><strong>Desarrollo del challenge</strong><br>Trabajo en equipo con mentor&iacute;a</div>
-          </div>
-          <div class="agenda-item">
-            <div class="agenda-time">12:30</div>
-            <div class="agenda-dot-col"><div class="agenda-dot"></div><div class="agenda-line"></div></div>
-            <div class="agenda-desc"><strong>Presentaci&oacute;n de ideas</strong><br>Pitch ante el jurado de expertos</div>
-          </div>
-          <div class="agenda-item">
-            <div class="agenda-time">2:00</div>
-            <div class="agenda-dot-col"><div class="agenda-dot"></div></div>
-            <div class="agenda-desc"><strong>Cierre</strong><br>Resultados y despedida</div>
-          </div>
-        </div>
-
-        <div class="agenda-premiacion">
-          <div class="pre-label">Ceremonia de premiaci&oacute;n</div>
-          <div class="pre-title">Jueves<br>23 Abr.</div>
-          <div class="pre-date">Anuncio del equipo ganador de la beca</div>
-        </div>
-      </div>
-
-      <div class="agenda-right">
-        <div class="agenda-photo-wrap">
-          <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-agenda-editorial-scaled.webp" alt="Participantes del desaf&iacute;o">
-        </div>
-        <div class="agenda-highlight">
-          <div class="agenda-stat">
-            <div class="stat-n">5h</div>
-            <div class="stat-l">De challenge intensivo</div>
-          </div>
-          <div class="agenda-stat">
-            <div class="stat-n">50%</div>
-            <div class="stat-l">De beca en juego</div>
-          </div>
-          <div class="agenda-stat">
-            <div class="stat-n">2</div>
-            <div class="stat-l">Pregrados disponibles</div>
-          </div>
-          <div class="agenda-stat">
-            <div class="stat-n">1</div>
-            <div class="stat-l">Equipo ganador</div>
+          <div>
+            <span class="cpm-label">Lugar</span>
+            <span class="cpm-value">ESIC Medell&iacute;n</span>
           </div>
         </div>
       </div>
@@ -1245,62 +695,5 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </div>
 </section>
-
-<!-- ══════════════════════════════
-     SECTION 6 — POR QUE PARTICIPAR
-══════════════════════════════ -->
-<section class="hatsu-porque">
-  <div class="h-container">
-
-    <div style="text-align:center; margin-bottom:3rem;">
-      <span class="h-eyebrow h-eyebrow-pink">5 razones para unirte</span>
-      <h2 style="font-family:var(--display-font);font-size:clamp(3.5rem,8vw,8rem);font-weight:800;text-transform:uppercase;color:#fff;line-height:0.92;">
-        &iquest;Por qu&eacute;<br>participar?
-      </h2>
-    </div>
-
-    <div class="porque-grid">
-      <div class="porque-item">
-        <div class="porque-num">01</div>
-        <h3 class="porque-title">Tu primer desaf&iacute;o real</h3>
-        <p class="porque-desc">Vive la experiencia de resolver un reto de marketing como lo hacen los profesionales en la industria.</p>
-      </div>
-      <div class="porque-item">
-        <div class="porque-num">02</div>
-        <h3 class="porque-title">Presenta frente a expertos</h3>
-        <p class="porque-desc">Desarrolla habilidades de pitch y comunicaci&oacute;n presentando tu idea ante un jurado de profesionales.</p>
-      </div>
-      <div class="porque-item">
-        <div class="porque-num">03</div>
-        <h3 class="porque-title">Conoce ESIC</h3>
-        <p class="porque-desc">Una escuela de negocios con m&aacute;s de 50 a&ntilde;os de historia y doble titulaci&oacute;n internacional.</p>
-      </div>
-      <div class="porque-item">
-        <div class="porque-num">04</div>
-        <h3 class="porque-title">Compite con los mejores</h3>
-        <p class="porque-desc">Conect&aacute;te y m&iacute;dete con los estudiantes m&aacute;s talentosos de Medell&iacute;n en un ambiente de alto nivel.</p>
-      </div>
-      <div class="porque-item">
-        <div class="porque-num">05</div>
-        <h3 class="porque-title">Gana una beca del 50%</h3>
-        <p class="porque-desc">El equipo ganador obtiene una beca del 50% en Digital Business o Marketing Global en ESIC.</p>
-      </div>
-    </div>
-
-    <div class="porque-photos">
-      <div class="porque-photo-item">
-        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-porque-chico-amarillo-scaled.webp" alt="Participante Hatsu">
-      </div>
-      <div class="porque-photo-item">
-        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-porque-editorial-2-scaled.webp" alt="Participante Hatsu">
-      </div>
-      <div class="porque-photo-item">
-        <img src="https://esic.co/wp-content/uploads/2026/03/hatsu-porque-editorial-3-scaled.webp" alt="Participante Hatsu">
-      </div>
-    </div>
-
-  </div>
-</section>
-
 
 </div>

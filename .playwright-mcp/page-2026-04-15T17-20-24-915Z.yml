@@ -1,0 +1,59 @@
+- generic [ref=e2]:
+  - generic [ref=e6]:
+    - generic [ref=e7]: Campus ESIC Medellín
+    - heading "Conoce Nuestro Campus" [level=1] [ref=e8]
+  - generic [ref=e11]:
+    - generic [ref=e12]:
+      - heading "Un Espacio Diseñado Para Aprender" [level=2] [ref=e13]
+      - paragraph [ref=e14]: El Campus de ESIC en Medellín es un entorno pensado para impulsar la creatividad, la innovación y el aprendizaje experiencial. Cada rincón ha sido diseñado para conectar a los estudiantes con las herramientas, tecnologías y espacios que necesitan para transformar su futuro profesional.
+      - paragraph [ref=e15]: Con instalaciones de última generación y áreas de colaboración, nuestro campus refleja el compromiso de ESIC con la excelencia educativa y la formación integral de los profesionales del negocio, el marketing y la tecnología.
+    - img "Campus ESIC Interior" [ref=e17]
+  - generic [ref=e19]:
+    - generic [ref=e20]:
+      - heading "Áreas del Campus" [level=2] [ref=e21]
+      - paragraph [ref=e22]: Descubre los espacios que tenemos para ti en cada área de nuestro campus.
+    - generic [ref=e23]:
+      - generic [ref=e24] [cursor=pointer]:
+        - img "Espacios Académicos" [ref=e25]
+        - generic [ref=e26]:
+          - generic [ref=e27]: Académicos
+          - heading "Espacios Académicos" [level=3] [ref=e28]
+        - text: Ver galería →
+      - generic [ref=e29] [cursor=pointer]:
+        - img "Zonas de Tecnología" [ref=e30]
+        - generic [ref=e31]:
+          - generic [ref=e32]: Innovación
+          - heading "Zonas de Tecnología" [level=3] [ref=e33]
+        - text: Ver galería →
+      - generic [ref=e34] [cursor=pointer]:
+        - img "Áreas Comunes" [ref=e35]
+        - generic [ref=e36]:
+          - generic [ref=e37]: Convivencia
+          - heading "Áreas Comunes" [level=3] [ref=e38]
+        - text: Ver galería →
+  - generic [ref=e40]:
+    - generic [ref=e41]:
+      - heading "Encuéntranos en el Mapa" [level=2] [ref=e42]
+      - paragraph [ref=e43]: Visita nuestro campus en Medellín y conoce todo lo que tenemos para ti.
+    - generic [ref=e44]:
+      - img [ref=e46]
+      - generic [ref=e48]: ESIC Business & Marketing School — Medellín
+    - iframe [ref=e50]:
+      
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - img [ref=e53]
+        - heading "Dirección" [level=4] [ref=e55]
+        - paragraph [ref=e56]:
+          - text: Medellín, Antioquia
+          - text: Colombia
+      - generic [ref=e57]:
+        - img [ref=e58]
+        - heading "Teléfono" [level=4] [ref=e60]
+        - paragraph [ref=e61]: Contáctanos a través de nuestra web para más información.
+      - generic [ref=e62]:
+        - img [ref=e63]
+        - heading "Horarios" [level=4] [ref=e65]
+        - paragraph [ref=e66]:
+          - text: Lunes a Viernes
+          - text: 8:00 AM – 8:00 PM

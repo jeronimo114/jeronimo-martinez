@@ -1,0 +1,237 @@
+- main [ref=e3]:
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: Nueva cohorte · Junio 2026
+      - heading "Pregrado en Digital Business" [level=1] [ref=e10]
+      - paragraph [ref=e11]:
+        - text: Conviértete en el profesional que las empresas buscan para liderar la economía digital. Nuestra nueva cohorte arranca en solo dos meses y puedes acceder hasta al
+        - strong [ref=e12]: 100% de beca
+        - text: .
+      - generic [ref=e13]:
+        - link "Asegura tu cupo" [ref=e14] [cursor=pointer]:
+          - /url: "#formulario"
+          - text: Asegura tu cupo
+          - img [ref=e15]
+        - link "Cómo conseguir la beca" [ref=e17] [cursor=pointer]:
+          - /url: "#beca"
+    - generic [ref=e18]:
+      - generic [ref=e19]: Inicio de clases
+      - generic [ref=e20]: 16 de junio, 2026
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - text: "60"
+          - generic [ref=e23]: Días
+        - generic [ref=e24]:
+          - text: "22"
+          - generic [ref=e25]: Horas
+        - generic [ref=e26]:
+          - text: "03"
+          - generic [ref=e27]: Min
+        - generic [ref=e28]:
+          - text: "42"
+          - generic [ref=e29]: Seg
+  - generic [ref=e32]:
+    - generic [ref=e33]:
+      - img [ref=e34]
+      - heading "4 años" [level=4] [ref=e37]
+      - paragraph [ref=e38]: Modelo por módulos problémicos
+    - generic [ref=e39]:
+      - img [ref=e40]
+      - heading "Doble titulación" [level=4] [ref=e43]
+      - paragraph [ref=e44]: Colombia y España
+    - generic [ref=e45]:
+      - img [ref=e46]
+      - heading "Inmersión" [level=4] [ref=e49]
+      - paragraph [ref=e50]: Campus ESIC Madrid
+    - generic [ref=e51]:
+      - img [ref=e52]
+      - heading "Medellín" [level=4] [ref=e55]
+      - paragraph [ref=e56]: Campus Alto de Las Palmas
+  - generic [ref=e58]:
+    - generic [ref=e59]:
+      - generic [ref=e60]: Por qué Digital Business
+      - heading "Un pregrado diseñado para liderar la economía digital" [level=2] [ref=e61]
+      - paragraph [ref=e62]: Combina estrategia de negocio, tecnología e innovación para formarte como profesional integral, listo para el mercado global.
+    - generic [ref=e63]:
+      - generic [ref=e64]:
+        - img [ref=e66]
+        - heading "Estrategia de negocio digital" [level=3] [ref=e69]
+        - paragraph [ref=e70]: Aprende a diseñar modelos de negocio escalables, interpretar datos y tomar decisiones basadas en analítica.
+      - generic [ref=e71]:
+        - img [ref=e73]
+        - heading "Tecnología aplicada" [level=3] [ref=e76]
+        - paragraph [ref=e77]: Desarrolla habilidades en IA, Machine Learning, Fintech & Blockchain y herramientas de Business Intelligence.
+      - generic [ref=e78]:
+        - img [ref=e80]
+        - heading "Doble titulación internacional" [level=3] [ref=e82]
+        - paragraph [ref=e83]: "Obtén dos títulos: Profesional en Administración de Empresas (CEIPA) y Digital Business por ESIC University."
+      - generic [ref=e84]:
+        - img [ref=e86]
+        - heading "Experiencia global" [level=3] [ref=e89]
+        - paragraph [ref=e90]: Summer Camp obligatorio en Madrid y opción de cursar un semestre o año completo en cualquiera de los 11 campus ESIC en España.
+      - generic [ref=e91]:
+        - img [ref=e93]
+        - heading "Red de aliados reales" [level=3] [ref=e97]
+        - paragraph [ref=e98]: Prácticas empresariales y proyectos con compañías líderes del ecosistema digital en Colombia, España y Latam.
+      - generic [ref=e99]:
+        - img [ref=e101]
+        - heading "Liderazgo consciente" [level=3] [ref=e104]
+        - paragraph [ref=e105]: Formación ética, orientada al impacto social y al liderazgo responsable en entornos de alta complejidad.
+  - generic [ref=e107]:
+    - generic [ref=e108]:
+      - generic [ref=e109]: Ruta de admisión
+      - heading "Dos meses, cuatro pasos" [level=2] [ref=e110]
+      - paragraph [ref=e111]: Nuestro equipo de admisiones te acompaña de principio a fin. Estas son las fechas clave para entrar a la cohorte de junio 2026.
+    - generic [ref=e112]:
+      - generic [ref=e113]:
+        - generic [ref=e114]: "1"
+        - generic [ref=e115]: Hasta el 9 de mayo, 2026
+        - heading "Solicitud de información" [level=4] [ref=e116]
+        - paragraph [ref=e117]: Completa el formulario y recibe el brochure, el plan de estudios y una asesoría personalizada con admisiones.
+      - generic [ref=e118]:
+        - generic [ref=e119]: "2"
+        - generic [ref=e120]: 16 al 23 de mayo, 2026
+        - heading "Entrevista y prueba de beca" [level=4] [ref=e121]
+        - paragraph [ref=e122]: Agenda tu entrevista de admisión y presenta la prueba para aplicar al porcentaje de beca según tu perfil.
+      - generic [ref=e123]:
+        - generic [ref=e124]: "3"
+        - generic [ref=e125]: 30 de mayo, 2026
+        - heading "Matrícula y resultado de beca" [level=4] [ref=e126]
+        - paragraph [ref=e127]: Recibe tu carta de admisión con el porcentaje de beca otorgado y formaliza tu matrícula.
+      - generic [ref=e128]:
+        - generic [ref=e129]: "4"
+        - generic [ref=e130]: 16 de junio, 2026
+        - heading "Inicio de clases" [level=4] [ref=e131]
+        - paragraph [ref=e132]: Comienza tu formación en el campus de Alto de Las Palmas con tu primer módulo problémico.
+  - generic [ref=e135]:
+    - generic [ref=e136]:
+      - generic [ref=e137]: Programa de becas 2026
+      - heading "Hasta el 100% de beca para tu pregrado" [level=2] [ref=e138]
+      - paragraph [ref=e139]: En ESIC creemos que el talento no puede esperar. Por eso abrimos un número limitado de becas completas y parciales para la cohorte de junio 2026, con un proceso ágil y transparente.
+      - paragraph [ref=e140]: Tu perfil académico, tu prueba de admisión y tu entrevista son lo único que necesitas. No necesitas demostrar vulnerabilidad económica.
+      - generic [ref=e141]:
+        - link "Aplica a la beca" [ref=e142] [cursor=pointer]:
+          - /url: "#formulario"
+          - text: Aplica a la beca
+          - img [ref=e143]
+        - link "Descargar brochure" [ref=e145] [cursor=pointer]:
+          - /url: https://esic.co/wp-content/uploads/2026/03/Brochure-WEB-BUSINESS.pdf
+    - generic [ref=e146]:
+      - text: 100%
+      - heading "Requisitos de la beca" [level=3] [ref=e147]
+      - generic [ref=e148]:
+        - img [ref=e149]
+        - generic [ref=e151]:
+          - strong [ref=e152]: Bachiller graduado o cursando grado 11
+          - text: En cualquier institución de Colombia o Latam.
+      - generic [ref=e153]:
+        - img [ref=e154]
+        - generic [ref=e156]:
+          - strong [ref=e157]: Promedio mínimo de 4.0
+          - text: O resultados sobresalientes en pruebas Saber 11 / ICFES.
+      - generic [ref=e158]:
+        - img [ref=e159]
+        - generic [ref=e161]:
+          - strong [ref=e162]: Prueba de beca ESIC aprobada
+          - text: Evaluación de razonamiento lógico, comprensión y visión de negocio.
+      - generic [ref=e163]:
+        - img [ref=e164]
+        - generic [ref=e166]:
+          - strong [ref=e167]: Entrevista con comité académico
+          - text: Conversación sobre tu proyecto profesional y motivación.
+      - generic [ref=e168]:
+        - img [ref=e169]
+        - generic [ref=e171]:
+          - strong [ref=e172]: Inscripción antes del 23 de mayo
+          - text: Cupos limitados por cohorte.
+  - generic [ref=e174]:
+    - generic [ref=e175]:
+      - generic [ref=e176]: Proceso de beca
+      - heading "Cómo aplicar a tu beca completa" [level=2] [ref=e177]
+      - paragraph [ref=e178]: Cuatro pasos simples te separan de estudiar el pregrado sin pagar tu matrícula.
+    - generic [ref=e179]:
+      - generic [ref=e180]:
+        - generic [ref=e181]: "1"
+        - heading "Postúlate" [level=4] [ref=e182]
+        - paragraph [ref=e183]: Envía el formulario con tus datos y un asesor te contactará en menos de 24 horas.
+      - generic [ref=e184]:
+        - generic [ref=e185]: "2"
+        - heading "Presenta la prueba" [level=4] [ref=e186]
+        - paragraph [ref=e187]: Agenda tu prueba de beca online o presencial en el campus en menos de una semana.
+      - generic [ref=e188]:
+        - generic [ref=e189]: "3"
+        - heading "Entrevista personal" [level=4] [ref=e190]
+        - paragraph [ref=e191]: Comparte tu motivación con el comité académico en una entrevista de 30 minutos.
+      - generic [ref=e192]:
+        - generic [ref=e193]: "4"
+        - heading "Recibe tu beca" [level=4] [ref=e194]
+        - paragraph [ref=e195]: En máximo 5 días hábiles recibes la carta con el porcentaje de beca otorgado.
+  - generic [ref=e198]:
+    - generic [ref=e199]:
+      - heading "Reserva tu cupo en la cohorte de junio" [level=2] [ref=e200]
+      - paragraph [ref=e201]: Déjanos tus datos y un asesor de admisiones te contactará con el brochure, el plan de estudios y los detalles para aplicar a la beca.
+      - list [ref=e202]:
+        - listitem [ref=e203]:
+          - img [ref=e204]
+          - text: Respuesta en menos de 24 horas
+        - listitem [ref=e206]:
+          - img [ref=e207]
+          - text: Asesoría personalizada sin costo
+        - listitem [ref=e209]:
+          - img [ref=e210]
+          - text: Plan de pagos flexible y beca según perfil
+        - listitem [ref=e212]:
+          - img [ref=e213]
+          - text: Proceso 100% gratuito y sin compromiso
+    - generic [ref=e215]:
+      - heading "Quiero más información" [level=3] [ref=e216]
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - generic [ref=e219]:
+            - generic [ref=e220]:
+              - text: Nombre
+              - emphasis [ref=e221]: "*"
+            - textbox "Nombre *" [ref=e222]
+          - generic [ref=e223]:
+            - generic [ref=e224]: Apellido
+            - textbox "Apellido" [ref=e225]
+        - generic [ref=e226]:
+          - generic [ref=e227]:
+            - text: Correo electrónico
+            - emphasis [ref=e228]: "*"
+          - textbox "Correo electrónico *" [ref=e229]
+        - generic [ref=e230]:
+          - generic [ref=e231]:
+            - text: Teléfono
+            - emphasis [ref=e232]: "*"
+          - textbox "Teléfono *" [ref=e233]:
+            - /placeholder: 300 123 4567
+        - generic [ref=e234]:
+          - generic [ref=e235]:
+            - text: Medio de contacto preferido
+            - emphasis [ref=e236]: "*"
+          - combobox "Medio de contacto preferido *" [ref=e237]:
+            - option "Selecciona una opción" [disabled] [selected]
+            - option "WhatsApp"
+            - option "Correo"
+            - option "Llamada"
+        - generic [ref=e238]:
+          - checkbox "Acepto la solicitud de autorización de datos personales y los términos y condiciones *" [ref=e239]
+          - generic [ref=e240]:
+            - text: Acepto la solicitud de
+            - link "autorización de datos personales y los términos y condiciones" [ref=e241] [cursor=pointer]:
+              - /url: https://esic.co/politicas-de-privacidad/
+            - emphasis [ref=e242]: "*"
+        - button "Quiero aplicar a la beca" [ref=e243] [cursor=pointer]:
+          - text: Quiero aplicar a la beca
+          - img [ref=e244]
+  - generic [ref=e248]:
+    - heading "Tu futuro digital empieza en dos meses" [level=2] [ref=e249]
+    - paragraph [ref=e250]: No dejes pasar la oportunidad de formarte en la Business School de referencia en marketing, negocios digitales e innovación. Cupos limitados para la cohorte de junio 2026.
+    - generic [ref=e251]:
+      - link "Quiero mi cupo" [ref=e252] [cursor=pointer]:
+        - /url: "#formulario"
+        - text: Quiero mi cupo
+        - img [ref=e253]
+      - link "Ver brochure" [ref=e255] [cursor=pointer]:
+        - /url: https://esic.co/wp-content/uploads/2026/03/Brochure-WEB-BUSINESS.pdf

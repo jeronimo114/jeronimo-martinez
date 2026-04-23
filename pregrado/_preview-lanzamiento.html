@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview Digital Business Lanzamiento</title>
+<style>html,body{margin:0;padding:0;background:#001A52}</style>
+</head>
+<body>
+<!--#include-->
+<script>
+fetch('digital-business-lanzamiento-elementor.html').then(r=>r.text()).then(t=>{document.body.innerHTML=t;
+// re-execute inline scripts
+document.body.querySelectorAll('script').forEach(old=>{const s=document.createElement('script');s.text=old.textContent;old.replaceWith(s);});
+});
+</script>
+</body>
+</html>

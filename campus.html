@@ -56,12 +56,12 @@
 .esic-campus .ec-hero-bg {
   position: absolute;
   inset: 0;
-  background: url('https://esic.co/wp-content/uploads/2026/02/campus.webp') center/cover no-repeat;
+  background: url('https://esic.co/wp-content/uploads/2026/04/campus-exterior-01.webp') center/cover no-repeat;
 }
 .esic-campus .ec-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,19,63,0.15) 0%, rgba(0,19,63,0.75) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.85) 100%);
 }
 .esic-campus .ec-hero-content {
   position: relative;
@@ -84,13 +84,16 @@
   margin-bottom: 1.2rem;
 }
 .esic-campus .ec-hero h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2.5rem, 6vw, 5rem) !important;
+  font-weight: 800 !important;
   line-height: 1.05;
   text-transform: uppercase;
   max-width: 800px;
+  color: #fff !important;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.75);
 }
 .esic-campus .ec-hero h1 span {
-  color: #fff;
+  color: #fff !important;
 }
 
 /* ===================== SECTION OVERLAP PATTERN ===================== */
@@ -103,7 +106,7 @@
 .esic-campus .ec-overlap--white { background: var(--surface); z-index: 10; }
 .esic-campus .ec-overlap--blue { background: var(--brand-blue-dark); z-index: 11; color: #fff; }
 .esic-campus .ec-overlap--bg { background: var(--bg); z-index: 12; }
-.esic-campus .ec-overlap--teal { background: var(--brand-blue-dark); z-index: 13; color: var(--brand-blue-dark); }
+.esic-campus .ec-overlap--white-2 { background: var(--surface); z-index: 13; }
 
 /* ===================== SECTION 2: ABOUT PARAGRAPH ===================== */
 .esic-campus .ec-about {
@@ -122,22 +125,30 @@
   text-transform: uppercase;
   line-height: 1.1;
 }
-.esic-campus .ec-about__text h2 span {
-  color: var(--brand-blue-dark);
-}
+.esic-campus .ec-about__text h2 span { color: var(--brand-blue-dark); }
 .esic-campus .ec-about__text p {
   font-size: 1.1rem;
   color: var(--text-muted);
   margin-bottom: 1rem;
   line-height: 1.75;
 }
-.esic-campus .ec-about__image {
+.esic-campus .ec-about__media {
   border-radius: 24px;
   overflow: hidden;
   aspect-ratio: 4/3;
   box-shadow: var(--shadow-soft);
+  position: relative;
+  background: #000;
 }
-.esic-campus .ec-about__image img {
+.esic-campus .ec-about__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 100%);
+  pointer-events: none;
+}
+.esic-campus .ec-about__media img,
+.esic-campus .ec-about__media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -157,56 +168,73 @@
   text-transform: uppercase;
   margin-bottom: 0.8rem;
 }
-.esic-campus .ec-areas__header h2 span {
-  color: var(--brand-blue-dark);
-}
+.esic-campus .ec-areas__header h2 span { color: var(--brand-blue-dark); }
 .esic-campus .ec-areas__header p {
   font-size: 1.1rem;
   color: var(--text-muted);
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
-/* Grid: 2 cols top, 1 col bottom spanning both */
 .esic-campus .ec-areas__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 .esic-campus .ec-area-card {
   position: relative;
   border-radius: 24px;
   overflow: hidden;
-  aspect-ratio: 16/10;
+  aspect-ratio: 4/5;
   cursor: pointer;
 }
+.esic-campus .ec-area-card--wide {
+  grid-column: span 2;
+  aspect-ratio: 5/3;
+}
+.esic-campus .ec-area-card--tall {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+.esic-campus .ec-area-card--full {
+  grid-column: 1 / -1;
+  aspect-ratio: 21/8;
+}
 .esic-campus .ec-area-card::after {
-  content: "Ver galería";
+  content: "Ver galería →";
   position: absolute;
   bottom: 1.2rem;
   right: 1.2rem;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  color: #fff;
+  background: #fff;
+  color: #000;
   font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.35rem 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.6rem 1.2rem;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.3);
   z-index: 3;
   pointer-events: none;
+  transition: transform 0.25s ease, background 0.25s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+.esic-campus .ec-area-card:hover::after {
+  transform: translateX(4px);
+  background: #f0f0f0;
 }
 .esic-campus .ec-area-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.esic-campus .ec-area-card:hover img {
+  transform: scale(1.04);
 }
 .esic-campus .ec-area-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 30%, rgba(0,19,63,0.85) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.8) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -214,23 +242,43 @@
   color: #fff;
 }
 .esic-campus .ec-area-card__label {
-  font-size: 0.75rem;
-  font-weight: 700;
+  display: inline-flex !important;
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #fff;
-  margin-bottom: 0.3rem;
+  letter-spacing: 0.12em;
+  color: #fff !important;
+  background: rgba(255,255,255,0.15) !important;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 0.8rem;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .esic-campus .ec-area-card__title {
-  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-size: clamp(1.7rem, 2.6vw, 2.4rem) !important;
+  font-weight: 800 !important;
+  color: #fff !important;
   text-transform: uppercase;
-  line-height: 1.1;
+  line-height: 1.02;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+  max-width: 85%;
 }
-
-/* Card that spans both columns */
-.esic-campus .ec-area-card--wide {
-  grid-column: 1 / -1;
-  aspect-ratio: 21/9;
+.esic-campus .ec-area-card--full .ec-area-card__title {
+  font-size: clamp(2.2rem, 3.4vw, 3rem) !important;
+}
+.esic-campus .ec-area-card__count {
+  display: inline-block;
+  font-family: var(--body-font);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  margin-top: 0.5rem;
+  letter-spacing: 0.04em;
 }
 
 /* ===================== SECTION 4: MAP ===================== */
@@ -247,9 +295,7 @@
   text-transform: uppercase;
   margin-bottom: 0.6rem;
 }
-.esic-campus .ec-map__header h2 span {
-  color: var(--brand-blue-dark);
-}
+.esic-campus .ec-map__header h2 span { color: var(--brand-blue-dark); }
 .esic-campus .ec-map__header p {
   font-size: 1.05rem;
   color: var(--text-muted);
@@ -264,17 +310,14 @@
 .esic-campus .ec-map__pin-icon {
   width: 48px;
   height: 48px;
+  flex: 0 0 48px;
   background: var(--brand-blue);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.esic-campus .ec-map__pin-icon svg {
-  width: 24px;
-  height: 24px;
-  fill: #fff;
-}
+.esic-campus .ec-map__pin-icon svg { width: 24px; height: 24px; fill: #fff; }
 .esic-campus .ec-map__pin-text {
   font-size: 1.1rem;
   font-weight: 600;
@@ -287,14 +330,10 @@
   border: 3px solid var(--surface);
   aspect-ratio: 16/7;
 }
-.esic-campus .ec-map__frame iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+.esic-campus .ec-map__frame iframe { width: 100%; height: 100%; border: none; }
 .esic-campus .ec-map__info {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-top: 3rem;
   padding-bottom: 5rem;
@@ -335,13 +374,11 @@
   justify-content: center;
   padding: 2rem;
 }
-.esic-campus .ec-gallery-overlay--active {
-  display: flex;
-}
+.esic-campus .ec-gallery-overlay--active { display: flex; }
 .esic-campus .ec-gallery-panel {
   background: var(--surface);
   border-radius: 24px;
-  max-width: 900px;
+  max-width: 1000px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
@@ -358,27 +395,25 @@
   background: var(--brand-blue-dark);
   border: none;
   color: #fff;
-  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 2;
 }
-.esic-campus .ec-gallery-close:hover {
-  background: var(--brand-blue);
-}
-.esic-campus .ec-gallery-close svg {
-  width: 18px;
-  height: 18px;
-  fill: #fff;
-}
+.esic-campus .ec-gallery-close:hover { background: var(--brand-blue); }
+.esic-campus .ec-gallery-close svg { width: 18px; height: 18px; fill: #fff; }
 .esic-campus .ec-gallery-title {
   font-size: clamp(1.5rem, 3vw, 2rem);
   text-transform: uppercase;
   color: var(--brand-blue-dark);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.4rem;
   padding-right: 3rem;
+}
+.esic-campus .ec-gallery-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
 }
 .esic-campus .ec-gallery-grid {
   display: grid;
@@ -401,8 +436,10 @@
   .esic-campus .ec-hero { min-height: 65vh; }
   .esic-campus .ec-hero-content { padding: 0 0 3.5rem; }
   .esic-campus .ec-about__inner { grid-template-columns: 1fr; gap: 2rem; }
-  .esic-campus .ec-areas__grid { grid-template-columns: 1fr; }
-  .esic-campus .ec-area-card--wide { grid-column: auto; }
+  .esic-campus .ec-areas__grid { grid-template-columns: 1fr 1fr; }
+  .esic-campus .ec-area-card--wide,
+  .esic-campus .ec-area-card--tall,
+  .esic-campus .ec-area-card--full { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 16/10; }
   .esic-campus .ec-map__info { grid-template-columns: 1fr; }
   .esic-campus .ec-overlap { margin-top: -30px; border-radius: 30px 30px 0 0; }
 }
@@ -411,6 +448,8 @@
   .esic-campus .ec-hero h1 { font-size: 2.2rem; }
   .esic-campus .ec-about { padding: 4rem 0 3.5rem; }
   .esic-campus .ec-areas { padding: 3.5rem 0 4rem; }
+  .esic-campus .ec-areas__grid { grid-template-columns: 1fr; }
+  .esic-campus .ec-area-card { aspect-ratio: 4/3; }
   .esic-campus .ec-area-card__overlay { padding: 1.2rem; }
   .esic-campus .ec-area-card::after { font-size: 0.7rem; padding: 0.25rem 0.7rem; bottom: 0.8rem; right: 0.8rem; }
   .esic-campus .ec-map__frame { aspect-ratio: 4/3; }
@@ -437,10 +476,12 @@
       <div class="ec-about__text">
         <h2>Un Espacio Diseñado Para <span>Aprender</span></h2>
         <p>El Campus de ESIC en Medellín es un entorno pensado para impulsar la creatividad, la innovación y el aprendizaje experiencial. Cada rincón ha sido diseñado para conectar a los estudiantes con las herramientas, tecnologías y espacios que necesitan para transformar su futuro profesional.</p>
-        <p>Con instalaciones de última generación y áreas de colaboración, nuestro campus refleja el compromiso de ESIC con la excelencia educativa y la formación integral de los profesionales del negocio, el marketing y la tecnología.</p>
+        <p>Desde el auditorio y las áreas comunes hasta los salones por piso y el Tech Lab, nuestras instalaciones reflejan el compromiso de ESIC con la excelencia educativa y la formación integral de los profesionales del negocio, el marketing y la tecnología.</p>
       </div>
-      <div class="ec-about__image">
-        <img src="https://esic.co/wp-content/uploads/2026/02/eventos.webp" alt="Campus ESIC Interior">
+      <div class="ec-about__media">
+        <video autoplay muted loop playsinline preload="metadata" poster="https://esic.co/wp-content/uploads/2026/04/campus-exterior-02.webp">
+          <source src="https://esic.co/wp-content/uploads/2026/04/Video_campus.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </div>
@@ -451,34 +492,87 @@
   <div class="ec-areas ec-container">
     <div class="ec-areas__header">
       <h2>Áreas del <span>Campus</span></h2>
-      <p>Descubre los espacios que tenemos para ti en cada área de nuestro campus.</p>
+      <p>Recorre cada zona del campus: desde la fachada y las áreas comunes hasta los salones de cada piso, el auditorio y el Tech Lab.</p>
     </div>
     <div class="ec-areas__grid">
 
-      <!-- Card 1: Espacios Académicos -->
-      <div class="ec-area-card">
-        <img src="https://esic.co/wp-content/uploads/2025/12/conferencia-academica-esic-medellin-auditorio.png" alt="Espacios Académicos">
+      <!-- Card 1: Campus / Exterior (tall — spans 2 cols x 2 rows) -->
+      <div class="ec-area-card ec-area-card--tall" data-gallery="campus">
+        <img src="https://esic.co/wp-content/uploads/2026/04/campus-exterior-01.webp" alt="Campus exterior">
         <div class="ec-area-card__overlay">
-          <span class="ec-area-card__label">Académicos</span>
-          <h3 class="ec-area-card__title">Espacios Académicos</h3>
+          <span class="ec-area-card__label">Exterior</span>
+          <h3 class="ec-area-card__title">Campus</h3>
+          <span class="ec-area-card__count">7 fotos</span>
         </div>
       </div>
 
-      <!-- Card 2: Zonas de Tecnología -->
-      <div class="ec-area-card">
-        <img src="https://esic.co/wp-content/uploads/2025/12/conferencia-academica-esic-medellin-auditorio.png" alt="Zonas de Tecnología">
-        <div class="ec-area-card__overlay">
-          <span class="ec-area-card__label">Innovación</span>
-          <h3 class="ec-area-card__title">Zonas de Tecnología</h3>
-        </div>
-      </div>
-
-      <!-- Card 3: Áreas Comunes (wide, spans both columns) -->
-      <div class="ec-area-card ec-area-card--wide">
-        <img src="https://esic.co/wp-content/uploads/2026/02/eventos.webp" alt="Áreas Comunes">
+      <!-- Card 2: Áreas Comunes (protagonismo alto, col 3 row 1) -->
+      <div class="ec-area-card" data-gallery="comunes">
+        <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-01.webp" alt="Áreas Comunes">
         <div class="ec-area-card__overlay">
           <span class="ec-area-card__label">Convivencia</span>
           <h3 class="ec-area-card__title">Áreas Comunes</h3>
+          <span class="ec-area-card__count">16 fotos</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Auditorio (col 3 row 2) -->
+      <div class="ec-area-card" data-gallery="auditorio">
+        <img src="https://esic.co/wp-content/uploads/2026/04/auditorio-01.webp" alt="Auditorio ESIC">
+        <div class="ec-area-card__overlay">
+          <span class="ec-area-card__label">Eventos</span>
+          <h3 class="ec-area-card__title">Auditorio</h3>
+          <span class="ec-area-card__count">5 fotos</span>
+        </div>
+      </div>
+
+      <!-- Card 4: Piso -1 -->
+      <div class="ec-area-card" data-gallery="piso-menos1">
+        <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos1-01.webp" alt="Salones Piso -1">
+        <div class="ec-area-card__overlay">
+          <span class="ec-area-card__label">Aulas</span>
+          <h3 class="ec-area-card__title">Piso -1</h3>
+          <span class="ec-area-card__count">7 fotos</span>
+        </div>
+      </div>
+
+      <!-- Card 5: Piso -3 -->
+      <div class="ec-area-card" data-gallery="piso-menos3">
+        <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos3-01.webp" alt="Salones Piso -3">
+        <div class="ec-area-card__overlay">
+          <span class="ec-area-card__label">Aulas</span>
+          <h3 class="ec-area-card__title">Piso -3</h3>
+          <span class="ec-area-card__count">7 fotos</span>
+        </div>
+      </div>
+
+      <!-- Card 6: Piso 2 -->
+      <div class="ec-area-card" data-gallery="piso2">
+        <img src="https://esic.co/wp-content/uploads/2026/04/piso-2-01.webp" alt="Salones Piso 2">
+        <div class="ec-area-card__overlay">
+          <span class="ec-area-card__label">Aulas</span>
+          <h3 class="ec-area-card__title">Piso 2</h3>
+          <span class="ec-area-card__count">7 fotos</span>
+        </div>
+      </div>
+
+      <!-- Card 7: Piso 3 (wide — spans 2 cols) -->
+      <div class="ec-area-card ec-area-card--wide" data-gallery="piso3">
+        <img src="https://esic.co/wp-content/uploads/2026/04/piso-3-01.webp" alt="Salones Piso 3">
+        <div class="ec-area-card__overlay">
+          <span class="ec-area-card__label">Aulas</span>
+          <h3 class="ec-area-card__title">Piso 3</h3>
+          <span class="ec-area-card__count">7 fotos</span>
+        </div>
+      </div>
+
+      <!-- Card 8: Tech Lab (último — menor protagonismo) -->
+      <div class="ec-area-card" data-gallery="techlab">
+        <img src="https://esic.co/wp-content/uploads/2026/04/techlab-01.webp" alt="Tech Lab ESIC">
+        <div class="ec-area-card__overlay">
+          <span class="ec-area-card__label">Innovación</span>
+          <h3 class="ec-area-card__title">Tech Lab</h3>
+          <span class="ec-area-card__count">4 fotos</span>
         </div>
       </div>
 
@@ -487,25 +581,23 @@
 </section>
 
 <!-- ==================== SECTION 4: INTERACTIVE MAP ==================== -->
-<section class="ec-overlap ec-overlap--white">
+<section class="ec-overlap ec-overlap--white-2">
   <div class="ec-map ec-container">
     <div class="ec-map__header">
       <h2>Encuéntranos en el <span>Mapa</span></h2>
       <p>Visita nuestro campus en Medellín y conoce todo lo que tenemos para ti.</p>
     </div>
 
-    <!-- Location Pin -->
     <div class="ec-map__pin">
       <div class="ec-map__pin-icon">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
       </div>
-      <span class="ec-map__pin-text">ESIC Business & Marketing School — Medellín</span>
+      <span class="ec-map__pin-text">ESIC Business & Marketing School — Medellín, Alto de Palmas</span>
     </div>
 
-    <!-- Interactive Map -->
     <div class="ec-map__frame">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260475038!2d-75.5678!3d6.2476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428c40b8067b1%3A0x6b48e6e5e4b0b5a1!2sMedell%C3%ADn%2C+Antioquia!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
+        src="https://maps.google.com/maps?q=ESIC+Business+%26+Marketing+School+Campus+Medell%C3%ADn&hl=es&z=16&output=embed"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
@@ -513,53 +605,37 @@
       </iframe>
     </div>
 
-    <!-- Info Cards -->
     <div class="ec-map__info">
       <div class="ec-map__info-card">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
         <h4>Dirección</h4>
-        <p>Medellín, Antioquia<br>Colombia</p>
-      </div>
-      <div class="ec-map__info-card">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
-        <h4>Teléfono</h4>
-        <p>Contáctanos a través de nuestra web para más información.</p>
+        <p>Vía Las Palmas – Aeropuerto José María Córdova<br>Vda. El Peñasco, Envigado, Antioquia</p>
       </div>
       <div class="ec-map__info-card">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10S22 17.52 22 12 17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
         <h4>Horarios</h4>
-        <p>Lunes a Viernes<br>8:00 AM – 8:00 PM</p>
+        <p>Lunes a Viernes<br>8:00 AM – 5:00 PM</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== GALLERY: Espacios Académicos ==================== -->
-<div class="ec-gallery-overlay" id="ec-gallery-academicos">
+<!-- ==================== GALLERY: Campus (exterior) ==================== -->
+<div class="ec-gallery-overlay" id="ec-gallery-campus">
   <div class="ec-gallery-panel">
     <button class="ec-gallery-close" type="button" aria-label="Cerrar galería">
       <svg viewBox="0 0 24 24"><path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.42L10.59 12l-4.9 4.89a1 1 0 101.42 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z"/></svg>
     </button>
-    <h3 class="ec-gallery-title">Espacios Académicos</h3>
+    <h3 class="ec-gallery-title">Campus</h3>
+    <p class="ec-gallery-subtitle">Fachada, ingreso y exteriores del edificio ESIC Medellín.</p>
     <div class="ec-gallery-grid">
-      <img src="https://esic.co/wp-content/uploads/2025/12/conferencia-academica-esic-medellin-auditorio.png" alt="Auditorio ESIC">
-      <img src="https://esic.co/wp-content/uploads/2026/02/eventos.webp" alt="Aula ESIC">
-      <img src="https://esic.co/wp-content/uploads/2026/02/campus.webp" alt="Salón ESIC">
-    </div>
-  </div>
-</div>
-
-<!-- ==================== GALLERY: Zonas de Tecnología ==================== -->
-<div class="ec-gallery-overlay" id="ec-gallery-tecnologia">
-  <div class="ec-gallery-panel">
-    <button class="ec-gallery-close" type="button" aria-label="Cerrar galería">
-      <svg viewBox="0 0 24 24"><path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.42L10.59 12l-4.9 4.89a1 1 0 101.42 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z"/></svg>
-    </button>
-    <h3 class="ec-gallery-title">Zonas de Tecnología</h3>
-    <div class="ec-gallery-grid">
-      <img src="https://esic.co/wp-content/uploads/2026/02/campus.webp" alt="Laboratorio ESIC">
-      <img src="https://esic.co/wp-content/uploads/2025/12/conferencia-academica-esic-medellin-auditorio.png" alt="Sala digital">
-      <img src="https://esic.co/wp-content/uploads/2026/02/eventos.webp" alt="Zona digital">
+      <img src="https://esic.co/wp-content/uploads/2026/04/campus-exterior-01.webp" alt="Fachada ESIC Medellín 01">
+      <img src="https://esic.co/wp-content/uploads/2026/04/campus-exterior-02.webp" alt="Fachada ESIC Medellín 02">
+      <img src="https://esic.co/wp-content/uploads/2026/04/campus-exterior-03.webp" alt="Fachada ESIC Medellín 03">
+      <img src="https://esic.co/wp-content/uploads/2026/04/campus-exterior-04.webp" alt="Fachada ESIC Medellín 04">
+      <img src="https://esic.co/wp-content/uploads/2026/04/campus-exterior-05.webp" alt="Fachada ESIC Medellín 05">
+      <img src="https://esic.co/wp-content/uploads/2026/04/campus-exterior-06.webp" alt="Fachada ESIC Medellín 06">
+      <img src="https://esic.co/wp-content/uploads/2026/04/campus-exterior-07.webp" alt="Fachada ESIC Medellín 07">
     </div>
   </div>
 </div>
@@ -571,10 +647,139 @@
       <svg viewBox="0 0 24 24"><path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.42L10.59 12l-4.9 4.89a1 1 0 101.42 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z"/></svg>
     </button>
     <h3 class="ec-gallery-title">Áreas Comunes</h3>
+    <p class="ec-gallery-subtitle">Recepción, biblioteca, lounges Re.think, open space y zonas de encuentro.</p>
     <div class="ec-gallery-grid">
-      <img src="https://esic.co/wp-content/uploads/2026/02/eventos.webp" alt="Zona social">
-      <img src="https://esic.co/wp-content/uploads/2026/02/campus.webp" alt="Área común">
-      <img src="https://esic.co/wp-content/uploads/2025/12/conferencia-academica-esic-medellin-auditorio.png" alt="Espacio compartido">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-01.webp" alt="Áreas comunes 01">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-02.webp" alt="Áreas comunes 02">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-03.webp" alt="Áreas comunes 03">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-04.webp" alt="Áreas comunes 04">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-05.webp" alt="Áreas comunes 05">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-06.webp" alt="Áreas comunes 06">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-07.webp" alt="Áreas comunes 07">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-08.webp" alt="Áreas comunes 08">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-09.webp" alt="Áreas comunes 09">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-10.webp" alt="Áreas comunes 10">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-11.webp" alt="Áreas comunes 11">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-12.webp" alt="Áreas comunes 12">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-13.webp" alt="Áreas comunes 13">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-14.webp" alt="Áreas comunes 14">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-15.webp" alt="Áreas comunes 15">
+      <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-16.webp" alt="Áreas comunes 16">
+    </div>
+  </div>
+</div>
+
+<!-- ==================== GALLERY: Auditorio ==================== -->
+<div class="ec-gallery-overlay" id="ec-gallery-auditorio">
+  <div class="ec-gallery-panel">
+    <button class="ec-gallery-close" type="button" aria-label="Cerrar galería">
+      <svg viewBox="0 0 24 24"><path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.42L10.59 12l-4.9 4.89a1 1 0 101.42 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z"/></svg>
+    </button>
+    <h3 class="ec-gallery-title">Auditorio</h3>
+    <p class="ec-gallery-subtitle">Espacio para conferencias, lanzamientos y clases magistrales.</p>
+    <div class="ec-gallery-grid">
+      <img src="https://esic.co/wp-content/uploads/2026/04/auditorio-01.webp" alt="Auditorio 01">
+      <img src="https://esic.co/wp-content/uploads/2026/04/auditorio-02.webp" alt="Auditorio 02">
+      <img src="https://esic.co/wp-content/uploads/2026/04/auditorio-03.webp" alt="Auditorio 03">
+      <img src="https://esic.co/wp-content/uploads/2026/04/auditorio-04.webp" alt="Auditorio 04">
+      <img src="https://esic.co/wp-content/uploads/2026/04/auditorio-05.webp" alt="Auditorio 05">
+    </div>
+  </div>
+</div>
+
+<!-- ==================== GALLERY: Piso -1 ==================== -->
+<div class="ec-gallery-overlay" id="ec-gallery-piso-menos1">
+  <div class="ec-gallery-panel">
+    <button class="ec-gallery-close" type="button" aria-label="Cerrar galería">
+      <svg viewBox="0 0 24 24"><path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.42L10.59 12l-4.9 4.89a1 1 0 101.42 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z"/></svg>
+    </button>
+    <h3 class="ec-gallery-title">Piso -1</h3>
+    <p class="ec-gallery-subtitle">Salones y aulas del primer subnivel.</p>
+    <div class="ec-gallery-grid">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos1-01.webp" alt="Piso -1 — foto 01">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos1-02.webp" alt="Piso -1 — foto 02">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos1-03.webp" alt="Piso -1 — foto 03">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos1-04.webp" alt="Piso -1 — foto 04">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos1-05.webp" alt="Piso -1 — foto 05">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos1-06.webp" alt="Piso -1 — foto 06">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos1-07.webp" alt="Piso -1 — foto 07">
+    </div>
+  </div>
+</div>
+
+<!-- ==================== GALLERY: Piso -3 ==================== -->
+<div class="ec-gallery-overlay" id="ec-gallery-piso-menos3">
+  <div class="ec-gallery-panel">
+    <button class="ec-gallery-close" type="button" aria-label="Cerrar galería">
+      <svg viewBox="0 0 24 24"><path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.42L10.59 12l-4.9 4.89a1 1 0 101.42 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z"/></svg>
+    </button>
+    <h3 class="ec-gallery-title">Piso -3</h3>
+    <p class="ec-gallery-subtitle">Aulas amplias con paneles, pantallas y corredores con luz natural.</p>
+    <div class="ec-gallery-grid">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos3-01.webp" alt="Piso -3 — foto 01">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos3-02.webp" alt="Piso -3 — foto 02">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos3-03.webp" alt="Piso -3 — foto 03">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos3-04.webp" alt="Piso -3 — foto 04">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos3-05.webp" alt="Piso -3 — foto 05">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos3-06.webp" alt="Piso -3 — foto 06">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-menos3-07.webp" alt="Piso -3 — foto 07">
+    </div>
+  </div>
+</div>
+
+<!-- ==================== GALLERY: Piso 2 ==================== -->
+<div class="ec-gallery-overlay" id="ec-gallery-piso2">
+  <div class="ec-gallery-panel">
+    <button class="ec-gallery-close" type="button" aria-label="Cerrar galería">
+      <svg viewBox="0 0 24 24"><path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.42L10.59 12l-4.9 4.89a1 1 0 101.42 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z"/></svg>
+    </button>
+    <h3 class="ec-gallery-title">Piso 2</h3>
+    <p class="ec-gallery-subtitle">Salones y aulas del segundo piso.</p>
+    <div class="ec-gallery-grid">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-2-01.webp" alt="Piso 2 — foto 01">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-2-02.webp" alt="Piso 2 — foto 02">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-2-03.webp" alt="Piso 2 — foto 03">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-2-04.webp" alt="Piso 2 — foto 04">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-2-05.webp" alt="Piso 2 — foto 05">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-2-06.webp" alt="Piso 2 — foto 06">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-2-07.webp" alt="Piso 2 — foto 07">
+    </div>
+  </div>
+</div>
+
+<!-- ==================== GALLERY: Piso 3 ==================== -->
+<div class="ec-gallery-overlay" id="ec-gallery-piso3">
+  <div class="ec-gallery-panel">
+    <button class="ec-gallery-close" type="button" aria-label="Cerrar galería">
+      <svg viewBox="0 0 24 24"><path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.42L10.59 12l-4.9 4.89a1 1 0 101.42 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z"/></svg>
+    </button>
+    <h3 class="ec-gallery-title">Piso 3</h3>
+    <p class="ec-gallery-subtitle">Salones y aulas del tercer piso.</p>
+    <div class="ec-gallery-grid">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-3-01.webp" alt="Piso 3 — foto 01">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-3-02.webp" alt="Piso 3 — foto 02">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-3-03.webp" alt="Piso 3 — foto 03">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-3-04.webp" alt="Piso 3 — foto 04">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-3-05.webp" alt="Piso 3 — foto 05">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-3-06.webp" alt="Piso 3 — foto 06">
+      <img src="https://esic.co/wp-content/uploads/2026/04/piso-3-07.webp" alt="Piso 3 — foto 07">
+    </div>
+  </div>
+</div>
+
+<!-- ==================== GALLERY: Tech Lab ==================== -->
+<div class="ec-gallery-overlay" id="ec-gallery-techlab">
+  <div class="ec-gallery-panel">
+    <button class="ec-gallery-close" type="button" aria-label="Cerrar galería">
+      <svg viewBox="0 0 24 24"><path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.42L10.59 12l-4.9 4.89a1 1 0 101.42 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z"/></svg>
+    </button>
+    <h3 class="ec-gallery-title">Tech Lab</h3>
+    <p class="ec-gallery-subtitle">Robots, VR y tecnología aplicada al aprendizaje.</p>
+    <div class="ec-gallery-grid">
+      <img src="https://esic.co/wp-content/uploads/2026/04/techlab-01.webp" alt="Tech Lab — foto 01">
+      <img src="https://esic.co/wp-content/uploads/2026/04/techlab-02.webp" alt="Tech Lab — foto 02">
+      <img src="https://esic.co/wp-content/uploads/2026/04/techlab-03.webp" alt="Tech Lab — foto 03">
+      <img src="https://esic.co/wp-content/uploads/2026/04/techlab-04.webp" alt="Tech Lab — foto 04">
     </div>
   </div>
 </div>
@@ -588,34 +793,33 @@
     });
   });
 
-  var cards=document.querySelectorAll('.ec-area-card');
+  var cards=document.querySelectorAll('.ec-area-card[data-gallery]');
   var overlays=document.querySelectorAll('.ec-gallery-overlay');
   var closeBtns=document.querySelectorAll('.ec-gallery-close');
 
-  cards[0].addEventListener('click',function(){
-    document.getElementById('ec-gallery-academicos').classList.add('ec-gallery-overlay--active');
-  });
-  cards[1].addEventListener('click',function(){
-    document.getElementById('ec-gallery-tecnologia').classList.add('ec-gallery-overlay--active');
-  });
-  cards[2].addEventListener('click',function(){
-    document.getElementById('ec-gallery-comunes').classList.add('ec-gallery-overlay--active');
-  });
-
-  closeBtns.forEach(function(btn){
-    btn.addEventListener('click',function(){
-      overlays.forEach(function(o){o.classList.remove('ec-gallery-overlay--active');});
+  cards.forEach(function(card){
+    card.addEventListener('click',function(){
+      var key=card.getAttribute('data-gallery');
+      var modal=document.getElementById('ec-gallery-'+key);
+      if(modal){modal.classList.add('ec-gallery-overlay--active');document.body.style.overflow='hidden';}
     });
   });
 
+  function closeAll(){
+    overlays.forEach(function(o){o.classList.remove('ec-gallery-overlay--active');});
+    document.body.style.overflow='';
+  }
+
+  closeBtns.forEach(function(btn){btn.addEventListener('click',closeAll);});
+
   overlays.forEach(function(ov){
     ov.addEventListener('click',function(e){
-      if(e.target===ov){ov.classList.remove('ec-gallery-overlay--active');}
+      if(e.target===ov){closeAll();}
     });
   });
 
   document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){overlays.forEach(function(o){o.classList.remove('ec-gallery-overlay--active');});}
+    if(e.key==='Escape'){closeAll();}
   });
 })();
 </script>
