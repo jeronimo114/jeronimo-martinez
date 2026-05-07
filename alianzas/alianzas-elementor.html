@@ -279,7 +279,7 @@
   padding: clamp(4.5rem, 8vw, 7rem) 0 clamp(8rem, 14vw, 11rem);
 }
 .esic-alianzas .ali-highlight-grid {
-  display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center;
+  text-align: center; max-width: 760px; margin: 0 auto;
 }
 .esic-alianzas .ali-highlight-tag {
   display: inline-flex; align-items: center; gap: 0.5rem;
@@ -294,71 +294,9 @@
 .esic-alianzas .ali-highlight h2 span { color: var(--ali-teal); font-style: italic; }
 .esic-alianzas .ali-highlight p {
   font-size: 1.08rem; line-height: 1.7; color: rgba(255,255,255,0.82);
-  max-width: 520px; margin-bottom: 2rem;
+  max-width: 600px; margin: 0 auto 2rem;
 }
-.esic-alianzas .ali-highlight-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-.esic-alianzas .ali-highlight-visual {
-  /* width: 100% es CRITICO: todos los hijos son position:absolute, asi que
-     el contenedor no tiene tamano intrinseco. Sin width explicito, la
-     columna del grid lo colapsa a 0 y los logos posicionados con right:0 +
-     translate(10%) se renderizan respecto al borde del viewport,
-     desbordando hacia la derecha. */
-  position: relative; width: 100%; aspect-ratio: 1/1;
-  max-width: 460px; margin-left: auto;
-}
-.esic-alianzas .ali-orbit-ring {
-  position: absolute; inset: 0; border-radius: 50%;
-  border: 1px dashed rgba(255,255,255,0.22);
-  animation: aliSpin 60s linear infinite;
-}
-.esic-alianzas .ali-orbit-ring--inner {
-  inset: 18%; border-style: dotted; border-color: rgba(10,228,195,0.30);
-  animation: aliSpin 40s linear infinite reverse;
-}
-@keyframes aliSpin { to { transform: rotate(360deg); } }
-.esic-alianzas .ali-orbit-logo {
-  /* Sin padding aqui: padding % en position:absolute se calcula contra el
-     WIDTH del padre, lo que rompe aspect-ratio (resultando en ovalos
-     verticales). Inset visual del logo se hace via tamano del <img>. */
-  position: absolute; width: 22%; aspect-ratio: 1/1;
-  border-radius: 50%; background: var(--ali-white);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 12px 30px -8px rgba(0, 9, 30, 0.50);
-  border: 2px solid rgba(255,255,255,0.95);
-  overflow: hidden;
-  transition: transform .35s ease, box-shadow .35s ease;
-  z-index: 2;
-}
-.esic-alianzas .ali-orbit-logo:hover {
-  transform: scale(1.08);
-  box-shadow: 0 18px 40px -8px rgba(0, 9, 30, 0.65);
-}
-.esic-alianzas .ali-orbit-logo img {
-  width: 70%; height: 70%; object-fit: contain;
-}
-.esic-alianzas .ali-orbit-logo--cover img {
-  width: 100%; height: 100%; object-fit: cover;
-}
-/* Positions on the orbit (12, 3, 6, 9 + diagonals) */
-.esic-alianzas .ali-orbit-pos-1  { top: 0;        left: 50%;     transform: translate(-50%, -10%); }
-.esic-alianzas .ali-orbit-pos-2  { top: 18%;      right: 4%;     }
-.esic-alianzas .ali-orbit-pos-3  { top: 50%;      right: 0;      transform: translate(10%, -50%); }
-.esic-alianzas .ali-orbit-pos-4  { bottom: 18%;   right: 4%;     }
-.esic-alianzas .ali-orbit-pos-5  { bottom: 0;     left: 50%;     transform: translate(-50%, 10%); }
-.esic-alianzas .ali-orbit-pos-6  { bottom: 18%;   left: 4%;      }
-.esic-alianzas .ali-orbit-pos-7  { top: 50%;      left: 0;       transform: translate(-10%, -50%); }
-.esic-alianzas .ali-orbit-pos-8  { top: 18%;      left: 4%;      }
-.esic-alianzas .ali-orbit-logo:hover.ali-orbit-pos-1 { transform: translate(-50%, -10%) scale(1.08); }
-.esic-alianzas .ali-orbit-logo:hover.ali-orbit-pos-3 { transform: translate(10%, -50%) scale(1.08); }
-.esic-alianzas .ali-orbit-logo:hover.ali-orbit-pos-5 { transform: translate(-50%, 10%) scale(1.08); }
-.esic-alianzas .ali-orbit-logo:hover.ali-orbit-pos-7 { transform: translate(-10%, -50%) scale(1.08); }
-/* Glow halo behind core */
-.esic-alianzas .ali-highlight-visual::before {
-  content: ""; position: absolute; top: 50%; left: 50%;
-  width: 70%; aspect-ratio: 1/1; transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(10,228,195,0.30) 0%, rgba(10,228,195,0) 60%);
-  z-index: 1;
-}
+.esic-alianzas .ali-highlight-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 
 /* ================================================ */
 /* --- MODAL --- */
@@ -460,8 +398,6 @@
 @media (max-width: 980px) {
   .esic-alianzas .ali-steps { grid-template-columns: 1fr; }
   .esic-alianzas .ali-grid { grid-template-columns: repeat(2, 1fr); }
-  .esic-alianzas .ali-highlight-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .esic-alianzas .ali-highlight-visual { margin: 0 auto; max-width: 320px; }
 }
 @media (max-width: 640px) {
   .esic-alianzas .ali-grid { grid-template-columns: 1fr; }
@@ -714,35 +650,6 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
           <a class="ali-btn ali-btn-ghost" href="mailto:alianzas@esic.co">Escribir al equipo</a>
-        </div>
-      </div>
-      <div class="ali-highlight-visual" aria-hidden="true">
-        <div class="ali-orbit-ring"></div>
-        <div class="ali-orbit-ring ali-orbit-ring--inner"></div>
-
-        <div class="ali-orbit-logo ali-orbit-pos-1">
-          <img loading="eager" decoding="sync" fetchpriority="high" src="https://esic.co/wp-content/uploads/2026/05/action-black.webp" alt="" style="filter: brightness(0);">
-        </div>
-        <div class="ali-orbit-logo ali-orbit-pos-2 ali-orbit-logo--cover">
-          <img loading="eager" decoding="sync" fetchpriority="high" src="https://esic.co/wp-content/uploads/2026/05/shibuya.webp" alt="">
-        </div>
-        <div class="ali-orbit-logo ali-orbit-pos-3">
-          <img loading="eager" decoding="sync" fetchpriority="high" src="https://esic.co/wp-content/uploads/2026/05/ammazza.webp" alt="">
-        </div>
-        <div class="ali-orbit-logo ali-orbit-pos-4">
-          <img loading="eager" decoding="sync" fetchpriority="high" src="https://esic.co/wp-content/uploads/2026/05/conecty.webp" alt="">
-        </div>
-        <div class="ali-orbit-logo ali-orbit-pos-5">
-          <img loading="eager" decoding="sync" fetchpriority="high" src="https://esic.co/wp-content/uploads/2026/05/barbaro.webp" alt="">
-        </div>
-        <div class="ali-orbit-logo ali-orbit-pos-6">
-          <img loading="eager" decoding="sync" fetchpriority="high" src="https://esic.co/wp-content/uploads/2026/05/bukz.webp" alt="">
-        </div>
-        <div class="ali-orbit-logo ali-orbit-pos-7">
-          <img loading="eager" decoding="sync" fetchpriority="high" src="https://esic.co/wp-content/uploads/2026/05/volver.webp" alt="">
-        </div>
-        <div class="ali-orbit-logo ali-orbit-pos-8 ali-orbit-logo--cover">
-          <img loading="eager" decoding="sync" fetchpriority="high" src="https://esic.co/wp-content/uploads/2026/05/kcao.webp" alt="">
         </div>
       </div>
     </div>
