@@ -244,6 +244,19 @@
   text-shadow: 0 2px 16px rgba(0,0,0,0.45);
   text-align: center; line-height: 1;
 }
+.esic-alianzas .ali-card-logo--round {
+  width: 118px; height: 118px; border-radius: 50%;
+  object-fit: cover; max-width: none; max-height: none;
+  border: 3px solid rgba(255,255,255,0.92);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+.esic-alianzas .ali-modal-hero-logo--round {
+  width: 150px; height: 150px; border-radius: 50%;
+  object-fit: cover; max-width: none; max-height: none;
+  border: 4px solid rgba(255,255,255,0.95);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+  position: relative; z-index: 2;
+}
 
 .esic-alianzas .ali-card-body { padding: 1.6rem 1.5rem 1.7rem; }
 .esic-alianzas .ali-card-perk {
@@ -535,7 +548,7 @@
           <div class="ali-card-bg ali-bg-bienestar"></div>
           <div class="ali-card-tag">Bienestar y deporte</div>
           <div class="ali-card-logo-wrap">
-            <div class="ali-card-logo--text">Action<br>Black</div>
+            <img src="logos/action-black.svg" alt="Action Black" class="ali-card-logo">
           </div>
         </div>
         <div class="ali-card-body">
@@ -554,7 +567,7 @@
           <div class="ali-card-bg ali-bg-gastro"></div>
           <div class="ali-card-tag">Gastronom&iacute;a</div>
           <div class="ali-card-logo-wrap">
-            <div class="ali-card-logo--text">Shibuya</div>
+            <img src="logos/shibuya.jpg" alt="Shibuya" class="ali-card-logo ali-card-logo--round">
           </div>
         </div>
         <div class="ali-card-body">
@@ -573,7 +586,7 @@
           <div class="ali-card-bg ali-bg-cultura"></div>
           <div class="ali-card-tag">Cultura y libros</div>
           <div class="ali-card-logo-wrap">
-            <div class="ali-card-logo--text">Kcao</div>
+            <img src="logos/kcao.jpg" alt="Kcao" class="ali-card-logo ali-card-logo--round">
           </div>
         </div>
         <div class="ali-card-body">
@@ -754,7 +767,7 @@
       cat: 'Bienestar y deporte',
       catKey: 'bienestar',
       bg: 'ali-bg-bienestar',
-      logoText: 'Action<br>Black',
+      logo: 'logos/action-black.svg',
       name: 'Action Black',
       perk: 'Tarifa especial Plan Prime Corporativo',
       desc: 'Beneficio exclusivo para estudiantes, profesores y administrativos de ESIC. Incluye $0 de inscripci&oacute;n, $0 de administraci&oacute;n y tarifa especial de $219.900 mensual en el Plan Prime Corporativo. Acceso a entrenamiento semipersonalizado, m&uacute;ltiples modalidades de clase y beneficios adicionales del club.',
@@ -771,7 +784,8 @@
       cat: 'Gastronom&iacute;a',
       catKey: 'gastronomia',
       bg: 'ali-bg-gastro',
-      logoText: 'Shibuya',
+      logo: 'logos/shibuya.jpg',
+      logoRound: true,
       name: 'Restaurante Shibuya',
       perk: '20% de descuento',
       desc: 'Descuento del 20% sobre la factura final. Aplica en toda la carta de comidas y bebidas SIN ALCOHOL. El descuento es v&aacute;lido para estudiantes, profesores o directivos de la instituci&oacute;n, presentando su carn&eacute;.',
@@ -788,7 +802,8 @@
       cat: 'Cultura y libros',
       catKey: 'cultura',
       bg: 'ali-bg-cultura',
-      logoText: 'Kcao',
+      logo: 'logos/kcao.jpg',
+      logoRound: true,
       name: 'Kcao Coworking & Caf&eacute;',
       perk: '15% OFF en libros Editorial Planeta',
       desc: 'Con el apoyo de la Editorial Planeta y sus sellos, la planta administrativa, docentes y estudiantes tendr&aacute;n un beneficio del 15% en la adquisici&oacute;n de libros. Aplica para sellos de la Editorial y no es acumulable con otras ofertas.',
@@ -950,7 +965,8 @@
     let logoHtml = '';
     if (a.logo) {
       const filter = a.logoInvert ? 'filter: brightness(0) invert(1) drop-shadow(0 8px 30px rgba(0,0,0,0.55));' : '';
-      logoHtml = '<img src="' + a.logo + '" alt="' + a.name + '" class="ali-modal-hero-logo" style="' + filter + '">';
+      const cls = a.logoRound ? 'ali-modal-hero-logo ali-modal-hero-logo--round' : 'ali-modal-hero-logo';
+      logoHtml = '<img src="' + a.logo + '" alt="' + a.name + '" class="' + cls + '" style="' + filter + '">';
     } else if (a.logoText) {
       logoHtml = '<div class="ali-modal-hero-logo--text">' + a.logoText + '</div>';
     }
