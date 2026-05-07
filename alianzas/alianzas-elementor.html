@@ -932,16 +932,8 @@
       '</div>';
     }).join('');
 
-    // Actions
-    let actionsHtml = '';
-    if (a.url) {
-      actionsHtml += '<a class="ali-btn ali-btn-blue" href="' + a.url + '" target="_blank" rel="noopener">' +
-        a.urlLabel +
-        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10M7 17 17 7"/></svg>' +
-      '</a>';
-    }
-    actionsHtml += '<button class="ali-btn ali-btn-ink" data-close-modal>Cerrar</button>';
-    modalActions.innerHTML = actionsHtml;
+    // Actions: solo boton Cerrar (sin CTA externa "Visitar sitio")
+    modalActions.innerHTML = '<button class="ali-btn ali-btn-ink" data-close-modal>Cerrar</button>';
     modalActions.querySelector('[data-close-modal]').addEventListener('click', closeModal);
 
     modal.classList.add('is-open');
