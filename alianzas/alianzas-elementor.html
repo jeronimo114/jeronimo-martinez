@@ -298,7 +298,13 @@
 }
 .esic-alianzas .ali-highlight-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 .esic-alianzas .ali-highlight-visual {
-  position: relative; aspect-ratio: 1/1; max-width: 460px; margin-left: auto;
+  /* width: 100% es CRITICO: todos los hijos son position:absolute, asi que
+     el contenedor no tiene tamano intrinseco. Sin width explicito, la
+     columna del grid lo colapsa a 0 y los logos posicionados con right:0 +
+     translate(10%) se renderizan respecto al borde del viewport,
+     desbordando hacia la derecha. */
+  position: relative; width: 100%; aspect-ratio: 1/1;
+  max-width: 460px; margin-left: auto;
 }
 .esic-alianzas .ali-orbit-ring {
   position: absolute; inset: 0; border-radius: 50%;
