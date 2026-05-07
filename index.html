@@ -642,61 +642,6 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
 
 .esic-home .eh-programa-card.eh-orange .eh-programa-card-info h3 { color: #C09C2E; }
 
-/* La Vida en ESIC */
-.esic-home .eh-vida-section { padding: 5rem 0; }
-.esic-home .eh-vida-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
-.esic-home .eh-vida-header h2 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  line-height: 0.95;
-  color: var(--brand-blue-dark);
-}
-.esic-home .eh-vida-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 1.5rem; }
-.esic-home .eh-vida-card { position: relative; border-radius: 20px; overflow: hidden; min-height: 280px; }
-.esic-home .eh-vida-card img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-.esic-home .eh-vida-card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 70%, transparent 100%);
-  z-index: 1;
-  pointer-events: none;
-}
-.esic-home .eh-vida-card-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  color: #FFFFFF;
-  z-index: 2;
-}
-.esic-home .eh-vida-card h3 { 
-  font-size: 1.5rem; 
-  font-weight: 700; 
-  text-transform: uppercase; 
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem; 
-  color: #FFFFFF;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-}
-.esic-home .eh-vida-card p { 
-  font-size: 1.1rem; 
-  line-height: 1.5; 
-  opacity: 0.95; 
-  color: #FFFFFF;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-}
-
 /* =====================================================
    Cifras & Reconocimiento — Prestige Statement
    Dark navy section; numbers as heroes, no cards
@@ -1238,6 +1183,131 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
 .esic-home .eh-testimonio-card.eh-boilerplate-overlay blockquote::before { color: rgba(0, 71, 233, 0.15); }
 .esic-home .eh-testimonio-card.eh-boilerplate-overlay .eh-testimonio-author img { opacity: 0.3; filter: grayscale(1); }
 
+/* Campus Rompescroll */
+.esic-home .eh-campus-rompe-section { padding: 5rem 0; }
+.esic-home .eh-campus-rompe-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: var(--brand-blue);
+  border-radius: 40px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: stretch;
+  min-height: 440px;
+  box-shadow: 0 30px 60px rgba(0, 19, 63, 0.18);
+}
+.esic-home .eh-campus-rompe-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+}
+.esic-home .eh-campus-rompe-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: eh-campus-fade 15s infinite ease-in-out;
+}
+.esic-home .eh-campus-rompe-media img:nth-child(1) { animation-delay: 0s; }
+.esic-home .eh-campus-rompe-media img:nth-child(2) { animation-delay: -10s; }
+.esic-home .eh-campus-rompe-media img:nth-child(3) { animation-delay: -5s; }
+@keyframes eh-campus-fade {
+  0%, 28% { opacity: 1; }
+  35%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.esic-home .eh-campus-rompe-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.35) 60%, rgba(0, 0, 0, 0.25) 100%);
+  z-index: 2;
+}
+.esic-home .eh-campus-rompe-content {
+  padding: 3.5rem 3.5rem 3.5rem 3rem;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+}
+.esic-home .eh-campus-rompe-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--body-font);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-orange);
+  width: fit-content;
+}
+.esic-home .eh-campus-rompe-tag::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: var(--brand-orange);
+}
+.esic-home .eh-campus-rompe-content h2 {
+  font-family: var(--display-font);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 3.6vw, 3.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+.esic-home .eh-campus-rompe-content h2 span {
+  color: var(--brand-orange);
+}
+.esic-home .eh-campus-rompe-content p {
+  font-family: var(--body-font);
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 46ch;
+}
+.esic-home .eh-campus-rompe-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+  padding: 0.95rem 1.6rem;
+  background: #FFFFFF;
+  color: var(--brand-blue) !important;
+  border-radius: 999px;
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  width: fit-content;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.esic-home .eh-campus-rompe-cta:hover {
+  background: var(--brand-orange) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+}
+.esic-home .eh-campus-rompe-cta svg { transition: transform 0.2s ease; }
+.esic-home .eh-campus-rompe-cta:hover svg { transform: translateX(4px); }
+
+@media (max-width: 860px) {
+  .esic-home .eh-campus-rompe-card {
+    grid-template-columns: 1fr;
+    border-radius: 28px;
+    min-height: 0;
+  }
+  .esic-home .eh-campus-rompe-media { min-height: 240px; }
+  .esic-home .eh-campus-rompe-content { padding: 2.25rem 1.75rem 2.5rem; }
+}
+
 /* Fundadores Section */
 .esic-home .eh-fundadores-section { padding: 6rem 0 7rem; }
 .esic-home .eh-fundadores-header h2 {
@@ -1551,10 +1621,7 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
   .esic-home .eh-section-rounded { border-radius: 30px 30px 0 0; margin-top: -30px; }
   .esic-home .eh-porque-grid { grid-template-columns: 1fr; }
   .esic-home .eh-porque-right { padding: 1.5rem; }
-  .esic-home .eh-vida-grid, .esic-home .eh-rethink-grid { grid-template-columns: 1fr; }
-  .esic-home .eh-vida-card { min-height: 240px; }
-  .esic-home .eh-vida-card h3 { font-size: 1.1rem; }
-  .esic-home .eh-vida-card p { font-size: 0.85rem; line-height: 1.4; }
+  .esic-home .eh-rethink-grid { grid-template-columns: 1fr; }
   .esic-home .eh-programa-card { aspect-ratio: 3/4; }
   .esic-home .eh-programa-card-info { padding: 1.5rem; }
   .esic-home .eh-programa-card-info h3 { font-size: clamp(2.8rem, 9vw, 3.8rem); line-height: 0.9; }
@@ -1628,57 +1695,50 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
       <!-- Slide 1: Pregrados -->
       <div class="eh-banner-slide" data-href="https://esic.co/pregrado/">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/2.-BANNER-PREGRADOS_mobile-scaled.webp" type="image/webp">
-          <source srcset="https://esic.co/wp-content/uploads/2026/04/ESIC_BANNER-PREGRADOS-.webp" type="image/webp">
-          <img src="https://esic.co/wp-content/uploads/2026/04/ESIC_BANNER-PREGRADOS-.webp" alt="Empieza tu carrera en el mundo real - Pregrados ESIC" width="2560" height="1168" fetchpriority="high">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-PREGRADOS-_mobile-scaled.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-PREGRADOS-.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-PREGRADOS-.webp" alt="Empieza tu carrera en el mundo real - Pregrados ESIC" width="2560" height="1168" fetchpriority="high">
         </picture>
-        <div class="eh-banner-slide-cta eh-cta-center">
-          <button onclick="window.location.href='https://esic.co/pregrado/'" class="eh-banner-cta-btn eh-cta-orange">Inscripciones abiertas</button>
-        </div>
       </div>
-      <!-- Slide 2: Másters -->
+      <!-- Slide 2: Campus -->
+      <div class="eh-banner-slide" data-href="https://esic.co/campus/">
+        <picture>
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/05/BANNER-HOME-CAMPUS-02-scaled.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/05/BANNER-HOME-CAMPUS-01-scaled.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/05/BANNER-HOME-CAMPUS-01-scaled.webp" alt="Un campus diseñado para formar líderes en Medellín - ESIC" width="2560" height="1168" loading="lazy">
+        </picture>
+      </div>
+      <!-- Slide 3: Másters -->
       <div class="eh-banner-slide" data-href="https://esic.co/master/">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/4.-BANNER-MASTER-_mobile-scaled.webp" type="image/webp">
-          <source srcset="https://esic.co/wp-content/uploads/2026/04/ESIC_BANNER-MASTER.webp" type="image/webp">
-          <img src="https://esic.co/wp-content/uploads/2026/04/ESIC_BANNER-MASTER.webp" alt="Donde las empresas forman a sus líderes - Másters ESIC" width="2560" height="1168" loading="lazy">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-MASTER-_mobile-scaled.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-MASTER.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-MASTER.webp" alt="Donde las empresas forman a sus líderes - Másters ESIC" width="2560" height="1168" loading="lazy">
         </picture>
-        <div class="eh-banner-slide-cta eh-cta-left">
-          <button onclick="window.location.href='https://esic.co/master/'" class="eh-banner-cta-btn eh-cta-teal">Conoce los másters</button>
-        </div>
       </div>
-      <!-- Slide 3: Pasantías -->
+      <!-- Slide 4: Pasantías -->
       <div class="eh-banner-slide" data-href="https://forms.zohopublic.com/esicmedellin/form/InscripcionesPasantas/formperma/_OGwsRPwnka1ZLXJBqSMVtl-yE_Mk7E8V14gtDRfkag" data-target="_blank">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/3.-BANNER-PASANTIAS-COLEGIOS_mobile-scaled.webp" type="image/webp">
-          <source srcset="https://esic.co/wp-content/uploads/2026/04/ESIC_BANNER-PASANTIAS-COLEGIOS-.webp" type="image/webp">
-          <img src="https://esic.co/wp-content/uploads/2026/04/ESIC_BANNER-PASANTIAS-COLEGIOS-.webp" alt="Vive una semana como estudiante de ESIC - Pasantías" width="2560" height="1168" loading="lazy">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-PASANTIAS-COLEGIOS-_mobile-scaled.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-PASANTIAS-COLEGIOS-.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-PASANTIAS-COLEGIOS-.webp" alt="Vive una semana como estudiante de ESIC - Pasantías" width="2560" height="1168" loading="lazy">
         </picture>
-        <div class="eh-banner-slide-cta eh-cta-right">
-          <button onclick="window.open('https://forms.zohopublic.com/esicmedellin/form/InscripcionesPasantas/formperma/_OGwsRPwnka1ZLXJBqSMVtl-yE_Mk7E8V14gtDRfkag','_blank')" class="eh-banner-cta-btn eh-cta-orange">Inscríbete</button>
-        </div>
       </div>
-      <!-- Slide 4: Marca ESIC -->
+      <!-- Slide 5: Marca ESIC -->
       <div class="eh-banner-slide" data-href="https://esic.co/quienes-somos/">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/1.-BANNER-DE-MARCA-ESIC_mobile-scaled.webp" type="image/webp">
-          <source srcset="https://esic.co/wp-content/uploads/2026/04/ESIC_BANNER-DE-MARCA-ESIC.webp" type="image/webp">
-          <img src="https://esic.co/wp-content/uploads/2026/04/ESIC_BANNER-DE-MARCA-ESIC.webp" alt="Aquí se forman los líderes digitales - ESIC" width="2560" height="1168" loading="lazy">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-DE-MARCA-ESIC_mobile-scaled.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-DE-MARCA-ESIC.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-DE-MARCA-ESIC.webp" alt="Aquí se forman los líderes digitales - ESIC" width="2560" height="1168" loading="lazy">
         </picture>
-        <div class="eh-banner-slide-cta eh-cta-left">
-          <button onclick="window.location.href='https://esic.co/quienes-somos/'" class="eh-banner-cta-btn eh-cta-orange">Conoce ESIC</button>
-        </div>
       </div>
-      <!-- Slide 5: Blog -->
+      <!-- Slide 6: Blog -->
       <div class="eh-banner-slide" data-href="https://esic.co/ser-o-no-ser-el-papel-de-la-pagina-web-en-2026/" data-target="_blank">
         <picture>
-          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/5-BANNER-BLOG_mobile-scaled.webp" type="image/webp">
-          <source srcset="https://esic.co/wp-content/uploads/2026/04/ESIC_BANNER-BLOG-.webp" type="image/webp">
-          <img src="https://esic.co/wp-content/uploads/2026/04/ESIC_BANNER-BLOG-.webp" alt="¿Tu página web está lista para 2026? - Blog ESIC" width="2560" height="1168" loading="lazy">
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-BLOG_mobile-scaled.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-BLOG-.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/04/banners_BANNER-BLOG-.webp" alt="¿Tu página web está lista para 2026? - Blog ESIC" width="2560" height="1168" loading="lazy">
         </picture>
-        <div class="eh-banner-slide-cta eh-cta-left">
-          <button onclick="window.open('https://esic.co/ser-o-no-ser-el-papel-de-la-pagina-web-en-2026/','_blank')" class="eh-banner-cta-btn eh-cta-blue">Leer artículo</button>
-        </div>
       </div>
     </div>
     <div class="eh-banner-indicators">
@@ -1687,6 +1747,7 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
       <button class="eh-banner-ind" data-slide="2"></button>
       <button class="eh-banner-ind" data-slide="3"></button>
       <button class="eh-banner-ind" data-slide="4"></button>
+      <button class="eh-banner-ind" data-slide="5"></button>
     </div>
   </section>
 
@@ -1849,46 +1910,25 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
     </div>
   </section>
 
-  <!-- La Vida en ESIC Section -->
-  <section class="eh-section eh-section-rounded eh-section-white eh-vida-section">
+  <!-- Campus Rompescroll -->
+  <section class="eh-section eh-section-rounded eh-section-white eh-campus-rompe-section">
     <div class="eh-container">
-      <div class="eh-vida-header">
-        <h2>LA VIDA<br>EN ESIC</h2>
-      </div>
-      <div class="eh-vida-grid">
-        <div class="eh-vida-card">
-          <img src="https://esic.co/wp-content/uploads/2026/02/aulas.webp" alt="Aulas" width="1600" height="900" loading="lazy">
-          <div class="eh-vida-card-overlay"></div>
-          <div class="eh-vida-card-content">
-            <h3>Aulas</h3>
-            <p>Espacios diseñados para el trabajo práctico</p>
-          </div>
+      <a class="eh-campus-rompe-card" href="https://esic.co/campus/" aria-label="Conoce el campus ESIC Medell&iacute;n">
+        <div class="eh-campus-rompe-media">
+          <img src="https://esic.co/wp-content/uploads/2026/04/comunes-lounge-rethink-scaled.webp" alt="Campus ESIC Medell&iacute;n - Lounge Rethink" loading="lazy">
+          <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-03.webp" alt="Campus ESIC Medell&iacute;n - &Aacute;reas comunes" loading="lazy">
+          <img src="https://esic.co/wp-content/uploads/2026/04/areas-comunes-16.webp" alt="Campus ESIC Medell&iacute;n - &Aacute;reas comunes" loading="lazy">
         </div>
-        <div class="eh-vida-card">
-          <img src="https://esic.co/wp-content/uploads/2026/02/cowork.webp" alt="Cowork" width="1600" height="900" loading="lazy">
-          <div class="eh-vida-card-overlay"></div>
-          <div class="eh-vida-card-content">
-            <h3>Cowork y Networking</h3>
-            <p>Conecta con personas que están construyendo</p>
-          </div>
+        <div class="eh-campus-rompe-content">
+          <span class="eh-campus-rompe-tag">Campus ESIC Medell&iacute;n</span>
+          <h2>Conoce Nuestro <span>Campus</span></h2>
+          <p>Un espacio dise&ntilde;ado para impulsar la creatividad, la innovaci&oacute;n y el aprendizaje experiencial. Auditorio, Tech Lab, &aacute;reas comunes y salones pensados para transformar tu futuro profesional.</p>
+          <span class="eh-campus-rompe-cta">
+            Conoce el campus
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 5 7 7-7 7"></path></svg>
+          </span>
         </div>
-        <div class="eh-vida-card">
-          <img src="https://esic.co/wp-content/uploads/2026/02/eventos.webp" alt="Eventos" width="1600" height="900" loading="lazy">
-          <div class="eh-vida-card-overlay"></div>
-          <div class="eh-vida-card-content">
-            <h3>Eventos y Conferencias</h3>
-            <p>Eventos que te mantienen actualizado con lo que está pasando en los negocios, marketing y tecnología</p>
-          </div>
-        </div>
-        <div class="eh-vida-card">
-          <img src="https://esic.co/wp-content/uploads/2026/02/campus.webp" alt="Campus" width="1600" height="900" loading="lazy">
-          <div class="eh-vida-card-overlay"></div>
-          <div class="eh-vida-card-content">
-            <h3>Campus Medellín</h3>
-            <p>Vive la experiencia ESIC en el Alto de las Palmas (Medellín)</p>
-          </div>
-        </div>
-      </div>
+      </a>
     </div>
   </section>
 

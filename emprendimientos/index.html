@@ -1,0 +1,471 @@
+<!-- ESIC Emprendimientos – Elementor HTML Widget -->
+<div class="esic-emp-page">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-emp-page {
+  --emp-blue: #0047E9 !important;
+  --emp-blue-dark: #00133F !important;
+  --emp-teal: #0AE4C3 !important;
+  --emp-cream: #F8F6F2 !important;
+  --emp-text: #0B132B !important;
+  --emp-muted: #5F6B7A !important;
+  --emp-display: 'Sofia Sans Extra Condensed', sans-serif !important;
+  --emp-body: 'DM Sans', sans-serif !important;
+  font-family: var(--emp-body) !important;
+  color: var(--emp-text) !important;
+  line-height: 1.6 !important;
+  width: 100% !important;
+}
+
+.esic-emp-page * { box-sizing: border-box !important; }
+.esic-emp-page img { max-width: 100% !important; height: auto !important; display: block !important; }
+.esic-emp-page a,
+.esic-emp-page a:link,
+.esic-emp-page a:visited { text-decoration: none !important; color: inherit !important; }
+.esic-emp-page button { font-family: inherit !important; cursor: pointer !important; }
+
+.esic-emp-page .emp-wrap {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+}
+
+/* ── Hero ── */
+.esic-emp-page .emp-hero {
+  position: relative !important;
+  min-height: 70vh !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 140px 0 8rem !important;
+  color: #FFFFFF !important;
+  background:
+    linear-gradient(135deg, rgba(0,19,63,0.82) 0%, rgba(0,19,63,0.55) 100%),
+    url('https://esic.co/wp-content/uploads/2026/04/areas-comunes-03.webp') center/cover no-repeat,
+    var(--emp-blue-dark) !important;
+  overflow: hidden !important;
+}
+
+.esic-emp-page .emp-hero::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(180deg, transparent 50%, rgba(0,19,63,0.4) 100%) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.esic-emp-page .emp-hero .emp-wrap { position: relative !important; z-index: 2 !important; }
+
+.esic-emp-page .emp-hero-content { max-width: 720px !important; }
+
+.esic-emp-page .emp-breadcrumb {
+  font-size: 0.85rem !important;
+  color: rgba(255,255,255,0.65) !important;
+  margin: 0 0 2rem !important;
+  letter-spacing: 0.04em !important;
+}
+.esic-emp-page .emp-breadcrumb a { color: rgba(255,255,255,0.65) !important; transition: color 0.2s !important; }
+.esic-emp-page .emp-breadcrumb a:hover { color: var(--emp-teal) !important; }
+
+.esic-emp-page .emp-eyebrow {
+  display: inline-block !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: var(--emp-teal) !important;
+  margin: 0 0 1.2rem !important;
+}
+
+.esic-emp-page .emp-hero h1 {
+  font-family: var(--emp-display) !important;
+  font-size: clamp(3rem, 7vw, 5.5rem) !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  line-height: 0.95 !important;
+  margin: 0 0 1.5rem !important;
+  color: #FFFFFF !important;
+}
+.esic-emp-page .emp-hero h1 span { color: var(--emp-teal) !important; }
+
+.esic-emp-page .emp-hero p {
+  font-size: 1.15rem !important;
+  line-height: 1.6 !important;
+  max-width: 580px !important;
+  color: rgba(255,255,255,0.85) !important;
+  margin: 0 !important;
+}
+
+/* ── Section base ── */
+.esic-emp-page .emp-section {
+  position: relative !important;
+  background: var(--emp-cream) !important;
+  border-radius: 50px 50px 0 0 !important;
+  margin-top: -50px !important;
+  z-index: 2 !important;
+}
+
+.esic-emp-page .emp-section + .emp-section {
+  border-radius: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* ── Intro ── */
+.esic-emp-page .emp-intro { padding: 5rem 0 1rem !important; }
+.esic-emp-page .emp-intro-inner { max-width: 760px !important; margin: 0 auto !important; text-align: center !important; }
+.esic-emp-page .emp-intro-inner p {
+  font-size: 1.15rem !important;
+  line-height: 1.65 !important;
+  color: var(--emp-muted) !important;
+  margin: 0 !important;
+}
+
+/* ── Filters ── */
+.esic-emp-page .emp-filters-wrap { padding: 2rem 0 1rem !important; }
+.esic-emp-page .emp-filters {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.6rem !important;
+  justify-content: center !important;
+}
+
+.esic-emp-page .emp-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0.6rem 1.3rem !important;
+  border-radius: 999px !important;
+  font-family: var(--emp-body) !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--emp-blue-dark) !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(0,19,63,0.15) !important;
+  transition: all 0.2s ease !important;
+}
+.esic-emp-page .emp-pill:hover {
+  border-color: var(--emp-blue) !important;
+  color: var(--emp-blue) !important;
+}
+.esic-emp-page .emp-pill.is-active {
+  background: var(--emp-blue-dark) !important;
+  border-color: var(--emp-blue-dark) !important;
+  color: #FFFFFF !important;
+}
+
+/* ── Grid ── */
+.esic-emp-page .emp-grid-wrap { padding: 3rem 0 5rem !important; }
+.esic-emp-page .emp-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1.75rem !important;
+}
+
+.esic-emp-page .emp-card {
+  background: #FFFFFF !important;
+  border-radius: 24px !important;
+  padding: 1.75rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  border: 1px solid rgba(0,19,63,0.06) !important;
+}
+.esic-emp-page .emp-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 20px 40px rgba(0,19,63,0.12) !important;
+}
+.esic-emp-page .emp-card.is-hidden { display: none !important; }
+
+.esic-emp-page .emp-logo {
+  width: 96px !important;
+  height: 96px !important;
+  border-radius: 20px !important;
+  background: var(--emp-cream) !important;
+  display: grid !important;
+  place-items: center !important;
+  margin: 0 0 1.5rem !important;
+  font-family: var(--emp-display) !important;
+  font-weight: 800 !important;
+  font-size: 2rem !important;
+  color: var(--emp-blue) !important;
+  letter-spacing: 0.02em !important;
+}
+
+.esic-emp-page .emp-tag {
+  display: inline-block !important;
+  align-self: flex-start !important;
+  padding: 0.3rem 0.75rem !important;
+  background: rgba(10,228,195,0.18) !important;
+  color: #007E6A !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  border-radius: 999px !important;
+  margin: 0 0 0.8rem !important;
+}
+
+.esic-emp-page .emp-card h3 {
+  font-family: var(--emp-display) !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  color: var(--emp-blue-dark) !important;
+  margin: 0 0 0.7rem !important;
+}
+
+.esic-emp-page .emp-card p {
+  font-size: 0.98rem !important;
+  line-height: 1.55 !important;
+  color: var(--emp-muted) !important;
+  margin: 0 0 1.5rem !important;
+  flex-grow: 1 !important;
+}
+
+.esic-emp-page .emp-arrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-family: var(--emp-body) !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--emp-blue) !important;
+  align-self: flex-start !important;
+  transition: gap 0.2s ease, color 0.2s ease !important;
+}
+.esic-emp-page .emp-arrow:hover {
+  gap: 0.8rem !important;
+  color: var(--emp-blue-dark) !important;
+}
+.esic-emp-page .emp-arrow svg { width: 14px !important; height: 14px !important; }
+
+/* ── CTA ── */
+.esic-emp-page .emp-cta {
+  background: var(--emp-blue) !important;
+  border-radius: 50px 50px 0 0 !important;
+  margin-top: -50px !important;
+  padding: 5rem 0 !important;
+  text-align: center !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+.esic-emp-page .emp-cta-inner { max-width: 680px !important; margin: 0 auto !important; }
+.esic-emp-page .emp-cta h2 {
+  font-family: var(--emp-display) !important;
+  font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  line-height: 0.95 !important;
+  color: #FFFFFF !important;
+  margin: 0 0 1.2rem !important;
+}
+.esic-emp-page .emp-cta p {
+  color: rgba(255,255,255,0.85) !important;
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+  margin: 0 0 2rem !important;
+}
+
+.esic-emp-page .emp-btn-white {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+  padding: 1rem 2rem !important;
+  background: #FFFFFF !important;
+  color: var(--emp-blue) !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  border-radius: 999px !important;
+  transition: transform 0.2s ease, background 0.2s ease !important;
+}
+.esic-emp-page .emp-btn-white:hover {
+  background: #F0F0F0 !important;
+  color: var(--emp-blue) !important;
+  transform: translateY(-2px) !important;
+}
+.esic-emp-page .emp-btn-white svg { width: 16px !important; height: 16px !important; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .esic-emp-page .emp-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 768px) {
+  .esic-emp-page .emp-section,
+  .esic-emp-page .emp-cta {
+    border-radius: 30px 30px 0 0 !important;
+    margin-top: -30px !important;
+  }
+  .esic-emp-page .emp-hero { min-height: 60vh !important; padding: 110px 0 5rem !important; }
+  .esic-emp-page .emp-grid { grid-template-columns: 1fr !important; }
+  .esic-emp-page .emp-filters {
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding: 0 1rem 0.5rem !important;
+    margin: 0 -20px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .esic-emp-page .emp-pill { flex-shrink: 0 !important; }
+}
+</style>
+
+<!-- 1. Hero -->
+<section class="emp-hero">
+  <div class="emp-wrap">
+    <div class="emp-hero-content">
+      <span class="emp-eyebrow">Comunidad ESIC Medellín</span>
+      <h1>Hecho por <span>nuestros estudiantes</span></h1>
+      <p>Conoce los proyectos y emprendimientos que están construyendo quienes pasan por nuestras aulas. Negocios reales, ideas en movimiento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Intro -->
+<section class="emp-section emp-intro">
+  <div class="emp-wrap">
+    <div class="emp-intro-inner">
+      <p>Este escaparate reúne emprendimientos creados por estudiantes y egresados de ESIC. Una muestra viva de cómo la formación se traduce en negocios, marcas y proyectos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Filtros -->
+<section class="emp-section emp-filters-wrap">
+  <div class="emp-wrap">
+    <div class="emp-filters" role="tablist">
+      <button class="emp-pill is-active" data-filter="all">Todos</button>
+      <button class="emp-pill" data-filter="tech">Tech</button>
+      <button class="emp-pill" data-filter="retail">Retail</button>
+      <button class="emp-pill" data-filter="servicios">Servicios</button>
+      <button class="emp-pill" data-filter="marketing">Marketing</button>
+      <button class="emp-pill" data-filter="sostenibilidad">Sostenibilidad</button>
+      <button class="emp-pill" data-filter="food">Food</button>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Grid -->
+<section class="emp-section emp-grid-wrap">
+  <div class="emp-wrap">
+    <div class="emp-grid">
+
+      <article class="emp-card" data-category="sostenibilidad">
+        <div class="emp-logo">VA</div>
+        <span class="emp-tag">Sostenibilidad</span>
+        <h3>Verde Andino</h3>
+        <p>Productos de cuidado personal con ingredientes andinos, formulados para reducir el impacto ambiental sin perder eficacia.</p>
+        <a href="#" target="_blank" rel="noopener" class="emp-arrow">
+          <!-- TODO: link real -->
+          Visitar sitio
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="emp-card" data-category="food">
+        <div class="emp-logo">PS</div>
+        <span class="emp-tag">Food</span>
+        <h3>Pachamama Snacks</h3>
+        <p>Snacks saludables a base de superalimentos colombianos, pensados para deportistas y oficinas conscientes.</p>
+        <a href="#" target="_blank" rel="noopener" class="emp-arrow">
+          <!-- TODO: link real -->
+          Visitar sitio
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="emp-card" data-category="tech">
+        <div class="emp-logo">BC</div>
+        <span class="emp-tag">Tech</span>
+        <h3>ByteCo Studio</h3>
+        <p>Estudio de desarrollo de producto digital para startups en etapa temprana. Desde idea hasta MVP en 6 semanas.</p>
+        <a href="#" target="_blank" rel="noopener" class="emp-arrow">
+          <!-- TODO: link real -->
+          Visitar sitio
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="emp-card" data-category="retail">
+        <div class="emp-logo">PT</div>
+        <span class="emp-tag">Retail</span>
+        <h3>Paisa Threads</h3>
+        <p>Marca de moda urbana inspirada en la cultura paisa, con producción local y ediciones limitadas en alianza con artistas.</p>
+        <a href="#" target="_blank" rel="noopener" class="emp-arrow">
+          <!-- TODO: link real -->
+          Visitar sitio
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="emp-card" data-category="marketing">
+        <div class="emp-logo">BD</div>
+        <span class="emp-tag">Marketing</span>
+        <h3>Brújula Digital</h3>
+        <p>Agencia de marketing de performance enfocada en negocios B2B. Estrategia, ads y analítica con foco en ROI.</p>
+        <a href="#" target="_blank" rel="noopener" class="emp-arrow">
+          <!-- TODO: link real -->
+          Visitar sitio
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="emp-card" data-category="servicios">
+        <div class="emp-logo">TL</div>
+        <span class="emp-tag">Servicios</span>
+        <h3>Tinto Lab</h3>
+        <p>Cafetería de especialidad con experiencias formativas en cata y barismo. Tercer espacio para creativos y profesionales.</p>
+        <a href="#" target="_blank" rel="noopener" class="emp-arrow">
+          <!-- TODO: link real -->
+          Visitar sitio
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 5. CTA -->
+<section class="emp-cta">
+  <div class="emp-wrap">
+    <div class="emp-cta-inner">
+      <h2>¿Tu emprendimiento debería estar aquí?</h2>
+      <p>Si eres estudiante o egresado de ESIC y estás construyendo algo, queremos conocerlo y ayudarte a contarlo.</p>
+      <a href="https://esic.co/contacto/" class="emp-btn-white">
+        CUÉNTANOS TU HISTORIA
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+(function () {
+  var root = document.querySelector('.esic-emp-page');
+  if (!root) return;
+  var pills = root.querySelectorAll('.emp-pill');
+  var cards = root.querySelectorAll('.emp-card');
+  pills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      pills.forEach(function (p) { p.classList.remove('is-active'); });
+      pill.classList.add('is-active');
+      var filter = pill.getAttribute('data-filter');
+      cards.forEach(function (card) {
+        var match = filter === 'all' || card.getAttribute('data-category') === filter;
+        card.classList.toggle('is-hidden', !match);
+      });
+    });
+  });
+})();
+</script>
