@@ -297,6 +297,20 @@
   max-width: 600px; margin: 0 auto 2rem;
 }
 .esic-alianzas .ali-highlight-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.esic-alianzas .ali-highlight-placeholder {
+  width: min(680px, 100%); margin: 0 auto;
+  aspect-ratio: 16/5;
+  display: flex; align-items: center; justify-content: center;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 18px, transparent 18px 36px),
+    rgba(255,255,255,0.04);
+  border: 2px dashed rgba(10,228,195,0.55);
+  border-radius: 24px;
+  font-family: var(--display-font); font-weight: 800;
+  font-size: clamp(1.2rem, 2.6vw, 2rem); letter-spacing: 0.16em;
+  color: rgba(255,255,255,0.72); text-transform: uppercase;
+  line-height: 1; text-align: center;
+}
 
 /* ================================================ */
 /* --- MODAL --- */
@@ -481,7 +495,7 @@
           <div class="ali-card-bg ali-bg-bienestar"></div>
           <div class="ali-card-tag">Bienestar y deporte</div>
           <div class="ali-card-logo-wrap">
-            <img src="https://esic.co/wp-content/uploads/2026/05/action-black.webp" alt="Action Black" class="ali-card-logo">
+            <img src="https://esic.co/wp-content/uploads/2026/05/action-black.webp" alt="Action Black" class="ali-card-logo ali-card-logo--round">
           </div>
         </div>
         <div class="ali-card-body">
@@ -644,13 +658,9 @@
           administrativos de una de las escuelas de negocios m&aacute;s reconocidas del
           pa&iacute;s. Hablemos de c&oacute;mo construir un beneficio mutuo.
         </p>
-        <div class="ali-highlight-actions">
-          <a class="ali-btn ali-btn-ink" href="https://esic.co/contacto/" target="_blank" rel="noopener">
-            Quiero ser aliado
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
-          <a class="ali-btn ali-btn-ghost" href="mailto:alianzas@esic.co">Escribir al equipo</a>
-        </div>
+        <!-- Placeholder: reemplazar este div por <a><img src="..." alt="..."></a>
+             o por los CTAs/formulario que se decidan -->
+        <div class="ali-highlight-placeholder">Espacio para CTA o banner</div>
       </div>
     </div>
   </div>
@@ -689,6 +699,7 @@
       catKey: 'bienestar',
       bg: 'ali-bg-bienestar',
       logo: 'https://esic.co/wp-content/uploads/2026/05/action-black.webp',
+      logoRound: true,
       name: 'Action Black',
       perk: 'Tarifa especial Plan Prime Corporativo',
       desc: 'Beneficio exclusivo para estudiantes, profesores y administrativos de ESIC. Incluye $0 de inscripci&oacute;n, $0 de administraci&oacute;n y tarifa especial de $219.900 mensual en el Plan Prime Corporativo. Acceso a entrenamiento semipersonalizado, m&uacute;ltiples modalidades de clase y beneficios adicionales del club. Aplica con d&eacute;bito autom&aacute;tico (tarjeta d&eacute;bito o cr&eacute;dito). El usuario deber&aacute; presentar carn&eacute; institucional vigente para la activaci&oacute;n. Beneficio v&aacute;lido en sedes activas de Action Black a nivel nacional.',
