@@ -8,9 +8,10 @@ Redesign of ESIC Business & Marketing School Medellín website. Static HTML page
 
 ## Key Workflow
 
-1. **Elementor output**: After editing any HTML file destined for Elementor, run `cat <file> | pbcopy` so it's ready to paste into WordPress.
-2. **No external CSS/JS**: Elementor widgets cannot load external stylesheets or scripts. Everything must be inlined (`<style>`, `<script>`) within the same file. No `<nav>` or `<footer>` — those are global Elementor theme elements.
-3. **Frequent commits**: Commit after every change, no matter how small.
+1. **One file per page**: For every new page create exactly ONE HTML file — the elementor file (e.g. `alianzas/alianzas-elementor.html`). No separate `index.html` for preview, no duplicates. All work — design, preview, production — happens in the single `*-elementor.html` file.
+2. **Elementor output**: After editing any HTML file destined for Elementor, run `cat <file> | pbcopy` so it's ready to paste into WordPress.
+3. **No external CSS/JS**: Elementor widgets cannot load external stylesheets or scripts. Everything must be inlined (`<style>`, `<script>`) within the same file. No `<nav>` or `<footer>` — those are global Elementor theme elements.
+4. **Frequent commits**: Commit after every change, no matter how small.
 
 ## Repository Structure
 

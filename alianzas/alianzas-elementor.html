@@ -1,0 +1,1004 @@
+<div class="esic-alianzas">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-alianzas {
+  --ali-cream:    #F8F6F2;
+  --ali-bg:       #FFFFFF;
+  --ali-ink:      #00133F;
+  --ali-ink-2:    #1A2547;
+  --ali-muted:    #5C6477;
+  --ali-line:     #E7E2D8;
+  --ali-blue:     #0047E9;
+  --ali-blue-dk:  #00133F;
+  --ali-teal:     #0AE4C3;
+  --ali-orange:   #FF8701;
+  --ali-white:    #FFFFFF;
+
+  --display-font: "Sofia Sans Extra Condensed", sans-serif;
+  --body-font:    "DM Sans", sans-serif;
+
+  font-family: var(--body-font);
+  color: var(--ali-ink);
+  line-height: 1.55;
+  background: var(--ali-cream);
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+.esic-alianzas *, .esic-alianzas *::before, .esic-alianzas *::after { box-sizing: border-box; }
+.esic-alianzas h1, .esic-alianzas h2, .esic-alianzas h3, .esic-alianzas h4 {
+  font-family: var(--display-font); font-weight: 800; margin: 0; line-height: 0.95; letter-spacing: -0.005em;
+}
+.esic-alianzas p { margin: 0; }
+.esic-alianzas a { color: inherit; text-decoration: none; }
+.esic-alianzas button { font-family: inherit; cursor: pointer; border: none; background: none; }
+.esic-alianzas img { max-width: 100%; display: block; }
+
+/* ─── Layout ─── */
+.esic-alianzas .ali-container { width: min(1180px, 92%); margin: 0 auto; }
+
+/* ─── Buttons ─── */
+.esic-alianzas .ali-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+  padding: 0.95rem 1.9rem; border-radius: 999px;
+  font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; cursor: pointer;
+  transition: transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease;
+  text-decoration: none !important; line-height: 1; white-space: nowrap;
+}
+.esic-alianzas a.ali-btn-blue,
+.esic-alianzas .ali-btn-blue { background: var(--ali-blue) !important; color: var(--ali-white) !important; }
+.esic-alianzas a.ali-btn-blue:hover,
+.esic-alianzas .ali-btn-blue:hover { background: #0034B8 !important; color: var(--ali-white) !important; transform: translateY(-2px); box-shadow: 0 12px 24px -10px rgba(0,71,233,0.55); }
+.esic-alianzas a.ali-btn-ink,
+.esic-alianzas .ali-btn-ink { background: var(--ali-ink) !important; color: var(--ali-white) !important; }
+.esic-alianzas a.ali-btn-ink:hover,
+.esic-alianzas .ali-btn-ink:hover { background: #001A5C !important; color: var(--ali-white) !important; transform: translateY(-2px); }
+.esic-alianzas a.ali-btn-ghost,
+.esic-alianzas .ali-btn-ghost { background: transparent !important; color: var(--ali-white) !important; border: 2px solid rgba(255,255,255,0.45) !important; }
+.esic-alianzas a.ali-btn-ghost:hover,
+.esic-alianzas .ali-btn-ghost:hover { border-color: var(--ali-white) !important; background: rgba(255,255,255,0.08) !important; color: var(--ali-white) !important; }
+
+/* ════════════════════════════════════════════════ */
+/* ─── HERO ─── */
+.esic-alianzas .ali-hero {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse at 18% 20%, rgba(0,71,233,0.55) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 80%, rgba(10,228,195,0.30) 0%, transparent 55%),
+    linear-gradient(165deg, #00091E 0%, #00133F 50%, #0034B8 120%);
+  color: var(--ali-white);
+  padding: clamp(6rem, 12vw, 9.5rem) 0 clamp(7rem, 14vw, 11rem);
+}
+.esic-alianzas .ali-hero::after {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.07) 1px, transparent 0);
+  background-size: 38px 38px;
+  pointer-events: none; mask-image: linear-gradient(180deg, transparent, black 40%, black 80%, transparent);
+}
+.esic-alianzas .ali-hero-inner { position: relative; z-index: 2; text-align: center; max-width: 880px; margin: 0 auto; }
+.esic-alianzas .ali-hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--ali-teal); margin-bottom: 1.4rem;
+}
+.esic-alianzas .ali-hero-eyebrow::before,
+.esic-alianzas .ali-hero-eyebrow::after { content: ""; width: 22px; height: 2px; background: var(--ali-teal); border-radius: 2px; opacity: 0.7; }
+.esic-alianzas .ali-hero h1 {
+  font-size: clamp(3.6rem, 11vw, 8rem); text-transform: uppercase;
+  line-height: 0.88; color: var(--ali-white); margin-bottom: 1.6rem;
+}
+.esic-alianzas .ali-hero h1 span { color: var(--ali-teal); font-style: italic; }
+.esic-alianzas .ali-hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.18rem); color: rgba(255,255,255,0.78);
+  max-width: 600px; margin: 0 auto 2.4rem; line-height: 1.65;
+}
+.esic-alianzas .ali-hero-stats {
+  display: inline-flex; gap: clamp(1.5rem, 4vw, 3rem); justify-content: center; flex-wrap: wrap;
+  padding: 1.4rem 2rem; border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px; background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+.esic-alianzas .ali-stat { text-align: center; }
+.esic-alianzas .ali-stat-num {
+  font-family: var(--display-font); font-size: 2rem; font-weight: 800;
+  color: var(--ali-teal); line-height: 1;
+}
+.esic-alianzas .ali-stat-lbl {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 0.35rem;
+}
+.esic-alianzas .ali-stat-divider { width: 1px; background: rgba(255,255,255,0.12); }
+
+/* ════════════════════════════════════════════════ */
+/* ─── HOW IT WORKS ─── */
+.esic-alianzas .ali-howto {
+  background: var(--ali-cream);
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px; position: relative; z-index: 2;
+  padding: clamp(4.5rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+}
+.esic-alianzas .ali-howto-head { text-align: center; max-width: 720px; margin: 0 auto 3.2rem; }
+.esic-alianzas .ali-howto-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ali-blue); margin-bottom: 0.9rem;
+}
+.esic-alianzas .ali-howto-tag::before { content: ""; width: 22px; height: 2px; background: var(--ali-blue); border-radius: 2px; }
+.esic-alianzas .ali-howto h2 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem); text-transform: uppercase; color: var(--ali-ink);
+}
+.esic-alianzas .ali-howto-sub { font-size: 1.05rem; color: var(--ali-muted); margin-top: 0.9rem; }
+.esic-alianzas .ali-steps {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
+}
+.esic-alianzas .ali-step {
+  background: var(--ali-white); border: 1px solid var(--ali-line); border-radius: 24px;
+  padding: 2rem 1.8rem; position: relative; overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.esic-alianzas .ali-step:hover { transform: translateY(-4px); box-shadow: 0 22px 40px -22px rgba(0,19,63,0.18); }
+.esic-alianzas .ali-step-num {
+  font-family: var(--display-font); font-size: 4rem; font-weight: 800;
+  color: var(--ali-blue); line-height: 1; opacity: 0.18; position: absolute;
+  top: 1rem; right: 1.4rem;
+}
+.esic-alianzas .ali-step-icon {
+  width: 46px; height: 46px; border-radius: 14px;
+  background: rgba(0,71,233,0.10); display: inline-flex; align-items: center; justify-content: center;
+  margin-bottom: 1.2rem; color: var(--ali-blue);
+}
+.esic-alianzas .ali-step h3 {
+  font-size: 1.5rem; text-transform: uppercase; color: var(--ali-ink); margin-bottom: 0.55rem;
+}
+.esic-alianzas .ali-step p { font-size: 0.95rem; color: var(--ali-muted); line-height: 1.55; }
+
+/* ════════════════════════════════════════════════ */
+/* ─── GRID + FILTERS ─── */
+.esic-alianzas .ali-grid-section {
+  background: var(--ali-bg);
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px; position: relative; z-index: 3;
+  padding: clamp(4.5rem, 8vw, 7rem) 0 clamp(5rem, 9vw, 8rem);
+}
+.esic-alianzas .ali-grid-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+}
+.esic-alianzas .ali-grid-head-l { max-width: 580px; }
+.esic-alianzas .ali-grid-head h2 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem); text-transform: uppercase; color: var(--ali-ink); margin-bottom: 0.5rem;
+}
+.esic-alianzas .ali-grid-head p { font-size: 1rem; color: var(--ali-muted); }
+.esic-alianzas .ali-count {
+  font-family: var(--display-font); font-size: 1.05rem;
+  color: var(--ali-blue); font-weight: 700; letter-spacing: 0.05em;
+}
+
+.esic-alianzas .ali-filters {
+  display: flex; gap: 0.55rem; flex-wrap: wrap; margin-bottom: 2.4rem;
+  padding-bottom: 1.6rem; border-bottom: 1px solid var(--ali-line);
+}
+.esic-alianzas .ali-filter {
+  padding: 0.7rem 1.25rem; border-radius: 999px;
+  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em;
+  background: var(--ali-cream); color: var(--ali-ink-2); border: 1px solid var(--ali-line);
+  cursor: pointer; transition: all .18s ease;
+}
+.esic-alianzas .ali-filter:hover { border-color: var(--ali-ink); color: var(--ali-ink); }
+.esic-alianzas .ali-filter.is-active {
+  background: var(--ali-ink); color: var(--ali-white); border-color: var(--ali-ink);
+}
+.esic-alianzas .ali-filter-count {
+  display: inline-block; font-size: 0.72rem; opacity: 0.7; margin-left: 0.3rem;
+}
+
+.esic-alianzas .ali-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
+}
+.esic-alianzas .ali-card {
+  position: relative; cursor: pointer;
+  background: var(--ali-cream); border-radius: 26px; overflow: hidden;
+  border: 1px solid var(--ali-line);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  display: flex; flex-direction: column;
+}
+.esic-alianzas .ali-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 50px -22px rgba(0,19,63,0.22);
+  border-color: rgba(0,71,233,0.18);
+}
+.esic-alianzas .ali-card-media {
+  position: relative; aspect-ratio: 16/11; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.esic-alianzas .ali-card-media::after {
+  content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.32);
+  transition: background .3s ease;
+}
+.esic-alianzas .ali-card:hover .ali-card-media::after { background: rgba(0,0,0,0.22); }
+.esic-alianzas .ali-card-bg {
+  position: absolute; inset: 0; transition: transform .6s ease;
+  background-size: cover; background-position: center;
+}
+.esic-alianzas .ali-card:hover .ali-card-bg { transform: scale(1.06); }
+
+.esic-alianzas .ali-card-tag {
+  position: absolute; top: 1rem; left: 1rem; z-index: 3;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ali-white);
+  background: rgba(0,0,0,0.55); padding: 0.4rem 0.8rem; border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+.esic-alianzas .ali-card-logo {
+  position: relative; z-index: 2; max-width: 60%; max-height: 80px;
+  width: auto; object-fit: contain;
+  filter: drop-shadow(0 4px 18px rgba(0,0,0,0.45));
+}
+.esic-alianzas .ali-card-logo--text {
+  font-family: var(--display-font); font-weight: 800;
+  font-size: clamp(2rem, 4vw, 2.8rem); color: var(--ali-white);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+  text-align: center; line-height: 1;
+}
+
+.esic-alianzas .ali-card-body { padding: 1.6rem 1.5rem 1.7rem; }
+.esic-alianzas .ali-card-perk {
+  font-family: var(--display-font); font-size: 2rem; font-weight: 800;
+  color: var(--ali-blue); line-height: 1; margin-bottom: 0.45rem; text-transform: uppercase;
+}
+.esic-alianzas .ali-card-name {
+  font-size: 1.05rem; font-weight: 700; color: var(--ali-ink); margin-bottom: 0.35rem;
+  letter-spacing: -0.005em;
+}
+.esic-alianzas .ali-card-meta { font-size: 0.85rem; color: var(--ali-muted); }
+.esic-alianzas .ali-card-cta {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  margin-top: 1.1rem;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ali-ink);
+  border-bottom: 2px solid var(--ali-ink); padding-bottom: 0.15rem;
+  transition: gap .2s ease;
+}
+.esic-alianzas .ali-card:hover .ali-card-cta { gap: 0.7rem; }
+
+/* Card backgrounds per category (gradients used as base behind logos) */
+.esic-alianzas .ali-bg-bienestar  { background: linear-gradient(135deg, #0E1418 0%, #2A1F2D 100%); }
+.esic-alianzas .ali-bg-gastro     { background: linear-gradient(135deg, #1F1206 0%, #4A1E0A 100%); }
+.esic-alianzas .ali-bg-cultura    { background: linear-gradient(135deg, #061730 0%, #0A2A55 100%); }
+.esic-alianzas .ali-bg-servicios  { background: linear-gradient(135deg, #00133F 0%, #0047E9 100%); }
+
+/* Variant for white-logo backgrounds (keeps logos legible) */
+.esic-alianzas .ali-card-logo-wrap {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem;
+}
+
+/* ════════════════════════════════════════════════ */
+/* ─── HIGHLIGHT ─── */
+.esic-alianzas .ali-highlight {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(10,228,195,0.20), transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(0,71,233,0.40), transparent 55%),
+    linear-gradient(135deg, var(--ali-blue) 0%, var(--ali-blue-dk) 100%);
+  color: var(--ali-white);
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px; position: relative; z-index: 4;
+  padding: clamp(4.5rem, 8vw, 7rem) 0;
+}
+.esic-alianzas .ali-highlight-grid {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center;
+}
+.esic-alianzas .ali-highlight-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--ali-teal); margin-bottom: 1rem;
+}
+.esic-alianzas .ali-highlight-tag::before { content: ""; width: 20px; height: 2px; background: var(--ali-teal); border-radius: 2px; }
+.esic-alianzas .ali-highlight h2 {
+  font-size: clamp(2.6rem, 5.6vw, 4rem); text-transform: uppercase;
+  color: var(--ali-white); margin-bottom: 1.2rem;
+}
+.esic-alianzas .ali-highlight h2 span { color: var(--ali-teal); font-style: italic; }
+.esic-alianzas .ali-highlight p {
+  font-size: 1.08rem; line-height: 1.7; color: rgba(255,255,255,0.82);
+  max-width: 520px; margin-bottom: 2rem;
+}
+.esic-alianzas .ali-highlight-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.esic-alianzas .ali-highlight-visual {
+  position: relative; aspect-ratio: 1/1; max-width: 440px; margin-left: auto;
+}
+.esic-alianzas .ali-orb {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 70%);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.esic-alianzas .ali-orb-1 { inset: 0; }
+.esic-alianzas .ali-orb-2 { inset: 12%; border-color: rgba(10,228,195,0.35); }
+.esic-alianzas .ali-orb-3 { inset: 24%; background: radial-gradient(circle, rgba(10,228,195,0.18), transparent 70%); }
+.esic-alianzas .ali-orb-icon {
+  position: absolute; inset: 36%; border-radius: 50%;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.22);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ali-teal);
+}
+
+/* ════════════════════════════════════════════════ */
+/* ─── MODAL ─── */
+.esic-alianzas .ali-modal {
+  position: fixed; inset: 0; z-index: 9999;
+  display: none; align-items: center; justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 9, 30, 0.72); backdrop-filter: blur(10px);
+  animation: aliFadeIn .22s ease;
+}
+.esic-alianzas .ali-modal.is-open { display: flex; }
+@keyframes aliFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes aliSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.esic-alianzas .ali-modal-card {
+  position: relative;
+  width: min(880px, 100%); max-height: 90vh; overflow-y: auto;
+  background: var(--ali-cream); border-radius: 28px;
+  animation: aliSlideUp .3s ease;
+  box-shadow: 0 30px 80px -10px rgba(0, 9, 30, 0.55);
+}
+.esic-alianzas .ali-modal-close {
+  position: absolute; top: 1.2rem; right: 1.2rem; z-index: 5;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(255,255,255,0.85); color: var(--ali-ink);
+  display: flex; align-items: center; justify-content: center;
+  transition: background .18s ease, transform .18s ease;
+}
+.esic-alianzas .ali-modal-close:hover { background: var(--ali-white); transform: rotate(90deg); }
+
+.esic-alianzas .ali-modal-hero {
+  position: relative; aspect-ratio: 16/7;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 28px 28px 0 0; overflow: hidden;
+}
+.esic-alianzas .ali-modal-hero::after {
+  content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.40);
+}
+.esic-alianzas .ali-modal-hero-logo {
+  position: relative; z-index: 2; max-width: 280px; max-height: 130px;
+  filter: drop-shadow(0 8px 30px rgba(0,0,0,0.55));
+}
+.esic-alianzas .ali-modal-hero-logo--text {
+  position: relative; z-index: 2;
+  font-family: var(--display-font); font-weight: 800;
+  font-size: clamp(2.6rem, 6vw, 4.2rem); color: var(--ali-white);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.55);
+}
+
+.esic-alianzas .ali-modal-body { padding: 2rem clamp(1.5rem, 4vw, 2.5rem) 2.4rem; }
+.esic-alianzas .ali-modal-tag {
+  display: inline-block; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--ali-blue);
+  margin-bottom: 0.6rem;
+}
+.esic-alianzas .ali-modal-name {
+  font-family: var(--display-font); font-size: clamp(2rem, 4vw, 2.8rem);
+  text-transform: uppercase; color: var(--ali-ink); line-height: 0.95;
+  margin-bottom: 0.8rem;
+}
+.esic-alianzas .ali-modal-perk {
+  display: inline-block; padding: 0.55rem 1rem;
+  background: var(--ali-blue); color: var(--ali-white);
+  border-radius: 999px; font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.05em; margin-bottom: 1.4rem;
+}
+.esic-alianzas .ali-modal-desc {
+  font-size: 1rem; color: var(--ali-ink-2); line-height: 1.7; margin-bottom: 1.8rem;
+}
+
+.esic-alianzas .ali-modal-details {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+  margin-bottom: 2rem;
+}
+.esic-alianzas .ali-detail {
+  background: var(--ali-white); border: 1px solid var(--ali-line);
+  border-radius: 14px; padding: 1rem 1.1rem;
+  display: flex; gap: 0.8rem; align-items: flex-start;
+}
+.esic-alianzas .ali-detail-icon {
+  flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
+  background: rgba(0,71,233,0.10); color: var(--ali-blue);
+  display: flex; align-items: center; justify-content: center;
+}
+.esic-alianzas .ali-detail-lbl {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ali-muted); margin-bottom: 0.2rem;
+}
+.esic-alianzas .ali-detail-val { font-size: 0.92rem; color: var(--ali-ink); font-weight: 500; line-height: 1.4; }
+
+.esic-alianzas .ali-modal-actions {
+  display: flex; gap: 0.8rem; flex-wrap: wrap; padding-top: 1rem;
+  border-top: 1px solid var(--ali-line);
+}
+
+/* ════════════════════════════════════════════════ */
+/* ─── RESPONSIVE ─── */
+@media (max-width: 980px) {
+  .esic-alianzas .ali-steps { grid-template-columns: 1fr; }
+  .esic-alianzas .ali-grid { grid-template-columns: repeat(2, 1fr); }
+  .esic-alianzas .ali-highlight-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .esic-alianzas .ali-highlight-visual { margin: 0 auto; max-width: 320px; }
+}
+@media (max-width: 640px) {
+  .esic-alianzas .ali-grid { grid-template-columns: 1fr; }
+  .esic-alianzas .ali-modal-details { grid-template-columns: 1fr; }
+  .esic-alianzas .ali-grid-head { flex-direction: column; align-items: flex-start; }
+  .esic-alianzas .ali-hero-stats { padding: 1.1rem 1.4rem; gap: 1.2rem; }
+  .esic-alianzas .ali-stat-divider { display: none; }
+  .esic-alianzas .ali-card-media { aspect-ratio: 16/9; }
+}
+</style>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- HERO -->
+<section class="ali-hero">
+  <div class="ali-container ali-hero-inner">
+    <div class="ali-hero-eyebrow">Beneficios Comunidad ESIC</div>
+    <h1>Alianzas que <span>suman</span></h1>
+    <p class="ali-hero-sub">
+      Descuentos, experiencias y servicios exclusivos para estudiantes,
+      profesores y administrativos de ESIC. Presenta tu carné y empieza a disfrutarlas.
+    </p>
+    <div class="ali-hero-stats">
+      <div class="ali-stat">
+        <div class="ali-stat-num">8+</div>
+        <div class="ali-stat-lbl">Marcas aliadas</div>
+      </div>
+      <div class="ali-stat-divider"></div>
+      <div class="ali-stat">
+        <div class="ali-stat-num">4</div>
+        <div class="ali-stat-lbl">Categorías</div>
+      </div>
+      <div class="ali-stat-divider"></div>
+      <div class="ali-stat">
+        <div class="ali-stat-num">20%</div>
+        <div class="ali-stat-lbl">Descuento promedio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- HOW IT WORKS -->
+<section class="ali-howto">
+  <div class="ali-container">
+    <div class="ali-howto-head">
+      <div class="ali-howto-tag">Cómo funciona</div>
+      <h2>Tres pasos. Listo.</h2>
+      <p class="ali-howto-sub">Activar un beneficio es simple: identifica la alianza, presenta tu carné institucional y disfruta.</p>
+    </div>
+    <div class="ali-steps">
+      <div class="ali-step">
+        <div class="ali-step-num">01</div>
+        <div class="ali-step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </div>
+        <h3>Explora las alianzas</h3>
+        <p>Filtra por categoría y revisa el detalle de cada beneficio: condiciones, vigencia y ubicación.</p>
+      </div>
+      <div class="ali-step">
+        <div class="ali-step-num">02</div>
+        <div class="ali-step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 15h2"/></svg>
+        </div>
+        <h3>Presenta tu carné ESIC</h3>
+        <p>Tu carné institucional vigente es la llave. Algunos aliados también aceptan código exclusivo.</p>
+      </div>
+      <div class="ali-step">
+        <div class="ali-step-num">03</div>
+        <div class="ali-step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14l3-3 3 3 3-3 3 3"/><path d="M16 16l4 4M20 16l-4 4"/></svg>
+        </div>
+        <h3>Disfruta tu beneficio</h3>
+        <p>Aplica al instante. Algunos beneficios tienen días u horarios específicos: revisa cada ficha.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- GRID + FILTERS -->
+<section class="ali-grid-section">
+  <div class="ali-container">
+    <div class="ali-grid-head">
+      <div class="ali-grid-head-l">
+        <h2>Nuestras alianzas</h2>
+        <p>Marcas que reconocen y premian a la comunidad ESIC.</p>
+      </div>
+      <div class="ali-count" data-ali-count>8 alianzas activas</div>
+    </div>
+
+    <div class="ali-filters" role="tablist">
+      <button class="ali-filter is-active" data-filter="all">Todas <span class="ali-filter-count">8</span></button>
+      <button class="ali-filter" data-filter="bienestar">Bienestar y deporte <span class="ali-filter-count">1</span></button>
+      <button class="ali-filter" data-filter="gastronomia">Gastronomía <span class="ali-filter-count">4</span></button>
+      <button class="ali-filter" data-filter="cultura">Cultura y libros <span class="ali-filter-count">2</span></button>
+      <button class="ali-filter" data-filter="servicios">Servicios y viaje <span class="ali-filter-count">1</span></button>
+    </div>
+
+    <div class="ali-grid" id="aliGrid">
+
+      <!-- ACTION BLACK -->
+      <article class="ali-card" data-cat="bienestar" data-ali="action-black">
+        <div class="ali-card-media">
+          <div class="ali-card-bg ali-bg-bienestar"></div>
+          <div class="ali-card-tag">Bienestar y deporte</div>
+          <div class="ali-card-logo-wrap">
+            <div class="ali-card-logo--text">Action<br>Black</div>
+          </div>
+        </div>
+        <div class="ali-card-body">
+          <div class="ali-card-perk">$219.900 / mes</div>
+          <div class="ali-card-name">Action Black</div>
+          <div class="ali-card-meta">Plan Prime Corporativo · sin inscripción</div>
+          <span class="ali-card-cta">Ver detalles
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </article>
+
+      <!-- SHIBUYA -->
+      <article class="ali-card" data-cat="gastronomia" data-ali="shibuya">
+        <div class="ali-card-media">
+          <div class="ali-card-bg ali-bg-gastro"></div>
+          <div class="ali-card-tag">Gastronomía</div>
+          <div class="ali-card-logo-wrap">
+            <div class="ali-card-logo--text">Shibuya</div>
+          </div>
+        </div>
+        <div class="ali-card-body">
+          <div class="ali-card-perk">20% OFF</div>
+          <div class="ali-card-name">Restaurante Shibuya</div>
+          <div class="ali-card-meta">Robata &amp; Sushi · Mall Indiana, Local 174</div>
+          <span class="ali-card-cta">Ver detalles
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </article>
+
+      <!-- KCAO -->
+      <article class="ali-card" data-cat="cultura" data-ali="kcao">
+        <div class="ali-card-media">
+          <div class="ali-card-bg ali-bg-cultura"></div>
+          <div class="ali-card-tag">Cultura y libros</div>
+          <div class="ali-card-logo-wrap">
+            <div class="ali-card-logo--text">Kcao</div>
+          </div>
+        </div>
+        <div class="ali-card-body">
+          <div class="ali-card-perk">15% OFF</div>
+          <div class="ali-card-name">Kcao Coworking &amp; Café</div>
+          <div class="ali-card-meta">Libros Editorial Planeta · Mall Indiana 175</div>
+          <span class="ali-card-cta">Ver detalles
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </article>
+
+      <!-- AMMAZZA -->
+      <article class="ali-card" data-cat="gastronomia" data-ali="ammazza">
+        <div class="ali-card-media">
+          <div class="ali-card-bg ali-bg-gastro"></div>
+          <div class="ali-card-tag">Gastronomía</div>
+          <div class="ali-card-logo-wrap">
+            <img src="logos/ammazza.webp" alt="Ammazza" class="ali-card-logo">
+          </div>
+        </div>
+        <div class="ali-card-body">
+          <div class="ali-card-perk">20% OFF</div>
+          <div class="ali-card-name">Ammazza</div>
+          <div class="ali-card-meta">Todas las sedes · postre gratis en tu cumpleaños</div>
+          <span class="ali-card-cta">Ver detalles
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </article>
+
+      <!-- BÁRBARO -->
+      <article class="ali-card" data-cat="gastronomia" data-ali="barbaro">
+        <div class="ali-card-media">
+          <div class="ali-card-bg ali-bg-gastro"></div>
+          <div class="ali-card-tag">Gastronomía</div>
+          <div class="ali-card-logo-wrap">
+            <img src="logos/barbaro.webp" alt="Bárbaro" class="ali-card-logo">
+          </div>
+        </div>
+        <div class="ali-card-body">
+          <div class="ali-card-perk">20% OFF</div>
+          <div class="ali-card-name">Bárbaro Cocina Primitiva</div>
+          <div class="ali-card-meta">Laureles · Poblado · Túnel · Viva Envigado</div>
+          <span class="ali-card-cta">Ver detalles
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </article>
+
+      <!-- VOLVER -->
+      <article class="ali-card" data-cat="gastronomia" data-ali="volver">
+        <div class="ali-card-media">
+          <div class="ali-card-bg ali-bg-gastro"></div>
+          <div class="ali-card-tag">Gastronomía</div>
+          <div class="ali-card-logo-wrap">
+            <img src="logos/volver.svg" alt="Volver" class="ali-card-logo" style="filter: brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,0.45));">
+          </div>
+        </div>
+        <div class="ali-card-body">
+          <div class="ali-card-perk">20% OFF</div>
+          <div class="ali-card-name">Restaurante Volver</div>
+          <div class="ali-card-meta">L–V · 12:00 m a 9:00 pm</div>
+          <span class="ali-card-cta">Ver detalles
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </article>
+
+      <!-- BUKZ -->
+      <article class="ali-card" data-cat="cultura" data-ali="bukz">
+        <div class="ali-card-media">
+          <div class="ali-card-bg ali-bg-cultura"></div>
+          <div class="ali-card-tag">Cultura y libros</div>
+          <div class="ali-card-logo-wrap">
+            <img src="logos/bukz.png" alt="Bukz" class="ali-card-logo" style="filter: brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,0.45));">
+          </div>
+        </div>
+        <div class="ali-card-body">
+          <div class="ali-card-perk">10% OFF</div>
+          <div class="ali-card-name">Bukz</div>
+          <div class="ali-card-meta">Catálogo completo · tienda física y bukz.co</div>
+          <span class="ali-card-cta">Ver detalles
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </article>
+
+      <!-- CONECTY -->
+      <article class="ali-card" data-cat="servicios" data-ali="conecty">
+        <div class="ali-card-media">
+          <div class="ali-card-bg ali-bg-servicios"></div>
+          <div class="ali-card-tag">Servicios y viaje</div>
+          <div class="ali-card-logo-wrap">
+            <img src="logos/conecty.webp" alt="Conecty" class="ali-card-logo">
+          </div>
+        </div>
+        <div class="ali-card-body">
+          <div class="ali-card-perk">10% OFF</div>
+          <div class="ali-card-name">Conecty</div>
+          <div class="ali-card-meta">SIM internacional · 190 destinos · código ESIC10</div>
+          <span class="ali-card-cta">Ver detalles
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- HIGHLIGHT -->
+<section class="ali-highlight">
+  <div class="ali-container">
+    <div class="ali-highlight-grid">
+      <div class="ali-highlight-l">
+        <div class="ali-highlight-tag">Para marcas</div>
+        <h2>¿Tu marca quiere ser <span>aliada</span>?</h2>
+        <p>
+          Conecta con una comunidad de profesionales en formación, docentes y
+          administrativos de una de las escuelas de negocios más reconocidas del
+          país. Hablemos de cómo construir un beneficio mutuo.
+        </p>
+        <div class="ali-highlight-actions">
+          <a class="ali-btn ali-btn-ink" href="https://esic.co/contacto/" target="_blank" rel="noopener">
+            Quiero ser aliado
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a class="ali-btn ali-btn-ghost" href="mailto:alianzas@esic.co">Escribir al equipo</a>
+        </div>
+      </div>
+      <div class="ali-highlight-visual" aria-hidden="true">
+        <div class="ali-orb ali-orb-1"></div>
+        <div class="ali-orb ali-orb-2"></div>
+        <div class="ali-orb ali-orb-3"></div>
+        <div class="ali-orb-icon">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="8.5" cy="7" r="4"/>
+            <path d="M22 11h-6M19 8v6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- MODAL -->
+<div class="ali-modal" id="aliModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="ali-modal-card">
+    <button class="ali-modal-close" id="aliModalClose" aria-label="Cerrar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="ali-modal-hero" id="aliModalHero">
+      <!-- bg + logo injected by JS -->
+    </div>
+    <div class="ali-modal-body">
+      <div class="ali-modal-tag" id="aliModalTag"></div>
+      <h3 class="ali-modal-name" id="aliModalName"></h3>
+      <div class="ali-modal-perk" id="aliModalPerk"></div>
+      <p class="ali-modal-desc" id="aliModalDesc"></p>
+      <div class="ali-modal-details" id="aliModalDetails"></div>
+      <div class="ali-modal-actions" id="aliModalActions"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const root = document.currentScript.closest('.esic-alianzas');
+  if (!root) return;
+
+  // ─── DATA ───
+  const ALIANZAS = {
+    'action-black': {
+      cat: 'Bienestar y deporte',
+      catKey: 'bienestar',
+      bg: 'ali-bg-bienestar',
+      logoText: 'Action<br>Black',
+      name: 'Action Black',
+      perk: 'Tarifa especial Plan Prime Corporativo',
+      desc: 'Beneficio exclusivo para estudiantes, profesores y administrativos de ESIC. Incluye $0 de inscripción, $0 de administración y tarifa especial de $219.900 mensual en el Plan Prime Corporativo. Acceso a entrenamiento semipersonalizado, múltiples modalidades de clase y beneficios adicionales del club.',
+      details: [
+        { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
+        { label: 'Forma de pago', value: 'Débito automático (débito o crédito)' },
+        { label: 'Cobertura', value: 'Sedes activas a nivel nacional' },
+        { label: 'Activación', value: 'Presentando carné institucional vigente' }
+      ],
+      url: null,
+      urlLabel: null
+    },
+    'shibuya': {
+      cat: 'Gastronomía',
+      catKey: 'gastronomia',
+      bg: 'ali-bg-gastro',
+      logoText: 'Shibuya',
+      name: 'Restaurante Shibuya',
+      perk: '20% de descuento',
+      desc: 'Descuento del 20% sobre la factura final. Aplica en toda la carta de comidas y bebidas SIN ALCOHOL. El descuento es válido para estudiantes, profesores o directivos de la institución, presentando su carné.',
+      details: [
+        { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
+        { label: 'Días', value: 'Martes a viernes · 12:00 pm a 8:00 pm' },
+        { label: 'Aplica', value: 'Carta sin alcohol' },
+        { label: 'Ubicación', value: 'Mall Indiana, Local 174' }
+      ],
+      url: 'https://shibuyarestaurante.com',
+      urlLabel: 'Visitar sitio'
+    },
+    'kcao': {
+      cat: 'Cultura y libros',
+      catKey: 'cultura',
+      bg: 'ali-bg-cultura',
+      logoText: 'Kcao',
+      name: 'Kcao Coworking & Café',
+      perk: '15% OFF en libros Editorial Planeta',
+      desc: 'Con el apoyo de la Editorial Planeta y sus sellos, la planta administrativa, docentes y estudiantes tendrán un beneficio del 15% en la adquisición de libros. Aplica para sellos de la Editorial y no es acumulable con otras ofertas.',
+      details: [
+        { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
+        { label: 'Aplica a', value: 'Libros sellos Editorial Planeta' },
+        { label: 'Restricción', value: 'No acumulable con otras ofertas' },
+        { label: 'Ubicación', value: 'Mall Indiana Local 175' }
+      ],
+      url: 'https://kcaocompany.com.co',
+      urlLabel: 'Visitar sitio'
+    },
+    'ammazza': {
+      cat: 'Gastronomía',
+      catKey: 'gastronomia',
+      bg: 'ali-bg-gastro',
+      logo: 'logos/ammazza.webp',
+      name: 'Ammazza',
+      perk: '20% OFF + postre de cumpleaños',
+      desc: 'Disfruta de un 20% OFF en todas las sedes de Ammazza. Además, en tu cumpleaños recibe un postre GRATIS. Promo válida para consumo en sitio. No acumulable con otras promociones.',
+      details: [
+        { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
+        { label: 'Modalidad', value: 'Consumo en sitio' },
+        { label: 'Cobertura', value: 'Todas las sedes Ammazza' },
+        { label: 'Restricción', value: 'No acumulable con otras promos' }
+      ],
+      url: 'https://ammazza.com.co',
+      urlLabel: 'Visitar sitio'
+    },
+    'barbaro': {
+      cat: 'Gastronomía',
+      catKey: 'gastronomia',
+      bg: 'ali-bg-gastro',
+      logo: 'logos/barbaro.webp',
+      name: 'Bárbaro Cocina Primitiva',
+      perk: '20% OFF + postre de cumpleaños',
+      desc: 'Disfruta de un 20% OFF en todas las sedes de Bárbaro. En tu cumpleaños: postre GRATIS. Una experiencia de cocina primitiva en cuatro sedes de la ciudad.',
+      details: [
+        { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
+        { label: 'Sedes', value: 'Laureles · Poblado · Túnel de Oriente · Viva Envigado' },
+        { label: 'Modalidad', value: 'Consumo en sitio' },
+        { label: 'Restricción', value: 'No acumulable con otras promos' }
+      ],
+      url: 'https://barbarococinaprimitiva.com',
+      urlLabel: 'Visitar sitio'
+    },
+    'volver': {
+      cat: 'Gastronomía',
+      catKey: 'gastronomia',
+      bg: 'ali-bg-gastro',
+      logo: 'logos/volver.svg',
+      logoInvert: true,
+      name: 'Restaurante Volver',
+      perk: '20% de descuento',
+      desc: 'Beneficio exclusivo para la comunidad ESIC. Estudiantes y colaboradores disfrutan de un 20% de descuento en toda la carta de Volver, presentando su carné ESIC.',
+      details: [
+        { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
+        { label: 'Días', value: 'Lunes a viernes · 12:00 m a 9:00 pm' },
+        { label: 'Aplica', value: 'Toda la carta' },
+        { label: 'Activación', value: 'Presentando carné ESIC' }
+      ],
+      url: 'https://www.instagram.com/volver.siempre.volver/',
+      urlLabel: 'Ver Instagram'
+    },
+    'bukz': {
+      cat: 'Cultura y libros',
+      catKey: 'cultura',
+      bg: 'ali-bg-cultura',
+      logo: 'logos/bukz.png',
+      logoInvert: true,
+      name: 'Bukz',
+      perk: '10% de descuento',
+      desc: 'Disfruta de 10% de descuento, válido en tiendas físicas y en bukz.co. Aplica para todo el catálogo. Puede combinarse con otras promociones, salvo indicación contraria. Libros exentos de IVA según legislación vigente.',
+      details: [
+        { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
+        { label: 'Canal', value: 'Tiendas físicas y bukz.co' },
+        { label: 'Aplica a', value: 'Todo el catálogo' },
+        { label: 'Restricción', value: 'Uso personal, no canjeable por dinero' }
+      ],
+      url: 'https://bukz.co',
+      urlLabel: 'Visitar sitio'
+    },
+    'conecty': {
+      cat: 'Servicios y viaje',
+      catKey: 'servicios',
+      bg: 'ali-bg-servicios',
+      logo: 'logos/conecty.webp',
+      name: 'Conecty',
+      perk: '10% OFF · código ESIC10',
+      desc: 'Beneficio para la comunidad ESIC: 10% de descuento en la compra de SIM internacional de Conecty usando el código ESIC10. Aplica sobre planes con cobertura en más de 190 países, incluyendo Europa y España.',
+      details: [
+        { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
+        { label: 'Código', value: 'ESIC10' },
+        { label: 'Cobertura', value: 'Más de 190 países' },
+        { label: 'Contacto', value: '+57 305 255 5249' }
+      ],
+      url: 'https://www.conecty.co',
+      urlLabel: 'Visitar sitio'
+    }
+  };
+
+  // ─── FILTERS ───
+  const filters = root.querySelectorAll('.ali-filter');
+  const cards = root.querySelectorAll('.ali-card');
+  const countEl = root.querySelector('[data-ali-count]');
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const f = btn.dataset.filter;
+      let visible = 0;
+      cards.forEach(card => {
+        const show = (f === 'all' || card.dataset.cat === f);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      if (countEl) {
+        countEl.textContent = visible + (visible === 1 ? ' alianza activa' : ' alianzas activas');
+      }
+    });
+  });
+
+  // ─── MODAL ───
+  const modal = root.querySelector('#aliModal');
+  const modalHero = root.querySelector('#aliModalHero');
+  const modalTag = root.querySelector('#aliModalTag');
+  const modalName = root.querySelector('#aliModalName');
+  const modalPerk = root.querySelector('#aliModalPerk');
+  const modalDesc = root.querySelector('#aliModalDesc');
+  const modalDetails = root.querySelector('#aliModalDetails');
+  const modalActions = root.querySelector('#aliModalActions');
+  const modalClose = root.querySelector('#aliModalClose');
+
+  const detailIcons = {
+    'Vigencia': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+    'Días': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+    'Ubicación': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-7-7.58-7-13a7 7 0 0 1 14 0c0 5.42-7 13-7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>',
+    'Sedes': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-7h6v7"/></svg>',
+    'Cobertura': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+    'Forma de pago': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/></svg>',
+    'Activación': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M15 11h3M15 14h3"/></svg>',
+    'Modalidad': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18l-2 8H5l-2-8z"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
+    'Restricción': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5 5l14 14"/></svg>',
+    'Aplica': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+    'Aplica a': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+    'Canal': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8M12 18v4"/></svg>',
+    'Código': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>',
+    'Contacto': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>'
+  };
+  const fallbackIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>';
+
+  function openModal(key){
+    const a = ALIANZAS[key];
+    if (!a) return;
+
+    // Hero (bg + logo)
+    modalHero.className = 'ali-modal-hero ' + a.bg;
+    let logoHtml = '';
+    if (a.logo) {
+      const filter = a.logoInvert ? 'filter: brightness(0) invert(1) drop-shadow(0 8px 30px rgba(0,0,0,0.55));' : '';
+      logoHtml = '<img src="' + a.logo + '" alt="' + a.name + '" class="ali-modal-hero-logo" style="' + filter + '">';
+    } else if (a.logoText) {
+      logoHtml = '<div class="ali-modal-hero-logo--text">' + a.logoText + '</div>';
+    }
+    modalHero.innerHTML = logoHtml;
+
+    modalTag.textContent = a.cat;
+    modalName.textContent = a.name;
+    modalPerk.textContent = a.perk;
+    modalDesc.textContent = a.desc;
+
+    // Details
+    modalDetails.innerHTML = a.details.map(d => {
+      const icon = detailIcons[d.label] || fallbackIcon;
+      return '<div class="ali-detail">' +
+        '<div class="ali-detail-icon">' + icon + '</div>' +
+        '<div><div class="ali-detail-lbl">' + d.label + '</div>' +
+        '<div class="ali-detail-val">' + d.value + '</div></div>' +
+      '</div>';
+    }).join('');
+
+    // Actions
+    let actionsHtml = '';
+    if (a.url) {
+      actionsHtml += '<a class="ali-btn ali-btn-blue" href="' + a.url + '" target="_blank" rel="noopener">' +
+        a.urlLabel +
+        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10M7 17 17 7"/></svg>' +
+      '</a>';
+    }
+    actionsHtml += '<button class="ali-btn ali-btn-ink" data-close-modal>Cerrar</button>';
+    modalActions.innerHTML = actionsHtml;
+    modalActions.querySelector('[data-close-modal]').addEventListener('click', closeModal);
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => openModal(card.dataset.ali));
+  });
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+})();
+</script>
+</div>
