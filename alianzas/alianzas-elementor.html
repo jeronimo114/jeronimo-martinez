@@ -1,4 +1,4 @@
-<div class="esic-alianzas">
+<div class=&rdquo;esic-alianzas&rdquo;>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
 
@@ -15,8 +15,8 @@
   --ali-orange:   #FF8701;
   --ali-white:    #FFFFFF;
 
-  --display-font: "Sofia Sans Extra Condensed", sans-serif;
-  --body-font:    "DM Sans", sans-serif;
+  --display-font: &rdquo;Sofia Sans Extra Condensed&rdquo;, sans-serif;
+  --body-font:    &rdquo;DM Sans&rdquo;, sans-serif;
 
   font-family: var(--body-font);
   color: var(--ali-ink);
@@ -35,10 +35,10 @@
 .esic-alianzas button { font-family: inherit; cursor: pointer; border: none; background: none; }
 .esic-alianzas img { max-width: 100%; display: block; }
 
-/* ─── Layout ─── */
+/* --- Layout --- */
 .esic-alianzas .ali-container { width: min(1180px, 92%); margin: 0 auto; }
 
-/* ─── Buttons ─── */
+/* --- Buttons --- */
 .esic-alianzas .ali-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
   padding: 0.95rem 1.9rem; border-radius: 999px;
@@ -60,8 +60,8 @@
 .esic-alianzas a.ali-btn-ghost:hover,
 .esic-alianzas .ali-btn-ghost:hover { border-color: var(--ali-white) !important; background: rgba(255,255,255,0.08) !important; color: var(--ali-white) !important; }
 
-/* ════════════════════════════════════════════════ */
-/* ─── HERO ─── */
+/* ================================================ */
+/* --- HERO --- */
 .esic-alianzas .ali-hero {
   position: relative; overflow: hidden;
   background:
@@ -72,7 +72,7 @@
   padding: clamp(6rem, 12vw, 9.5rem) 0 clamp(7rem, 14vw, 11rem);
 }
 .esic-alianzas .ali-hero::after {
-  content: ""; position: absolute; inset: 0;
+  content: &rdquo;&rdquo;; position: absolute; inset: 0;
   background-image:
     radial-gradient(circle at 1px 1px, rgba(255,255,255,0.07) 1px, transparent 0);
   background-size: 38px 38px;
@@ -85,7 +85,7 @@
   text-transform: uppercase; color: var(--ali-teal); margin-bottom: 1.4rem;
 }
 .esic-alianzas .ali-hero-eyebrow::before,
-.esic-alianzas .ali-hero-eyebrow::after { content: ""; width: 22px; height: 2px; background: var(--ali-teal); border-radius: 2px; opacity: 0.7; }
+.esic-alianzas .ali-hero-eyebrow::after { content: &rdquo;&rdquo;; width: 22px; height: 2px; background: var(--ali-teal); border-radius: 2px; opacity: 0.7; }
 .esic-alianzas .ali-hero h1 {
   font-size: clamp(3.6rem, 11vw, 8rem); text-transform: uppercase;
   line-height: 0.88; color: var(--ali-white); margin-bottom: 1.6rem;
@@ -112,8 +112,8 @@
 }
 .esic-alianzas .ali-stat-divider { width: 1px; background: rgba(255,255,255,0.12); }
 
-/* ════════════════════════════════════════════════ */
-/* ─── HOW IT WORKS ─── */
+/* ================================================ */
+/* --- HOW IT WORKS --- */
 .esic-alianzas .ali-howto {
   background: var(--ali-cream);
   border-radius: 50px 50px 0 0;
@@ -126,7 +126,7 @@
   font-size: 0.74rem; font-weight: 700; letter-spacing: 0.22em;
   text-transform: uppercase; color: var(--ali-blue); margin-bottom: 0.9rem;
 }
-.esic-alianzas .ali-howto-tag::before { content: ""; width: 22px; height: 2px; background: var(--ali-blue); border-radius: 2px; }
+.esic-alianzas .ali-howto-tag::before { content: &rdquo;&rdquo;; width: 22px; height: 2px; background: var(--ali-blue); border-radius: 2px; }
 .esic-alianzas .ali-howto h2 {
   font-size: clamp(2.4rem, 5vw, 3.6rem); text-transform: uppercase; color: var(--ali-ink);
 }
@@ -155,8 +155,8 @@
 }
 .esic-alianzas .ali-step p { font-size: 0.95rem; color: var(--ali-muted); line-height: 1.55; }
 
-/* ════════════════════════════════════════════════ */
-/* ─── GRID + FILTERS ─── */
+/* ================================================ */
+/* --- GRID + FILTERS --- */
 .esic-alianzas .ali-grid-section {
   background: var(--ali-bg);
   border-radius: 50px 50px 0 0;
@@ -215,7 +215,7 @@
   display: flex; align-items: center; justify-content: center;
 }
 .esic-alianzas .ali-card-media::after {
-  content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.32);
+  content: &rdquo;&rdquo;; position: absolute; inset: 0; background: rgba(0,0,0,0.32);
   transition: background .3s ease;
 }
 .esic-alianzas .ali-card:hover .ali-card-media::after { background: rgba(0,0,0,0.22); }
@@ -278,8 +278,8 @@
   padding: 1.5rem;
 }
 
-/* ════════════════════════════════════════════════ */
-/* ─── HIGHLIGHT ─── */
+/* ================================================ */
+/* --- HIGHLIGHT --- */
 .esic-alianzas .ali-highlight {
   background:
     radial-gradient(circle at 100% 0%, rgba(10,228,195,0.20), transparent 50%),
@@ -298,7 +298,7 @@
   font-size: 0.74rem; font-weight: 700; letter-spacing: 0.24em;
   text-transform: uppercase; color: var(--ali-teal); margin-bottom: 1rem;
 }
-.esic-alianzas .ali-highlight-tag::before { content: ""; width: 20px; height: 2px; background: var(--ali-teal); border-radius: 2px; }
+.esic-alianzas .ali-highlight-tag::before { content: &rdquo;&rdquo;; width: 20px; height: 2px; background: var(--ali-teal); border-radius: 2px; }
 .esic-alianzas .ali-highlight h2 {
   font-size: clamp(2.6rem, 5.6vw, 4rem); text-transform: uppercase;
   color: var(--ali-white); margin-bottom: 1.2rem;
@@ -327,8 +327,8 @@
   color: var(--ali-teal);
 }
 
-/* ════════════════════════════════════════════════ */
-/* ─── MODAL ─── */
+/* ================================================ */
+/* --- MODAL --- */
 .esic-alianzas .ali-modal {
   position: fixed; inset: 0; z-index: 9999;
   display: none; align-items: center; justify-content: center;
@@ -362,7 +362,7 @@
   border-radius: 28px 28px 0 0; overflow: hidden;
 }
 .esic-alianzas .ali-modal-hero::after {
-  content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.40);
+  content: &rdquo;&rdquo;; position: absolute; inset: 0; background: rgba(0,0,0,0.40);
 }
 .esic-alianzas .ali-modal-hero-logo {
   position: relative; z-index: 2; max-width: 280px; max-height: 130px;
@@ -422,8 +422,8 @@
   border-top: 1px solid var(--ali-line);
 }
 
-/* ════════════════════════════════════════════════ */
-/* ─── RESPONSIVE ─── */
+/* ================================================ */
+/* --- RESPONSIVE --- */
 @media (max-width: 980px) {
   .esic-alianzas .ali-steps { grid-template-columns: 1fr; }
   .esic-alianzas .ali-grid { grid-template-columns: repeat(2, 1fr); }
@@ -440,243 +440,243 @@
 }
 </style>
 
-<!-- ════════════════════════════════════════════════ -->
+<!-- ================================================ -->
 <!-- HERO -->
-<section class="ali-hero">
-  <div class="ali-container ali-hero-inner">
-    <div class="ali-hero-eyebrow">Beneficios Comunidad ESIC</div>
+<section class=&rdquo;ali-hero&rdquo;>
+  <div class=&rdquo;ali-container ali-hero-inner&rdquo;>
+    <div class=&rdquo;ali-hero-eyebrow&rdquo;>Beneficios Comunidad ESIC</div>
     <h1>Alianzas que <span>suman</span></h1>
-    <p class="ali-hero-sub">
+    <p class=&rdquo;ali-hero-sub&rdquo;>
       Descuentos, experiencias y servicios exclusivos para estudiantes,
-      profesores y administrativos de ESIC. Presenta tu carné y empieza a disfrutarlas.
+      profesores y administrativos de ESIC. Presenta tu carn&eacute; y empieza a disfrutarlas.
     </p>
-    <div class="ali-hero-stats">
-      <div class="ali-stat">
-        <div class="ali-stat-num">8+</div>
-        <div class="ali-stat-lbl">Marcas aliadas</div>
+    <div class=&rdquo;ali-hero-stats&rdquo;>
+      <div class=&rdquo;ali-stat&rdquo;>
+        <div class=&rdquo;ali-stat-num&rdquo;>8+</div>
+        <div class=&rdquo;ali-stat-lbl&rdquo;>Marcas aliadas</div>
       </div>
-      <div class="ali-stat-divider"></div>
-      <div class="ali-stat">
-        <div class="ali-stat-num">4</div>
-        <div class="ali-stat-lbl">Categorías</div>
+      <div class=&rdquo;ali-stat-divider&rdquo;></div>
+      <div class=&rdquo;ali-stat&rdquo;>
+        <div class=&rdquo;ali-stat-num&rdquo;>4</div>
+        <div class=&rdquo;ali-stat-lbl&rdquo;>Categor&iacute;as</div>
       </div>
-      <div class="ali-stat-divider"></div>
-      <div class="ali-stat">
-        <div class="ali-stat-num">20%</div>
-        <div class="ali-stat-lbl">Descuento promedio</div>
+      <div class=&rdquo;ali-stat-divider&rdquo;></div>
+      <div class=&rdquo;ali-stat&rdquo;>
+        <div class=&rdquo;ali-stat-num&rdquo;>20%</div>
+        <div class=&rdquo;ali-stat-lbl&rdquo;>Descuento promedio</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════ -->
+<!-- ================================================ -->
 <!-- HOW IT WORKS -->
-<section class="ali-howto">
-  <div class="ali-container">
-    <div class="ali-howto-head">
-      <div class="ali-howto-tag">Cómo funciona</div>
+<section class=&rdquo;ali-howto&rdquo;>
+  <div class=&rdquo;ali-container&rdquo;>
+    <div class=&rdquo;ali-howto-head&rdquo;>
+      <div class=&rdquo;ali-howto-tag&rdquo;>C&oacute;mo funciona</div>
       <h2>Tres pasos. Listo.</h2>
-      <p class="ali-howto-sub">Activar un beneficio es simple: identifica la alianza, presenta tu carné institucional y disfruta.</p>
+      <p class=&rdquo;ali-howto-sub&rdquo;>Activar un beneficio es simple: identifica la alianza, presenta tu carn&eacute; institucional y disfruta.</p>
     </div>
-    <div class="ali-steps">
-      <div class="ali-step">
-        <div class="ali-step-num">01</div>
-        <div class="ali-step-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <div class=&rdquo;ali-steps&rdquo;>
+      <div class=&rdquo;ali-step&rdquo;>
+        <div class=&rdquo;ali-step-num&rdquo;>01</div>
+        <div class=&rdquo;ali-step-icon&rdquo;>
+          <svg width=&rdquo;22&rdquo; height=&rdquo;22&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><circle cx=&rdquo;11&rdquo; cy=&rdquo;11&rdquo; r=&rdquo;7&rdquo;/><path d=&rdquo;m20 20-3.5-3.5&rdquo;/></svg>
         </div>
         <h3>Explora las alianzas</h3>
-        <p>Filtra por categoría y revisa el detalle de cada beneficio: condiciones, vigencia y ubicación.</p>
+        <p>Filtra por categor&iacute;a y revisa el detalle de cada beneficio: condiciones, vigencia y ubicaci&oacute;n.</p>
       </div>
-      <div class="ali-step">
-        <div class="ali-step-num">02</div>
-        <div class="ali-step-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 15h2"/></svg>
+      <div class=&rdquo;ali-step&rdquo;>
+        <div class=&rdquo;ali-step-num&rdquo;>02</div>
+        <div class=&rdquo;ali-step-icon&rdquo;>
+          <svg width=&rdquo;22&rdquo; height=&rdquo;22&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><rect x=&rdquo;3&rdquo; y=&rdquo;5&rdquo; width=&rdquo;18&rdquo; height=&rdquo;14&rdquo; rx=&rdquo;2&rdquo;/><path d=&rdquo;M3 10h18M8 15h2&rdquo;/></svg>
         </div>
-        <h3>Presenta tu carné ESIC</h3>
-        <p>Tu carné institucional vigente es la llave. Algunos aliados también aceptan código exclusivo.</p>
+        <h3>Presenta tu carn&eacute; ESIC</h3>
+        <p>Tu carn&eacute; institucional vigente es la llave. Algunos aliados tambi&eacute;n aceptan c&oacute;digo exclusivo.</p>
       </div>
-      <div class="ali-step">
-        <div class="ali-step-num">03</div>
-        <div class="ali-step-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14l3-3 3 3 3-3 3 3"/><path d="M16 16l4 4M20 16l-4 4"/></svg>
+      <div class=&rdquo;ali-step&rdquo;>
+        <div class=&rdquo;ali-step-num&rdquo;>03</div>
+        <div class=&rdquo;ali-step-icon&rdquo;>
+          <svg width=&rdquo;22&rdquo; height=&rdquo;22&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M20 12V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14l3-3 3 3 3-3 3 3&rdquo;/><path d=&rdquo;M16 16l4 4M20 16l-4 4&rdquo;/></svg>
         </div>
         <h3>Disfruta tu beneficio</h3>
-        <p>Aplica al instante. Algunos beneficios tienen días u horarios específicos: revisa cada ficha.</p>
+        <p>Aplica al instante. Algunos beneficios tienen d&iacute;as u horarios espec&iacute;ficos: revisa cada ficha.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════ -->
+<!-- ================================================ -->
 <!-- GRID + FILTERS -->
-<section class="ali-grid-section">
-  <div class="ali-container">
-    <div class="ali-grid-head">
-      <div class="ali-grid-head-l">
+<section class=&rdquo;ali-grid-section&rdquo;>
+  <div class=&rdquo;ali-container&rdquo;>
+    <div class=&rdquo;ali-grid-head&rdquo;>
+      <div class=&rdquo;ali-grid-head-l&rdquo;>
         <h2>Nuestras alianzas</h2>
         <p>Marcas que reconocen y premian a la comunidad ESIC.</p>
       </div>
-      <div class="ali-count" data-ali-count>8 alianzas activas</div>
+      <div class=&rdquo;ali-count&rdquo; data-ali-count>8 alianzas activas</div>
     </div>
 
-    <div class="ali-filters" role="tablist">
-      <button class="ali-filter is-active" data-filter="all">Todas <span class="ali-filter-count">8</span></button>
-      <button class="ali-filter" data-filter="bienestar">Bienestar y deporte <span class="ali-filter-count">1</span></button>
-      <button class="ali-filter" data-filter="gastronomia">Gastronomía <span class="ali-filter-count">4</span></button>
-      <button class="ali-filter" data-filter="cultura">Cultura y libros <span class="ali-filter-count">2</span></button>
-      <button class="ali-filter" data-filter="servicios">Servicios y viaje <span class="ali-filter-count">1</span></button>
+    <div class=&rdquo;ali-filters&rdquo; role=&rdquo;tablist&rdquo;>
+      <button class=&rdquo;ali-filter is-active&rdquo; data-filter=&rdquo;all&rdquo;>Todas <span class=&rdquo;ali-filter-count&rdquo;>8</span></button>
+      <button class=&rdquo;ali-filter&rdquo; data-filter=&rdquo;bienestar&rdquo;>Bienestar y deporte <span class=&rdquo;ali-filter-count&rdquo;>1</span></button>
+      <button class=&rdquo;ali-filter&rdquo; data-filter=&rdquo;gastronomia&rdquo;>Gastronom&iacute;a <span class=&rdquo;ali-filter-count&rdquo;>4</span></button>
+      <button class=&rdquo;ali-filter&rdquo; data-filter=&rdquo;cultura&rdquo;>Cultura y libros <span class=&rdquo;ali-filter-count&rdquo;>2</span></button>
+      <button class=&rdquo;ali-filter&rdquo; data-filter=&rdquo;servicios&rdquo;>Servicios y viaje <span class=&rdquo;ali-filter-count&rdquo;>1</span></button>
     </div>
 
-    <div class="ali-grid" id="aliGrid">
+    <div class=&rdquo;ali-grid&rdquo; id=&rdquo;aliGrid&rdquo;>
 
       <!-- ACTION BLACK -->
-      <article class="ali-card" data-cat="bienestar" data-ali="action-black">
-        <div class="ali-card-media">
-          <div class="ali-card-bg ali-bg-bienestar"></div>
-          <div class="ali-card-tag">Bienestar y deporte</div>
-          <div class="ali-card-logo-wrap">
-            <div class="ali-card-logo--text">Action<br>Black</div>
+      <article class=&rdquo;ali-card&rdquo; data-cat=&rdquo;bienestar&rdquo; data-ali=&rdquo;action-black&rdquo;>
+        <div class=&rdquo;ali-card-media&rdquo;>
+          <div class=&rdquo;ali-card-bg ali-bg-bienestar&rdquo;></div>
+          <div class=&rdquo;ali-card-tag&rdquo;>Bienestar y deporte</div>
+          <div class=&rdquo;ali-card-logo-wrap&rdquo;>
+            <div class=&rdquo;ali-card-logo--text&rdquo;>Action<br>Black</div>
           </div>
         </div>
-        <div class="ali-card-body">
-          <div class="ali-card-perk">$219.900 / mes</div>
-          <div class="ali-card-name">Action Black</div>
-          <div class="ali-card-meta">Plan Prime Corporativo · sin inscripción</div>
-          <span class="ali-card-cta">Ver detalles
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <div class=&rdquo;ali-card-body&rdquo;>
+          <div class=&rdquo;ali-card-perk&rdquo;>$219.900 / mes</div>
+          <div class=&rdquo;ali-card-name&rdquo;>Action Black</div>
+          <div class=&rdquo;ali-card-meta&rdquo;>Plan Prime Corporativo &middot; sin inscripci&oacute;n</div>
+          <span class=&rdquo;ali-card-cta&rdquo;>Ver detalles
+            <svg width=&rdquo;14&rdquo; height=&rdquo;14&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2.5&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M5 12h14M13 5l7 7-7 7&rdquo;/></svg>
           </span>
         </div>
       </article>
 
       <!-- SHIBUYA -->
-      <article class="ali-card" data-cat="gastronomia" data-ali="shibuya">
-        <div class="ali-card-media">
-          <div class="ali-card-bg ali-bg-gastro"></div>
-          <div class="ali-card-tag">Gastronomía</div>
-          <div class="ali-card-logo-wrap">
-            <div class="ali-card-logo--text">Shibuya</div>
+      <article class=&rdquo;ali-card&rdquo; data-cat=&rdquo;gastronomia&rdquo; data-ali=&rdquo;shibuya&rdquo;>
+        <div class=&rdquo;ali-card-media&rdquo;>
+          <div class=&rdquo;ali-card-bg ali-bg-gastro&rdquo;></div>
+          <div class=&rdquo;ali-card-tag&rdquo;>Gastronom&iacute;a</div>
+          <div class=&rdquo;ali-card-logo-wrap&rdquo;>
+            <div class=&rdquo;ali-card-logo--text&rdquo;>Shibuya</div>
           </div>
         </div>
-        <div class="ali-card-body">
-          <div class="ali-card-perk">20% OFF</div>
-          <div class="ali-card-name">Restaurante Shibuya</div>
-          <div class="ali-card-meta">Robata &amp; Sushi · Mall Indiana, Local 174</div>
-          <span class="ali-card-cta">Ver detalles
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <div class=&rdquo;ali-card-body&rdquo;>
+          <div class=&rdquo;ali-card-perk&rdquo;>20% OFF</div>
+          <div class=&rdquo;ali-card-name&rdquo;>Restaurante Shibuya</div>
+          <div class=&rdquo;ali-card-meta&rdquo;>Robata &amp; Sushi &middot; Mall Indiana, Local 174</div>
+          <span class=&rdquo;ali-card-cta&rdquo;>Ver detalles
+            <svg width=&rdquo;14&rdquo; height=&rdquo;14&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2.5&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M5 12h14M13 5l7 7-7 7&rdquo;/></svg>
           </span>
         </div>
       </article>
 
       <!-- KCAO -->
-      <article class="ali-card" data-cat="cultura" data-ali="kcao">
-        <div class="ali-card-media">
-          <div class="ali-card-bg ali-bg-cultura"></div>
-          <div class="ali-card-tag">Cultura y libros</div>
-          <div class="ali-card-logo-wrap">
-            <div class="ali-card-logo--text">Kcao</div>
+      <article class=&rdquo;ali-card&rdquo; data-cat=&rdquo;cultura&rdquo; data-ali=&rdquo;kcao&rdquo;>
+        <div class=&rdquo;ali-card-media&rdquo;>
+          <div class=&rdquo;ali-card-bg ali-bg-cultura&rdquo;></div>
+          <div class=&rdquo;ali-card-tag&rdquo;>Cultura y libros</div>
+          <div class=&rdquo;ali-card-logo-wrap&rdquo;>
+            <div class=&rdquo;ali-card-logo--text&rdquo;>Kcao</div>
           </div>
         </div>
-        <div class="ali-card-body">
-          <div class="ali-card-perk">15% OFF</div>
-          <div class="ali-card-name">Kcao Coworking &amp; Café</div>
-          <div class="ali-card-meta">Libros Editorial Planeta · Mall Indiana 175</div>
-          <span class="ali-card-cta">Ver detalles
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <div class=&rdquo;ali-card-body&rdquo;>
+          <div class=&rdquo;ali-card-perk&rdquo;>15% OFF</div>
+          <div class=&rdquo;ali-card-name&rdquo;>Kcao Coworking &amp; Caf&eacute;</div>
+          <div class=&rdquo;ali-card-meta&rdquo;>Libros Editorial Planeta &middot; Mall Indiana 175</div>
+          <span class=&rdquo;ali-card-cta&rdquo;>Ver detalles
+            <svg width=&rdquo;14&rdquo; height=&rdquo;14&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2.5&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M5 12h14M13 5l7 7-7 7&rdquo;/></svg>
           </span>
         </div>
       </article>
 
       <!-- AMMAZZA -->
-      <article class="ali-card" data-cat="gastronomia" data-ali="ammazza">
-        <div class="ali-card-media">
-          <div class="ali-card-bg ali-bg-gastro"></div>
-          <div class="ali-card-tag">Gastronomía</div>
-          <div class="ali-card-logo-wrap">
-            <img src="logos/ammazza.webp" alt="Ammazza" class="ali-card-logo">
+      <article class=&rdquo;ali-card&rdquo; data-cat=&rdquo;gastronomia&rdquo; data-ali=&rdquo;ammazza&rdquo;>
+        <div class=&rdquo;ali-card-media&rdquo;>
+          <div class=&rdquo;ali-card-bg ali-bg-gastro&rdquo;></div>
+          <div class=&rdquo;ali-card-tag&rdquo;>Gastronom&iacute;a</div>
+          <div class=&rdquo;ali-card-logo-wrap&rdquo;>
+            <img src=&rdquo;logos/ammazza.webp&rdquo; alt=&rdquo;Ammazza&rdquo; class=&rdquo;ali-card-logo&rdquo;>
           </div>
         </div>
-        <div class="ali-card-body">
-          <div class="ali-card-perk">20% OFF</div>
-          <div class="ali-card-name">Ammazza</div>
-          <div class="ali-card-meta">Todas las sedes · postre gratis en tu cumpleaños</div>
-          <span class="ali-card-cta">Ver detalles
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <div class=&rdquo;ali-card-body&rdquo;>
+          <div class=&rdquo;ali-card-perk&rdquo;>20% OFF</div>
+          <div class=&rdquo;ali-card-name&rdquo;>Ammazza</div>
+          <div class=&rdquo;ali-card-meta&rdquo;>Todas las sedes &middot; postre gratis en tu cumplea&ntilde;os</div>
+          <span class=&rdquo;ali-card-cta&rdquo;>Ver detalles
+            <svg width=&rdquo;14&rdquo; height=&rdquo;14&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2.5&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M5 12h14M13 5l7 7-7 7&rdquo;/></svg>
           </span>
         </div>
       </article>
 
-      <!-- BÁRBARO -->
-      <article class="ali-card" data-cat="gastronomia" data-ali="barbaro">
-        <div class="ali-card-media">
-          <div class="ali-card-bg ali-bg-gastro"></div>
-          <div class="ali-card-tag">Gastronomía</div>
-          <div class="ali-card-logo-wrap">
-            <img src="logos/barbaro.webp" alt="Bárbaro" class="ali-card-logo">
+      <!-- B&Aacute;RBARO -->
+      <article class=&rdquo;ali-card&rdquo; data-cat=&rdquo;gastronomia&rdquo; data-ali=&rdquo;barbaro&rdquo;>
+        <div class=&rdquo;ali-card-media&rdquo;>
+          <div class=&rdquo;ali-card-bg ali-bg-gastro&rdquo;></div>
+          <div class=&rdquo;ali-card-tag&rdquo;>Gastronom&iacute;a</div>
+          <div class=&rdquo;ali-card-logo-wrap&rdquo;>
+            <img src=&rdquo;logos/barbaro.webp&rdquo; alt=&rdquo;B&aacute;rbaro&rdquo; class=&rdquo;ali-card-logo&rdquo;>
           </div>
         </div>
-        <div class="ali-card-body">
-          <div class="ali-card-perk">20% OFF</div>
-          <div class="ali-card-name">Bárbaro Cocina Primitiva</div>
-          <div class="ali-card-meta">Laureles · Poblado · Túnel · Viva Envigado</div>
-          <span class="ali-card-cta">Ver detalles
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <div class=&rdquo;ali-card-body&rdquo;>
+          <div class=&rdquo;ali-card-perk&rdquo;>20% OFF</div>
+          <div class=&rdquo;ali-card-name&rdquo;>B&aacute;rbaro Cocina Primitiva</div>
+          <div class=&rdquo;ali-card-meta&rdquo;>Laureles &middot; Poblado &middot; T&uacute;nel &middot; Viva Envigado</div>
+          <span class=&rdquo;ali-card-cta&rdquo;>Ver detalles
+            <svg width=&rdquo;14&rdquo; height=&rdquo;14&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2.5&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M5 12h14M13 5l7 7-7 7&rdquo;/></svg>
           </span>
         </div>
       </article>
 
       <!-- VOLVER -->
-      <article class="ali-card" data-cat="gastronomia" data-ali="volver">
-        <div class="ali-card-media">
-          <div class="ali-card-bg ali-bg-gastro"></div>
-          <div class="ali-card-tag">Gastronomía</div>
-          <div class="ali-card-logo-wrap">
-            <img src="logos/volver.svg" alt="Volver" class="ali-card-logo" style="filter: brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,0.45));">
+      <article class=&rdquo;ali-card&rdquo; data-cat=&rdquo;gastronomia&rdquo; data-ali=&rdquo;volver&rdquo;>
+        <div class=&rdquo;ali-card-media&rdquo;>
+          <div class=&rdquo;ali-card-bg ali-bg-gastro&rdquo;></div>
+          <div class=&rdquo;ali-card-tag&rdquo;>Gastronom&iacute;a</div>
+          <div class=&rdquo;ali-card-logo-wrap&rdquo;>
+            <img src=&rdquo;logos/volver.svg&rdquo; alt=&rdquo;Volver&rdquo; class=&rdquo;ali-card-logo&rdquo; style=&rdquo;filter: brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,0.45));&rdquo;>
           </div>
         </div>
-        <div class="ali-card-body">
-          <div class="ali-card-perk">20% OFF</div>
-          <div class="ali-card-name">Restaurante Volver</div>
-          <div class="ali-card-meta">L–V · 12:00 m a 9:00 pm</div>
-          <span class="ali-card-cta">Ver detalles
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <div class=&rdquo;ali-card-body&rdquo;>
+          <div class=&rdquo;ali-card-perk&rdquo;>20% OFF</div>
+          <div class=&rdquo;ali-card-name&rdquo;>Restaurante Volver</div>
+          <div class=&rdquo;ali-card-meta&rdquo;>L&ndash;V &middot; 12:00 m a 9:00 pm</div>
+          <span class=&rdquo;ali-card-cta&rdquo;>Ver detalles
+            <svg width=&rdquo;14&rdquo; height=&rdquo;14&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2.5&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M5 12h14M13 5l7 7-7 7&rdquo;/></svg>
           </span>
         </div>
       </article>
 
       <!-- BUKZ -->
-      <article class="ali-card" data-cat="cultura" data-ali="bukz">
-        <div class="ali-card-media">
-          <div class="ali-card-bg ali-bg-cultura"></div>
-          <div class="ali-card-tag">Cultura y libros</div>
-          <div class="ali-card-logo-wrap">
-            <img src="logos/bukz.png" alt="Bukz" class="ali-card-logo" style="filter: brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,0.45));">
+      <article class=&rdquo;ali-card&rdquo; data-cat=&rdquo;cultura&rdquo; data-ali=&rdquo;bukz&rdquo;>
+        <div class=&rdquo;ali-card-media&rdquo;>
+          <div class=&rdquo;ali-card-bg ali-bg-cultura&rdquo;></div>
+          <div class=&rdquo;ali-card-tag&rdquo;>Cultura y libros</div>
+          <div class=&rdquo;ali-card-logo-wrap&rdquo;>
+            <img src=&rdquo;logos/bukz.png&rdquo; alt=&rdquo;Bukz&rdquo; class=&rdquo;ali-card-logo&rdquo; style=&rdquo;filter: brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,0.45));&rdquo;>
           </div>
         </div>
-        <div class="ali-card-body">
-          <div class="ali-card-perk">10% OFF</div>
-          <div class="ali-card-name">Bukz</div>
-          <div class="ali-card-meta">Catálogo completo · tienda física y bukz.co</div>
-          <span class="ali-card-cta">Ver detalles
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <div class=&rdquo;ali-card-body&rdquo;>
+          <div class=&rdquo;ali-card-perk&rdquo;>10% OFF</div>
+          <div class=&rdquo;ali-card-name&rdquo;>Bukz</div>
+          <div class=&rdquo;ali-card-meta&rdquo;>Cat&aacute;logo completo &middot; tienda f&iacute;sica y bukz.co</div>
+          <span class=&rdquo;ali-card-cta&rdquo;>Ver detalles
+            <svg width=&rdquo;14&rdquo; height=&rdquo;14&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2.5&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M5 12h14M13 5l7 7-7 7&rdquo;/></svg>
           </span>
         </div>
       </article>
 
       <!-- CONECTY -->
-      <article class="ali-card" data-cat="servicios" data-ali="conecty">
-        <div class="ali-card-media">
-          <div class="ali-card-bg ali-bg-servicios"></div>
-          <div class="ali-card-tag">Servicios y viaje</div>
-          <div class="ali-card-logo-wrap">
-            <img src="logos/conecty.webp" alt="Conecty" class="ali-card-logo">
+      <article class=&rdquo;ali-card&rdquo; data-cat=&rdquo;servicios&rdquo; data-ali=&rdquo;conecty&rdquo;>
+        <div class=&rdquo;ali-card-media&rdquo;>
+          <div class=&rdquo;ali-card-bg ali-bg-servicios&rdquo;></div>
+          <div class=&rdquo;ali-card-tag&rdquo;>Servicios y viaje</div>
+          <div class=&rdquo;ali-card-logo-wrap&rdquo;>
+            <img src=&rdquo;logos/conecty.webp&rdquo; alt=&rdquo;Conecty&rdquo; class=&rdquo;ali-card-logo&rdquo;>
           </div>
         </div>
-        <div class="ali-card-body">
-          <div class="ali-card-perk">10% OFF</div>
-          <div class="ali-card-name">Conecty</div>
-          <div class="ali-card-meta">SIM internacional · 190 destinos · código ESIC10</div>
-          <span class="ali-card-cta">Ver detalles
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <div class=&rdquo;ali-card-body&rdquo;>
+          <div class=&rdquo;ali-card-perk&rdquo;>10% OFF</div>
+          <div class=&rdquo;ali-card-name&rdquo;>Conecty</div>
+          <div class=&rdquo;ali-card-meta&rdquo;>SIM internacional &middot; 190 destinos &middot; c&oacute;digo ESIC10</div>
+          <span class=&rdquo;ali-card-cta&rdquo;>Ver detalles
+            <svg width=&rdquo;14&rdquo; height=&rdquo;14&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2.5&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M5 12h14M13 5l7 7-7 7&rdquo;/></svg>
           </span>
         </div>
       </article>
@@ -685,36 +685,36 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════ -->
+<!-- ================================================ -->
 <!-- HIGHLIGHT -->
-<section class="ali-highlight">
-  <div class="ali-container">
-    <div class="ali-highlight-grid">
-      <div class="ali-highlight-l">
-        <div class="ali-highlight-tag">Para marcas</div>
-        <h2>¿Tu marca quiere ser <span>aliada</span>?</h2>
+<section class=&rdquo;ali-highlight&rdquo;>
+  <div class=&rdquo;ali-container&rdquo;>
+    <div class=&rdquo;ali-highlight-grid&rdquo;>
+      <div class=&rdquo;ali-highlight-l&rdquo;>
+        <div class=&rdquo;ali-highlight-tag&rdquo;>Para marcas</div>
+        <h2>&iquest;Tu marca quiere ser <span>aliada</span>?</h2>
         <p>
-          Conecta con una comunidad de profesionales en formación, docentes y
-          administrativos de una de las escuelas de negocios más reconocidas del
-          país. Hablemos de cómo construir un beneficio mutuo.
+          Conecta con una comunidad de profesionales en formaci&oacute;n, docentes y
+          administrativos de una de las escuelas de negocios m&aacute;s reconocidas del
+          pa&iacute;s. Hablemos de c&oacute;mo construir un beneficio mutuo.
         </p>
-        <div class="ali-highlight-actions">
-          <a class="ali-btn ali-btn-ink" href="https://esic.co/contacto/" target="_blank" rel="noopener">
+        <div class=&rdquo;ali-highlight-actions&rdquo;>
+          <a class=&rdquo;ali-btn ali-btn-ink&rdquo; href=&rdquo;https://esic.co/contacto/&rdquo; target=&rdquo;_blank&rdquo; rel=&rdquo;noopener&rdquo;>
             Quiero ser aliado
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            <svg width=&rdquo;14&rdquo; height=&rdquo;14&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2.5&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M5 12h14M13 5l7 7-7 7&rdquo;/></svg>
           </a>
-          <a class="ali-btn ali-btn-ghost" href="mailto:alianzas@esic.co">Escribir al equipo</a>
+          <a class=&rdquo;ali-btn ali-btn-ghost&rdquo; href=&rdquo;mailto:alianzas@esic.co&rdquo;>Escribir al equipo</a>
         </div>
       </div>
-      <div class="ali-highlight-visual" aria-hidden="true">
-        <div class="ali-orb ali-orb-1"></div>
-        <div class="ali-orb ali-orb-2"></div>
-        <div class="ali-orb ali-orb-3"></div>
-        <div class="ali-orb-icon">
-          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="8.5" cy="7" r="4"/>
-            <path d="M22 11h-6M19 8v6"/>
+      <div class=&rdquo;ali-highlight-visual&rdquo; aria-hidden=&rdquo;true&rdquo;>
+        <div class=&rdquo;ali-orb ali-orb-1&rdquo;></div>
+        <div class=&rdquo;ali-orb ali-orb-2&rdquo;></div>
+        <div class=&rdquo;ali-orb ali-orb-3&rdquo;></div>
+        <div class=&rdquo;ali-orb-icon&rdquo;>
+          <svg width=&rdquo;56&rdquo; height=&rdquo;56&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;1.4&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;>
+            <path d=&rdquo;M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2&rdquo;/>
+            <circle cx=&rdquo;8.5&rdquo; cy=&rdquo;7&rdquo; r=&rdquo;4&rdquo;/>
+            <path d=&rdquo;M22 11h-6M19 8v6&rdquo;/>
           </svg>
         </div>
       </div>
@@ -722,23 +722,23 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════ -->
+<!-- ================================================ -->
 <!-- MODAL -->
-<div class="ali-modal" id="aliModal" role="dialog" aria-modal="true" aria-hidden="true">
-  <div class="ali-modal-card">
-    <button class="ali-modal-close" id="aliModalClose" aria-label="Cerrar">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+<div class=&rdquo;ali-modal&rdquo; id=&rdquo;aliModal&rdquo; role=&rdquo;dialog&rdquo; aria-modal=&rdquo;true&rdquo; aria-hidden=&rdquo;true&rdquo;>
+  <div class=&rdquo;ali-modal-card&rdquo;>
+    <button class=&rdquo;ali-modal-close&rdquo; id=&rdquo;aliModalClose&rdquo; aria-label=&rdquo;Cerrar&rdquo;>
+      <svg width=&rdquo;20&rdquo; height=&rdquo;20&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2.5&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M18 6 6 18M6 6l12 12&rdquo;/></svg>
     </button>
-    <div class="ali-modal-hero" id="aliModalHero">
+    <div class=&rdquo;ali-modal-hero&rdquo; id=&rdquo;aliModalHero&rdquo;>
       <!-- bg + logo injected by JS -->
     </div>
-    <div class="ali-modal-body">
-      <div class="ali-modal-tag" id="aliModalTag"></div>
-      <h3 class="ali-modal-name" id="aliModalName"></h3>
-      <div class="ali-modal-perk" id="aliModalPerk"></div>
-      <p class="ali-modal-desc" id="aliModalDesc"></p>
-      <div class="ali-modal-details" id="aliModalDetails"></div>
-      <div class="ali-modal-actions" id="aliModalActions"></div>
+    <div class=&rdquo;ali-modal-body&rdquo;>
+      <div class=&rdquo;ali-modal-tag&rdquo; id=&rdquo;aliModalTag&rdquo;></div>
+      <h3 class=&rdquo;ali-modal-name&rdquo; id=&rdquo;aliModalName&rdquo;></h3>
+      <div class=&rdquo;ali-modal-perk&rdquo; id=&rdquo;aliModalPerk&rdquo;></div>
+      <p class=&rdquo;ali-modal-desc&rdquo; id=&rdquo;aliModalDesc&rdquo;></p>
+      <div class=&rdquo;ali-modal-details&rdquo; id=&rdquo;aliModalDetails&rdquo;></div>
+      <div class=&rdquo;ali-modal-actions&rdquo; id=&rdquo;aliModalActions&rdquo;></div>
     </div>
   </div>
 </div>
@@ -748,7 +748,7 @@
   const root = document.currentScript.closest('.esic-alianzas');
   if (!root) return;
 
-  // ─── DATA ───
+  // --- DATA ---
   const ALIANZAS = {
     'action-black': {
       cat: 'Bienestar y deporte',
@@ -757,29 +757,29 @@
       logoText: 'Action<br>Black',
       name: 'Action Black',
       perk: 'Tarifa especial Plan Prime Corporativo',
-      desc: 'Beneficio exclusivo para estudiantes, profesores y administrativos de ESIC. Incluye $0 de inscripción, $0 de administración y tarifa especial de $219.900 mensual en el Plan Prime Corporativo. Acceso a entrenamiento semipersonalizado, múltiples modalidades de clase y beneficios adicionales del club.',
+      desc: 'Beneficio exclusivo para estudiantes, profesores y administrativos de ESIC. Incluye $0 de inscripci&oacute;n, $0 de administraci&oacute;n y tarifa especial de $219.900 mensual en el Plan Prime Corporativo. Acceso a entrenamiento semipersonalizado, m&uacute;ltiples modalidades de clase y beneficios adicionales del club.',
       details: [
         { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
-        { label: 'Forma de pago', value: 'Débito automático (débito o crédito)' },
+        { label: 'Forma de pago', value: 'D&eacute;bito autom&aacute;tico (d&eacute;bito o cr&eacute;dito)' },
         { label: 'Cobertura', value: 'Sedes activas a nivel nacional' },
-        { label: 'Activación', value: 'Presentando carné institucional vigente' }
+        { label: 'Activaci&oacute;n', value: 'Presentando carn&eacute; institucional vigente' }
       ],
       url: null,
       urlLabel: null
     },
     'shibuya': {
-      cat: 'Gastronomía',
+      cat: 'Gastronom&iacute;a',
       catKey: 'gastronomia',
       bg: 'ali-bg-gastro',
       logoText: 'Shibuya',
       name: 'Restaurante Shibuya',
       perk: '20% de descuento',
-      desc: 'Descuento del 20% sobre la factura final. Aplica en toda la carta de comidas y bebidas SIN ALCOHOL. El descuento es válido para estudiantes, profesores o directivos de la institución, presentando su carné.',
+      desc: 'Descuento del 20% sobre la factura final. Aplica en toda la carta de comidas y bebidas SIN ALCOHOL. El descuento es v&aacute;lido para estudiantes, profesores o directivos de la instituci&oacute;n, presentando su carn&eacute;.',
       details: [
         { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
-        { label: 'Días', value: 'Martes a viernes · 12:00 pm a 8:00 pm' },
+        { label: 'D&iacute;as', value: 'Martes a viernes &middot; 12:00 pm a 8:00 pm' },
         { label: 'Aplica', value: 'Carta sin alcohol' },
-        { label: 'Ubicación', value: 'Mall Indiana, Local 174' }
+        { label: 'Ubicaci&oacute;n', value: 'Mall Indiana, Local 174' }
       ],
       url: 'https://shibuyarestaurante.com',
       urlLabel: 'Visitar sitio'
@@ -789,66 +789,66 @@
       catKey: 'cultura',
       bg: 'ali-bg-cultura',
       logoText: 'Kcao',
-      name: 'Kcao Coworking & Café',
+      name: 'Kcao Coworking & Caf&eacute;',
       perk: '15% OFF en libros Editorial Planeta',
-      desc: 'Con el apoyo de la Editorial Planeta y sus sellos, la planta administrativa, docentes y estudiantes tendrán un beneficio del 15% en la adquisición de libros. Aplica para sellos de la Editorial y no es acumulable con otras ofertas.',
+      desc: 'Con el apoyo de la Editorial Planeta y sus sellos, la planta administrativa, docentes y estudiantes tendr&aacute;n un beneficio del 15% en la adquisici&oacute;n de libros. Aplica para sellos de la Editorial y no es acumulable con otras ofertas.',
       details: [
         { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
         { label: 'Aplica a', value: 'Libros sellos Editorial Planeta' },
-        { label: 'Restricción', value: 'No acumulable con otras ofertas' },
-        { label: 'Ubicación', value: 'Mall Indiana Local 175' }
+        { label: 'Restricci&oacute;n', value: 'No acumulable con otras ofertas' },
+        { label: 'Ubicaci&oacute;n', value: 'Mall Indiana Local 175' }
       ],
       url: 'https://kcaocompany.com.co',
       urlLabel: 'Visitar sitio'
     },
     'ammazza': {
-      cat: 'Gastronomía',
+      cat: 'Gastronom&iacute;a',
       catKey: 'gastronomia',
       bg: 'ali-bg-gastro',
       logo: 'logos/ammazza.webp',
       name: 'Ammazza',
-      perk: '20% OFF + postre de cumpleaños',
-      desc: 'Disfruta de un 20% OFF en todas las sedes de Ammazza. Además, en tu cumpleaños recibe un postre GRATIS. Promo válida para consumo en sitio. No acumulable con otras promociones.',
+      perk: '20% OFF + postre de cumplea&ntilde;os',
+      desc: 'Disfruta de un 20% OFF en todas las sedes de Ammazza. Adem&aacute;s, en tu cumplea&ntilde;os recibe un postre GRATIS. Promo v&aacute;lida para consumo en sitio. No acumulable con otras promociones.',
       details: [
         { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
         { label: 'Modalidad', value: 'Consumo en sitio' },
         { label: 'Cobertura', value: 'Todas las sedes Ammazza' },
-        { label: 'Restricción', value: 'No acumulable con otras promos' }
+        { label: 'Restricci&oacute;n', value: 'No acumulable con otras promos' }
       ],
       url: 'https://ammazza.com.co',
       urlLabel: 'Visitar sitio'
     },
     'barbaro': {
-      cat: 'Gastronomía',
+      cat: 'Gastronom&iacute;a',
       catKey: 'gastronomia',
       bg: 'ali-bg-gastro',
       logo: 'logos/barbaro.webp',
-      name: 'Bárbaro Cocina Primitiva',
-      perk: '20% OFF + postre de cumpleaños',
-      desc: 'Disfruta de un 20% OFF en todas las sedes de Bárbaro. En tu cumpleaños: postre GRATIS. Una experiencia de cocina primitiva en cuatro sedes de la ciudad.',
+      name: 'B&aacute;rbaro Cocina Primitiva',
+      perk: '20% OFF + postre de cumplea&ntilde;os',
+      desc: 'Disfruta de un 20% OFF en todas las sedes de B&aacute;rbaro. En tu cumplea&ntilde;os: postre GRATIS. Una experiencia de cocina primitiva en cuatro sedes de la ciudad.',
       details: [
         { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
-        { label: 'Sedes', value: 'Laureles · Poblado · Túnel de Oriente · Viva Envigado' },
+        { label: 'Sedes', value: 'Laureles &middot; Poblado &middot; T&uacute;nel de Oriente &middot; Viva Envigado' },
         { label: 'Modalidad', value: 'Consumo en sitio' },
-        { label: 'Restricción', value: 'No acumulable con otras promos' }
+        { label: 'Restricci&oacute;n', value: 'No acumulable con otras promos' }
       ],
       url: 'https://barbarococinaprimitiva.com',
       urlLabel: 'Visitar sitio'
     },
     'volver': {
-      cat: 'Gastronomía',
+      cat: 'Gastronom&iacute;a',
       catKey: 'gastronomia',
       bg: 'ali-bg-gastro',
       logo: 'logos/volver.svg',
       logoInvert: true,
       name: 'Restaurante Volver',
       perk: '20% de descuento',
-      desc: 'Beneficio exclusivo para la comunidad ESIC. Estudiantes y colaboradores disfrutan de un 20% de descuento en toda la carta de Volver, presentando su carné ESIC.',
+      desc: 'Beneficio exclusivo para la comunidad ESIC. Estudiantes y colaboradores disfrutan de un 20% de descuento en toda la carta de Volver, presentando su carn&eacute; ESIC.',
       details: [
         { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
-        { label: 'Días', value: 'Lunes a viernes · 12:00 m a 9:00 pm' },
+        { label: 'D&iacute;as', value: 'Lunes a viernes &middot; 12:00 m a 9:00 pm' },
         { label: 'Aplica', value: 'Toda la carta' },
-        { label: 'Activación', value: 'Presentando carné ESIC' }
+        { label: 'Activaci&oacute;n', value: 'Presentando carn&eacute; ESIC' }
       ],
       url: 'https://www.instagram.com/volver.siempre.volver/',
       urlLabel: 'Ver Instagram'
@@ -861,12 +861,12 @@
       logoInvert: true,
       name: 'Bukz',
       perk: '10% de descuento',
-      desc: 'Disfruta de 10% de descuento, válido en tiendas físicas y en bukz.co. Aplica para todo el catálogo. Puede combinarse con otras promociones, salvo indicación contraria. Libros exentos de IVA según legislación vigente.',
+      desc: 'Disfruta de 10% de descuento, v&aacute;lido en tiendas f&iacute;sicas y en bukz.co. Aplica para todo el cat&aacute;logo. Puede combinarse con otras promociones, salvo indicaci&oacute;n contraria. Libros exentos de IVA seg&uacute;n legislaci&oacute;n vigente.',
       details: [
         { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
-        { label: 'Canal', value: 'Tiendas físicas y bukz.co' },
-        { label: 'Aplica a', value: 'Todo el catálogo' },
-        { label: 'Restricción', value: 'Uso personal, no canjeable por dinero' }
+        { label: 'Canal', value: 'Tiendas f&iacute;sicas y bukz.co' },
+        { label: 'Aplica a', value: 'Todo el cat&aacute;logo' },
+        { label: 'Restricci&oacute;n', value: 'Uso personal, no canjeable por dinero' }
       ],
       url: 'https://bukz.co',
       urlLabel: 'Visitar sitio'
@@ -877,12 +877,12 @@
       bg: 'ali-bg-servicios',
       logo: 'logos/conecty.webp',
       name: 'Conecty',
-      perk: '10% OFF · código ESIC10',
-      desc: 'Beneficio para la comunidad ESIC: 10% de descuento en la compra de SIM internacional de Conecty usando el código ESIC10. Aplica sobre planes con cobertura en más de 190 países, incluyendo Europa y España.',
+      perk: '10% OFF &middot; c&oacute;digo ESIC10',
+      desc: 'Beneficio para la comunidad ESIC: 10% de descuento en la compra de SIM internacional de Conecty usando el c&oacute;digo ESIC10. Aplica sobre planes con cobertura en m&aacute;s de 190 pa&iacute;ses, incluyendo Europa y Espa&ntilde;a.',
       details: [
         { label: 'Vigencia', value: 'Hasta 31 dic 2026' },
-        { label: 'Código', value: 'ESIC10' },
-        { label: 'Cobertura', value: 'Más de 190 países' },
+        { label: 'C&oacute;digo', value: 'ESIC10' },
+        { label: 'Cobertura', value: 'M&aacute;s de 190 pa&iacute;ses' },
         { label: 'Contacto', value: '+57 305 255 5249' }
       ],
       url: 'https://www.conecty.co',
@@ -890,7 +890,7 @@
     }
   };
 
-  // ─── FILTERS ───
+  // --- FILTERS ---
   const filters = root.querySelectorAll('.ali-filter');
   const cards = root.querySelectorAll('.ali-card');
   const countEl = root.querySelector('[data-ali-count]');
@@ -912,7 +912,7 @@
     });
   });
 
-  // ─── MODAL ───
+  // --- MODAL ---
   const modal = root.querySelector('#aliModal');
   const modalHero = root.querySelector('#aliModalHero');
   const modalTag = root.querySelector('#aliModalTag');
@@ -924,22 +924,22 @@
   const modalClose = root.querySelector('#aliModalClose');
 
   const detailIcons = {
-    'Vigencia': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
-    'Días': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
-    'Ubicación': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-7-7.58-7-13a7 7 0 0 1 14 0c0 5.42-7 13-7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>',
-    'Sedes': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-7h6v7"/></svg>',
-    'Cobertura': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
-    'Forma de pago': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/></svg>',
-    'Activación': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M15 11h3M15 14h3"/></svg>',
-    'Modalidad': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18l-2 8H5l-2-8z"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
-    'Restricción': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5 5l14 14"/></svg>',
-    'Aplica': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
-    'Aplica a': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
-    'Canal': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8M12 18v4"/></svg>',
-    'Código': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>',
-    'Contacto': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>'
+    'Vigencia': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><circle cx=&rdquo;12&rdquo; cy=&rdquo;12&rdquo; r=&rdquo;9&rdquo;/><path d=&rdquo;M12 7v5l3 2&rdquo;/></svg>',
+    'D&iacute;as': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><rect x=&rdquo;3&rdquo; y=&rdquo;5&rdquo; width=&rdquo;18&rdquo; height=&rdquo;16&rdquo; rx=&rdquo;2&rdquo;/><path d=&rdquo;M3 10h18M8 3v4M16 3v4&rdquo;/></svg>',
+    'Ubicaci&oacute;n': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M12 22s-7-7.58-7-13a7 7 0 0 1 14 0c0 5.42-7 13-7 13z&rdquo;/><circle cx=&rdquo;12&rdquo; cy=&rdquo;9&rdquo; r=&rdquo;2.5&rdquo;/></svg>',
+    'Sedes': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M3 21h18M5 21V8l7-5 7 5v13M9 21v-7h6v7&rdquo;/></svg>',
+    'Cobertura': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><circle cx=&rdquo;12&rdquo; cy=&rdquo;12&rdquo; r=&rdquo;9&rdquo;/><path d=&rdquo;M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18&rdquo;/></svg>',
+    'Forma de pago': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><rect x=&rdquo;2&rdquo; y=&rdquo;6&rdquo; width=&rdquo;20&rdquo; height=&rdquo;13&rdquo; rx=&rdquo;2&rdquo;/><path d=&rdquo;M2 10h20&rdquo;/></svg>',
+    'Activaci&oacute;n': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><rect x=&rdquo;3&rdquo; y=&rdquo;5&rdquo; width=&rdquo;18&rdquo; height=&rdquo;14&rdquo; rx=&rdquo;2&rdquo;/><circle cx=&rdquo;9&rdquo; cy=&rdquo;12&rdquo; r=&rdquo;2.5&rdquo;/><path d=&rdquo;M15 11h3M15 14h3&rdquo;/></svg>',
+    'Modalidad': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M3 11h18l-2 8H5l-2-8z&rdquo;/><path d=&rdquo;M8 11V7a4 4 0 0 1 8 0v4&rdquo;/></svg>',
+    'Restricci&oacute;n': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><circle cx=&rdquo;12&rdquo; cy=&rdquo;12&rdquo; r=&rdquo;9&rdquo;/><path d=&rdquo;M5 5l14 14&rdquo;/></svg>',
+    'Aplica': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><polyline points=&rdquo;20 6 9 17 4 12&rdquo;/></svg>',
+    'Aplica a': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><polyline points=&rdquo;20 6 9 17 4 12&rdquo;/></svg>',
+    'Canal': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><rect x=&rdquo;3&rdquo; y=&rdquo;4&rdquo; width=&rdquo;18&rdquo; height=&rdquo;14&rdquo; rx=&rdquo;2&rdquo;/><path d=&rdquo;M8 22h8M12 18v4&rdquo;/></svg>',
+    'C&oacute;digo': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M16 18l6-6-6-6M8 6l-6 6 6 6&rdquo;/></svg>',
+    'Contacto': '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z&rdquo;/></svg>'
   };
-  const fallbackIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>';
+  const fallbackIcon = '<svg width=&rdquo;18&rdquo; height=&rdquo;18&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><circle cx=&rdquo;12&rdquo; cy=&rdquo;12&rdquo; r=&rdquo;9&rdquo;/><path d=&rdquo;M12 8v4M12 16h.01&rdquo;/></svg>';
 
   function openModal(key){
     const a = ALIANZAS[key];
@@ -950,9 +950,9 @@
     let logoHtml = '';
     if (a.logo) {
       const filter = a.logoInvert ? 'filter: brightness(0) invert(1) drop-shadow(0 8px 30px rgba(0,0,0,0.55));' : '';
-      logoHtml = '<img src="' + a.logo + '" alt="' + a.name + '" class="ali-modal-hero-logo" style="' + filter + '">';
+      logoHtml = '<img src=&rdquo;' + a.logo + '&rdquo; alt=&rdquo;' + a.name + '&rdquo; class=&rdquo;ali-modal-hero-logo&rdquo; style=&rdquo;' + filter + '&rdquo;>';
     } else if (a.logoText) {
-      logoHtml = '<div class="ali-modal-hero-logo--text">' + a.logoText + '</div>';
+      logoHtml = '<div class=&rdquo;ali-modal-hero-logo--text&rdquo;>' + a.logoText + '</div>';
     }
     modalHero.innerHTML = logoHtml;
 
@@ -964,22 +964,22 @@
     // Details
     modalDetails.innerHTML = a.details.map(d => {
       const icon = detailIcons[d.label] || fallbackIcon;
-      return '<div class="ali-detail">' +
-        '<div class="ali-detail-icon">' + icon + '</div>' +
-        '<div><div class="ali-detail-lbl">' + d.label + '</div>' +
-        '<div class="ali-detail-val">' + d.value + '</div></div>' +
+      return '<div class=&rdquo;ali-detail&rdquo;>' +
+        '<div class=&rdquo;ali-detail-icon&rdquo;>' + icon + '</div>' +
+        '<div><div class=&rdquo;ali-detail-lbl&rdquo;>' + d.label + '</div>' +
+        '<div class=&rdquo;ali-detail-val&rdquo;>' + d.value + '</div></div>' +
       '</div>';
     }).join('');
 
     // Actions
     let actionsHtml = '';
     if (a.url) {
-      actionsHtml += '<a class="ali-btn ali-btn-blue" href="' + a.url + '" target="_blank" rel="noopener">' +
+      actionsHtml += '<a class=&rdquo;ali-btn ali-btn-blue&rdquo; href=&rdquo;' + a.url + '&rdquo; target=&rdquo;_blank&rdquo; rel=&rdquo;noopener&rdquo;>' +
         a.urlLabel +
-        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10M7 17 17 7"/></svg>' +
+        '<svg width=&rdquo;14&rdquo; height=&rdquo;14&rdquo; viewBox=&rdquo;0 0 24 24&rdquo; fill=&rdquo;none&rdquo; stroke=&rdquo;currentColor&rdquo; stroke-width=&rdquo;2.5&rdquo; stroke-linecap=&rdquo;round&rdquo; stroke-linejoin=&rdquo;round&rdquo;><path d=&rdquo;M7 7h10v10M7 17 17 7&rdquo;/></svg>' +
       '</a>';
     }
-    actionsHtml += '<button class="ali-btn ali-btn-ink" data-close-modal>Cerrar</button>';
+    actionsHtml += '<button class=&rdquo;ali-btn ali-btn-ink&rdquo; data-close-modal>Cerrar</button>';
     modalActions.innerHTML = actionsHtml;
     modalActions.querySelector('[data-close-modal]').addEventListener('click', closeModal);
 
