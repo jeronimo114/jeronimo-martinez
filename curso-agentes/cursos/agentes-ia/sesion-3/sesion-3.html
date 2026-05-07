@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión 3: Vibe Coding | Taller de Agentes</title>
+    <style>
+        :root {
+            /* Colors */
+            --bg-primary: #000000;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-blue: #007AFF;
+            --accent-blue-dim: rgba(0, 122, 255, 0.3);
+            --accent-green: #30D158;
+            --accent-red: #FF453A;
+            --accent-yellow: #FFD60A;
+            --accent-purple: #BF5AF2;
+
+            /* Typography */
+            --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'SF Mono', 'Menlo', 'Monaco', monospace;
+
+            /* Sizes */
+            --h1-size: clamp(3rem, 8vw, 6rem);
+            --h2-size: clamp(2rem, 5vw, 3.5rem);
+            --support-size: clamp(1.25rem, 3vw, 1.75rem);
+            --body-size: clamp(1rem, 2vw, 1.25rem);
+
+            /* Spacing */
+            --slide-padding: clamp(2rem, 5vw, 6rem);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* ==================== PRESENTATION CONTAINER ==================== */
+        #deck-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ==================== PROGRESS BAR ==================== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--bg-secondary);
+            z-index: 1000;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-blue);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 12px;
+            right: 24px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            z-index: 1000;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ==================== SLIDES ==================== */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+            padding: var(--slide-padding);
+            overflow: hidden;
+        }
+
+        .slide.active {
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide.entering {
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .slide.leaving {
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideOut 0.3s ease forwards;
+            pointer-events: none;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideOut {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        /* ==================== LAYOUT: DIVIDER ==================== */
+        .layout-divider {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #0a0a0a 100%);
+        }
+
+        .layout-divider .module-number {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            opacity: 0.3;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%);
+        }
+
+        .layout-divider h1 {
+            font-size: var(--h1-size);
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .layout-divider .subtitle {
+            font-size: var(--support-size);
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        /* ==================== LAYOUT: BIG STATEMENT ==================== */
+        .layout-big-statement {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .layout-big-statement h1 {
+            font-size: var(--h1-size);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .layout-big-statement .support {
+            font-size: var(--support-size);
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        .accent { color: var(--accent-blue); }
+        .accent-green { color: var(--accent-green); }
+        .accent-red { color: var(--accent-red); }
+        .accent-yellow { color: var(--accent-yellow); }
+        .accent-purple { color: var(--accent-purple); }
+
+        /* ==================== LAYOUT: 3 LINES ==================== */
+        .layout-3lines {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2rem;
+            padding-left: 15%;
+        }
+        .layout-3lines h2 {
+            font-size: var(--h2-size);
+            margin-bottom: 2rem;
+        }
+        .line {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 1.75rem;
+        }
+        .line-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .line-text { color: var(--text-secondary); }
+        .line-text strong { color: var(--text-primary); }
+
+        /* ==================== LAYOUT: VIDEO WITH CONTROLS ==================== */
+        .layout-video-controls {
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            position: relative;
+        }
+
+        .layout-video-controls .video-wrapper {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .layout-video-controls video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+
+        /* Custom video controls overlay */
+        .video-controls {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            z-index: 10;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-controls:hover {
+            opacity: 1;
+        }
+
+        .ctrl-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .ctrl-btn:hover {
+            background: rgba(0, 122, 255, 0.4);
+            border-color: var(--accent-blue);
+        }
+
+        .ctrl-btn:active {
+            transform: scale(0.95);
+        }
+
+        .ctrl-btn.play-pause {
+            width: 64px;
+            height: 64px;
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            font-size: 1.75rem;
+        }
+
+        .ctrl-btn.play-pause:hover {
+            background: #0066CC;
+        }
+
+        /* Video title overlay */
+        .video-title-overlay {
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.25rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 24px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 10;
+            opacity: 0.7;
+            font-weight: 500;
+        }
+
+        /* ==================== LAYOUT: STOP SIGN ==================== */
+        .layout-stop {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background: var(--bg-primary);
+        }
+
+        .stop-sign {
+            width: 280px;
+            height: 280px;
+            background: var(--accent-red);
+            clip-path: polygon(
+                30% 0%, 70% 0%,
+                100% 30%, 100% 70%,
+                70% 100%, 30% 100%,
+                0% 70%, 0% 30%
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: stopBounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            box-shadow: 0 0 60px rgba(255, 69, 58, 0.4);
+            position: relative;
+        }
+
+        .stop-sign::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 4px solid rgba(255, 255, 255, 0.4);
+            clip-path: polygon(
+                30% 0%, 70% 0%,
+                100% 30%, 100% 70%,
+                70% 100%, 30% 100%,
+                0% 70%, 0% 30%
+            );
+        }
+
+        .stop-sign span {
+            font-family: var(--font-primary);
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 0.1em;
+        }
+
+        @keyframes stopBounceIn {
+            0% { transform: scale(0); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        .stop-sign-container {
+            animation: stopPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes stopPulse {
+            0%, 100% { filter: drop-shadow(0 0 30px rgba(255, 69, 58, 0.3)); }
+            50% { filter: drop-shadow(0 0 60px rgba(255, 69, 58, 0.6)); }
+        }
+
+        .stop-subtitle {
+            font-size: var(--h2-size);
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.5s ease 0.8s forwards;
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==================== LAYOUT: BREAK ==================== */
+        .layout-break {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0a0a0a, #111);
+        }
+        .layout-break .break-icon { font-size: 6rem; margin-bottom: 1rem; }
+        .layout-break h1 { font-size: var(--h2-size); }
+        .layout-break .support { font-size: var(--support-size); color: var(--text-secondary); margin-top: 1rem; }
+
+        /* ==================== EXERCISE BOX ==================== */
+        .exercise-box {
+            background: rgba(48, 209, 88, 0.1);
+            border: 2px solid var(--accent-green);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 800px;
+            text-align: left;
+        }
+        .exercise-box h3 { color: var(--accent-green); margin-bottom: 1rem; font-size: 1.25rem; }
+        .exercise-box ol, .exercise-box ul { color: var(--text-secondary); padding-left: 1.5rem; }
+        .exercise-box li { margin-bottom: 0.5rem; font-size: 1rem; }
+
+        /* ==================== TIP BOX ==================== */
+        .tip-box {
+            background: rgba(0, 122, 255, 0.1);
+            border: 2px solid var(--accent-blue);
+            border-radius: 12px;
+            padding: 1.25rem 1.75rem;
+            margin-top: 1.5rem;
+            max-width: 700px;
+            text-align: left;
+        }
+        .tip-box h3 { color: var(--accent-blue); margin-bottom: 0.5rem; font-size: 1rem; }
+        .tip-box p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        /* ==================== SLIDE ANIMATIONS ==================== */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .slide.active .animate-in {
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        .slide.active .animate-in:nth-child(1) { animation-delay: 0s; }
+        .slide.active .animate-in:nth-child(2) { animation-delay: 0.1s; }
+        .slide.active .animate-in:nth-child(3) { animation-delay: 0.2s; }
+        .slide.active .animate-in:nth-child(4) { animation-delay: 0.3s; }
+
+        /* ==================== NAVIGATION ==================== */
+        .nav-btn {
+            position: fixed;
+            bottom: 50%;
+            transform: translateY(50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.08);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            z-index: 1000;
+            opacity: 0;
+        }
+
+        body:hover .nav-btn { opacity: 1; }
+        .nav-btn:hover { background: var(--accent-blue); }
+        .nav-btn svg { width: 24px; height: 24px; }
+        .nav-btn.nav-prev { left: 20px; }
+        .nav-btn.nav-next { right: 20px; }
+
+        /* ==================== LAYOUT: CHEATSHEET ==================== */
+        .layout-cheatsheet {
+            justify-content: flex-start;
+            padding: clamp(1.5rem, 3vw, 3rem) clamp(2rem, 5vw, 6rem);
+            overflow-y: auto;
+        }
+
+        .cheatsheet-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cheatsheet-title .badge {
+            font-size: 0.7rem;
+            background: var(--accent-purple);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+        }
+
+        .prompt-block {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            font-family: var(--font-mono);
+            font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+            line-height: 1.7;
+            color: #c9d1d9;
+            white-space: pre-wrap;
+            max-height: 72vh;
+            overflow-y: auto;
+        }
+
+        .prompt-block .comment {
+            color: #6a737d;
+        }
+
+        .prompt-block .placeholder {
+            color: var(--accent-purple);
+            font-weight: 600;
+        }
+
+        .prompt-block .section-head {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .prompt-block .keyword {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* Steps layout */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .step-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .step-card .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .step-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .step-card p, .step-card code {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .step-card code {
+            display: block;
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            color: #c9d1d9;
+            white-space: pre-wrap;
+        }
+
+        .integration-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .integration-header .logo-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .integration-header h2 {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 800;
+        }
+
+        .integration-header p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Two-col integration layout */
+        .integration-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .integration-col h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .integration-col .step-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .integration-col .step-item .num {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .integration-col .step-item .step-content {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .integration-col .step-item .step-content strong {
+            color: var(--text-primary);
+        }
+
+        .integration-col .step-item .step-content code {
+            background: #111;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: #c9d1d9;
+        }
+
+        /* ==================== LAYOUT: IMAGE CENTERED ==================== */
+        .layout-image-centered {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+        }
+
+        .layout-image-centered img {
+            max-width: 75%;
+            max-height: 80vh;
+            border-radius: 16px;
+            box-shadow: 0 0 60px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+
+        .layout-image-centered .image-caption {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 1.5rem;
+        }
+
+        /* ==================== SECTION LABEL ==================== */
+        .section-label {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            :root {
+                --h1-size: clamp(1.75rem, 5vw, 2.5rem);
+                --h2-size: clamp(1.25rem, 4vw, 1.75rem);
+                --support-size: clamp(0.9rem, 2vw, 1.25rem);
+                --body-size: clamp(0.875rem, 2vw, 1rem);
+                --slide-padding: 1.25rem;
+            }
+
+            .stop-sign { width: 180px; height: 180px; }
+            .stop-sign span { font-size: 2.5rem; }
+
+            .ctrl-btn { width: 44px; height: 44px; font-size: 1.25rem; }
+            .ctrl-btn.play-pause { width: 52px; height: 52px; }
+            .video-controls { bottom: 30px; gap: 16px; }
+            .nav-btn { width: 40px; height: 40px; }
+            .nav-btn.nav-prev { left: 10px; }
+            .nav-btn.nav-next { right: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="deck-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+        <span class="slide-counter" id="counter">1 / 19</span>
+
+        <!-- ========================================== -->
+        <!-- PORTADA -->
+        <!-- ========================================== -->
+
+        <!-- Slide 1: Portada -->
+        <section class="slide layout-divider active" data-slide="0">
+            <div class="module-number">3</div>
+            <h1 class="animate-in">Sesión <span style="color: var(--accent-blue);">3</span></h1>
+            <p class="subtitle animate-in">Vibe Coding</p>
+        </section>
+
+        <!-- Slide 2: Big Statement - Hoy construimos -->
+        <section class="slide layout-big-statement" data-slide="1">
+            <h1 class="animate-in">Hoy <span class="accent">construyen</span> una app</h1>
+            <p class="support animate-in">Sin escribir una sola línea de código.<br>Solo describiendo lo que quieren.</p>
+        </section>
+
+        <!-- Slide 3: Karpathy Tweet -->
+        <section class="slide layout-image-centered" data-slide="2">
+            <span class="section-label">El origen</span>
+            <img src="images/karpathy-tweet.png" alt="Andrej Karpathy - Vibe Coding tweet, Feb 2, 2025" class="animate-in">
+            <p class="image-caption animate-in">Andrej Karpathy · 6.7M views · Feb 2, 2025</p>
+        </section>
+
+        <!-- Slide 4: Video - Deconstruyendo el Tweet -->
+        <section class="slide layout-video-controls" data-slide="3">
+            <div class="video-title-overlay">Deconstruyendo el Tweet</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/out/deconstruct-tweet.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">&minus;</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">&#9654;</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 5: Agenda -->
+        <section class="slide layout-3lines" data-slide="4">
+            <h2 class="animate-in">Agenda</h2>
+            <div class="line animate-in">
+                <div class="line-number">1</div>
+                <div class="line-text"><strong>Qué es Vibe Coding</strong></div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">2</div>
+                <div class="line-text"><strong>Google Antigravity</strong></div>
+            </div>
+            <div class="line animate-in">
+                <div class="line-number">3</div>
+                <div class="line-text"><strong>Proyecto: LifeXP</strong></div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- BLOQUE 1: QUÉ ES VIBE CODING -->
+        <!-- ========================================== -->
+
+        <!-- Slide 6: Divider -->
+        <section class="slide layout-divider" data-slide="5">
+            <div class="module-number">1</div>
+            <h1 class="animate-in">Vibe Coding</h1>
+            <p class="subtitle animate-in">Una nueva forma de crear software</p>
+        </section>
+
+        <!-- Slide 7: Video - Qué es Vibe Coding -->
+        <section class="slide layout-video-controls" data-slide="6">
+            <div class="video-title-overlay">¿Qué es Vibe Coding?</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/out/que-es-vibe-coding.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">&minus;</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">&#9654;</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 8: Stop - Setup Antigravity -->
+        <section class="slide layout-stop" data-slide="7">
+            <div class="stop-sign-container">
+                <div class="stop-sign animate-in">
+                    <span>STOP</span>
+                </div>
+            </div>
+            <p class="stop-subtitle">¿Todos tienen Antigravity instalado?</p>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- BLOQUE 2: GOOGLE ANTIGRAVITY -->
+        <!-- ========================================== -->
+
+        <!-- Slide 9: Divider -->
+        <section class="slide layout-divider" data-slide="8">
+            <div class="module-number">2</div>
+            <h1 class="animate-in">Google <span style="color: var(--accent-blue);">Antigravity</span></h1>
+            <p class="subtitle animate-in">El IDE agéntico</p>
+        </section>
+
+        <!-- Slide 10: Video - Antigravity en 60s -->
+        <section class="slide layout-video-controls" data-slide="9">
+            <div class="video-title-overlay">Antigravity en 60 segundos</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/out/antigravity-en-60s.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">&minus;</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">&#9654;</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 11: Demo en vivo - Antigravity -->
+        <section class="slide layout-big-statement" data-slide="10">
+            <span class="section-label">Demo en vivo</span>
+            <h1 class="animate-in"><span class="accent">Demo:</span> Antigravity</h1>
+            <p class="support animate-in">Abran Antigravity y sigan conmigo</p>
+            <div class="tip-box animate-in">
+                <h3>Primer prompt de prueba</h3>
+                <p>"Crea una página web que diga Hola Mundo con un diseño moderno y fondo oscuro"</p>
+            </div>
+        </section>
+
+        <!-- Slide 12: Break -->
+        <section class="slide layout-break" data-slide="11">
+            <div class="break-icon">&#9749;</div>
+            <h1 class="animate-in">Break</h1>
+            <p class="support animate-in">15 minutos</p>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- BLOQUE 3: PROYECTO LIFEXP -->
+        <!-- ========================================== -->
+
+        <!-- Slide 13: Divider -->
+        <section class="slide layout-divider" data-slide="12">
+            <div class="module-number">3</div>
+            <h1 class="animate-in">Proyecto: <span style="color: var(--accent-purple);">LifeXP</span></h1>
+            <p class="subtitle animate-in">Gamifica tu vida real</p>
+        </section>
+
+        <!-- Slide 14: Video - La App que Vamos a Construir -->
+        <section class="slide layout-video-controls" data-slide="13">
+            <div class="video-title-overlay">La App que Vamos a Construir</div>
+            <div class="video-wrapper">
+                <video muted loop preload="auto" playsinline>
+                    <source src="videos/out/la-app-que-vamos-a-construir.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="ctrl-btn rewind" onclick="skipVideo(this, -3)" title="Retroceder 3s">&minus;</button>
+                <button class="ctrl-btn play-pause" onclick="togglePlay(this)" title="Play/Pause">&#9654;</button>
+                <button class="ctrl-btn forward" onclick="skipVideo(this, 3)" title="Avanzar 3s">+</button>
+            </div>
+        </section>
+
+        <!-- Slide 15: Cheatsheet - Prompt Template -->
+        <section class="slide layout-cheatsheet" data-slide="14">
+            <span class="section-label">Cheatsheet</span>
+            <div class="cheatsheet-title animate-in">
+                Prompt Template <span class="badge">Copiar y ajustar</span>
+            </div>
+            <div class="prompt-block animate-in"><span class="comment"># ── 1. CONTEXTO ──────────────────────────</span>
+<span class="section-head">Nombre de la app:</span> <span class="placeholder">[LifeXP / tu nombre]</span>
+<span class="section-head">Descripción:</span> <span class="placeholder">[App web que gamifica la vida real del usuario
+transformando actividades diarias en un sistema
+de niveles, XP y recompensas]</span>
+
+<span class="comment"># ── 2. FEATURES PRINCIPALES ──────────────</span>
+<span class="keyword">- Registro de actividades</span> por área (Salud, Fitness,
+  Conocimiento, Creatividad, Social)
+<span class="keyword">- Sistema de XP:</span> cada actividad completada otorga
+  puntos según dificultad (fácil=25, media=50, difícil=100)
+<span class="keyword">- Niveles:</span> el usuario sube de nivel cada 500 XP
+  con barra de progreso visual
+<span class="keyword">- Recompensas:</span> badges desbloqueables al alcanzar
+  hitos (primera actividad, racha de 7 días, nivel 10)
+<span class="keyword">- Dashboard:</span> vista principal con nivel actual,
+  XP del día, actividades pendientes, racha
+
+<span class="comment"># ── 3. DISEÑO ────────────────────────────</span>
+<span class="section-head">Estilo:</span> dark mode, gaming aesthetic, gradientes
+  sutiles, bordes redondeados, animaciones suaves
+<span class="section-head">Colores:</span> fondo #0a0a0a, acento azul #0066FF,
+  XP dorado #FFD700, éxito verde #00ff88
+<span class="section-head">Responsive:</span> mobile-first, funcionar en cualquier browser
+
+<span class="comment"># ── 4. TECH STACK ────────────────────────</span>
+<span class="section-head">Frontend:</span> React + TypeScript + Tailwind CSS
+<span class="section-head">Backend:</span> Supabase (Auth + PostgreSQL + Realtime)
+<span class="section-head">Deploy:</span> Vercel
+<span class="section-head">Repo:</span> GitHub
+
+<span class="comment"># ── 5. ESTRUCTURA DE DATOS ────────────────</span>
+<span class="keyword">users:</span> id, email, display_name, level, total_xp, streak
+<span class="keyword">activities:</span> id, user_id, name, area, xp_value, completed, date
+<span class="keyword">achievements:</span> id, user_id, badge_name, unlocked_at</div>
+        </section>
+
+        <!-- Slide 16: Integración Supabase -->
+        <section class="slide layout-cheatsheet" data-slide="15">
+            <span class="section-label">Integración</span>
+            <div class="integration-header animate-in">
+                <div class="logo-icon" style="background: rgba(62, 207, 142, 0.15); border: 1px solid rgba(62, 207, 142, 0.3);">⚡</div>
+                <div>
+                    <h2>Supabase <span style="color: var(--accent-green); font-size: 0.6em; font-weight: 600;">Base de datos + Auth</span></h2>
+                    <p>Backend completo en 5 minutos</p>
+                </div>
+            </div>
+            <div class="steps-grid animate-in">
+                <div class="step-card" style="border-color: rgba(62, 207, 142, 0.2);">
+                    <h4><span class="step-num" style="background: rgba(62, 207, 142, 0.2); color: #3ecf8e;">1</span> Crear proyecto</h4>
+                    <p>Ir a <strong>supabase.com</strong> → New Project → Elegir nombre y password de DB → Región cercana</p>
+                </div>
+                <div class="step-card" style="border-color: rgba(62, 207, 142, 0.2);">
+                    <h4><span class="step-num" style="background: rgba(62, 207, 142, 0.2); color: #3ecf8e;">2</span> Crear tablas</h4>
+                    <p>SQL Editor → pegar el schema:</p>
+                    <code>create table activities (
+  id uuid default gen_random_uuid(),
+  user_id uuid references auth.users,
+  name text not null,
+  area text not null,
+  xp_value int default 50,
+  completed boolean default false,
+  created_at timestamptz default now()
+);</code>
+                </div>
+                <div class="step-card" style="border-color: rgba(62, 207, 142, 0.2);">
+                    <h4><span class="step-num" style="background: rgba(62, 207, 142, 0.2); color: #3ecf8e;">3</span> Obtener keys</h4>
+                    <p>Settings → API → Copiar:</p>
+                    <code>SUPABASE_URL=https://xxx.supabase.co
+SUPABASE_ANON_KEY=eyJhbG...</code>
+                </div>
+                <div class="step-card" style="border-color: rgba(62, 207, 142, 0.2);">
+                    <h4><span class="step-num" style="background: rgba(62, 207, 142, 0.2); color: #3ecf8e;">4</span> Prompt a Antigravity</h4>
+                    <p>Decirle al agente:</p>
+                    <code>"Conecta esta app a Supabase.
+Aquí están mis credenciales:
+URL: [pegar]  KEY: [pegar]
+Usa @supabase/supabase-js.
+Agrega auth con email/password
+y conecta las tablas que ya creé."</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 17: GitHub + Vercel -->
+        <section class="slide layout-cheatsheet" data-slide="16">
+            <span class="section-label">Deploy</span>
+            <div class="integration-split animate-in">
+                <div class="integration-col">
+                    <h3>
+                        <span style="font-size: 1.5rem;">🐙</span>
+                        <span>GitHub</span>
+                        <span style="font-size: 0.65em; color: var(--text-secondary); font-weight: 500;">Guardar tu código</span>
+                    </h3>
+                    <div class="step-item">
+                        <span class="num" style="background: rgba(255,255,255,0.1); color: #fff;">1</span>
+                        <span class="step-content">Crear cuenta en <strong>github.com</strong> si no tienes</span>
+                    </div>
+                    <div class="step-item">
+                        <span class="num" style="background: rgba(255,255,255,0.1); color: #fff;">2</span>
+                        <span class="step-content">Click <strong>"+"</strong> → <strong>New repository</strong> → Nombre: <code>lifexp-app</code> → Public → Create</span>
+                    </div>
+                    <div class="step-item">
+                        <span class="num" style="background: rgba(255,255,255,0.1); color: #fff;">3</span>
+                        <span class="step-content">En Antigravity, abrir <strong>terminal</strong> y pedir: <code>"Inicializa git, haz commit de todo y sube a mi repo de GitHub: [pegar URL del repo]"</code></span>
+                    </div>
+                    <div class="step-item">
+                        <span class="num" style="background: rgba(255,255,255,0.1); color: #fff;">4</span>
+                        <span class="step-content">Autorizar GitHub cuando lo pida → Verificar que el código aparece en el repo</span>
+                    </div>
+                </div>
+
+                <div class="integration-col">
+                    <h3>
+                        <span style="font-size: 1.5rem;">▲</span>
+                        <span>Vercel</span>
+                        <span style="font-size: 0.65em; color: var(--text-secondary); font-weight: 500;">Publicar al mundo</span>
+                    </h3>
+                    <div class="step-item">
+                        <span class="num" style="background: rgba(255,255,255,0.1); color: #fff;">1</span>
+                        <span class="step-content">Ir a <strong>vercel.com</strong> → Sign up con <strong>GitHub</strong></span>
+                    </div>
+                    <div class="step-item">
+                        <span class="num" style="background: rgba(255,255,255,0.1); color: #fff;">2</span>
+                        <span class="step-content">Click <strong>"Add New Project"</strong> → Importar <code>lifexp-app</code> desde GitHub</span>
+                    </div>
+                    <div class="step-item">
+                        <span class="num" style="background: rgba(255,255,255,0.1); color: #fff;">3</span>
+                        <span class="step-content">En <strong>Environment Variables</strong> agregar:<br><code>VITE_SUPABASE_URL</code><br><code>VITE_SUPABASE_ANON_KEY</code></span>
+                    </div>
+                    <div class="step-item">
+                        <span class="num" style="background: rgba(255,255,255,0.1); color: #fff;">4</span>
+                        <span class="step-content">Click <strong>Deploy</strong> → Esperar ~1 min → Tu app está en <strong style="color: var(--accent-green);">lifexp-app.vercel.app</strong> 🎉</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 1.25rem; text-align: center;" class="animate-in">
+                <div style="display: inline-flex; align-items: center; gap: 2rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 0.75rem 2rem;">
+                    <span style="font-size: 0.85rem; color: var(--text-secondary);">
+                        <strong style="color: var(--accent-green);">Supabase</strong> → datos
+                    </span>
+                    <span style="color: rgba(255,255,255,0.15);">→</span>
+                    <span style="font-size: 0.85rem; color: var(--text-secondary);">
+                        <strong style="color: #fff;">GitHub</strong> → código
+                    </span>
+                    <span style="color: rgba(255,255,255,0.15);">→</span>
+                    <span style="font-size: 0.85rem; color: var(--text-secondary);">
+                        <strong style="color: #fff;">Vercel</strong> → deploy
+                    </span>
+                    <span style="color: rgba(255,255,255,0.15);">→</span>
+                    <span style="font-size: 0.85rem; color: var(--accent-purple);">
+                        <strong>🌐 App en vivo</strong>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 18: Stop - Proyecto completo -->
+        <section class="slide layout-stop" data-slide="17">
+            <div class="stop-sign-container">
+                <div class="stop-sign animate-in">
+                    <span>STOP</span>
+                </div>
+            </div>
+            <p class="stop-subtitle">Showcase: ¿Quién muestra su app?</p>
+        </section>
+
+        <!-- Slide 19: Cierre -->
+        <section class="slide layout-big-statement" data-slide="18">
+            <h1 class="animate-in">Hoy <span class="accent-green">construyeron</span> una app</h1>
+            <p class="support animate-in">Sin escribir código. Solo con ideas y prompts.<br><br><strong style="color: var(--text-primary);">Próxima sesión:</strong> Agentes Avanzados</p>
+        </section>
+
+        <!-- Navigation Buttons -->
+        <button class="nav-btn nav-prev" onclick="prevSlide()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="nav-btn nav-next" onclick="nextSlide()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+    </div>
+
+    <script>
+        // ==================== Video Controls ====================
+
+        function togglePlay(btn) {
+            const slide = btn.closest('.slide');
+            const video = slide.querySelector('video');
+            if (!video) return;
+
+            if (video.paused) {
+                video.play();
+                btn.innerHTML = '&#9208;';
+            } else {
+                video.pause();
+                btn.innerHTML = '&#9654;';
+            }
+        }
+
+        function skipVideo(btn, seconds) {
+            const slide = btn.closest('.slide');
+            const video = slide.querySelector('video');
+            if (!video) return;
+
+            video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
+        }
+
+        // ==================== Slide Management ====================
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progress = document.getElementById('progress');
+        const counter = document.getElementById('counter');
+
+        function showSlide(index) {
+            if (index < 0) index = 0;
+            if (index >= totalSlides) index = totalSlides - 1;
+            if (index === currentSlide) return;
+
+            const prevSlide = currentSlide;
+
+            // Hide current slide
+            slides[prevSlide].classList.remove('active');
+            slides[prevSlide].classList.add('leaving');
+
+            // Pause videos on previous slide & reset play button
+            const prevVideos = slides[prevSlide].querySelectorAll('video');
+            prevVideos.forEach(video => {
+                video.pause();
+                video.currentTime = 0;
+            });
+            const prevPlayBtn = slides[prevSlide].querySelector('.play-pause');
+            if (prevPlayBtn) prevPlayBtn.innerHTML = '&#9654;';
+
+            // Show new slide
+            currentSlide = index;
+            slides[currentSlide].classList.add('active', 'entering');
+
+            // Play videos on current slide
+            const currentVideos = slides[currentSlide].querySelectorAll('video');
+            currentVideos.forEach(video => {
+                video.play().then(() => {
+                    const playBtn = slides[currentSlide].querySelector('.play-pause');
+                    if (playBtn) playBtn.innerHTML = '&#9208;';
+                }).catch(() => {
+                    // Autoplay blocked — user must click play
+                });
+            });
+
+            // Clean up animations
+            setTimeout(() => {
+                slides[prevSlide].classList.remove('leaving');
+            }, 300);
+
+            setTimeout(() => {
+                slides[currentSlide].classList.remove('entering');
+            }, 500);
+
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const percentage = ((currentSlide + 1) / totalSlides) * 100;
+            progress.style.width = percentage + '%';
+            counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            history.replaceState(null, null, `#${currentSlide}`);
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // ==================== Keyboard Navigation ====================
+
+        document.addEventListener('keydown', (e) => {
+            if (e.target.closest('.video-controls')) return;
+
+            switch(e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                case 'PageDown':
+                    e.preventDefault();
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                case 'PageUp':
+                    e.preventDefault();
+                    prevSlide();
+                    break;
+                case ' ':
+                    e.preventDefault();
+                    const currentPlayBtn = slides[currentSlide].querySelector('.play-pause');
+                    if (currentPlayBtn) {
+                        togglePlay(currentPlayBtn);
+                    } else {
+                        nextSlide();
+                    }
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    showSlide(0);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    showSlide(totalSlides - 1);
+                    break;
+                case 'f':
+                    e.preventDefault();
+                    toggleFullscreen();
+                    break;
+            }
+        });
+
+        // ==================== Touch/Swipe Navigation ====================
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            if (e.target.closest('.video-controls')) return;
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            if (e.target.closest('.video-controls')) return;
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+
+        // ==================== Fullscreen ====================
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // ==================== URL Hash ====================
+
+        function loadFromHash() {
+            const hash = window.location.hash.slice(1);
+            const slideIndex = parseInt(hash);
+            if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < totalSlides) {
+                currentSlide = slideIndex;
+                slides.forEach(s => s.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
+                updateProgress();
+            }
+        }
+
+        // ==================== Initialize ====================
+
+        loadFromHash();
+        updateProgress();
+
+        const initialVideos = slides[currentSlide].querySelectorAll('video');
+        initialVideos.forEach(video => {
+            video.play().then(() => {
+                const playBtn = slides[currentSlide].querySelector('.play-pause');
+                if (playBtn) playBtn.innerHTML = '&#9208;';
+            }).catch(() => {});
+        });
+    </script>
+</body>
+</html>
