@@ -323,21 +323,75 @@
 }
 .esic-alianzas .ali-highlight-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 .esic-alianzas .ali-highlight-visual {
-  position: relative; aspect-ratio: 1/1; max-width: 440px; margin-left: auto;
+  position: relative; aspect-ratio: 1/1; max-width: 460px; margin-left: auto;
 }
-.esic-alianzas .ali-orb {
-  position: absolute; border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 70%);
-  border: 1px solid rgba(255,255,255,0.18);
+.esic-alianzas .ali-orbit-ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.22);
+  animation: aliSpin 60s linear infinite;
 }
-.esic-alianzas .ali-orb-1 { inset: 0; }
-.esic-alianzas .ali-orb-2 { inset: 12%; border-color: rgba(10,228,195,0.35); }
-.esic-alianzas .ali-orb-3 { inset: 24%; background: radial-gradient(circle, rgba(10,228,195,0.18), transparent 70%); }
-.esic-alianzas .ali-orb-icon {
-  position: absolute; inset: 36%; border-radius: 50%;
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.22);
+.esic-alianzas .ali-orbit-ring--inner {
+  inset: 18%; border-style: dotted; border-color: rgba(10,228,195,0.30);
+  animation: aliSpin 40s linear infinite reverse;
+}
+@keyframes aliSpin { to { transform: rotate(360deg); } }
+.esic-alianzas .ali-core {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 36%; aspect-ratio: 1/1; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #FFFFFF 0%, #DCEAFF 60%, #B5CFFF 100%);
   display: flex; align-items: center; justify-content: center;
-  color: var(--ali-teal);
+  box-shadow: 0 20px 50px -10px rgba(0, 9, 30, 0.55), inset 0 -8px 20px rgba(0, 30, 80, 0.10);
+  z-index: 3;
+}
+.esic-alianzas .ali-core-text {
+  font-family: var(--display-font); font-weight: 800;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem); color: var(--ali-blue-dk);
+  text-transform: uppercase; line-height: 0.92; text-align: center;
+  letter-spacing: 0.01em;
+}
+.esic-alianzas .ali-core-text small {
+  display: block; font-size: 0.42em; font-weight: 700;
+  letter-spacing: 0.18em; color: var(--ali-blue);
+  margin-top: 0.35em;
+}
+.esic-alianzas .ali-orbit-logo {
+  position: absolute; width: 22%; aspect-ratio: 1/1;
+  border-radius: 50%; background: var(--ali-white);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12px 30px -8px rgba(0, 9, 30, 0.50);
+  border: 2px solid rgba(255,255,255,0.95);
+  overflow: hidden; padding: 14%;
+  transition: transform .35s ease, box-shadow .35s ease;
+  z-index: 2;
+}
+.esic-alianzas .ali-orbit-logo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 18px 40px -8px rgba(0, 9, 30, 0.65);
+}
+.esic-alianzas .ali-orbit-logo img {
+  width: 100%; height: 100%; object-fit: contain;
+}
+.esic-alianzas .ali-orbit-logo--cover { padding: 0; }
+.esic-alianzas .ali-orbit-logo--cover img { object-fit: cover; }
+/* Positions on the orbit (12, 3, 6, 9 + diagonals) */
+.esic-alianzas .ali-orbit-pos-1  { top: 0;        left: 50%;     transform: translate(-50%, -10%); }
+.esic-alianzas .ali-orbit-pos-2  { top: 18%;      right: 4%;     }
+.esic-alianzas .ali-orbit-pos-3  { top: 50%;      right: 0;      transform: translate(10%, -50%); }
+.esic-alianzas .ali-orbit-pos-4  { bottom: 18%;   right: 4%;     }
+.esic-alianzas .ali-orbit-pos-5  { bottom: 0;     left: 50%;     transform: translate(-50%, 10%); }
+.esic-alianzas .ali-orbit-pos-6  { bottom: 18%;   left: 4%;      }
+.esic-alianzas .ali-orbit-pos-7  { top: 50%;      left: 0;       transform: translate(-10%, -50%); }
+.esic-alianzas .ali-orbit-pos-8  { top: 18%;      left: 4%;      }
+.esic-alianzas .ali-orbit-logo:hover.ali-orbit-pos-1 { transform: translate(-50%, -10%) scale(1.08); }
+.esic-alianzas .ali-orbit-logo:hover.ali-orbit-pos-3 { transform: translate(10%, -50%) scale(1.08); }
+.esic-alianzas .ali-orbit-logo:hover.ali-orbit-pos-5 { transform: translate(-50%, 10%) scale(1.08); }
+.esic-alianzas .ali-orbit-logo:hover.ali-orbit-pos-7 { transform: translate(-10%, -50%) scale(1.08); }
+/* Glow halo behind core */
+.esic-alianzas .ali-highlight-visual::before {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  width: 70%; aspect-ratio: 1/1; transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(10,228,195,0.30) 0%, rgba(10,228,195,0) 60%);
+  z-index: 1;
 }
 
 /* ================================================ */
@@ -567,7 +621,7 @@
           <div class="ali-card-bg ali-bg-gastro"></div>
           <div class="ali-card-tag">Gastronom&iacute;a</div>
           <div class="ali-card-logo-wrap">
-            <img src="logos/shibuya.jpg" alt="Shibuya" class="ali-card-logo ali-card-logo--round">
+            <img src="logos/shibuya.webp" alt="Shibuya" class="ali-card-logo ali-card-logo--round">
           </div>
         </div>
         <div class="ali-card-body">
@@ -586,7 +640,7 @@
           <div class="ali-card-bg ali-bg-cultura"></div>
           <div class="ali-card-tag">Cultura y libros</div>
           <div class="ali-card-logo-wrap">
-            <img src="logos/kcao.jpg" alt="Kcao" class="ali-card-logo ali-card-logo--round">
+            <img src="logos/kcao.webp" alt="Kcao" class="ali-card-logo ali-card-logo--round">
           </div>
         </div>
         <div class="ali-card-body">
@@ -662,7 +716,7 @@
           <div class="ali-card-bg ali-bg-cultura"></div>
           <div class="ali-card-tag">Cultura y libros</div>
           <div class="ali-card-logo-wrap">
-            <img src="logos/bukz.png" alt="Bukz" class="ali-card-logo" style="filter: brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,0.45));">
+            <img src="logos/bukz.webp" alt="Bukz" class="ali-card-logo" style="filter: brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,0.45));">
           </div>
         </div>
         <div class="ali-card-body">
@@ -720,15 +774,36 @@
         </div>
       </div>
       <div class="ali-highlight-visual" aria-hidden="true">
-        <div class="ali-orb ali-orb-1"></div>
-        <div class="ali-orb ali-orb-2"></div>
-        <div class="ali-orb ali-orb-3"></div>
-        <div class="ali-orb-icon">
-          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="8.5" cy="7" r="4"/>
-            <path d="M22 11h-6M19 8v6"/>
-          </svg>
+        <div class="ali-orbit-ring"></div>
+        <div class="ali-orbit-ring ali-orbit-ring--inner"></div>
+
+        <div class="ali-core">
+          <div class="ali-core-text">ESIC<small>Alianzas</small></div>
+        </div>
+
+        <div class="ali-orbit-logo ali-orbit-pos-1">
+          <img src="logos/action-black.svg" alt="" style="filter: brightness(0);">
+        </div>
+        <div class="ali-orbit-logo ali-orbit-pos-2 ali-orbit-logo--cover">
+          <img src="logos/shibuya.webp" alt="">
+        </div>
+        <div class="ali-orbit-logo ali-orbit-pos-3">
+          <img src="logos/ammazza.webp" alt="">
+        </div>
+        <div class="ali-orbit-logo ali-orbit-pos-4">
+          <img src="logos/conecty.webp" alt="">
+        </div>
+        <div class="ali-orbit-logo ali-orbit-pos-5">
+          <img src="logos/barbaro.webp" alt="">
+        </div>
+        <div class="ali-orbit-logo ali-orbit-pos-6">
+          <img src="logos/bukz.webp" alt="">
+        </div>
+        <div class="ali-orbit-logo ali-orbit-pos-7">
+          <img src="logos/volver.svg" alt="">
+        </div>
+        <div class="ali-orbit-logo ali-orbit-pos-8 ali-orbit-logo--cover">
+          <img src="logos/kcao.webp" alt="">
         </div>
       </div>
     </div>
@@ -784,7 +859,7 @@
       cat: 'Gastronom&iacute;a',
       catKey: 'gastronomia',
       bg: 'ali-bg-gastro',
-      logo: 'logos/shibuya.jpg',
+      logo: 'logos/shibuya.webp',
       logoRound: true,
       name: 'Restaurante Shibuya',
       perk: '20% de descuento',
@@ -802,7 +877,7 @@
       cat: 'Cultura y libros',
       catKey: 'cultura',
       bg: 'ali-bg-cultura',
-      logo: 'logos/kcao.jpg',
+      logo: 'logos/kcao.webp',
       logoRound: true,
       name: 'Kcao Coworking & Caf&eacute;',
       perk: '15% OFF en libros Editorial Planeta',
@@ -872,7 +947,7 @@
       cat: 'Cultura y libros',
       catKey: 'cultura',
       bg: 'ali-bg-cultura',
-      logo: 'logos/bukz.png',
+      logo: 'logos/bukz.webp',
       logoInvert: true,
       name: 'Bukz',
       perk: '10% de descuento',
