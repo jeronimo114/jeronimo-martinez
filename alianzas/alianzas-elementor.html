@@ -310,25 +310,6 @@
   animation: aliSpin 40s linear infinite reverse;
 }
 @keyframes aliSpin { to { transform: rotate(360deg); } }
-.esic-alianzas .ali-core {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 36%; aspect-ratio: 1/1; border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #FFFFFF 0%, #DCEAFF 60%, #B5CFFF 100%);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 20px 50px -10px rgba(0, 9, 30, 0.55), inset 0 -8px 20px rgba(0, 30, 80, 0.10);
-  z-index: 3;
-}
-.esic-alianzas .ali-core-text {
-  font-family: var(--display-font); font-weight: 800;
-  font-size: clamp(1.6rem, 3.2vw, 2.4rem); color: var(--ali-blue-dk);
-  text-transform: uppercase; line-height: 0.92; text-align: center;
-  letter-spacing: 0.01em;
-}
-.esic-alianzas .ali-core-text small {
-  display: block; font-size: 0.42em; font-weight: 700;
-  letter-spacing: 0.18em; color: var(--ali-blue);
-  margin-top: 0.35em;
-}
 .esic-alianzas .ali-orbit-logo {
   position: absolute; width: 22%; aspect-ratio: 1/1;
   border-radius: 50%; background: var(--ali-white);
@@ -728,10 +709,6 @@
       <div class="ali-highlight-visual" aria-hidden="true">
         <div class="ali-orbit-ring"></div>
         <div class="ali-orbit-ring ali-orbit-ring--inner"></div>
-
-        <div class="ali-core">
-          <div class="ali-core-text">ESIC<small>Alianzas</small></div>
-        </div>
 
         <div class="ali-orbit-logo ali-orbit-pos-1">
           <img loading="eager" decoding="sync" fetchpriority="high" src="https://esic.co/wp-content/uploads/2026/05/action-black.webp" alt="" style="filter: brightness(0);">
