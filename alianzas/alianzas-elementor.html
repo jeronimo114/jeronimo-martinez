@@ -61,62 +61,35 @@
 .esic-alianzas .ali-btn-ghost:hover { border-color: var(--ali-white) !important; background: rgba(255,255,255,0.08) !important; color: var(--ali-white) !important; }
 
 /* ================================================ */
-/* --- HERO --- */
+/* --- HERO BANNER PLACEHOLDER --- */
 .esic-alianzas .ali-hero {
   position: relative; overflow: hidden;
+  background: var(--ali-cream);
+  padding: 0; line-height: 0; font-size: 0;
+}
+.esic-alianzas .ali-hero a { display: block; cursor: pointer; }
+.esic-alianzas .ali-hero img {
+  width: 100%; height: auto; display: block; vertical-align: bottom;
+}
+/* Placeholder visible mientras no haya banner subido */
+.esic-alianzas .ali-hero-placeholder {
+  width: 100%; aspect-ratio: 16/7;
+  display: flex; align-items: center; justify-content: center;
   background:
-    radial-gradient(ellipse at 18% 20%, rgba(0,71,233,0.55) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 80%, rgba(10,228,195,0.30) 0%, transparent 55%),
-    linear-gradient(165deg, #00091E 0%, #00133F 50%, #0034B8 120%);
-  color: var(--ali-white);
-  padding: clamp(6rem, 12vw, 9.5rem) 0 clamp(7rem, 14vw, 11rem);
+    repeating-linear-gradient(45deg, rgba(0,71,233,0.04) 0 18px, transparent 18px 36px),
+    linear-gradient(135deg, #EDE7DC 0%, #F8F6F2 100%);
+  border: 2px dashed rgba(0,71,233,0.35);
+  font-family: var(--display-font); font-weight: 800;
+  font-size: clamp(1.6rem, 4vw, 3rem); letter-spacing: 0.18em;
+  color: rgba(0,19,63,0.55); text-transform: uppercase;
+  line-height: 1; text-align: center;
 }
-.esic-alianzas .ali-hero::after {
-  content: ""; position: absolute; inset: 0;
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.07) 1px, transparent 0);
-  background-size: 38px 38px;
-  pointer-events: none; mask-image: linear-gradient(180deg, transparent, black 40%, black 80%, transparent);
-}
-.esic-alianzas .ali-hero-inner { position: relative; z-index: 2; text-align: center; max-width: 880px; margin: 0 auto; }
-.esic-alianzas .ali-hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.32em;
-  text-transform: uppercase; color: var(--ali-teal); margin-bottom: 1.4rem;
-}
-.esic-alianzas .ali-hero-eyebrow::before,
-.esic-alianzas .ali-hero-eyebrow::after { content: ""; width: 22px; height: 2px; background: var(--ali-teal); border-radius: 2px; opacity: 0.7; }
-.esic-alianzas .ali-hero h1 {
-  font-size: clamp(3.6rem, 11vw, 8rem); text-transform: uppercase;
-  line-height: 0.88; color: var(--ali-white); margin-bottom: 1.6rem;
-}
-.esic-alianzas .ali-hero h1 span { color: var(--ali-teal); font-style: italic; }
-.esic-alianzas .ali-hero-sub {
-  font-size: clamp(1rem, 1.8vw, 1.18rem); color: rgba(255,255,255,0.78);
-  max-width: 600px; margin: 0 auto 2.4rem; line-height: 1.65;
-}
-.esic-alianzas .ali-hero-stats {
-  display: inline-flex; gap: clamp(1.5rem, 4vw, 3rem); justify-content: center; flex-wrap: wrap;
-  padding: 1.4rem 2rem; border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 999px; background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(6px);
-}
-.esic-alianzas .ali-stat { text-align: center; }
-.esic-alianzas .ali-stat-num {
-  font-family: var(--display-font); font-size: 2rem; font-weight: 800;
-  color: var(--ali-teal); line-height: 1;
-}
-.esic-alianzas .ali-stat-lbl {
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em;
-  text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 0.35rem;
-}
-.esic-alianzas .ali-stat-divider { width: 1px; background: rgba(255,255,255,0.12); }
 
 /* ================================================ */
 /* --- HOW IT WORKS --- */
 .esic-alianzas .ali-howto {
   background: var(--ali-cream);
-  border-radius: 50px 50px 0 0;
+  border-radius: 40px 40px 0 0;
   margin-top: -50px; position: relative; z-index: 2;
   padding: clamp(4.5rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
 }
@@ -146,7 +119,7 @@
   top: 1rem; right: 1.4rem;
 }
 .esic-alianzas .ali-step-icon {
-  width: 46px; height: 46px; border-radius: 14px;
+  width: 46px; height: 46px; border-radius: 12px;
   background: rgba(0,71,233,0.10); display: inline-flex; align-items: center; justify-content: center;
   margin-bottom: 1.2rem; color: var(--ali-blue);
 }
@@ -159,7 +132,7 @@
 /* --- GRID + FILTERS --- */
 .esic-alianzas .ali-grid-section {
   background: var(--ali-bg);
-  border-radius: 50px 50px 0 0;
+  border-radius: 40px 40px 0 0;
   margin-top: -50px; position: relative; z-index: 3;
   padding: clamp(4.5rem, 8vw, 7rem) 0 clamp(5rem, 9vw, 8rem);
 }
@@ -200,7 +173,7 @@
 }
 .esic-alianzas .ali-card {
   position: relative; cursor: pointer;
-  background: var(--ali-cream); border-radius: 26px; overflow: hidden;
+  background: var(--ali-cream); border-radius: 24px; overflow: hidden;
   border: 1px solid var(--ali-line);
   transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
   display: flex; flex-direction: column;
@@ -299,7 +272,7 @@
     radial-gradient(circle at 0% 100%, rgba(0,71,233,0.40), transparent 55%),
     linear-gradient(135deg, var(--ali-blue) 0%, var(--ali-blue-dk) 100%);
   color: var(--ali-white);
-  border-radius: 50px 50px 0 0;
+  border-radius: 40px 40px 0 0;
   margin-top: -50px; position: relative; z-index: 4;
   padding: clamp(4.5rem, 8vw, 7rem) 0;
 }
@@ -410,7 +383,7 @@
 .esic-alianzas .ali-modal-card {
   position: relative;
   width: min(880px, 100%); max-height: 90vh; overflow-y: auto;
-  background: var(--ali-cream); border-radius: 28px;
+  background: var(--ali-cream); border-radius: 24px;
   animation: aliSlideUp .3s ease;
   box-shadow: 0 30px 80px -10px rgba(0, 9, 30, 0.55);
 }
@@ -426,7 +399,7 @@
 .esic-alianzas .ali-modal-hero {
   position: relative; aspect-ratio: 16/7;
   display: flex; align-items: center; justify-content: center;
-  border-radius: 28px 28px 0 0; overflow: hidden;
+  border-radius: 24px 24px 0 0; overflow: hidden;
 }
 .esic-alianzas .ali-modal-hero::after {
   content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.40);
@@ -470,11 +443,11 @@
 }
 .esic-alianzas .ali-detail {
   background: var(--ali-white); border: 1px solid var(--ali-line);
-  border-radius: 14px; padding: 1rem 1.1rem;
+  border-radius: 16px; padding: 1rem 1.1rem;
   display: flex; gap: 0.8rem; align-items: flex-start;
 }
 .esic-alianzas .ali-detail-icon {
-  flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
+  flex-shrink: 0; width: 36px; height: 36px; border-radius: 12px;
   background: rgba(0,71,233,0.10); color: var(--ali-blue);
   display: flex; align-items: center; justify-content: center;
 }
@@ -508,32 +481,9 @@
 </style>
 
 <!-- ================================================ -->
-<!-- HERO -->
+<!-- HERO BANNER (reemplazar este div por <a><img src="..." alt="..."></a> con el banner final) -->
 <section class="ali-hero">
-  <div class="ali-container ali-hero-inner">
-    <div class="ali-hero-eyebrow">Beneficios Comunidad ESIC</div>
-    <h1>Alianzas que <span>suman</span></h1>
-    <p class="ali-hero-sub">
-      Descuentos, experiencias y servicios exclusivos para estudiantes,
-      profesores y administrativos de ESIC. Presenta tu carn&eacute; y empieza a disfrutarlas.
-    </p>
-    <div class="ali-hero-stats">
-      <div class="ali-stat">
-        <div class="ali-stat-num">8+</div>
-        <div class="ali-stat-lbl">Marcas aliadas</div>
-      </div>
-      <div class="ali-stat-divider"></div>
-      <div class="ali-stat">
-        <div class="ali-stat-num">4</div>
-        <div class="ali-stat-lbl">Categor&iacute;as</div>
-      </div>
-      <div class="ali-stat-divider"></div>
-      <div class="ali-stat">
-        <div class="ali-stat-num">20%</div>
-        <div class="ali-stat-lbl">Descuento promedio</div>
-      </div>
-    </div>
-  </div>
+  <div class="ali-hero-placeholder">Espacio para banner</div>
 </section>
 
 <!-- ================================================ -->
@@ -1035,22 +985,35 @@
     const a = ALIANZAS[key];
     if (!a) return;
 
-    // Hero (bg + logo)
+    // Hero (bg + logo) — uses createElement so the alt attribute can safely
+    // contain ampersands and entities without breaking <img> parsing.
     modalHero.className = 'ali-modal-hero ' + a.bg;
-    let logoHtml = '';
+    modalHero.innerHTML = '';
     if (a.logo) {
-      const filter = a.logoInvert ? 'filter: brightness(0) invert(1) drop-shadow(0 8px 30px rgba(0,0,0,0.55));' : '';
-      const cls = a.logoRound ? 'ali-modal-hero-logo ali-modal-hero-logo--round' : 'ali-modal-hero-logo';
-      logoHtml = '<img src="' + a.logo + '" alt="' + a.name + '" class="' + cls + '" style="' + filter + '">';
+      const img = document.createElement('img');
+      img.src = a.logo;
+      // Decode entities for alt by routing the name through a <textarea>.
+      const tmp = document.createElement('textarea');
+      tmp.innerHTML = a.name;
+      img.alt = tmp.value;
+      img.className = a.logoRound ? 'ali-modal-hero-logo ali-modal-hero-logo--round' : 'ali-modal-hero-logo';
+      if (a.logoInvert) {
+        img.style.filter = 'brightness(0) invert(1) drop-shadow(0 8px 30px rgba(0,0,0,0.55))';
+      }
+      modalHero.appendChild(img);
     } else if (a.logoText) {
-      logoHtml = '<div class="ali-modal-hero-logo--text">' + a.logoText + '</div>';
+      const t = document.createElement('div');
+      t.className = 'ali-modal-hero-logo--text';
+      t.innerHTML = a.logoText;
+      modalHero.appendChild(t);
     }
-    modalHero.innerHTML = logoHtml;
 
-    modalTag.textContent = a.cat;
-    modalName.textContent = a.name;
-    modalPerk.textContent = a.perk;
-    modalDesc.textContent = a.desc;
+    // Use innerHTML so HTML entities (&aacute;, &eacute;, &middot;, etc.)
+    // render as the proper character instead of literal "&aacute;".
+    modalTag.innerHTML  = a.cat;
+    modalName.innerHTML = a.name;
+    modalPerk.innerHTML = a.perk;
+    modalDesc.innerHTML = a.desc;
 
     // Details
     modalDetails.innerHTML = a.details.map(d => {
