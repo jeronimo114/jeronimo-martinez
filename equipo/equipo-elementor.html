@@ -1,0 +1,574 @@
+<div class="esic-equipo">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-equipo {
+  --eq-cream:    #F8F6F2;
+  --eq-bg:       #FFFFFF;
+  --eq-ink:      #00133F;
+  --eq-ink-2:    #1A2547;
+  --eq-muted:    #5C6477;
+  --eq-line:     #E7E2D8;
+  --eq-blue:     #0047E9;
+  --eq-blue-dk:  #00133F;
+  --eq-teal:     #0AE4C3;
+  --eq-orange:   #FF8701;
+  --eq-white:    #FFFFFF;
+
+  --display-font: "Sofia Sans Extra Condensed", sans-serif;
+  --body-font:    "DM Sans", sans-serif;
+
+  font-family: var(--body-font);
+  color: var(--eq-ink);
+  line-height: 1.55;
+  background: var(--eq-cream);
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+.esic-equipo *, .esic-equipo *::before, .esic-equipo *::after { box-sizing: border-box; }
+.esic-equipo h1, .esic-equipo h2, .esic-equipo h3, .esic-equipo h4 {
+  font-family: var(--display-font); font-weight: 800; margin: 0; line-height: 0.95; letter-spacing: -0.005em;
+}
+.esic-equipo p { margin: 0; }
+.esic-equipo a { color: inherit; text-decoration: none; }
+.esic-equipo img { max-width: 100%; display: block; }
+
+.esic-equipo .eq-container { width: min(1180px, 92%); margin: 0 auto; }
+
+/* --- Buttons --- */
+.esic-equipo .eq-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+  padding: 0.95rem 1.9rem; border-radius: 999px;
+  font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; cursor: pointer;
+  transition: transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease;
+  text-decoration: none !important; line-height: 1; white-space: nowrap;
+}
+.esic-equipo a.eq-btn-blue,
+.esic-equipo .eq-btn-blue { background: var(--eq-blue) !important; color: var(--eq-white) !important; }
+.esic-equipo a.eq-btn-blue:hover,
+.esic-equipo .eq-btn-blue:hover { background: #0034B8 !important; color: var(--eq-white) !important; transform: translateY(-2px); box-shadow: 0 12px 24px -10px rgba(0,71,233,0.55); }
+.esic-equipo a.eq-btn-ghost,
+.esic-equipo .eq-btn-ghost { background: transparent !important; color: var(--eq-white) !important; border: 2px solid rgba(255,255,255,0.45) !important; }
+.esic-equipo a.eq-btn-ghost:hover,
+.esic-equipo .eq-btn-ghost:hover { border-color: var(--eq-white) !important; background: rgba(255,255,255,0.08) !important; color: var(--eq-white) !important; }
+
+/* ================================================ */
+/* --- HERO --- */
+.esic-equipo .eq-hero {
+  position: relative; overflow: hidden;
+  min-height: clamp(420px, 70vh, 640px);
+  display: flex; align-items: center;
+  background: var(--eq-ink);
+  isolation: isolate;
+}
+.esic-equipo .eq-hero-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: -2;
+}
+.esic-equipo .eq-hero::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,19,63,0.55) 0%, rgba(0,19,63,0.85) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.1));
+  z-index: -1;
+}
+.esic-equipo .eq-hero-inner {
+  width: min(1180px, 92%); margin: 0 auto;
+  padding: clamp(5rem, 12vw, 8rem) 0 clamp(6rem, 12vw, 9rem);
+  color: var(--eq-white);
+}
+.esic-equipo .eq-hero-tag {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--eq-teal); margin-bottom: 1.2rem;
+}
+.esic-equipo .eq-hero-tag::before { content: ""; width: 26px; height: 2px; background: var(--eq-teal); border-radius: 2px; }
+.esic-equipo .eq-hero h1 {
+  font-size: clamp(3rem, 8vw, 6rem); text-transform: uppercase; color: var(--eq-white);
+  max-width: 18ch;
+}
+.esic-equipo .eq-hero h1 .accent { color: var(--eq-teal); display: block; }
+.esic-equipo .eq-hero-sub {
+  margin-top: 1.6rem; max-width: 56ch; font-size: 1.05rem; color: rgba(255,255,255,0.85);
+}
+
+/* ================================================ */
+/* --- INTRO --- */
+.esic-equipo .eq-intro {
+  background: var(--eq-cream);
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px; position: relative; z-index: 2;
+  padding: clamp(4.5rem, 8vw, 7rem) 0 clamp(2rem, 4vw, 3rem);
+}
+.esic-equipo .eq-intro-inner { text-align: center; max-width: 760px; margin: 0 auto; }
+.esic-equipo .eq-intro-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--eq-blue); margin-bottom: 0.9rem;
+}
+.esic-equipo .eq-intro-tag::before { content: ""; width: 22px; height: 2px; background: var(--eq-blue); border-radius: 2px; }
+.esic-equipo .eq-intro h2 {
+  font-size: clamp(2rem, 4.4vw, 3rem); text-transform: uppercase; color: var(--eq-ink);
+}
+.esic-equipo .eq-intro p {
+  margin-top: 1.2rem; font-size: 1.05rem; color: var(--eq-muted);
+}
+
+/* ================================================ */
+/* --- TEAM AREAS --- */
+.esic-equipo .eq-areas {
+  background: var(--eq-cream);
+  position: relative; z-index: 3;
+  padding: clamp(2rem, 4vw, 3rem) 0 clamp(4rem, 7vw, 6rem);
+}
+.esic-equipo .eq-area + .eq-area { margin-top: clamp(3.5rem, 6vw, 5rem); }
+.esic-equipo .eq-area-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 1rem;
+  border-bottom: 1px solid var(--eq-line);
+}
+.esic-equipo .eq-area-title {
+  font-size: clamp(1.6rem, 3vw, 2.4rem); text-transform: uppercase; color: var(--eq-ink);
+}
+.esic-equipo .eq-area-count {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--eq-blue);
+  white-space: nowrap;
+}
+
+/* --- Member grid --- */
+.esic-equipo .eq-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem;
+}
+.esic-equipo .eq-card {
+  background: var(--eq-white);
+  border: 1px solid var(--eq-line);
+  border-radius: 22px;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.esic-equipo .eq-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 40px -22px rgba(0,19,63,0.22);
+  border-color: rgba(0,71,233,0.25);
+}
+.esic-equipo .eq-card-photo {
+  position: relative; aspect-ratio: 4/5; overflow: hidden;
+  background: linear-gradient(135deg, #2a2f3a 0%, #1a1f2c 100%);
+}
+.esic-equipo .eq-card-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .5s ease;
+}
+.esic-equipo .eq-card:hover .eq-card-photo img { transform: scale(1.04); }
+.esic-equipo .eq-card-photo::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,19,63,0.35) 100%);
+  pointer-events: none;
+}
+.esic-equipo .eq-card-body {
+  padding: 1.2rem 1.2rem 1.4rem;
+}
+.esic-equipo .eq-card-name {
+  font-family: var(--display-font); font-weight: 800;
+  font-size: 1.35rem; line-height: 1; text-transform: uppercase;
+  color: var(--eq-ink); letter-spacing: 0.005em;
+}
+.esic-equipo .eq-card-role {
+  margin-top: 0.55rem; font-size: 0.86rem; color: var(--eq-muted);
+  line-height: 1.3;
+}
+.esic-equipo .eq-card-badge {
+  display: inline-block; margin-top: 0.7rem;
+  padding: 0.25rem 0.6rem; border-radius: 999px;
+  background: rgba(0,71,233,0.08); color: var(--eq-blue);
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+}
+
+/* Featured (CEO) card */
+.esic-equipo .eq-card.is-featured {
+  border: 2px solid var(--eq-blue);
+  box-shadow: 0 18px 36px -22px rgba(0,71,233,0.4);
+}
+
+/* ================================================ */
+/* --- DOCENTES --- */
+.esic-equipo .eq-docentes {
+  background: var(--eq-ink);
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px; position: relative; z-index: 4;
+  padding: clamp(5rem, 9vw, 7.5rem) 0 clamp(5rem, 9vw, 7.5rem);
+  color: var(--eq-white);
+}
+.esic-equipo .eq-doc-head {
+  text-align: center; max-width: 780px; margin: 0 auto 3rem;
+}
+.esic-equipo .eq-doc-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--eq-teal); margin-bottom: 0.9rem;
+}
+.esic-equipo .eq-doc-tag::before { content: ""; width: 22px; height: 2px; background: var(--eq-teal); border-radius: 2px; }
+.esic-equipo .eq-docentes h2 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem); text-transform: uppercase; color: var(--eq-white);
+}
+.esic-equipo .eq-doc-sub {
+  margin-top: 1.1rem; font-size: 1.05rem; color: rgba(255,255,255,0.78);
+}
+.esic-equipo .eq-docentes .eq-grid { gap: 1.4rem; }
+.esic-equipo .eq-docentes .eq-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.esic-equipo .eq-docentes .eq-card:hover {
+  border-color: rgba(10,228,195,0.5);
+  box-shadow: 0 22px 40px -22px rgba(10,228,195,0.25);
+}
+.esic-equipo .eq-docentes .eq-card-name { color: var(--eq-white); }
+.esic-equipo .eq-docentes .eq-card-role { color: rgba(255,255,255,0.72); }
+.esic-equipo .eq-docentes .eq-card-badge {
+  background: rgba(10,228,195,0.15); color: var(--eq-teal);
+}
+
+/* Placeholder photo for docentes (no image yet) */
+.esic-equipo .eq-doc-placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 14px, transparent 14px 28px),
+    linear-gradient(135deg, #2a2f3a 0%, #14182a 100%);
+}
+.esic-equipo .eq-doc-placeholder svg {
+  width: 56%; height: auto; opacity: 0.35;
+  stroke: var(--eq-teal);
+}
+
+.esic-equipo .eq-doc-note {
+  margin-top: 2.5rem; text-align: center;
+  font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ================================================ */
+/* --- CTA HIGHLIGHT --- */
+.esic-equipo .eq-cta {
+  background: var(--eq-blue);
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px; position: relative; z-index: 5;
+  padding: clamp(4.5rem, 8vw, 7rem) 0 clamp(4.5rem, 8vw, 7rem);
+  color: var(--eq-white); text-align: center;
+}
+.esic-equipo .eq-cta h2 {
+  font-size: clamp(2.4rem, 5.2vw, 3.8rem); text-transform: uppercase; color: var(--eq-white);
+  max-width: 18ch; margin: 0 auto;
+}
+.esic-equipo .eq-cta p {
+  margin: 1.2rem auto 2rem; max-width: 56ch;
+  font-size: 1.05rem; color: rgba(255,255,255,0.86);
+}
+.esic-equipo .eq-cta-actions {
+  display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap;
+}
+
+/* ================================================ */
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .esic-equipo .eq-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  .esic-equipo .eq-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .esic-equipo .eq-area-head { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+  .esic-equipo .eq-card-name { font-size: 1.15rem; }
+  .esic-equipo .eq-card-role { font-size: 0.8rem; }
+}
+@media (max-width: 420px) {
+  .esic-equipo .eq-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- ================== HERO ================== -->
+<section class="eq-hero">
+  <img class="eq-hero-img" src="https://esic.co/wp-content/uploads/2024/08/JUAN-scaled-1-1624x2048.jpg" alt="Equipo ESIC Medellín" />
+  <div class="eq-hero-inner">
+    <span class="eq-hero-tag">Personas detrás de ESIC</span>
+    <h1>Conoce a nuestro<span class="accent">equipo ESIC Medellín</span></h1>
+    <p class="eq-hero-sub">Un equipo multidisciplinario de profesionales dedicado a potenciar el talento de nuestros estudiantes y prepararlos para enfrentar los desafíos del mundo real.</p>
+  </div>
+</section>
+
+<!-- ================== INTRO ================== -->
+<section class="eq-intro">
+  <div class="eq-container eq-intro-inner">
+    <span class="eq-intro-tag">Nuestro equipo</span>
+    <h2>Talento que transforma futuros</h2>
+    <p>Expertos en operaciones, liderazgo académico, desarrollo corporativo, gestión de pregrados, marketing, diseño audiovisual, servicios estudiantiles y análisis administrativo. Todos comprometidos con ofrecer una educación de calidad y experiencias formativas excepcionales en Medellín.</p>
+  </div>
+</section>
+
+<!-- ================== TEAM BY AREAS ================== -->
+<section class="eq-areas">
+  <div class="eq-container">
+
+    <!-- DIRECCIÓN -->
+    <div class="eq-area">
+      <div class="eq-area-head">
+        <h3 class="eq-area-title">Dirección</h3>
+        <span class="eq-area-count">06 líderes</span>
+      </div>
+      <div class="eq-grid">
+        <article class="eq-card is-featured">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2024/08/JUAN-scaled-1-812x1024.jpg" alt="Juan Esteban Jaramillo" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <span class="eq-card-badge">CEO</span>
+            <h4 class="eq-card-name">Juan Esteban Jaramillo</h4>
+            <p class="eq-card-role">Presidente</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2025/07/Sara-V-812x1024.jpg" alt="Sara Velásquez" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Sara Velásquez</h4>
+            <p class="eq-card-role">Directora Académica Corporate</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2024/08/YURA-2-scaled-1-812x1024.jpg" alt="Yurani Sánchez" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Yurani Sánchez</h4>
+            <p class="eq-card-role">Directora Académica Pregrados</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2024/08/JUAN-M-2-812x1024.jpg" alt="Juan Manuel Jiménez" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Juan Manuel Jiménez</h4>
+            <p class="eq-card-role">Director Growth &amp; Corporate</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2025/07/DANIELA-U2-812x1024.jpg" alt="Daniela Upegui" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Daniela Upegui</h4>
+            <p class="eq-card-role">Directora de Marketing</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2025/12/MARTA-812x1024.jpg" alt="Marta Ramírez" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Marta Ramírez</h4>
+            <p class="eq-card-role">Directora Financiera y Administrativa</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ACADÉMICA & PREGRADOS -->
+    <div class="eq-area">
+      <div class="eq-area-head">
+        <h3 class="eq-area-title">Académica &amp; Pregrados</h3>
+        <span class="eq-area-count">03 integrantes</span>
+      </div>
+      <div class="eq-grid">
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2024/08/ELIANA-2-scaled-1-812x1024.jpg" alt="Eliana Monsalve" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Eliana Monsalve</h4>
+            <p class="eq-card-role">Líder Pregrados</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2024/08/tatiana-scaled-1-812x1024.jpg" alt="Tatiana Serna" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Tatiana Serna</h4>
+            <p class="eq-card-role">Analista Pregrados</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2026/02/ALEJA.jpg-812x1024.jpeg" alt="Alejandra Londoño" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Alejandra Londoño</h4>
+            <p class="eq-card-role">Student Service Pregrado</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- CORPORATE -->
+    <div class="eq-area">
+      <div class="eq-area-head">
+        <h3 class="eq-area-title">Corporate</h3>
+        <span class="eq-area-count">02 integrantes</span>
+      </div>
+      <div class="eq-grid">
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2025/06/ESTEFANI-ALDANA-812x1024.jpg" alt="Stephany Aldana" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Stephany Aldana</h4>
+            <p class="eq-card-role">Analista Corporate</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2026/02/CARO.jpg-812x1024.jpeg" alt="Carolina Soto" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Carolina Soto</h4>
+            <p class="eq-card-role">Student Service Corporate</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- MARKETING & DISEÑO -->
+    <div class="eq-area">
+      <div class="eq-area-head">
+        <h3 class="eq-area-title">Marketing &amp; Diseño</h3>
+        <span class="eq-area-count">03 integrantes</span>
+      </div>
+      <div class="eq-grid">
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2024/08/checho-scaled-1-812x1024.jpg" alt="Sergio Vaquero" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Sergio Vaquero</h4>
+            <p class="eq-card-role">Diseño Audiovisual</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2025/07/VALERIA-812x1024.jpg" alt="Valeria Velásquez" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Valeria Velásquez</h4>
+            <p class="eq-card-role">Community Manager</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2025/09/Diseno-sin-titulo-37-796x1024.png" alt="Jerónimo Martínez" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Jerónimo Martínez</h4>
+            <p class="eq-card-role">UI/UX</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ADMINISTRATIVA & OPERACIONES -->
+    <div class="eq-area">
+      <div class="eq-area-head">
+        <h3 class="eq-area-title">Administrativa &amp; Operaciones</h3>
+        <span class="eq-area-count">04 integrantes</span>
+      </div>
+      <div class="eq-grid">
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2024/08/DANIELA-scaled-1-812x1024.jpg" alt="Daniela Hernández" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Daniela Hernández</h4>
+            <p class="eq-card-role">Analista Admin y Contable</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2025/06/Leidy-812x1024.jpg" alt="Leidy Ochoa" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Leidy Ochoa</h4>
+            <p class="eq-card-role">Auxiliar Contable</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2025/06/zora-812x1024.jpg" alt="Zoraida Restrepo" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Zoraida Restrepo</h4>
+            <p class="eq-card-role">Servicios Generales</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2025/06/jhoa-812x1024.jpg" alt="Johan Vélez" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Johan Vélez</h4>
+            <p class="eq-card-role">Servicios Generales</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================== DOCENTES ================== -->
+<section class="eq-docentes">
+  <div class="eq-container">
+    <div class="eq-doc-head">
+      <span class="eq-doc-tag">Nuestros docentes</span>
+      <h2>Profesores que marcan la diferencia</h2>
+      <p class="eq-doc-sub">Profesionales en activo del mundo de los negocios y el marketing que comparten su experiencia con nuestros estudiantes. Aquí presentamos a quienes nos acompañan de forma recurrente en aulas y programas.</p>
+    </div>
+
+    <div class="eq-grid">
+      <!-- DOCENTE 1 (placeholder) -->
+      <article class="eq-card">
+        <div class="eq-card-photo">
+          <div class="eq-doc-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          </div>
+        </div>
+        <div class="eq-card-body">
+          <span class="eq-card-badge">Docente</span>
+          <h4 class="eq-card-name">Nombre del docente</h4>
+          <p class="eq-card-role">Especialidad / Programa</p>
+        </div>
+      </article>
+
+      <article class="eq-card">
+        <div class="eq-card-photo">
+          <div class="eq-doc-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          </div>
+        </div>
+        <div class="eq-card-body">
+          <span class="eq-card-badge">Docente</span>
+          <h4 class="eq-card-name">Nombre del docente</h4>
+          <p class="eq-card-role">Especialidad / Programa</p>
+        </div>
+      </article>
+
+      <article class="eq-card">
+        <div class="eq-card-photo">
+          <div class="eq-doc-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          </div>
+        </div>
+        <div class="eq-card-body">
+          <span class="eq-card-badge">Docente</span>
+          <h4 class="eq-card-name">Nombre del docente</h4>
+          <p class="eq-card-role">Especialidad / Programa</p>
+        </div>
+      </article>
+
+      <article class="eq-card">
+        <div class="eq-card-photo">
+          <div class="eq-doc-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          </div>
+        </div>
+        <div class="eq-card-body">
+          <span class="eq-card-badge">Docente</span>
+          <h4 class="eq-card-name">Nombre del docente</h4>
+          <p class="eq-card-role">Especialidad / Programa</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="eq-doc-note">Próximamente · Estamos preparando los perfiles de nuestros docentes recurrentes</p>
+  </div>
+</section>
+
+<!-- ================== CTA ================== -->
+<section class="eq-cta">
+  <div class="eq-container">
+    <h2>Sumérgete en la experiencia ESIC</h2>
+    <p>Conoce de cerca a nuestro equipo, nuestros programas y todo lo que hacemos para transformar tu futuro profesional.</p>
+    <div class="eq-cta-actions">
+      <a href="/programas/" class="eq-btn eq-btn-ghost">Ver programas</a>
+      <a href="#contacto" class="eq-btn eq-btn-blue" style="background: var(--eq-white) !important; color: var(--eq-blue) !important;">Hablemos</a>
+    </div>
+  </div>
+</section>
+
+</div>
