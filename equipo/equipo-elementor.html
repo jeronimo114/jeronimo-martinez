@@ -94,6 +94,32 @@
   margin-top: 1.6rem; max-width: 56ch; font-size: 1.05rem; color: rgba(255,255,255,0.85);
 }
 
+/* --- Banner placeholder (showcase area sobre el hero actual) --- */
+.esic-equipo .eq-banner-slot {
+  position: relative; z-index: 2;
+  width: min(1180px, 92%); margin: 2.4rem auto 0;
+  aspect-ratio: 16/4;
+  border: 2px dashed rgba(10,228,195,0.55);
+  border-radius: 18px;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 14px, transparent 14px 28px),
+    rgba(0,19,63,0.35);
+  backdrop-filter: blur(2px);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 1.4rem;
+}
+.esic-equipo .eq-banner-slot-label {
+  font-family: var(--display-font); font-weight: 800;
+  font-size: clamp(1.4rem, 3.4vw, 2.4rem);
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--eq-white); line-height: 1;
+}
+.esic-equipo .eq-banner-slot-sub {
+  margin-top: 0.7rem;
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: rgba(10,228,195,0.85);
+}
+
 /* ================================================ */
 /* --- INTRO --- */
 .esic-equipo .eq-intro {
@@ -295,6 +321,14 @@
     <span class="eq-hero-tag">Personas detrás de ESIC</span>
     <h1>Conoce a nuestro<span class="accent">equipo ESIC Medellín</span></h1>
     <p class="eq-hero-sub">Un equipo multidisciplinario de profesionales dedicado a potenciar el talento de nuestros estudiantes y prepararlos para enfrentar los desafíos del mundo real.</p>
+
+    <!-- Banner placeholder: zona reservada sobre el hero actual para futuro banner personalizado -->
+    <div class="eq-banner-slot" role="img" aria-label="Espacio reservado para banner">
+      <div>
+        <div class="eq-banner-slot-label">(Espacio de banner)</div>
+        <div class="eq-banner-slot-sub">Área disponible para banner personalizado</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -445,6 +479,46 @@
           <div class="eq-card-body">
             <h4 class="eq-card-name">Jerónimo Martínez</h4>
             <p class="eq-card-role">UI/UX</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- FÁBRICA DE INTELIGENCIA ARTIFICIAL -->
+    <div class="eq-area eq-area-fai">
+      <div class="eq-area-head">
+        <h3 class="eq-area-title">Fábrica de Inteligencia Artificial</h3>
+        <span class="eq-area-count">03 integrantes · FAI</span>
+      </div>
+      <div class="eq-grid">
+        <article class="eq-card is-featured">
+          <div class="eq-card-photo">
+            <div class="eq-doc-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+            </div>
+          </div>
+          <div class="eq-card-body">
+            <span class="eq-card-badge">Líder FAI</span>
+            <h4 class="eq-card-name">Jonathan Lozano</h4>
+            <p class="eq-card-role">Líder Fábrica de Inteligencia Artificial</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo">
+            <div class="eq-doc-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+            </div>
+          </div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Samuel</h4>
+            <p class="eq-card-role">Fábrica de Inteligencia Artificial</p>
+          </div>
+        </article>
+        <article class="eq-card">
+          <div class="eq-card-photo"><img src="https://esic.co/wp-content/uploads/2025/09/Diseno-sin-titulo-37-796x1024.png" alt="Jerónimo Martínez" loading="lazy" /></div>
+          <div class="eq-card-body">
+            <h4 class="eq-card-name">Jerónimo Martínez</h4>
+            <p class="eq-card-role">UI/UX · Fábrica de IA</p>
           </div>
         </article>
       </div>
