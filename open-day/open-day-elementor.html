@@ -178,6 +178,13 @@
 }
 .esic-open-day .eod-agenda-speaker {
   font-size: 0.95rem; color: var(--text-muted);
+  line-height: 1.55;
+}
+.esic-open-day .eod-agenda-speaker strong {
+  font-weight: 700; color: var(--brand-blue-dark);
+}
+.esic-open-day .eod-agenda-role {
+  color: var(--text-light); font-size: 0.88rem;
 }
 
 .esic-open-day .eod-agenda-note {
@@ -383,32 +390,45 @@
         <li class="eod-agenda-item">
           <span class="eod-agenda-time">9:00 &mdash; 9:30 a.m.</span>
           <h4 class="eod-agenda-title">Bienvenida y presentaci&oacute;n ESIC</h4>
-          <p class="eod-agenda-speaker">Yurani S&aacute;nchez y Juan Esteban Jaramillo</p>
+          <p class="eod-agenda-speaker">
+            <strong>Yurani S&aacute;nchez</strong> <span class="eod-agenda-role">&middot; Directora Acad&eacute;mica Pregrados</span><br>
+            <strong>Juan Esteban Jaramillo</strong> <span class="eod-agenda-role">&middot; Presidente (CEO)</span>
+          </p>
         </li>
         <li class="eod-agenda-item">
           <span class="eod-agenda-time">9:30 &mdash; 10:30 a.m.</span>
           <h4 class="eod-agenda-title">Panel de emprendimiento y profesiones</h4>
-          <p class="eod-agenda-speaker">Sebasti&aacute;n Chinkovsky</p>
+          <p class="eod-agenda-speaker">
+            <strong>Sebasti&aacute;n Chinkovsky</strong> <span class="eod-agenda-role">&middot; [CARGO PENDIENTE]</span>
+          </p>
         </li>
         <li class="eod-agenda-item">
           <span class="eod-agenda-time">10:30 &mdash; 11:00 a.m.</span>
           <h4 class="eod-agenda-title">Innovaci&oacute;n Abierta</h4>
-          <p class="eod-agenda-speaker">Juan Sebasti&aacute;n Rodr&iacute;guez</p>
+          <p class="eod-agenda-speaker">
+            <strong>Juan Sebasti&aacute;n Rodr&iacute;guez</strong> <span class="eod-agenda-role">&middot; [CARGO PENDIENTE]</span>
+          </p>
         </li>
         <li class="eod-agenda-item">
           <span class="eod-agenda-time">11:00 &mdash; 11:45 a.m.</span>
           <h4 class="eod-agenda-title">Reto para la Gen Z</h4>
-          <p class="eod-agenda-speaker">Jer&oacute;nimo Mart&iacute;nez</p>
+          <p class="eod-agenda-speaker">
+            <strong>Jer&oacute;nimo Mart&iacute;nez</strong> <span class="eod-agenda-role">&middot; UI/UX</span>
+          </p>
         </li>
         <li class="eod-agenda-item">
           <span class="eod-agenda-time">11:45 &mdash; 11:50 a.m.</span>
           <h4 class="eod-agenda-title">Premiaci&oacute;n Beca</h4>
-          <p class="eod-agenda-speaker">Yurani S&aacute;nchez</p>
+          <p class="eod-agenda-speaker">
+            <strong>Yurani S&aacute;nchez</strong> <span class="eod-agenda-role">&middot; Directora Acad&eacute;mica Pregrados</span>
+          </p>
         </li>
         <li class="eod-agenda-item">
           <span class="eod-agenda-time">11:50 &mdash; 12:00 m.</span>
           <h4 class="eod-agenda-title">Visita guiada</h4>
-          <p class="eod-agenda-speaker">Tatiana Serna</p>
+          <p class="eod-agenda-speaker">
+            <strong>Tatiana Serna</strong> <span class="eod-agenda-role">&middot; Analista Pregrados</span>
+          </p>
         </li>
       </ul>
 
@@ -428,12 +448,20 @@
       </div>
 
       <div class="eod-form-wrap">
-        <!-- Zoho Forms - Open Day 2026. Validacion HTML5 (sin scripts inline). -->
+        <!-- Zoho Forms - Open Day 2026. Validacion HTML5 + UTM tracking inline. -->
         <div id="crmWebToEntityForm" class="zcwf_lblLeft crmWebToEntityForm">
           <form id="form" name="form" action="https://forms.zohopublic.com/esicmedellin/form/OpenDay2026/formperma/MkOHCYJwdvvXfy3SeKq2wYpUVCkLg5ej3WR-W_22NjI/htmlRecords/submit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+            <!-- Hidden tracking / referrer -->
             <input type="hidden" name="zf_referrer_name" value="Open Day Mayo 2026">
             <input type="hidden" name="zf_redirect_url" value="https://esic.co/confirmacion-open-day/">
             <input type="hidden" name="zc_gad" value="">
+            <input type="hidden" name="utm_source" value="">
+            <input type="hidden" name="utm_medium" value="">
+            <input type="hidden" name="utm_campaign" value="">
+            <input type="hidden" name="utm_term" value="">
+            <input type="hidden" name="utm_content" value="">
+            <input type="hidden" name="SingleLine8" value="Open Day Mayo 2026">
+            <input type="hidden" name="SingleLine9" value="Formulario Open Day">
 
             <div class="zcwf_row">
               <div class="zcwf_col_lab">
@@ -455,15 +483,6 @@
 
             <div class="zcwf_row">
               <div class="zcwf_col_lab">
-                <label for="zf-email">Correo electr&oacute;nico <span>*</span></label>
-              </div>
-              <div class="zcwf_col_fld">
-                <input type="email" id="zf-email" name="Email" maxlength="255" autocomplete="email" required>
-              </div>
-            </div>
-
-            <div class="zcwf_row">
-              <div class="zcwf_col_lab">
                 <label for="zf-documento">N&uacute;mero de identificaci&oacute;n <span>*</span></label>
               </div>
               <div class="zcwf_col_fld">
@@ -473,34 +492,71 @@
 
             <div class="zcwf_row">
               <div class="zcwf_col_lab">
-                <label for="zf-telefono">Tel&eacute;fono</label>
+                <label for="zf-email">Correo electr&oacute;nico <span>*</span></label>
               </div>
               <div class="zcwf_col_fld">
-                <input type="tel" id="zf-telefono" name="PhoneNumber1_countrycode" maxlength="20" inputmode="tel" autocomplete="tel">
+                <input type="email" id="zf-email" name="Email" maxlength="255" autocomplete="email" required>
               </div>
             </div>
 
             <div class="zcwf_row">
               <div class="zcwf_col_lab">
-                <label for="zf-colegio">Colegio</label>
+                <label for="zf-telefono">Tel&eacute;fono <span>*</span></label>
               </div>
               <div class="zcwf_col_fld">
-                <input type="text" id="zf-colegio" name="SingleLine3" maxlength="255">
+                <input type="tel" id="zf-telefono" name="PhoneNumber1_countrycode" maxlength="20" inputmode="tel" autocomplete="tel" required>
               </div>
             </div>
 
             <div class="zcwf_row">
               <div class="zcwf_col_lab">
-                <label for="zf-periodo">Per&iacute;odo de inter&eacute;s</label>
+                <label for="zf-programa">&iquest;Programa del que deseas recibir informaci&oacute;n? <span>*</span></label>
               </div>
               <div class="zcwf_col_fld">
-                <select id="zf-periodo" name="Dropdown1">
-                  <option selected value="-Select-">-Selecciona-</option>
+                <select id="zf-programa" name="Dropdown2" required>
+                  <option value="-Select-">-Selecciona-</option>
+                  <option value="Direcci&oacute;n de Marketing Global">Direcci&oacute;n de Marketing Global</option>
+                  <option value="Digital Business">Digital Business</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="zcwf_row">
+              <div class="zcwf_col_lab">
+                <label for="zf-periodo">Per&iacute;odo de inter&eacute;s <span>*</span></label>
+              </div>
+              <div class="zcwf_col_fld">
+                <select id="zf-periodo" name="Dropdown1" required>
+                  <option value="-Select-">-Selecciona-</option>
                   <option value="2026-2">2026-2</option>
                   <option value="2027-1">2027-1</option>
                   <option value="2027-2">2027-2</option>
                   <option value="2028-1">2028-1</option>
                 </select>
+              </div>
+            </div>
+
+            <div class="zcwf_row">
+              <div class="zcwf_col_lab">
+                <label for="zf-grado">&iquest;Qu&eacute; grado est&aacute;s cursando? <span>*</span></label>
+              </div>
+              <div class="zcwf_col_fld">
+                <select id="zf-grado" name="Dropdown3" required>
+                  <option value="-Select-">-Selecciona-</option>
+                  <option value="D&eacute;cimo">D&eacute;cimo</option>
+                  <option value="Once">Once</option>
+                  <option value="Doce">Doce</option>
+                  <option value="Graduado">Graduado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="zcwf_row">
+              <div class="zcwf_col_lab">
+                <label for="zf-colegio">Colegio <span>*</span></label>
+              </div>
+              <div class="zcwf_col_fld">
+                <input type="text" id="zf-colegio" name="SingleLine3" maxlength="255" required>
               </div>
             </div>
 
@@ -511,11 +567,124 @@
               </label>
             </div>
 
+            <div class="zcwf_row eod-row-full">
+              <label class="eod-form-policy">
+                <input type="checkbox" id="DecisionBox" name="DecisionBox" value="-Yes-" required>
+                <span>Deseo mantenerme informado a trav&eacute;s de email y tel&eacute;fono sobre novedades formativas, por ESIC Business &amp; Marketing School Campus Medell&iacute;n. <span style="color:#E11D48;">*</span></span>
+              </label>
+            </div>
+
             <div class="eod-form-submit-row">
               <button type="submit" class="formsubmit zcwf_button">Confirmar inscripci&oacute;n</button>
             </div>
           </form>
         </div>
+
+        <!-- UTM tracking de Zoho: captura utm_* del URL/cookies y los inyecta en el form al cargar. -->
+        <script type="text/javascript">
+        function ZFLead(){}
+        ZFLead.utmPValObj = ZFLead.utmPValObj || {};
+        ZFLead.utmPNameArr = new Array('utm_source','utm_medium','utm_campaign','utm_term','utm_content');
+        ZFLead.prototype.zfutm_getLeadVal = function(pName){
+          var qStr = '';
+          try { qStr = window.top.location.search.substring(1); } catch (e) { qStr = ''; }
+          var pNameTemp = pName + '=';
+          var pValue = '';
+          if (typeof qStr !== "undefined" && qStr !== null && qStr.length > 0){
+            var begin = qStr.indexOf(pNameTemp);
+            if (begin != -1){
+              begin = begin + pNameTemp.length;
+              end = qStr.indexOf('&', begin);
+              if (end == -1){ end = qStr.length; }
+              pValue = decodeURIComponent(qStr.substring(begin, end));
+            }
+          }
+          if (pValue == undefined || pValue == ''){ pValue = this.zfutm_gC(pName); }
+          return pValue;
+        };
+        ZFLead.prototype.zfutm_sC = function(paramName, path, domain, secure){
+          var value = ZFLead.utmPValObj[paramName];
+          if (typeof value !== "undefined" && value !== null){
+            var cookieStr = paramName + "=" + encodeURIComponent(value);
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + 7);
+            cookieStr += "; expires=" + exdate.toGMTString();
+            cookieStr += "; path=/";
+            if (domain){ cookieStr += "; domain=" + encodeURIComponent(domain); }
+            if (secure){ cookieStr += "; secure"; }
+            document.cookie = cookieStr;
+          }
+        };
+        ZFLead.prototype.zfutm_ini = function(){
+          for (var i = 0; i < ZFLead.utmPNameArr.length; i++){
+            var zf_pN = ZFLead.utmPNameArr[i];
+            var zf_pV = this.zfutm_getLeadVal(zf_pN);
+            if (typeof zf_pV !== "undefined" && zf_pV !== null){ ZFLead.utmPValObj[zf_pN] = zf_pV; }
+          }
+          for (var pkey in ZFLead.utmPValObj){ this.zfutm_sC(pkey); }
+        };
+        ZFLead.prototype.zfutm_gC = function(cookieName){
+          var cookieArr = document.cookie.split('; ');
+          for (var i = 0; i < cookieArr.length; i++){
+            var cookieVals = cookieArr[i].split('=');
+            if (cookieVals[0] === cookieName && cookieVals[1]){ return decodeURIComponent(cookieVals[1]); }
+          }
+        };
+        ZFLead.prototype.zfutm_gC_enc = function(cookieName){
+          var cookieArr = document.cookie.split('; ');
+          for (var i = 0; i < cookieArr.length; i++){
+            var cookieVals = cookieArr[i].split('=');
+            if (cookieVals[0] === cookieName && cookieVals[1]){ return cookieVals[1]; }
+          }
+        };
+        ZFLead.prototype.zfutm_iframeSprt = function(){
+          var zf_frame = document.getElementsByTagName("iframe");
+          for (var i = 0; i < zf_frame.length; ++i){
+            if ((zf_frame[i].src).indexOf('formperma') > 0){
+              var zf_src = zf_frame[i].src;
+              for (var prmIdx = 0; prmIdx < ZFLead.utmPNameArr.length; prmIdx++){
+                var utmPm = ZFLead.utmPNameArr[prmIdx];
+                var utmPmregex = new RegExp("[?&]" + utmPm + "=");
+                if (!utmPmregex.test(zf_src)){
+                  var utmVal = this.zfutm_gC_enc(ZFLead.utmPNameArr[prmIdx]);
+                  if (typeof utmVal !== "undefined"){
+                    if (zf_src.indexOf('?') > 0){ zf_src = zf_src + '&' + utmPm + '=' + utmVal; }
+                    else { zf_src = zf_src + '?' + utmPm + '=' + utmVal; }
+                  }
+                }
+              }
+              if (zf_frame[i].src.length < zf_src.length){ zf_frame[i].src = zf_src; }
+            }
+          }
+        };
+        ZFLead.prototype.zfutm_DHtmlSprt = function(){
+          var zf_formsArr = document.forms;
+          for (var frmInd = 0; frmInd < zf_formsArr.length; frmInd++){
+            var zf_form_act = zf_formsArr[frmInd].action;
+            if (zf_form_act && zf_form_act.indexOf('formperma') > 0){
+              for (var prmIdx = 0; prmIdx < ZFLead.utmPNameArr.length; prmIdx++){
+                var utmPm = ZFLead.utmPNameArr[prmIdx];
+                var utmVal = this.zfutm_gC(ZFLead.utmPNameArr[prmIdx]);
+                if (typeof utmVal !== "undefined"){
+                  var fieldObj = zf_formsArr[frmInd][utmPm];
+                  if (fieldObj){ fieldObj.value = utmVal; }
+                }
+              }
+            }
+          }
+        };
+        var zfutm_zfLead = new ZFLead();
+        zfutm_zfLead.zfutm_ini();
+        if (document.readyState == "complete"){
+          zfutm_zfLead.zfutm_iframeSprt();
+          zfutm_zfLead.zfutm_DHtmlSprt();
+        } else {
+          window.addEventListener('load', function(){
+            zfutm_zfLead.zfutm_iframeSprt();
+            zfutm_zfLead.zfutm_DHtmlSprt();
+          }, false);
+        }
+        </script>
       </div>
     </div>
   </section>
