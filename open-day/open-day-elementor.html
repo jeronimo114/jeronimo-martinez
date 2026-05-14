@@ -1,0 +1,631 @@
+<div class="esic-open-day">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-open-day {
+  --brand-blue:      #0047E9;
+  --brand-blue-dark: #00133F;
+  --brand-orange:    #FF8701;
+  --brand-orange-dark: #E67700;
+  --bg:              #F8F6F2;
+  --surface:         #FFFFFF;
+  --text:            #0B132B;
+  --text-muted:      #5F6B7A;
+  --text-light:      #97A2B1;
+  --border:          rgba(0,19,63,0.12);
+  --display-font:    "Sofia Sans Extra Condensed", sans-serif;
+  --body-font:       "DM Sans", sans-serif;
+  font-family: var(--body-font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+.esic-open-day *, .esic-open-day *::before, .esic-open-day *::after { box-sizing: border-box; }
+.esic-open-day h1, .esic-open-day h2, .esic-open-day h3, .esic-open-day h4, .esic-open-day h5 {
+  font-family: var(--display-font); font-weight: 800; margin: 0; line-height: 1;
+}
+.esic-open-day p { margin: 0; }
+.esic-open-day ul, .esic-open-day ol { margin: 0; padding: 0; list-style: none; }
+.esic-open-day a { color: inherit; text-decoration: none; }
+.esic-open-day img { max-width: 100%; display: block; height: auto; }
+.esic-open-day button { font-family: inherit; cursor: pointer; }
+
+.esic-open-day .eod-container { width: min(1100px, 92%); margin: 0 auto; }
+
+/* Buttons */
+.esic-open-day .eod-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  padding: 1.1rem 2.4rem; border-radius: 999px;
+  font-family: var(--body-font); font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  border: 2px solid transparent; transition: all 0.25s ease; cursor: pointer; line-height: 1;
+}
+.esic-open-day a.eod-btn-orange { background: var(--brand-orange); color: #FFFFFF !important; border-color: var(--brand-orange); }
+.esic-open-day a.eod-btn-orange:hover { background: var(--brand-orange-dark) !important; border-color: var(--brand-orange-dark) !important; color: #FFFFFF !important; transform: translateY(-2px); }
+.esic-open-day .eod-btn svg { width: 18px; height: 18px; }
+
+/* Section overlap */
+.esic-open-day .eod-hero { display: block; line-height: 0; position: relative; z-index: 1; }
+.esic-open-day .eod-hero img { width: 100%; height: auto; display: block; }
+
+.esic-open-day .eod-section {
+  position: relative;
+  padding: 5rem 0;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+}
+.esic-open-day .eod-section-cream { background: var(--bg); z-index: 2; }
+.esic-open-day .eod-section-white { background: #FFFFFF; z-index: 3; }
+.esic-open-day .eod-section-blue  { background: var(--brand-blue-dark); color: #FFFFFF; z-index: 4; }
+
+/* Section heads */
+.esic-open-day .eod-eyebrow {
+  display: inline-block;
+  font-family: var(--body-font); font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--brand-orange); margin-bottom: 0.9rem;
+}
+.esic-open-day .eod-section-title {
+  font-family: var(--display-font);
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  font-weight: 800; text-transform: uppercase;
+  color: var(--brand-blue-dark);
+  margin-bottom: 0.8rem;
+}
+.esic-open-day .eod-section-blue .eod-section-title { color: #FFFFFF; }
+.esic-open-day .eod-section-sub {
+  font-size: 1.05rem; color: var(--text-muted);
+  max-width: 640px; line-height: 1.6;
+}
+.esic-open-day .eod-section-blue .eod-section-sub { color: rgba(255,255,255,0.78); }
+
+/* ── INFO (cuándo y dónde) ── */
+.esic-open-day .eod-info-head {
+  text-align: center; margin-bottom: 3rem;
+}
+.esic-open-day .eod-info-head .eod-section-sub { margin: 0 auto; }
+
+.esic-open-day .eod-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+.esic-open-day .eod-info-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 2rem 1.6rem;
+  text-align: left;
+  transition: all 0.25s ease;
+}
+.esic-open-day .eod-info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,19,63,0.08);
+  border-color: rgba(255,135,1,0.35);
+}
+.esic-open-day .eod-info-icon {
+  width: 46px; height: 46px; border-radius: 12px;
+  background: rgba(255,135,1,0.12);
+  display: grid; place-items: center;
+  margin-bottom: 1.1rem; color: var(--brand-orange);
+}
+.esic-open-day .eod-info-icon svg { width: 22px; height: 22px; }
+.esic-open-day .eod-info-label {
+  font-family: var(--body-font); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-light); margin-bottom: 0.4rem;
+}
+.esic-open-day .eod-info-value {
+  font-family: var(--display-font); font-size: 1.55rem; font-weight: 700;
+  line-height: 1.1; color: var(--brand-blue-dark);
+  text-transform: uppercase; letter-spacing: 0.01em;
+  margin-bottom: 0.35rem;
+}
+.esic-open-day .eod-info-extra {
+  font-size: 0.92rem; color: var(--text-muted); line-height: 1.5;
+}
+
+.esic-open-day .eod-info-cta {
+  text-align: center;
+}
+
+/* ── AGENDA ── */
+.esic-open-day .eod-agenda-head {
+  text-align: center; margin-bottom: 3rem;
+}
+.esic-open-day .eod-agenda-head .eod-section-sub { margin: 0 auto; }
+
+.esic-open-day .eod-agenda-list {
+  display: flex; flex-direction: column;
+  border-left: 2px solid rgba(255,135,1,0.22);
+  padding-left: 2rem;
+  margin-left: 0.5rem;
+}
+.esic-open-day .eod-agenda-item {
+  position: relative;
+  padding: 1.15rem 0 1.15rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.esic-open-day .eod-agenda-item:last-child { border-bottom: none; }
+.esic-open-day .eod-agenda-item::before {
+  content: "";
+  position: absolute;
+  left: -2.55rem; top: 1.65rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--brand-orange);
+  box-shadow: 0 0 0 4px rgba(255,135,1,0.18);
+}
+.esic-open-day .eod-agenda-time {
+  font-family: var(--display-font);
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--brand-orange);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.esic-open-day .eod-agenda-title {
+  font-family: var(--display-font);
+  font-size: 1.5rem; font-weight: 800;
+  color: var(--brand-blue-dark);
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 0.3rem;
+}
+.esic-open-day .eod-agenda-speaker {
+  font-size: 0.95rem; color: var(--text-muted);
+}
+
+.esic-open-day .eod-agenda-note {
+  margin-top: 2.5rem;
+  padding: 1.4rem 1.6rem;
+  background: rgba(0,71,233,0.06);
+  border-left: 3px solid var(--brand-blue);
+  border-radius: 12px;
+  font-size: 0.98rem; line-height: 1.6;
+  color: var(--text);
+}
+
+/* ── FORM ── */
+.esic-open-day .eod-form-head {
+  text-align: center; margin-bottom: 2.8rem;
+}
+.esic-open-day .eod-form-head .eod-section-sub { margin: 0 auto; }
+
+.esic-open-day .eod-form-wrap {
+  max-width: 760px; margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 22px;
+  padding: 2.6rem 2.4rem;
+  box-shadow: 0 10px 40px rgba(0,19,63,0.06);
+  border: 1px solid var(--border);
+}
+
+/* Zoho web-to-lead overrides — preservamos los IDs y names exactos */
+.esic-open-day #crmWebToEntityForm {
+  background: transparent !important;
+  padding: 0;
+  font-family: var(--body-font);
+  color: var(--text);
+  max-width: 100%;
+}
+.esic-open-day #crmWebToEntityForm .zcwf_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 1.4rem;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+.esic-open-day #crmWebToEntityForm .zcwf_row.eod-row-full {
+  grid-template-columns: 1fr;
+}
+.esic-open-day #crmWebToEntityForm .zcwf_col_lab {
+  font-family: var(--body-font) !important;
+  font-size: 0.92rem !important;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+.esic-open-day #crmWebToEntityForm .zcwf_col_lab span { color: #E11D48; margin-left: 2px; }
+.esic-open-day #crmWebToEntityForm .zcwf_col_fld { display: block; }
+.esic-open-day #crmWebToEntityForm input[type="text"],
+.esic-open-day #crmWebToEntityForm input[type="email"],
+.esic-open-day #crmWebToEntityForm input[type="tel"],
+.esic-open-day #crmWebToEntityForm select {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 10px;
+  font-family: var(--body-font);
+  font-size: 0.97rem;
+  background: #FFFFFF;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.esic-open-day #crmWebToEntityForm input:focus,
+.esic-open-day #crmWebToEntityForm select:focus {
+  outline: none;
+  border-color: var(--brand-orange);
+  box-shadow: 0 0 0 3px rgba(255,135,1,0.18);
+}
+
+.esic-open-day .eod-form-policy {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.4rem 0 0.2rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.esic-open-day .eod-form-policy input[type="checkbox"] {
+  width: 18px; height: 18px;
+  margin-top: 3px;
+  accent-color: var(--brand-orange);
+  flex-shrink: 0;
+}
+.esic-open-day .eod-form-policy a {
+  color: var(--brand-blue);
+  text-decoration: underline;
+  font-weight: 600;
+}
+.esic-open-day .eod-form-policy a:hover { color: var(--brand-orange); }
+
+.esic-open-day #crmWebToEntityForm .formsubmit.zcwf_button {
+  background: var(--brand-orange);
+  color: #FFFFFF !important;
+  border: none;
+  border-radius: 999px;
+  padding: 1.05rem 2.4rem;
+  font-family: var(--body-font);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.esic-open-day #crmWebToEntityForm .formsubmit.zcwf_button:hover {
+  background: var(--brand-orange-dark);
+  transform: translateY(-2px);
+}
+.esic-open-day .eod-form-submit-row {
+  display: flex; justify-content: center;
+  margin-top: 1.6rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .esic-open-day .eod-info-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .esic-open-day .eod-section { padding: 4rem 0; border-radius: 40px 40px 0 0; margin-top: -40px; }
+  .esic-open-day .eod-form-wrap { padding: 2rem 1.4rem; border-radius: 18px; }
+  .esic-open-day #crmWebToEntityForm .zcwf_row { grid-template-columns: 1fr; }
+  .esic-open-day .eod-agenda-list { padding-left: 1.5rem; }
+  .esic-open-day .eod-agenda-item::before { left: -2.05rem; }
+  .esic-open-day .eod-agenda-title { font-size: 1.3rem; }
+}
+</style>
+
+<main>
+  <!-- ── HERO ── -->
+  <section class="eod-hero">
+    <picture>
+      <source media="(max-width: 767px)" srcset="https://esic.co/wp-content/uploads/2026/05/open-day-banner-mobile-scaled.webp">
+      <img src="https://esic.co/wp-content/uploads/2026/05/open-day-banner-desktop-scaled.webp" alt="Vive el Open Day - ESIC Medellín">
+    </picture>
+  </section>
+
+  <!-- ── CUÁNDO Y DÓNDE ── -->
+  <section class="eod-section eod-section-cream">
+    <div class="eod-container">
+      <div class="eod-info-head">
+        <span class="eod-eyebrow">Sábado 30 de mayo de 2026</span>
+        <h2 class="eod-section-title">Una mañana para vivir ESIC</h2>
+        <p class="eod-section-sub">Explora carreras, conecta con estudiantes y descubre cómo se ve el futuro cuando empiezas a construirlo hoy.</p>
+      </div>
+
+      <div class="eod-info-grid">
+        <div class="eod-info-card">
+          <div class="eod-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="eod-info-label">Fecha</div>
+          <div class="eod-info-value">Sábado 30 de mayo</div>
+          <div class="eod-info-extra">2026</div>
+        </div>
+        <div class="eod-info-card">
+          <div class="eod-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="eod-info-label">Hora</div>
+          <div class="eod-info-value">9:00 a.m. – 12:00 m.</div>
+          <div class="eod-info-extra">Bienvenida puntual</div>
+        </div>
+        <div class="eod-info-card">
+          <div class="eod-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="eod-info-label">Lugar</div>
+          <div class="eod-info-value">Campus ESIC Medellín</div>
+          <div class="eod-info-extra">Km 17 Vía Las Palmas — Mall La Reserva</div>
+        </div>
+      </div>
+
+      <div class="eod-info-cta">
+        <a href="#eod-formulario" class="eod-btn eod-btn-orange">
+          Inscríbete ahora
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AGENDA DEL DÍA ── -->
+  <section class="eod-section eod-section-white" id="eod-agenda">
+    <div class="eod-container">
+      <div class="eod-agenda-head">
+        <span class="eod-eyebrow">Agenda del día</span>
+        <h2 class="eod-section-title">Lo que vas a vivir</h2>
+        <p class="eod-section-sub">Tres horas pensadas para que conozcas el campus, los programas y la forma en que ESIC prepara a la próxima generación de líderes.</p>
+      </div>
+
+      <ul class="eod-agenda-list">
+        <li class="eod-agenda-item">
+          <span class="eod-agenda-time">9:00 — 9:30 a.m.</span>
+          <h4 class="eod-agenda-title">Bienvenida y presentación ESIC</h4>
+          <p class="eod-agenda-speaker">Yurani Sánchez y Juan Esteban Jaramillo</p>
+        </li>
+        <li class="eod-agenda-item">
+          <span class="eod-agenda-time">9:30 — 10:30 a.m.</span>
+          <h4 class="eod-agenda-title">Panel de emprendimiento y profesiones</h4>
+          <p class="eod-agenda-speaker">Sebastián Chinkovsky</p>
+        </li>
+        <li class="eod-agenda-item">
+          <span class="eod-agenda-time">10:30 — 11:00 a.m.</span>
+          <h4 class="eod-agenda-title">Innovación Abierta</h4>
+          <p class="eod-agenda-speaker">Juan Sebastián Rodríguez</p>
+        </li>
+        <li class="eod-agenda-item">
+          <span class="eod-agenda-time">11:00 — 11:45 a.m.</span>
+          <h4 class="eod-agenda-title">Reto para la Gen Z</h4>
+          <p class="eod-agenda-speaker">Jerónimo Martínez</p>
+        </li>
+        <li class="eod-agenda-item">
+          <span class="eod-agenda-time">11:45 — 11:50 a.m.</span>
+          <h4 class="eod-agenda-title">Premiación Beca</h4>
+          <p class="eod-agenda-speaker">Yurani Sánchez</p>
+        </li>
+        <li class="eod-agenda-item">
+          <span class="eod-agenda-time">11:50 — 12:00 m.</span>
+          <h4 class="eod-agenda-title">Visita guiada</h4>
+          <p class="eod-agenda-speaker">Tatiana Serna</p>
+        </li>
+      </ul>
+
+      <p class="eod-agenda-note">
+        En paralelo, contaremos con estudiantes de ambas carreras disponibles para resolver dudas y brindar asesoría sobre las diferencias entre las dos profesiones.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FORMULARIO ── -->
+  <section class="eod-section eod-section-cream" id="eod-formulario">
+    <div class="eod-container">
+      <div class="eod-form-head">
+        <span class="eod-eyebrow">Reserva tu lugar</span>
+        <h2 class="eod-section-title">Inscríbete al Open Day</h2>
+        <p class="eod-section-sub">Cupos limitados. Te confirmaremos tu participación por correo y WhatsApp.</p>
+      </div>
+
+      <div class="eod-form-wrap">
+        <!-- Note :
+           - You can modify the font style and form style to suit your website.
+           - Code lines with comments Do not remove this code are required for the form to work properly, make sure that you do not remove these lines of code.
+           - The Mandatory check script can modified as to suit your business needs.
+           - It is important that you test the modified form before going live.-->
+        <div id="crmWebToEntityForm" class="zcwf_lblLeft crmWebToEntityForm">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=UTF-8">
+          <form id="webform5728323000042917141" action="https://crm.zoho.com/crm/WebToLeadForm" name="WebToLeads5728323000042917141" method="POST" onSubmit='javascript:document.charset="UTF-8"; return checkMandatory5728323000042917141()' accept-charset="UTF-8">
+            <input type="text" style="display:none;" name="xnQsjsdp" value="ef2134545f11e99f50c823db9d5655235003dc2010bb01a3658785298bcbd3e5">
+            <input type="hidden" name="zc_gad" id="zc_gad" value="">
+            <input type="text" style="display:none;" name="xmIwtLD" value="998b7c823c371988c7c9677d84f0e55048eed05af86422ba901e489759651b579961692338015d1b3715980c06b80b51">
+            <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
+            <input type="text" style="display:none;" name="returnURL" value="https&#x3a;&#x2f;&#x2f;esic.co&#x2f;confirmacion-open-day&#x2f;">
+
+            <!-- Hidden identificador de campaña — informe Open Day Mayo 2026 -->
+            <input type="hidden" name="LEADCF10" value="Open Day Mayo 2026">
+
+            <div class="zcwf_row">
+              <div class="zcwf_col_lab">
+                <label for="First_Name">Nombre</label>
+              </div>
+              <div class="zcwf_col_fld">
+                <input type="text" id="First_Name" aria-required="false" aria-label="First Name" name="First Name" aria-valuemax="40" maxlength="40">
+              </div>
+            </div>
+
+            <div class="zcwf_row">
+              <div class="zcwf_col_lab">
+                <label for="Last_Name">Apellidos <span>*</span></label>
+              </div>
+              <div class="zcwf_col_fld">
+                <input type="text" id="Last_Name" aria-required="true" aria-label="Last Name" name="Last Name" aria-valuemax="80" maxlength="80" required>
+              </div>
+            </div>
+
+            <div class="zcwf_row">
+              <div class="zcwf_col_lab">
+                <label for="Email">Correo electrónico <span>*</span></label>
+              </div>
+              <div class="zcwf_col_fld">
+                <input type="text" ftype="email" autocomplete="false" id="Email" aria-required="true" aria-label="Email" name="Email" aria-valuemax="100" crmlabel="" maxlength="100" required>
+              </div>
+            </div>
+
+            <!-- ⚠️ TODO ALEJA: reemplazar 'LEADCF_DOCUMENTO_PENDIENTE' por el API Name real del campo "Número de Identificación" desde Zoho CRM (Setup → Developer Space → API Names → módulo Leads). Si no se reemplaza, este dato NO llegará al CRM. -->
+            <div class="zcwf_row">
+              <div class="zcwf_col_lab">
+                <label for="LEADCF_DOCUMENTO_PENDIENTE">Número de identificación <span>*</span></label>
+              </div>
+              <div class="zcwf_col_fld">
+                <input type="text" id="LEADCF_DOCUMENTO_PENDIENTE" aria-required="true" aria-label="Número de identificación" name="LEADCF_DOCUMENTO_PENDIENTE" inputmode="numeric" pattern="[0-9]*" maxlength="20" required>
+              </div>
+            </div>
+
+            <div class="zcwf_row">
+              <div class="zcwf_col_lab">
+                <label for="LEADCF11">Colegio</label>
+              </div>
+              <div class="zcwf_col_fld">
+                <input type="text" id="LEADCF11" aria-required="false" aria-label="Colegio" name="LEADCF11" aria-valuemax="255" maxlength="255">
+              </div>
+            </div>
+
+            <div class="zcwf_row">
+              <div class="zcwf_col_lab">
+                <label for="Mobile">Móvil <span>*</span></label>
+              </div>
+              <div class="zcwf_col_fld">
+                <input type="text" id="Mobile" aria-required="true" aria-label="Mobile" name="Mobile" aria-valuemax="30" maxlength="30" required>
+              </div>
+            </div>
+
+            <div class="zcwf_row">
+              <div class="zcwf_col_lab">
+                <label for="LEADCF15">Período de interés</label>
+              </div>
+              <div class="zcwf_col_fld">
+                <select class="zcwf_col_fld_slt" role="combobox" aria-expanded="false" aria-haspopup="listbox" id="LEADCF15" onChange="addAriaSelected5728323000042917141()" aria-required="false" aria-label="LEADCF15" name="LEADCF15">
+                  <option value="-None-">-Selecciona-</option>
+                  <option value="2026-2">2026-2</option>
+                  <option value="2027-1">2027-1</option>
+                  <option value="2027-2">2027-2</option>
+                  <option value="2028-1">2028-1</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="zcwf_row eod-row-full">
+              <label class="eod-form-policy">
+                <input type="checkbox" id="eod-policy" name="eod-policy" required>
+                <span>Acepto la <a href="https://esic.co/politicas-de-privacidad/" target="_blank" rel="noopener">política de tratamiento de datos</a> de ESIC. <span style="color:#E11D48;">*</span></span>
+              </label>
+            </div>
+
+            <input type="text" type="hidden" style="display: none;" name="aG9uZXlwb3Q" value="">
+
+            <div class="eod-form-submit-row">
+              <input type="submit" id="formsubmit" role="button" class="formsubmit zcwf_button" value="Confirmar inscripción" aria-label="Confirmar inscripción" title="Confirmar inscripción">
+            </div>
+          </form>
+
+          <script>
+            function addAriaSelected5728323000042917141 (){
+              var optionElem = event.target;
+              var previousSelectedOption = optionElem.querySelector('[aria-selected=true]');
+              if(previousSelectedOption){ previousSelectedOption.removeAttribute('aria-selected'); }
+              optionElem.querySelectorAll('option')[optionElem.selectedIndex].ariaSelected = 'true';
+            }
+            function validateEmail5728323000042917141 (){
+              var form = document.forms['WebToLeads5728323000042917141'];
+              var emailFld = form.querySelectorAll('[ftype=email]');
+              var i;
+              for(i = 0; i < emailFld.length; i++){
+                var emailVal = emailFld[i].value;
+                if((emailVal.replace(/^\s+|\s+$/g,'')).length != 0){
+                  var atpos = emailVal.indexOf('@');
+                  var dotpos = emailVal.lastIndexOf('.');
+                  if(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length){
+                    alert('Introduzca una dirección de correo electrónico válida.');
+                    emailFld[i].focus();
+                    return false;
+                  }
+                }
+              }
+              return true;
+            }
+            function checkMandatory5728323000042917141 (){
+              var mndFileds = new Array('Last Name', 'Email', 'LEADCF_DOCUMENTO_PENDIENTE', 'Mobile');
+              var fldLangVal = new Array('Apellidos', 'Correo\x20electr\xF3nico', 'N\xFAmero\x20de\x20identificaci\xF3n', 'M\xF3vil');
+              for(i = 0; i < mndFileds.length; i++){
+                var fieldObj = document.forms['WebToLeads5728323000042917141'][mndFileds[i]];
+                if(fieldObj){
+                  if(((fieldObj.value).replace(/^\s+|\s+$/g,'')).length == 0){
+                    if(fieldObj.type == 'file'){
+                      alert('Seleccione un archivo para cargar.');
+                      fieldObj.focus();
+                      return false;
+                    }
+                    alert(fldLangVal[i] + ' no puede estar vacío.');
+                    fieldObj.focus();
+                    return false;
+                  }
+                  else if(fieldObj.nodeName == 'SELECT'){
+                    if(fieldObj.options[fieldObj.selectedIndex].value == '-None-'){
+                      alert(fldLangVal[i] + ' no puede ser nulo.');
+                      fieldObj.focus();
+                      return false;
+                    }
+                  }
+                  else if(fieldObj.type == 'checkbox'){
+                    if(fieldObj.checked == false){
+                      alert('Please accept ' + fldLangVal[i]);
+                      fieldObj.focus();
+                      return false;
+                    }
+                  }
+                  try { if(fieldObj.name == 'Last Name'){ name = fieldObj.value; } } catch(e){}
+                }
+              }
+              if(!validateEmail5728323000042917141()){ return false; }
+
+              // Validar checkbox de política de tratamiento de datos
+              var policyCk = document.getElementById('eod-policy');
+              if(policyCk && !policyCk.checked){
+                alert('Debes aceptar la política de tratamiento de datos para continuar.');
+                policyCk.focus();
+                return false;
+              }
+
+              var urlparams = new URLSearchParams(window.location.search);
+              if(urlparams.has('service') && (urlparams.get('service') === 'smarturl')){
+                var webform = document.getElementById('webform5728323000042917141');
+                var service = urlparams.get('service');
+                var smarturlfield = document.createElement('input');
+                smarturlfield.setAttribute('type', 'hidden');
+                smarturlfield.setAttribute('value', service);
+                smarturlfield.setAttribute('name', 'service');
+                webform.appendChild(smarturlfield);
+              }
+              document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
+            }
+            function tooltipShow5728323000042917141 (el){
+              var tooltip = el.nextElementSibling;
+              var tooltipDisplay = tooltip.style.display;
+              if(tooltipDisplay == 'none'){
+                var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
+                for(i = 0; i < allTooltip.length; i++){ allTooltip[i].style.display = 'none'; }
+                tooltip.style.display = 'block';
+              } else { tooltip.style.display = 'none'; }
+            }
+          </script>
+          <!-- Do not remove this --- Analytics Tracking code starts -->
+          <script id="wf_anal" src="https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=13ae9e11b90b74a437085070a6d0647e1eed54247ed55024c189ddcd3e47673ef9637462cd4c6705a40118f156aaa339gidc7f3c4bd5c7aeb32eb6720068e09f58ec34aedf10d73820abce0e622cb9aa6ffgide95f73d8cc994bddf7942f69356ed3422276b831cb51738467e8e98a0ad6bcf7gide8ffaae27e032c1851a39ca0c59c5935059a3c26d90d9d446b0b3c3212303577&tw=19414643bd53645d48090610e34ffc7eccd60547c25c09ee9d35559009d5de06"></script>
+          <!-- Do not remove this --- Analytics Tracking code ends. -->
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
