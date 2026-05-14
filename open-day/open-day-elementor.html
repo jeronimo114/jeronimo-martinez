@@ -428,86 +428,74 @@
       </div>
 
       <div class="eod-form-wrap">
-        <!-- Note :
-           - You can modify the font style and form style to suit your website.
-           - Code lines with comments Do not remove this code are required for the form to work properly, make sure that you do not remove these lines of code.
-           - The Mandatory check script can modified as to suit your business needs.
-           - It is important that you test the modified form before going live.-->
+        <!-- Zoho Forms - Open Day 2026. Validacion HTML5 (sin scripts inline). -->
         <div id="crmWebToEntityForm" class="zcwf_lblLeft crmWebToEntityForm">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=UTF-8">
-          <form id="webform5728323000042917141" action="https://crm.zoho.com/crm/WebToLeadForm" name="WebToLeads5728323000042917141" method="POST" onSubmit='javascript:document.charset="UTF-8"; return checkMandatory5728323000042917141()' accept-charset="UTF-8">
-            <input type="text" style="display:none;" name="xnQsjsdp" value="ef2134545f11e99f50c823db9d5655235003dc2010bb01a3658785298bcbd3e5">
-            <input type="hidden" name="zc_gad" id="zc_gad" value="">
-            <input type="text" style="display:none;" name="xmIwtLD" value="998b7c823c371988c7c9677d84f0e55048eed05af86422ba901e489759651b579961692338015d1b3715980c06b80b51">
-            <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
-            <input type="text" style="display:none;" name="returnURL" value="https&#x3a;&#x2f;&#x2f;esic.co&#x2f;confirmacion-open-day&#x2f;">
-
-            <!-- Hidden identificador de campa&ntilde;a &mdash; informe Open Day Mayo 2026 -->
-            <input type="hidden" name="LEADCF10" value="Open Day Mayo 2026">
+          <form id="form" name="form" action="https://forms.zohopublic.com/esicmedellin/form/OpenDay2026/formperma/MkOHCYJwdvvXfy3SeKq2wYpUVCkLg5ej3WR-W_22NjI/htmlRecords/submit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+            <input type="hidden" name="zf_referrer_name" value="Open Day Mayo 2026">
+            <input type="hidden" name="zf_redirect_url" value="https://esic.co/confirmacion-open-day/">
+            <input type="hidden" name="zc_gad" value="">
 
             <div class="zcwf_row">
               <div class="zcwf_col_lab">
-                <label for="First_Name">Nombre</label>
+                <label for="zf-nombre">Nombre <span>*</span></label>
               </div>
               <div class="zcwf_col_fld">
-                <input type="text" id="First_Name" aria-required="false" aria-label="First Name" name="First Name" aria-valuemax="40" maxlength="40">
+                <input type="text" id="zf-nombre" name="SingleLine1" maxlength="255" autocomplete="given-name" required>
               </div>
             </div>
 
             <div class="zcwf_row">
               <div class="zcwf_col_lab">
-                <label for="Last_Name">Apellidos <span>*</span></label>
+                <label for="zf-apellidos">Apellidos <span>*</span></label>
               </div>
               <div class="zcwf_col_fld">
-                <input type="text" id="Last_Name" aria-required="true" aria-label="Last Name" name="Last Name" aria-valuemax="80" maxlength="80" required>
+                <input type="text" id="zf-apellidos" name="SingleLine" maxlength="255" autocomplete="family-name" required>
               </div>
             </div>
 
             <div class="zcwf_row">
               <div class="zcwf_col_lab">
-                <label for="Email">Correo electr&oacute;nico <span>*</span></label>
+                <label for="zf-email">Correo electr&oacute;nico <span>*</span></label>
               </div>
               <div class="zcwf_col_fld">
-                <input type="text" ftype="email" autocomplete="false" id="Email" aria-required="true" aria-label="Email" name="Email" aria-valuemax="100" crmlabel="" maxlength="100" required>
-              </div>
-            </div>
-
-            <!-- !!! TODO ALEJA: reemplazar 'LEADCF_DOCUMENTO_PENDIENTE' por el API Name real del campo "N&uacute;mero de Identificaci&oacute;n" desde Zoho CRM (Setup -&gt; Developer Space -&gt; API Names -&gt; m&oacute;dulo Leads). Si no se reemplaza, este dato NO llegar&aacute; al CRM. -->
-            <div class="zcwf_row">
-              <div class="zcwf_col_lab">
-                <label for="LEADCF_DOCUMENTO_PENDIENTE">N&uacute;mero de identificaci&oacute;n <span>*</span></label>
-              </div>
-              <div class="zcwf_col_fld">
-                <input type="text" id="LEADCF_DOCUMENTO_PENDIENTE" aria-required="true" aria-label="N&uacute;mero de identificaci&oacute;n" name="LEADCF_DOCUMENTO_PENDIENTE" inputmode="numeric" pattern="[0-9]*" maxlength="20" required>
+                <input type="email" id="zf-email" name="Email" maxlength="255" autocomplete="email" required>
               </div>
             </div>
 
             <div class="zcwf_row">
               <div class="zcwf_col_lab">
-                <label for="LEADCF11">Colegio</label>
+                <label for="zf-documento">N&uacute;mero de identificaci&oacute;n <span>*</span></label>
               </div>
               <div class="zcwf_col_fld">
-                <input type="text" id="LEADCF11" aria-required="false" aria-label="Colegio" name="LEADCF11" aria-valuemax="255" maxlength="255">
+                <input type="text" id="zf-documento" name="SingleLine2" inputmode="numeric" pattern="[0-9]*" maxlength="20" required>
               </div>
             </div>
 
             <div class="zcwf_row">
               <div class="zcwf_col_lab">
-                <label for="Mobile">M&oacute;vil <span>*</span></label>
+                <label for="zf-telefono">Tel&eacute;fono</label>
               </div>
               <div class="zcwf_col_fld">
-                <input type="text" id="Mobile" aria-required="true" aria-label="Mobile" name="Mobile" aria-valuemax="30" maxlength="30" required>
+                <input type="tel" id="zf-telefono" name="PhoneNumber1_countrycode" maxlength="20" inputmode="tel" autocomplete="tel">
               </div>
             </div>
 
             <div class="zcwf_row">
               <div class="zcwf_col_lab">
-                <label for="LEADCF15">Per&iacute;odo de inter&eacute;s</label>
+                <label for="zf-colegio">Colegio</label>
               </div>
               <div class="zcwf_col_fld">
-                <select class="zcwf_col_fld_slt" role="combobox" aria-expanded="false" aria-haspopup="listbox" id="LEADCF15" onChange="addAriaSelected5728323000042917141()" aria-required="false" aria-label="LEADCF15" name="LEADCF15">
-                  <option value="-None-">-Selecciona-</option>
+                <input type="text" id="zf-colegio" name="SingleLine3" maxlength="255">
+              </div>
+            </div>
+
+            <div class="zcwf_row">
+              <div class="zcwf_col_lab">
+                <label for="zf-periodo">Per&iacute;odo de inter&eacute;s</label>
+              </div>
+              <div class="zcwf_col_fld">
+                <select id="zf-periodo" name="Dropdown1">
+                  <option selected value="-Select-">-Selecciona-</option>
                   <option value="2026-2">2026-2</option>
                   <option value="2027-1">2027-1</option>
                   <option value="2027-2">2027-2</option>
@@ -523,106 +511,10 @@
               </label>
             </div>
 
-            <input type="text" type="hidden" style="display: none;" name="aG9uZXlwb3Q" value="">
-
             <div class="eod-form-submit-row">
-              <input type="submit" id="formsubmit" role="button" class="formsubmit zcwf_button" value="Confirmar inscripci&oacute;n" aria-label="Confirmar inscripci&oacute;n" title="Confirmar inscripci&oacute;n">
+              <button type="submit" class="formsubmit zcwf_button">Confirmar inscripci&oacute;n</button>
             </div>
           </form>
-
-          <script>
-            function addAriaSelected5728323000042917141 (){
-              var optionElem = event.target;
-              var previousSelectedOption = optionElem.querySelector('[aria-selected=true]');
-              if(previousSelectedOption){ previousSelectedOption.removeAttribute('aria-selected'); }
-              optionElem.querySelectorAll('option')[optionElem.selectedIndex].ariaSelected = 'true';
-            }
-            function validateEmail5728323000042917141 (){
-              var form = document.forms['WebToLeads5728323000042917141'];
-              var emailFld = form.querySelectorAll('[ftype=email]');
-              var i;
-              for(i = 0; i < emailFld.length; i++){
-                var emailVal = emailFld[i].value;
-                if((emailVal.replace(/^\s+|\s+$/g,'')).length != 0){
-                  var atpos = emailVal.indexOf('@');
-                  var dotpos = emailVal.lastIndexOf('.');
-                  if(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length){
-                    alert('Introduzca una direcci&oacute;n de correo electr&oacute;nico v&aacute;lida.');
-                    emailFld[i].focus();
-                    return false;
-                  }
-                }
-              }
-              return true;
-            }
-            function checkMandatory5728323000042917141 (){
-              var mndFileds = new Array('Last Name', 'Email', 'LEADCF_DOCUMENTO_PENDIENTE', 'Mobile');
-              var fldLangVal = new Array('Apellidos', 'Correo\x20electr\xF3nico', 'N\xFAmero\x20de\x20identificaci\xF3n', 'M\xF3vil');
-              for(i = 0; i < mndFileds.length; i++){
-                var fieldObj = document.forms['WebToLeads5728323000042917141'][mndFileds[i]];
-                if(fieldObj){
-                  if(((fieldObj.value).replace(/^\s+|\s+$/g,'')).length == 0){
-                    if(fieldObj.type == 'file'){
-                      alert('Seleccione un archivo para cargar.');
-                      fieldObj.focus();
-                      return false;
-                    }
-                    alert(fldLangVal[i] + ' no puede estar vac&iacute;o.');
-                    fieldObj.focus();
-                    return false;
-                  }
-                  else if(fieldObj.nodeName == 'SELECT'){
-                    if(fieldObj.options[fieldObj.selectedIndex].value == '-None-'){
-                      alert(fldLangVal[i] + ' no puede ser nulo.');
-                      fieldObj.focus();
-                      return false;
-                    }
-                  }
-                  else if(fieldObj.type == 'checkbox'){
-                    if(fieldObj.checked == false){
-                      alert('Please accept ' + fldLangVal[i]);
-                      fieldObj.focus();
-                      return false;
-                    }
-                  }
-                  try { if(fieldObj.name == 'Last Name'){ name = fieldObj.value; } } catch(e){}
-                }
-              }
-              if(!validateEmail5728323000042917141()){ return false; }
-
-              // Validar checkbox de pol&iacute;tica de tratamiento de datos
-              var policyCk = document.getElementById('eod-policy');
-              if(policyCk && !policyCk.checked){
-                alert('Debes aceptar la pol&iacute;tica de tratamiento de datos para continuar.');
-                policyCk.focus();
-                return false;
-              }
-
-              var urlparams = new URLSearchParams(window.location.search);
-              if(urlparams.has('service') && (urlparams.get('service') === 'smarturl')){
-                var webform = document.getElementById('webform5728323000042917141');
-                var service = urlparams.get('service');
-                var smarturlfield = document.createElement('input');
-                smarturlfield.setAttribute('type', 'hidden');
-                smarturlfield.setAttribute('value', service);
-                smarturlfield.setAttribute('name', 'service');
-                webform.appendChild(smarturlfield);
-              }
-              document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
-            }
-            function tooltipShow5728323000042917141 (el){
-              var tooltip = el.nextElementSibling;
-              var tooltipDisplay = tooltip.style.display;
-              if(tooltipDisplay == 'none'){
-                var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
-                for(i = 0; i < allTooltip.length; i++){ allTooltip[i].style.display = 'none'; }
-                tooltip.style.display = 'block';
-              } else { tooltip.style.display = 'none'; }
-            }
-          </script>
-          <!-- Do not remove this --- Analytics Tracking code starts -->
-          <script id="wf_anal" src="https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=13ae9e11b90b74a437085070a6d0647e1eed54247ed55024c189ddcd3e47673ef9637462cd4c6705a40118f156aaa339gidc7f3c4bd5c7aeb32eb6720068e09f58ec34aedf10d73820abce0e622cb9aa6ffgide95f73d8cc994bddf7942f69356ed3422276b831cb51738467e8e98a0ad6bcf7gide8ffaae27e032c1851a39ca0c59c5935059a3c26d90d9d446b0b3c3212303577&tw=19414643bd53645d48090610e34ffc7eccd60547c25c09ee9d35559009d5de06"></script>
-          <!-- Do not remove this --- Analytics Tracking code ends. -->
         </div>
       </div>
     </div>
