@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Ruleta ESIC — Feria de Empleo</title>
+<title>Ruleta ESIC &#8212; Feria de Empleo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Sofia+Sans+Extra+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
   /* =====================================================================
-     RULETA ESIC — Feria de Empleo (miércoles 22 de julio)
-     Página autónoma tipo kiosco. Un solo archivo, todo inline.
+     RULETA ESIC &#8212; Feria de Empleo (mi&#233;rcoles 22 de julio)
+     P&#225;gina aut&#243;noma tipo kiosco. Un solo archivo, todo inline.
      ---------------------------------------------------------------------
      >>> PROBABILIDADES <<<
-     Ajusta el array PESOS (más abajo en el <script>) para controlar qué
+     Ajusta el array PESOS (m&#225;s abajo en el <script>) para controlar qu&#233;
      tan seguido cae cada premio. Todos en 1 = totalmente aleatorio.
-     Ej: para que "15%" y "OBSEQUIO" salgan poco, bájalos a 0.3.
+     Ej: para que "15%" y "OBSEQUIO" salgan poco, b&#225;jalos a 0.3.
      ===================================================================== */
 
   :root{
@@ -212,7 +212,7 @@
   <div class="top">
     <span class="kicker">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.9 4.9 2.9 2.9"/><path d="m16.2 16.2 2.9 2.9"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.9 19.1 2.9-2.9"/><path d="m16.2 7.8 2.9-2.9"/></svg>
-      Feria de Empleo · ESIC
+      Feria de Empleo &#183; ESIC
     </span>
     <h1>Gira la ruleta<br><span class="accent">y gana</span></h1>
     <p class="sub">Presiona <strong>GIRAR</strong> y descubre tu premio en descuentos y sorpresas ESIC.</p>
@@ -236,7 +236,7 @@
 
   <div class="controls">
     <button class="spin-btn" id="spinBtn">Girar</button>
-    <span class="hint">También puedes tocar la ruleta para girar</span>
+    <span class="hint">Tambi&#233;n puedes tocar la ruleta para girar</span>
   </div>
 
   <div class="confetti" id="confetti"></div>
@@ -244,7 +244,7 @@
   <div class="overlay" id="overlay">
     <div class="card" id="card">
       <div class="badge" id="badge"></div>
-      <h2 id="resultTitle">¡Felicidades!</h2>
+      <h2 id="resultTitle">&#161;Felicidades!</h2>
       <div class="prize" id="resultPrize"></div>
       <p id="resultMsg"></p>
       <button class="again-btn" id="againBtn">Girar de nuevo</button>
@@ -256,32 +256,32 @@
   "use strict";
 
   /* =========================================================
-     CONFIGURACIÓN DE PREMIOS (orden horario desde arriba)
-     - Debe coincidir con el arte físico de la ruleta.
+     CONFIGURACI\u00d3N DE PREMIOS (orden horario desde arriba)
+     - Debe coincidir con el arte f\u00edsico de la ruleta.
      - "win:true" => premio ganador (confetti + mensaje).
      - PESOS: probabilidad relativa. Todos en 1 = aleatorio puro.
-       Sube/baja para controlar qué tan seguido cae cada uno.
+       Sube/baja para controlar qu\u00e9 tan seguido cae cada uno.
      ========================================================= */
   const SEGMENTS = [
     { label:"OBSEQUIO\nSORPRESA", type:"text", win:true,  color:"#0F2A54", text:"#FFFFFF",
-      title:"¡Te ganaste un", prize:"OBSEQUIO\nSORPRESA", msg:"Acércate al stand de ESIC para reclamar tu obsequio." },
+      title:"\u00a1Te ganaste un", prize:"OBSEQUIO\nSORPRESA", msg:"Ac\u00e9rcate al stand de ESIC para reclamar tu obsequio." },
     { label:"15%",              type:"pct",  win:true,  color:"#EDA02B", text:"#0F2A54",
-      title:"¡Felicidades! Ganaste", prize:"15%", msg:"15% de descuento en tu programa ESIC. Reclámalo en el stand." },
-    { label:"¡UPS!\nNO FUE\nESTA VEZ", type:"text", win:false, color:"#E37E3D", text:"#FFFFFF",
-      title:"¡Ups!", prize:"", msg:"No fue esta vez… ¡pero pasa por el stand y hablemos de tu futuro!" },
+      title:"\u00a1Felicidades! Ganaste", prize:"15%", msg:"15% de descuento en tu programa ESIC. Recl\u00e1malo en el stand." },
+    { label:"\u00a1UPS!\nNO FUE\nESTA VEZ", type:"text", win:false, color:"#E37E3D", text:"#FFFFFF",
+      title:"\u00a1Ups!", prize:"", msg:"No fue esta vez\u2026 \u00a1pero pasa por el stand y hablemos de tu futuro!" },
     { label:"5%",               type:"pct",  win:true,  color:"#17A589", text:"#FFFFFF",
-      title:"¡Felicidades! Ganaste", prize:"5%", msg:"5% de descuento en tu programa ESIC. Reclámalo en el stand." },
-    { label:"¡UPS!\nNO FUE\nESTA VEZ", type:"text", win:false, color:"#0E1B3D", text:"#FFFFFF",
-      title:"¡Ups!", prize:"", msg:"No fue esta vez… ¡pero pasa por el stand y hablemos de tu futuro!" },
+      title:"\u00a1Felicidades! Ganaste", prize:"5%", msg:"5% de descuento en tu programa ESIC. Recl\u00e1malo en el stand." },
+    { label:"\u00a1UPS!\nNO FUE\nESTA VEZ", type:"text", win:false, color:"#0E1B3D", text:"#FFFFFF",
+      title:"\u00a1Ups!", prize:"", msg:"No fue esta vez\u2026 \u00a1pero pasa por el stand y hablemos de tu futuro!" },
     { label:"10%",              type:"pct",  win:true,  color:"#B08C39", text:"#FFFFFF",
-      title:"¡Felicidades! Ganaste", prize:"10%", msg:"10% de descuento en tu programa ESIC. Reclámalo en el stand." },
+      title:"\u00a1Felicidades! Ganaste", prize:"10%", msg:"10% de descuento en tu programa ESIC. Recl\u00e1malo en el stand." },
     { label:"VUELVE A\nINTENTARLO", type:"text", win:false, color:"#2C64A8", text:"#FFFFFF",
-      title:"¡Casi!", prize:"", msg:"Vuelve a intentarlo… ¡la suerte puede cambiar!" },
+      title:"\u00a1Casi!", prize:"", msg:"Vuelve a intentarlo\u2026 \u00a1la suerte puede cambiar!" },
     { label:"5%",               type:"pct",  win:true,  color:"#F1EEE4", text:"#0F2A54",
-      title:"¡Felicidades! Ganaste", prize:"5%", msg:"5% de descuento en tu programa ESIC. Reclámalo en el stand." },
+      title:"\u00a1Felicidades! Ganaste", prize:"5%", msg:"5% de descuento en tu programa ESIC. Recl\u00e1malo en el stand." },
   ];
 
-  //  Pesos (misma longitud que SEGMENTS). Cambia estos números para ajustar odds.
+  //  Pesos (misma longitud que SEGMENTS). Cambia estos n\u00fameros para ajustar odds.
   const PESOS = [1, 1, 1, 1, 1, 1, 1, 1];
 
   /* ================= construir la ruleta (SVG) ================= */
@@ -291,7 +291,7 @@
   const N = SEGMENTS.length;
   const SEG = 360 / N;
 
-  // ángulo en grados medido desde arriba (12h), sentido horario -> punto (x,y)
+  // \u00e1ngulo en grados medido desde arriba (12h), sentido horario -> punto (x,y)
   function pt(angleDeg, radius){
     const a = (angleDeg - 90) * Math.PI / 180; // -90 => empieza arriba
     return [CX + radius * Math.cos(a), CY + radius * Math.sin(a)];
@@ -311,7 +311,7 @@
     path.setAttribute("stroke-width", "2");
     wheel.appendChild(path);
 
-    // texto radial: grupo rotado por el ángulo medio del segmento
+    // texto radial: grupo rotado por el \u00e1ngulo medio del segmento
     const mid = start + SEG/2;
     const g = document.createElementNS(NS, "g");
     g.setAttribute("transform", "rotate("+mid+" "+CX+" "+CY+")");
@@ -362,7 +362,7 @@
     }catch(e){}
   }
 
-  /* ================= lógica de giro ================= */
+  /* ================= l\u00f3gica de giro ================= */
   const spinBtn = document.getElementById("spinBtn");
   const overlay = document.getElementById("overlay");
   const card = document.getElementById("card");
@@ -381,7 +381,7 @@
 
   let tickTimer = null;
   function startTicking(durationMs){
-    // ticks que se van espaciando para simular la desaceleración
+    // ticks que se van espaciando para simular la desaceleraci\u00f3n
     let elapsed = 0;
     function schedule(){
       const progress = elapsed / durationMs;            // 0 -> 1
@@ -402,16 +402,16 @@
     spinBtn.disabled = true;
 
     const winner = pickWinner();
-    const mid = winner * SEG + SEG/2;          // ángulo del centro del segmento
+    const mid = winner * SEG + SEG/2;          // \u00e1ngulo del centro del segmento
     const jitter = (Math.random() * (SEG - 12)) - (SEG - 12)/2; // dentro del gajo
     const turns = 6 + Math.floor(Math.random() * 3);            // 6-8 vueltas
-    // para que el gajo quede arriba (bajo el puntero): rot ≡ -mid (mod 360)
+    // para que el gajo quede arriba (bajo el puntero): rot \u2261 -mid (mod 360)
     const target = currentRot + turns*360 + (360 - (currentRot % 360)) - mid + jitter;
     currentRot = target;
 
     const dur = 6000;
     wheel.style.transition = "transform "+dur+"ms cubic-bezier(.12,.66,.12,1)";
-    // reflow para asegurar la animación
+    // reflow para asegurar la animaci\u00f3n
     void wheel.offsetWidth;
     wheel.style.transform = "rotate("+target+"deg)";
 
@@ -434,7 +434,7 @@
     const s = SEGMENTS[i];
     resultTitle.textContent = s.title;
     resultPrize.style.display = s.prize ? "block" : "none";
-    // respetar saltos de línea del premio
+    // respetar saltos de l\u00ednea del premio
     resultPrize.innerHTML = "";
     (s.prize || "").split("\n").forEach(function(l, idx, arr){
       resultPrize.appendChild(document.createTextNode(l));
@@ -482,7 +482,7 @@
   document.getElementById("wheel").addEventListener("click", function(){ if(!spinning && !overlay.classList.contains("show")) spin(); });
   document.getElementById("againBtn").addEventListener("click", reset);
 
-  // botón silenciar
+  // bot\u00f3n silenciar
   const muteBtn = document.getElementById("muteBtn");
   const muteLabel = document.getElementById("muteLabel");
   const muteIcon = document.getElementById("muteIcon");
@@ -494,7 +494,7 @@
       : '<path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a9 9 0 0 1 0 14"/>';
   });
 
-  // teclado: barra espaciadora para girar (útil en kiosco)
+  // teclado: barra espaciadora para girar (\u00fatil en kiosco)
   document.addEventListener("keydown", function(e){
     if(e.code === "Space"){ e.preventDefault(); if(overlay.classList.contains("show")) reset(); else spin(); }
   });
