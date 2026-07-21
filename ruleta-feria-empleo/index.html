@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Ruleta ESIC — Feria de Empleo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Sofia+Sans+Extra+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* =====================================================================
+     RULETA ESIC — Feria de Empleo (miércoles 22 de julio)
+     Página autónoma tipo kiosco. Un solo archivo, todo inline.
+     ---------------------------------------------------------------------
+     >>> PROBABILIDADES <<<
+     Ajusta el array PESOS (más abajo en el <script>) para controlar qué
+     tan seguido cae cada premio. Todos en 1 = totalmente aleatorio.
+     Ej: para que "15%" y "OBSEQUIO" salgan poco, bájalos a 0.3.
+     ===================================================================== */
+
+  :root{
+    --brand-blue:#0047E9;
+    --brand-blue-dark:#00133F;
+    --brand-teal:#0AE4C3;
+    --bg:#F8F6F2;
+    --ink:#00133F;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;height:100%;}
+  body{
+    font-family:'DM Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:
+      radial-gradient(1200px 700px at 50% -10%, #ffffff 0%, var(--bg) 55%, #efece4 100%);
+    color:var(--ink);
+    min-height:100%;
+    display:flex;flex-direction:column;align-items:center;
+    padding:24px 16px 40px;
+    overflow-x:hidden;
+    user-select:none;
+  }
+
+  /* ---------- Header ---------- */
+  .top{
+    text-align:center;margin-bottom:6px;max-width:900px;
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    font-size:clamp(11px,1.6vw,14px);
+    color:var(--brand-blue);
+    background:rgba(0,71,233,.08);
+    padding:8px 16px;border-radius:100px;margin-bottom:14px;
+  }
+  .kicker svg{width:16px;height:16px;}
+  h1{
+    font-family:'Sofia Sans Extra Condensed','DM Sans',sans-serif;
+    font-weight:900;text-transform:uppercase;line-height:.92;
+    font-size:clamp(34px,7vw,68px);
+    margin:0 0 6px;letter-spacing:.01em;
+  }
+  h1 .accent{color:var(--brand-blue);}
+  .sub{
+    font-size:clamp(14px,2.2vw,19px);opacity:.72;margin:0 auto;max-width:560px;
+    font-weight:500;
+  }
+
+  /* ---------- Stage / Wheel ---------- */
+  .stage{
+    position:relative;
+    width:min(88vw,560px);
+    aspect-ratio:1/1;
+    margin:22px auto 8px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .pointer{
+    position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+    z-index:6;filter:drop-shadow(0 6px 10px rgba(0,19,63,.35));
+    pointer-events:none;
+  }
+  .wheel-wrap{
+    width:100%;height:100%;border-radius:50%;
+    box-shadow:
+      0 30px 60px -18px rgba(0,19,63,.45),
+      0 0 0 12px #fff,
+      0 0 0 17px rgba(0,19,63,.10);
+    position:relative;
+  }
+  #wheel{
+    width:100%;height:100%;display:block;border-radius:50%;
+    transform:rotate(0deg);
+    transition:transform 6s cubic-bezier(.12,.66,.12,1);
+    will-change:transform;
+  }
+  .wheel-seg-text{
+    font-family:'Sofia Sans Extra Condensed','DM Sans',sans-serif;
+    font-weight:800;letter-spacing:.02em;
+  }
+  .wheel-pct{
+    font-family:'Sofia Sans Extra Condensed','DM Sans',sans-serif;
+    font-weight:900;
+  }
+
+  /* center hub / logo */
+  .hub{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:23%;height:23%;border-radius:50%;
+    background:#fff;z-index:5;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    box-shadow:0 0 0 5px var(--brand-blue-dark), 0 8px 18px rgba(0,19,63,.35);
+    text-align:center;line-height:1;pointer-events:none;
+  }
+  .hub .logo{
+    font-family:'Sofia Sans Extra Condensed','DM Sans',sans-serif;
+    font-weight:900;color:var(--brand-blue-dark);
+    font-size:clamp(22px,5.4vw,40px);letter-spacing:.02em;
+  }
+  .hub .logo-sub{
+    font-size:clamp(6px,1.35vw,9px);font-weight:700;color:var(--brand-blue-dark);
+    letter-spacing:.02em;margin-top:2px;text-transform:none;opacity:.9;
+  }
+
+  /* ---------- Controls ---------- */
+  .controls{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:14px;}
+  .spin-btn{
+    appearance:none;border:none;cursor:pointer;
+    font-family:'Sofia Sans Extra Condensed','DM Sans',sans-serif;
+    font-weight:900;text-transform:uppercase;letter-spacing:.05em;
+    font-size:clamp(22px,4.2vw,34px);
+    color:#fff;background:var(--brand-blue);
+    padding:16px 54px;border-radius:100px;
+    box-shadow:0 14px 28px -8px rgba(0,71,233,.6);
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .spin-btn:hover{transform:translateY(-2px);box-shadow:0 20px 34px -8px rgba(0,71,233,.65);}
+  .spin-btn:active{transform:translateY(0);}
+  .spin-btn:disabled{background:#9aa6bf;box-shadow:none;cursor:not-allowed;transform:none;opacity:.8;}
+  .hint{font-size:13px;opacity:.6;font-weight:500;}
+  .mute{
+    position:fixed;top:16px;right:16px;z-index:20;
+    background:#fff;border:1px solid rgba(0,19,63,.12);border-radius:100px;
+    padding:8px 14px;font-size:13px;font-weight:700;color:var(--ink);
+    cursor:pointer;display:flex;align-items:center;gap:7px;
+    box-shadow:0 6px 14px rgba(0,19,63,.10);
+  }
+  .mute svg{width:16px;height:16px;}
+
+  /* ---------- Result modal ---------- */
+  .overlay{
+    position:fixed;inset:0;z-index:30;
+    background:rgba(0,19,63,.55);backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;padding:20px;
+    opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+  }
+  .overlay.show{opacity:1;visibility:visible;}
+  .card{
+    background:#fff;border-radius:34px;max-width:440px;width:100%;
+    padding:40px 30px 32px;text-align:center;position:relative;
+    box-shadow:0 40px 80px -20px rgba(0,19,63,.6);
+    transform:scale(.85) translateY(16px);transition:transform .35s cubic-bezier(.2,.9,.2,1.2);
+  }
+  .overlay.show .card{transform:scale(1) translateY(0);}
+  .card .badge{
+    width:88px;height:88px;border-radius:50%;margin:0 auto 18px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--brand-teal);
+  }
+  .card .badge svg{width:46px;height:46px;}
+  .card.lose .badge{background:#E6EAF2;}
+  .card h2{
+    font-family:'Sofia Sans Extra Condensed','DM Sans',sans-serif;
+    font-weight:900;text-transform:uppercase;font-size:clamp(26px,6vw,38px);
+    margin:0 0 4px;color:var(--brand-blue-dark);line-height:.95;
+  }
+  .card .prize{
+    font-family:'Sofia Sans Extra Condensed','DM Sans',sans-serif;
+    font-weight:900;font-size:clamp(46px,13vw,84px);line-height:.9;
+    margin:6px 0 8px;color:var(--brand-blue);
+  }
+  .card p{font-size:16px;opacity:.72;margin:6px 0 24px;line-height:1.45;font-weight:500;}
+  .again-btn{
+    appearance:none;border:none;cursor:pointer;
+    font-family:'DM Sans',sans-serif;font-weight:800;font-size:17px;
+    color:#fff;background:var(--brand-blue-dark);
+    padding:15px 40px;border-radius:100px;letter-spacing:.02em;
+    transition:transform .15s ease;
+  }
+  .again-btn:hover{transform:translateY(-2px);}
+
+  /* confetti */
+  .confetti{position:fixed;inset:0;pointer-events:none;z-index:29;overflow:hidden;}
+  .confetti i{
+    position:absolute;top:-20px;width:10px;height:16px;border-radius:2px;
+    opacity:.95;animation:fall linear forwards;
+  }
+  @keyframes fall{
+    to{transform:translateY(110vh) rotate(720deg);opacity:.9;}
+  }
+
+  @media (max-width:520px){
+    .spin-btn{padding:15px 44px;}
+    .hub .logo-sub{display:none;}
+  }
+</style>
+</head>
+<body>
+
+  <button class="mute" id="muteBtn" aria-label="Silenciar">
+    <svg id="muteIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a9 9 0 0 1 0 14"/></svg>
+    <span id="muteLabel">Sonido</span>
+  </button>
+
+  <div class="top">
+    <span class="kicker">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.9 4.9 2.9 2.9"/><path d="m16.2 16.2 2.9 2.9"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.9 19.1 2.9-2.9"/><path d="m16.2 7.8 2.9-2.9"/></svg>
+      Feria de Empleo · ESIC
+    </span>
+    <h1>Gira la ruleta<br><span class="accent">y gana</span></h1>
+    <p class="sub">Presiona <strong>GIRAR</strong> y descubre tu premio en descuentos y sorpresas ESIC.</p>
+  </div>
+
+  <div class="stage">
+    <svg class="pointer" width="52" height="60" viewBox="0 0 52 60">
+      <path d="M26 58 L6 20 A22 22 0 0 1 46 20 Z" fill="#00133F"/>
+      <circle cx="26" cy="20" r="9" fill="#fff"/>
+      <circle cx="26" cy="20" r="4.2" fill="#0047E9"/>
+    </svg>
+
+    <div class="wheel-wrap">
+      <svg id="wheel" viewBox="0 0 600 600" aria-label="Ruleta de premios"></svg>
+      <div class="hub">
+        <div class="logo">ESIC</div>
+        <div class="logo-sub">Business &amp;<br>Marketing School</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="spin-btn" id="spinBtn">Girar</button>
+    <span class="hint">También puedes tocar la ruleta para girar</span>
+  </div>
+
+  <div class="confetti" id="confetti"></div>
+
+  <div class="overlay" id="overlay">
+    <div class="card" id="card">
+      <div class="badge" id="badge"></div>
+      <h2 id="resultTitle">¡Felicidades!</h2>
+      <div class="prize" id="resultPrize"></div>
+      <p id="resultMsg"></p>
+      <button class="again-btn" id="againBtn">Girar de nuevo</button>
+    </div>
+  </div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* =========================================================
+     CONFIGURACIÓN DE PREMIOS (orden horario desde arriba)
+     - Debe coincidir con el arte físico de la ruleta.
+     - "win:true" => premio ganador (confetti + mensaje).
+     - PESOS: probabilidad relativa. Todos en 1 = aleatorio puro.
+       Sube/baja para controlar qué tan seguido cae cada uno.
+     ========================================================= */
+  const SEGMENTS = [
+    { label:"OBSEQUIO\nSORPRESA", type:"text", win:true,  color:"#0F2A54", text:"#FFFFFF",
+      title:"¡Te ganaste un", prize:"OBSEQUIO\nSORPRESA", msg:"Acércate al stand de ESIC para reclamar tu obsequio." },
+    { label:"15%",              type:"pct",  win:true,  color:"#EDA02B", text:"#0F2A54",
+      title:"¡Felicidades! Ganaste", prize:"15%", msg:"15% de descuento en tu programa ESIC. Reclámalo en el stand." },
+    { label:"¡UPS!\nNO FUE\nESTA VEZ", type:"text", win:false, color:"#E37E3D", text:"#FFFFFF",
+      title:"¡Ups!", prize:"", msg:"No fue esta vez… ¡pero pasa por el stand y hablemos de tu futuro!" },
+    { label:"5%",               type:"pct",  win:true,  color:"#17A589", text:"#FFFFFF",
+      title:"¡Felicidades! Ganaste", prize:"5%", msg:"5% de descuento en tu programa ESIC. Reclámalo en el stand." },
+    { label:"¡UPS!\nNO FUE\nESTA VEZ", type:"text", win:false, color:"#0E1B3D", text:"#FFFFFF",
+      title:"¡Ups!", prize:"", msg:"No fue esta vez… ¡pero pasa por el stand y hablemos de tu futuro!" },
+    { label:"10%",              type:"pct",  win:true,  color:"#B08C39", text:"#FFFFFF",
+      title:"¡Felicidades! Ganaste", prize:"10%", msg:"10% de descuento en tu programa ESIC. Reclámalo en el stand." },
+    { label:"VUELVE A\nINTENTARLO", type:"text", win:false, color:"#2C64A8", text:"#FFFFFF",
+      title:"¡Casi!", prize:"", msg:"Vuelve a intentarlo… ¡la suerte puede cambiar!" },
+    { label:"5%",               type:"pct",  win:true,  color:"#F1EEE4", text:"#0F2A54",
+      title:"¡Felicidades! Ganaste", prize:"5%", msg:"5% de descuento en tu programa ESIC. Reclámalo en el stand." },
+  ];
+
+  //  Pesos (misma longitud que SEGMENTS). Cambia estos números para ajustar odds.
+  const PESOS = [1, 1, 1, 1, 1, 1, 1, 1];
+
+  /* ================= construir la ruleta (SVG) ================= */
+  const NS = "http://www.w3.org/2000/svg";
+  const wheel = document.getElementById("wheel");
+  const CX = 300, CY = 300, R = 300;
+  const N = SEGMENTS.length;
+  const SEG = 360 / N;
+
+  // ángulo en grados medido desde arriba (12h), sentido horario -> punto (x,y)
+  function pt(angleDeg, radius){
+    const a = (angleDeg - 90) * Math.PI / 180; // -90 => empieza arriba
+    return [CX + radius * Math.cos(a), CY + radius * Math.sin(a)];
+  }
+
+  SEGMENTS.forEach(function(s, i){
+    const start = i * SEG;
+    const end   = (i + 1) * SEG;
+    const [x1,y1] = pt(start, R);
+    const [x2,y2] = pt(end,   R);
+    const large = SEG > 180 ? 1 : 0;
+
+    const path = document.createElementNS(NS, "path");
+    path.setAttribute("d", "M"+CX+" "+CY+" L"+x1+" "+y1+" A"+R+" "+R+" 0 "+large+" 1 "+x2+" "+y2+" Z");
+    path.setAttribute("fill", s.color);
+    path.setAttribute("stroke", "#ffffff");
+    path.setAttribute("stroke-width", "2");
+    wheel.appendChild(path);
+
+    // texto radial: grupo rotado por el ángulo medio del segmento
+    const mid = start + SEG/2;
+    const g = document.createElementNS(NS, "g");
+    g.setAttribute("transform", "rotate("+mid+" "+CX+" "+CY+")");
+
+    const t = document.createElementNS(NS, "text");
+    t.setAttribute("text-anchor", "middle");
+    t.setAttribute("fill", s.text);
+    t.setAttribute("x", CX);
+
+    if(s.type === "pct"){
+      t.setAttribute("class", "wheel-pct");
+      t.setAttribute("y", CY - R*0.60);
+      t.setAttribute("font-size", "78");
+      t.textContent = s.label;
+    } else {
+      t.setAttribute("class", "wheel-seg-text");
+      t.setAttribute("font-size", "30");
+      const lines = s.label.split("\n");
+      const baseY = CY - R*0.74;
+      lines.forEach(function(line, li){
+        const ts = document.createElementNS(NS, "tspan");
+        ts.setAttribute("x", CX);
+        ts.setAttribute("y", baseY + li*33);
+        ts.textContent = line;
+        t.appendChild(ts);
+      });
+    }
+    g.appendChild(t);
+    wheel.appendChild(g);
+  });
+
+  /* ================= sonido de tick (WebAudio) ================= */
+  let audioCtx = null, muted = false;
+  function tick(){
+    if(muted) return;
+    try{
+      if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+      const o = audioCtx.createOscillator();
+      const gnode = audioCtx.createGain();
+      o.type = "square";
+      o.frequency.value = 900;
+      gnode.gain.value = 0.05;
+      o.connect(gnode); gnode.connect(audioCtx.destination);
+      const now = audioCtx.currentTime;
+      gnode.gain.setValueAtTime(0.05, now);
+      gnode.gain.exponentialRampToValueAtTime(0.0001, now + 0.05);
+      o.start(now); o.stop(now + 0.05);
+    }catch(e){}
+  }
+
+  /* ================= lógica de giro ================= */
+  const spinBtn = document.getElementById("spinBtn");
+  const overlay = document.getElementById("overlay");
+  const card = document.getElementById("card");
+  let spinning = false;
+  let currentRot = 0;
+
+  function pickWinner(){
+    const total = PESOS.reduce(function(a,b){return a+b;}, 0);
+    let r = Math.random() * total;
+    for(let i=0;i<PESOS.length;i++){
+      r -= PESOS[i];
+      if(r < 0) return i;
+    }
+    return PESOS.length - 1;
+  }
+
+  let tickTimer = null;
+  function startTicking(durationMs){
+    // ticks que se van espaciando para simular la desaceleración
+    let elapsed = 0;
+    function schedule(){
+      const progress = elapsed / durationMs;            // 0 -> 1
+      const gap = 60 + progress * progress * 520;        // acelera->desacelera
+      if(elapsed >= durationMs - 50){ clearTimeout(tickTimer); return; }
+      tickTimer = setTimeout(function(){
+        tick();
+        elapsed += gap;
+        schedule();
+      }, gap);
+    }
+    schedule();
+  }
+
+  function spin(){
+    if(spinning) return;
+    spinning = true;
+    spinBtn.disabled = true;
+
+    const winner = pickWinner();
+    const mid = winner * SEG + SEG/2;          // ángulo del centro del segmento
+    const jitter = (Math.random() * (SEG - 12)) - (SEG - 12)/2; // dentro del gajo
+    const turns = 6 + Math.floor(Math.random() * 3);            // 6-8 vueltas
+    // para que el gajo quede arriba (bajo el puntero): rot ≡ -mid (mod 360)
+    const target = currentRot + turns*360 + (360 - (currentRot % 360)) - mid + jitter;
+    currentRot = target;
+
+    const dur = 6000;
+    wheel.style.transition = "transform "+dur+"ms cubic-bezier(.12,.66,.12,1)";
+    // reflow para asegurar la animación
+    void wheel.offsetWidth;
+    wheel.style.transform = "rotate("+target+"deg)";
+
+    if(audioCtx && audioCtx.state === "suspended") audioCtx.resume();
+    startTicking(dur);
+
+    window.setTimeout(function(){ showResult(winner); }, dur + 120);
+  }
+
+  /* ================= resultado ================= */
+  const resultTitle = document.getElementById("resultTitle");
+  const resultPrize = document.getElementById("resultPrize");
+  const resultMsg   = document.getElementById("resultMsg");
+  const badge       = document.getElementById("badge");
+
+  const WIN_ICON  = '<svg viewBox="0 0 24 24" fill="none" stroke="#00133F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3"/><path d="M7 5H4v2a3 3 0 0 0 3 3"/></svg>';
+  const LOSE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="#7c88a3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4"/><path d="M12 16h.01"/><circle cx="12" cy="12" r="9"/></svg>';
+
+  function showResult(i){
+    const s = SEGMENTS[i];
+    resultTitle.textContent = s.title;
+    resultPrize.style.display = s.prize ? "block" : "none";
+    // respetar saltos de línea del premio
+    resultPrize.innerHTML = "";
+    (s.prize || "").split("\n").forEach(function(l, idx, arr){
+      resultPrize.appendChild(document.createTextNode(l));
+      if(idx < arr.length-1) resultPrize.appendChild(document.createElement("br"));
+    });
+    resultMsg.textContent = s.msg;
+
+    if(s.win){
+      card.classList.remove("lose");
+      badge.innerHTML = WIN_ICON;
+      launchConfetti();
+    } else {
+      card.classList.add("lose");
+      badge.innerHTML = LOSE_ICON;
+    }
+    overlay.classList.add("show");
+  }
+
+  /* ================= confetti ================= */
+  const confetti = document.getElementById("confetti");
+  const CONF_COLORS = ["#0047E9","#0AE4C3","#FF9600","#EDA02B","#17A589","#00133F"];
+  function launchConfetti(){
+    confetti.innerHTML = "";
+    for(let i=0;i<80;i++){
+      const p = document.createElement("i");
+      p.style.left = (Math.random()*100) + "vw";
+      p.style.background = CONF_COLORS[Math.floor(Math.random()*CONF_COLORS.length)];
+      p.style.animationDuration = (2.2 + Math.random()*1.8) + "s";
+      p.style.animationDelay = (Math.random()*0.5) + "s";
+      p.style.transform = "rotate("+(Math.random()*360)+"deg)";
+      confetti.appendChild(p);
+    }
+    window.setTimeout(function(){ confetti.innerHTML = ""; }, 4500);
+  }
+
+  /* ================= reset ================= */
+  function reset(){
+    overlay.classList.remove("show");
+    spinning = false;
+    spinBtn.disabled = false;
+  }
+
+  /* ================= eventos ================= */
+  spinBtn.addEventListener("click", spin);
+  document.getElementById("wheel").addEventListener("click", function(){ if(!spinning && !overlay.classList.contains("show")) spin(); });
+  document.getElementById("againBtn").addEventListener("click", reset);
+
+  // botón silenciar
+  const muteBtn = document.getElementById("muteBtn");
+  const muteLabel = document.getElementById("muteLabel");
+  const muteIcon = document.getElementById("muteIcon");
+  muteBtn.addEventListener("click", function(){
+    muted = !muted;
+    muteLabel.textContent = muted ? "Silencio" : "Sonido";
+    muteIcon.innerHTML = muted
+      ? '<path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/>'
+      : '<path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a9 9 0 0 1 0 14"/>';
+  });
+
+  // teclado: barra espaciadora para girar (útil en kiosco)
+  document.addEventListener("keydown", function(e){
+    if(e.code === "Space"){ e.preventDefault(); if(overlay.classList.contains("show")) reset(); else spin(); }
+  });
+})();
+</script>
+</body>
+</html>
