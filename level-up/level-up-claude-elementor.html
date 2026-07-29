@@ -1,0 +1,715 @@
+<div class="esic-lup-claude">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-lup-claude {
+  --lc-dark:   #0A0A0A;
+  --lc-panel:  #17140F;
+  --lc-panel2: #141009;
+  --lc-navy:   #00133F;
+  --lc-blue:   #0047E9;
+  --lc-teal:   #D97757;
+  --lc-clay:   #D97757;
+  --lc-ember:  #FF7A2F;
+  --lc-cream:  #F4EDE4;
+  --lc-white:  #FFFFFF;
+  --lc-muted:  rgba(244,237,228,0.74);
+  --lc-faint:  rgba(244,237,228,0.38);
+  --lc-border: rgba(244,237,228,0.14);
+  --lc-hair:   rgba(244,237,228,0.16);
+  --display-font: "Sofia Sans Extra Condensed", sans-serif;
+  --body-font:    "DM Sans", sans-serif;
+  font-family: var(--body-font);
+  color: var(--lc-cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--lc-dark);
+}
+.esic-lup-claude *, .esic-lup-claude *::before, .esic-lup-claude *::after { box-sizing: border-box; }
+.esic-lup-claude h1, .esic-lup-claude h2, .esic-lup-claude h3, .esic-lup-claude h4 { font-family: var(--display-font); font-weight: 800; margin: 0; }
+.esic-lup-claude p  { margin: 0; }
+.esic-lup-claude a  { color: inherit; text-decoration: none; }
+.esic-lup-claude button { font-family: inherit; cursor: pointer; }
+.esic-lup-claude img { max-width: 100%; display: block; }
+
+/* Layout */
+.esic-lup-claude .lc-container { width: min(1120px, 90%); margin: 0 auto; }
+.esic-lup-claude .lc-section   {
+  padding: 4.5rem 0; position: relative; margin-top: -50px;
+  border-radius: 50px 50px 0 0;
+  background: var(--lc-dark); box-shadow: 0 -26px 54px rgba(0,0,0,0.42);
+}
+/* z-index incremental: cada secci&#243;n se monta sobre la anterior */
+.esic-lup-claude section { position: relative; }
+.esic-lup-claude section:nth-of-type(2) { z-index: 2; }
+.esic-lup-claude section:nth-of-type(3) { z-index: 3; }
+.esic-lup-claude section:nth-of-type(4) { z-index: 4; }
+.esic-lup-claude section:nth-of-type(5) { z-index: 5; }
+.esic-lup-claude section:nth-of-type(6) { z-index: 6; }
+.esic-lup-claude section:nth-of-type(7) { z-index: 7; }
+.esic-lup-claude section:nth-of-type(8) { z-index: 8; }
+/* tono alterno para que la curva luzca */
+.esic-lup-claude .lc-section:nth-of-type(odd)  { background: #0C0A08; }
+
+/* Reveal on scroll */
+.esic-lup-claude .lc-reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1); }
+.esic-lup-claude .lc-reveal.lc-in { opacity: 1; transform: none; }
+.esic-lup-claude .lc-reveal[data-d="1"] { transition-delay: 0.08s; }
+.esic-lup-claude .lc-reveal[data-d="2"] { transition-delay: 0.16s; }
+.esic-lup-claude .lc-reveal[data-d="3"] { transition-delay: 0.24s; }
+
+/* Section heading (editorial, con aire) */
+.esic-lup-claude .lc-kicker {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--lc-clay); margin-bottom: 1.1rem;
+}
+.esic-lup-claude .lc-kicker::before { content: ""; width: 26px; height: 1.5px; background: var(--lc-clay); }
+.esic-lup-claude .lc-h2 { font-size: clamp(2.4rem, 5.5vw, 4rem); text-transform: uppercase; line-height: 0.94; color: var(--lc-white); letter-spacing: -0.01em; }
+.esic-lup-claude .lc-h2 em { font-style: normal; color: var(--lc-clay); }
+.esic-lup-claude .lc-lead { font-size: 1.08rem; color: var(--lc-muted); max-width: 640px; line-height: 1.75; margin-top: 1.4rem; }
+
+/* Buttons (anti-shrink en todos los estados) */
+.esic-lup-claude .lc-btn,
+.esic-lup-claude .lc-btn:link,
+.esic-lup-claude .lc-btn:visited,
+.esic-lup-claude .lc-btn:hover,
+.esic-lup-claude .lc-btn:focus,
+.esic-lup-claude .lc-btn:active {
+  display: inline-flex !important; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 1rem 2.2rem !important; border-radius: 999px !important;
+  font-size: 0.86rem !important; font-weight: 700 !important; line-height: 1 !important;
+  letter-spacing: 0.05em; text-transform: uppercase; border: 2px solid transparent !important;
+  border-style: solid !important; box-sizing: border-box !important;
+  text-decoration: none; transition: transform 0.22s, background 0.22s, color 0.22s, box-shadow 0.22s;
+  transform-origin: center center;
+}
+.esic-lup-claude .lc-btn-clay  { background: var(--lc-clay); color: #1a0e08; box-shadow: 0 10px 34px rgba(217,119,87,0.34); }
+.esic-lup-claude .lc-btn-clay:hover  { background: #E88C6D; transform: translateY(-2px) !important; box-shadow: 0 14px 44px rgba(255,122,47,0.5); }
+.esic-lup-claude .lc-btn-cream { background: var(--lc-cream); color: #1a0e08; }
+.esic-lup-claude .lc-btn-cream:hover { background: #FFFFFF; transform: translateY(-2px) !important; }
+.esic-lup-claude .lc-btn-ghost { background: transparent; color: var(--lc-cream); border-color: var(--lc-hair) !important; }
+.esic-lup-claude .lc-btn-ghost:hover { border-color: var(--lc-clay) !important; color: var(--lc-clay); transform: translateY(-2px) !important; }
+
+/* &#9472;&#9472; HERO (banner quieto) &#9472;&#9472; */
+.esic-lup-claude .lc-hero { position: relative; background: var(--lc-dark); overflow: hidden; padding-bottom: 2.2rem; }
+.esic-lup-claude .lc-hero-img img { width: 100%; height: auto; display: block; }
+.esic-lup-claude .lc-hero-bar {
+  position: relative; z-index: 2; display: flex; align-items: center; justify-content: center;
+  gap: 1.4rem 2.4rem; flex-wrap: wrap; padding: 2.2rem 1.2rem 2rem;
+  border-bottom: 1px solid var(--lc-border);
+}
+.esic-lup-claude .lc-hero-price { display: flex; flex-direction: column; align-items: flex-start; }
+.esic-lup-claude .lc-hero-price strong { font-family: var(--display-font); font-size: 2.1rem; font-weight: 800; color: var(--lc-white); line-height: 1; }
+.esic-lup-claude .lc-hero-price span { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lc-clay); margin-top: 0.3rem; }
+.esic-lup-claude .lc-hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+.esic-lup-claude .lc-hero-line { height: 3px; width: 100%; margin-top: 1.8rem;
+  background: linear-gradient(90deg, transparent, var(--lc-blue), var(--lc-clay), transparent); background-size: 200% 100%; animation: lc-flow 6s linear infinite; }
+@keyframes lc-flow { 0% { background-position: 0% 0; } 100% { background-position: 200% 0; } }
+
+/* &#9472;&#9472; STATS band (Stripe influence) &#8212; con overlap &#9472;&#9472; */
+.esic-lup-claude .lc-stats {
+  position: relative; z-index: 2; margin-top: -54px;
+  border-radius: 50px 50px 0 0; padding: 0 0 4rem;
+  box-shadow: 0 -30px 60px rgba(0,0,0,0.45);
+  background:
+    radial-gradient(ellipse at 15% 60%, rgba(255,122,47,0.16), transparent 55%),
+    radial-gradient(ellipse at 85% 60%, rgba(217,119,87,0.11), transparent 55%),
+    var(--lc-dark);
+}
+.esic-lup-claude .lc-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.esic-lup-claude .lc-stat { padding: 2rem 1.3rem; text-align: center; border-left: 1px solid var(--lc-border); }
+.esic-lup-claude .lc-stat:first-child { border-left: none; }
+.esic-lup-claude .lc-stat b { display: block; font-family: var(--display-font); font-weight: 800; font-size: clamp(1.25rem, 2.1vw, 1.6rem); line-height: 1.12; color: var(--lc-white); }
+.esic-lup-claude .lc-stat b .u { color: var(--lc-clay); }
+.esic-lup-claude .lc-stat span { display: block; margin-bottom: 0.65rem; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lc-muted); }
+
+/* &#9472;&#9472; ECOSISTEMA CLAUDE &#8212; secci&#243;n crema (tema claro) + gr&#225;fica de 4 pilares &#9472;&#9472; */
+.esic-lup-claude .lc-section.lc-eco {
+  box-shadow: none;
+  background:
+    radial-gradient(ellipse at 50% -8%, rgba(0,71,233,0.06), transparent 60%),
+    #F8F6F2;
+}
+.esic-lup-claude .lc-eco .lc-h2 { color: #00133F; }
+.esic-lup-claude .lc-eco .lc-lead { color: rgba(0,19,63,0.66); }
+/* hub central con chispa Claude */
+.esic-lup-claude .lc-hub { display: flex; justify-content: center; margin: 3rem 0 0; position: relative; }
+.esic-lup-claude .lc-hub::before { content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,19,63,0.14), transparent); }
+.esic-lup-claude .lc-hub-badge { position: relative; width: 74px; height: 74px; border-radius: 50%; display: grid; place-items: center; background: #FFFFFF; box-shadow: 0 0 0 1px rgba(0,19,63,0.08), 0 12px 34px rgba(217,119,87,0.22); }
+.esic-lup-claude .lc-hub-badge svg { width: 38px; height: 38px; color: var(--lc-clay); }
+/* pilares (cards blancas sin borde) */
+.esic-lup-claude .lc-pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; margin-top: 2.2rem; }
+.esic-lup-claude .lc-pillar {
+  position: relative; background: #FFFFFF; border-radius: 18px;
+  padding: 2.6rem 1.9rem 2.2rem; display: flex; flex-direction: column; overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,19,63,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.esic-lup-claude .lc-pillar::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--acc); }
+.esic-lup-claude .lc-pillar:hover { transform: translateY(-6px); box-shadow: 0 18px 44px rgba(0,19,63,0.13); }
+.esic-lup-claude .lc-pillar.p-chat   { --acc: #D97757; }
+.esic-lup-claude .lc-pillar.p-cowork { --acc: #D97757; }
+.esic-lup-claude .lc-pillar.p-design { --acc: #D97757; }
+.esic-lup-claude .lc-pillar.p-code   { --acc: #D97757; }
+.esic-lup-claude .lc-pnode { width: 54px; height: 54px; border-radius: 15px; display: grid; place-items: center; background: rgba(0,19,63,0.05); color: var(--acc); margin-bottom: 1.3rem; }
+.esic-lup-claude .lc-pnode svg { width: 27px; height: 27px; }
+.esic-lup-claude .lc-pillar h3 { font-size: 1.7rem; text-transform: uppercase; color: #00133F; line-height: 1; }
+.esic-lup-claude .lc-pillar p { font-size: 0.87rem; color: rgba(0,19,63,0.62); line-height: 1.5; margin-top: 0.45rem; flex-grow: 1; }
+.esic-lup-claude .lc-ptag { margin-top: 1.1rem; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--acc); }
+.esic-lup-claude .lc-ptag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+
+/* &#9472;&#9472; AGENDA (3 columnas editorial con checklist) &#9472;&#9472; */
+.esic-lup-claude .lc-agenda-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.2rem; }
+.esic-lup-claude .lc-ses {
+  background: var(--lc-panel2); border-radius: 18px;
+  padding: 2.7rem 2.1rem; display: flex; flex-direction: column; position: relative; overflow: hidden;
+  transition: transform 0.3s, background 0.3s;
+}
+.esic-lup-claude .lc-ses:hover { transform: translateY(-5px); background: #14100C; }
+.esic-lup-claude .lc-ses-pillar { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.55rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+.esic-lup-claude .lc-ses-pillar::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.esic-lup-claude .lc-ses-top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.3rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--lc-border); }
+.esic-lup-claude .lc-ses-n { font-family: var(--display-font); font-weight: 800; font-size: 3.4rem; line-height: 0.8; color: var(--lc-clay); }
+.esic-lup-claude .lc-ses-date { text-align: right; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lc-clay); }
+.esic-lup-claude .lc-ses-date b { display: block; font-family: var(--display-font); font-size: 1.5rem; color: var(--lc-white); letter-spacing: 0; }
+.esic-lup-claude .lc-ses h3 { font-size: 1.55rem; text-transform: uppercase; color: var(--lc-white); line-height: 1; margin-bottom: 1.1rem; }
+.esic-lup-claude .lc-ses-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+.esic-lup-claude .lc-ses-list li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.88rem; color: var(--lc-muted); line-height: 1.45; }
+.esic-lup-claude .lc-ses-list svg { width: 16px; height: 16px; color: var(--lc-clay); flex-shrink: 0; margin-top: 0.15rem; }
+
+/* &#9472;&#9472; ENTREGABLES (bento con celda featured) &#9472;&#9472; */
+.esic-lup-claude .lc-deliver { display: grid; grid-template-columns: 1.4fr 1fr; grid-auto-rows: 1fr; gap: 1.4rem; margin-top: 2.2rem; }
+.esic-lup-claude .lc-del {
+  background: var(--lc-panel); border-radius: 18px; padding: 2.4rem;
+  display: flex; flex-direction: column; gap: 0.7rem; position: relative; overflow: hidden;
+  transition: transform 0.3s, background 0.3s;
+}
+.esic-lup-claude .lc-del:hover { transform: translateY(-5px); background: #1A1613; }
+.esic-lup-claude .lc-del-ico { width: 44px; height: 44px; display: grid; place-items: center; color: var(--lc-clay); }
+.esic-lup-claude .lc-del-ico svg { width: 26px; height: 26px; }
+.esic-lup-claude .lc-del h3 { font-size: 1.4rem; text-transform: uppercase; color: var(--lc-white); }
+.esic-lup-claude .lc-del p { font-size: 0.9rem; color: var(--lc-muted); line-height: 1.55; }
+.esic-lup-claude .lc-del.big { grid-row: span 2; justify-content: flex-end; background: linear-gradient(155deg, #16110D, #0F0C0A); }
+.esic-lup-claude .lc-del.big::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 80% 18%, rgba(217,119,87,0.2), transparent 55%); }
+.esic-lup-claude .lc-del.big .lc-del-ico { color: var(--lc-clay); }
+.esic-lup-claude .lc-del.big h3 { font-size: 2.1rem; }
+.esic-lup-claude .lc-del.big p { font-size: 1rem; max-width: 90%; }
+
+/* &#9472;&#9472; P&#250;blico (l&#237;nea editorial, sin pills) &#9472;&#9472; */
+.esic-lup-claude .lc-for { margin-top: 3.4rem; padding-top: 2.4rem; border-top: 1px solid var(--lc-border); display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 1.5rem; align-items: start; }
+.esic-lup-claude .lc-for h3 { font-size: 1.6rem; text-transform: uppercase; color: var(--lc-white); line-height: 1; }
+.esic-lup-claude .lc-for-list { display: flex; flex-wrap: wrap; gap: 0.5rem 1.6rem; }
+.esic-lup-claude .lc-for-list span { font-size: 1.05rem; font-weight: 600; color: var(--lc-cream); position: relative; padding-left: 1.2rem; }
+.esic-lup-claude .lc-for-list span::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--lc-clay); }
+
+/* &#9472;&#9472; CTA final (cierre grande centrado, Cursor) &#9472;&#9472; */
+.esic-lup-claude .lc-close { text-align: center; position: relative; overflow: hidden; }
+.esic-lup-claude .lc-close::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 120%, rgba(255,122,47,0.22), transparent 60%); }
+.esic-lup-claude .lc-close-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+.esic-lup-claude .lc-close-mascot { width: 260px; margin: 0 auto 1rem; }
+.esic-lup-claude .lc-close-mascot img { width: 100%; filter: drop-shadow(0 24px 48px rgba(0,0,0,0.45)); }
+@keyframes lc-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.esic-lup-claude .lc-close h2 { font-size: clamp(2.8rem, 7vw, 5rem); text-transform: uppercase; line-height: 0.9; color: var(--lc-white); }
+.esic-lup-claude .lc-close h2 em { font-style: normal; color: var(--lc-clay); }
+.esic-lup-claude .lc-close p { font-size: 1.1rem; color: var(--lc-muted); margin: 1.4rem auto 0; max-width: 520px; }
+.esic-lup-claude .lc-close-price { display: inline-flex; align-items: baseline; gap: 0.5rem; margin: 2rem 0 1.6rem; }
+.esic-lup-claude .lc-close-price b { font-family: var(--display-font); font-weight: 800; font-size: 3rem; color: var(--lc-white); line-height: 1; }
+.esic-lup-claude .lc-close-price span { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lc-clay); }
+
+/* &#9472;&#9472; Modal &#9472;&#9472; */
+.esic-lup-claude .lc-modal-overlay { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(10,10,10,0.9); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 1rem; }
+.esic-lup-claude .lc-modal-overlay.lc-open { display: flex; }
+.esic-lup-claude .lc-modal-box { background: #fff; border-radius: 24px; width: 100%; max-width: 560px; max-height: 92vh; overflow-y: auto; position: relative; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+.esic-lup-claude .lc-modal-close { position: absolute; top: 1rem; right: 1rem; width: 38px; height: 38px; border-radius: 50%; border: none; background: #F0F0F0; font-size: 1.4rem; line-height: 1; cursor: pointer; display: grid; place-items: center; color: #444; transition: background 0.2s; }
+.esic-lup-claude .lc-modal-close:hover { background: #E0E0E0; }
+.esic-lup-claude .lc-modal-header { padding: 2rem 2rem 1.25rem; text-align: center; border-bottom: 1px solid #F0F0F0; }
+.esic-lup-claude .lc-modal-header h2 { font-family: var(--display-font); font-size: 2rem; font-weight: 800; text-transform: uppercase; color: var(--lc-navy); margin-bottom: 0.25rem; }
+.esic-lup-claude .lc-modal-header p { font-size: 0.9rem; color: #666; }
+.esic-lup-claude .lc-modal-body { padding: 1.5rem 2rem 2rem; }
+.esic-lup-claude .lc-form-row   { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.esic-lup-claude .lc-form-group { margin-bottom: 0.85rem; }
+.esic-lup-claude .lc-form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: #1a1a2e; margin-bottom: 0.3rem; font-family: var(--body-font); }
+.esic-lup-claude .lc-form-group input[type="text"],
+.esic-lup-claude .lc-form-group input[type="email"],
+.esic-lup-claude .lc-form-group input[type="tel"],
+.esic-lup-claude .lc-form-group select { width: 100%; padding: 0.78rem 1rem; border-radius: 10px; border: 1.5px solid #E0E0E0; background: #FAFAFA; font-family: var(--body-font); font-size: 0.95rem; color: #1a1a2e; outline: none; transition: border-color 0.2s; }
+.esic-lup-claude .lc-form-group select { appearance: none; }
+.esic-lup-claude .lc-form-group input:focus,
+.esic-lup-claude .lc-form-group select:focus { border-color: var(--lc-blue); background: #fff; }
+.esic-lup-claude .lc-form-submit { width: 100%; padding: 1rem; border-radius: 999px; border: none; background: var(--lc-clay); color: #1a0e08; font-family: var(--body-font); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; margin-top: 0.75rem; }
+.esic-lup-claude .lc-form-submit:hover { background: #C0603F; color: #fff; }
+.esic-lup-claude .lc-form-note { text-align: center; font-size: 0.78rem; color: #888; margin-top: 0.7rem; }
+.esic-lup-claude .lc-terms-label { display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer; font-size: 0.85rem; color: #555; font-family: var(--body-font); }
+.esic-lup-claude .lc-terms-label input { width: auto; margin-top: 0.2rem; }
+.esic-lup-claude .lc-terms-label a { color: var(--lc-blue); text-decoration: underline; }
+
+/* &#9472;&#9472; Responsive &#9472;&#9472; */
+@media (max-width: 900px) {
+  .esic-lup-claude .lc-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .esic-lup-claude .lc-stat:nth-child(3) { border-left: none; }
+  .esic-lup-claude .lc-stat { border-top: 1px solid var(--lc-border); }
+  .esic-lup-claude .lc-stat:nth-child(-n+2) { border-top: none; }
+  .esic-lup-claude .lc-pillars { grid-template-columns: repeat(2, 1fr); }
+  .esic-lup-claude .lc-agenda-grid { grid-template-columns: 1fr; }
+  .esic-lup-claude .lc-deliver { grid-template-columns: 1fr; }
+  .esic-lup-claude .lc-del.big { grid-row: auto; }
+}
+@media (max-width: 600px) {
+  .esic-lup-claude .lc-section { padding: 4rem 0; }
+  .esic-lup-claude .lc-form-row  { grid-template-columns: 1fr; }
+  .esic-lup-claude .lc-pillars { grid-template-columns: 1fr; }
+  .esic-lup-claude .lc-hero-bar { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .esic-lup-claude .lc-reveal { opacity: 1; transform: none; transition: none; }
+  .esic-lup-claude .lc-hero-line, .esic-lup-claude .lc-close-mascot img { animation: none; }
+}
+
+/* ===== ECO en oscuro (.lc-eco.lc-darken) ===== */
+.esic-lup-claude .lc-section.lc-eco.lc-darken {
+  background: radial-gradient(ellipse at 50% -8%, rgba(255,122,47,0.14), transparent 55%),
+              radial-gradient(ellipse at 90% 110%, rgba(217,119,87,0.08), transparent 55%), #0D0B09 !important;
+}
+.esic-lup-claude .lc-eco.lc-darken .lc-h2 { color: #fff; }
+.esic-lup-claude .lc-eco.lc-darken .lc-lead { color: var(--lc-muted); }
+.esic-lup-claude .lc-eco.lc-darken .lc-pillar { background: rgba(255,255,255,0.06); box-shadow: none; }
+.esic-lup-claude .lc-eco.lc-darken .lc-pillar:hover { background: rgba(255,255,255,0.08); box-shadow: none; }
+.esic-lup-claude .lc-eco.lc-darken .lc-pillar h3 { color: #fff; }
+.esic-lup-claude .lc-eco.lc-darken .lc-pillar p { color: rgba(244,237,228,0.72); }
+.esic-lup-claude .lc-eco.lc-darken .lc-pnode { background: rgba(255,255,255,0.07); }
+.esic-lup-claude .lc-eco.lc-darken .lc-pillar.p-code { --acc: #D97757; }
+.esic-lup-claude .lc-eco.lc-darken .lc-pillar.p-design { --acc: #D97757; }
+.esic-lup-claude .lc-eco.lc-darken .lc-hub-badge { background: #0D0B09; box-shadow: 0 0 0 1px rgba(244,237,228,0.14), 0 0 40px rgba(217,119,87,0.35); }
+.esic-lup-claude .lc-eco.lc-darken .lc-hub::before { background: linear-gradient(90deg, transparent, rgba(244,237,228,0.18), transparent); }
+
+/* ===== CORTE CLARO (agenda rompe el negro) ===== */
+.esic-lup-claude .lc-section.lc-light { background: #F5F2EC !important; box-shadow: 0 -26px 54px rgba(0,0,0,0.30) !important; }
+.esic-lup-claude .lc-light .lc-h2 { color: #141210; }
+.esic-lup-claude .lc-light .lc-lead { color: rgba(20,18,16,0.66); }
+.esic-lup-claude .lc-light .lc-ses { background: #FFFFFF; box-shadow: 0 10px 30px rgba(20,18,16,0.08); }
+.esic-lup-claude .lc-light .lc-ses:hover { background: #FFFFFF; box-shadow: 0 16px 40px rgba(20,18,16,0.14); }
+.esic-lup-claude .lc-light .lc-ses-top { border-bottom-color: rgba(20,18,16,0.12); }
+.esic-lup-claude .lc-light .lc-ses-date b { color: #141210; }
+.esic-lup-claude .lc-light .lc-ses h3 { color: #141210; }
+.esic-lup-claude .lc-light .lc-ses-list li { color: rgba(20,18,16,0.72); }
+
+/* ===== ENTREGABLES: una sola card ===== */
+.esic-lup-claude .lc-deliver-solo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2.2rem; background: var(--lc-panel); border-radius: 20px; padding: 2.4rem 2.2rem; }
+.esic-lup-claude .lc-ds-item { display: flex; flex-direction: column; gap: 0.5rem; }
+.esic-lup-claude .lc-ds-item .lc-del-ico { color: var(--lc-clay); }
+.esic-lup-claude .lc-ds-item h3 { font-size: 1.2rem; text-transform: uppercase; color: var(--lc-white); }
+.esic-lup-claude .lc-ds-item p { font-size: 0.85rem; color: var(--lc-muted); line-height: 1.5; }
+
+/* ===== INSTRUCTOR ===== */
+.esic-lup-claude .lc-instructor { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2.2rem; padding-top: 1.9rem; border-top: 1px solid var(--lc-border); }
+.esic-lup-claude .lc-inst-ph { width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; background: #241E18; border: 2px solid var(--lc-clay); color: var(--lc-clay); font-family: var(--display-font); font-weight: 800; font-size: 1.3rem; flex-shrink: 0; }
+.esic-lup-claude .lc-inst-txt span { display: block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lc-muted); margin-bottom: 0.2rem; }
+.esic-lup-claude .lc-inst-txt b { font-family: var(--display-font); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; color: var(--lc-white); line-height: 1; }
+@media (max-width: 600px) { .esic-lup-claude .lc-deliver-solo { grid-template-columns: 1fr; gap: 1.4rem; } }
+/* ===== TUTORES ===== */
+.esic-lup-claude .lc-tutores { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 2.8rem; }
+.esic-lup-claude .lc-tutor {
+  display: flex; align-items: center; gap: 1.4rem;
+  background: var(--lc-panel); border: 1px solid var(--lc-border);
+  border-radius: 22px; padding: 1.7rem 1.9rem;
+}
+.esic-lup-claude .lc-tutor img {
+  flex-shrink: 0; width: 104px; height: 104px; border-radius: 50%;
+  border: 2px solid var(--lc-clay); object-fit: cover; background: #241E18;
+}
+.esic-lup-claude .lc-tutor-txt span {
+  display: block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--lc-clay); margin-bottom: 0.3rem;
+}
+.esic-lup-claude .lc-tutor-txt b {
+  display: block; font-family: var(--display-font); font-weight: 800; font-size: 1.55rem;
+  text-transform: uppercase; color: var(--lc-white); line-height: 1; margin-bottom: 0.5rem;
+}
+.esic-lup-claude .lc-tutor-txt p { font-size: 0.9rem; color: var(--lc-muted); line-height: 1.6; }
+@media (max-width: 760px) {
+  .esic-lup-claude .lc-tutores { grid-template-columns: 1fr; }
+  .esic-lup-claude .lc-tutor { flex-direction: column; text-align: center; }
+}
+
+/* ===== STATS/PRECIO en claro ===== */
+.esic-lup-claude .lc-stats.lc-light { background: #F5F2EC !important; }
+.esic-lup-claude .lc-stats.lc-light .lc-hero-bar { border-bottom-color: rgba(20,18,16,0.12); }
+.esic-lup-claude .lc-stats.lc-light .lc-hero-price strong { color: #141210; }
+.esic-lup-claude .lc-stats.lc-light .lc-hero-price span { color: var(--lc-clay); }
+.esic-lup-claude .lc-stats.lc-light .lc-btn-ghost { color: #141210; border-color: rgba(20,18,16,0.25) !important; }
+.esic-lup-claude .lc-stats.lc-light .lc-btn-ghost:hover { color: var(--lc-clay); border-color: var(--lc-clay) !important; }
+.esic-lup-claude .lc-stats.lc-light .lc-stat { border-left-color: rgba(20,18,16,0.12); }
+.esic-lup-claude .lc-stats.lc-light .lc-stat b { color: #141210; }
+.esic-lup-claude .lc-stats.lc-light .lc-stat span { color: rgba(20,18,16,0.58); }
+.esic-lup-claude .lc-stats.lc-light .lc-instructor { border-top-color: rgba(20,18,16,0.14); }
+.esic-lup-claude .lc-stats.lc-light .lc-inst-txt span { color: rgba(20,18,16,0.58); }
+.esic-lup-claude .lc-stats.lc-light .lc-inst-txt b { color: #141210; }
+
+</style>
+
+<!-- &#9552;&#9552; MODAL &#9552;&#9552; -->
+<div class="lc-modal-overlay" id="lc-modal" role="dialog" aria-modal="true" aria-label="Inscr&#237;bete al Level Up con Claude">
+  <div class="lc-modal-box">
+    <button class="lc-modal-close" id="lc-modal-close" aria-label="Cerrar">&#215;</button>
+    <div class="lc-modal-header">
+      <h2>Inscr&#237;bete al Level Up</h2>
+      <p>Completa tus datos y contin&#250;a al pago seguro con Wompi.</p>
+    </div>
+    <div class="lc-modal-body">
+      <form
+        action="https://forms.zohopublic.com/esicmedellin/form/SeparayatulugarFormularioLevelUP110226/formperma/6suw077ABDvaL9ciYTgezsHxpmtBh6y2URfr6ZDbCGU/htmlRecords/submit"
+        id="lc-form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+        <input type="hidden" name="zf_referrer_name" value="">
+        <input type="hidden" name="zf_redirect_url" value="https://checkout.wompi.co/l/RCCkA3">
+        <input type="hidden" name="zc_gad" value="">
+
+        <div class="lc-form-row">
+          <div class="lc-form-group">
+            <label for="lc-nombre">Nombre <em style="color:#E53935">*</em></label>
+            <input type="text" id="lc-nombre" name="Name_First" maxlength="255" placeholder="Tu nombre" required>
+          </div>
+          <div class="lc-form-group">
+            <label for="lc-apellido">Apellido <em style="color:#E53935">*</em></label>
+            <input type="text" id="lc-apellido" name="Name_Last" maxlength="255" placeholder="Tu apellido" required>
+          </div>
+        </div>
+
+        <div class="lc-form-row">
+          <div class="lc-form-group">
+            <label for="lc-tipodoc">Tipo de documento <em style="color:#E53935">*</em></label>
+            <select id="lc-tipodoc" name="Dropdown2" required>
+              <option value="" disabled selected>Selecciona&#8230;</option>
+              <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+              <option value="C&#233;dula de ciudadan&#237;a">C&#233;dula de ciudadan&#237;a</option>
+              <option value="C&#233;dula de extranjer&#237;a">C&#233;dula de extranjer&#237;a</option>
+              <option value="Pasaporte">Pasaporte</option>
+            </select>
+          </div>
+          <div class="lc-form-group">
+            <label for="lc-numdoc">N&#250;mero de documento <em style="color:#E53935">*</em></label>
+            <input type="text" inputmode="numeric" id="lc-numdoc" name="Number" maxlength="18" placeholder="N&#250;mero de documento" required>
+          </div>
+        </div>
+
+        <div class="lc-form-row">
+          <div class="lc-form-group">
+            <label for="lc-tel">Tel&#233;fono <em style="color:#E53935">*</em></label>
+            <input type="tel" id="lc-tel" name="PhoneNumber_countrycode" maxlength="20" placeholder="300 123 4567" required>
+          </div>
+          <div class="lc-form-group">
+            <label for="lc-email">Correo electr&#243;nico <em style="color:#E53935">*</em></label>
+            <input type="email" id="lc-email" name="Email" maxlength="255" placeholder="tu@email.com" required>
+          </div>
+        </div>
+
+        <div class="lc-form-row">
+          <div class="lc-form-group">
+            <label for="lc-empresa">Empresa</label>
+            <input type="text" id="lc-empresa" name="SingleLine" maxlength="255" placeholder="Tu empresa">
+          </div>
+          <div class="lc-form-group">
+            <label for="lc-cargo">Cargo</label>
+            <input type="text" id="lc-cargo" name="SingleLine1" maxlength="255" placeholder="Tu cargo">
+          </div>
+        </div>
+
+        <div class="lc-form-row">
+          <div class="lc-form-group">
+            <label for="lc-dir">Direcci&#243;n de residencia</label>
+            <input type="text" id="lc-dir" name="SingleLine2" maxlength="255" placeholder="Tu direcci&#243;n">
+          </div>
+          <div class="lc-form-group">
+            <label for="lc-ciudad">Ciudad de residencia</label>
+            <input type="text" id="lc-ciudad" name="SingleLine3" maxlength="255" placeholder="Tu ciudad">
+          </div>
+        </div>
+
+        <div class="lc-form-group">
+          <label for="lc-medio">Medio preferido de contacto <em style="color:#E53935">*</em></label>
+          <select id="lc-medio" name="Dropdown3" required>
+            <option value="" disabled selected>Selecciona&#8230;</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Correo">Correo</option>
+            <option value="Llamada">Llamada</option>
+          </select>
+        </div>
+
+        <div class="lc-form-group">
+          <label for="lc-fuente">&#191;Por qu&#233; medio te enteraste del Level Up? <em style="color:#E53935">*</em></label>
+          <select id="lc-fuente" name="Dropdown4" required>
+            <option value="" disabled selected>Selecciona&#8230;</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Facebook">Facebook</option>
+            <option value="Google">Google</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="P&#225;gina Web">P&#225;gina Web</option>
+            <option value="Ferias y eventos">Ferias y eventos</option>
+            <option value="Referidos">Referidos</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="TikTok">TikTok</option>
+          </select>
+        </div>
+
+        <div class="lc-form-group" style="margin-top:0.5rem;">
+          <label class="lc-terms-label">
+            <input type="checkbox" name="TermsConditions" required>
+            <span>Acepto solicitud de <a href="https://esic.co/politicas-de-privacidad/" target="_blank">autorizaci&#243;n de datos personales y t&#233;rminos y condiciones</a> <em style="color:#E53935">*</em></span>
+          </label>
+        </div>
+
+        <button type="submit" class="lc-form-submit">Continuar al pago &#8594;</button>
+        <p class="lc-form-note">Inversi&#243;n: $1.200.000 COP &#183; Pago seguro con Wompi</p>
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_term">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="utm_adset_name">
+        <input type="hidden" name="utm_ad_name">
+      </form>
+      <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var params = new URLSearchParams(window.location.search);
+        var utms = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_adset_name","utm_ad_name"];
+        utms.forEach(function(param){
+          var value = params.get(param);
+          if (!value) return;
+          document.querySelectorAll('[name="' + param + '"]').forEach(function(input){ input.value = value; });
+        });
+      });
+      </script>
+    </div>
+  </div>
+</div>
+
+<!-- &#9552;&#9552; HERO (banner quieto) &#9552;&#9552; -->
+<section class="lc-hero">
+  <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Level Up con Claude &#8212; Domina Claude en 3 sesiones &#183; ESIC Medell&#237;n</h1>
+  <div class="lc-hero-img">
+    <picture>
+      <source media="(max-width: 700px)" srcset="https://esic.co/wp-content/uploads/2026/07/level-up-hero-mobile.webp">
+      <img src="https://esic.co/wp-content/uploads/2026/07/level-up-hero-desktop.webp" alt="Level Up con Claude &#8212; Domina Claude en 3 sesiones. Usar Claude es f&#225;cil, dominarlo no. 22 ago / 29 ago / 05 sep.">
+    </picture>
+  </div>
+</section>
+
+<!-- &#9552;&#9552; STATS + PRECIO (panel con overlap sobre el banner) &#9552;&#9552; -->
+<section class="lc-stats lc-light">
+  <div class="lc-container">
+    <div class="lc-hero-bar">
+      <div class="lc-hero-price">
+        <strong>$1.200.000</strong>
+        <span>COP &#183; Cupos limitados</span>
+      </div>
+      <div class="lc-hero-actions">
+        <button class="lc-btn lc-btn-clay lc-open-modal">Separa tu cupo &#8594;</button>
+        <a href="#agenda" class="lc-btn lc-btn-ghost">Ver el programa</a>
+      </div>
+    </div>
+    <div class="lc-stats-grid">
+      <div class="lc-stat"><span>Fechas</span><b>22 &#183; 29 AGO<br>5 SEP</b></div>
+      <div class="lc-stat"><span>Horario</span><b>8:00 a 12:00<br>3 s&#225;bados</b></div>
+      <div class="lc-stat"><span>Modalidad</span><b>Presencial<br>Campus Medell&#237;n</b></div>
+      <div class="lc-stat"><span>Te llevas</span><b>Tu negocio<br>publicado</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- &#9552;&#9552; TUTORES &#9552;&#9552; -->
+<section class="lc-section">
+  <div class="lc-container">
+    <span class="lc-kicker lc-reveal">Con qui&#233;n aprendes</span>
+    <h2 class="lc-h2 lc-reveal">Tus <em>tutores</em></h2>
+
+    <div class="lc-tutores">
+      <div class="lc-tutor lc-reveal">
+        <img src="https://esic.co/wp-content/uploads/2026/07/level-up-tutor-juan-esteban.webp" alt="Juan Esteban Jaramillo" loading="lazy">
+        <div class="lc-tutor-txt">
+          <span>Con:</span>
+          <b>Juan Esteban Jaramillo</b>
+          <p>L&#237;der de los programas ejecutivos de Inteligencia Artificial en ESIC Medell&#237;n y presidente de la instituci&#243;n. Ha liderado la formaci&#243;n en IA aplicada a la estrategia empresarial.</p>
+        </div>
+      </div>
+      <div class="lc-tutor lc-reveal" data-d="1">
+        <img src="https://esic.co/wp-content/uploads/2026/07/level-up-tutor-jeronimo.webp" alt="Jer&#243;nimo Mart&#237;nez" loading="lazy">
+        <div class="lc-tutor-txt">
+          <span>Con:</span>
+          <b>Jer&#243;nimo Mart&#237;nez</b>
+          <p>Experto en implementaci&#243;n de soluciones de inteligencia artificial en ESIC Medell&#237;n. Lidera el desarrollo tecnol&#243;gico de la instituci&#243;n.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- &#9552;&#9552; ECOSISTEMA &#8212; 4 PILARES DE CLAUDE (azul ESIC) &#9552;&#9552; -->
+<section class="lc-section lc-eco">
+  <div class="lc-container">
+    <span class="lc-kicker lc-reveal">De consumir IA a crear con ella</span>
+    <h2 class="lc-h2 lc-reveal">Los <em>4 pilares</em> de Claude</h2>
+    <p class="lc-lead lc-reveal" data-d="1">No aprendes una herramienta suelta: dominas el ecosistema completo de Claude para investigar, colaborar, dise&#241;ar y publicar. Tres sesiones, cuatro pilares, un negocio real lanzado.</p>
+
+    <div class="lc-pillars">
+      <div class="lc-pillar p-chat lc-reveal">
+        <div class="lc-pnode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Chat</h3>
+        <p>Prompting efectivo, contexto e investigaci&#243;n de mercado. Aprendes a hacer las preguntas correctas.</p>
+        <span class="lc-ptag">Sesi&#243;n 01</span>
+      </div>
+      <div class="lc-pillar p-cowork lc-reveal" data-d="1">
+        <div class="lc-pnode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></div>
+        <h3>Cowork</h3>
+        <p>Colabora con agentes en tareas y flujos de trabajo reales para acelerar tu proyecto.</p>
+        <span class="lc-ptag">Sesi&#243;n 02</span>
+      </div>
+      <div class="lc-pillar p-design lc-reveal" data-d="2">
+        <div class="lc-pnode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 22a3 3 0 0 0 3-3v-7"/></svg></div>
+        <h3>Design</h3>
+        <p>Identidad visual y manual de marca reutilizable a partir de tu concepto.</p>
+        <span class="lc-ptag">Sesi&#243;n 02</span>
+      </div>
+      <div class="lc-pillar p-code lc-reveal" data-d="3">
+        <div class="lc-pnode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Code</h3>
+        <p>Publica tu sitio con base de datos real &#8212; sin escribir una sola l&#237;nea de c&#243;digo.</p>
+        <span class="lc-ptag">Sesi&#243;n 03</span>
+      </div>
+    </div>
+    <div class="lc-close-mascot lc-reveal" style="width:290px; margin:2.4rem auto -90px; position:relative; z-index:6;"><img src="https://esic.co/wp-content/uploads/2026/07/mascota-claude.webp" alt="Mascota de Claude saludando" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- &#9552;&#9552; CTA (debajo de la mascota) &#9552;&#9552; -->
+<section class="lc-section lc-close" style="padding: 6rem 0 5rem;">
+  <div class="lc-container">
+    <div class="lc-close-inner lc-reveal">
+      <h2>Deja de mirar la IA<br>y <em>empieza a construir</em></h2>
+      <p>Cupos limitados. Asegura tu lugar y sal con tu negocio publicado.</p>
+      <div class="lc-close-price"><b>$1.200.000</b><span>COP</span></div>
+      <div>
+        <button class="lc-btn lc-btn-clay lc-open-modal">Separa tu cupo &#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- &#9552;&#9552; AGENDA &#9552;&#9552; -->
+<section class="lc-section" id="agenda">
+  <div class="lc-container">
+    <span class="lc-kicker lc-reveal">Programa &#183; 2026</span>
+    <h2 class="lc-h2 lc-reveal">Construye tu tienda en <em>3 sesiones</em></h2>
+    <p class="lc-lead lc-reveal" data-d="1">Presencial en Medell&#237;n. Cada sesi&#243;n suma una capa hasta tener tu marca de caf&#233; publicada y funcionando.</p>
+
+    <div class="lc-agenda-grid">
+      <article class="lc-ses lc-reveal">
+        <div class="lc-ses-top">
+          <span class="lc-ses-n">01</span>
+          <span class="lc-ses-date">D&#237;a 1<b>22 AGO</b></span>
+        </div>
+        <span class="lc-ses-pillar" style="color:#D97757">Claude Chat</span>
+        <h3>Contexto y prompting</h3>
+        <ul class="lc-ses-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Fundamentos de Claude y buen contexto</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Prompting efectivo para resultados reales</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Investigaci&#243;n de mercado del sector caf&#233;</li>
+        </ul>
+      </article>
+
+      <article class="lc-ses lc-reveal" data-d="1">
+        <div class="lc-ses-top">
+          <span class="lc-ses-n">02</span>
+          <span class="lc-ses-date">D&#237;a 2<b>29 AGO</b></span>
+        </div>
+        <span class="lc-ses-pillar" style="color:#D97757">Claude Cowork</span>
+        <h3>Competencia y marca</h3>
+        <ul class="lc-ses-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>An&#225;lisis de competencia con IA</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Concepto y posicionamiento de marca</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Dise&#241;o de identidad y manual reutilizable</li>
+        </ul>
+      </article>
+
+      <article class="lc-ses lc-reveal" data-d="2">
+        <div class="lc-ses-top">
+          <span class="lc-ses-n">03</span>
+          <span class="lc-ses-date">D&#237;a 3<b>5 SEP</b></span>
+        </div>
+        <span class="lc-ses-pillar" style="color:#D97757">Claude Code</span>
+        <h3>Construcci&#243;n y despliegue</h3>
+        <ul class="lc-ses-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Sitio web conectado a base de datos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Tienda de caf&#233; funcional</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Publicaci&#243;n y puesta en marcha</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- &#9552;&#9552; ENTREGABLES &#9552;&#9552; -->
+<section class="lc-section">
+  <div class="lc-container">
+    <span class="lc-kicker lc-reveal">Te llevas resultados, no solo apuntes</span>
+    <h2 class="lc-h2 lc-reveal">Lo que <em>sales construyendo</em></h2>
+
+    <div class="lc-deliver-solo lc-reveal">
+      <div class="lc-ds-item">
+        <div class="lc-del-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+        <h3>Tienda publicada</h3>
+        <p>Tu tienda funcional y en l&#237;nea, con base de datos real.</p>
+      </div>
+      <div class="lc-ds-item">
+        <div class="lc-del-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3>Manual de marca</h3>
+        <p>Identidad reutilizable: logo, colores, tono y lineamientos.</p>
+      </div>
+      <div class="lc-ds-item">
+        <div class="lc-del-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <h3>Kit de prompts</h3>
+        <p>Prompts y herramientas personalizadas para seguir creando.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- &#9552;&#9552; CTA FINAL (cierre de toda la landing) &#9552;&#9552; -->
+<section class="lc-section lc-close" style="padding: 5rem 0 6rem;">
+  <div class="lc-container">
+    <div class="lc-close-inner lc-reveal">
+      <h2>Tu cupo te <em>est&#225; esperando</em></h2>
+      <p>Cupos limitados &#183; 22, 29 ago y 5 sep &#183; Presencial en Campus ESIC Medell&#237;n.</p>
+      <div class="lc-close-price"><b>$1.200.000</b><span>COP</span></div>
+      <div>
+        <button class="lc-btn lc-btn-clay lc-open-modal">Separa tu cupo &#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var modal    = document.getElementById('lc-modal');
+  var btnClose = document.getElementById('lc-modal-close');
+  function openModal()  { modal.classList.add('lc-open'); document.body.style.overflow = 'hidden'; }
+  function closeModal() { modal.classList.remove('lc-open'); document.body.style.overflow = ''; }
+  document.querySelectorAll('.lc-open-modal').forEach(function(btn) { btn.addEventListener('click', openModal); });
+  btnClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+  var reveals = document.querySelectorAll('.esic-lup-claude .lc-reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(en) { if (en.isIntersecting) { en.target.classList.add('lc-in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(function(el) { io.observe(el); });
+  } else {
+    reveals.forEach(function(el) { el.classList.add('lc-in'); });
+  }
+})();
+</script>
+</div>
