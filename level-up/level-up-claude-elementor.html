@@ -310,16 +310,20 @@
 .esic-lup-claude .lc-inst-txt span { display: block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lc-muted); margin-bottom: 0.2rem; }
 .esic-lup-claude .lc-inst-txt b { font-family: var(--display-font); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; color: var(--lc-white); line-height: 1; }
 @media (max-width: 600px) { .esic-lup-claude .lc-deliver-solo { grid-template-columns: 1fr; gap: 1.4rem; } }
-/* ===== TUTORES ===== */
+/* ===== TUTORES (fondo claro) ===== */
+.esic-lup-claude .lc-tutores-sec { background: #F5F2EC !important; }
+.esic-lup-claude .lc-tutores-sec .lc-h2 { color: #141210; }
+.esic-lup-claude .lc-tutores-sec .lc-h2 em { color: var(--lc-clay); }
 .esic-lup-claude .lc-tutores { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 2.8rem; }
 .esic-lup-claude .lc-tutor {
   display: flex; align-items: center; gap: 1.4rem;
-  background: var(--lc-panel); border: 1px solid var(--lc-border);
+  background: #FFFFFF; border: 1px solid rgba(20,18,16,0.1);
   border-radius: 22px; padding: 1.7rem 1.9rem;
+  box-shadow: 0 12px 34px rgba(20,18,16,0.08);
 }
 .esic-lup-claude .lc-tutor img {
   flex-shrink: 0; width: 104px; height: 104px; border-radius: 50%;
-  border: 2px solid var(--lc-clay); object-fit: cover; background: #241E18;
+  border: 2px solid var(--lc-clay); object-fit: cover; background: #EDE8E0;
 }
 .esic-lup-claude .lc-tutor-txt span {
   display: block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em;
@@ -327,9 +331,9 @@
 }
 .esic-lup-claude .lc-tutor-txt b {
   display: block; font-family: var(--display-font); font-weight: 800; font-size: 1.55rem;
-  text-transform: uppercase; color: var(--lc-white); line-height: 1; margin-bottom: 0.5rem;
+  text-transform: uppercase; color: #141210; line-height: 1; margin-bottom: 0.5rem;
 }
-.esic-lup-claude .lc-tutor-txt p { font-size: 0.9rem; color: var(--lc-muted); line-height: 1.6; }
+.esic-lup-claude .lc-tutor-txt p { font-size: 0.9rem; color: rgba(20,18,16,0.66); line-height: 1.6; }
 @media (max-width: 760px) {
   .esic-lup-claude .lc-tutores { grid-template-columns: 1fr; }
   .esic-lup-claude .lc-tutor { flex-direction: column; text-align: center; }
@@ -519,8 +523,8 @@
   </div>
 </section>
 
-<!-- &#9552;&#9552; TUTORES &#9552;&#9552; -->
-<section class="lc-section">
+<!-- &#9552;&#9552; TUTORES (fondo claro) &#9552;&#9552; -->
+<section class="lc-section lc-tutores-sec">
   <div class="lc-container">
     <span class="lc-kicker lc-reveal">Con qui&#233;n aprendes</span>
     <h2 class="lc-h2 lc-reveal">Tus <em>tutores</em></h2>
