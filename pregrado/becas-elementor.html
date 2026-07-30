@@ -59,7 +59,7 @@
   color: var(--brand-blue-dark); margin-bottom: 3rem;
 }
 
-/* ── HERO ── */
+/* -- HERO -- */
 .esic-pregrado-becas .epbecas-hero {
   min-height: 88vh; display: flex; align-items: flex-end;
   position: relative; overflow: hidden;
@@ -83,7 +83,7 @@
   max-width: 500px; margin-bottom: 2.5rem;
 }
 
-/* ── Beca Cards ── */
+/* -- Beca Cards -- */
 .esic-pregrado-becas .epbecas-beca-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
 }
@@ -110,7 +110,7 @@
 }
 .esic-pregrado-becas .epbecas-beca-card p { font-size: 0.88rem; line-height: 1.5; color: var(--text-muted); }
 
-/* ── Requisitos split ── */
+/* -- Requisitos split -- */
 .esic-pregrado-becas .epbecas-req-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   border-radius: 24px; overflow: hidden;
@@ -134,7 +134,7 @@
 .esic-pregrado-becas .epbecas-req-img { min-height: 380px; }
 .esic-pregrado-becas .epbecas-req-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
-/* ── FAQ ── */
+/* -- FAQ -- */
 .esic-pregrado-becas .epbecas-faq-list { max-width: 720px; margin: 0 auto; }
 .esic-pregrado-becas .epbecas-faq-item { border-bottom: 1px solid var(--border); }
 .esic-pregrado-becas .epbecas-faq-q {
@@ -155,7 +155,7 @@
 .esic-pregrado-becas .epbecas-faq-a p { padding-bottom: 1.4rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
 .esic-pregrado-becas .epbecas-faq-item.epbecas-active .epbecas-faq-a { max-height: 300px; }
 
-/* ── Cronograma / Timeline ── */
+/* -- Cronograma / Timeline -- */
 .esic-pregrado-becas .epbecas-tl {
   max-width: 560px; margin: 0 auto; padding-left: 130px; position: relative;
 }
@@ -176,7 +176,7 @@
 }
 .esic-pregrado-becas .epbecas-tl-item p  { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
 
-/* ── CTA final ── */
+/* -- CTA final -- */
 .esic-pregrado-becas .epbecas-cta-box {
   background: var(--brand-orange); border-radius: 32px;
   padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
@@ -190,7 +190,7 @@
 .esic-pregrado-becas .epbecas-cta-sub { font-size: 1.1rem; color: rgba(255,255,255,0.85); margin-top: 0.75rem; font-weight: 500; }
 .esic-pregrado-becas .epbecas-cta-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.8rem; flex-shrink: 0; }
 
-/* ── Modal ── */
+/* -- Modal -- */
 .esic-pregrado-becas .epbecas-modal-overlay {
   display: none; position: fixed; inset: 0; z-index: 9999;
   background: rgba(0,19,63,0.65); align-items: center; justify-content: center; padding: 1rem;
@@ -237,7 +237,7 @@
 }
 .esic-pregrado-becas .epbecas-form-submit:hover { background: #0038CC; }
 
-/* ── Responsive ── */
+/* -- Responsive -- */
 @media (max-width: 1024px) {
   .esic-pregrado-becas .epbecas-beca-grid { grid-template-columns: repeat(2, 1fr); }
   .esic-pregrado-becas .epbecas-req-grid  { grid-template-columns: 1fr; }
@@ -259,12 +259,12 @@
 }
 </style>
 
-<!-- ══ MODAL POPUP ══ -->
-<div class="epbecas-modal-overlay" id="epbecas-modal" role="dialog" aria-modal="true" aria-label="Solicitar información">
+<!-- == MODAL POPUP == -->
+<div class="epbecas-modal-overlay" id="epbecas-modal" role="dialog" aria-modal="true" aria-label="Solicitar informaci&oacute;n">
   <div class="epbecas-modal-box">
-    <button class="epbecas-modal-close" id="epbecas-modal-close" aria-label="Cerrar">×</button>
+    <button class="epbecas-modal-close" id="epbecas-modal-close" aria-label="Cerrar">&times;</button>
     <h2 class="epbecas-modal-title">Aplica a una beca</h2>
-    <p class="epbecas-modal-sub">Completa el formulario y un asesor te contactará para guiarte en el proceso.</p>
+    <p class="epbecas-modal-sub">Completa el formulario y un asesor te contactar&aacute; para guiarte en el proceso.</p>
 
     <form
       action="https://forms.zohopublic.com/esicmedellin/form/AplicaaunabecaparaPregradoFormulariosBecas1102261/formperma/HhmBExY5gg5-wX-s4ZZLnD6ak8AKtS5NmFlDrD63DEM/htmlRecords/submit"
@@ -290,19 +290,19 @@
       </div>
 
       <div class="epbecas-form-group">
-        <label for="epbecas-email">Correo electrónico <em style="color:var(--brand-orange)">*</em></label>
+        <label for="epbecas-email">Correo electr&oacute;nico <em style="color:var(--brand-orange)">*</em></label>
         <input type="email" id="epbecas-email" name="Email" maxlength="255" required>
       </div>
 
       <div class="epbecas-form-group">
-        <label for="epbecas-tel">Teléfono <em style="color:var(--brand-orange)">*</em></label>
+        <label for="epbecas-tel">Tel&eacute;fono <em style="color:var(--brand-orange)">*</em></label>
         <input type="tel" id="epbecas-tel" name="PhoneNumber_countrycode" placeholder="300 123 4567" required>
       </div>
 
       <div class="epbecas-form-group">
         <label for="epbecas-contacto">Medio de contacto <em style="color:var(--brand-orange)">*</em></label>
         <select id="epbecas-contacto" name="Dropdown3" required>
-          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="" disabled selected>Selecciona una opci&oacute;n</option>
           <option value="WhatsApp">WhatsApp</option>
           <option value="Correo">Correo</option>
           <option value="Llamada">Llamada</option>
@@ -310,23 +310,23 @@
       </div>
 
       <div class="epbecas-form-group">
-        <label for="epbecas-programa">Programa de interés <em style="color:var(--brand-orange)">*</em></label>
+        <label for="epbecas-programa">Programa de inter&eacute;s <em style="color:var(--brand-orange)">*</em></label>
         <select id="epbecas-programa" name="Dropdown1" required>
-          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="" disabled selected>Selecciona una opci&oacute;n</option>
           <option value="Digital Business">Digital Business</option>
-          <option value="Dirección de Marketing Global">Dirección de Marketing Global</option>
+          <option value="Direcci&oacute;n de Marketing Global">Direcci&oacute;n de Marketing Global</option>
         </select>
       </div>
 
       <div class="epbecas-form-group" style="margin-top:1rem;">
         <label style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.88rem;color:var(--text-muted);">
           <input type="checkbox" name="TermsConditions" required style="width:auto;margin-top:0.2rem;">
-          <span>Acepto solicitud de <a href="https://esic.co/politicas-de-privacidad/" target="_blank" style="color:var(--brand-blue);text-decoration:underline;">autorización de datos personales y términos y condiciones</a> <em style="color:var(--brand-orange)">*</em></span>
+          <span>Acepto solicitud de <a href="https://esic.co/politicas-de-privacidad/" target="_blank" style="color:var(--brand-blue);text-decoration:underline;">autorizaci&oacute;n de datos personales y t&eacute;rminos y condiciones</a> <em style="color:var(--brand-orange)">*</em></span>
         </label>
       </div>
 
-      <button type="submit" class="epbecas-form-submit">APLICAR A BECA →</button>
-        <!-- UTM hidden fields (autollenados vía JS desde la URL) -->
+      <button type="submit" class="epbecas-form-submit">APLICAR A BECA &rarr;</button>
+        <!-- UTM hidden fields (autollenados v&iacute;a JS desde la URL) -->
         <input type="hidden" name="utm_source">
         <input type="hidden" name="utm_medium">
         <input type="hidden" name="utm_campaign">
@@ -349,19 +349,19 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </div>
 
-<!-- ══ HERO ══ -->
+<!-- == HERO == -->
 <section class="epbecas-hero">
   <div class="epbecas-hero-photo"></div>
   <div class="epbecas-container">
     <div class="epbecas-hero-content">
-      <h1>Becas y Ayudas<br><span>Económicas</span><br>Pregrado</h1>
-      <p class="epbecas-hero-sub">ESIC Medellín apoya a estudiantes de nuevo ingreso mediante un plan de becas y ayudas económicas al estudio, fomentando la excelencia y la igualdad de oportunidades.</p>
+      <h1>Becas y Ayudas<br><span>Econ&oacute;micas</span><br>Pregrado</h1>
+      <p class="epbecas-hero-sub">ESIC Medell&iacute;n apoya a estudiantes de nuevo ingreso mediante un plan de becas y ayudas econ&oacute;micas al estudio, fomentando la excelencia y la igualdad de oportunidades.</p>
       <button class="epbecas-btn epbecas-btn-blue epbecas-open-modal">APLICA A UNA BECA</button>
     </div>
   </div>
 </section>
 
-<!-- ══ TIPOS DE BECA ══ -->
+<!-- == TIPOS DE BECA == -->
 <section class="epbecas-section epbecas-bg-cream epbecas-overlap">
   <div class="epbecas-container">
     <h2 class="epbecas-s-title">Encuentra la beca<br>que se ajusta a ti</h2>
@@ -373,7 +373,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="epbecas-beca-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.3 7.2 16.9l.9-5.4-3.9-3.8 5.4-.8z"/></svg>
           </div>
-          <h3>Excelencia Académica</h3>
+          <h3>Excelencia Acad&eacute;mica</h3>
           <div class="epbecas-beca-pct">Beca del 15%</div>
           <p>Para bachilleres con promedios sobresalientes o alto puntaje en pruebas Saber 11.</p>
         </div>
@@ -387,7 +387,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
           <h3>Movilidad Nacional</h3>
           <div class="epbecas-beca-pct">Beca del 8%</div>
-          <p>Facilita el acceso al campus Medellín a estudiantes cuya residencia familiar está fuera de Antioquia.</p>
+          <p>Facilita el acceso al campus Medell&iacute;n a estudiantes cuya residencia familiar est&aacute; fuera de Antioquia.</p>
         </div>
       </div>
 
@@ -399,7 +399,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
           <h3>Hermanos Matriculados y Egresados</h3>
           <div class="epbecas-beca-pct">Beca del 5%</div>
-          <p>Para hermanos que cursan pregrado simultáneamente en ESIC Medellín o sean egresados.</p>
+          <p>Para hermanos que cursan pregrado simult&aacute;neamente en ESIC Medell&iacute;n o sean egresados.</p>
         </div>
       </div>
 
@@ -419,28 +419,28 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </section>
 
-<!-- ══ REQUISITOS ══ -->
+<!-- == REQUISITOS == -->
 <section class="epbecas-section epbecas-bg-white">
   <div class="epbecas-container">
     <div class="epbecas-req-grid">
       <div class="epbecas-req-box">
         <h2>Requisitos Generales</h2>
         <ol>
-          <li>Ser admitido en un programa de pregrado de ESIC Medellín.</li>
+          <li>Ser admitido en un programa de pregrado de ESIC Medell&iacute;n.</li>
           <li>No ser beneficiario de otras becas o descuentos institucionales (no acumulables).</li>
-          <li>Realizar la solicitud dentro de los plazos establecidos en el calendario académico.</li>
-          <li>Aportar la documentación veraz y completa requerida para cada modalidad.</li>
-          <li>Formalizar la matrícula en los plazos indicados tras la concesión de la beca.</li>
+          <li>Realizar la solicitud dentro de los plazos establecidos en el calendario acad&eacute;mico.</li>
+          <li>Aportar la documentaci&oacute;n veraz y completa requerida para cada modalidad.</li>
+          <li>Formalizar la matr&iacute;cula en los plazos indicados tras la concesi&oacute;n de la beca.</li>
         </ol>
       </div>
       <div class="epbecas-req-img">
-        <img src="https://esic.co/wp-content/uploads/2025/09/DSC01730_resultado-scaled.jpg" alt="Estudiantes ESIC Medellín">
+        <img src="https://esic.co/wp-content/uploads/2025/09/DSC01730_resultado-scaled.jpg" alt="Estudiantes ESIC Medell&iacute;n">
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FAQ ══ -->
+<!-- == FAQ == -->
 <section class="epbecas-section epbecas-bg-cream">
   <div class="epbecas-container">
     <h2 class="epbecas-s-title">Preguntas Frecuentes</h2>
@@ -448,41 +448,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <div class="epbecas-faq-item epbecas-active">
         <button class="epbecas-faq-q">
-          ¿Puedo solicitar más de una beca?
-          <span class="epbecas-faq-toggle">−</span>
+          &iquest;Puedo solicitar m&aacute;s de una beca?
+          <span class="epbecas-faq-toggle">&minus;</span>
         </button>
         <div class="epbecas-faq-a">
-          <p>No. Las becas y ayudas económicas de ESIC no son acumulables entre sí. Debes elegir la modalidad que te ofrezca mayor beneficio o que mejor se ajuste a tu perfil.</p>
+          <p>No. Las becas y ayudas econ&oacute;micas de ESIC no son acumulables entre s&iacute;. Debes elegir la modalidad que te ofrezca mayor beneficio o que mejor se ajuste a tu perfil.</p>
         </div>
       </div>
 
       <div class="epbecas-faq-item">
         <button class="epbecas-faq-q">
-          ¿Las becas son renovables?
+          &iquest;Las becas son renovables?
           <span class="epbecas-faq-toggle">+</span>
         </button>
         <div class="epbecas-faq-a">
-          <p>Sí. Para la renovación en cursos sucesivos, será indispensable tener un promedio mínimo en el expediente académico y haber aprobado todas las asignaturas matriculadas. Cada beca debe solicitarse expresamente dentro de los plazos de renovación de matrícula.</p>
+          <p>S&iacute;. Para la renovaci&oacute;n en cursos sucesivos, ser&aacute; indispensable tener un promedio m&iacute;nimo en el expediente acad&eacute;mico y haber aprobado todas las asignaturas matriculadas. Cada beca debe solicitarse expresamente dentro de los plazos de renovaci&oacute;n de matr&iacute;cula.</p>
         </div>
       </div>
 
       <div class="epbecas-faq-item">
         <button class="epbecas-faq-q">
-          ¿Qué promedio debo mantener?
+          &iquest;Qu&eacute; promedio debo mantener?
           <span class="epbecas-faq-toggle">+</span>
         </button>
         <div class="epbecas-faq-a">
-          <p>Depende de la modalidad. Para la Beca de Excelencia Académica se requiere un promedio mínimo de 4.5. Para las demás becas, el promedio mínimo es de 4.0 en el expediente académico de la titulación cursada.</p>
+          <p>Depende de la modalidad. Para la Beca de Excelencia Acad&eacute;mica se requiere un promedio m&iacute;nimo de 4.5. Para las dem&aacute;s becas, el promedio m&iacute;nimo es de 4.0 en el expediente acad&eacute;mico de la titulaci&oacute;n cursada.</p>
         </div>
       </div>
 
       <div class="epbecas-faq-item">
         <button class="epbecas-faq-q">
-          ¿Cómo me notifican la resolución?
+          &iquest;C&oacute;mo me notifican la resoluci&oacute;n?
           <span class="epbecas-faq-toggle">+</span>
         </button>
         <div class="epbecas-faq-a">
-          <p>La resolución de la beca será comunicada por el consejo académico de ESIC Medellín de manera individual en las fechas establecidas en las descripciones de cada una de las becas.</p>
+          <p>La resoluci&oacute;n de la beca ser&aacute; comunicada por el consejo acad&eacute;mico de ESIC Medell&iacute;n de manera individual en las fechas establecidas en las descripciones de cada una de las becas.</p>
         </div>
       </div>
 
@@ -490,7 +490,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </section>
 
-<!-- ══ CRONOGRAMA ══ -->
+<!-- == CRONOGRAMA == -->
 <section class="epbecas-section epbecas-bg-white">
   <div class="epbecas-container">
     <h2 class="epbecas-s-title">Cronograma</h2>
@@ -498,33 +498,33 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="epbecas-tl-item">
         <div class="epbecas-tl-badge">Mes 1</div>
         <h4>Apertura de Convocatoria</h4>
-        <p>Inicio del periodo de recepción de solicitudes para el próximo semestre.</p>
+        <p>Inicio del periodo de recepci&oacute;n de solicitudes para el pr&oacute;ximo semestre.</p>
       </div>
       <div class="epbecas-tl-item">
         <div class="epbecas-tl-badge">Mes 3</div>
         <h4>Cierre de Solicitudes</h4>
-        <p>Fecha límite para enviar formularios y documentación soporte.</p>
+        <p>Fecha l&iacute;mite para enviar formularios y documentaci&oacute;n soporte.</p>
       </div>
       <div class="epbecas-tl-item">
         <div class="epbecas-tl-badge">Mes 6</div>
         <h4>Resultados</h4>
-        <p>Comunicación oficial de la resolución de becas a los candidatos.</p>
+        <p>Comunicaci&oacute;n oficial de la resoluci&oacute;n de becas a los candidatos.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ CTA FINAL ══ -->
+<!-- == CTA FINAL == -->
 <section class="epbecas-section epbecas-bg-cream" style="padding-bottom:80px;">
   <div class="epbecas-container">
     <div class="epbecas-cta-box">
       <div>
-        <h2>¿Listo para aplicar<br>a una Beca?</h2>
-        <p class="epbecas-cta-sub">Da el primer paso hacia tu futuro en ESIC Medellín.</p>
+        <h2>&iquest;Listo para aplicar<br>a una Beca?</h2>
+        <p class="epbecas-cta-sub">Da el primer paso hacia tu futuro en ESIC Medell&iacute;n.</p>
       </div>
       <div class="epbecas-cta-right">
-        <button class="epbecas-btn epbecas-btn-white epbecas-open-modal">APLICA A UNA BECA →</button>
-        <a href="https://esic.co/wp-content/uploads/2025/12/Documento_becas_ayudas_economicas_esic_medellin.pdf" target="_blank" class="epbecas-btn epbecas-btn-ghost" style="font-size:0.78rem;padding:0.75rem 1.5rem;">
+        <button class="epbecas-btn epbecas-btn-white epbecas-open-modal">APLICA A UNA BECA &rarr;</button>
+        <a href="https://esic.co/wp-content/uploads/2026/05/Documento_becas_ayudas_economicas_esic_medellin_V2.pdf" target="_blank" class="epbecas-btn epbecas-btn-ghost" style="font-size:0.78rem;padding:0.75rem 1.5rem;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           DESCARGAR BROCHURE
         </a>
@@ -559,7 +559,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       if (!wasActive) {
         item.classList.add('epbecas-active');
-        item.querySelector('.epbecas-faq-toggle').textContent = '−';
+        item.querySelector('.epbecas-faq-toggle').textContent = '&minus;';
       }
     });
   });

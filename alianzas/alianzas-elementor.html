@@ -61,28 +61,16 @@
 .esic-alianzas .ali-btn-ghost:hover { border-color: var(--ali-white) !important; background: rgba(255,255,255,0.08) !important; color: var(--ali-white) !important; }
 
 /* ================================================ */
-/* --- HERO BANNER PLACEHOLDER --- */
+/* --- HERO BANNER --- */
 .esic-alianzas .ali-hero {
   position: relative; overflow: hidden;
   background: var(--ali-cream);
   padding: 0; line-height: 0; font-size: 0;
 }
 .esic-alianzas .ali-hero a { display: block; cursor: pointer; }
+.esic-alianzas .ali-hero picture { display: block; width: 100%; }
 .esic-alianzas .ali-hero img {
   width: 100%; height: auto; display: block; vertical-align: bottom;
-}
-/* Placeholder visible mientras no haya banner subido */
-.esic-alianzas .ali-hero-placeholder {
-  width: 100%; aspect-ratio: 16/7;
-  display: flex; align-items: center; justify-content: center;
-  background:
-    repeating-linear-gradient(45deg, rgba(0,71,233,0.04) 0 18px, transparent 18px 36px),
-    linear-gradient(135deg, #EDE7DC 0%, #F8F6F2 100%);
-  border: 2px dashed rgba(0,71,233,0.35);
-  font-family: var(--display-font); font-weight: 800;
-  font-size: clamp(1.6rem, 4vw, 3rem); letter-spacing: 0.18em;
-  color: rgba(0,19,63,0.55); text-transform: uppercase;
-  line-height: 1; text-align: center;
 }
 
 /* ================================================ */
@@ -427,9 +415,15 @@
 </style>
 
 <!-- ================================================ -->
-<!-- HERO BANNER (reemplazar este div por <a><img src="..." alt="..."></a> con el banner final) -->
+<!-- HERO BANNER -->
 <section class="ali-hero">
-  <div class="ali-hero-placeholder">Espacio para banner</div>
+  <a href="#alianzas-grid" aria-label="Ver alianzas ESIC">
+    <picture>
+      <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/05/BANNER-ALIANZAS-02-scaled.webp" type="image/webp">
+      <source srcset="https://esic.co/wp-content/uploads/2026/05/BANNER-ALIANZAS-01.webp" type="image/webp">
+      <img src="https://esic.co/wp-content/uploads/2026/05/BANNER-ALIANZAS-01.webp" alt="Banner alianzas ESIC" loading="eager">
+    </picture>
+  </a>
 </section>
 
 <!-- ================================================ -->
@@ -472,7 +466,7 @@
 
 <!-- ================================================ -->
 <!-- GRID + FILTERS -->
-<section class="ali-grid-section">
+<section class="ali-grid-section" id="alianzas-grid">
   <div class="ali-container">
     <div class="ali-grid-head">
       <div class="ali-grid-head-l">
@@ -599,7 +593,7 @@
         <div class="ali-card-body">
           <div class="ali-card-perk">20% OFF</div>
           <div class="ali-card-name">Restaurante Volver</div>
-          <div class="ali-card-meta">L&ndash;V &middot; 12:00 m a 9:00 pm</div>
+          <div class="ali-card-meta">L-V &middot; 12:00 m a 9:00 pm</div>
           <span class="ali-card-cta">Ver detalles
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </span>
@@ -649,8 +643,8 @@
 </section>
 
 <!-- ================================================ -->
-<!-- HIGHLIGHT -->
-<section class="ali-highlight">
+<!-- HIGHLIGHT (oculto temporalmente) -->
+<section class="ali-highlight" style="display: none;">
   <div class="ali-container">
     <div class="ali-highlight-grid">
       <div class="ali-highlight-l">
@@ -898,7 +892,7 @@
     const a = ALIANZAS[key];
     if (!a) return;
 
-    // Hero (bg + logo) — uses createElement so the alt attribute can safely
+    // Hero (bg + logo) -- uses createElement so the alt attribute can safely
     // contain ampersands and entities without breaking <img> parsing.
     modalHero.className = 'ali-modal-hero ' + a.bg;
     modalHero.innerHTML = '';
@@ -967,6 +961,16 @@
   modalClose.addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+
+  // --- Smooth scroll del banner hacia el grid de alianzas ---
+  root.querySelectorAll('.ali-hero a[href="#alianzas-grid"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const target = document.getElementById('alianzas-grid');
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 })();
 </script>
 </div>

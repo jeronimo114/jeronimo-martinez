@@ -50,7 +50,10 @@ Program-specific: Pregrado = orange, Master = teal/green, Executive = blue.
 - **No emojis anywhere**: Use only inline SVGs (stroke-based, linear style) or formal illustrations
 - **One highlight section per page**: Solid background using area's highlight color, max 2 CTAs
 - **Max 2 CTAs per block**
-- **Hover on `<a>` buttons**: Always use `!important` — Elementor overrides hover colors
+- **Hover on `<a>` buttons (anti-shrink + color override)**: Elementor injects styles on `:hover` that shrink the button (reduced `padding`, `font-size`, `line-height`, or a transform `scale`) and override hover colors. Para evitarlo:
+  - Declarar `padding`, `font-size`, `line-height`, `border-width`, `border-style`, `box-sizing`, `display: inline-flex` y el `transform` con `!important` en **todos** los estados (`:link, :visited, :hover, :focus, :active`) — agrupados en un mismo bloque para que el tamaño sea idéntico siempre.
+  - Hover effect permitido y recomendado: `transform: translateY(-2px) !important` con `transform-origin: center center`. **Nunca** usar `scale()` en hover (Elementor lo combina con el suyo y produce shrink visual).
+  - Ejemplo de referencia: ver el bloque `.esud-btn` en `start-up-day/start-up-day-elementor.html`.
 
 ### Cards
 - Use photographic style from `index.html` (`.eh-programa-card`) with WordPress background images
@@ -64,12 +67,16 @@ Program-specific: Pregrado = orange, Master = teal/green, Executive = blue.
 
 ### Formulario general del footer (`footer-global.html`)
 
-El popup del footer usa `SolicitarInformacinFormulariogeneral110226`. Campos y opciones vigentes:
+El popup del footer usa `SolicitarInformacinFormulariogeneral110226`. Campos y opciones vigentes (automatización actualizada 14/07/2026 por Alejandra Quintero):
 
 - `Dropdown` (Tipo de programa): `Pregrado`, `Máster`, `Programa Ejecutivo`, `Formaciones empresariales`, `Level Up`, `Open Day`
-- `Dropdown2` (Programa de interés Máster): `Máster Digital Marketing`, `Máster Digital Business`, `Máster Customer Experience Management`
-- `Dropdown4` (Programa de interés Pregrado): `Dirección de Marketing Global`, `Digital Business`
+- `Dropdown2` (Programa de interés — **campo único** para todos los tipos; ya NO existe `Dropdown4`). El formulario muestra sub-selects condicionales según Tipo de programa, todos con `name="Dropdown2"` (los inactivos se `disabled` para que no se envíen):
+  - Pregrado: `Dirección de Marketing Global`, `Digital Business`
+  - Máster: `Máster Digital Marketing`, `Máster Digital Business`, `Máster Customer Experience Management`
+  - Programa Ejecutivo: `Programa ejecutivo en Digital Transformation`
+  - Formaciones empresariales: `Formaciones empresariales`, `IA Creatividad`, `IA Marketing Digital`, `IA Inteligencia Artificial Nivel 1/2/3`
 - `Dropdown3` (Medio de contacto): `WhatsApp`, `Correo`, `Llamada`
+- UTM ocultos autollenados desde la URL: `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content`, `utm_adset_name`, `utm_ad_name`
 
 > Nota: Este formulario usa `Máster` como valor en Dropdown (no `Corporate`). El mapeo `Corporate` aplica solo a formularios específicos de páginas de master donde se indicó explícitamente.
 

@@ -491,13 +491,13 @@
           <h2>TRANSFORMA<br>TU FUTURO<br><span>EN ESIC</span></h2>
           <div class="ef-footer-cta-buttons">
             <a href="/institucional/quienes-somos/">
-              INSTITUCIÓN
+              INSTITUCI&Oacute;N
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </a>
             <a href="#" onclick="document.getElementById('esic-popup-contacto').classList.add('active'); return false;">
-              CONTÁCTANOS
+              CONT&Aacute;CTANOS
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -546,7 +546,7 @@
 
           <!-- Legal Links -->
           <div class="ef-footer-links">
-            <a href="https://esic.co/politicas-de-privacidad/">Políticas de Privacidad</a>
+            <a href="https://esic.co/politicas-de-privacidad/">Pol&iacute;ticas de Privacidad</a>
             <a href="https://esic.co/tratamiento-de-datos-personales/">Tratamiento de Datos Personales</a>
           </div>
         </div>
@@ -554,7 +554,7 @@
 
       <!-- Copyright -->
       <div class="ef-footer-bottom">
-        <p>© 2025 ESIC. Todos los derechos reservados.</p>
+        <p>&copy; 2025 ESIC. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
@@ -572,7 +572,7 @@
         </svg>
       </button>
       <h3>Ingresa tus datos</h3>
-      <p>Déjanos tus datos y te contactaremos para ayudarte.</p>
+      <p>D&eacute;janos tus datos y te contactaremos para ayudarte.</p>
     </div>
     
     <!-- Formulario Zoho -->
@@ -604,13 +604,13 @@
 
         <!-- Email -->
         <div class="esic-form-group">
-          <label for="footer_Email">Correo electrónico <span style="color:#dc2626">*</span></label>
+          <label for="footer_Email">Correo electr&oacute;nico <span style="color:#dc2626">*</span></label>
           <input type="email" id="footer_Email" name="Email" maxlength="255" placeholder="tu@email.com" required>
         </div>
 
-        <!-- Teléfono -->
+        <!-- Tel&eacute;fono -->
         <div class="esic-form-group">
-          <label for="footer_PhoneNumber">Teléfono <span style="color:#dc2626">*</span></label>
+          <label for="footer_PhoneNumber">Tel&eacute;fono <span style="color:#dc2626">*</span></label>
           <input type="tel" id="footer_PhoneNumber" name="PhoneNumber_countrycode" maxlength="20" placeholder="300 123 4567" required>
         </div>
 
@@ -620,31 +620,55 @@
           <select id="footer_Dropdown" name="Dropdown" required onchange="esicFooterToggleProgram(this.value)">
             <option value="-Select-" disabled selected>-Select-</option>
             <option value="Pregrado">Pregrado</option>
-            <option value="Máster">Máster</option>
+            <option value="M&aacute;ster">M&aacute;ster</option>
             <option value="Programa Ejecutivo">Programa Ejecutivo</option>
-            <option value="Empresariales">Empresariales</option>
+            <option value="Formaciones empresariales">Formaciones empresariales</option>
             <option value="Level Up">Level Up</option>
+            <option value="Open Day">Open Day</option>
           </select>
         </div>
 
-        <!-- Programa de interés Máster (condicional) -->
-        <div class="esic-form-group" id="footer_Dropdown2_group" style="display:none">
-          <label for="footer_Dropdown2">Programa de interés Máster <span style="color:#dc2626">*</span></label>
-          <select id="footer_Dropdown2" name="Dropdown2">
+        <!-- Programa de inter&eacute;s Pregrado (condicional) -->
+        <div class="esic-form-group esic-prog-group" id="footer_prog_pregrado" style="display:none">
+          <label for="footer_Dropdown2_pregrado">Programa de inter&eacute;s <span style="color:#dc2626">*</span></label>
+          <select id="footer_Dropdown2_pregrado" name="Dropdown2" disabled>
             <option value="-Select-" disabled selected>-Select-</option>
-            <option value="Máster Digital Marketing">Máster en Digital Marketing</option>
-            <option value="Máster Digital Business">Máster en Digital Business</option>
-            <option value="Máster Customer Experience Management">Máster en Customer Experience Management</option>
-          </select>
-        </div>
-
-        <!-- Programa de interés Pregrado (condicional) -->
-        <div class="esic-form-group" id="footer_Dropdown4_group" style="display:none">
-          <label for="footer_Dropdown4">Programa de interés Pregrado <span style="color:#dc2626">*</span></label>
-          <select id="footer_Dropdown4" name="Dropdown4">
-            <option value="-Select-" disabled selected>-Select-</option>
-            <option value="Dirección de Marketing Global">Dirección de Marketing Global</option>
+            <option value="Direcci&oacute;n de Marketing Global">Direcci&oacute;n de Marketing Global</option>
             <option value="Digital Business">Digital Business</option>
+          </select>
+        </div>
+
+        <!-- Programa de inter&eacute;s M&aacute;ster (condicional) -->
+        <div class="esic-form-group esic-prog-group" id="footer_prog_master" style="display:none">
+          <label for="footer_Dropdown2_master">Programa de inter&eacute;s <span style="color:#dc2626">*</span></label>
+          <select id="footer_Dropdown2_master" name="Dropdown2" disabled>
+            <option value="-Select-" disabled selected>-Select-</option>
+            <option value="M&aacute;ster Digital Marketing">M&aacute;ster en Digital Marketing</option>
+            <option value="M&aacute;ster Digital Business">M&aacute;ster en Digital Business</option>
+            <option value="M&aacute;ster Customer Experience Management">M&aacute;ster en Customer Experience Management</option>
+          </select>
+        </div>
+
+        <!-- Programa de inter&eacute;s Programa Ejecutivo (condicional) -->
+        <div class="esic-form-group esic-prog-group" id="footer_prog_ejecutivo" style="display:none">
+          <label for="footer_Dropdown2_ejecutivo">Programa de inter&eacute;s <span style="color:#dc2626">*</span></label>
+          <select id="footer_Dropdown2_ejecutivo" name="Dropdown2" disabled>
+            <option value="-Select-" disabled selected>-Select-</option>
+            <option value="Programa ejecutivo en Digital Transformation">Programa ejecutivo en Digital Transformation</option>
+          </select>
+        </div>
+
+        <!-- Programa de inter&eacute;s Formaciones empresariales (condicional) -->
+        <div class="esic-form-group esic-prog-group" id="footer_prog_empresariales" style="display:none">
+          <label for="footer_Dropdown2_empresariales">Programa de inter&eacute;s <span style="color:#dc2626">*</span></label>
+          <select id="footer_Dropdown2_empresariales" name="Dropdown2" disabled>
+            <option value="-Select-" disabled selected>-Select-</option>
+            <option value="Formaciones empresariales">Formaciones empresariales</option>
+            <option value="IA Creatividad">IA Creatividad</option>
+            <option value="IA Marketing Digital">IA Marketing Digital</option>
+            <option value="IA Inteligencia Artificial Nivel 1">IA Inteligencia Artificial Nivel 1</option>
+            <option value="IA Inteligencia Artificial Nivel 2">IA Inteligencia Artificial Nivel 2</option>
+            <option value="IA Inteligencia Artificial Nivel 3">IA Inteligencia Artificial Nivel 3</option>
           </select>
         </div>
 
@@ -659,13 +683,13 @@
           </select>
         </div>
 
-        <!-- Términos y condiciones -->
+        <!-- T&eacute;rminos y condiciones -->
         <div class="esic-form-checkbox">
           <input type="checkbox" name="TermsConditions" id="footer-terms" required>
-          <label for="footer-terms">Acepto solicitud de <a href="https://esic.co/politicas-de-privacidad/" target="_blank" rel="noopener noreferrer">autorización de datos personales y términos y condiciones</a> <span style="color:#dc2626">*</span></label>
+          <label for="footer-terms">Acepto solicitud de <a href="https://esic.co/politicas-de-privacidad/" target="_blank" rel="noopener noreferrer">autorizaci&oacute;n de datos personales y t&eacute;rminos y condiciones</a> <span style="color:#dc2626">*</span></label>
         </div>
 
-        <!-- UTM hidden fields (autollenados vía JS desde la URL) -->
+        <!-- UTM hidden fields (autollenados v&iacute;a JS desde la URL) -->
         <input type="hidden" name="utm_source" id="utm_source">
         <input type="hidden" name="utm_medium" id="utm_medium">
         <input type="hidden" name="utm_campaign" id="utm_campaign">
@@ -674,7 +698,7 @@
         <input type="hidden" name="utm_adset_name" id="utm_adset_name">
         <input type="hidden" name="utm_ad_name" id="utm_ad_name">
 
-        <!-- Botón Submit -->
+        <!-- Bot&oacute;n Submit -->
         <button type="submit" class="esic-form-submit">Enviar solicitud</button>
       </form>
 
@@ -721,21 +745,23 @@
 })();
 
 function esicFooterToggleProgram(val) {
-  var masterGroup  = document.getElementById('footer_Dropdown2_group');
-  var masterSel    = document.getElementById('footer_Dropdown2');
-  var pregradoGroup = document.getElementById('footer_Dropdown4_group');
-  var pregradoSel  = document.getElementById('footer_Dropdown4');
+  // Mapa Tipo de programa -> id del grupo condicional (todos env&iacute;an name="Dropdown2")
+  var map = {
+    'Pregrado':                  'footer_prog_pregrado',
+    'M&aacute;ster':                    'footer_prog_master',
+    'Programa Ejecutivo':        'footer_prog_ejecutivo',
+    'Formaciones empresariales': 'footer_prog_empresariales'
+  };
+  var activeId = map[val] || null;
 
-  var showMaster   = (val === 'Máster');
-  var showPregrado = (val === 'Pregrado');
-
-  masterGroup.style.display   = showMaster   ? '' : 'none';
-  pregradoGroup.style.display = showPregrado ? '' : 'none';
-
-  masterSel.required   = showMaster;
-  pregradoSel.required = showPregrado;
-
-  if (!showMaster)   masterSel.value   = '-Select-';
-  if (!showPregrado) pregradoSel.value = '-Select-';
+  // Todos los grupos: ocultar, deshabilitar el select (para que NO se env&iacute;e) y resetear
+  document.querySelectorAll('.esic-prog-group').forEach(function(group) {
+    var sel = group.querySelector('select');
+    var isActive = (group.id === activeId);
+    group.style.display = isActive ? '' : 'none';
+    sel.disabled = !isActive;   // disabled => no se incluye en el submit
+    sel.required = isActive;
+    if (!isActive) sel.value = '-Select-';
+  });
 }
 </script>

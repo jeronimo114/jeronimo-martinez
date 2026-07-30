@@ -1,0 +1,742 @@
+<div class="esic-startup-day">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+.esic-startup-day {
+  --brand-blue:        #0047E9;
+  --brand-blue-dark:   #00133F;
+  --brand-orange:      #FF8701;
+  --brand-orange-dark: #E67700;
+  --bg:                #F8F6F2;
+  --surface:           #FFFFFF;
+  --text:              #0B132B;
+  --text-muted:        #5F6B7A;
+  --text-light:        #97A2B1;
+  --border:            rgba(0,19,63,0.12);
+  --display-font:      "Sofia Sans Extra Condensed", sans-serif;
+  --body-font:         "DM Sans", sans-serif;
+  font-family: var(--body-font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+.esic-startup-day *, .esic-startup-day *::before, .esic-startup-day *::after { box-sizing: border-box; }
+.esic-startup-day h1, .esic-startup-day h2, .esic-startup-day h3, .esic-startup-day h4, .esic-startup-day h5 {
+  font-family: var(--display-font); font-weight: 800; margin: 0; line-height: 1;
+}
+.esic-startup-day p { margin: 0; }
+.esic-startup-day ul, .esic-startup-day ol { margin: 0; padding: 0; list-style: none; }
+.esic-startup-day a { color: inherit; text-decoration: none; }
+.esic-startup-day img { max-width: 100%; display: block; height: auto; }
+.esic-startup-day button { font-family: inherit; cursor: pointer; }
+
+.esic-startup-day .esud-container { width: min(1100px, 92%); margin: 0 auto; }
+
+/* Buttons - blindados contra overrides de Elementor en hover (mismo tama&ntilde;o en idle/hover/focus/active) */
+.esic-startup-day a.esud-btn,
+.esic-startup-day a.esud-btn:link,
+.esic-startup-day a.esud-btn:visited,
+.esic-startup-day a.esud-btn:hover,
+.esic-startup-day a.esud-btn:focus,
+.esic-startup-day a.esud-btn:active {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.6rem !important;
+  padding: 1.1rem 2.4rem !important;
+  border-radius: 999px !important;
+  font-family: var(--body-font) !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  line-height: 1 !important;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  transform-origin: center center;
+  box-sizing: border-box !important;
+}
+.esic-startup-day a.esud-btn-orange,
+.esic-startup-day a.esud-btn-orange:link,
+.esic-startup-day a.esud-btn-orange:visited {
+  background: var(--brand-orange) !important;
+  color: #FFFFFF !important;
+  border-color: var(--brand-orange) !important;
+  transform: translateY(0) !important;
+}
+.esic-startup-day a.esud-btn-orange:hover,
+.esic-startup-day a.esud-btn-orange:focus,
+.esic-startup-day a.esud-btn-orange:active {
+  background: var(--brand-orange-dark) !important;
+  border-color: var(--brand-orange-dark) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+}
+.esic-startup-day a.esud-btn-blue,
+.esic-startup-day a.esud-btn-blue:link,
+.esic-startup-day a.esud-btn-blue:visited {
+  background: var(--brand-blue) !important;
+  color: #FFFFFF !important;
+  border-color: var(--brand-blue) !important;
+  transform: translateY(0) !important;
+}
+.esic-startup-day a.esud-btn-blue:hover,
+.esic-startup-day a.esud-btn-blue:focus,
+.esic-startup-day a.esud-btn-blue:active {
+  background: var(--brand-blue-dark) !important;
+  border-color: var(--brand-blue-dark) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+}
+.esic-startup-day .esud-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* Hero - banner oficial Start Up Day 2026 (clickable -> Google Form) */
+.esic-startup-day .esud-hero {
+  position: relative;
+  background: var(--brand-blue-dark);
+  isolation: isolate;
+  z-index: 1;
+  overflow: hidden;
+}
+.esic-startup-day .esud-hero-link,
+.esic-startup-day .esud-hero-link:link,
+.esic-startup-day .esud-hero-link:visited,
+.esic-startup-day .esud-hero-link:hover,
+.esic-startup-day .esud-hero-link:focus,
+.esic-startup-day .esud-hero-link:active {
+  display: block !important;
+  width: 100% !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+.esic-startup-day .esud-hero-link:hover,
+.esic-startup-day .esud-hero-link:focus {
+  filter: brightness(1.04);
+  opacity: 0.98;
+}
+.esic-startup-day .esud-hero-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Section overlap */
+.esic-startup-day .esud-section {
+  position: relative;
+  padding: 5rem 0;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+}
+.esic-startup-day .esud-section-cream { background: var(--bg); z-index: 2; }
+.esic-startup-day .esud-section-white { background: #FFFFFF; z-index: 3; }
+.esic-startup-day .esud-section-cream-2 { background: var(--bg); z-index: 4; }
+.esic-startup-day .esud-section-white-2 { background: #FFFFFF; z-index: 5; }
+.esic-startup-day .esud-section-blue { background: var(--brand-blue-dark); color: #FFFFFF; z-index: 6; }
+.esic-startup-day .esud-section-cream-3 { background: var(--bg); z-index: 7; }
+
+/* Section heads */
+.esic-startup-day .esud-eyebrow {
+  display: inline-block;
+  font-family: var(--body-font); font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--brand-orange); margin-bottom: 0.9rem;
+}
+.esic-startup-day .esud-section-title {
+  font-family: var(--display-font);
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  font-weight: 800; text-transform: uppercase;
+  color: var(--brand-blue-dark);
+  margin-bottom: 0.8rem;
+}
+.esic-startup-day .esud-section-blue .esud-section-title { color: #FFFFFF; }
+.esic-startup-day .esud-section-sub {
+  font-size: 1.05rem; color: var(--text-muted);
+  max-width: 640px; line-height: 1.6;
+}
+.esic-startup-day .esud-section-blue .esud-section-sub { color: rgba(255,255,255,0.78); }
+
+.esic-startup-day .esud-head-center { text-align: center; margin-bottom: 3rem; }
+.esic-startup-day .esud-head-center .esud-section-sub { margin: 0 auto; }
+
+/* MODALIDADES (top) - dos formas de participar */
+.esic-startup-day .esud-modes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.6rem;
+}
+.esic-startup-day .esud-mode-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 2.2rem 2rem;
+  display: flex; flex-direction: column;
+  gap: 1rem;
+  transition: all 0.25s ease;
+}
+.esic-startup-day .esud-mode-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,19,63,0.10);
+  border-color: rgba(255,135,1,0.45);
+}
+.esic-startup-day .esud-mode-card--asesoria:hover {
+  border-color: rgba(0,71,233,0.40);
+}
+.esic-startup-day .esud-mode-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: rgba(255,135,1,0.12);
+  color: var(--brand-orange);
+  display: grid; place-items: center;
+}
+.esic-startup-day .esud-mode-card--asesoria .esud-mode-icon {
+  background: rgba(0,71,233,0.10);
+  color: var(--brand-blue);
+}
+.esic-startup-day .esud-mode-icon svg { width: 26px; height: 26px; }
+.esic-startup-day .esud-mode-title {
+  font-family: var(--display-font);
+  font-size: clamp(1.7rem, 3.4vw, 2.1rem);
+  font-weight: 800;
+  color: var(--brand-blue-dark);
+  text-transform: uppercase;
+  line-height: 1;
+}
+.esic-startup-day .esud-mode-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+.esic-startup-day .esud-mode-pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  align-self: flex-start;
+  background: var(--brand-orange);
+  color: #FFFFFF;
+  font-family: var(--body-font);
+  font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  margin-top: 0.2rem;
+}
+.esic-startup-day .esud-mode-card--asesoria .esud-mode-pill {
+  background: var(--brand-blue);
+}
+.esic-startup-day .esud-mode-pill svg { width: 16px; height: 16px; }
+
+.esic-startup-day .esud-info-cta { text-align: center; }
+
+/* QU&Eacute; ENCONTRAR&Aacute;S - cards grid */
+.esic-startup-day .esud-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+}
+.esic-startup-day .esud-feature-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.6rem 1.3rem;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+.esic-startup-day .esud-feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,19,63,0.08);
+  border-color: rgba(255,135,1,0.35);
+}
+.esic-startup-day .esud-feature-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(0,71,233,0.08);
+  color: var(--brand-blue);
+  display: grid; place-items: center;
+  margin-bottom: 0.9rem;
+}
+.esic-startup-day .esud-feature-icon svg { width: 20px; height: 20px; }
+.esic-startup-day .esud-feature-title {
+  font-family: var(--display-font);
+  font-size: 1.25rem; font-weight: 700;
+  color: var(--brand-blue-dark);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+/* POR QU&Eacute; ASISTIR - check list */
+.esic-startup-day .esud-reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.esic-startup-day .esud-reason {
+  display: flex; align-items: flex-start; gap: 1rem;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem 1.6rem;
+  transition: all 0.25s ease;
+}
+.esic-startup-day .esud-reason:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,19,63,0.08);
+  border-color: rgba(255,135,1,0.35);
+}
+.esic-startup-day .esud-reason-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,135,1,0.14);
+  color: var(--brand-orange);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.esic-startup-day .esud-reason-icon svg { width: 18px; height: 18px; }
+.esic-startup-day .esud-reason-text {
+  font-family: var(--display-font);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--brand-blue-dark);
+  text-transform: uppercase;
+  line-height: 1.15;
+  padding-top: 0.15rem;
+}
+
+/* AGENDA */
+.esic-startup-day .esud-agenda-list {
+  display: flex; flex-direction: column;
+  border-left: 2px solid rgba(255,135,1,0.22);
+  padding-left: 2rem;
+  margin-left: 0.5rem;
+  max-width: 760px;
+}
+.esic-startup-day .esud-agenda-list-wrap {
+  display: flex; justify-content: center;
+}
+.esic-startup-day .esud-agenda-item {
+  position: relative;
+  padding: 1.15rem 0 1.15rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.esic-startup-day .esud-agenda-item:last-child { border-bottom: none; }
+.esic-startup-day .esud-agenda-item::before {
+  content: "";
+  position: absolute;
+  left: -2.55rem; top: 1.65rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--brand-orange);
+  box-shadow: 0 0 0 4px rgba(255,135,1,0.18);
+}
+.esic-startup-day .esud-agenda-time {
+  font-family: var(--display-font);
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--brand-orange);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.esic-startup-day .esud-agenda-title {
+  font-family: var(--display-font);
+  font-size: 1.5rem; font-weight: 800;
+  color: var(--brand-blue-dark);
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+/* INSCRIPCIONES (bottom) - dos cards detalladas con CTA al Google Form */
+.esic-startup-day .esud-enroll-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+.esic-startup-day .esud-enroll-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2.4rem 2rem;
+  display: flex; flex-direction: column;
+  gap: 1.2rem;
+  transition: all 0.25s ease;
+}
+.esic-startup-day .esud-enroll-card--stand:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,19,63,0.10);
+  border-color: rgba(255,135,1,0.45);
+}
+.esic-startup-day .esud-enroll-card--asesoria:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,19,63,0.10);
+  border-color: rgba(0,71,233,0.40);
+}
+.esic-startup-day .esud-enroll-head {
+  display: flex; align-items: center; gap: 1rem;
+}
+.esic-startup-day .esud-enroll-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: rgba(255,135,1,0.12);
+  color: var(--brand-orange);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.esic-startup-day .esud-enroll-card--asesoria .esud-enroll-icon {
+  background: rgba(0,71,233,0.10);
+  color: var(--brand-blue);
+}
+.esic-startup-day .esud-enroll-icon svg { width: 26px; height: 26px; }
+.esic-startup-day .esud-enroll-title {
+  font-family: var(--display-font);
+  font-size: clamp(1.5rem, 3.2vw, 1.9rem);
+  font-weight: 800;
+  color: var(--brand-blue-dark);
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+.esic-startup-day .esud-enroll-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+.esic-startup-day .esud-enroll-list {
+  display: flex; flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 0.2rem;
+}
+.esic-startup-day .esud-enroll-item {
+  display: flex; align-items: flex-start; gap: 0.85rem;
+  font-size: 0.98rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+.esic-startup-day .esud-enroll-item-icon {
+  flex-shrink: 0;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(255,135,1,0.14);
+  color: var(--brand-orange);
+  display: grid; place-items: center;
+  margin-top: 0.05rem;
+}
+.esic-startup-day .esud-enroll-card--asesoria .esud-enroll-item-icon {
+  background: rgba(0,71,233,0.10);
+  color: var(--brand-blue);
+}
+.esic-startup-day .esud-enroll-item-icon svg { width: 16px; height: 16px; }
+.esic-startup-day .esud-enroll-cta { margin-top: 1rem; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .esic-startup-day .esud-modes-grid { grid-template-columns: 1fr; }
+  .esic-startup-day .esud-enroll-grid { grid-template-columns: 1fr; }
+  .esic-startup-day .esud-features-grid { grid-template-columns: repeat(2, 1fr); }
+  .esic-startup-day .esud-reasons-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .esic-startup-day .esud-section { padding: 4rem 0; border-radius: 40px 40px 0 0; margin-top: -40px; }
+  .esic-startup-day .esud-mode-card { padding: 1.8rem 1.5rem; border-radius: 18px; }
+  .esic-startup-day .esud-enroll-card { padding: 2rem 1.5rem; border-radius: 18px; }
+  .esic-startup-day .esud-agenda-list { padding-left: 1.5rem; }
+  .esic-startup-day .esud-agenda-item::before { left: -2.05rem; }
+  .esic-startup-day .esud-agenda-title { font-size: 1.3rem; }
+}
+@media (max-width: 520px) {
+  .esic-startup-day .esud-features-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<main>
+  <!-- HERO - banner oficial Start Up Day 2026 (desktop + mobile) -->
+  <section class="esud-hero">
+    <a class="esud-hero-link"
+       href="https://docs.google.com/forms/d/e/1FAIpQLSe6Or45DPN90z15t1oKI5N_OaY74np11_Dr9z6JIktzYapdYw/viewform?usp=publish-editor"
+       target="_blank" rel="noopener"
+       aria-label="Inscr&iacute;bete al Start Up Day 2026">
+      <picture>
+        <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/05/BANNER-02-scaled.webp">
+        <img class="esud-hero-banner"
+             src="https://esic.co/wp-content/uploads/2026/05/BANNER-01-scaled.webp"
+             alt="Start Up Day 2026 - ESIC Medell&iacute;n. Impulsa tus ideas, conecta con oportunidades. 27 de mayo de 2026. Campus ESIC Medell&iacute;n.">
+      </picture>
+    </a>
+  </section>
+
+  <!-- MODALIDADES - dos formas de participar -->
+  <section class="esud-section esud-section-cream">
+    <div class="esud-container">
+      <div class="esud-head-center">
+        <span class="esud-eyebrow">C&oacute;mo participar</span>
+        <h2 class="esud-section-title">Dos formas de vivir el Start Up Day</h2>
+        <p class="esud-section-sub">Elige la modalidad que mejor se ajuste a tu emprendimiento o a la experiencia que buscas.</p>
+      </div>
+
+      <div class="esud-modes-grid">
+        <div class="esud-mode-card esud-mode-card--stand">
+          <div class="esud-mode-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/><path d="M3 9h18"/></svg>
+          </div>
+          <h3 class="esud-mode-title">Participa con Stand</h3>
+          <p class="esud-mode-text">Para emprendedores que vender&aacute;n sus productos o servicios.</p>
+          <span class="esud-mode-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Valor Inscripci&oacute;n: $25.000
+          </span>
+        </div>
+
+        <div class="esud-mode-card esud-mode-card--asesoria">
+          <div class="esud-mode-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <h3 class="esud-mode-title">Participa con Asesor&iacute;a sin costo</h3>
+          <p class="esud-mode-text">Para quienes buscan mentor&iacute;a, aprendizaje y networking.</p>
+          <span class="esud-mode-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Sin stand
+          </span>
+        </div>
+      </div>
+
+      <div class="esud-info-cta">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6Or45DPN90z15t1oKI5N_OaY74np11_Dr9z6JIktzYapdYw/viewform?usp=publish-editor"
+           target="_blank" rel="noopener"
+           class="esud-btn esud-btn-orange">
+          Quiero inscribirme
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QU&Eacute; ENCONTRAR&Aacute;S -->
+  <section class="esud-section esud-section-white">
+    <div class="esud-container">
+      <div class="esud-head-center">
+        <span class="esud-eyebrow">&iquest;Qu&eacute; encontrar&aacute;s?</span>
+        <h2 class="esud-section-title">Todo lo que tu idea necesita</h2>
+        <p class="esud-section-sub">En ESIC creemos en las ideas que nacen para transformar. Un solo d&iacute;a con todas las herramientas para hacer crecer tu emprendimiento.</p>
+      </div>
+
+      <div class="esud-features-grid">
+        <div class="esud-feature-card">
+          <div class="esud-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+          </div>
+          <h3 class="esud-feature-title">Asesor&iacute;as en marketing</h3>
+        </div>
+        <div class="esud-feature-card">
+          <div class="esud-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="esud-feature-title">Asesor&iacute;a financiera</h3>
+        </div>
+        <div class="esud-feature-card">
+          <div class="esud-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="esud-feature-title">Asesor&iacute;a tecnol&oacute;gica</h3>
+        </div>
+        <div class="esud-feature-card">
+          <div class="esud-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="esud-feature-title">Networking</h3>
+        </div>
+        <div class="esud-feature-card">
+          <div class="esud-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-4h3v2zM3 19a2 2 0 0 0 2 2h1v-4H3v2z"/></svg>
+          </div>
+          <h3 class="esud-feature-title">Charlas</h3>
+        </div>
+        <div class="esud-feature-card">
+          <div class="esud-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="esud-feature-title">Exhibici&oacute;n de marcas</h3>
+        </div>
+        <div class="esud-feature-card">
+          <div class="esud-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="esud-feature-title">Mentor&iacute;as</h3>
+        </div>
+        <div class="esud-feature-card">
+          <div class="esud-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3 class="esud-feature-title">Pitch de emprendimientos</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QU&Eacute; ASISTIR -->
+  <section class="esud-section esud-section-cream-2">
+    <div class="esud-container">
+      <div class="esud-head-center">
+        <span class="esud-eyebrow">&iquest;Por qu&eacute; asistir?</span>
+        <h2 class="esud-section-title">Razones para no quedarte por fuera</h2>
+        <p class="esud-section-sub">Un d&iacute;a pensado para que tu emprendimiento d&eacute; el siguiente paso.</p>
+      </div>
+
+      <div class="esud-reasons-grid">
+        <div class="esud-reason">
+          <div class="esud-reason-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="esud-reason-text">Conecta con otros emprendimientos</div>
+        </div>
+        <div class="esud-reason">
+          <div class="esud-reason-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="esud-reason-text">Descubre nuevos emprendimientos</div>
+        </div>
+        <div class="esud-reason">
+          <div class="esud-reason-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="esud-reason-text">Aprende de expertos</div>
+        </div>
+        <div class="esud-reason">
+          <div class="esud-reason-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="esud-reason-text">Haz crecer tu marca</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section class="esud-section esud-section-white-2" id="esud-agenda">
+    <div class="esud-container">
+      <div class="esud-head-center">
+        <span class="esud-eyebrow">Agenda del d&iacute;a</span>
+        <h2 class="esud-section-title">Lo que vas a vivir</h2>
+        <p class="esud-section-sub">Una jornada completa con espacios para aprender, conectar y mostrar tu emprendimiento.</p>
+      </div>
+
+      <div class="esud-agenda-list-wrap">
+        <ul class="esud-agenda-list">
+          <li class="esud-agenda-item">
+            <span class="esud-agenda-time">8:30 a.m.</span>
+            <h4 class="esud-agenda-title">Inicio de actividades</h4>
+          </li>
+          <li class="esud-agenda-item">
+            <span class="esud-agenda-time">9:00 a.m.</span>
+            <h4 class="esud-agenda-title">Apertura</h4>
+          </li>
+          <li class="esud-agenda-item">
+            <span class="esud-agenda-time">10:00 a.m.</span>
+            <h4 class="esud-agenda-title">Panel de emprendimiento</h4>
+          </li>
+          <li class="esud-agenda-item">
+            <span class="esud-agenda-time">2:00 p.m.</span>
+            <h4 class="esud-agenda-title">Pitch startups</h4>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSCRIPCIONES - dos cards detalladas con CTA al Google Form -->
+  <section class="esud-section esud-section-cream-3" id="esud-formulario">
+    <div class="esud-container">
+      <div class="esud-head-center">
+        <span class="esud-eyebrow">Reserva tu lugar</span>
+        <h2 class="esud-section-title">Inscr&iacute;bete al Start Up Day</h2>
+        <p class="esud-section-sub">Cupos limitados. Te confirmaremos tu participaci&oacute;n por correo y WhatsApp.</p>
+      </div>
+
+      <div class="esud-enroll-grid">
+        <!-- STAND -->
+        <div class="esud-enroll-card esud-enroll-card--stand">
+          <div class="esud-enroll-head">
+            <div class="esud-enroll-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/><path d="M3 9h18"/></svg>
+            </div>
+            <h3 class="esud-enroll-title">Quiero participar con stand</h3>
+          </div>
+          <p class="esud-enroll-desc">Inscripci&oacute;n para emprendedores que vender&aacute;n productos o servicios durante la feria.</p>
+
+          <ul class="esud-enroll-list">
+            <li class="esud-enroll-item">
+              <span class="esud-enroll-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </span>
+              <span><strong>Valor de inscripci&oacute;n:</strong> $25.000</span>
+            </li>
+            <li class="esud-enroll-item">
+              <span class="esud-enroll-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <span>Incluye espacio de stand</span>
+            </li>
+            <li class="esud-enroll-item">
+              <span class="esud-enroll-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </span>
+              <span>Cupos limitados. Realizas la inscripci&oacute;n por el link y el pago lo coordinas con Alejandra de Student Service.</span>
+            </li>
+          </ul>
+
+          <div class="esud-enroll-cta">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6Or45DPN90z15t1oKI5N_OaY74np11_Dr9z6JIktzYapdYw/viewform?usp=publish-editor"
+               target="_blank" rel="noopener"
+               class="esud-btn esud-btn-orange">
+              Inscribirme con stand
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ASESORIA -->
+        <div class="esud-enroll-card esud-enroll-card--asesoria">
+          <div class="esud-enroll-head">
+            <div class="esud-enroll-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
+            <h3 class="esud-enroll-title">Quiero recibir asesor&iacute;a</h3>
+          </div>
+          <p class="esud-enroll-desc">Inscripci&oacute;n para asistentes interesados en mentor&iacute;as, orientaci&oacute;n o acompa&ntilde;amiento emprendedor y presentaci&oacute;n de pitch.</p>
+
+          <ul class="esud-enroll-list">
+            <li class="esud-enroll-item">
+              <span class="esud-enroll-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Entrada sin stand</span>
+            </li>
+            <li class="esud-enroll-item">
+              <span class="esud-enroll-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </span>
+              <span>Espacios de aprendizaje y networking</span>
+            </li>
+            <li class="esud-enroll-item">
+              <span class="esud-enroll-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </span>
+              <span>Mentor&iacute;as y presentaci&oacute;n de pitch.</span>
+            </li>
+          </ul>
+
+          <div class="esud-enroll-cta">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6Or45DPN90z15t1oKI5N_OaY74np11_Dr9z6JIktzYapdYw/viewform?usp=publish-editor"
+               target="_blank" rel="noopener"
+               class="esud-btn esud-btn-blue">
+              Registrarme para asesor&iacute;a
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</div>

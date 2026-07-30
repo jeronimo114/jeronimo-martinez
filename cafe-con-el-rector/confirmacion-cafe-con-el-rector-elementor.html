@@ -1,0 +1,223 @@
+<!-- ESIC - Confirmacion de registro (Cafe con el Rector - Julio 2026) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap');
+
+#esic-confirm{
+  --navy:#00133F;
+  --navy-hover:#001a52;
+  --ink:#0B132B;
+  --muted:#5F6B7A;
+  --line:rgba(0,19,63,0.12);
+  --orange:#FF8701;
+  --orange-soft:rgba(255,135,1,0.12);
+  --orange-border:rgba(255,135,1,0.35);
+  --pad:24px;
+  --radius:18px;
+  --fs:16px;
+  --display-font:"Sofia Sans Extra Condensed", sans-serif;
+  --body-font:"DM Sans", sans-serif;
+  font-family: var(--body-font);
+  color:var(--ink);
+  max-width:880px;
+  margin:0 auto;
+  line-height:1.55;
+}
+#esic-confirm *, #esic-confirm *::before, #esic-confirm *::after { box-sizing:border-box; }
+#esic-confirm .card{
+  background:#FFFFFF;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:calc(var(--pad) * 1.3);
+  box-shadow:0 12px 32px rgba(2,6,23,0.07);
+}
+#esic-confirm .head{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  border-bottom:1px solid var(--line);
+  padding-bottom:18px;
+}
+#esic-confirm .ok-circle{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:var(--orange-soft);
+  border:1px solid var(--orange-border);
+  display:grid;
+  place-items:center;
+  flex:0 0 48px;
+  color:var(--orange);
+}
+#esic-confirm .ok-circle svg{
+  width:24px;
+  height:24px;
+}
+#esic-confirm h3{
+  font-family:var(--display-font);
+  font-weight:800;
+  text-transform:uppercase;
+  font-size:calc(var(--fs) + 12px);
+  line-height:1.05;
+  margin:0;
+  color:var(--navy);
+  letter-spacing:0.01em;
+}
+#esic-confirm .lead{
+  margin:8px 0 0;
+  color:var(--muted);
+  font-size:var(--fs);
+}
+#esic-confirm .grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  padding-top:20px;
+}
+#esic-confirm .info{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:18px 20px;
+  background:#FAFAF8;
+}
+#esic-confirm .info h4{
+  font-family:var(--display-font);
+  font-weight:800;
+  text-transform:uppercase;
+  font-size:calc(var(--fs) + 4px);
+  margin:0 0 12px;
+  color:var(--navy);
+  letter-spacing:0.01em;
+}
+#esic-confirm .info p{
+  margin:8px 0;
+  color:#334155;
+  font-size:calc(var(--fs) - 1px);
+  line-height:1.5;
+}
+#esic-confirm .info p strong{
+  color:var(--navy);
+  font-weight:700;
+}
+#esic-confirm .label{
+  color:#64748B;
+  font-size:calc(var(--fs) - 4px);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+}
+#esic-confirm .actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  margin-bottom:14px;
+}
+#esic-confirm .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:11px 18px;
+  border-radius:999px;
+  font-family:var(--body-font);
+  font-weight:700;
+  font-size:calc(var(--fs) - 2px);
+  letter-spacing:0.04em;
+  text-decoration:none;
+  border:1.5px solid var(--navy);
+  color:#FFFFFF;
+  background:var(--navy);
+  transition:background 0.2s, color 0.2s, transform 0.2s;
+}
+#esic-confirm a.btn:hover{
+  background:var(--navy-hover) !important;
+  color:#FFFFFF !important;
+  transform:translateY(-1px);
+}
+#esic-confirm .btn.alt{
+  background:#FFFFFF;
+  color:var(--navy);
+}
+#esic-confirm a.btn.alt:hover{
+  background:var(--navy) !important;
+  color:#FFFFFF !important;
+}
+#esic-confirm .btn svg{
+  width:15px;
+  height:15px;
+  flex-shrink:0;
+}
+#esic-confirm .help{
+  margin:0;
+  color:#334155;
+  font-size:calc(var(--fs) - 1px);
+  line-height:1.5;
+}
+#esic-confirm .help a{
+  color:var(--navy);
+  font-weight:700;
+  text-decoration:underline;
+}
+#esic-confirm .help a:hover{
+  color:var(--orange) !important;
+}
+
+@media (max-width:720px){
+  #esic-confirm{ --fs:15px; }
+  #esic-confirm .card{ padding:20px; }
+  #esic-confirm .grid{ grid-template-columns:1fr; }
+  #esic-confirm h3{ font-size:calc(var(--fs) + 10px); }
+}
+</style>
+
+<div id="esic-confirm" role="status" aria-live="polite">
+  <div class="card">
+    <div class="head">
+      <span class="ok-circle" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </span>
+      <div>
+        <h3>&iexcl;Registro confirmado!</h3>
+        <p class="lead">Te enviaremos un correo con la confirmaci&oacute;n y los detalles del Caf&eacute; con el Rector. Conoce c&oacute;mo formamos a los l&iacute;deres que hoy demanda el entorno empresarial. &iexcl;Nos vemos pronto!</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Columna: Detalles del evento -->
+      <section class="info" aria-labelledby="detalles">
+        <h4 id="detalles">Detalles del evento</h4>
+        <p>
+          <span class="label">Fecha y hora</span><br>
+          <strong>Mi&eacute;rcoles 8 de julio de 2026<br>4:00 p.&nbsp;m.</strong>
+        </p>
+        <p>
+          <span class="label">Lugar</span><br>
+          Campus ESIC Medell&iacute;n &mdash; Mall La Reserva
+        </p>
+        <p>
+          <span class="label">Direcci&oacute;n</span><br>
+          Km 17 V&iacute;a Las Palmas, Mall La Reserva, Envigado &mdash; Antioquia
+        </p>
+      </section>
+
+      <!-- Columna: Proximos pasos / CTA -->
+      <section class="info" aria-labelledby="acciones">
+        <h4 id="acciones">Pr&oacute;ximos pasos</h4>
+        <div class="actions">
+          <a class="btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Caf%C3%A9%20con%20el%20Rector%20%E2%80%94%20ESIC%20Medell%C3%ADn&amp;dates=20260708T210000Z/20260708T230000Z&amp;details=Te%20esperamos%20en%20el%20Caf%C3%A9%20con%20el%20Rector%20de%20ESIC%20Medell%C3%ADn.%20Conoce%20c%C3%B3mo%20formamos%20a%20los%20l%C3%ADderes%20que%20hoy%20demanda%20el%20entorno%20empresarial.&amp;location=Campus%20ESIC%20Medell%C3%ADn%2C%20Km%2017%20V%C3%ADa%20Las%20Palmas%2C%20Mall%20La%20Reserva" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Guardar en Google Calendar
+          </a>
+          <a class="btn alt" href="https://maps.app.goo.gl/rp74M6ZRSzTD1QoS9" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            C&oacute;mo llegar
+          </a>
+        </div>
+        <p class="help">
+          &iquest;Tienes dudas? Escr&iacute;benos por
+          <a href="https://wa.me/573160108050?text=%C2%A1Hola!%20Me%20interesa%20el%20Caf%C3%A9%20con%20el%20Rector%20de%20ESIC%20Medell%C3%ADn%20del%208%20de%20julio." target="_blank" rel="noopener">WhatsApp</a>.
+        </p>
+      </section>
+    </div>
+  </div>
+</div>
