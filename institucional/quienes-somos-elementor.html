@@ -1349,7 +1349,7 @@
       </div>
       <div class="qs-modal-body">
         <script type="text/javascript" src="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/js"></script>
-        <form id="zohoForm" action="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="zf_ValidateAndSubmit(this, event); return false;">
+        <form id="zohoForm" action="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
           <input type="hidden" name="zf_referrer_name" value="">
           <input type="hidden" name="zf_redirect_url" value="https://esic.co/gracias/">
           <input type="hidden" name="zc_gad" value="">
@@ -1382,25 +1382,53 @@
               <option value="Pregrado">Pregrado</option>
               <option value="Máster">Máster</option>
               <option value="Programa Ejecutivo">Programa Ejecutivo</option>
-              <option value="Empresariales">Empresariales</option>
+              <option value="Formaciones empresariales">Formaciones empresariales</option>
               <option value="Level Up">Level Up</option>
+              <option value="Open Day">Open Day</option>
             </select>
           </div>
-          <div class="qs-form-group" id="qs_Dropdown2_group" style="display:none">
-            <label>Programa de interés Máster <em>*</em></label>
-            <select name="Dropdown2" id="qs_Dropdown2">
+
+          <!-- Programa de interés Pregrado (condicional) -->
+          <div class="qs-form-group qs-prog-group" id="qs_prog_pregrado" style="display:none">
+            <label>Programa de interés <em>*</em></label>
+            <select name="Dropdown2" id="qs_Dropdown2_pregrado" disabled>
+              <option disabled selected value="">Selecciona un programa</option>
+              <option value="Dirección de Marketing Global">Dirección de Marketing Global</option>
+              <option value="Digital Business">Digital Business</option>
+            </select>
+          </div>
+
+          <!-- Programa de interés Máster (condicional) -->
+          <div class="qs-form-group qs-prog-group" id="qs_prog_master" style="display:none">
+            <label>Programa de interés <em>*</em></label>
+            <select name="Dropdown2" id="qs_Dropdown2_master" disabled>
               <option disabled selected value="">Selecciona un Máster</option>
               <option value="Máster Digital Marketing">Máster en Digital Marketing</option>
               <option value="Máster Digital Business">Máster en Digital Business</option>
               <option value="Máster Customer Experience Management">Máster en Customer Experience Management</option>
             </select>
           </div>
-          <div class="qs-form-group" id="qs_Dropdown4_group" style="display:none">
-            <label>Programa de interés Pregrado <em>*</em></label>
-            <select name="Dropdown4" id="qs_Dropdown4">
+
+          <!-- Programa de interés Programa Ejecutivo (condicional) -->
+          <div class="qs-form-group qs-prog-group" id="qs_prog_ejecutivo" style="display:none">
+            <label>Programa de interés <em>*</em></label>
+            <select name="Dropdown2" id="qs_Dropdown2_ejecutivo" disabled>
               <option disabled selected value="">Selecciona un programa</option>
-              <option value="Dirección de Marketing Global">Dirección de Marketing Global</option>
-              <option value="Digital Business">Digital Business</option>
+              <option value="Programa ejecutivo en Digital Transformation">Programa ejecutivo en Digital Transformation</option>
+            </select>
+          </div>
+
+          <!-- Programa de interés Formaciones empresariales (condicional) -->
+          <div class="qs-form-group qs-prog-group" id="qs_prog_empresariales" style="display:none">
+            <label>Programa de interés <em>*</em></label>
+            <select name="Dropdown2" id="qs_Dropdown2_empresariales" disabled>
+              <option disabled selected value="">Selecciona un programa</option>
+              <option value="Formaciones empresariales">Formaciones empresariales</option>
+              <option value="IA Creatividad">IA Creatividad</option>
+              <option value="IA Marketing Digital">IA Marketing Digital</option>
+              <option value="IA Inteligencia Artificial Nivel 1">IA Inteligencia Artificial Nivel 1</option>
+              <option value="IA Inteligencia Artificial Nivel 2">IA Inteligencia Artificial Nivel 2</option>
+              <option value="IA Inteligencia Artificial Nivel 3">IA Inteligencia Artificial Nivel 3</option>
             </select>
           </div>
           <div class="qs-form-group">
@@ -1447,15 +1475,7 @@ document.addEventListener("DOMContentLoaded", function () {
 (function() {
   var wrapper = document.querySelector('.esic-quienes-somos');
   if (!wrapper) return;
-  
-  
-    });
-  }
-  
-      });
-    }
-  });
-  
+
   // Variant selector
   var variantBtns = wrapper.querySelectorAll('.qs-variant-btn');
   var variantPanels = wrapper.querySelectorAll('.qs-cifras-variant');
@@ -1518,12 +1538,23 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 
 function qsToggleProgram(val) {
-  var mg = document.getElementById('qs_Dropdown2_group');
-  var ms = document.getElementById('qs_Dropdown2');
-  var pg = document.getElementById('qs_Dropdown4_group');
-  var ps = document.getElementById('qs_Dropdown4');
-  var sm = (val === 'Máster'), sp = (val === 'Pregrado');
-  mg.style.display = sm ? '' : 'none'; ms.required = sm; if (!sm) ms.value = '';
-  pg.style.display = sp ? '' : 'none'; ps.required = sp; if (!sp) ps.value = '';
+  // Tipo de programa -> id del grupo condicional (todos envían name="Dropdown2")
+  var map = {
+    'Pregrado':                  'qs_prog_pregrado',
+    'Máster':                    'qs_prog_master',
+    'Programa Ejecutivo':        'qs_prog_ejecutivo',
+    'Formaciones empresariales': 'qs_prog_empresariales'
+  };
+  var activeId = map[val] || null;
+
+  // Ocultar, deshabilitar (así NO se envía) y resetear los grupos inactivos
+  document.querySelectorAll('.qs-prog-group').forEach(function(group) {
+    var sel = group.querySelector('select');
+    var isActive = (group.id === activeId);
+    group.style.display = isActive ? '' : 'none';
+    sel.disabled = !isActive;
+    sel.required = isActive;
+    if (!isActive) sel.value = '';
+  });
 }
 </script>

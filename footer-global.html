@@ -583,8 +583,7 @@
             method='POST'
             accept-charset='UTF-8'
             enctype='multipart/form-data'
-            id='esicZohoForm'
-            onsubmit="zf_ValidateAndSubmit(this, event); return false;">
+            id='esicZohoForm'>
 
         <input type="hidden" name="zf_referrer_name" value="">
         <input type="hidden" name="zf_redirect_url" value="https://esic.co/gracias/">
@@ -748,7 +747,7 @@ function esicFooterToggleProgram(val) {
   // Mapa Tipo de programa -> id del grupo condicional (todos env&iacute;an name="Dropdown2")
   var map = {
     'Pregrado':                  'footer_prog_pregrado',
-    'M&aacute;ster':                    'footer_prog_master',
+    'M\u00e1ster':                     'footer_prog_master',
     'Programa Ejecutivo':        'footer_prog_ejecutivo',
     'Formaciones empresariales': 'footer_prog_empresariales'
   };

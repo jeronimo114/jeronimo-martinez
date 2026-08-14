@@ -1693,11 +1693,19 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
   <section class="eh-banner-carousel">
     <div class="eh-banner-track">
       <!-- Slide 1: Aniversario -->
+      <div class="eh-banner-slide" data-href="https://esic.co/desafio-junior-empresarial/">
+        <picture>
+          <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/08/esic-agosto-bootcamp-banner-mobile.webp" type="image/webp">
+          <source srcset="https://esic.co/wp-content/uploads/2026/08/esic-agosto-bootcamp-banner-web.webp" type="image/webp">
+          <img src="https://esic.co/wp-content/uploads/2026/08/esic-agosto-bootcamp-banner-web.webp" alt="Boot Camp Desaf&iacute;o Junior Empresarial - ESIC x Action Black - 12 de septiembre" width="2560" height="1168" fetchpriority="high">
+        </picture>
+      </div>
+
       <div class="eh-banner-slide" data-href="https://esic.co/quienes-somos/">
         <picture>
           <source media="(max-width: 768px)" srcset="https://esic.co/wp-content/uploads/2026/07/esic-aniversario-banner-mobile.webp" type="image/webp">
           <source srcset="https://esic.co/wp-content/uploads/2026/07/esic-aniversario-banner-web.webp" type="image/webp">
-          <img src="https://esic.co/wp-content/uploads/2026/07/esic-aniversario-banner-web.webp" alt="Aniversario ESIC Medell&iacute;n - Escuela de negocios con visi&oacute;n global" width="2560" height="1168" fetchpriority="high">
+          <img src="https://esic.co/wp-content/uploads/2026/07/esic-aniversario-banner-web.webp" alt="Aniversario ESIC Medell&iacute;n - Escuela de negocios con visi&oacute;n global" width="2560" height="1168" loading="lazy">
         </picture>
       </div>
       <!-- Slide 2: Level Up con Claude -->
@@ -1748,6 +1756,7 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
       <button class="eh-banner-ind" data-slide="3"></button>
       <button class="eh-banner-ind" data-slide="4"></button>
       <button class="eh-banner-ind" data-slide="5"></button>
+      <button class="eh-banner-ind" data-slide="6"></button>
     </div>
   </section>
 
@@ -2184,7 +2193,7 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
     </div>
     <div class="eh-modal-body">
       <script type="text/javascript" src="https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/js"></script>
-      <form action='https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit' name='form' id='zohoForm' method='POST' accept-charset='UTF-8' enctype='multipart/form-data' onsubmit="zf_ValidateAndSubmit(this, event); return false;">
+      <form action='https://forms.zohopublic.com/esicmedellin/form/SolicitarInformacinFormulariogeneral110226/formperma/Rdx6HXS1lMff_KC1PKqlg0BhSQNBDaxDsxdDOnsWmEM/htmlRecords/submit' name='form' id='zohoForm' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
         <input type="hidden" name="zf_referrer_name" value="">
         <input type="hidden" name="zf_redirect_url" value="https://esic.co/gracias/">
         <input type="hidden" name="zc_gad" value="">
@@ -2217,15 +2226,26 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
             <option value="Pregrado">Pregrado</option>
             <option value="M&aacute;ster">M&aacute;ster</option>
             <option value="Programa Ejecutivo">Programa Ejecutivo</option>
-            <option value="Empresariales">Empresariales</option>
+            <option value="Formaciones empresariales">Formaciones empresariales</option>
             <option value="Level Up">Level Up</option>
+            <option value="Open Day">Open Day</option>
+          </select>
+        </div>
+
+        <!-- Programa de inter&eacute;s Pregrado (condicional) -->
+        <div class="eh-form-group eh-prog-group" id="home_prog_pregrado" style="display:none">
+          <label>Programa de inter&eacute;s <em>*</em></label>
+          <select name="Dropdown2" id="home_Dropdown2_pregrado" disabled>
+            <option selected disabled value="">Selecciona un programa</option>
+            <option value="Direcci&oacute;n de Marketing Global">Direcci&oacute;n de Marketing Global</option>
+            <option value="Digital Business">Digital Business</option>
           </select>
         </div>
 
         <!-- Programa de inter&eacute;s M&aacute;ster (condicional) -->
-        <div class="eh-form-group" id="home_Dropdown2_group" style="display:none">
-          <label>Programa de inter&eacute;s M&aacute;ster <em>*</em></label>
-          <select name="Dropdown2" id="home_Dropdown2">
+        <div class="eh-form-group eh-prog-group" id="home_prog_master" style="display:none">
+          <label>Programa de inter&eacute;s <em>*</em></label>
+          <select name="Dropdown2" id="home_Dropdown2_master" disabled>
             <option selected disabled value="">Selecciona un M&aacute;ster</option>
             <option value="M&aacute;ster Digital Marketing">M&aacute;ster en Digital Marketing</option>
             <option value="M&aacute;ster Digital Business">M&aacute;ster en Digital Business</option>
@@ -2233,13 +2253,26 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
           </select>
         </div>
 
-        <!-- Programa de inter&eacute;s Pregrado (condicional) -->
-        <div class="eh-form-group" id="home_Dropdown4_group" style="display:none">
-          <label>Programa de inter&eacute;s Pregrado <em>*</em></label>
-          <select name="Dropdown4" id="home_Dropdown4">
+        <!-- Programa de inter&eacute;s Programa Ejecutivo (condicional) -->
+        <div class="eh-form-group eh-prog-group" id="home_prog_ejecutivo" style="display:none">
+          <label>Programa de inter&eacute;s <em>*</em></label>
+          <select name="Dropdown2" id="home_Dropdown2_ejecutivo" disabled>
             <option selected disabled value="">Selecciona un programa</option>
-            <option value="Direcci&oacute;n de Marketing Global">Direcci&oacute;n de Marketing Global</option>
-            <option value="Digital Business">Digital Business</option>
+            <option value="Programa ejecutivo en Digital Transformation">Programa ejecutivo en Digital Transformation</option>
+          </select>
+        </div>
+
+        <!-- Programa de inter&eacute;s Formaciones empresariales (condicional) -->
+        <div class="eh-form-group eh-prog-group" id="home_prog_empresariales" style="display:none">
+          <label>Programa de inter&eacute;s <em>*</em></label>
+          <select name="Dropdown2" id="home_Dropdown2_empresariales" disabled>
+            <option selected disabled value="">Selecciona un programa</option>
+            <option value="Formaciones empresariales">Formaciones empresariales</option>
+            <option value="IA Creatividad">IA Creatividad</option>
+            <option value="IA Marketing Digital">IA Marketing Digital</option>
+            <option value="IA Inteligencia Artificial Nivel 1">IA Inteligencia Artificial Nivel 1</option>
+            <option value="IA Inteligencia Artificial Nivel 2">IA Inteligencia Artificial Nivel 2</option>
+            <option value="IA Inteligencia Artificial Nivel 3">IA Inteligencia Artificial Nivel 3</option>
           </select>
         </div>
 
@@ -2251,6 +2284,11 @@ button.eh-banner-cta-btn.eh-cta-pink:active { background: rgb(255, 67, 148) !imp
             <option value="Correo">Correo</option>
             <option value="Llamada">Llamada</option>
           </select>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;gap:0.6rem;margin:0.5rem 0 1rem;">
+          <input type="checkbox" name="TermsConditions" id="home-terms" required style="width:auto;min-width:16px;height:16px;margin-top:0.2rem;flex-shrink:0;accent-color:#0047E9;">
+          <label for="home-terms" style="font-size:0.85rem;line-height:1.4;cursor:pointer;">Acepto solicitud de <a href="https://esic.co/politicas-de-privacidad/" target="_blank" rel="noopener noreferrer" style="color:#0047E9;text-decoration:underline;">autorizaci&oacute;n de datos personales y t&eacute;rminos y condiciones</a> <em>*</em></label>
         </div>
 
         <button type="submit" class="eh-btn eh-btn-primary eh-btn-full">Enviar solicitud</button>
@@ -2576,22 +2614,26 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 
 function esicHomeToggleProgram(val) {
-  var masterGroup   = document.getElementById('home_Dropdown2_group');
-  var masterSel     = document.getElementById('home_Dropdown2');
-  var pregradoGroup = document.getElementById('home_Dropdown4_group');
-  var pregradoSel   = document.getElementById('home_Dropdown4');
+  // Tipo de programa -> id del grupo condicional (todos envian name="Dropdown2").
+  // Las claves usan escapes \u para no depender de entidades HTML: dentro de <script>
+  // los character references NO se decodifican, pero el value del <option> si.
+  var map = {
+    'Pregrado':                  'home_prog_pregrado',
+    'M\u00e1ster':          'home_prog_master',
+    'Programa Ejecutivo':        'home_prog_ejecutivo',
+    'Formaciones empresariales': 'home_prog_empresariales'
+  };
+  var activeId = map[val] || null;
 
-  var showMaster   = (val === 'M&aacute;ster');
-  var showPregrado = (val === 'Pregrado');
-
-  masterGroup.style.display   = showMaster   ? '' : 'none';
-  pregradoGroup.style.display = showPregrado ? '' : 'none';
-
-  masterSel.required   = showMaster;
-  pregradoSel.required = showPregrado;
-
-  if (!showMaster)   masterSel.value   = '';
-  if (!showPregrado) pregradoSel.value = '';
+  // Ocultar, deshabilitar (asi NO se envia) y resetear los grupos inactivos
+  document.querySelectorAll('.eh-prog-group').forEach(function(group) {
+    var sel = group.querySelector('select');
+    var isActive = (group.id === activeId);
+    group.style.display = isActive ? '' : 'none';
+    sel.disabled = !isActive;
+    sel.required = isActive;
+    if (!isActive) sel.value = '';
+  });
 }
 
 // Move modal to body so position:fixed escapes Elementor transforms

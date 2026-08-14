@@ -1,0 +1,36 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "_comment": "Sirve una COPIA del build de esic-react-app. Antes de usarlo: (cd ~/Downloads/Programacion/esic-react-app/apps/web && ./node_modules/.bin/astro build) && rm -rf /tmp/esic-preview && cp -R ~/Downloads/Programacion/esic-react-app/apps/web/dist /tmp/esic-preview",
+      "name": "esic-dist",
+      "runtimeExecutable": "/usr/bin/python3",
+      "runtimeArgs": [
+        "-c",
+        "import os;os.chdir('/tmp/esic-preview');import http.server,socketserver;socketserver.TCPServer.allow_reuse_address=True;socketserver.TCPServer(('127.0.0.1',4321),http.server.SimpleHTTPRequestHandler).serve_forever()"
+      ],
+      "port": 4321
+    },
+    {
+      "_comment": "Copia del build para revisar el Executive Program (puerto propio para no chocar con esic-dist).",
+      "name": "esic-dist-exec",
+      "runtimeExecutable": "/usr/bin/python3",
+      "runtimeArgs": [
+        "-c",
+        "import os;os.chdir('/tmp/esic-preview-exec');import http.server,socketserver;socketserver.TCPServer.allow_reuse_address=True;socketserver.TCPServer(('127.0.0.1',4399),http.server.SimpleHTTPRequestHandler).serve_forever()"
+      ],
+      "port": 4399,
+      "url": "http://localhost:4399"
+    },
+    {
+      "_comment": "Sirve una COPIA de este repo en /tmp para verificar los HTML de Elementor. Refrescar con: rsync -a --exclude='.git' --exclude='recovered' ~/Downloads/Programacion/esic-redesign-react/ /tmp/esic-repo-preview/",
+      "name": "esic-repo",
+      "runtimeExecutable": "/usr/bin/python3",
+      "runtimeArgs": [
+        "-c",
+        "import os;os.chdir('/tmp/esic-repo-preview');import http.server,socketserver;socketserver.TCPServer.allow_reuse_address=True;socketserver.TCPServer(('127.0.0.1',4500),http.server.SimpleHTTPRequestHandler).serve_forever()"
+      ],
+      "port": 4500
+    }
+  ]
+}
